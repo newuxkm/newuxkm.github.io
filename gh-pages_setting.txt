@@ -1,6 +1,0 @@
-// gulp-gh-pages being given TypeError: Can not read property '0' of null
-
-cd node_modules/gulp-gh-pages/
-npm install --save gift@0.10.2
-cd ../../
-gulp deploy

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko" class="sub_page ">
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no, email=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content=" yes">
+	<meta name="robots" content="index,follow">
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Expires" content="-1">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+
+	<title>HTML 기본구조 | UXKM</title>
+
+	<!-- opengraph -->
+	<meta name="title" content="UXKM">
+	<meta name="description" content="HTML 기본구조 입니다.">
+	<meta name="author" content="UXKM">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="UXKM">
+	<meta property="og:site_name" content="UXKM">
+	<meta property="og:url" content="https://uxkm.io">
+	<meta property="og:description" content="HTML 기본구조 입니다.">
+	<meta property="og:image" content="/_assets/images/og_image.png">
+	<meta property="og:image:width" content="1000">
+	<meta property="og:image:height" content="750">
+
+	<!-- icon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="/_assets/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/_assets/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/_assets/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/_assets/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/_assets/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/_assets/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/_assets/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/_assets/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/_assets/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/_assets/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/_assets/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/_assets/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/_assets/images/favicon/favicon-16x16.png">
+	<link rel="shortcut icon" type="image/x-icon" href="/_assets/images/favicon/favicon/favicon.ico">
+	<link rel="manifest" href="/_assets/images/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/_assets/images/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- css -->
+	<link href="/_assets/lib/codemirror/addon/scroll/simplescrollbars.css" rel="stylesheet" /><!-- 코드미러 스크롤바 -->
+	<link href="/_assets/lib/codemirror/lib/codemirror.css" rel="stylesheet" /><!-- 코드미러 기본 -->
+	<link href="/_assets/css/ayu-mirage.css" rel="stylesheet" /><!-- 코드미러 테마 -->
+	<link href="/_assets/lib/highlight.min.css" rel="stylesheet" />
+	<link href="/_assets/lib/github-gist.css" rel="stylesheet" />
+	<link href="/_assets/css/uk_common.css" rel="stylesheet" />
+	<link href="/_assets/css/uk_sub.css" rel="stylesheet" />
+
+	<!-- js -->
+	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
+	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body class="html_start">
+<div class="uk_wrap">
+
+	<nav class="uk_skip">
+		<a href="#content">본문내용으로 건너띄기</a>
+	</nav>
+	<!-- //uk_skip -->
+
+	<header class="uk_header sub_header" role="banner">
+		<div class="inner">
+			<strong class="hd_logo uk_logo beta"><a href="/" class="uk_link" data-tit="Publishing">UXKM</a></strong>
+
+			<div class="hd_nav_area">
+				<nav class="nav">
+					<p class="sound_only">global menu</p>
+					<ul class="depth1">
+						<li class="active">
+							<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
+						</li>
+						<li>
+							<a href="#">Build system</a>
+						</li>
+						<li>
+							<a href="#">Template</a>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="hd_search_link">
+					<!-- 검색 -->
+					<div class="hd_search">
+						<!--<button type="button" class="ly_btn search_btn"><i>Search button</i></button>-->
+						<div class="hd_layer_box search_area">
+							<div class="inner">
+								<div class="form">
+									<input type="text" placeholder="검색어를 입력해 주세요." required />
+									<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
+								</div>
+
+								<dl class="keyword_ex">
+									<dt>keyword example</dt>
+									<dd>div, p, strong, width, border-color, click, function</dd>
+								</dl>
+							</div>
+						</div>
+						<button type="button" class="search_close">검색 닫기</button>
+					</div>
+
+					<!-- 사이트맵 -->
+					<div class="hd_assetsLink">
+						<button type="button" class="ly_btn assetsLink_btn"><i>Assets link button</i></button>
+						<div class="hd_layer_box assetsLink_area">
+							<!--<div class="ly_action_wrap">-->
+							<div class="assetsLink_in inner">
+								<strong class="sm_tit">Site <i>M</i>ap</strong>
+							</div>
+							<!--</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- // uk_header -->
+	
+	<div class="uk_container sub_content_area">
+		<section class="sub_top">
+			<strong class="tit" data-number="1. ">HTML 시작</strong>
+
+			<nav class="top_link">
+				<ul class="depth2">
+					<li class="active">
+						<a href="/publishing/html/01-htmlStart/01-html_start"><i>HTML</i></a>
+					</li>
+					<li>
+						<a href="/publishing/css/01-cssStart/01-css_intro"><i>CSS</i></a>
+					</li>
+					<li>
+						<a href="/publishing/accessibility/01-waStart/waStart"><i>ACCESSIBILITY</i></a>
+					</li>
+				</ul>
+			</nav>
+			<!-- // Publishing 주 탐색창 -->
+			
+			<blockquote class="inner note_none" cite="https://uxkm.io">
+				<strong class="sound_only">Publishing 및 HTML 요약설명</strong>
+				<ul class="common_info">
+					<li>UXKM UI/UX 문서 기준은 W3C & MDN 이며, 모든 예제는 실무와 강의 경험을 바탕으로 최대한 이해하기 쉽게 예시를 두어 제작하였습니다.</li>
+					<li>부족한 부분은 계속 보완 및 업데이트할 예정이며, 꼭 필요하거나 자주 사용되는 요소들 위주로 설명되어있어 일부 누락된 부분도 있을 수 있습니다.</li>
+					<li>모든 문서는 강의 목적으로 제작되었고 일부 부족한 설명은 강의하면서 진행될 예정입니다.</li>
+				</ul>
+				<ul class="top_info">
+					<li>HTML5 기준으로 작성하며, Deprecated(더 이상 사용되지 않는) 요소나 속성은 제외합니다.</li>
+					<li>의미론적(Semantic)인 내용 위주로 작성합니다.</li>
+					<li>표시적 의미(화면에 표시되는 방식)로 사용되지 않음을 전제하므로 그에 대한 내용은 생략합니다.</li>
+				</ul>
+			</blockquote>
+			<!-- // Publishing 및 HTML 요약설명 -->
+		</section>
+		<!-- // sub top content (.sub_top) -->
+
+		<section class="sub_content inner">
+			<main id="content" class="content_area" tabindex="0">
+				<header>
+					<h1 data-number="1.2. ">HTML 기본구조 <em class="sound_only">- by. UXKM</em></h1>
+					<time class="last_update" datetime="2019-12-26">2019-12-26</time>
+				</header>
+
+				<blockquote class="uk_note mt_xxl" role="note">
+					<h2 class="sound_only">요약 설명</h2>
+					<p>
+						'Document Type Definition'(이하
+						DTD)는 브라우저 렌더링 모드를 지정해주고 유효성 검증기의 기준이 되므로 XHTML문서의 상단에 반드시 선언해야 한다.<br>
+						만일 DTD를 생략하거나 형식이 잘못된 문서일 경우에는 웹 브라우저마다 코드의 해석방식이 다른 quirks mode로 렌더링이 되기 때문에 엉뚱한 결과물로 출력되는 문제에 직면하게 된다.<br>
+					</p>
+
+					<p>
+						DTD 기본형식.<br>
+						&lt;!DOCTYPE<br>
+						이 문서는<br>
+						html<br>
+						① HTML 문서로서<br>
+						PUBLIC<br>
+						① 국제적이며<br>
+						"-//W3C//DTD XHTML 1.0 Transitional//EN"<br>
+						② 비공인 인증인 W3C 기관에 의해 XHTML 1.0을 Transitional 방식으로 영어 공용어로 출력하며<br>
+						"<span class="break_all">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span>"<br>
+						③ 참조할 DTD 문서는"<span class="break_all">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span>" 이다.<br><br>
+
+						이런 형식으로 구성되어 있으며<br>
+						① 최상위 엘리먼트 네임<br>
+						② 국제적, 공용 혹은 내부적 제한용<br>
+						③ ISO 공인 인증 기관 또는 비공인 인증 기관 등 본 문서가 어디에서 만든 DTD를 사용하는가에 대한 내용이다.<br>
+						공인 인증 기관 일경우 "+"를, 비공인 인증 기관일 경우엔 "-"를 사용한다. 참고로 W3C는 비공인 인증 기관이다.<br><br>
+
+						DOCTYPE 정의<br>
+						– DOCTYPE은 브라우저에게 웹 페이지의 문서 종류를 알려주는 선언문이다.<br>
+						– DOCTYPE은 HTML 태그가 아닌, DTD로 정의되어 있다.<br>
+						– DOCTYPE은 웹 페이지에서 제일 처음에 선언되어야 한다.<br>
+						– DOCTYPE은 브라우저가 올바른 화면 표시(rendering)를 하기 위해 필요하다.<br>
+						– DOCTYPE을 선언하지 않는다면, 브라우저는 호환 모드(quirks mode)로 웹 페이지를 해석해서 화면 표시를 한다.<br>
+						하지만 호환 모드일 경우, 브라우저별로 정확한 화면 표시를 보장할 수 없다.
+					</p>
+				</blockquote>
+
+				<section class="txt_ex mt_xl">
+					<h2>&lt;!DOCTYPE html&gt;</h2>
+					<p class="indent">
+						현재 문서가 <i class="t_blue">HTML5</i> 문서임을 명시합니다.
+						<code>doctype</code>은 문서의 최상위에 위치해야 하며,
+						<code>doctype</code>의 선언 방식은 다음과 같습니다.
+					</p>
+
+					<div class="uk_gist_code_box indent mt_ms" data-tit="[DOCTYPE]">
+						<textarea readonly="readonly">
+							__ex_line__#333__ 1. HTML5 doctype
+							<!DOCTYPE html>
+
+							__ex_line__#333__ 2. HTML 4.01 strict doctype
+							<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+							__ex_line__#333__ 3. HTML 4.01 transitional doctype
+							<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+							__ex_line__#333__ 4. XML 1.0 strict and transitional doctypes
+							<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+							<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+							__ex_line__#333__ 5. HTML 4.01 and XML 1.0 frameset doctypes
+							<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+							<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+						</textarea>
+					</div>
+				</section>
+
+				<section class="txt_ex mt_xl">
+					<h2>&lt;html&gt;</h2>
+					<p class="indent"><code>&lt;html&gt;&lt;/html&gt;</code> 요소. 이 요소는 페이지 전체의 콘텐츠를 감싸며, 루트(root) 요소라고도 합니다.</p>
+				</section>
+
+				<section class="txt_ex mt_xl">
+					<h2>&lt;head&gt;&lt;/head&gt;</h2>
+					<p class="indent"><code>&lt;head&gt;</code> 요소. 이 요소는 HTML 페이지에 포함되어 있는 모든 것들(여러분의 페이지를 조회하는 사람들에게 보여주지 않을 콘텐츠)의 컨테이너 역할을 합니다. 여기에는 keywords와 검색 결과에 표시되길 원하는 페이지 설명, 콘텐츠를 꾸미기 위한 CSS, 문자 집합 선언 등과 같은 것들이 포함됩니다.</p>
+				</section>
+
+				<section class="txt_ex mt_xl">
+					<h2>&lt;meta charset=&quot;utf-8&quot;&gt;</h2>
+					<p class="indent">이 요소는 문서가 사용해야 할 문자 집합을 utf-8으로 설정합니다. charset은 사용 언어에 따라 euc-kr로 설정 가능합니다.</p>
+				</section>
+
+				<section class="txt_ex mt_xl">
+					<h2>&lt;title&gt;&lt;/title&gt;</h2>
+					<p class="indent"><code>&lt;title&gt;</code> 요소. 이 요소는 페이지의 제목을 설정하는 것으로 페이지가 로드되는 브라우저의 탭에 이 제목이 표시됩니다. 이 요소는 북마크나 즐겨찾기에서 페이지를 설명하는 것으로도 사용됩니다.</p>
+				</section>
+
+				<section class="txt_ex mt_xl">
+					<h2>&lt;body&gt;&lt;/body&gt;</h2>
+					<p class="indent"><code>&lt;body&gt;</code> 요소. 이것은 페이지에 방문한 모든 웹 사용자들에게 보여주길 원하는 모든 콘텐츠를 담고 있으며, 그것이 텍스트일 수도, 이미지, 비디오, 게임, 플레이할 수 있는 오디오 트랙이나 다른 무엇이든 될 수 있습니다.</p>
+				</section>
+
+				<section class="txt_ex mt_xl">
+					<h2>&lt;h1&gt;&lt;/h1&gt;</h2>
+					<p class="indent"><code>&lt;h1&gt;</code> 요소. 문서의 제목을 의미합니다. 이 요소는 여러 검색 엔진은 각 웹 사이트의 내용을 바로 이 태그를 이용하여 키워드를 수집하고, 그 내용을 파악합니다. 따라서 HTML문서에 포함되는 제목은 이 태그로 작성해야만 검색 엔진에 의해 제대로 검색될 확률을 높일 수 있습니다.</p>
+				</section>
+
+				<section class="txt_ex mt_xl">
+					<h2>&lt;p&gt;&lt;/p&gt;</h2>
+					<p class="indent"><code>&lt;p&gt;</code> 요소. 단락이란 내용상 끊어서 구분할 수 있는 하나하나의 부분을 의미하며, 문단이라고도 부릅니다. HTML에서는 <code>&lt;p&gt;</code>태그를 이용하여 이러한 단락을 표현합니다.</p>
+				</section>
+				
+				<footer class="reference_box">
+					<strong class="tit">HTML 시작 참조</strong>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/html52/document-metadata.html" target="_blank" class="fas">W3C 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas">MDN 문서</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html51/dom.html#global-attributes" target="_blank" class="fas">W3C 전역속성</a></li>
+					</ul>
+				</footer>
+			</main>
+			<!-- // HTML 기본구조 content (.content_area) -->
+
+			<aside class="side_menu_area">
+				<strong class="tit"><b>HTML</b> <i>Table of Contents</i></strong>
+				<nav class="side_menu">
+					<ul class="depth3">
+						<li class="active">
+							<a href="/publishing/html/01-htmlStart/01-html_start" data-tit="1.2. HTML 기본구조">HTML 시작</a>
+							<ul class="depth4">
+								<li>
+									<a href="/publishing/html/01-htmlStart/01-html_start">HTML이란?</a>
+								</li>
+								<li class="active">
+									<a href="/publishing/html/01-htmlStart/02-html_basic">HTML 기본구조</a>
+								</li>
+								<li>
+									<a href="/publishing/html/01-htmlStart/03-html_element">HTML 요소</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="/publishing/html/02-blockInline/01-block_element">블록 요소 vs 인라인 요소</a>
+							<ul class="depth4">
+								<li>
+									<a href="/publishing/html/02-blockInline/01-block_element">블록 요소</a>
+								</li>
+								<li>
+									<a href="/publishing/html/02-blockInline/02-div_block">대표적인 블록 요소 - div</a>
+								</li>
+								<li>
+									<a href="/publishing/html/02-blockInline/03-inline_element">인라인 요소</a>
+								</li>
+								<li>
+									<a href="/publishing/html/02-blockInline/04-span_inline">대표적인 인라인 요소 - span</a>
+								</li>
+								<li>
+									<a href="/publishing/html/02-blockInline/05-element_nesting">요소 중첩</a>
+								</li>
+								<li>
+									<a href="/publishing/html/02-blockInline/06-only_empty">단일 요소 또는 빈 요소</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="/publishing/html/09-forms/01-form_element">폼(forms)</a>
+							<ul class="depth4">
+								<li>
+									<a href="/publishing/html/09-forms/01-form_element">form <i>element</i></a>
+								</li>
+								<li>
+									<a href="/publishing/html/09-forms/02-label_element">label <i>element</i></a>
+								</li>
+								<li class="part_visible">
+									<p>
+										<a href="/publishing/html/09-forms/03-input_element_part1">input <i>element</i> <em>part-1</em></a>
+									</p>
+									<p>
+										<a href="/publishing/html/09-forms/03-input_element_part2">input <i>element</i> <em>part-2</em></a>
+									</p>
+									<p>
+										<a href="/publishing/html/09-forms/03-input_element_part3">input <i>element</i> <em>part-3</em></a>
+									</p>
+								</li>
+								<li class="part_visible">
+									<p>
+										<a href="/publishing/html/09-forms/04-test_element_part1">test <i>element</i> <em>part-1</em></a>
+									</p>
+									<p>
+										<a href="/publishing/html/09-forms/04-test_element_part2">test <i>element</i> <em>part-2</em></a>
+									</p>
+									<p>
+										<a href="/publishing/html/09-forms/04-test_element_part3">test <i>element</i> <em>part-3</em></a>
+									</p>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="/publishing/html/12-bookmark/bookmark">참조 사이트</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			<!-- // HTML side menu -->
+		</section>
+		<!-- // sub main content (.sub_content) -->
+	</div>
+	<!-- // uk_container -->
+
+	<footer class="uk_footer">
+		<nav class="nav inner">
+			<div class="depth1_nemu">
+				<ul class="depth1">
+					<li class="active">
+						<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
+					</li>
+					<li>
+						<a href="#">Build system</a>
+					</li>
+					<li>
+						<a href="#">Template</a>
+					</li>
+				</ul>
+			</div>
+			<div class="depth2_nemu">
+				<ul class="depth2">
+					<li class="active">
+						<a href="/publishing/html/01-htmlStart/01-html_start"><i>HTML</i></a>
+					</li>
+					<li>
+						<a href="/publishing/css/01-cssStart/01-css_intro"><i>CSS</i></a>
+					</li>
+					<li>
+						<a href="/publishing/accessibility/01-waStart/waStart"><i>ACCESSIBILITY</i></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="btm">
+			<strong class="uk_logo"><a href="/" class="uk_link">uxkm</a></strong>
+			<p class="copy">&copy; 2019 All Right Reserved. By UXKM.</p>
+		</div>
+	</footer>
+	<!-- // uk_footer -->
+</div>
+<!-- // wrap -->
+
+<!-- script - lib -->
+<script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
+<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+<script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="/_assets/lib/iscroll.js"></script>
+<script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>
+<!-- script - codemirror -->
+<script type="text/javascript" src="/_assets/lib/codemirror/lib/codemirror.js"></script><!-- 기본 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/addon/selection/active-line.js"></script><!-- 줄 강조 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/mode/css/css.js"></script><!-- 모드 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/mode/sass/sass.js"></script><!-- 모드 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script><!-- 모드 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/mode/htmlembedded/htmlembedded.js"></script><!-- 모드 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/mode/javascript/javascript.js"></script><!-- 모드 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/mode/php/php.js"></script><!-- 모드 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/mode/xml/xml.js"></script><!-- 모드 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
+<script type="text/javascript" src="/_assets/lib/codemirror/uk_editor.js"></script>
+<!-- script - ui -->
+<script type="text/javascript" src="/_assets/js/uk_common.js"></script>
+<script type="text/javascript" src="/_assets/js/uk_sub.js"></script>
+</body>
+</html>
