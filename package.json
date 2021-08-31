@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/newuxkm/newuxkm"
+    "url": "https://github.com/newuxkm/newuxkm.github.io"
   },
   "author": "uxkm",
   "license": "ISC",
@@ -15,9 +15,9 @@
     "deploy": "gulp deploy"
   },
   "bugs": {
-    "url": "https://github.com/newuxkm/newuxkm/issues"
+    "url": "https://github.com/newuxkm/newuxkm.github.io/issues"
   },
-  "homepage": "https://github.com/newuxkm/newuxkm#readme",
+  "homepage": "https://github.com/newuxkm/newuxkm.github.io#readme",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
