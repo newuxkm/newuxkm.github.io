@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>UXKM CSS3 grid-auto-flow:dense</title>
+	<style>
+		*{margin:0;padding:0;box-sizing:border-box;}
+		body{margin:20px;}
+		.gallery{
+			display:grid;
+			grid-gap:20px;
+			grid-template-columns:repeat(10, 1fr);
+			grid-auto-rows:50px;
+			grid-auto-flow:dense;
+			font-family:arial;
+			font-weight:bold;
+		}
+		li{display:grid; justify-items:center; align-items:center; background-color:#ccc;}
+		li:nth-child(6n) {background:cornflowerblue; grid-column:span 6;}
+		li:nth-child(8n) {background:tomato; grid-column:span 2;}
+		li:nth-child(9n) {grid-row:span 2;}
+		li:nth-child(18) {background:greenyellow; grid-column-end:-1;}
+	</style>
+</head>
+<body>
+	<ul class="gallery">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+		<li>11</li>
+		<li>12</li>
+		<li>13</li>
+		<li>14</li>
+		<li>15</li>
+		<li>16</li>
+		<li>17</li>
+		<li>18</li>
+		<li>19</li>
+		<li>20</li>
+		<li>21</li>
+		<li>22</li>
+		<li>23</li>
+		<li>24</li>
+		<li>25</li>
+		<li>26</li>
+		<li>27</li>
+		<li>28</li>
+		<li>29</li>
+		<li>30</li>
+		<li>31</li>
+		<li>32</li>
+		<li>33</li>
+		<li>34</li>
+		<li>35</li>
+		<li>36</li>
+		<li>37</li>
+		<li>38</li>
+		<li>39</li>
+		<li>40</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>time element</title>
+	</head>
+	<body>
+		<p>The concert starts at <time>20:00</time>.</p>
+
+		<p>이번 콘서트는 <time datetime="2019-12-25T20:00:00">12월 25일 저녁 8시</time>부터 시작합니다.</p>
+
+		<!-- Standard simple date -->
+		<time datetime="2016-01-20">20 January 2016</time><br>
+		<!-- Just year and month -->
+		<time datetime="2016-01">January 2016</time><br>
+		<!-- Just month and day -->
+		<time datetime="01-20">20 January</time><br>
+		<!-- Just time, hours and minutes -->
+		<time datetime="19:30">19:30</time><br>
+		<!-- You can do seconds and milliseconds too! -->
+		<time datetime="19:30:01.856">19:30:01.856</time><br>
+		<!-- Date and time -->
+		<time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time><br>
+		<!-- Date and time with timezone offset-->
+		<time datetime="2016-01-20T19:30+01:00">7.30pm, 20 January 2016 is 8.30pm in France</time><br>
+		<!-- Calling out a specific week number-->
+		<time datetime="2016-W04">The fourth week of 2016</time>
+	</body>
+</html>

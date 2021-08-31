@@ -1,0 +1,24 @@
+<object type="application/pdf" data="https://interactive-examples.mdn.mozilla.net/media/examples/In-CC0.pdf" width="250" height="200">
+</object>
+
+<object data="/examples/media/sample.mp4" height="180" width="288">
+	현재 사용 중인 브라우저는 object 요소를 지원하지 않습니다!
+</object>
+
+<object data="/examples/media/sample.mp4" height="180" width="288" name="video1">
+	현재 사용 중인 브라우저는 object 요소를 지원하지 않습니다!
+</object><br>
+<button type="button" onclick="changeHeight()">높이변경</button>
+
+<script>
+	function changeHeight() {
+		document.getElementsByName('video1')[0].height = "360";
+	}
+</script>
+
+<object data="/examples/images/img_imagemap.jpg" height="240" width="320" usemap="#vending">
+</object>
+<map name="vending">
+	<area shape="poly" coords="50,150,230,120,230,180,50,210" alt="진실" href="https://ko.wikipedia.org/wiki/%EC%A7%84%EC%8B%A4">
+	<area shape="circle" coords="140,100,40" alt="거짓" href="https://ko.wikipedia.org/wiki/%EA%B1%B0%EC%A7%93%EB%A7%90">
+</map>

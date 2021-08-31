@@ -1,0 +1,137 @@
+/**
+ * GitHub Gist Theme
+ * Author : Anthony Attard - https://github.com/AnthonyAttard
+ * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
+ */
+
+.hljs {
+  display: block;
+  background: white;
+  padding: 0.5em;
+  color: #333333;
+  overflow-x: auto;
+}
+
+.hljs-comment,
+.hljs-meta {
+  color: #969896;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-strong,
+.hljs-emphasis,
+.hljs-quote {
+  color: #df5000;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #d73a49;
+}
+
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-attribute {
+  /*color: #0086b3;*/
+  color: #005cc5;
+}
+
+.hljs-section,
+.hljs-name {
+  color: #22863a;
+}
+
+.hljs-tag {
+  /*color: #333333;*/
+  color: #24292e;
+}
+
+.hljs-title,
+.hljs-attr,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  /*color: #6f42c1;*/
+  color: #005cc5;
+}
+
+.hljs-addition {
+  color: #55a532;
+  background-color: #eaffea;
+}
+
+.hljs-deletion {
+  color: #bd2c00;
+  background-color: #ffecec;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+.hljs-number {
+  color: #005cc5;
+}
+
+.hljs-string {
+  /*color: #032f62;*/
+  color: #032f62;
+}
+
+/* uxkm 추가 */
+.hljs-built_in {color: #6f42c1;}
+.hljs-selector-tag {color: #22863a;}
+.hljs-meta {color:#d73a49;}
+.uk_color_class_dot,
+.uk_color_id_hashTags,
+.uk_color_number_in_string {color:#24292e;}
+.uk_color_doctype .hljs-meta {color:#005cc5;}
+.uk_color_hexCode {color:#032f62;}
+
+.hljs-attribute, .hljs-doctag, .hljs-keyword, .hljs-meta-keyword, .hljs-name, .hljs-selector-tag {
+  font-weight:400;
+}
+
+.uk_ex_line {font-weight:bold !important;}
+.uk_ex_line:before {content:"[";}
+.uk_ex_line:after {content:"]";}
+
+.uk_color_error,
+.uk_color_error * {color:red !important;}
+
+.hljs-section {font-weight:normal;}
+
+.uk_color_add,
+.uk_color_add .hljs-comment {color:blue !important;}
+
+.uk_color_edit,
+.uk_color_edit .hljs-comment {color:red !important;}
+
+.uk_color_nn,
+.uk_color_nn .hljs-comment {color:green !important;}
+
+.all_black .uk_gist_code_wrap *:not(.hljs-comment) {
+    color:#222 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

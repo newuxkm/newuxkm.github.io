@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>abbr element</title>
+	</head>
+	<body>
+		<!-- 약어를 의미 적으로 마크 업 - 확장 또는 설명을 제공하지 않고 약어를 표시 -->
+		<p>Using <abbr>HTML</abbr> is fun and easy!</p>
+
+		<!-- 스타일링 약어 - CSS를 사용하여 약어에 사용할 사용자 정의 스타일을 설정할 수 있습니다. -->
+		<p>Using <abbr>CSS</abbr>, you can style your abbreviations!</p>
+		<style>
+			abbr {
+				font-variant: all-small-caps;
+			}
+		</style>
+
+		<!-- 확장 제공 - title속성을 추가 하면 약어 또는 머리 글자에 대한 확장 또는 정의를 제공 할 수 있습니다. -->
+		<p>Ashok's joke made me <abbr title="Laugh Out Loud">LOL</abbr> big time.</p>
+
+		<!-- 약어 정의 - <abbr>요소와 <dfn> 요소를 사용하여 다음과 같이 형식적으로, 약어를 정의 할 수 있습니다. -->
+		<p>
+			<dfn id="html"><abbr title="HyperText Markup Language">HTML</abbr></dfn>
+			is a markup language used to create the semantics and structure of a web page.
+		</p>
+		<p>
+			A <dfn id="spec">Specification</dfn> (<abbr title="Specification">spec</abbr>) is a document that outlines
+			in detail how a technology or API is intended to function and how it is accessed.
+		</p>
+
+		<!-- 접근성 - 페이지에서 처음으로 사용될 때 머리 글자 또는 약어를 모두 철자하면 사람들이 내용을 이해하는 데 도움이됩니다 (특히 콘텐츠가 전문적이거나 산업 전문 용어 인 경우). -->
+		<p>JavaScript Object Notation (<abbr>JSON</abbr>) is a lightweight data-interchange format.</p>
+	</body>
+</html>

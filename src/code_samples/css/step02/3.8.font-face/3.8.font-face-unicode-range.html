@@ -1,0 +1,38 @@
+unicode-range: U+26;				/* 단일 문자(single codepoint) */
+unicode-range: U+0-7F;
+unicode-range: U+0025-00FF;			/* 문자 범위(codepoint range) */
+unicode-range: U+4??;				/* wildcard range */
+unicode-range: U+0025-00FF, U+4??;	/* multiple values */
+/*
+와일드 카드 범위는 유니코드 범위 중 복잡합니다.
+각각 ?은 값이 일치하는 와일드 카드를 나타냅니다.
+?로 시작 하는 문자 코드는 0을 의미하므로 최대 6개의 총 문자를 허용하는 유니코드에도 불구하고 최대 5개의 물음표 문자를 사용할 수 있습니다.
+*/
+
+영문 : U+0020-U+0020, U+0041-U+005A, U+0061-U+007A
+숫자 : U+0030-U+0039, U+002E-U+002E
+한글 : U+0020-U+007E, U+1100-U+11F9, U+3000-U+303F, U+3131-U+318E, U+327F-U+327F, U+AC00-U+D7A3, U+FF01-U+FF60
+라틴 : U+0020-U+002F, U+0030-U+0039, U+003A-U+0040, U+0041-U+005A, U+005B-U+0060, U+0061-U+007A, U+007B-U+007E
+
+/* 적용 예시 */
+<style>
+@font-face {
+	font-family: 'MyWebFont';
+	src: url('webfont.eot'); /* IE9 Compat Modes */
+	src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+	url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+	url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+	url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+
+	unicode-range:
+	/* 영문 */
+	U+0020-U+0020, U+0041-U+005A, U+0061-U+007A,
+	/* 숫자 */
+	U+0030-U+0039, U+002E-U+002E,
+	/* 한글 */
+	U+0020-U+007E, U+1100-U+11F9, U+3000-U+303F, U+3131-U+318E, U+327F-U+327F, U+AC00-U+D7A3, U+FF01-U+FF60,
+	/* 라틴 */
+	U+0020-U+002F, U+0030-U+0039, U+003A-U+0040, U+0041-U+005A, U+005B-U+0060, U+0061-U+007A, U+007B-U+007E;
+}
+</style>

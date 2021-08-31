@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 :only-child Structural pseudo-classr</title>
+		<style>
+			div:only-child{color:red;}
+			div{display:inline-block;margin:6px;outline:1px solid;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div>I am an only child.</div>
+		</div>
+
+		<div>
+			<div>I am the 1st sibling.</div>
+			<div>I am the 2nd sibling.</div>
+			<div>I am the 3rd sibling, <div>but this is an only child.</div></div>
+		</div>
+	</body>
+</html>

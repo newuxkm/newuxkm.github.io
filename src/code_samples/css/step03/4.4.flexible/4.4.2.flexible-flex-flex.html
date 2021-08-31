@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible flex</title>
+		<style>
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			body {
+				padding: 20px;
+				background-color: #F5F5F5;
+				color: #555;
+				font-size: 1.1em;
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+
+			.container {
+				max-width: 800px;
+				margin: 30px auto;
+				padding: 20px;
+				background-color: #594255;
+
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+			}
+
+			.item {
+				height: 100px;
+				margin: 1%;
+				background-color: #fff;
+				color: #594255;
+				font-weight: bold;
+				font-family: sans-serif;
+				font-size: 5em;
+				line-height: 100px;
+				text-align: center;
+
+				/* START HERE */
+				-webkit-flex: 0 1 100px;
+				-webkit-box-flex: 0;
+				-ms-flex: 0 1 100px;
+				flex: 0 1 100px;
+			}
+
+			.one {
+				/* flex: ; */
+			}
+
+			.two {
+				/* flex: ; */
+			}
+
+			.three {
+				/* flex: ; */
+			}
+
+			.four {
+				/* flex: ; */
+			}
+
+			.five {
+				/* flex: ; */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="container">
+			<div class="item one">1</div>
+			<div class="item two">2</div>
+			<div class="item three">3</div>
+			<div class="item four">4</div>
+			<div class="item five">5</div>
+		</div>
+	</body>
+</html>

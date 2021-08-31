@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS em Unit</title>
+		<style>
+			html{font-size:16px;}
+			body{font-size:1.5em;}
+			div{
+				padding:2em;    /* 14 x 2 = 28px */
+				font-size:14px;
+			}
+			div p {
+				font-size:2em;   /* 14 x 2 = 28px */
+			}
+			.uk{font-size:2em;}   /* 16px × 1.5 × 2 = 48px */
+		</style>
+	</head>
+	<body>
+		<p class="uk">uxkm.github.io</p>
+		<!-- 
+			html 요소의 크기는 16px
+			body 요소의 크기는 상위 요소인 html 요소의 크기의 1.5배인 24px
+			문단 요소의 크기는 상위 요소인 body 요소의 크기의 2배인 48px 값이 됩니다.
+			em 단위 계산법 : 16px × 1.5 × 2 = 48px
+		-->
+		<div>
+			<p>uxkm.github.io</p>
+		</div>
+		<!-- 
+			div {
+				font-size: 14px;
+				padding: 2em;    /* 14 x 2 = 28px */
+			}
+			div p {
+				font-size: 2em;   /* 14 x 2 = 28px */
+			}
+
+			[em 단위 계산법]
+			html, body { font-size: 14px; }
+
+			14px 이 기준일 시 1em 은 14px 이므로 20px의 폰트사이즈를 em단위로 변환할 시 20/14  1.43em
+
+			font-size 의 단위를 설정하는 방법은 크게 절대단위(px)와 상대단위(%,em)등이 있는데 모바일이나 반응형을 고려할 시 상대단위를 사용하는 것이 좋다.
+			브라우저의 기본 값은 1em = 16px 이므로 12px 을 사용하고자 할 때,
+
+			em 계산법은 12( 사용하고 싶은 px) / 16(기준크기 px) = 0.75 em 이 된다.
+
+			참고로 em은 소수점 3자리까지 가능하다.
+
+			% 로 변환할 시,
+
+			12(사용하고자 하는 px) / 16 (기준크기 px) * 100 = 75% 가 된다.
+		-->
+	</body>
+</html>

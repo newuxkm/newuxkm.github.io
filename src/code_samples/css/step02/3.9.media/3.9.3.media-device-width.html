@@ -1,0 +1,11 @@
+<!-- 모든 장치에서 최소 너비 20em 이상이면 적용 -->
+<!-- 장치 너비가 450px보다 작을 때 적용 -->
+<link rel="stylesheet" media="screen and (max-device-width: 450px)" href="rwd.css">
+
+<style>
+	/* 스크린 너비가 320px '그리고' 높이가 480px 이면 실행 */
+	@media all and (device-width:320px) and (device-height:480px) { … }
+
+	/* 스크린 너비가 최소 320px 이상 '그리고' 높이가 최소 480px 이상이면 실행 */
+	@media all and (min-device-width:320px) and (min-device-height:480px) { … }
+</style>

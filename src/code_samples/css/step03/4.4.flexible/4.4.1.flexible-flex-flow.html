@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible flex-flow</title>
+		<style>
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			.flexbox{
+				overflow:hidden;
+				max-width:600px;
+				margin: 0 auto;
+			}
+			.flexbox .flex-container {
+				margin: 0;
+				padding: 0;
+				
+				-ms-box-orient: horizontal;
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: flex;
+			}
+
+			.flexbox h1 {
+				padding-left: .5em; 
+			}
+
+			.flexbox .shorthand { 
+				-webkit-flex-wrap: wrap;
+				flex-wrap: wrap;
+				-webkit-flex-direction: row;
+				flex-direction: row;
+			}
+
+			.flexbox .longhand { 
+				-webkit-flex-flow: wrap row;
+				flex-flow: wrap row;
+				
+			}
+
+			.flexbox .longhand li {
+				background: deepskyblue;
+			}
+
+			.flexbox .flex-item {
+				background: tomato;
+				padding: 5px;
+				width: 100px;
+				height: 100px;
+				margin: 10px;
+				
+				color: white;
+				font-weight: bold;
+				font-size: 2em;
+				line-height: 100px;
+				text-align: center;
+			}
+
+
+			.demo-flex-flow{
+				max-width:900px;
+				margin:0 auto;
+				border:2px solid ddd;
+			}
+
+			hr {
+				margin: 50px 0;
+			}
+
+			.demo-flex-flow p {
+				font-size: 1.1em;
+				font-weight: bold;
+			}
+
+			.demo-flex-flow .container {
+				margin: 20px auto;
+				width: 100%;
+				padding: 20px;
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				background-color: #594255;
+			}
+
+			.demo-flex-flow .item {
+				width: 100px;
+				height: 100px;
+				margin: 2px;
+				background-color: #fff;
+				color: #594255;
+				font-weight: bold;
+				font-family: sans-serif;
+				font-size: 5em;
+				line-height: 100px;
+				text-align: center;
+			}
+
+			.demo-flex-flow .container-1 {
+				-webkit-flex-flow: row nowrap;
+				-ms-flex-flow: row nowrap;
+				flex-flow: row nowrap;
+			}
+
+			.demo-flex-flow .container-2 {
+				-webkit-flex-flow: row wrap;
+				-ms-flex-flow: row wrap;
+				flex-flow: row wrap;
+			}
+
+			.demo-flex-flow .container-3 {
+				-webkit-flex-flow: row wrap-reverse;
+				-ms-flex-flow: row wrap-reverse;
+				flex-flow: row wrap-reverse;
+			}
+
+			.demo-flex-flow .container-4 {
+				height: 800px;
+				-webkit-flex-flow: column nowrap;
+				-ms-flex-flow: column nowrap;
+				flex-flow: column nowrap;
+			}
+
+			.demo-flex-flow .container-5 {
+				height: 800px;
+				-webkit-flex-flow: column wrap;
+				-ms-flex-flow: column wrap;
+				flex-flow: column wrap;
+			}
+
+			.demo-flex-flow .container-6 {
+				height: 800px;
+				-webkit-flex-flow: column wrap-reverse;
+				-ms-flex-flow: column wrap-reverse;
+				flex-flow: column wrap-reverse;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flexbox">
+			<p>두 예제 모두 똑같은 방식으로 작동합니다.</p>
+			<h1>flex-wrap: wrap; flex-direction: row;</h1>
+			<ul class="flex-container longhand">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+			</ul>
+
+			<h1>flex-flow: row wrap;</h1>
+			<ul class="flex-container shorthand">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div class="demo-flex-flow">
+			<p>
+				<code>flex-flow: row nowrap; /* the default value */</code>
+			</p>
+			<div class="container container-1">
+				<div class="item">1</div>
+				<div class="item">2</div>
+				<div class="item">3</div>
+				<div class="item">4</div>
+				<div class="item">5</div>
+				<div class="item">6</div>
+				<div class="item">7</div>
+				<div class="item">8</div>
+			</div>
+			<hr>
+			<p>
+				<code>flex-flow: row wrap; /* flex items wrap. flex lines stack in the direction of the cross axis (which is top-to-bottom in a LTR language) */</code>
+			</p>
+			<div class="container container-2">
+				<div class="item">1</div>
+				<div class="item">2</div>
+				<div class="item">3</div>
+				<div class="item">4</div>
+				<div class="item">5</div>
+				<div class="item">6</div>
+				<div class="item">7</div>
+				<div class="item">8</div>
+			</div>
+			<hr>
+			<p>
+				<code>flex-flow: row wrap-reverse; /* same as previous, except flex items wrap in the opposite direction of the cross axis*/</code>
+			</p>
+			<div class="container container-3">
+				<div class="item">1</div>
+				<div class="item">2</div>
+				<div class="item">3</div>
+				<div class="item">4</div>
+				<div class="item">5</div>
+				<div class="item">6</div>
+				<div class="item">7</div>
+				<div class="item">8</div>
+			</div>
+			<hr>
+			<p>
+				<code>flex-flow: column nowrap; /* the main axis is rotated. In a LRT language and horizontal writing mode like this, the main axis becomes vertical. Items do not wrap and try to fit in one line */</code>
+			</p>
+			<div class="container container-4">
+				<div class="item">1</div>
+				<div class="item">2</div>
+				<div class="item">3</div>
+				<div class="item">4</div>
+				<div class="item">5</div>
+				<div class="item">6</div>
+				<div class="item">7</div>
+				<div class="item">8</div>
+			</div>
+			<hr>
+			<p>
+				<code>flex-flow: column wrap; /* flex items wrap. The additional lines that the items wrap into are added horizontally instead of being stacked vertically, because after specifying "column" for the main axis, the cross axis becomes horizontal, and the stacked lines follow the cross axis */</code>
+			</p>
+			<div class="container container-5">
+				<div class="item">1</div>
+				<div class="item">2</div>
+				<div class="item">3</div>
+				<div class="item">4</div>
+				<div class="item">5</div>
+				<div class="item">6</div>
+				<div class="item">7</div>
+				<div class="item">8</div>
+			</div>
+			<hr>
+			<p>
+				<code>flex-flow: column wrap-reverse; /* same as previous, except flex items wrap in the opposite direction of the cross axis */</code>
+			</p>
+			<div class="container container-6">
+				<div class="item">1</div>
+				<div class="item">2</div>
+				<div class="item">3</div>
+				<div class="item">4</div>
+				<div class="item">5</div>
+				<div class="item">6</div>
+				<div class="item">7</div>
+				<div class="item">8</div>
+			</div>
+		</div>
+	</body>
+</html>

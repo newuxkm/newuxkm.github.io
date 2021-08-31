@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS cursor Properties</title>
+		<style>
+			h2{width:600px;margin:0 auto;padding:10px 0;border-bottom:2px solid #ddd;text-align:center;}
+			ul{width:600px;margin:10px auto;padding:0;}
+			li{margin:0;padding:0;border:1px solid #000;list-style:none;}
+
+		</style>
+	</head>
+	<body>
+		<h2>cursor 예제</h2>
+		<ul>
+			<li><strong>일반</strong>
+				<p>auto : 사용자 에이전트가 현재 맥락에 맞춰 표시할 커서를 결정. 예를 들어 글씨 위에서는 text를 사용합니다.</p>
+				<p style="cursor:default;">default : <img src="cursor/default.gif" alt="default"> 플랫폼에 따라 다른 기본 커서. 보통 화살표입니다.</p>
+				<p>none : 커서 없음.</p>
+			</li>
+			<li><strong>링크와 상태</strong>
+				<p style="cursor:context-menu;">context-menu : <img src="cursor/context-menu.png" alt="context-menu"> 콘텍스트 메뉴 사용 가능.</p>
+				<p style="cursor:help;">help : <img src="cursor/help.gif" alt="help"> 도움말 사용 가능.</p>
+				<p style="cursor:pointer;">pointer : <img src="cursor/pointer.gif" alt="pointer"> 링크를 나타내는 포인터. 보통 한 쪽을 가리키는 손입니다.</p>
+				<p style="cursor:progress;">progress : <img src="cursor/progress.gif" alt="progress"> 프로그램이 백그라운드에서 작업 중이지만, 사용자가 인터페이스와 상호작용할 수 있음. (wait과 반대)</p>
+				<p style="cursor:wait;">wait : <img src="cursor/wait.gif" alt="wait"> 프로그램이 작업 중이고, 사용자가 인터페이스와 상호작용할 수 없음. (progress와 반대) 간혹 모래시계나 시계모양 그림을 사용합니다.</p>
+			</li>
+			<li><strong>선택</strong>
+				<p style="cursor:cell;">cell : <img src="cursor/cell.gif" alt="cell"> 표의 칸이나 여러 칸을 선택할 수 있음.</p>
+				<p style="cursor:crosshair;">crosshair : <img src="cursor/crosshair.gif" alt="crosshair"> 십자 커서. 종종 비트맵 선택에 사용합니다.</p>
+				<p style="cursor:text;">text : <img src="cursor/text.gif" alt="text"> 글씨 선택 가능. 보통 I빔 모양입니다.</p>
+				<p style="cursor:vertical-text;">vertical-text : <img src="cursor/vertical-text.gif" alt="help"> 세로쓰기 글씨 선택 가능. 보통 옆으로 누운 I빔 모양입니다.</p>
+			</li>
+			<li><strong>드래그 앤 드롭</strong>
+				<p style="cursor:alias;">alias : <img src="cursor/alias.gif" alt="alias"> 별칭이나 바로가기를 만드는 중.</p>
+				<p style="cursor:copy;">copy : <img src="cursor/copy.gif" alt="copy"> 복사하는 중.</p>
+				<p style="cursor:move;">move : <img src="cursor/move.gif" alt="move"> 움직이는 중.</p>
+				<p style="cursor:no-drop;">no-drop : <img src="cursor/no-drop.gif" alt="no-drop"> 현재 위치에 놓을 수 없음. Windows와 Mac OS X에서 no-drop은 not-allowed와 같습니다.</p>
+				<p style="cursor:grab;">grab : <img src="cursor/grab.gif" alt="grab"> 잡을 수 있음. (잡아서 이동)</p>
+				<p style="cursor:grabbing;">grabbing : <img src="cursor/grabbing.gif" alt="grabbing"> 잡고 있음. (잡아서 이동)</p>
+			</li>
+			<li><strong>크기 조절과 스크롤</strong>
+				<p style="cursor:all-scroll;">all-scroll : <img src="cursor/all-scroll.gif" alt="all-scroll"> 모든 방향으로 이동 가능. (패닝) Windows에서 all-scroll은 move와 같습니다</p>
+				<p style="cursor:col-resize;">col-resize	col-resize.gif<img src="cursor/col-resize.gif" alt="col-resize"> 항목/행의 크기를 좌우로 조절할 수 있음. 종종 좌우 화살표의 가운데를 세로로 분리한 모양을 사용합니다.</p>
+				<p style="cursor:row-resize;">row-resize	row-resize.gif<img src="cursor/row-resize.gif" alt="row-resize"> 항목/열의 크기를 상하로 조절할 수 있음. 종종 상하 화살표의 가운데를 가로로 분리한 모양을 사용합니다.</p>
+				<p>동, 서, 남, 북 resize : 움직일 수 있는 모서리. 예를 들어, se-resize 커서는 움직임이 사각형의 동남쪽에서 시작할 때 사용합니다.<br>
+					어떤 환경에선 동일한 방향의 양방향 화살표를 대신 보여줍니다. 즉 n-resize와 s-resize는 ns-resize와 같습니다.<br>
+					현재 모든 브라우저에서 양방향 크기 조절 커서와 동일하게 보임.
+					<span style="display:block;cursor:n-resize;">n-resize <img src="cursor/n-resize.gif" alt="n-resize"></span>
+					<span style="display:block;cursor:e-resize;">e-resize <img src="cursor/e-resize.gif" alt="e-resize"></span>
+					<span style="display:block;cursor:s-resize;">s-resize <img src="cursor/s-resize.gif" alt="s-resize"></span>
+					<span style="display:block;cursor:w-resize;">w-resize <img src="cursor/w-resize.gif" alt="w-resize"></span>
+					<span style="display:block;cursor:ne-resize;">ne-resize <img src="cursor/ne-resize.gif" alt="ne-resize"></span>
+					<span style="display:block;cursor:nw-resize;">nw-resize <img src="cursor/nw-resize.gif" alt="nw-resize"></span>
+					<span style="display:block;cursor:se-resize;">se-resize <img src="cursor/se-resize.gif" alt="se-resize"></span>
+					<span style="display:block;cursor:sw-resize;">sw-resize <img src="cursor/sw-resize.gif" alt="sw-resize"></span>
+				</p>
+				<p>양방향 크기 조절 커서.
+					<span style="display:block;cursor:ew-resize;">ew-resize <img src="cursor/ew-resize.gif" alt="ew-resize"></span>
+					<span style="display:block;cursor:ns-resize;">ns-resize <img src="cursor/ns-resize.gif" alt="ns-resize"></span>
+					<span style="display:block;cursor:nesw-resize;">nesw-resize <img src="cursor/nesw-resize.gif" alt="nesw-resize"></span>
+					<span style="display:block;cursor:nwse-resize;">nwse-resize <img src="cursor/nwse-resize.gif" alt="nwse-resize"></span>
+				</p>
+			</li>
+			<li><strong>확대와 축소</strong>
+				<p>IE에서는 기본 pointer 커서로 렌더링됨.</p>
+				<p>확대/축소할 수 있음.
+					<span style="display:block;cursor:zoom-in;">zoom-in <img src="cursor/zoom-in.gif" alt="zoom-in"></span>
+					<span style="display:block;cursor:zoom-out;">zoom-out <img src="cursor/zoom-out.gif" alt="zoom-out"></span>
+				</p>
+			</li>
+		</ul>
+	</body>
+</html>

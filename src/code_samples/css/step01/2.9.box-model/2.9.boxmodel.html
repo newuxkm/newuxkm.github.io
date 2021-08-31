@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS Box Model Properties</title>
+		<style>
+			.boxmodel{width:310px;margin:0 auto;padding:0;}
+			.boxmodel dt{margin:20px auto;padding:0;font-weight:700;}
+			.boxmodel dd{margin:0;padding:0;border:10px solid #ddd;}
+			p{margin:0;padding:0;}
+
+			.content-box{
+				width:250px;
+				height:250px;
+				margin:20px;
+				padding:20px;
+				border:2px solid blue;
+			}
+			.border-box{
+				width:250px;
+				height:250px;
+				margin:20px;
+				padding:20px;
+				border:2px solid red;
+				box-sizing:border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<dl class="boxmodel">
+			<dt>box-sizing:content-box 예시(기본값)</dt>
+			<dd>
+				<div class="content-box">
+					<p>width:250px; + </p>
+					<p>height:250px; + </p>
+					<p>margin:20px; + </p>
+					<p>padding:20px; + </p>
+					<p>border:2px solid blue;</p>
+					<p><b>= w : 294px / h : 294px</b></p>
+				</div>
+			</dd>
+			<dt>box-sizing:border-box 예시</dt>
+			<dd>
+				<div class="border-box">
+					<p>width:250px; + </p>
+					<p>height:250px; + </p>
+					<p>margin:20px; + </p>
+					<p>padding:20px; + </p>
+					<p>border:2px solid red; + </p>
+					<p>box-sizing:border-box;</p>
+					<p><b>= w : 250px / h : 250px</b></p>
+				</div>
+			</dd>
+		</dl>
+	</body>
+</html>

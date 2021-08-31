@@ -1,0 +1,7 @@
+<!--
+미디어 쿼리를 인식하지 못하는 브라우저(정확히는 legacy user agents)에서 미디어 쿼리를 숨기기 위해 사용함
+only 키워드는 미디어 쿼리 결과에 아무런 영향을 미치지 않습니다.
+오래된 브라우저는 screen and (color)를 'screen'으로 번역 하게되어 남아있는 쿼리를 무시하게 됩니다.
+그리하여 모든 스크린에 스타일을 적용하게 되는데, 알려지지 않은 미디어 타입 only를 지정함으로써 무시하게 됩니다.
+-->
+<link rel="stylesheet" media="only screen and (color)" href="rwd.css">

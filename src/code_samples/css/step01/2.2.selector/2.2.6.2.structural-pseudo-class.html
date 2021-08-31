@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS Structural pseudo-class</title>
+		<style>
+			p:first-child {
+				color: lime;
+				background-color: black;
+				padding: 5px;
+			}
+			ul li{color:blue;}
+			ul li:first-child{color:red;font-weight:bold;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p>This text is selected!</p>
+			<p>This text isn't selected.</p>
+		</div>
+		<div>
+			<h2>This text isn't selected: it's not a `p`.</h2>
+			<p>This text isn't selected.</p>
+		</div>
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3
+				<ul>
+					<li>Item 3.1</li>
+					<li>Item 3.2</li>
+					<li>Item 3.3</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

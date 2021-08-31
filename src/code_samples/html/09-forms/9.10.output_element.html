@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>output element</title>
+	</head>
+	<body>
+		<form action="#" id="myform" oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+			<input type="number" id="a" name="a" value="20"> +
+			( 0 <input type="range" id="b" name="b" value="0"> 100 )=<br>
+		</form>
+
+		<div class="output" style="">
+			<output name="result" form="myform" for="a b"></output>
+		</div>
+
+		<style>
+			.output {
+				display:inline-block;
+				min-width:20px;
+				min-height:20px;
+				margin-top:10px;
+				padding:0 10px;
+				border:3px solid #1e73ff;
+			}
+		</style>
+	</body>
+</html>

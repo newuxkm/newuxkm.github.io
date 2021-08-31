@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 calc Module</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			/* 
+			CSS CALC
+			62.5em = 1000px = 100%
+			1em = 16px = 1.6%
+			1.25em = 20px = 2%
+			 */
+			section {
+				width: 100%;
+				max-width: 65em; /* 1040px */
+				margin: 0 auto;
+				padding: 1.25em; /* 20px */
+			}
+			.content {
+				float: left;
+				width: 70%; /* 700px */
+			}
+			.sidebar {
+				float: right;
+				width: 30%; /* 300px */
+			}
+			.widescreens {
+				display: block;
+			}
+			.narrowscreens {
+				display: none;
+			}
+
+			/* EXAMPLE 2 */
+			.example2 .content {
+				width: 68%; /* 680px */
+			}
+			.example2 .sidebar {
+				width: 30%; /* 300px */
+			}
+
+			/* EXAMPLE 3 */
+			.example3 .content {
+				width: 68%; /* 680px */
+				width: -webkit-calc(100% - 20em); /* 100% ‒ 320px */
+				width:    -moz-calc(100% - 20em);
+				width:         calc(100% - 20em);
+			}
+			.example3 .sidebar {
+				width: 30%; /* 300px */
+				width: -webkit-calc(18.75em); /* 300px */
+				width:    -moz-calc(18.75em);
+				width:         calc(18.75em);
+			}
+			@media (max-width: 40em) { /* breakpoint for 400px */
+				.example3 .widescreens {
+					display: none;
+				}
+				.example3 .narrowscreens {
+					display: block;
+				}
+				.example3 .content,
+				.example3 .sidebar {
+					position: relative;
+					float: none;
+					width: 100%;
+				}
+				.example3 .content:after,
+				.example3 .sidebar:after {
+					content: "100%";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					line-height: 5em;
+				}
+				.example3 .sidebar:after {
+					background-color: wheat;
+				}
+				.example3 .content:after {
+					background-color: lightblue;
+				}
+				.example3 .sidebar {
+					margin-top: 1.25em;
+				}
+			}
+
+			/* EXAMPLE 4 */
+			.example4 .nav {
+				float: left;
+			}
+			.example4 .content {
+				width: 56%; /* 560px */
+				width: -webkit-calc(100% - 27.5em); /* 100% ‒ 440px */
+				width:    -moz-calc(100% - 27.5em);
+				width:         calc(100% - 27.5em);
+				margin-left: 1.25em; /* 20px */
+			}
+			.example4 .nav,
+			.example4 .sidebar {
+				width: 20%; /* 200px */
+				width: -webkit-calc(12.5em); /* 200px */
+				width:    -moz-calc(12.5em);
+				width:         calc(12.5em);
+			}
+			@media (max-width: 47em) { /* breakpoint for 470px */
+				.example4 .widescreens {
+					display: none;
+				}
+				.example4 .narrowscreens {
+					display: block;
+				}
+				.example4 .content,
+				.example4 .nav,
+				.example4 .sidebar {
+					position: relative;
+					float: none;
+					width: 100%;
+				}
+				.example4 .content:after,
+				.example4 .nav:after,
+				.example4 .sidebar:after {
+					content: "100%";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					line-height: 5em;
+				}
+				.example4 .nav:after,
+				.example4 .sidebar:after {
+					background-color: wheat;
+				}
+				.example4 .content:after {
+					background-color: lightblue;
+				}
+				.example4 .content,
+				.example4 .sidebar{
+					margin-top: 1.25em;
+					margin-left: 0;
+				}
+			}
+
+			/* JUST FOR AESTHETICS */
+			body {
+				padding: 1.25em; /* 20px */
+				background-color: lightgrey;
+				color: #444;
+			}
+			h2 {
+				margin: 0 0 .75em;
+				color: #666;
+				text-align: center;
+			}
+			section {
+				background-color: white;
+				margin-bottom: 1.25em; /* 20px */
+			}
+			p {
+				margin: 0 0 .5em;
+			}
+			code {
+				margin: 0 .25em;
+				padding: 0 .25em;
+				background-color: lightgrey;
+			}
+			span {
+				color: red;
+			}
+			.content,
+			.sidebar,
+			.nav {
+				padding: 1.25em; /* 20px */
+				text-align: center;
+			}
+			.content {
+				background-color: lightblue;
+			}
+			.sidebar, .nav {
+				background-color: wheat;
+			}
+			.clearfix:before,
+			.clearfix:after {
+				content: " ";
+				display: table;
+			}
+			.clearfix:after {
+				clear: both;
+			}
+			* {
+				-webkit-transition: all .2s ease;
+					-moz-transition: all .2s ease;
+								transition: all .2s ease;
+			}
+
+
+			#flexbox-circle .circle {
+				width: 300px;
+				height: 300px;
+			}
+
+			#flexbox-circle div {
+				width: -webkit-calc(100% - 4em);
+				height: -webkit-calc(100% - 4em);
+			}
+
+			#flexbox-circle div {
+				display: -webkit-flex;
+				border: 1em solid #4387fd;
+				border-radius: 50%;
+				-webkit-align-items: center;
+				-webkit-justify-content: center;
+				box-shadow: 0 0 5px #515151 inset;
+				margin: auto;
+			}
+
+			#flexbox-circle div:hover {
+				border-radius: 0;
+			}
+
+			#flexbox-circle>div {
+				transition: all 2000ms cubic-bezier(0.17, 0.67, 0, 1.45);
+			}
+
+			#flexbox-circle div>div {
+				border-color: #f44a3f;
+				transition: all 1000ms cubic-bezier(0.17, 0.67, 0, 1.45);
+			}
+
+			#flexbox-circle div>div>div {
+				border-color: #ffd14d;
+				transition: all 500ms cubic-bezier(0.17, 0.67, 0, 1.45);
+			}
+
+			#flexbox-circle div>div>div>div {
+				border-color: #0da861;
+				transition: all 250ms cubic-bezier(0.17, 0.67, 0, 1.45);
+			}
+		</style>
+	</head>
+	<body>
+		<h2>62.5em = 1000px = 100%</h2>
+
+		<section class="example1 clearfix">
+			<p>The <code>.content</code> and the <code>.sidebar</code> with relative widths:</p>
+			<div class="content"><b>70%</b></div>
+			<div class="sidebar"><b>30%</b></div>
+		</section>
+
+		<section class="example2 clearfix">
+			<p>The <code>.content</code> and the <code>.sidebar</code> with relative widths and relative gap:</p>
+			<div class="content"><b>68%</b></div>
+			<div class="sidebar"><b>30%</b></div>
+		</section>
+
+		<section class="example3 clearfix">
+			<p class="widescreens">The <code>.content</code> with relative width while the <code>.sidebar</code> has fixed width:</p>
+			<p class="narrowscreens"><code>.content</code> and <code>.sidebar</code> with relative widths:</p>
+			<div class="content"><b><span>100%</span> &ndash; 20em</b><br> 20em = 320px = 32%</div>
+			<div class="sidebar"><b>18.75em</b><br> 300px</div>
+		</section>
+
+		<section class="example4 clearfix">
+			<p class="widescreens">The <code>.nav</code> and the <code>.sidebar</code> with fixed widths while the <code>.content</code> has relative width:</p>
+			<p class="narrowscreens"><code>.nav</code>, <code>.content</code> and <code>.sidebar</code> with relative widths:</p>
+			<div class="nav"><b>12.5em</b><br> 200px</div>  
+			<div class="content"><b><span>100%</span> &ndash; 27.5em</b><br> 27.5em = 440px = 44%</div>
+			<div class="sidebar"><b>12.5em</b><br> 200px</div>
+		</section>
+
+		<div id="flexbox-circle">
+			<div class="circle">
+				<div>
+					<div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+		 </div>
+	</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 transition</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			section{overflow:hidden;border:5px solid #ddd;text-align:center;}
+			h1{padding:10px;border-bottom:2px solid #ddd;}
+			h2{margin:10px 0;}
+			article{
+				display:inline-block;
+				float:left;
+				width:calc( (100% / 5) - 20px);
+				min-width:220px;
+				margin:4px;
+				padding:4px 0;
+				border:1px solid #ddd;
+			}
+
+			div{
+				visibility:visible;
+				position:relative;
+				width:200px;
+				height:100px;
+				margin:0 auto;
+				border:4px solid #000;
+				outline:4px dotted #f00;
+				background:#f5f5f5;
+				-webkit-transition: all 1s ease .1s;
+				-moz-transition: all 1s ease .1s;
+				-o-transition: all 1s ease .1s;
+				-ms-transition: all 1s ease .1s;
+				transition: all 1s ease .1s;
+			}
+			div::after{
+				content:"";
+				display:block;
+				position:absolute; left:0; top:0;
+				width:10px;
+				height:10px;
+				background-color:gray;
+				-webkit-transition: all 1s ease .1s;
+				-moz-transition: all 1s ease .1s;
+				-o-transition: all 1s ease .1s;
+				-ms-transition: all 1s ease .1s;
+				transition: all 1s ease .1s;
+			}
+			div.right::after, div.bottom::after {
+				left:auto; top:auto; right:0; bottom:0;
+			}
+
+			
+			.visibility:hover{
+				visibility:hidden;
+				opacity:0;
+			}
+			.top{top:0;}
+			.top:hover::after{
+				top:50px;
+			}
+			.right{right:0;}
+			.right:hover::after{
+				right:50px;
+			}
+			.bottom{bottom:0;}
+			.bottom:hover::after{
+				bottom:50px;
+			}
+			.left{left:0;}
+			.left:hover::after{
+				left:50px;
+			}
+			.width:hover::after{
+				width:150px;
+			}
+			.height:hover::after{
+				height:50px;
+			}
+			.margin:hover::after{
+				margin-left:10px;
+			}
+			.padding:hover::after{
+				padding:10px;
+			}
+			.border-color:hover{
+				border-color:blue;
+			}
+			.border-width:hover{
+				border-width:10px;
+			}
+			.outline-color:hover{
+				outline-color:goldenrod;
+			}
+			.outline-width:hover{
+				outline-width:10px;
+			}
+			.background-color:hover{
+				background-color:yellowgreen;
+			}
+			.color:hover{
+				color:blue;
+			}
+			.font-size:hover{
+				font-size:22px;
+			}
+			.font-weight:hover{
+				font-weight:700;
+			}
+			.line-height:hover{
+				line-height:100px;
+			}
+			.letter-spacing:hover{
+				letter-spacing:10px;
+			}
+			.word-spacing:hover{
+				word-spacing:10px;
+			}
+			.text-indent:hover{
+				text-indent:40px;
+			}
+			.opacity:hover{
+				opacity:0;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<h1>transition Animatable properties 예제</h1>
+			<p>마우스 hover시 동작을 확인할 수 있습니다.</p>
+			<p>transition: property 1s ease .1s</p>
+			<article>
+				<h2>visibility</h2>
+				<div class="visibility">transition TEXT</div>
+			</article>
+
+			<article>
+				<h2>top</h2>
+				<div class="top">transition TEXT</div>
+			</article>
+			<article>
+				<h2>right</h2>
+				<div class="right">transition TEXT</div>
+			</article>
+			<article>
+				<h2>bottom</h2>
+				<div class="bottom">transition TEXT</div>
+			</article>
+			<article>
+				<h2>left</h2>
+				<div class="left">transition TEXT</div>
+			</article>
+			
+			<article>
+				<h2>width</h2>
+				<div class="width">transition TEXT</div>
+			</article>
+			<article>
+				<h2>height</h2>
+				<div class="height">transition TEXT</div>
+			</article>
+			<article>
+				<h2>margin</h2>
+				<div class="margin">transition TEXT</div>
+			</article>
+			<article>
+				<h2>padding</h2>
+				<div class="padding">transition TEXT</div>
+			</article>
+			
+			<article>
+				<h2>border-color</h2>
+				<div class="border-color">transition TEXT</div>
+			</article>
+			<article>
+				<h2>border-width</h2>
+				<div class="border-width">transition TEXT</div>
+			</article>
+			<article>
+				<h2>outline-width</h2>
+				<div class="outline-width">transition TEXT</div>
+			</article>
+			<article>
+				<h2>outline-color</h2>
+				<div class="outline-color">transition TEXT</div>
+			</article>
+			<article>
+				<h2>background-color</h2>
+				<div class="background-color">transition TEXT</div>
+			</article>
+			<article>
+				<h2>Text Color</h2>
+				<div class="color">transition TEXT</div class="background-color">
+			</article>
+			<article>
+				<h2>font-size</h2>
+				<div class="font-size">transition TEXT</div>
+			</article>
+			<article>
+				<h2>font-weight</h2>
+				<div class="font-weight">transition TEXT</div>
+			</article>
+			<article>
+				<h2>line-height</h2>
+				<div class="line-height">transition TEXT</div>
+			</article>
+			<article>
+				<h2>letter-spacing</h2>
+				<div class="letter-spacing">transition TEXT</div>
+			</article>
+			<article>
+				<h2>word-spacing</h2>
+				<div class="word-spacing">transition TEXT</div>
+			</article>
+			<article>
+				<h2>text-indent</h2>
+				<div class="text-indent">transition TEXT</div>
+			</article>
+			<article>
+				<h2>opacity</h2>
+				<div class="opacity">transition TEXT</div>
+			</article>
+		</section>
+	</body>
+</html>

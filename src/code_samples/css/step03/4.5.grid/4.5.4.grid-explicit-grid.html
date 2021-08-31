@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Grid Layout: The explicit grid</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			body {padding:20px;}
+			.item, .grid-item {
+				padding: 10px;
+				border: none;
+				border-radius: 5px;
+				background-color: #1E73FF;
+				color: #ffffff;
+				text-align:center;
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-template-rows: 50px 50px;
+				grid-gap: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="grid">
+			<div class="item">item1</div>
+			<div class="item">item2</div>
+		</section>
+	</body>
+</html>

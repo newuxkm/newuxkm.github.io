@@ -1,0 +1,27 @@
+{% set pageNumber = { depth1: 1, depth2: 2, depth3: 1, depth4: 1 } %}
+{% set pageData = {
+	title: "CSS란?",
+	description: "CSS란? 입니다.",
+	keyword: "",
+	last_update: "2020-02-24"
+} %}
+{% set pageLayout = {
+	mainClass: "css_start",
+	type: "publishing",
+	Info: true,
+	note: false,
+	sideMenu: true,
+	reference: true
+} %}
+{% extends path.layout %}
+<!-- data setting end ------------------------------------------------------------------------------------------------->
+
+
+<!-- content start ---------------------------------------------------------------------------------------------------->
+{% block content -%}
+	<div style="border:1px solid red; padding:5px;">
+		<p>{{ pageNum_leng }}</p>
+		<p>{{ pageNumber | length - 1 }}</p>
+		<p>{{ reference_path }}</p>
+	</div>
+{%- endblock %}

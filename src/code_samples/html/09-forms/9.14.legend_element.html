@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>legend element</title>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+				<legend>학사 관리 로그인</legend>
+				<label>이름 : <input type="text" name="st_name"></label>
+				<label>학번 : <input type="text" name="st_id"></label>
+				<label>학과 : <input type="text" name="department"></label>
+				<button type="submit" class="btn">제출하기</button>
+			</fieldset>
+		</form>
+
+	<script>
+		document.querySelector('.btn').onclick = function(){
+			alert('클릭!');
+			return false;
+		};
+	</script>
+	</body>
+</html>

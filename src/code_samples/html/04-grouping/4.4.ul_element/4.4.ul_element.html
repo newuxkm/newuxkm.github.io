@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>기본 리스트 / 중첩 리스트</title>
+	</head>
+	<body>
+		<!-- 기본 리스트 -->
+		<h2>기본 리스트</h2>
+		<ul>
+			<li>Coffee</li>
+			<li>Tea</li>
+			<li>Milk</li>
+		</ul>
+
+		<!-- 중첩된 리스트 -->
+		<h2>중첩된 리스트</h2>
+		<ul>
+			<li>first item</li>
+			<li>second item <!-- 주의 : 여기에 첫번째 li를 닫아주면 안됨. -->
+				<ul>
+					<li>second item first subitem</li>
+					<li>second item second subitem</li>
+					<li>second item third subitem</li>
+				</ul>
+			</li> <!-- 여기에 첫번째 li를 닫아줘야 함. -->
+			<li>third item <!-- 주의 : 여기에 첫번째 li를 닫아주면 안됨. -->
+				<ul>
+					<li>third item first subitem</li>
+					<li>third item second subitem</li>
+					<li>third item third subitem</li>
+				</ul>
+			</li> <!-- 여기에 첫번째 li를 닫아줘야 함. -->
+			<li>fourth item</li>
+		</ul>
+	</body>
+</html>

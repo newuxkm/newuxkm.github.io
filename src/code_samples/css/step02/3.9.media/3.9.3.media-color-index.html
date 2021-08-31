@@ -1,0 +1,19 @@
+<!-- 최소 256 색상을 지닌 모든 장치에 적용 -->
+<link rel="stylesheet" media="all and (min-color-index: 256)" href="rwd.css">
+
+<style>
+	/* 출력 장치가 색상 색인 테이블을 사용하면 실행 */
+	@media all and (color-index) { … }
+
+	/* 출력 장치가 색상 색인 테이블을 사용하지 않으면 실행 */
+	@media all and (color-index:0) { … }
+
+	/* 출력 장치가 256 색을 지원하면 실행 */
+	@media all and (color-index:256) { … }
+
+	/* 출력 장치가 256 이상 색을 지원하면 실행 */
+	@media all and (min-color-index:256) { … }
+
+	/* 출력 장치가 256 이하 색을 지원하면 실행 */
+	@media all and (max-color-index:256) { … }
+</style>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS position:fixed Properties</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			*::before,*::after{box-sizing:border-box;}
+			html,body{height:1500px;}
+			body::before,body::after{content:"";display:block;position:fixed;top:0;right:0;bottom:0;left:0;margin:auto;border:dotted 1px #ddd;}
+			body::before{width:100%;height:1px;}
+			body::after{width:1px;height:100%;}
+
+			/* position:fixed */
+			.fixed{
+				position:relative;
+				width:500px;
+				height:500px;
+				margin:auto;
+				background-color:#f5f5f5;
+			}
+			/* 
+			 부모의 position 속성이 무엇으로 명시되어 있든지, 항상 기준은 브라우저(viewport)기준이 됨.
+			 스크롤해도 항상 브라우저(viewport)기준에서 보이게 됨.
+			 */
+			.fixed div{
+				position:fixed;
+				width:80px;
+				height:80px;
+				line-height:80px;
+				text-align:center;
+			}
+			.fixed div:nth-child(1){
+				top:0;
+				left:0;
+				background-color:aqua;
+			}
+			.fixed div:nth-child(2){
+				top:0;
+				right:0;
+				background-color:blueviolet;
+			}
+			.fixed div:nth-child(3){
+				bottom:0;
+				left:0;
+				background-color:cornflowerblue;
+			}
+			.fixed div:nth-child(4){
+				bottom:0;
+				right:0;
+				background-color:darkcyan;
+			}
+			.fixed div:nth-child(5){
+				top:0;
+				right:0;
+				bottom:0;
+				left:0;
+				margin:auto;
+				background-color:fuchsia;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="fixed">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+	</body>
+</html>

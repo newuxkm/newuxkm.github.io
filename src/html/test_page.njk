@@ -1,0 +1,61 @@
+{%- set pageData = {
+title: "테스트 페이지",
+description: "html, css, javascript, accessibility, ncs 등의 강의를 목적으로 제작",
+keyword: "uxkm, uxkm main, html, css, javascript, accessibility, ncs, gulp"
+} -%}
+{%- set fixedMenu = true -%}
+{% extends path.temp + "/_layout.njk" %}
+{% import path.macro + "/_macro.njk" as comp %}
+{% import path.macro + "/_gnb.njk" as gnb_comp %}
+
+{% block content -%}
+<h1>{{ pageData.title }}</h1>
+
+
+<!-- part menu -->
+<div class="site_map" style="margin:0 50px 25px; padding:0 50px 25px;">
+	{{ gnb_comp.d3_below(
+		gnb_data,
+		pageNumber,
+		start_part = true
+	) | tabIndent(2) }}
+</div>
+
+<!-- d4 menu -->
+<div class="site_map" style="margin:0 50px 25px; padding:0 50px 25px;">
+	{{ gnb_comp.d3_below(
+		gnb_data,
+		pageNumber,
+		start_depth4 = true
+	) | tabIndent(2) }}
+</div>
+
+<!-- d3 menu & d3_only -->
+<div class="site_map" style="margin:0 50px 25px; padding:0 50px 25px;">
+	{{ gnb_comp.d3_below(
+		gnb_data,
+		pageNumber,
+		start_depth3 = true,
+		only_depth3 = false
+	) | tabIndent(2) }}
+</div>
+
+<!-- d2 menu & d2_only -->
+<div class="site_map" style="margin:0 50px 25px; padding:0 50px 25px;">
+	{{ gnb_comp.d2_gnb(
+		gnb_data,
+		pageNumber,
+		d1_index = 1,
+		only_depth2 = false
+	) | tabIndent(2)}}
+</div>
+
+<!-- all menu & d1 only -->
+<div class="site_map" style="margin:0 50px 25px; padding:0 50px 25px;">
+	{{ gnb_comp.all_gnb(
+		gnb_data,
+		pageNumber,
+		only_depth1 = false
+	) | tabIndent(2) }}
+</div>
+{%- endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 ::fist-line Pseudo-elements</title>
+		<style>
+			::first-line {
+				margin-left:20px;/* 적용 안 됨 */
+				color:blue;
+				text-transform:uppercase; /* 소문자를 대문자로 변경 */
+				text-indent:20px; /* 안 쪽으로 들여쓰기 하려면 text-indent로 사용 */
+			}
+			/*
+			::first-line에서 사용하는 속성들은 다음과 같은 속성만 적용됨
+			float, margin, padding, background, border, 
+			color, font, font-family, font-size, font-style, font-variant, font-weight, line-height, 
+			text-decoration, text-shadow, text-transform, vertical-align (if ‘float’ is set to ‘none’), and word-spacing
+			*/
+		</style>
+	</head>
+	<body>
+		<p>Styles will only be applied to the first line of this paragraph.
+		After that, all text will be styled like normal. See what I mean?</p>
+
+		<span>The first line of this text will not receive special styling
+		because it is not a block-level element.</span>
+	</body>
+</html>

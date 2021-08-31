@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>ruby, rb, rp, rt, rtc element</title>
+	</head>
+	<body>
+		<p>"공부"를 의미하는 일본어는 <ruby>勉強<rt>べんきょう</rt></ruby>입니다.</p>
+
+		<p>"공부"를 의미하는 일본어는 <ruby>勉強<rp>(</rp><rt>べんきょう</rt><rp>)</rp></ruby>입니다.</p>
+
+		<ruby>
+			<rb>漢</rb>字<rp>(</rp><rt>kan</rt>ji<rp>)</rp>
+		</ruby>
+
+		<ruby>
+			漢 <rp>(</rp><rt>Kan</rt><rp>)</rp>
+			字 <rp>(</rp><rt>ji</rt><rp>)</rp>
+		</ruby>
+
+		<!-- 예시1 : ruby, rt -->
+		<ruby>
+			韓國<rt>한국</rt>
+		</ruby>
+
+		<!-- 예시2 : ruby, rt, rp -->
+		<ruby>
+			韓國<rp>(</rp><rt>한국</rt><rp>)</rp>
+		</ruby>
+		<p>대부분의 웹브라우저에서는 예시1과 결과가 같지만. ruby를 지원하지 않는 옛날 웹브라우저에서는 "韓國(한국)"이라고 나온다.</p>
+
+
+		<ruby xml:lang="zh-Hant" style="ruby-position: under;">
+			<rtc xml:lang="en" style="ruby-position: over;">
+				<rp>(</rp><rt>Malaysia</rt><rp>)</rp>
+			</rtc>
+		</ruby>
+
+		<div class="info">
+			<ruby>
+				<rtc>San Francisco</rtc>
+			</ruby>
+		</div>
+	</body>
+</html>

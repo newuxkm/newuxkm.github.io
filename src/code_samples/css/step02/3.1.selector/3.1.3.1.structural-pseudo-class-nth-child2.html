@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 :nth-child Structural pseudo-class</title>
+		<style>
+			dl{text-align:center;}
+			span,p{display:inline-block;width:50px;height:50px;border:1px solid #000;line-height:50px;text-align:center;}
+
+			/* :nth-child(1) = 첫번째 선택 */
+			.type1 dd :nth-child(1){background-color:yellowgreen;}
+			/* :nth-child(2n) = 두번째 마다 선택 */
+			.type2 dd :nth-child(2n){background-color:yellowgreen;}
+			/* :nth-child(2n+1) = 첫번째 요소부터 2번째 마다 선택 */
+			.type3 dd :nth-child(2n+1){background-color:yellowgreen;}
+			/* :nth-child(2n+5) = 다섯번째 부터 2개 마다 선택 */
+			.type4 dd :nth-child(2n+5){background-color:yellowgreen;}
+			/* :nth-child(-2n+5) = 첫번째 요소부터 5번째 요소까지 2개 마다 선택 */
+			.type5 dd :nth-child(-2n+5){background-color:yellowgreen;}
+			/* :nth-child(n+5) = 5번째 부터 모두 선택 */
+			.type6 dd :nth-child(n+5){background-color:yellowgreen;}
+			/* :nth-child(-n+5) = 앞에서부터 5개만 선택 */
+			.type7 dd :nth-child(-n+5){background-color:yellowgreen;}
+			/* :nth-child(n+3):nth-child(-n+8) = 선택자를 두번 사용하여 교집합인 요소만 선택할 수 있다. */
+			.type8 dd :nth-child(n+3):nth-child(-n+8){background-color:yellowgreen;}
+			/* :nth-child(odd) = 홀수 선택 */
+			.type9 dd :nth-child(odd){background-color:yellowgreen;}
+			/* :nth-child(even) = 짝수 선택 */
+			.type10 dd :nth-child(even){background-color:yellowgreen;}
+		</style>
+	</head>
+	<body>
+		<dl class="type1">
+			<dt>:nth-child(1) = 첫번째 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type2">
+			<dt>:nth-child(2n) = 두번째 마다 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type3">
+			<dt>:nth-child(2n+1) = 첫번째 요소부터 2번째 마다 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type4">
+			<dt>:nth-child(2n+5) = 다섯번째 부터 2개 마다 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type5">
+			<dt>:nth-child(-2n+5) = 첫번째 요소부터 5번째 요소까지 2개 마다 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type6">
+			<dt>:nth-child(n+5) = 5번째 부터 모두 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type7">
+			<dt>:nth-child(-n+5) = 앞에서부터 5개만 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type8">
+			<dt>:nth-child(n+3):nth-child(-n+8) = 선택자를 두번 사용하여 교집합인 요소만 선택할 수 있다.</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type9">
+			<dt>:nth-child(odd) = 홀수 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+		<dl class="type10">
+			<dt>:nth-child(even) = 짝수 선택</dt>
+			<dd>
+				<span class="box">span 1</span>
+				<p class="box">p 2</p>
+				<span class="box">span 3</span>
+				<p class="box">p 4</p>
+				<span class="box">span 5</span>
+				<p class="box">p 6</p>
+				<p class="box">p 7</p>
+				<p class="box">p 8</p>
+				<p class="box">p 9</p>
+				<p class="box">p 10</p>
+			</dd>
+		</dl>
+	</body>
+</html>

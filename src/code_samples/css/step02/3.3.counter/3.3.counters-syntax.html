@@ -1,0 +1,9 @@
+<style>
+	ol {counter-reset: chapter;}
+	li {list-style:none;}
+	li:before {
+		counter-increment: chapter;
+		content: counters(chapter, ".", upper-roman);
+	}
+	/* 유의할 점은, html 코드 작성 시에도 중첩된 구조로 만들어야 한다는 것! */
+</style>

@@ -1,0 +1,123 @@
+{% set pageNumber = { depth1: 1, depth2: 1, depth3: 1, depth4: 2 } %}
+{% set pageData = {
+	title: "HTML 기본구조",
+	description: "HTML 기본구조 입니다.",
+	keyword: "",
+	last_update: "2019-12-26"
+} %}
+{% set pageLayout = {
+	mainClass: "html_start",
+	type: "publishing",
+	Info: true,
+	note: false,
+	sideMenu: true,
+	reference: true
+} %}
+{% extends path.layout %}
+<!-- data setting end ------------------------------------------------------------------------------------------------->
+
+
+<!-- content start ---------------------------------------------------------------------------------------------------->
+{% block content %}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<h2 class="sound_only">요약 설명</h2>
+		<p>
+			'Document Type Definition'(이하
+			DTD)는 브라우저 렌더링 모드를 지정해주고 유효성 검증기의 기준이 되므로 XHTML문서의 상단에 반드시 선언해야 한다.<br>
+			만일 DTD를 생략하거나 형식이 잘못된 문서일 경우에는 웹 브라우저마다 코드의 해석방식이 다른 quirks mode로 렌더링이 되기 때문에 엉뚱한 결과물로 출력되는 문제에 직면하게 된다.<br>
+		</p>
+
+		<p>
+			DTD 기본형식.<br>
+			&lt;!DOCTYPE<br>
+			이 문서는<br>
+			html<br>
+			① HTML 문서로서<br>
+			PUBLIC<br>
+			① 국제적이며<br>
+			"-//W3C//DTD XHTML 1.0 Transitional//EN"<br>
+			② 비공인 인증인 W3C 기관에 의해 XHTML 1.0을 Transitional 방식으로 영어 공용어로 출력하며<br>
+			"<span class="break_all">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span>"<br>
+			③ 참조할 DTD 문서는"<span class="break_all">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</span>" 이다.<br><br>
+
+			이런 형식으로 구성되어 있으며<br>
+			① 최상위 엘리먼트 네임<br>
+			② 국제적, 공용 혹은 내부적 제한용<br>
+			③ ISO 공인 인증 기관 또는 비공인 인증 기관 등 본 문서가 어디에서 만든 DTD를 사용하는가에 대한 내용이다.<br>
+			공인 인증 기관 일경우 "+"를, 비공인 인증 기관일 경우엔 "-"를 사용한다. 참고로 W3C는 비공인 인증 기관이다.<br><br>
+
+			DOCTYPE 정의<br>
+			– DOCTYPE은 브라우저에게 웹 페이지의 문서 종류를 알려주는 선언문이다.<br>
+			– DOCTYPE은 HTML 태그가 아닌, DTD로 정의되어 있다.<br>
+			– DOCTYPE은 웹 페이지에서 제일 처음에 선언되어야 한다.<br>
+			– DOCTYPE은 브라우저가 올바른 화면 표시(rendering)를 하기 위해 필요하다.<br>
+			– DOCTYPE을 선언하지 않는다면, 브라우저는 호환 모드(quirks mode)로 웹 페이지를 해석해서 화면 표시를 한다.<br>
+			하지만 호환 모드일 경우, 브라우저별로 정확한 화면 표시를 보장할 수 없다.
+		</p>
+	</blockquote>
+
+	<section class="txt_ex mt_xl">
+		<h2>&lt;!DOCTYPE html&gt;</h2>
+		<p class="indent">
+			현재 문서가 <i class="t_blue">HTML5</i> 문서임을 명시합니다.
+			<code>doctype</code>은 문서의 최상위에 위치해야 하며,
+			<code>doctype</code>의 선언 방식은 다음과 같습니다.
+		</p>
+
+		<div class="uk_gist_code_box indent mt_ms" data-tit="[DOCTYPE]">
+			<textarea readonly="readonly">
+				__ex_line__#333__ 1. HTML5 doctype
+				<!DOCTYPE html>
+
+				__ex_line__#333__ 2. HTML 4.01 strict doctype
+				<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+				__ex_line__#333__ 3. HTML 4.01 transitional doctype
+				<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+				__ex_line__#333__ 4. XML 1.0 strict and transitional doctypes
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+				__ex_line__#333__ 5. HTML 4.01 and XML 1.0 frameset doctypes
+				<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+			</textarea>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_xl">
+		<h2>&lt;html&gt;</h2>
+		<p class="indent"><code>&lt;html&gt;&lt;/html&gt;</code> 요소. 이 요소는 페이지 전체의 콘텐츠를 감싸며, 루트(root) 요소라고도 합니다.</p>
+	</section>
+
+	<section class="txt_ex mt_xl">
+		<h2>&lt;head&gt;&lt;/head&gt;</h2>
+		<p class="indent"><code>&lt;head&gt;</code> 요소. 이 요소는 HTML 페이지에 포함되어 있는 모든 것들(여러분의 페이지를 조회하는 사람들에게 보여주지 않을 콘텐츠)의 컨테이너 역할을 합니다. 여기에는 keywords와 검색 결과에 표시되길 원하는 페이지 설명, 콘텐츠를 꾸미기 위한 CSS, 문자 집합 선언 등과 같은 것들이 포함됩니다.</p>
+	</section>
+
+	<section class="txt_ex mt_xl">
+		<h2>&lt;meta charset=&quot;utf-8&quot;&gt;</h2>
+		<p class="indent">이 요소는 문서가 사용해야 할 문자 집합을 utf-8으로 설정합니다. charset은 사용 언어에 따라 euc-kr로 설정 가능합니다.</p>
+	</section>
+
+	<section class="txt_ex mt_xl">
+		<h2>&lt;title&gt;&lt;/title&gt;</h2>
+		<p class="indent"><code>&lt;title&gt;</code> 요소. 이 요소는 페이지의 제목을 설정하는 것으로 페이지가 로드되는 브라우저의 탭에 이 제목이 표시됩니다. 이 요소는 북마크나 즐겨찾기에서 페이지를 설명하는 것으로도 사용됩니다.</p>
+	</section>
+
+	<section class="txt_ex mt_xl">
+		<h2>&lt;body&gt;&lt;/body&gt;</h2>
+		<p class="indent"><code>&lt;body&gt;</code> 요소. 이것은 페이지에 방문한 모든 웹 사용자들에게 보여주길 원하는 모든 콘텐츠를 담고 있으며, 그것이 텍스트일 수도, 이미지, 비디오, 게임, 플레이할 수 있는 오디오 트랙이나 다른 무엇이든 될 수 있습니다.</p>
+	</section>
+
+	<section class="txt_ex mt_xl">
+		<h2>&lt;h1&gt;&lt;/h1&gt;</h2>
+		<p class="indent"><code>&lt;h1&gt;</code> 요소. 문서의 제목을 의미합니다. 이 요소는 여러 검색 엔진은 각 웹 사이트의 내용을 바로 이 태그를 이용하여 키워드를 수집하고, 그 내용을 파악합니다. 따라서 HTML문서에 포함되는 제목은 이 태그로 작성해야만 검색 엔진에 의해 제대로 검색될 확률을 높일 수 있습니다.</p>
+	</section>
+
+	<section class="txt_ex mt_xl">
+		<h2>&lt;p&gt;&lt;/p&gt;</h2>
+		<p class="indent"><code>&lt;p&gt;</code> 요소. 단락이란 내용상 끊어서 구분할 수 있는 하나하나의 부분을 의미하며, 문단이라고도 부릅니다. HTML에서는 <code>&lt;p&gt;</code>태그를 이용하여 이러한 단락을 표현합니다.</p>
+	</section>
+{%- endblock %}

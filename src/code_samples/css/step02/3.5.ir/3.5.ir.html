@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS Image Sprite</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+
+			label{display:block;position:relative;width:150px;margin:0 auto;}
+			label input{
+				position:absolute;
+				top:18px;
+				left:18px;
+				z-index:-1;
+			}
+			label span{
+				display:inline-block;
+				position:relative;
+				height:48px;
+				padding-left:52px;
+				line-height:48px;
+				background-color:#fff;
+				vertical-align:middle;
+			}
+			label span::before{
+				content:"";
+				overflow:hidden;
+				display:inline-block;
+				position:absolute;
+				top:0;
+				left:0;
+				width:48px;
+				height:48px;
+				background-image:url('/ukncs/tutorials/css/step02/3.5.ir/img_sprite.png');
+				background-repeat:no-repeat;
+			}
+			/* 첫 번째 label 안의 span 가상요소::before off 이미지 */
+			label:nth-child(1) span::before{
+				background-position:0 0;
+			}
+			/* 첫 번째 label 안의 span 가상요소::before on 이미지 */
+			label:nth-child(1) input:checked + span::before{
+				background-position:-58px 0;
+			}
+
+			/* 두 번째 label 안의 span 가상요소::before off 이미지 */
+			label:nth-child(2) span::before{
+				background-position:0 -58px;
+			}
+			/* 두 번째 label 안의 span 가상요소::before on 이미지 */
+			label:nth-child(2) input:checked + span::before{
+				background-position:-58px -58px;
+			}
+
+			/* 세 번째 label 안의 span 가상요소::before off 이미지 */
+			label:nth-child(3) span::before{
+				background-position:0 -116px;
+			}
+			/* 세 번째 label 안의 span 가상요소::before on 이미지 */
+			label:nth-child(3) input:checked + span::before{
+				background-position:-58px -116px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			클릭시 on/off 보이는 방법
+		 -->
+		<label>
+			<input type="checkbox" name="rad">
+			<span>HTML</span>
+		</label>
+		<label>
+			<input type="checkbox" name="rad">
+			<span>CSS</span>
+		</label>
+		<label>
+			<input type="checkbox" name="rad">
+			<span>기타</span>
+		</label>
+	</body>
+</html>

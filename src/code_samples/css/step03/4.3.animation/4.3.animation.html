@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 animation</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+
+			/* 단일 방식 */
+			.box {
+				width: 250px;
+				height: 250px;
+				margin: 100px auto;
+				background-color: red;
+				animation-name: stretch;
+				animation-duration: 1.5s; 
+				animation-timing-function: ease-out; 
+				animation-delay: 0;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				animation-fill-mode: none;
+				animation-play-state: running;
+			}
+			@keyframes stretch {
+				0% {
+					transform: scale(.3);
+					background-color: red;
+					border-radius: 100%;
+				}
+				50% {
+					background-color: orange;
+				}
+				100% {
+					transform: scale(1.5);
+					background-color: yellow;
+				}
+			}
+
+			/* 멀티 지정 */
+			.box2 {
+				width: 400px;
+				height: 400px;
+				margin: 0 auto;
+				background-color: red;
+				border-radius: 100%;
+				animation: 
+					pulse 3s ease infinite alternate, 
+					nudge 5s linear infinite alternate;
+			}
+			@keyframes pulse {
+				0%, 100% {
+					background-color: red;
+				}
+				50% {
+					background-color: orange;
+				}
+			}
+
+			@keyframes nudge {
+				0%, 100% {
+					transform: translate(0, 0);
+				}
+				50% {
+					transform: translate(150px, 0);
+				}
+				80% {
+					transform: translate(-150px, 0);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<div class="box2"></div>
+	</body>
+</html>

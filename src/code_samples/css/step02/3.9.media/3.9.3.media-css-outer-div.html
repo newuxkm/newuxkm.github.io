@@ -1,0 +1,11 @@
+<!--
+데스크탑 브라우저 사용자가 언제든 조건을 변경(예를 들면 창 크기를 조절해서 해상도를 바꿈)할 수 있기 때문에
+웹 브라우저는 조건에 관계 없이 A.css 파일과 B.css 파일을 항상 요청한다.
+HTTP 요청을 불필요하게 두 번 발생시켜 이 페이지를 처음 로딩하는 사용자에게는 성능 저하의 원인이 된다.
+CSS 파일은 하나로 병합하고 CSS 코드 내부에서 조건 분기하는 방식을 권장한다.
+-->
+<link rel="stylesheet" type="text/css" media="all and (조건A)" href="A.css">
+<link rel="stylesheet" type="text/css" media="all and (조건B)" href="B.css">
+
+<!-- 스크린 장치 최소 화면이 500px보다 크고 800px보다 작을 때  스타일 적용 -->
+<link rel="stylesheet" media="screen and  (min-width: 500px) and (max-width: 800px)" href="rwd.css">

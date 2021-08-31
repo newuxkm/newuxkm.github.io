@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>label element</title>
+	</head>
+	<body>
+		<!-- label "for" 속성을 이용한 명시적 방식(id와 for 속성 연결) -->
+		<form action="/examples/media/action_target.php" method="get">
+			여러분의 나이대를 골라보세요.<br>
+			<input type="radio" name="ages" id="teen" value="teenage">
+			<label for="teen">10대</label><br>
+			<input type="radio" name="ages" id="twenty" value="twenties">
+			<label for="twenty">20대</label><br>
+			<input type="radio" name="ages" id="thirty" value="thirties">
+			<label for="thirty">30대</label><br>
+			<input type="radio" name="ages" id="forty" value="forties">
+			<label for="forty">40대 이상</label><br>
+			<input type="submit" value="제출하기">
+		</form>
+	</body>
+</html>

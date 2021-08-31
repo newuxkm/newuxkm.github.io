@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>samp element</title>
+	</head>
+	<body>
+		<p>컴퓨터를 부팅하려고 했더니 다음과 같은 메시지가 뜹니다.</p>
+		<p><samp>Keyboard not found!<br>Press F1 to continue...</samp></p>
+
+		<!-- 사용자 입력을 포함한 샘플 출력 예 -->
+		<pre>
+		<samp>
+		<span class="prompt">mike@interwebz:~$</span> <kbd>md5 -s "Hello world"</kbd>
+		MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
+
+		<span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span>
+		</samp>
+		</pre>
+
+		<!-- 원하는 모양을 만드는 CSS는 다음과 같습니다. -->
+		<style>
+			.prompt {
+				color: #b00;
+			}
+			samp > kbd {
+				font-weight: bold;
+			}
+			.cursor {
+				color: #00b;
+			}
+		</style>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS Universal Selector</title>
+		<style>
+			* [lang^=en]{color:green;}
+			*.warning{color:red;}
+			*#maincontent{border:1px solid blue;}
+			.floating{float:left;}
+			/* automatically clear the next sibling after a floating element */
+			.floating + *{clear:left;}
+		</style>
+	</head>
+	<body>
+		<p class="warning">
+			<span lang="en-us">A green span</span> in a red paragraph.
+		</p>
+		<p id="maincontent" lang="en-gb">
+			<span class="warning">A red span</span> in a green paragraph.
+		</p>
+	</body>
+</html>

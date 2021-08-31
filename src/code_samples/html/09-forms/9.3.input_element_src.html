@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>input_element src</title>
+	</head>
+	<body>
+		<label for="img">Click on the image</label><br>
+		<input id="img" type="image" src="/ukncs/images/html/uxkm_image_button.svg" alt="컨텐츠 다이어그램">
+
+		<script>
+			var image = document.getElementById('img');
+			image.addEventListener('click', function(){
+				alert('click');
+			});
+		</script>
+	</body>
+</html>

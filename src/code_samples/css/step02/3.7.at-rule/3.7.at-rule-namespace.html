@@ -1,0 +1,21 @@
+<style>
+	/* 기본 네임스페이스 */
+	@namespace url('XML-namespace-URL');
+	@namespace "XML-namespace-URL";
+
+	/* 접두어 붙은 네임스페이스 */
+	@namespace prefix url('XML-namespace-URL');
+	@namespace prefix "XML-namespace-URL";
+
+	@namespace url('http://www.w3.org/1999/xhtml');
+	@namespace svg url('http://www.w3.org/2000/svg');
+
+	/* 이는 모든 XHTML <a> 요소와 일치합니다, XHTML이 접두어 붙지 않은 기본 네임스페이스이기에 */
+	a {}
+
+	/* 이는 모든 SVG <a> 요소와 일치합니다 */
+	svg|a {}
+
+	/* 이는 XHTML 및 SVG <a>요소 둘 다와 일치합니다 */
+	*|a {}
+</style>

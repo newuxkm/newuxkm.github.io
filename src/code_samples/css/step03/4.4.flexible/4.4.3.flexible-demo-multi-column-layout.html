@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Flexbox Multi-Column Layout</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			body {
+				color: #555;
+				font-size: 1.1em;
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+
+			header,
+			footer {
+				height: 100px;
+				background-color: #ccc;
+				line-height: 100px;
+				text-align: center;
+			}
+
+			section,
+			aside {
+				margin: 1% 0;
+				padding: 3em 1.5em;
+				background-color: #594255;
+				color: #eee;
+			}
+
+			section {
+				-webkit-flex: 2 1 500px;
+				-webkit-box-flex: 2;
+				-ms-flex: 2 1 500px;
+				flex: 2 1 500px;
+
+				margin-right: 1%;
+			}
+
+			aside {
+				-webkit-flex: 1 2 250px;
+				-webkit-box-flex: 1;
+				-ms-flex: 1 2 250px;
+				flex: 1 2 250px;
+			}
+
+			.container {
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				
+				-webkit-align-items: stretch;
+				-webkit-box-align: stretch;
+				-ms-flex-align: stretch;
+				align-items: stretch;
+			}
+
+			@media screen and (max-width: 500px) {
+				.container {
+					-webkit-flex-direction: column;
+					-webkit-box-orient: vertical;
+					-webkit-box-direction: normal;
+					-ms-flex-direction: column;
+					flex-direction: column;
+				}
+				section {
+					margin-right: 0;
+					-webkit-flex-basis: auto;
+					-moz-flex-basis: auto;
+					-ms-flex-preferred-size: auto;
+					flex-basis: auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>Header</header>
+		<div class="container">
+			<section class="main">
+				<h1>Main Section</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, qui totam placeat ullam eligendi itaque perferendis similique aliquam inventore tenetur. Eveniet quisquam unde vitae expedita voluptates soluta in obcaecati recusandae.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, voluptas autem sed a rem impedit quidem facere dolore praesentium optio provident minus deleniti eveniet ex cum fuga perferendis illum molestiae!</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, repellendus, nobis hic molestias eveniet perferendis nesciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, aspernatur reiciendis animi sequi ducimus odit ad quos libero fugiat vitae natus optio dolores reprehenderit enim aliquid necessitatibus deleniti voluptatum quod.</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, cumque, eveniet, veritatis, quae esse delectus non omnis incidunt nihil saepe labore neque fugiat praesentium. Nulla quam pariatur eos hic tempore.
+				</p>
+			</section>
+			<aside>
+				<h1>Sidebar</h1>
+				<p>The sidebar doesn't have as much content as the main section on the left, and yet it expands to the same height.</p>
+			</aside>
+		</div>
+		<footer>Footer</footer>
+	</body>
+</html>

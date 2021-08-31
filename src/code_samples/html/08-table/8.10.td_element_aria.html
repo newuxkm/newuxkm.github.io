@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>ARIA(Accessible Rich Internet Applications)를 활용한 table 예시</title>
+	</head>
+	<body>
+		<table aria-describedby="real-deal-summary" border="1">
+			<colgroup>
+				<col width="150">
+				<col width="130" span="9">
+			</colgroup>
+			<caption>
+				<div id="real-deal-summary">
+					<h3>국토교통부 실거래가 : 2018.03 자료: 국토교통부</h3>
+					<p>최근 3개월간(2018.01월~03월) 신고된 국토교통부 실거래 가격자료를 기반으로 최저가격과 최고가격 및 거래건수를 노출합니다.</p>
+				</div>
+			</caption>
+
+			<thead>
+				<tr>
+					<th id="rd-1" scope="col" rowspan="2">공급/전용(m<sup>2</sup>)</th>
+					<th id="rd-2" scope="colgroup" colspan="3">매매 실거래가(만원)</th><!-- 2번항목, colgroup 에 대한 제목 -->
+					<th id="rd-3" scope="colgroup" colspan="3">전세 실거래가(만원)</th><!-- 3번항목, colgroup 에 대한 제목 -->
+					<th id="rd-4" scope="colgroup" colspan="3">월세 실거래가(만원)</th><!-- 4번항목, colgroup 에 대한 제목 -->
+				</tr>
+				<tr>
+					<th id="rd-2-1" scope="col">최저가</th>
+					<th id="rd-2-2" scope="col">최고가</th>
+					<th id="rd-2-3" scope="col">거래건수</th>
+					<th id="rd-3-1" scope="col">최저가</th>
+					<th id="rd-3-2" scope="col">최고가</th>
+					<th id="rd-3-3" scope="col">거래건수</th>
+					<th id="rd-4-1" scope="col">최저가</th>
+					<th id="rd-4-2" scope="col">최고가</th>
+					<th id="rd-4-3" scope="col">거래건수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th id="rd-1-1" scope="row">80/59.91</th>
+					<td headers="rd-1 rd-1-1 rd-2" colspan="3">-</td>
+					<td headers="rd-1 rd-1-1 rd-3 rd-3-1">43,000(2층)</td>
+					<td headers="rd-1 rd-1-1 rd-3 rd-3-2">43,000(2층)</td>
+					<td headers="rd-1 rd-1-1 rd-3 rd-3-3">1</td>
+					<td headers="rd-1 rd-1-1 rd-4" colspan="3">-</td>
+				</tr>
+				<tr>
+					<th id="rd-1-2" scope="row">84/59.99</th>
+					<td headers="rd-1 rd-1-2 rd-2 rd-2-1">47,800(4층)</td>
+					<td headers="rd-1 rd-1-2 rd-2 rd-2-2">55,000(22층)</td>
+					<td headers="rd-1 rd-1-2 rd-2 rd-2-3">10</td>
+					<td headers="rd-1 rd-1-2 rd-3 rd-3-1">43,000(2층)</td>
+					<td headers="rd-1 rd-1-2 rd-3 rd-3-2">43,000(2층)</td>
+					<td headers="rd-1 rd-1-2 rd-3 rd-3-3">1</td>
+					<td headers="rd-1 rd-1-2 rd-4 rd-4-1">5,000/120(6층)</td>
+					<td headers="rd-1 rd-1-2 rd-4 rd-4-2">40,000/10(4층)</td>
+					<td headers="rd-1 rd-1-2 rd-4 rd-4-3">5</td>
+				</tr>
+				<tr>
+					<th id="rd-1-3" scope="row">111/84.82</th>
+					<td headers="rd-1 rd-1-3 rd-2 rd-2-1">63,200(12층)</td>
+					<td headers="rd-1 rd-1-3 rd-2 rd-2-2">63,500(19층)</td>
+					<td headers="rd-1 rd-1-3 rd-2 rd-2-3">2</td>
+					<td headers="rd-1 rd-1-3 rd-3 rd-3-1">53,000(13층)</td>
+					<td headers="rd-1 rd-1-3 rd-3 rd-3-2">53,000(13층)</td>
+					<td headers="rd-1 rd-1-3 rd-3 rd-3-3">1</td>
+					<td headers="rd-1 rd-1-3 rd-4" colspan="3">-</td>
+				</tr>
+				<tr>
+					<th id="rd-1-4" scope="row">112/84.92</th>
+					<td headers="rd-1 rd-1-4 rd-2 rd-2-1">65,000(6층)</td>
+					<td headers="rd-1 rd-1-4 rd-2 rd-2-2">65,000(6층)</td>
+					<td headers="rd-1 rd-1-4 rd-2 rd-2-3">1</td>
+					<td headers="rd-1 rd-1-4 rd-3 rd-3-1">52,000(10층)</td>
+					<td headers="rd-1 rd-1-4 rd-3 rd-3-2">52,000(10층)</td>
+					<td headers="rd-1 rd-1-4 rd-3 rd-3-3">1</td>
+					<td headers="rd-1 rd-1-4 rd-4" colspan="3">-</td>
+				</tr>
+				<tr>
+					<th id="rd-1-5" scope="row">112/84.94</th>
+					<td headers="rd-1 rd-1-5 rd-2 rd-2-1">60,000(25층)</td>
+					<td headers="rd-1 rd-1-5 rd-2 rd-2-2">60,000(25층)</td>
+					<td headers="rd-1 rd-1-5 rd-2 rd-2-3">1</td>
+					<td headers="rd-1 rd-1-5 rd-3 rd-3-1">45,000(10층)</td>
+					<td headers="rd-1 rd-1-5 rd-3 rd-3-2">45,000(10층)</td>
+					<td headers="rd-1 rd-1-5 rd-3 rd-3-3">1</td>
+					<td headers="rd-1 rd-1-5 rd-4 rd-4-1">35,000/60(5층)</td>
+					<td headers="rd-1 rd-1-5 rd-4 rd-4-2">35,000/60(5층)</td>
+					<td headers="rd-1 rd-1-5 rd-4 rd-4-3">1</td>
+				</tr>
+				<tr>
+					<th id="rd-1-6" scope="row">145/114.98</th>
+					<td headers="rd-1 rd-1-6 rd-2 rd-2-1">76,800(15층)</td>
+					<td headers="rd-1 rd-1-6 rd-2 rd-2-2">80,000(14층)</td>
+					<td headers="rd-1 rd-1-6 rd-2 rd-2-3">2</td>
+					<td headers="rd-1 rd-1-6 rd-3 rd-3" colspan="3">-</td>
+					<td headers="rd-1 rd-1-6 rd-4 rd-4-1">5,000/200(5층)</td>
+					<td headers="rd-1 rd-1-6 rd-4 rd-4-2">5,000/200(5층)</td>
+					<td headers="rd-1 rd-1-6 rd-4 rd-4-3">1</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

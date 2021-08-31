@@ -1,0 +1,26 @@
+<style>
+	button {
+		width:49px; height:36px; margin:0; padding:0;
+		border:none;
+		background-image:none; background-color:transparent;
+	}
+	button img {
+		display:block;
+	}
+	a img {
+		border:none 0px;
+	}
+</style>
+
+<script>
+	function replaceImg() {
+		var replaceImgBtn = document.getElementById("btn");
+		replaceImgBtn.innerHTML = "<img src=\"" + replaceImgBtn.className + ".gif\" alt=\"" + replaceImgBtn.innerHTML + "\" />";
+		var replaceImgA = document.getElementById("btnA");
+		replaceImgA.innerHTML = "<img src=\"" + replaceImgA.className + ".gif\" alt=\"" + replaceImgA.innerHTML + "\" />";
+	}
+	window.onload = replaceImg;
+</script>
+
+<button id="btn" class="btn_search">검색</button>
+<a href="#" id="btnA" class="btn_search">검색</a>

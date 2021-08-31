@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 UI element states pseudo-classes</title>
+		<style>
+			span{margin-left:5px;}
+			input{color:#FFEFD5;}
+			input:checked + span{font-weight:bold;}
+			input:disabled + span {color:red;}
+			input:enabled + span {color:black;}
+		</style>
+	</head>
+	<body>
+		<h1>input 요소의 스타일 설정</h1>
+		<form>
+			<label><input type="checkbox" name="lecture" value="html" enabled><span>HTML</span></label><br>
+			<label><input type="checkbox" name="lecture" value="css" checked><span>CSS</span></label><br>
+			<label><input type="checkbox" name="lecture" value="java"><span>Javascript</span></label><br>
+			<label><input type="checkbox" name="lecture" value="cpp" disabled><span>jQuery</span></label>
+		</form>
+	</body>
+</html>

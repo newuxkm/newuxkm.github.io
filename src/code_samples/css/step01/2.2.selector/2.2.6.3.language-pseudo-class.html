@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS The language pseudo-class</title>
+		<style>
+			:lang(en){background-color:blue;}
+			:lang(fr){background-color:green;}
+			:lang(de){background-color:yellow;}
+			:lang(ko){background-color:gray;}
+			div:lang(ko){background-color:seagreen;}
+			p:lang(ko){background-color:yellowgreen;}
+
+			:lang(en) > q{quotes:'\201C' '\201D' '\2018' '\2019';}
+			:lang(fr) > q{quotes:'« ' ' »';}
+			:lang(de) > q{quotes:'»' '«' '\2039' '\203A';}
+		</style>
+	</head>
+	<body>
+		<div lang="en"><q>This English quote has a <q>nested</q> quote inside.</q></div>
+		<div lang="fr"><q>This French quote has a <q>nested</q> quote inside.</q></div>
+		<div lang="de"><q>This German quote has a <q>nested</q> quote inside.</q></div>
+		<div lang="ko"><q>This korea quote has a <q>nested</q> quote inside.</q></div>
+		<p lang="ko"><q>This korea quote has a <q>nested</q> quote inside.</q></p>
+	</body>
+</html>

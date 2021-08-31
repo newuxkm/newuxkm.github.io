@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>button element</title>
+		<script type="text/javascript" src="/assets/lib/js/plugin/jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<form>
+			다음 중 여러분이 가장 좋아하는 과일을 고르세요.<br><br>
+			<button type="submit" name="fruit" value="apple">사과</button>
+			<button type="submit" name="fruit" value="banana">바나나</button>
+			<button type="submit" name="fruit" value="orange">귤</button>
+		</form>
+
+		<script>
+			$('button').click(function(){
+				alert($(this).text() + ' 입니다.');
+				return false;
+			});
+		</script>
+	</body>
+</html>

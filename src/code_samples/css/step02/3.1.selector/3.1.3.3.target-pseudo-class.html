@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Target pseudo-class</title>
+		<style>
+			h3:target{color:blue;}
+			p:target{background-color:gold;}
+			p:target i{color:red;}
+		</style>
+	</head>
+	<body>
+		
+		<h3>Table of Contents</h3>
+		<ol>
+			<li><a href="#css-units">CSS 단위</a></li>
+			<li><a href="#p1">Jump to the first paragraph!</a></li>
+			<li><a href="#p2">Jump to the second paragraph!</a></li>
+			<li><a href="#nowhere">This link goes nowhere, because the target doesn't exist.</a></li>
+		</ol>
+
+		<section class="uksection">
+			<h3 id="css-units">CSS 단위</h3>
+			<p>상대 길이 단위와 절대 길이 단위가 있습니다.</p>
+			<p>상대적인 길이 : em, ex, ch, rem, vw, vh, vmin, vmax</p>
+			<p>절대 길이 단위 : px, mm, cm, in, pt, pc</p>
+
+			<h3>My Fun Article</h3>
+			<p id="p1">You can target <i>this paragraph</i> using a
+			URL fragment. Click on the link above to try out!</p>
+			<p id="p2">This is <i>another paragraph</i>, also accessible
+			from the links above. Isn't that delightful?</p>
+		</section>
+	</body>
+</html>

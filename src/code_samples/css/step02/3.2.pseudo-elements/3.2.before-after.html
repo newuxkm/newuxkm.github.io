@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 ::before & ::after Pseudo-elements</title>
+		<style>
+			li{
+				padding:0.5em;
+			}
+
+			li[aria-current='step']{
+				font-weight:bold; 
+			}
+
+			li[aria-current='step']::before {
+				/* content:"\21E8"; */
+				content:normal;
+			}
+			li[aria-current='step']::after {
+				content:"\21E6";
+			}
+			/* 
+				IE8 부터 지원
+				IE8 = :after 콜론(:) 하나 사용
+				IE9+ = :after 콜론(:) 하나, ::after 콜론(::) 두 개 사용 가능
+			 */
+		</style>
+	</head>
+	<body>
+		<ol>
+			<li class="foo">Crack Eggs into bowl</li>
+			<li>Add Milk</li>
+			<li>Add Flour</li>
+			<li aria-current='step'>Mix thoroughly into a smooth batter</li>
+			<li>Pour a ladleful of batter onto a hot, greased, flat frying pan</li>
+			<li>Fry until the top of the pancake loses its gloss</li>
+			<li>Flip it over and fry for a couple more minutes</li>
+			<li>serve with your favorite topping</li>
+		</ol>
+	</body>
+</html>

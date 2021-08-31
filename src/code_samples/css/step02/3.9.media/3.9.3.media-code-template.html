@@ -1,0 +1,209 @@
+<style>
+    /*
+		예시 1
+		뷰포트의 너비가 480픽셀이거나 그 이하일 경우에는 배경색을 darkorange로 표현해 줍니다.
+		하지만 뷰포트의 너비가 그 초과일 경우에는 배경색을 lightblue로 바꿔서 표현해 줍니다.
+		*/
+    body { background-color: darkorange; }
+    @media screen and (min-width: 480px) {
+        body { background-color: lightblue; }
+    }
+
+    /*
+		예시 2
+		다음 예제를 웹 브라우저에서 실행하면 배경색을 검정색으로, 텍스트의 색상은 흰색으로 표현합니다.
+		하지만 웹 페이지를 프린트하게 되면 배경색을 흰색으로, 텍스트의 색상을 검정색으로 바꿔서 프린트합니다.
+		*/
+    @media screen {
+        body { background-color: black; color: white; }
+    }
+    @media print {
+        body { background-color: white; color: black; }
+    }
+
+    /* All Device */
+    @media screen {
+        /* 모든 해상도를 위한 공통 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. */
+    }
+
+    /* Mobile Device */
+    @media all and (max-width:768px) {
+        /*
+				768px 미만 해상도의 모바일 기기를 위한 코드를 작성한다.
+				모든 해상도에서 이 코드가 실행됨.
+				미디어 쿼리를 지원하지 않는 모바일 기기를 위해 미디어 쿼리 구문을 사용하지 않는다.
+				*/
+    }
+
+    /* Tablet & Desktop Device */
+    @media all and (min-width:768px) {
+        /*
+				사용자 해상도가 768px 이상일 때 이 코드가 실행됨.
+				테블릿과 데스크톱의 공통 코드를 작성한다.
+				*/
+    }
+
+    /* Tablet Device */
+    @media all and (min-width:768px) and (max-width:1024px) {
+        /*
+				사용자 해상도가 768px 이상이고 1024px 이하일 때 이 코드가 실행됨.
+				아이패드 또는 비교적 작은 해상도의 랩탑이나 데스크톱에 대응하는 코드를 작성한다.
+				*/
+    }
+
+    /* Desktop Device */
+    @media all and (min-width:1025px) {
+        /*
+				사용자 해상도가 1025px 이상일 때 이 코드가 실행됨.
+				1025px 이상의 랩탑 또는 데스크톱에 대응하는 코드를 작성한다.
+				*/
+    }
+
+    /*==========  Mobile First Method  ==========*/
+    /* All Device */
+
+    /* Custom, iPhone Retina : 320px ~ */
+    @media only screen and (min-width : 320px) { … }
+
+    /* Extra Small Devices, Phones : 480px ~ */
+    @media only screen and (min-width : 480px) { … }
+
+    /* Small Devices, Tablets : 768px ~ */
+    @media only screen and (min-width : 768px) { … }
+
+    /* Medium Devices, Desktops : 992px ~ */
+    @media only screen and (min-width : 992px) { … }
+
+    /* Large Devices, Wide Screens : 1200px ~ */
+    @media only screen and (min-width : 1200px) { … }
+
+    /*==========  Non-Mobile First Method  ==========*/
+    /* All Device */
+
+    /* Large Devices, Wide Screens : ~ 1200px */
+    @media only screen and (max-width : 1200px) { … }
+
+    /* Medium Devices, Desktops : ~ 992px */
+    @media only screen and (max-width : 992px) { … }
+
+    /* Small Devices, Tablets : ~ 768px */
+    @media only screen and (max-width : 768px) { … }
+
+    /* Extra Small Devices, Phones : ~ 480px */
+    @media only screen and (max-width : 480px) { … }
+
+    /* Custom, iPhone Retina : ~ 320px */
+    @media only screen and (max-width : 320px) { … }
+
+
+    /* ############### IOS 계열 CSS(@media) ############### */
+    /* ----------- iPhone 4 and 4S ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Portrait */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+    /* Landscape */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+
+    /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Portrait */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+    /* Landscape */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+
+    /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Portrait */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+    /* Landscape */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+
+    /* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) { … }
+
+    /* Portrait */
+    @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { … }
+
+    /* Landscape */
+    @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) { … }
+
+    /* ----------- iPhone X ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) { … }
+
+    /* Portrait */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { … }
+
+    /* Landscape */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) { … }
+
+    /* ----------- iPad 1, 2, Mini and Air ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) { … }
+
+    /* Portrait */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { … }
+
+    /* Landscape */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) { … }
+
+    /* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Portrait */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Landscape */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* ----------- iPad Pro 10.5" ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 834px) and (max-device-width: 1112px)and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Portrait */
+    /* Declare the same value for min- and max-width to avoid colliding with desktops */
+    /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+    @media only screen and (min-device-width: 834px) and (max-device-width: 834px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Landscape */
+    /* Declare the same value for min- and max-width to avoid colliding with desktops */
+    /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+    @media only screen and (min-device-width: 1112px) and (max-device-width: 1112px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* ----------- iPad Pro 12.9" ----------- */
+
+    /* Portrait and Landscape */
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Portrait */
+    /* Declare the same value for min- and max-width to avoid colliding with desktops */
+    /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+    @media only screen   and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* Landscape */
+    /* Declare the same value for min- and max-width to avoid colliding with desktops */
+    /* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+    @media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+    /* ----------- Apple Watch ----------- */
+    @media (max-device-width: 42mm) and (min-device-width: 38mm) { … }
+</style>

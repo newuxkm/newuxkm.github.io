@@ -1,0 +1,13 @@
+<style>
+	/* 가로 화면 비가 1:1 이상일 때 적용. 즉, 화면이 직사각이거나 세로일 때만 적용 */
+	@media screen and (min-aspect-ratio: 1/1) { … }
+
+	/* 뷰포트 너비가 5, 높이가 4 비율이면 실행 */
+	@media all and (aspect-ratio:5/4) { … }
+
+	/* 뷰포트 너비가 5/4 비율 이상이면 실행 */
+	@media all and (min-aspect-ratio:5/4) { … }
+
+	/* 뷰포트 너비가 5/4 비율 이하면 실행 */
+	@media all and (max-aspect-ratio:5/4) { … }
+</style>

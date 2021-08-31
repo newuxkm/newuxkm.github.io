@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible flex-wrap</title>
+		<style>
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			.flexbox{
+				max-width:500px;
+				margin: 0 auto;
+			}
+			.flex-container {
+				margin: 0 auto;
+				padding: 0;
+				border: 1px solid silver;
+				-ms-box-orient: horizontal;
+
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: flex;
+			}
+
+			.nowrap  { 
+				-webkit-flex-wrap: nowrap;
+				flex-wrap: nowrap;
+			}
+
+			.wrap { 
+				-webkit-flex-wrap: wrap;
+				flex-wrap: wrap;
+			}  
+			.wrap li {
+				background: gold;
+			}
+
+			.wrap-reverse { 
+				-webkit-flex-wrap: wrap-reverse;
+				flex-wrap: wrap-reverse;
+			}  
+			.wrap-reverse li {
+				background: deepskyblue;
+			}
+
+			.flex-item {
+				width: 100px;
+				height: 100px;
+				margin: 10px;
+				padding: 5px;
+				background: tomato;
+				color: white;
+				font-weight: bold;
+				font-size: 2em;
+				line-height: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flexbox">
+			<h2>flex-wrap: nowrap</h2>
+			<ul class="flex-container nowrap">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+				<li class="flex-item">5</li>
+				<li class="flex-item">6</li>
+				<li class="flex-item">7</li>
+				<li class="flex-item">8</li>
+			</ul>
+			
+			<h2>flex-wrap: wrap</h2>
+			<ul class="flex-container wrap">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+				<li class="flex-item">5</li>
+				<li class="flex-item">6</li>
+				<li class="flex-item">7</li>
+				<li class="flex-item">8</li>
+			</ul>
+			
+			<h2>flex-wrap: wrap-reverse</h2>
+			<ul class="flex-container wrap-reverse">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+				<li class="flex-item">5</li>
+				<li class="flex-item">6</li>
+				<li class="flex-item">7</li>
+				<li class="flex-item">8</li>
+			</ul>
+		</div>
+	</body>
+</html>

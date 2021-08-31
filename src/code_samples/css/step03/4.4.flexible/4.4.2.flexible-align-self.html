@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible align-self</title>
+		<style>
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			body {
+				background-color: #F5F5F5;
+				color: #555;
+				font-size: 1.1em;
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+
+			.container {
+				position: relative;
+				max-width: 840px;
+				height: 284px;
+				margin: 200px auto 0;
+				padding: 20px;
+				background-color: #594255;
+
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+
+				-webkit-align-items: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+			}
+
+			.line {
+				visibility: hidden;
+				position: absolute;
+				top: 120px;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				border-bottom: 2px solid deepPink;
+			}
+
+			.item {
+				width: 100px;
+				margin: 1%;
+				background-color: #fff;
+				color: #594255;
+				font-weight: bold;
+				font-family: sans-serif;
+				font-size: 4em;
+				line-height: 100px;
+				text-align: center;
+			}
+
+			.big {
+				width: 150px;
+				font-size: 7em;
+			}
+
+			.small {
+				font-size: 2em;
+			}
+
+			.controls {
+				position: fixed;
+				top: 0;
+				right: 0;
+				width: 300px;
+				padding: 20px;
+				border: 1px solid #ddd;
+				background-color: white;
+				line-height: 150%;
+			}
+
+			#three {
+				background-color: salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="container">
+			<div class="item big">1</div>
+			<div class="item">2</div>
+			<div class="item" id="three">3</div>
+			<div class="item big">4</div>
+			<div class="item">5</div>
+			<div class="line" id="line"></div>
+		</div>
+		<div class="controls">
+			<input type="radio" name="align-self" id="flex-start" 
+							onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'flex-start'; 
+											container.style.alignSelf = 'flex-start'; 
+											">
+			<label for="flex-start">align-self: flex-start;</label>
+			<br>
+			<input type="radio" name="align-self" id="flex-end" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'flex-end'; 
+											container.style.alignSelf = 'flex-end'; 
+											">
+			<label for="flex-end">align-self: flex-end;</label>
+			<br>
+			<input type="radio" name="align-self" id="center" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'center'; 
+											container.style.alignSelf = 'center'; 
+											">
+			<label for="center">align-self: center;</label>
+			<br>
+			<input type="radio" name="align-self" id="baseline" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'baseline';
+											container.style.alignSelf = 'baseline';
+											">
+			<label for="baseline">align-self: baseline;</label>
+			<br>
+			<input type="radio" name="align-self" id="stretch" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'stretch'; 
+											container.style.alignSelf = 'stretch'; 
+											">
+			<label for="stretch">align-self: stretch;</label>
+			<br>
+			<input type="radio" name="align-self" id="auto" 
+						 onclick="
+											var container=document.getElementById('three'); 
+											container.style.WebkitAlignSelf = 'auto'; 
+											container.style.alignSelf = 'auto'; 
+											" checked>
+			<label for="auto">align-self: auto;</label>
+		</div>
+	</body>
+</html>

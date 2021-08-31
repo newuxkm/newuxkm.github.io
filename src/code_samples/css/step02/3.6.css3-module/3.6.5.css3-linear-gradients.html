@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 lenear gradients Module</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			
+			div{width:300px;height:300px;margin:20px auto;}
+
+			.box1 {
+				background: red;
+				background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, indigo, purple);
+				background: -moz-linear-gradient(left, red, orange, yellow, green, blue, indigo, purple);
+				background: -o-linear-gradient(left, red, orange, yellow, green, blue, indigo, purple);
+				background: -ms-linear-gradient(left, red, orange, yellow, green, blue, indigo, purple);
+				background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, purple);
+			}
+
+			/* 선형 그래디언트의 진행 방향 설정 - 위쪽에서 아래쪽으로 진행되는 선형 그래디언트 */
+			.box2{
+				background: green;
+				background: -webkit-linear-gradient(green, yellow);
+				background: -moz-linear-gradient(green, yellow);
+				background: -o-linear-gradient(green, yellow);
+				background: -ms-linear-gradient(green, yellow);
+				background: linear-gradient(green, yellow);
+			}
+
+			/* 선형 그래디언트의 진행 방향 설정 - 오른쪽에서 왼쪽으로 진행되는 선형 그래디언트 */
+			.box3{
+				background: green;
+				background: -webkit-linear-gradient(right, green, yellow);
+				background: -moz-linear-gradient(right, green, yellow);
+				background: -o-linear-gradient(right, green, yellow);
+				background: -ms-linear-gradient(right, green, yellow);
+				background: linear-gradient(to left, green, yellow);
+			}
+
+			/* 선형 그래디언트의 진행 방향 설정 - 왼쪽 아래에서 오른쪽 위로 진행되는 선형 그래디언트 */
+			.box4{
+				background: green;
+				background: -webkit-linear-gradient(left bottom, green, yellow);
+				background: -moz-linear-gradient(left bottom, green, yellow);
+				background: -o-linear-gradient(left bottom, green, yellow);
+				background: -ms-linear-gradient(left bottom, green, yellow);
+				background: linear-gradient(to top right, green, yellow);
+			}
+
+			/* 선형 그래디언트의 진행 방향 설정 - 225도의 진행 방향을 가지는 선형 그래디언트 */
+			.box5{
+				background: green;
+				background: -webkit-linear-gradient(225deg, green, yellow);
+				background: -moz-linear-gradient(225deg, green, yellow);
+				background: -o-linear-gradient(225deg, green, yellow);
+				background: linear-gradient(225deg, green, yellow);
+			}
+
+			/* 선형 그래디언트의 투명도 설정 - 왼쪽에서 오른쪽으로 서서히 사라지는 선형 그래디언트 */
+			.box6{
+				background: green;
+				background: -webkit-linear-gradient(left, rgba(0,255,0,1), rgba(0,255,0,0));
+				background: -moz-linear-gradient(left, rgba(0,255,0,1), rgba(0,255,0,0));
+				background: -o-linear-gradient(left, rgba(0,255,0,1), rgba(0,255,0,0));
+				background: linear-gradient(to right, rgba(0,255,0,1), rgba(0,255,0,0));
+			}
+
+			/* repeating-linear-gradient */
+			.box7{
+				background: green;
+				background: -webkit-repeating-linear-gradient(150deg, red, white 10%, blue 20%);
+				background: -moz-repeating-linear-gradient(150deg, red, white 10%, blue 20%);
+				background: -o-repeating-linear-gradient(150deg, red, white 10%, blue 20%);
+				background: repeating-linear-gradient(150deg, red, white 10%, blue 20%);
+			}
+
+			.box8{
+				/* Old browsers */
+					background: #b3cae5;
+				/* FF3.6+ */
+				background: -moz-linear-gradient(-45deg, #b3cae5 12%, #dbdde4 46%, #e4e3e4 70%, #f7ddbb 94%, #efcab2 100%);
+				/* Chrome,Safari4+ */
+				background: -webkit-gradient(linear, left top, right bottom, 
+				color-stop(12%, #b3cae5), 
+				color-stop(46%, #dbdde4), 
+				color-stop(70%, #e4e3e4), 
+				color-stop(94%, #f7ddbb), 
+				color-stop(100%, #efcab2));
+				/* Chrome10+,Safari5.1+ */
+				background: -webkit-linear-gradient(-45deg, #b3cae5 12%, #dbdde4 46%, #e4e3e4 70%, #f7ddbb 94%, #efcab2 100%);
+				/* Opera 11.10+ */
+				background: -o-linear-gradient(-45deg, #b3cae5 12%, #dbdde4 46%, #e4e3e4 70%, #f7ddbb 94%, #efcab2 100%);
+				/* IE10+ */
+				background: -ms-linear-gradient(-45deg, #b3cae5 12%, #dbdde4 46%, #e4e3e4 70%, #f7ddbb 94%, #efcab2 100%);
+				/* W3C */
+				background: linear-gradient(135deg, #b3cae5 12%, #dbdde4 46%, #e4e3e4 70%, #f7ddbb 94%, #efcab2 100%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+		<div class="box4"></div>
+		<div class="box5"></div>
+		<div class="box6"></div>
+		<div class="box7"></div>
+		<div class="box8"></div>
+	</body>
+</html>

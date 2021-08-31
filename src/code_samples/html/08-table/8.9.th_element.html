@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>th element</title>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th abbr="rice">밥류</th>
+					<th abbr="noodle">면류</th>
+					<th abbr="snack">분식류</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>김밥</td>
+					<td>라면</td>
+					<td>떡볶이</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+
+		<table>
+			<thead>
+				<tr>
+					<th id="name" colspan="2">성명</th>
+					<th id="phone" rowspan="2">전화번호</th>
+					<th id="email" rowspan="2">이메일</th>
+					<th id="address" rowspan="2">주소</th>
+				</tr>
+				<tr>
+					<th headers="firstName">성</th>
+					<th headers="secondName">이름</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>홍</td>
+					<td>길동</td>
+					<td>010-1234-5678</td>
+					<td>gildong@example.com</td>
+					<td>서울시 강남구 역삼동</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th scope="col">면류</th>
+					<th scope="col">분식류</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>라면</td>
+					<td>떡볶이</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>우동</td>
+					<td>순대</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+
+		<table>
+			<colgroup>
+				<col>
+				<col>
+				<col>
+				<col>
+			</colgroup>
+			<thead>
+				<tr>
+					<th></th>
+					<th>2008</th>
+					<th>2007</th>
+					<th>2006</th>
+				</tr>
+			<tbody>
+				<tr>
+					<th scope=rowgroup>Research and development</th>
+					<td>$ 1,109</td>
+					<td>$ 782</td>
+					<td>$ 712</td>
+				</tr>
+				<tr>
+					<th scope=row> Percentage of net sales</th>
+					<td>3.4%</td>
+					<td>3.3%</td>
+					<td>3.7%</td>
+				</tr>
+				<tr>
+					<th scope=rowgroup> Selling, general, and administrative</th>
+					<td>$ 3,761</td>
+					<td>$ 2,963</td>
+					<td>$ 2,433</td>
+				</tr>
+				<tr>
+					<th scope=row> Percentage of net sales</th>
+					<td>11.6%</td>
+					<td>12.3%</td>
+					<td>12.6%</td>
+				</tr>
+			<tbody>
+		</table>
+	</body>
+</html>

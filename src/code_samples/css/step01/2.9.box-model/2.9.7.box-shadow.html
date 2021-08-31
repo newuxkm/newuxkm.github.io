@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS box-shadow Properties</title>
+		<style>
+			div {
+				width: 300px;
+				height: 100px;
+				margin: 20px;
+				padding: 15px;
+				background-color: yellow;
+			}
+			/*box-shadow: Inset Horizontal-offset Vertical-offset Blur-Radius Spread Shadow-Color;*/
+			/* Horizontal-offset Vertical-offset */
+			div:nth-of-type(1) {
+				box-shadow: 10px 10px;
+			}
+			/* Horizontal-offset Vertical-offset Shadow-Color */
+			div:nth-of-type(2) {
+				box-shadow: 10px 10px blue;
+			}
+			/* Horizontal-offset Vertical-offset Blur-Radius Shadow-Color */
+			div:nth-of-type(3) {
+				box-shadow: 10px 10px 5px blue;
+			}
+			/* Horizontal-offset Vertical-offset Blur-Radius Spread Shadow-Color */
+			div:nth-of-type(4) {
+				box-shadow: 10px 10px 5px 5px blue;
+			}
+			/* Inset Horizontal-offset Vertical-offset Blur-Radius Spread Shadow-Color */
+			div:nth-of-type(5) {
+				box-shadow: inset 10px 10px 5px 5px blue;
+			}
+			/* Horizontal-offset Vertical-offset Blur-Radius Spread Shadow-Color */
+			div:nth-of-type(6) {
+				background-color: white;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			}
+		</style>
+	</head>
+	<body>
+		<div>This is a div element with a box-shadow</div>
+		<div>This is a div element with a box-shadow</div>
+		<div>This is a div element with a box-shadow</div>
+		<div>This is a div element with a box-shadow</div>
+		<div>This is a div element with a box-shadow</div>
+		<div>This is a div element with a box-shadow</div>
+	</body>
+</html>

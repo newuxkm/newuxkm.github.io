@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 multi-column columns</title>
+		<style>
+			*{margin:0;padding:0;list-style:none;box-sizing:border-box;}
+			body {
+				padding: 1em;
+				background: #ecf0f1;
+				color: #333;
+				font-size: 12px;
+				font-family: 'Georgia', serif;
+				font-weight: 400;
+				line-height: 1.45;
+			}
+
+			.nav {
+				-webkit-columns: 100px 4;
+				-moz-columns: 100px 4;
+				-ms-columns: 100px 4;
+				columns: 100px 4;
+
+				-webkit-column-gap: 0;
+				-moz-column-gap: 0;
+				-ms-column-gap: 0;
+				column-gap: 0;
+
+				-webkit-column-rule: 1px solid #1a242f;
+				-moz-column-rule: 1px solid #1a242f;
+				-ms-column-rule: 1px solid #1a242f;
+				column-rule: 1px solid #1a242f;
+
+				background: #2c3e50;
+			}
+
+			.nav a {
+				display: block;
+				padding: 1em;
+				border-bottom: 1px solid #1a242f;
+				color: white;
+				text-align: center;
+				text-decoration: none;
+			}
+			.nav a:hover {
+				background: #1a242f;
+			}
+
+			.example {
+				-webkit-columns: 4 150px;
+				-moz-columns: 4 150px;
+				-ms-columns: 4 150px;
+				columns: 4 150px;
+
+				-webkit-column-gap: 2em;
+				-moz-column-gap: 2em;
+				-ms-column-gap: 2em;
+				column-gap: 2em;
+			}
+
+			.example h1 {
+				-webkit-column-span: all;
+				-moz-column-span: all;
+				-ms-column-span: all;
+				column-span: all;
+
+				margin-bottom: 0.5em;
+				font-size: 2em;
+				line-height: 1.2;
+			}
+
+			.example p {
+				margin-bottom: 1.3em;
+				text-align: justify;
+			}
+
+			.example .lead {
+				font-variant: small-caps;
+				font-size: 1.3em;
+				text-align: left;
+				font-style: italic;
+			}
+
+			.content-box {
+				-webkit-columns: 3 auto;
+				-moz-columns: 3 auto;
+				columns: 3 auto;
+
+				width:500px;
+				margin:40px auto;
+				padding:40px;
+				border:1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="nav">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Clients</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+
+		<div class="example">
+			<h1>Sed dignissim lacinia nunc</h1>
+			<p class="lead">Aenean quam. In scelerisque sem at dolor. Sed convallis tristique sem.</p>
+			<p>Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. </p>
+			<p>Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  </p>
+		
+			<p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. </p>
+		
+			<p>Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus.  </p>
+		</div>
+
+		<p class="content-box">
+			This is a bunch of text split into three columns
+			using the CSS `columns` property. The text
+			is equally distributed over the columns.
+		</p>
+	</body>
+</html>

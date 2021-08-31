@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>웹페이지 문서 제목입니다</title>
+	</head>
+	<body>
+		<h1>문서 제목 입니다.</h1>
+		<p>문서 단락 내용입니다.</p>
+	</body>
+</html>
+
+<style>
+    html, body {height:100%;}
+    html {
+        overflow-y:scroll; overflow-x:hidden !important;
+        width:100%; height:100em;
+        /*background:url('@{bg-url}/main_top_bg.jpg') no-repeat left top;
+        background-color:#000;*/
+        background-size:auto 100%;
+        background-attachment:fixed;
+        transition:background-color .4s;
+        /*background: -webkit-linear-gradient(left, #1e73ff, green);
+        background: linear-gradient(left, #1e73ff, green)*/
+    }
+</style>
+
+<div id="me" data-my-name="Heropy" data-my-age="851">Heropy</div>
+
+<script>
+  // dataset.customDataAttributes
+  const $me = document.getElementById('me');
+  console.log($me.dataset.myName); // "Heropy"
+  console.log($me.dataset.myAge); // "851"
+</script>

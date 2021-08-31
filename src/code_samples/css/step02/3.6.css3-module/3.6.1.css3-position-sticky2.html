@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 position:sticky</title>
+		<style>
+			* {margin:0;padding:0;box-sizing:border-box;}
+			body{height:5000px;}
+
+
+			.sticky {
+				position: sticky;
+				position: -webkit-sticky;
+				top: 30px;
+				color: #fff;
+				font: 90px sans-serif;
+				text-align: center;
+			}
+			.block-1, .block-3 {
+				height: 1000px;
+				padding: 70px 20px;
+				background-size: cover;
+				background-image: url('/ukncs/tutorials/css/step02/3.6.css3-module/img1.jpg');
+				background-position: center;
+			}
+			.block-2 {
+				height: 1000px;
+				background: url('/ukncs/tutorials/css/step02/3.6.css3-module/img2.jpg') no-repeat fixed;
+				background-size: cover;
+				background-position: center;
+				color:#fff;
+				font-size:90px;
+				text-align:center;
+				text-shadow:0 0 5px rgba(0,0,0,.5);
+			}
+			.block-3 {
+				background-image: url('/ukncs/tutorials/css/step02/3.6.css3-module/img3.jpg');
+			}
+			.block-4{
+				height:500px;
+				background-color:aqua;
+				font-size:90px;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="block-1">
+			<div class="sticky">HTML</div>
+		</div>
+		<div class="block-2">
+			Parallax scrolling &amp; sticky
+		</div>
+		<div class="block-3">
+			<div class="sticky">CSS</div>
+		</div>
+		<div class="block-4">
+			Contents
+		</div>
+	</body>
+</html>

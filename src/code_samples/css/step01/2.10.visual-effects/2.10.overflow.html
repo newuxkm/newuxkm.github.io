@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS overflow Properties</title>
+		<style>
+			div{width:500px;margin:0 auto;}
+			div::after{content:"";display:table;width:100%;}
+			p{float:left;width:200px;height:200px;margin:40px auto;border:dotted;}
+			p:nth-child(2n){float:right;}
+			p:nth-child(2n+1){clear:both;}
+			code{font-size:18px;font-weight:700;}
+
+			/* overflow */
+			.visible{overflow:visible;}
+			.hidden{overflow:hidden;}
+			.scroll{overflow:scroll;}
+			.auto{overflow:auto;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p class="visible">
+				<code>overflow:visible</code>
+				overflow 속성은 해당 요소의 크기에서 내용이 넘칠 경우 어떻게 보여줄것인지 결정.
+				visibility 속성은 해당 요소를 보여줄것인지 아닐지 결정.
+				visibility 속성과 display 속성의 숨김 제어 여부차이점은
+				display 속성은 해당 요소의 영역자체를 숨겨버리고
+				visibility 속성은 해당 요소의 영역은 남아있고 내용만 안보이게 처리함.
+			</p>
+			<p class="hidden">
+				<code>overflow:hidden</code>
+				overflow 속성은 해당 요소의 크기에서 내용이 넘칠 경우 어떻게 보여줄것인지 결정.
+				visibility 속성은 해당 요소를 보여줄것인지 아닐지 결정.
+				visibility 속성과 display 속성의 숨김 제어 여부차이점은
+				display 속성은 해당 요소의 영역자체를 숨겨버리고
+				visibility 속성은 해당 요소의 영역은 남아있고 내용만 안보이게 처리함.
+			</p>
+			<p class="scroll">
+				<code>overflow:scroll</code>
+				overflow 속성은 해당 요소의 크기에서 내용이 넘칠 경우 어떻게 보여줄것인지 결정.
+				visibility 속성은 해당 요소를 보여줄것인지 아닐지 결정.
+				visibility 속성과 display 속성의 숨김 제어 여부차이점은
+				display 속성은 해당 요소의 영역자체를 숨겨버리고
+				visibility 속성은 해당 요소의 영역은 남아있고 내용만 안보이게 처리함.
+			</p>
+			<p class="auto">
+				<code>overflow:auto</code>
+				overflow 속성은 해당 요소의 크기에서 내용이 넘칠 경우 어떻게 보여줄것인지 결정.
+				visibility 속성은 해당 요소를 보여줄것인지 아닐지 결정.
+				visibility 속성과 display 속성의 숨김 제어 여부차이점은
+				display 속성은 해당 요소의 영역자체를 숨겨버리고
+				visibility 속성은 해당 요소의 영역은 남아있고 내용만 안보이게 처리함.
+			</p>
+		</div>
+	</body>
+</html>

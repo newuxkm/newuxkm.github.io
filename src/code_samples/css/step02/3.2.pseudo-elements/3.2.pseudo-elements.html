@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Pseudo-elements</title>
+		<style>
+			/* p 요소 콘텐츠의 첫글자를 선택 */
+			p::first-letter{font-size:3em;}
+			/* p 요소 콘텐츠의 첫줄을 선택 */
+			p::first-line{color:red;}
+	
+			/* h1 요소 콘텐츠의 앞 공간에 content 어트리뷰트 값을 삽입한다 */
+			h1::before{
+				content:" HTML!!! ";
+				color:blue;
+			}
+			/* h1 요소 콘텐츠의 뒷 공간에 content 어트리뷰트 값을 삽입한다 */
+			h1::after{
+				content:" CSS3!!!";
+				color:red;
+			}
+
+			/* 드래그한 콘텐츠를 선택한다 */
+			::selection{
+				color:red;
+				background:yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>This is a heading</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+			Explicabo illum sunt distinctio sed, tempore, repellat rerum et ea laborum voluptatum! Quisquam error fugiat debitis maiores officiis, 
+			tenetur ullam amet in!</p>
+	</body>
+</html>

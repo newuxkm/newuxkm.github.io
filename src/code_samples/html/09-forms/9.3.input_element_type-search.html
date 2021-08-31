@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>input_element type="search"</title>
+	</head>
+	<body>
+		<form>
+			<label>검색 <input type="search" name="q"></label>
+			<input type="submit">
+		</form>
+		<hr>
+
+		<form>
+			<div>
+				<label for="mySearch">Search for product by ID:</label>
+				<input type="search" id="mySearch" name="q"
+					   placeholder="two letters followed by four numbers" required
+					   size="30" pattern="[A-z]{2}[0-9]{4}">
+				<button>Search</button>
+				<span class="validity"></span>
+			</div>
+		</form>
+	</body>
+</html>

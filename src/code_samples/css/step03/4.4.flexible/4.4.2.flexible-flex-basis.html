@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible flex-basis</title>
+		<style>
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			body {
+				padding: 20px;
+				background-color: #F5F5F5;
+				color: #555;
+				font-size: 1.1em;
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+
+			.demo-wrapper {
+				max-width: 840px;
+				margin: 0 auto;
+				padding: 1em;
+			}
+
+			.container {
+				width: 100%;
+				padding: 1em;
+				margin: 30px auto;
+				background-color: #594255;
+
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+			}
+
+			.item {
+				height: 100px;
+				margin: 2px;
+				background-color: #fff;
+				color: #594255;
+				line-height: 100px;
+				font-weight: bold;
+				font-family: sans-serif;
+				font-size: 3em;
+				text-align: center;
+
+				-webkit-flex: 0 1 400px;
+				/* flex-grow and flex-shrink are set so that the items neither grow nor shrink */
+				-webkit-box-flex: 0;
+				-ms-flex: 0 1 400px;
+				flex: 0 1 400px;
+				/* flex-grow and flex-shrink are set so that the items neither grow nor shrink */
+			}
+
+			.controls {
+				overflow: hidden;
+				margin: 0 auto;
+				padding: 20px;
+				border: 1px solid #ddd;
+				background-color: white;
+				line-height: 150%;
+			}
+
+			.instructions {
+				clear: both;
+			}
+
+			table {
+				float: left;
+				min-width: 200px;
+				margin: 1em 1em 2em 1em;
+			}
+			/*
+			table:last-of-type {
+			float: right;
+			}
+			*/
+		</style>
+		<script>
+			var containerWidth = document.getElementById("container").offsetWidth,
+					value = document.getElementById("containerWidth");
+
+			value.innerHTML = containerWidth + 'px';
+		</script>
+	</head>
+	<body>
+		<div class="demo-wrapper">
+			<div class="container" id="container">
+				<div class="item" id="one">1</div>
+				<div class="item" id="two">2</div>
+			</div>
+			<div class="controls">
+				<table>
+					<caption>Control element One (1)</caption>
+					<tr>
+						<td>flex-basis:</td>
+						<td><input type="text" value="0" onkeyup="var item=document.getElementById('one'); item.style.WebkitFlexBasis = this.value; item.style.flexBasis = this.value;"></td>
+					</tr>
+					<tr>
+						<td>flex-grow</td>
+						<td><input type="text" value="0" onkeyup="var item=document.getElementById('one'); item.style.WebkitFlexGrow = this.value; item.style.flexGrow = this.value;"></td>
+					</tr>
+					<tr>
+						<td>flex-shrink</td>
+						<td><input type="text" value="0" onkeyup="var item=document.getElementById('one'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+					</tr>
+				</table>
+				<table>
+					<caption>Control element Two (2)</caption>
+					<tr>
+						<td>flex-basis:</td>
+						<td><input type="text" value="0" onkeyup="var item=document.getElementById('two'); item.style.WebkitFlexBasis = this.value; item.style.flexBasis = this.value;"></td>
+					</tr>
+					<tr>
+						<td>flex-grow</td>
+						<td><input type="text" value="0" onkeyup="var item=document.getElementById('two'); item.style.WebkitFlexGrow = this.value; item.style.flexGrow = this.value;"></td>
+					</tr>
+					<tr>
+						<td>flex-shrink</td>
+						<td><input type="text" value="0" onkeyup="var item=document.getElementById('two'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+					</tr>
+				</table>
+				<p class="instructions"><em><small>Note that flex-shrink has no effect when there is positive space in the container. To use it, set the flex basis on both elements such that the sum of the widths is greater than the width of the container.</small></em></p>
+				<p><p>Container width: <strong id="containerWidth"></strong></p></p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS list-style-type Properties</title>
+		<style>
+			section{width:600px;margin:0 auto;}
+			section h2{padding:10px 0;border-bottom:2px solid #ddd;text-align:center;}
+			article{width:600px;margin:10px auto;padding:10px;border:2px solid #000;}
+
+			/* list-style-type */
+			.numeric{list-style-type:decimal-leading-zero;}
+			.alphabetic{list-style-type:lower-alpha;}
+			.symbolic{list-style-type:square;}
+		</style>
+	</head>
+	<body>
+		<section>
+			<h2>list-style-type 속성 예시</h2>
+			<article>
+				<h3>list-style-type:decimal-leading-zero</h3>
+				<ul class="numeric">
+					<li>decimal : (e.g., 1, 2, 3, ..., 98, 99, 100).</li>
+					<li>decimal-leading-zero : (e.g., 01, 02, 03, ..., 98, 99, 100).</li>
+					<li>arabic-indic : (e.g., ١‎, ٢‎, ٣‎, ٤‎, ..., ٩٨‎, ٩٩‎, ١٠٠‎).</li>
+					<li>armenian, upper-armenian : (e.g., Ա, Բ, Գ, ..., ՂԸ, ՂԹ, Ճ).</li>
+					<li>lower-armenian : (e.g., ա, բ, գ, ..., ղը, ղթ, ճ).</li>
+					<li>bengali : (e.g., ১, ২, ৩, ..., ৯৮, ৯৯, ১০০).</li>
+					<li>cambodian, khmer : (e.g., ១, ២, ៣, ..., ៩៨, ៩៩, ១០០).</li>
+					<li>devanagari : (e.g., १, २, ३, ..., ९८, ९९, १००).</li>
+					<li>georgian : (e.g., ა, ბ, გ, ..., ჟჱ, ჟთ, რ).</li>
+					<li>gujarati : (e.g., ૧, ૨, ૩, ..., ૯૮, ૯૯, ૧૦૦).</li>
+					<li>gurmukhi : (e.g., ੧, ੨, ੩, ..., ੯੮, ੯੯, ੧੦੦).</li>
+					<li>hebrew : (e.g., א‎, ב‎, ג‎, ..., צח‎, צט‎, ק‎).</li>
+					<li>kannada : (e.g., ೧, ೨, ೩, ..., ೯೮, ೯೯, ೧೦೦).</li>
+					<li>lao : (e.g., ໑, ໒, ໓, ..., ໙໘, ໙໙, ໑໐໐).</li>
+					<li>malayalam : (e.g., ൧, ൨, ൩, ..., ൯൮, ൯൯, ൧൦൦).</li>
+					<li>mongolian : (e.g., ᠑, ᠒, ᠓, ..., ᠙᠘, ᠙᠙, ᠑᠐᠐).</li>
+					<li>myanmar : (e.g., ၁, ၂, ၃, ..., ၉၈, ၉၉, ၁၀၀).</li>
+					<li>oriya : (e.g., ୧, ୨, ୩, ..., ୯୮, ୯୯, ୧୦୦).</li>
+					<li>persian : (e.g., ۱, ۲, ۳, ۴, ..., ۹۸, ۹۹, ۱۰۰).</li>
+					<li>lower-roman : (e.g., i, ii, iii, ..., xcviii, xcix, c).</li>
+					<li>upper-roman : (e.g., I, II, III, ..., XCVIII, XCIX, C).</li>
+					<li>tamil : (e.g., ௧, ௨, ௩, ..., ௯௮, ௯௯, ௧௦௦).</li>
+					<li>thai : (e.g., ๑, ๒, ๓, ..., ๙๘, ๙๙, ๑๐๐).</li>
+					<li>tibetan : (e.g., ༡, ༢, ༣, ..., ༩༨, ༩༩, ༡༠༠).</li>
+				</ul>
+				<h3>list-style-type:lower-alpha</h3>
+				<ul class="alphabetic">
+					<li>lower-alpha, lower-latin : (e.g., a, b, c, ..., z, aa, ab).</li>
+					<li>upper-alpha, upper-latin : (e.g., A, B, C, ..., Z, AA, AB).</li>
+					<li>cjk-earthly-branch : (e.g., 子, 丑, 寅, ..., 亥, 子子, 子丑).</li>
+					<li>cjk-heavenly-stem : (e.g., 甲, 乙, 丙, ..., 癸, 甲甲, 甲乙).</li>
+					<li>lower-greek : (e.g., α, β, γ, ..., ω, αα, αβ).</li>
+					<li>hiragana : (e.g., あ, い, う, ..., ん, ああ, あい).</li>
+					<li>hiragana-iroha : (e.g., い, ろ, は, ..., す, いい, いろ).</li>
+					<li>katakana : (e.g., ア, イ, ウ, ..., ン, アア, アイ).</li>
+					<li>katakana-iroha : (e.g., イ, ロ, ハ, ..., ス, イイ, イロ)</li>
+				</ul>
+				<h3>list-style-type:square</h3>
+				<ul class="symbolic">
+					<li>disc : • U+2022 BULLET.</li>
+					<li>circle : ◦ U+25E6 WHITE BULLET.</li>
+					<li>square : ◾ U+25FE BLACK MEDIUM SMALL SQUARE.</li>
+					<li>list-style-type: "\1F44D"; // thumbs up sign</li>
+				</ul>
+			</article>
+		</section>
+	</body>
+</html>

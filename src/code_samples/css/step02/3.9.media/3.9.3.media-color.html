@@ -1,0 +1,19 @@
+<style>
+	/* 출력 장치가 컬러를 지원하면 실행 */
+	@media all and (color) { … }
+
+	/* 출력 장치가 컬러가 아니면 실행 */
+	@media all and (color:0) { … }
+
+	/* 출력 장치가 4비트 이하 색상이면 실행 */
+	@media all and (min-color: 4) { … }
+
+	/* 출력 장치가 8비트 색상이면 실행 */
+	@media all and (color:8) { … }
+
+	/* 출력 장치가 8비트 이상 색상이면 실행 */
+	@media all and (min-color:8) { … }
+
+	/* 출력 장치가 8비트 이하 색상이면 실행 */
+	@media all and (max-color:8) { … }
+</style>

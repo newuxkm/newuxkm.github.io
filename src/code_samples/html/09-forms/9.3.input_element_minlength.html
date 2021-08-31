@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>input_element minlength</title>
+	</head>
+	<body>
+		<!--
+		minlength 속성을 사용하여 입력 된 값의 최소 길이 (문자)를 지정할 수 있습니다.
+		마찬가지로 maxlength 를 사용하여 입력 된 값의 최대 길이를 문자로 설정할 수 있습니다.
+		아래 예에서는 입력 된 값이 4-8 자 여야합니다.
+		4 자 미만의 양식을 제출하려고하면 적절한 오류 메시지 (브라우저마다 다름)가 표시됩니다.
+		8 자 이상을 입력하려고하면 브라우저에서 알려주지 않습니다.
+		minlength 를 지정하고 required를 지정하지 않으면 사용자가 값을 지정할 필요가 없으므로 입력이 유효한 것으로 간주됩니다.
+		-->
+		<form>
+			<div>
+				<label for="uname">Choose a username: </label>
+				<input type="text" id="uname" name="name" required size="10" placeholder="Username" minlength="4" maxlength="8">
+				<span class="validity"></span>
+			</div>
+			<div>
+				<button>Submit</button>
+			</div>
+		</form>
+	</body>
+</html>

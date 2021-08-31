@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Flexbox Navigation</title>
+		<style>
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			body {
+				background-color: #eee;
+				color: #555;
+				font-size: 1.1em;
+				font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			}
+
+			header {
+				background-color: white;
+			}
+
+			.navigation {
+				margin: 0;
+				padding: 0;
+				background-color: #594255;
+				color: #eee;
+
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+
+				-webkit-justify-content: space-between;
+				-webkit-box-pack: justify;
+				-ms-flex-pack: justify;
+				justify-content: space-between;
+			}
+
+			li {
+				padding: 1em;
+			}
+
+			@media screen and (max-width: 430px) {
+				.navigation {
+					-webkit-flex-direction: column;
+					-webkit-box-orient: vertical;
+					-webkit-box-direction: normal;
+					-ms-flex-direction: column;
+					flex-direction: column;
+				}
+				li {
+					text-align: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<ul class="navigation">
+				<li><a>Home</a></li>
+				<li><a>Articles</a></li>
+				<li><a>Solutions</a></li>
+				<li><a>About</a></li>
+				<li><a>Contact</a></li>
+			</ul>
+		</header>
+	</body>
+</html>

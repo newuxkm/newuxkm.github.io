@@ -1,0 +1,17 @@
+<style>
+	/* 최상위 코드 레벨 */
+	@media screen and (min-width: 900px) {
+		article {
+			padding: 1rem 3rem;
+		}
+	}
+
+	/* 다른 조건부 @규칙 내에 중첩 */
+	@supports (display: flex) {
+		@media screen and (min-width: 900px) {
+			article {
+				display: flex;
+			}
+		}
+	}
+</style>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 @font-face</title>
+		<style>
+			/* @font-face 사용 예시 */
+			@font-face {
+				font-family: 'MyWebFont';
+				src: url('/ukncs/fonts/webfont.eot'); /* IE9 Compat Modes */
+				src: url('/ukncs/fonts/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('/ukncs/fonts/webfont.woff2') format('woff2'), /* Super Modern Browsers */
+				url('/ukncs/fonts/webfont.woff') format('woff'), /* Pretty Modern Browsers */
+				url('/ukncs/fonts/webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+				url('/ukncs/fonts/webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+			}
+
+			/* 영문과 숫자에만 적용되는 웹 폰트 unicode-range 적용 예시 */
+			@font-face {
+				font-family:'Montserrat-Regular';
+				src:url('/ukncs/fonts/Montserrat-Regular.eot');
+				src:url('/ukncs/fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+				url('/ukncs/fonts/Montserrat-Regular.woff2') format('woff2'),
+				url('/ukncs/fonts/Montserrat-Regular.woff') format('woff'),
+				url('/ukncs/fonts/Montserrat-Regular.svg#Montserrat-Regular') format('svg');
+				font-weight:400;
+				font-style:normal;
+				/*unicode-range: U+002C, U+0030-0039, U+002E-002E, U+0020, U+0020, U+0041, U+005A, U+0061, U+007A;*/
+			}
+			@font-face {
+				font-family:'Montserrat-Bold';
+				src:url('/ukncs/fonts/Montserrat-Bold.eot');
+				src:url('/ukncs/fonts/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+				url('/ukncs/fonts/Montserrat-Bold.woff2') format('woff2'),
+				url('/ukncs/fonts/Montserrat-Bold.woff') format('woff'),
+				url('/ukncs/fonts/Montserrat-Bold.svg#Montserrat-Bold') format('svg');
+				font-weight:700;
+				font-style:normal;
+				/*unicode-range: U+002C, U+0030-0039, U+002E-002E, U+0020, U+0020, U+0041, U+005A, U+0061, U+007A;*/
+			}
+
+			.font-Montserrat-Regular * {font-family:'Montserrat-Regular', sans-serif;}
+			.font-Montserrat-Bold * {font-family:'Montserrat-Bold', sans-serif;}
+
+			.font-box * {margin:0; padding:0;}
+		</style>
+	</head>
+	<body>
+		<div class="font-box font-Montserrat-Regular">
+			<h6>Montserrat-Regular 적용</h6>
+			<h5>Montserrat-Regular 적용</h5>
+			<h4>Montserrat-Regular 적용</h4>
+			<h3>Montserrat-Regular 적용</h3>
+			<h2>Montserrat-Regular 적용</h2>
+			<h1>Montserrat-Regular 적용</h1>
+			<p>
+				1234567890<br>
+				가나다라마바사아자차카타파하<br>
+				abcdefghijklmnopqrstuvwxyz<br>
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+			</p>
+		</div>
+		<hr>
+		<div class="font-box font-Montserrat-Bold">
+			<h6>Montserrat-Bold 적용</h6>
+			<h5>Montserrat-Bold 적용</h5>
+			<h4>Montserrat-Bold 적용</h4>
+			<h3>Montserrat-Bold 적용</h3>
+			<h2>Montserrat-Bold 적용</h2>
+			<h1>Montserrat-Bold 적용</h1>
+			<p>
+				1234567890<br>
+				가나다라마바사아자차카타파하<br>
+				abcdefghijklmnopqrstuvwxyz<br>
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+			</p>
+		</div>
+	</body>
+</html>

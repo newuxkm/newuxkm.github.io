@@ -1,0 +1,26 @@
+<style>
+	.boxwrap {
+		position: relative;
+		width: 200px;
+		height: 200px;
+		margin: 100px;
+		padding: 10px;
+		border: 1px solid black;
+	}
+	.box {
+		position: absolute;
+		padding: 50px;
+		border: 1px solid black;
+		background-color: red;
+		-webkit-transform: rotate(45deg);	/* Safari 3-8 */
+		-webkit-transform-origin: 20% 40%;	/* Safari 3-8 */
+		-ms-transform: rotate(45deg);		/* IE 9 */
+		-ms-transform-origin: 20% 40%;		/* IE 9 */
+		transform: rotate(45deg);
+		transform-origin: 20% 40%;
+	}
+</style>
+
+<div class="boxwrap">
+	<div class="box">HELLO</div>
+</div>

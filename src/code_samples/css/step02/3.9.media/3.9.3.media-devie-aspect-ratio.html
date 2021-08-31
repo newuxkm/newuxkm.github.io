@@ -1,0 +1,13 @@
+<style>
+	/* 장치 가로 세로 비가 16:9일 때 적용 */
+	@media screen and (device-aspect-ratio: 16/9) { … }
+
+	/* 스크린 너비가 5, 높이가 4 비율이면 실행 */
+	@media all and (device-aspect-ratio:5/4) { … }
+
+	/* 스크린 너비가 5/4 비율 이상이면 실행 */
+	@media all and (min-device-aspect-ratio:5/4) { … }
+
+	/* 스크린 너비가 5/4 비율 이하면 실행 */
+	@media all and (max-device-aspect-ratio:5/4) { … }
+</style>

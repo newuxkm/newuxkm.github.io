@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 :empty Structural pseudo-class</title>
+		<style>
+			.box{width:80px;height:80px;background:pink;}
+			.box:empty{background:lime;}
+		</style>
+	</head>
+	<body>
+		<div class="box"><!-- I will be lime. --></div>
+		<div class="box">I will be pink.</div>
+		<div class="box">
+			<!-- I will be pink in older browsers because of the whitespace around this comment. -->
+		</div>
+		<div class="box">
+			<p><!-- I will be pink in all browsers because of the non-collapsible whitespace and elements around this comment. --></p>
+		</div>
+	</body>
+</html>

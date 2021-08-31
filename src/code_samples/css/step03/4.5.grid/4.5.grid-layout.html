@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>UXKM CSS3 grid layout</title>
+	<style>
+		*{margin:0;padding:0;box-sizing:border-box;}
+		.support {
+			align-items: center;
+			background: tomato;
+			color: #fff;
+			display: flex;
+			font-size: .9rem;
+			padding: 0 10px 0 0;
+			position: fixed;
+			right: 0;
+			top: 0;
+			width: auto;
+			z-index: 100;
+		}
+		.support a {
+			color: #fff;
+			padding: 10px 0;
+			text-decoration: none;
+		}
+		@supports (display: grid) {
+			.support {
+				background: #058a6e;
+				right: 40px;
+				-webkit-transform: translateX(100%);
+								transform: translateX(100%);
+				transition: right .5s ease-in-out, -webkit-transform .5s ease-in-out;
+				transition: right .5s ease-in-out, transform .5s ease-in-out;
+				transition: right .5s ease-in-out, transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+			}
+			.support:hover {
+				right: 0;
+				-webkit-transform: translateX(0%);
+								transform: translateX(0%);
+			}
+		}
+
+		.support svg {
+			fill: #ffffff;
+			height: 30px;
+			margin-right: 5px;
+			padding: 5px;
+			width: 30px;
+		}
+
+		.unsupported {
+			display: block;
+		}
+		@supports (display: grid) {
+			.unsupported {
+				display: none;
+			}
+		}
+
+		.supported {
+			display: none;
+		}
+		@supports (display: grid) {
+			.supported {
+				display: block;
+			}
+		}
+
+		main {
+			display: grid;
+			grid-gap: 2px;
+			grid-template-columns: 1fr 1fr;
+			grid-auto-rows: minmax(21vh, 1fr);
+		}
+		@media (min-width: 34em) {
+			main {
+				grid-template-columns: minmax(3rem, 1fr) minmax(50px, 100px) minmax(50%, 70ch) minmax(50px, 100px) minmax(3rem, 1fr);
+			}
+		}
+
+		main div:nth-of-type(1) {
+			background-color: #800f8a;
+			grid-column: 1;
+			grid-row: 1;
+		}
+		main div:nth-of-type(2) {
+			background-color: #750f8a;
+			grid-column: 2;
+		}
+		@media (min-width: 34em) {
+			main div:nth-of-type(2) {
+				grid-row: 1 / span 2;
+			}
+		}
+		main div:nth-of-type(3) {
+			background-color: rgba(107, 15, 138, 0.6);
+		}
+		@media (min-width: 34em) {
+			main div:nth-of-type(3) {
+				grid-column: 3;
+				grid-row: 1 / span 3;
+			}
+		}
+		main div:nth-of-type(4) {
+			background-color: #610f8a;
+		}
+		main div:nth-of-type(5) {
+			background-color: #570f8a;
+		}
+		main div:nth-of-type(6) {
+			background-color: #4d0f8a;
+		}
+		main div:nth-of-type(7) {
+			background-color: #420f8a;
+		}
+		main div:nth-of-type(8) {
+			background-color: rgba(56, 15, 138, 0.6);
+		}
+		@media (min-width: 34em) {
+			main div:nth-of-type(8) {
+				grid-column: 2 / 5;
+				grid-row: 3 / 4;
+			}
+		}
+		main div:nth-of-type(9) {
+			background-color: #2e0f8a;
+		}
+		main div:nth-of-type(10) {
+			background-color: #240f8a;
+		}
+		main div:nth-of-type(11) {
+			background-color: #1a0f8a;
+		}
+		main div:nth-of-type(12) {
+			background-color: #0f0f8a;
+		}
+		@media (min-width: 34em) {
+			main div:nth-of-type(12) {
+				grid-column: 1 / -1;
+				justify-self: stretch;
+			}
+		}
+
+		body {
+			background-color: #fff;
+			color: #5e5c66;
+			font-family: 'Nixie One', sans-serif;
+			line-height: 1;
+		}
+
+		main {
+			margin: 2vw 0;
+		}
+		main div {
+			color: #fff;
+			padding: 1rem;
+		}
+
+		h1, h2 {
+			margin: 0;
+		}
+
+		h1 {
+			font-family: 'Libre Baskerville';
+			font-size: 4rem;
+			font-weight: 700;
+		}
+
+		h2 {
+			color: #595B5A;
+			font-size: 1.5rem;
+			font-weight: 400;
+		}
+
+		header {
+			text-align: center;
+			padding: 2rem 0 0 0;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<h1>CSS Grid</h1>
+		<h2>A true layout tool for the web</h2>
+	</header>
+	<main>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+		<div>9</div>
+		<div>10</div>
+		<div>11</div>
+		<div>12</div>
+	</main>
+</body>
+</html>

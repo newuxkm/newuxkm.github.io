@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 :nth-child Structural pseudo-class</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			h1{margin-bottom:15px;padding:15px 0;border-bottom:1px solid #000;font-size:18px;text-align:center;}
+			h2{font-size:18px;text-align:center;}
+			ul{text-align:center;list-style:none;}
+			li{margin:10px 0;border:1px solid #000;}
+			strong{display:block;background-color:#f5f5f5;}
+			.note{display:block;width:100%;height:auto;border:0;line-height:1.5;text-align:left;}
+			.box{display:table;width:100%;}
+			span,p{display:table-cell;width:10%;height:50px;border:1px solid #000;line-height:50px;text-align:center;}
+
+			/* :nth-child(even) = :nth-child(2n) 짝수 요소를 선택 */
+			.type1 .box :nth-child(even){background-color:yellowgreen;}
+
+			/* :nth-child(odd) = :nth-child(2n+1) 홀수 요소를 선택 */
+			.type2 .box :nth-child(odd){background-color:yellowgreen;}
+
+			/* :nth-child(5) = n번째 요소(0n + 5) 목록에서 5 번째 항목을 선택 */
+			.type3 .box :nth-child(5){background-color:yellowgreen;}
+
+			/* :nth-child(3n) - n번째 요소(3n) 목록에서 모든 세 번째 항목을 선택 */
+			.type4 .box :nth-child(3n){background-color:yellowgreen;}
+
+			/* :nth-child(3n+1) = n번째 요소(3n + 1) 리스트의 3 번째 요소를 모두 선택하고 한 단계 앞으로 이동 */
+			.type5 .box :nth-child(3n+1){background-color:yellowgreen;}
+
+			/* :nth-child(3n-1) = n번째 요소(3n - 1) 리스트의 3 번째 요소를 모두 선택하고 한 단계 뒤로 이동 */
+			.type6 .box :nth-child(3n-1){background-color:yellowgreen;}
+
+			/* :nth-child(n+6) = n번째 요소(n + 6) 목록에서 6 번째 항목부터 모든 항목을 선택 */
+			.type7 .box :nth-child(n+6){background-color:yellowgreen;}
+
+			/* :nth-child(-n+6) = n번째 요소(-n + 6) 목록 시작 부분에서 6 개의 항목을 선택 */
+			.type8 .box :nth-child(-n+6){background-color:yellowgreen;}
+
+			/* :nth-child(n+3):nth-child(-n+8) 3에서 8 사이의 항목을 선택. */
+			.type9 .box :nth-child(n+3):nth-child(-n+8){background-color:blueviolet;}
+
+			/* :nth-child(n+4):nth-child(even) 4 번째 요소를 선택한 다음 짝수 만 선택. */
+			.type10 .box :nth-child(n+4):nth-child(even){background-color:blueviolet;}
+
+			/* :nth-child(3n+1):nth-child(even) 1 번째, 4 번째, 7 번째 및 10 번째 요소를 선택한 다음 이들 중 짝수만 선택. */
+			.type11 .box :nth-child(3n+1):nth-child(even){background-color:blueviolet;}
+
+			/* :nth-child(n+3):nth-child(-n+8):nth-child(even) 3 ~ 8 번째 항목을 선택한 다음 짝수 만 선택 */
+			.type12 .box :nth-child(n+3):nth-child(-n+8):nth-child(even){background-color:blueviolet;}
+		</style>
+	</head>
+	<body>
+		<h1>nth-child 예제</h1>
+		<h2>일반 예제</h2>
+		<ul>
+			<li class="type1"><strong>:nth-child(even) = :nth-child(2n)</strong>
+				<p class="note">(even)-keyword, 짝수 요소를 선택합니다. (2n)과 동일합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type2"><strong>:nth-child(odd) = :nth-child(2n+1)</strong>
+				<p class="note">(odd)-키워드, 홀수 요소를 선택합니다. (2n+1)과 동일합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type3"><strong>:nth-child(5) = n번째 요소(0n + 5)</strong>
+				<p class="note">목록에서 5 번째 항목을 선택합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type4"><strong>:nth-child(3n) = n번째 요소(3n)</strong>
+				<p class="note">목록에서 모든 세 번째 항목을 선택합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type5"><strong>:nth-child(3n+1) = n번째 요소(3n + 1)</strong>
+				<p class="note">리스트의 3 번째 요소를 모두 선택하고 한 단계 앞으로 이동합니다. 따라서 각 그룹에서 첫 번째 요소를 선택할 수 있습니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type6"><strong>:nth-child(3n-1) = n번째 요소(3n - 1)</strong>
+				<p class="note">리스트의 3 번째 요소를 모두 선택하고 한 단계 뒤로 이동합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type7"><strong>:nth-child(n+6) = n번째 요소(n + 6)</strong>
+				<p class="note">목록에서 6 번째 항목부터 모든 항목을 선택합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type8"><strong>:nth-child(-n+6) = n 번째 요소(-n + 6)</strong>
+				<p class="note">목록 시작 부분에서 6 개의 항목을 선택합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+		</ul>
+		<h2>선택기 조합 예제</h2>
+		<p>선택기 조합으로 사용하려면 그냥 class로 사용하여 선택하는 것을 권장합니다.</p>
+		<ul>
+			<li class="type9"><strong>:nth-child(n+3):nth-child(-n+8)</strong>
+				<p class="note">3에서 8 사이의 항목을 선택합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type10"><strong>:nth-child(n+4):nth-child(even)</strong>
+				<p class="note">4 번째 요소를 선택한 다음 짝수 만 선택합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type11"><strong>:nth-child(3n+1):nth-child(even)</strong>
+				<p class="note">1 번째, 4 번째, 7 번째 및 10 번째 요소를 선택한 다음 이들 중 짝수만 선택합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+			<li class="type12"><strong>:nth-child(n+3):nth-child(-n+8):nth-child(even)</strong>
+				<p class="note">3 ~ 8 번째 항목을 선택한 다음 짝수 만 선택합니다.</p>
+				<div class="box">
+					<span>span 1</span>
+					<p>p 2</p>
+					<span>span 3</span>
+					<p>p 4</p>
+					<span>span 5</span>
+					<p>p 6</p>
+					<p>p 7</p>
+					<p>p 8</p>
+					<p>p 9</p>
+					<p>p 10</p>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

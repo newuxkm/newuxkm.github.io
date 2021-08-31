@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>label element</title>
+	</head>
+	<body>
+		<!-- label로 input을 감싸는 암시적 방식(label 요소에 폼 컨트롤 포함) -->
+		<form action="/examples/media/action_target.php" method="get">
+			여러분의 나이대를 골라보세요.<br>
+			<label>
+				<input type="radio" name="ages" id="teen" value="teenage">
+				<span>10대</span>
+			</label>
+			<label>
+				<input type="radio" name="ages" id="twenty" value="twenties">
+				<span>20대</span>
+			</label>
+			<label>
+				<input type="radio" name="ages" id="thirty" value="thirties">
+				<span>30대</span>
+			</label>
+			<label>
+				<input type="radio" name="ages" id="forty" value="forties">
+				<span>40대 이상</span>
+			</label>
+			<input type="submit" value="제출하기">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 grid-item-determination 예제</title>
+		<style>
+			/* 출처 : https://www.w3.org/TR/css-grid-1/examples/grid-item-determination.html */
+			*{margin:0;padding:0;box-sizing:border-box;}
+
+			/* Grid it */
+			.container { display: grid; grid-auto-flow: column; }
+
+			/* Make it pretty */
+			div, span {
+				margin: 0.125em;
+				padding: 0.125em;
+				border-radius: 0.25em;
+				list-style: none;
+				color: white;
+				text-align: center;
+			}
+			.container { background: #444; float: left; }
+			.container > * { background: #888; }
+		</style>
+</head>
+<body>
+	<div class="container">
+		<!-- grid item: block child -->
+		<div id="item1">block</div>
+
+		<!-- grid item: floated element; floating is ignored -->
+		<div id="item2" style="float: left;">float</div>
+
+		<!-- grid item: anonymous block box around inline content -->
+		anonymous item 3
+		<!-- note that since it has no wrapper element this item can't be styled! -->
+
+		<!-- grid item: inline child -->
+		<span>
+			item 4
+			<!-- grid items do not split around blocks -->
+			<q style="display: block" id=not-an-item>item 4</q>
+			item 4
+		</span>
+	</div>
+</body>
+</html>

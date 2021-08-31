@@ -1,0 +1,59 @@
+<img srcset="/examples/images/people_960.jpg 960w, /examples/images/people_575.jpg 575w"
+	 sizes="(min-width: 960px) 50vw, (min-width: 575px) 75vw, 100vw"
+	 src="/examples/images/people_575.jpg" alt="people">
+<img srcset="경로 원본크기, 경로 원본크기, 경로 원본크기"
+	 sizes="(미디어조건) 최적화출력크기, (미디어조건) 최적화출력크기, 기본출력크기"
+	 src="경로" alt="대체텍스트">
+
+
+
+<!-- 미디어 조건 예 -->
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+	 sizes="(min-width: 1000px) 700px"
+	 src="default.png" alt="default">
+<!--
+뷰포트 너비가 400px 이하일 때 small.png(400px)가 사용됩니다.
+뷰포트 너비가 401~700px 일 때 medium.png(700px)가 사용됩니다.
+뷰포트 너비가 701~999px 일 때 large.png(1000px)가 사용됩니다.
+뷰포트 너비가 1000px 이상일 때 medium.png(700px)가 사용됩니다.
+
+sizes="(min-width: 1000px) 700px"에서 (min-width: 1000px)은 ‘뷰포트 너비(가로)가 1000px 이상일 때’를 의미하며,
+이어나오는 700px은 그 조건일 때 이미지를 ‘700px로 최적화 출력하겠다’를 의미합니다.
+그렇다면 700px로 이미지를 출력하기 위해 srcset 목록에서 사용될 최적의 이미지는 medium.png이며,
+결과로 뷰포트 너비(가로)가 1000px 이상일 때 medium.png가 사용되었습니다.
+-->
+
+<!-- 미디어 조건 생략 예 -->
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+	 sizes="500px"
+	 src="default.png" alt="default">
+<!--
+위 예제의 결과로, 뷰포트 너비와 상관없이 medium.png만 사용됩니다.
+또한 medium.png는 500px의 크기를 가집니다.(원래는 700px 크기의 이미지입니다)
+-->
+
+<!-- sizes는 없고 width만 있는 경우 예 -->
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+	 width="500"
+	 src="default.png" alt="default">
+<!--
+위 예제의 결과로,
+뷰포트 너비가 400px 이하일 때 small.png가 사용됩니다.
+뷰포트 너비가 401~700px 일 때 medium.png가 사용됩니다.
+뷰포트 너비가 701px 이상일 때 large.png가 사용됩니다.
+뷰포트 너비에 따라 사용되는 이미지가 달라지지만 크기는 500px로 고정되었습니다.
+
+width는 이미지의 ‘출력 크기’만 지정하는 데 반해, sizes는 이미지의 ‘출력 크기’ + ‘최적 크기’도 함께 지정하는 개념입니다.
+따라서 sizes="500px"이 지정된 첫번째 예제는 500px에 최적화된 이미지로 medium.png를 사용했고 이미지 크기도 500px로 설정한 것입니다.
+
+sizes와 width를 같이 작성할 경우 width가 우선합니다.
+-->
+
+<!-- ,혼합하여 사용하는 경우 예 -->
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+	 sizes="(min-width: 701px) 1000px, (min-width: 401px) 700px, 400px"
+	 src="default.png" alt="default">
+
+<!-- 위 예제는 아래와 동일하기 때문에 sizes를 사용할 필요가 없음 -->
+<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+	 src="default.png" alt="default">

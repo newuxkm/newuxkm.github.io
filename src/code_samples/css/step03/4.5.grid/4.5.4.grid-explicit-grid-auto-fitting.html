@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Grid Layout Auto-fitting</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			body {
+				padding: 20px;
+			}
+
+			html, body {
+				height: 100%;
+			}
+			.item, .grid-item {
+				padding: 10px;
+				border: none;
+				border-radius: 5px;
+				background-color: #1E73FF;
+				color: #ffffff;
+			}
+
+			.grid {
+				display: grid;
+				grid-gap: 20px;
+			}
+
+			.grid1 {
+				grid-template-columns: repeat(4, 100px);
+			}
+			/* 
+				반복 표기법은 매우 유용하지만 더 자동화 할 수 있습니다. 고정 된 반복 횟수를 설정하는 대신 auto-fill및 auto-fit키워드를 사용할 수 있습니다.
+			 */
+
+			.grid2 {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="grid grid1">
+			<div class="item">item1</div>
+			<div class="item">item2</div>  
+			<div class="item">item3</div>
+			<div class="item">item4</div>
+		</section>
+		
+		<section class="grid grid2">
+			<div class="item">item1</div>
+			<div class="item">item2</div>  
+			<div class="item">item3</div>
+			<div class="item">item4</div>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Media Queries: not</title>
+		<style>
+			html {
+				font-size: 1em;
+			}
+			/* 보기 방향이 세로일 경우에만 파란색이 됩니다. */
+			@media not all and (orientation: landscape) {
+				body {
+					color: blue;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		미디어 유형을 지정한 뒤에 규칙을 적용할 미디어 기능을 선정할 수 있습니다.
+		<br>
+		미디어 기능은 사용자 에이전트, 출력 장치 또는 환경 의 특정 특성을 설명 합니다.
+		<br>
+		미디어 기능 표현식은 해당 존재 또는 값을 테스트하며 전적으로 선택 사항입니다. 각 미디어 기능 표현식은 괄호로 묶어야합니다.
+		<br>
+		orientation 기능을 제외한 모든 기능 앞에는 min 또는 max 접두사를 사용할 수 있습니다.
+		<br>
+		@media 기능들을 적절히 활용하면 반응형 웹 사이트를 제작하는데 유용합니다.
+	</body>
+</html>

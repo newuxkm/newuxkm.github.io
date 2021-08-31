@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS border-radius Properties</title>
+		<style>
+			div{width:400px;height:15px;margin:20px auto;padding:20px;}
+			div:nth-child(1) {
+				border-radius: 18px;
+				background: rgb(43, 238, 196);
+			}
+			div:nth-child(2) {
+				border: 2px solid #609; 
+				border-radius: 25px;
+			}
+			div:nth-child(3) {
+				border-radius: 15px 50px 30px 5px;
+				background: rgb(43, 238, 196); 
+			}
+			div:nth-child(4) {
+				border: 2px solid #609;
+				border-radius: 15px 50px 30px;
+			}
+			div:nth-child(5) {
+				border-radius: 15px 50px;
+				background: rgb(43, 238, 196);
+			} 
+			div:nth-child(6) {
+				width:100px;
+				height:100px;
+				border-radius: 50%;
+				border: 2px solid #609;
+			} 
+		</style>
+	</head>
+	<body>
+		<div>border-radius: 18px</div>
+		<div>border-radius: 25px</div>
+		<div>border-radius: 15px 50px 30px 5px</div>
+		<div>border-radius: 15px 50px 30px</div>
+		<div>border-radius: 15px 50px</div>
+		<div>border-radius: 50%</div>
+	</body>
+</html>

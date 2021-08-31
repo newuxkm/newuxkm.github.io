@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Grid Layout: implicit tracks</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			body {padding:20px;}
+			.item, .grid-item {
+				padding: 10px;
+				border: none;
+				border-radius: 5px;
+				background-color: #1E73FF;
+				color: #ffffff;
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-rows: 100px 100px;
+				grid-gap: 20px;
+				max-width: 800px;
+			}
+
+			.item:first-child {
+				grid-column-start: -1;
+			}
+
+			.item:nth-child(2) {
+				grid-row-start: 4;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="grid">
+			<div class="item">item1</div>
+			<div class="item">item2</div>
+		</section>
+	</body>
+</html>

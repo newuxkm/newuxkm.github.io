@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>UXKM CSS3 lenear gradients Module</title>
+	<style>
+		.box {
+			width:80px; line-height:80px;
+			text-align:center; color:#fff;
+		}
+		.box1 > div {display:inline-block;}
+		.box1-1 {background: linear-gradient(45deg, blue, red);}
+		.box1-2 {background: linear-gradient(to left top, blue, red);}
+		.box1-3 {background: linear-gradient(0deg, blue, green 40%, red);}
+		.box1-4 {background: linear-gradient(.25turn, red, 10%, blue);}
+		.box1-5 {background: linear-gradient(45deg, red 0 50%, blue 50% 100%);}
+
+		/* 45도 기울어진 그레이디언트 */
+		.box2 {background: linear-gradient(45deg, red, blue);}
+
+		/* 축의 60% 지점에서 시작하는 그레이디언트 */
+		.box3 {background: linear-gradient(135deg, orange, orange 60%, cyan);}
+
+		/* 색상 정지점 여러개를 가진 그레이디언트 */
+		.box4 {
+			color:#000;
+			background: linear-gradient(
+				to right,
+				red 20%,
+				orange 20% 40%,
+				yellow 40% 60%,
+				green 60% 80%,
+				blue 80%);
+		}
+	</style>
+	</head>
+	<body>
+		<div class="box1">
+			<div class="box box1-1">box1-1</div>
+			<div class="box box1-2">box1-2</div>
+			<div class="box box1-3">box1-3</div>
+			<div class="box box1-4">box1-4</div>
+			<div class="box box1-5">box1-5</div>
+		</div>
+		<hr>
+
+		<p>// 45도 기울어진 그레이디언트</p>
+		<div class="box box2">box2</div>
+		<hr>
+
+		<p>// 축의 60% 지점에서 시작하는 그레이디언트</p>
+		<div class="box box3">box3</div>
+		<hr>
+
+		<p>// 색상 정지점 여러개를 가진 그레이디언트</p>
+		<div class="box box4">box4</div>
+	</body>
+</html>

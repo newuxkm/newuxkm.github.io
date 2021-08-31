@@ -1,0 +1,79 @@
+<style>
+	/*
+		계산 순서
+		- 왼쪽에서 오른쪽으로 계산합니다.
+		- 곱셈과 나눗셈을 먼저 하고, 덧셈과 뺄셈은 나중에 합니다.
+		- 괄호가 있으면 괄호 안 부터 계산합니다.
+
+		calc()함수 사용시 유의사항
+		- 모든 계산은 왼쪽에서 오른쪽으로 진행됨.
+		- 사칙연산과 마찬가지로 곱하기, 나누기가 제일 먼저 연산됨.
+		- calc()함수는 현재 오페라 브라우저와 IE9 미만의 브라우저에서는 지원되지 않으며 호환성을 위해 -moz, -webkit 과 같은 vendor-prefix를 먼저 작성해야 함.
+		- 예를 들어 calc(50% - 10px) 과 같이 연산시 다른 단위값들을 사용할 수 있으며
+		- calc(100% - 20px)과 같이  더하기(+), 빼기(-) 연산자의 경우 앞뒤 공백이 반드시 들어가야 하나 곱하기(x), 나누기(/)는 공백이 필요하지 않습니다.
+	*/
+
+	section {
+		float: left;
+		width: calc(100%/3 - 2*1em - 2*1px);
+		margin: 1em;
+		border: solid 1px;
+	}
+	p {
+		margin: calc(1rem - 2px) calc(1rem - 1px);
+	}
+
+	:root {
+		font-size: calc(100vw / 40);
+	}
+
+	.foo {
+		background: url(top.png), url(bottom.png);
+		background-repeat: no-repeat;
+		background-position: 50% 50%, calc(50% + 20px) calc(50% + 20px);
+	}
+
+	.foo {
+		background-image: linear-gradient(to right, silver,
+		white 50px,
+		white calc(100% - 50px),
+		silver);
+	}
+
+	/* calc() 이용한 폰트 사이즈 예시 */
+	div { margin: 10px 0px; border: 1px solid #dadada; }
+	.a { width: 80%; }
+	.b { width: calc( 80% - 20px ); }
+	.c { width: calc( ( 40% * 2 ) - 40px / 2 ); }
+	.d { font-size: calc( 4em / 2 + 5px ); }
+</style>
+
+<div class="a"><code>width: 80%;</code></div>
+<div class="b"><code>width: calc( 80% - 20px );</code></div>
+<div class="c"><code>width: calc( ( 40% * 2 ) - 40px / 2 );</code></div>
+<div class="d"><code>font-size: calc( 4em / 2 + 5px );</code></div>
+
+<style>
+	/* 전체 너비에서 중간에 60px 만 띄우고 싶을 경우 */
+	.box1, .box2 {
+		float: left;
+		width: calc(50% - 30px);
+	}
+	.box2 { margin-left: 60px;}
+
+	/* 각 요소 사이에 글꼴의 4배(4em) 만큼 간격을 두고 싶을때 */
+	.box1, .box2 {
+		width: calc(50% - 2em);
+	}
+
+	/* 두 요소를 2px의 테두리로 둘러싸고 싶을때 */
+	.box1, .box2 {
+		width: calc(50% - 2em - 4px);
+		border: 2px solid #000;
+	}
+
+	/* 복잡한 연산공식을 사용하고 싶을때 */
+	.box1, .box2 {
+		width: calc((50% + 2em)/2 + 14px);
+	}
+</style>

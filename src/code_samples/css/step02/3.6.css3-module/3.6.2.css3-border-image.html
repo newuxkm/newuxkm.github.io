@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 border-image Module</title>
+		<style>
+			.bitmap {
+				width: 200px;
+				margin: 30px;
+				padding: 10px;
+				border: 36px solid orange;
+				background-color: #ffa;
+
+				border-image:
+					url("/code_samples/css/step02/3.6.css3-module/border-diamonds.svg")  /* 원본 이미지 */
+					27 /                    /* 슬라이스 */
+					36px 28px 18px 8px /    /* 너비 */
+					18px 14px 9px 4px       /* 거리 */
+					round;                  /* 반복 */
+			}
+
+			.gradient {
+				width: 200px;
+				padding: 20px;
+				border: 30px solid;
+				border-image: repeating-linear-gradient(45deg, #f33, #3bf, #f33 30px) 60;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+			마름모 하나의 크기에 맞추기 위해, 81을 3으로 나눈 27을 슬라이스 크기로 사용하여 원본 이미지를 모서리와 테두리 구역으로 나눕니다. 
+			테두리 이미지의 중앙을 요소 테두리의 가운데로 맞추기 위해 거리도 각 너비의 절반으로 설정합니다. 
+			마지막으로 반복 값에 round를 지정해 모서리가 끊기거나 잘리지 않도록 설정합니다.
+		 -->
+		 <div class="bitmap">This element is surrounded by a bitmap-based border image!</div>
+		 <div class="gradient">그레이디언트 기반 테두리 이미지에 둘러 쌓인 요소에요!</div>
+	</body>
+</html>

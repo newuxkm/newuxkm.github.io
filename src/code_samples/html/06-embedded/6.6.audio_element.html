@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>audio element</title>
+	</head>
+	<body>
+		<p>[기본]</p>
+		<audio controls src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga"> Your user agent does not support the HTML5 Audio element. </audio>
+
+		<hr>
+
+		<p>[내부에 몇가지의 &lt;source&gt;를 둬서 재생 가능한 쪽을 선택해서 재생하게 된다]</p>
+		<audio controls>
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4"
+					type='audio/mp4'>
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga"
+					type='audio/ogg; codecs=vorbis'>
+			<p>Your user agent does not support the HTML5 Audio element.</p>
+		</audio>
+
+		<hr>
+
+		<p>[외부의 UI를 통해서 제어를 할수 있는 것 또한 같다.]</p>
+		<audio id="myAudio" controls>
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4"
+					type='audio/mp4'>
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga"
+					type='audio/ogg; codecs=vorbis'>
+			<p>Your user agent does not support the HTML5 Audio element.</p>
+		</audio>
+		<button type="button" onclick="aud_play_pause()">Play</button>
+		<script>
+			function aud_play_pause() {
+				var myAudio = document.getElementById("myAudio");
+				if (myAudio.paused) {
+					myAudio.play();
+				} else {
+					myAudio.pause();
+				}
+			}
+		</script>
+
+		<hr>
+
+		<p>[Simple audio playback]</p>
+		<audio src="http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg" autoplay controls>
+			Your browser does not support the <code>audio</code> element.
+		</audio>
+
+		<hr>
+
+		<p>[&lt;audio&gt; &lt;source&gt; 요소를 가진 &lt;audio&gt; 요소]</p>
+		<audio controls="controls">
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.wav" type="audio/wav">
+			Your browser does not support the <code>audio</code> element.
+		</audio>
+
+		<!--  <audio> 요소가 여러 개있는 <audio>
+		브라우저는 재생할 수있는 경우 첫 번째 소스 요소 (Opus)를 로드하려고 시도하고 두 번째 (vorbis)로 폴백하지 않고 마침내 mp3로 다시로드합니다.
+		<audio controls="">
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.opus" type="audio/ogg; codecs=opus"/>
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.ogg" type="audio/ogg; codecs=vorbis"/>
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp3" type="audio/mpeg"/>
+		</audio>
+		-->
+	</body>
+</html>

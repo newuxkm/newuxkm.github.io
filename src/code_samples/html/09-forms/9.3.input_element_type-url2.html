@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>input_element type="url"</title>
+	</head>
+	<body>
+		<form>
+			<div>
+				<label for="myURL">Enter the problem website address:</label>
+				<input id="myURL" name="myURL" type="url"
+					   required pattern=".*\.myco\..*"
+					   title="The URL must be in a Myco domain">
+				<span class="validity"></span>
+			</div>
+			<div>
+				<label for="myComment">What is the problem?</label>
+				<input id="myComment" name="myComment" type="text"
+					   required>
+				<span class="validity"></span>
+			</div>
+			<div>
+				<button>Submit</button>
+			</div>
+		</form>
+	</body>
+</html>

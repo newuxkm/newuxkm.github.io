@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Grid Layout: grid-auto-flow</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			body {
+				padding: 20px;
+			}
+
+			h2 {
+				margin-bottom: 1em;
+			}
+			.item, .grid-item {
+				padding: 10px;
+				border: none;
+				border-radius: 5px;
+				background-color: #1E73FF;
+				color: #ffffff;
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-rows: 50px 50px;
+				grid-gap: 20px;
+				margin-top: 10px;
+			}
+
+			.grid2 {
+				grid-auto-flow: column;
+			}
+			hr {
+				margin-top:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2><code>grid-auto-flow: row;</code></h2>
+		<p>자동 배치 알고리즘은 각 행을 차례로 채워 항목을 배치합니다.</p>
+		<section class="grid">
+			<div class="item">item1</div>
+			<div class="item">item2</div>  
+			<div class="item">item3</div>
+			<div class="item">item4</div>  
+			<div class="item">item5</div>
+			<div class="item">item6</div>
+		</section>
+		<hr>
+		<h2><code>grid-auto-flow: column;</code></h2>
+		<p>자동 배치 알고리즘은 각 열을 차례로 채워 항목을 배치합니다.</p>
+		<section class="grid grid2">
+			<div class="item">item1</div>
+			<div class="item">item2</div>  
+			<div class="item">item3</div>
+			<div class="item">item4</div>  
+			<div class="item">item5</div>
+			<div class="item">item6</div>
+		</section>
+	</body>
+</html>

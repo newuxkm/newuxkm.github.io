@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible justify-content</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+
+			.box {
+				display: flex;
+
+				width: 500px;
+				margin:20px;
+				border: 2px dotted rgb(96, 139, 168);
+			}
+			.box > * {
+				border: 2px solid rgb(96, 139, 168);
+				border-radius: 5px;
+				background-color: rgba(96, 139, 168, .2);
+			}
+
+			.flex-start{
+				justify-content: flex-start;
+			}
+			.flex-end{
+				justify-content: flex-end;
+			}
+			.center{
+				justify-content: center;
+			}
+			.space-between{
+				justify-content: space-between;
+			}
+			.space-around{
+				justify-content: space-around;
+			}
+			.space-evenly{
+				justify-content: space-evenly;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>justify-content: flex-start;</h2>
+		<div class="box flex-start">
+			<div>One</div>
+			<div>Two</div>
+			<div>Three</div>
+		</div>
+		<h2>justify-content: flex-end;</h2>
+		<div class="box flex-end">
+			<div>One</div>
+			<div>Two</div>
+			<div>Three</div>
+		</div>
+		<h2>justify-content: center;</h2>
+		<div class="box center">
+			<div>One</div>
+			<div>Two</div>
+			<div>Three</div>
+		</div>
+		<h2>justify-content: space-between;</h2>
+		<div class="box space-between">
+			<div>One</div>
+			<div>Two</div>
+			<div>Three</div>
+		</div>
+		<h2>justify-content: space-around;</h2>
+		<div class="box space-around">
+			<div>One</div>
+			<div>Two</div>
+			<div>Three</div>
+		</div>
+		<h2>justify-content: space-evenly;</h2>
+		<div class="box space-evenly">
+			<div>One</div>
+			<div>Two</div>
+			<div>Three</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+{%- set page_title %}
+	{%- if pageNumber.depth4 %}
+		{{- gnb_data[pageNumber.depth1 - 1].depth2[pageNumber.depth2 - 1].depth3[pageNumber.depth3 - 1].depth4[pageNumber.depth4 - 1].d4_name }}
+	{%- elif pageNumber.depth3 %}
+		{{- gnb_data[pageNumber.depth1 - 1].depth2[pageNumber.depth2 - 1].depth3[pageNumber.depth3 - 1].d3_name }}
+	{%- elif pageNumber.depth2 %}
+		{{- gnb_data[pageNumber.depth1 - 1].depth2[pageNumber.depth2 - 1].d2_name }}
+	{%- elif pageNumber.depth1 %}
+		{{- gnb_data[pageNumber.depth1 - 1].d1_name }}
+	{%- endif %}
+{%- endset %}

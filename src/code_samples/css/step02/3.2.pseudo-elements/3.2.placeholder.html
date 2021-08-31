@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 ::placeholder Pseudo-elements</title>
+		<style>
+			::-ms-input-placeholder{color:blue;}
+			:-ms-input-placeholder{color:blue;}
+			::-webkit-input-placeholder{color:blue;}
+			::-moz-input-placeholder{color:blue;opacity:1;}
+			::placeholder{color:blue;}
+
+/*IE처럼 포커스시 감추기
+IE에서는 input 요소에 포커스를 받으면 placeholder 글자가 바로 사라지지만 
+다른 브라우저들은 포커스를 받고 글자를 실제로 입력해야 placeholder 글자가 사라진다. 
+이것을 IE와 같은 방식으로 통일되도록 구현하는 방법은 다음과 같이 활용할 수 있다.
+[WebKit browsers]
+input:focus::-webkit-input-placeholder, 
+textarea:focus::-webkit-input-placeholder{color:transparent;}
+
+[Mozilla Firefox 4 to 18]
+input:focus:-moz-placeholder, 
+textarea:focus:-moz-placeholder{color:transparent;}
+
+[Mozilla Firefox 19+]
+input:focus::-moz-placeholder, 
+textarea:focus::-moz-placeholder{color:transparent;}
+
+[Internet Explorer 10+]
+input:focus:-ms-input-placeholder, 
+textarea:focus:-ms-input-placeholder{color:transparent;}
+*/
+		</style>
+	</head>
+	<body>
+		<form>
+			<p><label><span>이름 입력 : </span><input type="text" name="name" placeholder="이름을 입력해주세요!"></label></p>
+			<div>
+				<label>
+					<span>내용 입력 : </span>
+					<textarea cols="75" rows="7" placeholder="내용을 입력해주세요!"></textarea>
+				</label>
+			</div>
+			<p><input type="submit" value="전송"></p>
+		</form>
+	</body>
+</html>

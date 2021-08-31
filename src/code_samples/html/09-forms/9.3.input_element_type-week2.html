@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>input_element type="week"</title>
+	</head>
+	<body>
+		<form>
+			<div class="nativeWeekPicker">
+				<label for="week">What week would you like to start?</label>
+				<input id="week" type="week" name="week"
+					   min="2018-W01" max="2020-W52" required>
+				<span class="validity"></span>
+			</div>
+			<p class="fallbackLabel">What week would you like to start?</p>
+			<div class="fallbackWeekPicker">
+				<div>
+				<span>
+					<label for="week">Week:</label>
+					<select id="fallbackWeek" name="week">
+					</select>
+				</span>
+					<span>
+					<label for="year">Year:</label>
+					<select id="year" name="year">
+						<option value="2018" selected>2018</option>
+						<option value="2020">2020</option>
+					</select>
+				</span>
+				</div>
+			</div>
+		</form>
+		<script>
+				// define variables
+				var nativePicker = document.querySelector('.nativeWeekPicker');
+				var fallbackPicker = document.querySelector('.fallbackWeekPicker');
+				var fallbackLabel = document.querySelector('.fallbackLabel');
+
+				var yearSelect = document.querySelector('#year');
+				var weekSelect = document.querySelector('#fallbackWeek');
+
+				// hide fallback initially
+				fallbackPicker.style.display = 'none';
+				fallbackLabel.style.display = 'none';
+
+				// test whether a new date input falls back to a text input or not
+				var test = document.createElement('input');
+				test.type = 'week';
+				// if it does, run the code inside the if() {} block
+				if(test.type === 'text') {
+					// hide the native picker and show the fallback
+					nativePicker.style.display = 'none';
+					fallbackPicker.style.display = 'block';
+					fallbackLabel.style.display = 'block';
+
+					// populate the weeks dynamically
+					populateWeeks();
+				}
+
+				function populateWeeks() {
+					// Populate the week select with 52 weeks
+					for(var i = 1; i <= 52; i++) {
+						var option = document.createElement('option');
+						option.textContent = (i < 10) ? ("0" + i) : i;
+						weekSelect.appendChild(option);
+					}
+				}
+		</script>
+	</body>
+</html>

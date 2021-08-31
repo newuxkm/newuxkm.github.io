@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible flex-direction</title>
+		<style>
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			.flexbox{
+				overflow:hidden;
+				max-width:500px;
+				margin: 0 auto;
+			}
+			.flex-container {
+				margin: 0;
+				padding: 0;
+				
+				-ms-box-orient: horizontal;
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: flex;
+			}
+
+			.row { 
+				-webkit-flex-direction: row; 
+				flex-direction: row;
+			}
+
+			.row-reverse { 
+				-webkit-flex-direction: row-reverse; 
+				flex-direction: row-reverse;
+			}  
+			.row-reverse li {
+				background: gold;
+			}
+
+			.column { 
+				-webkit-flex-direction: column; 
+				flex-direction: column; 
+				/*float: left;*/
+			}
+			.column li {
+				background: deepskyblue;
+			}
+
+			.column-reverse { 
+				-webkit-flex-direction: column-reverse; 
+				flex-direction: column-reverse; 
+				/*float: right;*/
+			}
+			.column-reverse li {
+				background: lightgreen;
+			}
+
+			.flex-item {
+				width: 50px;
+				height: 50px;
+				margin: 5px;
+				padding: 5px;
+				background: tomato;
+				
+				color: white;
+				font-weight: bold;
+				font-size: 2em;
+				line-height: 50px;
+				text-align: center;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="flexbox">
+			<h2>flex-direction: row</h2>
+			<ul class="flex-container row">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+				<li class="flex-item">5</li>
+			</ul>
+		</div>
+		
+		<div class="flexbox">
+			<h2>flex-direction: row-reverse</h2>
+			<ul class="flex-container row-reverse">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+				<li class="flex-item">5</li>
+			</ul>
+		</div>
+		
+		<div class="flexbox">
+			<h2>flex-direction: column</h2>
+			<ul class="flex-container column">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+				<li class="flex-item">5</li>
+			</ul>
+		</div>
+		
+		<div class="flexbox">
+			<h2>flex-direction: column-reverse</h2>
+			<ul class="flex-container column-reverse">
+				<li class="flex-item">1</li>
+				<li class="flex-item">2</li>
+				<li class="flex-item">3</li>
+				<li class="flex-item">4</li>
+				<li class="flex-item">5</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS float Properties</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			*::before,*::after{box-sizing:border-box;}
+			html,body{height:100%;}
+
+			h2,div,dl{width:500px;margin:0 auto;}
+			dt{font-weight:700;}
+
+			header{
+				height:80px;
+				background-color:aqua;
+				line-height:80px;
+				text-align:center;
+			}
+			main{
+				background-color:cornflowerblue;
+			}
+			section:nth-child(1){
+				float:left;
+				width:40%;
+				height:80px;
+				background-color:coral;
+				line-height:80px;
+				text-align:center;
+			}
+			section:nth-child(2){
+				float:right;
+				width:58%;
+				height:80px;
+				background-color:chartreuse;
+				line-height:80px;
+				text-align:center;
+			}
+			footer{
+				clear:both;
+				height:80px;
+				background-color:darkcyan;
+				line-height:80px;
+				text-align:center;
+			}
+
+			.clear main::after{
+				content:"";
+				display:block;
+				clear:both;
+			}
+
+
+			/* float 해제 빈 요소 삽입 */
+			.parent{
+				border:4px solid #000;
+			}
+			.child:nth-child(1){
+				float:left;
+				width:45%;
+				height:50px;
+				background-color:gold;
+			}
+			.child:nth-child(2){
+				float:right;
+				width:45%;
+				height:50px;
+				background-color:yellowgreen;
+			}
+			.clear{
+				clear:both;
+			}
+			.footer{
+				height:40px;
+				background-color:brown;
+			}
+
+			/* float 해제 overflow 사용 */
+			dd:nth-of-type(2) .parent{
+				overflow:hidden;
+				border:4px solid #000;
+			}
+			dd:nth-of-type(2) .child:nth-child(1){
+				float:left;
+				width:45%;
+				height:50px;
+				background-color:gold;
+			}
+			dd:nth-of-type(2) .child:nth-child(2){
+				float:right;
+				width:45%;
+				height:50px;
+				background-color:yellowgreen;
+			}
+			dd:nth-of-type(2) .footer{
+				height:40px;
+				background-color:brown;
+			}
+
+			/* float 해제 가상요소 사용 */
+			dd:nth-of-type(3) .parent{
+				border:4px solid #000;
+			}
+			dd:nth-of-type(3) .parent::after{
+				content:"";
+				display:block;
+				clear:both;
+			}
+			dd:nth-of-type(3) .child:nth-child(1){
+				float:left;
+				width:45%;
+				height:50px;
+				background-color:gold;
+			}
+			dd:nth-of-type(3) .child:nth-child(2){
+				float:right;
+				width:45%;
+				height:50px;
+				background-color:yellowgreen;
+			}
+			dd:nth-of-type(3) .footer{
+				height:40px;
+				background-color:brown;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>float 해제 못한 예시</h2>
+		<div class="none">
+			<header>
+				상단 영역
+			</header>
+			<main>
+				<section>
+					좌측 영역
+				</section>
+				<section>
+					우측 영역
+				</section>
+			</main>
+			<footer>
+				하단 영역
+			</footer>
+		</div>
+		<br>
+
+		<h2>float 해제 예시</h2>
+		<div class="clear">
+			<header>
+				상단 영역
+			</header>
+			<main>
+				<section>
+					좌측 영역
+				</section>
+				<section>
+					우측 영역
+				</section>
+			</main>
+			<footer>
+				하단 영역
+			</footer>
+		</div>
+		<br>
+
+		<h2>float 해제 3가지 방법</h2>
+		<dl>
+			<dt>부모요소 하단에 빈 요소 삽입하여 clear:both</dt>
+			<dd>
+<pre><code>
+&lt;style&gt;
+	/* float 해제 빈 요소 삽입 */
+	.parent{
+		border:4px solid #000;
+	}
+	.child:nth-child(1){
+		float:left;
+		width:45%;
+		height:50px;
+		background-color:gold;
+	}
+	.child:nth-child(2){
+		float:right;
+		width:45%;
+		height:50px;
+		background-color:yellowgreen;
+	}
+	.clear{
+		clear:both;
+	}
+	.footer{
+		height:40px;
+		background-color:brown;
+	}
+&lt;/style&gt;
+&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;좌측 정렬&lt;/div&gt;
+	&lt;div class="child"&gt;우측 정렬&lt;/div&gt;
+	<b>&lt;div class="clear"&gt;&lt;/div&gt;</b>
+&lt;/div&gt;
+&lt;div class="footer"&gt;하단 정렬&lt;/div&gt;
+</code></pre>
+				<div class="parent">
+					<div class="child">좌측 정렬</div>
+					<div class="child">우측 정렬</div>
+					<div class="clear"></div>
+				</div>
+				<div class="footer">하단 정렬</div>
+			</dd>
+			<dt>부모요소에 overflow 속성 사용</dt>
+			<dd>
+<pre><code>
+&lt;style&gt;
+	/* float 해제 overflow 사용 */
+	.parent{
+		<b>overflow:hidden;</b>
+		border:4px solid #000;
+	}
+	.child:nth-child(1){
+		float:left;
+		width:45%;
+		height:50px;
+		background-color:gold;
+	}
+	.child:nth-child(2){
+		float:right;
+		width:45%;
+		height:50px;
+		background-color:yellowgreen;
+	}
+	.footer{
+		height:40px;
+		background-color:brown;
+	}
+&lt;/style&gt;
+&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;좌측 정렬&lt;/div&gt;
+	&lt;div class="child"&gt;우측 정렬&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="footer"&gt;하단 정렬&lt;/div&gt;
+</code></pre>
+				<div class="parent">
+					<div class="child">좌측 정렬</div>
+					<div class="child">우측 정렬</div>
+				</div>
+				<div class="footer">하단 정렬</div>
+			</dd>
+			<dt>가상요소 활용하여 사용</dt>
+			<dd>
+<pre><code>
+&lt;style&gt;
+	/* float 해제 가상요소 사용 */
+	.parent{
+		border:4px solid #000;
+	}
+	<b>
+	.parent::after{
+		content:"";
+		display:block;
+		clear:both;
+	}
+	</b>
+	.child:nth-child(1){
+		float:left;
+		width:45%;
+		height:50px;
+		background-color:gold;
+	}
+	.child:nth-child(2){
+		float:right;
+		width:45%;
+		height:50px;
+		background-color:yellowgreen;
+	}
+	.footer{
+		height:40px;
+		background-color:brown;
+	}
+&lt;/style&gt;
+&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;좌측 정렬&lt;/div&gt;
+	&lt;div class="child"&gt;우측 정렬&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="footer"&gt;하단 정렬&lt;/div&gt;
+</code></pre>
+				<div class="parent">
+					<div class="child">좌측 정렬</div>
+					<div class="child">우측 정렬</div>
+				</div>
+				<div class="footer">하단 정렬</div>
+			</dd>
+		</dl>
+		
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 3D Transform style</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			figcaption{padding:20px 0;}
+			section{width:340px;height:240px;margin:80px auto;border:2px solid;}
+			h2{margin-bottom:20px;}
+
+			.layer {
+				background:#f69d3c;
+				border-radius:5px;
+				-webkit-transform:perspective(200px) rotateY(30deg);
+				transform:perspective(200px) rotateY(30deg);
+			}
+			.numeral {
+				margin:20px;
+				padding:20px;
+				border-radius:5px;
+				background-color:#e66465;
+				color:#000;
+				-webkit-transform:rotate3d(1,1,1,45deg);
+				transform:rotate3d(1,1,1,45deg);
+			}
+			.flat{
+				-webkit-transform-style: flat;
+				transform-style: flat;
+			}
+			.preserve-3d{
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<h2>transform-style: flat</h2>
+			<div class="layer flat">
+				<p>Parent</p>
+				<div class="numeral"><code>rotate3d(1, 1, 1, 45deg)</code></div>
+			</div>
+		</section>
+
+		<section>
+			<h2>transform-style: preserve-3d</h2>
+			<div class="layer preserve-3d">
+				<p>Parent</p>
+				<div class="numeral"><code>rotate3d(1, 1, 1, 45deg)</code></div>
+			</div>
+		</section>
+	</body>
+</html>

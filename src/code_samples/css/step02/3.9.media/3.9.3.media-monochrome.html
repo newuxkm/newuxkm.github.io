@@ -1,0 +1,13 @@
+<style>
+	/* 출력 장치가 흑백이면 실행 */
+	@media all and (monochrome) { … }
+
+	/* 출력 장치가 흑백이 아니면 실행 */
+	@media all and (monochrome:0) { … }
+
+	/* 출력 장치가 흑백이고 2비트 이상이면 실행 */
+	@media all and (min-monochrome:2) { … }
+
+	/* 출력 장치가 흑백이고 2비트 이하이면 실행 */
+	@media all and (max-monochrome:2) { … }
+</style>

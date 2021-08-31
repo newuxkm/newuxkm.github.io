@@ -1,0 +1,51 @@
+{%- set headerCss = 'main_header' if pageData.mainPage else 'sub_header' -%}
+{%- import path.macro + "/_gnb.njk" as gnb_nemu %}
+<header class="uk_header {{headerCss}}" role="banner">
+	<div class="inner">
+		<strong class="hd_logo uk_logo beta"><a href="/" class="uk_link" data-tit="{{ title_d1 }}">UXKM</a></strong>
+
+		<div class="hd_nav_area">
+			<nav class="nav">
+				<p class="sound_only">global menu</p>
+				{{ gnb_nemu.all_gnb(
+					gnb_data,
+					pageNumber,
+					only_depth1 = true
+				) | tabIndent(4) }}
+			</nav>
+
+			<div class="hd_search_link">
+				<!-- 검색 -->
+				<div class="hd_search">
+					<!--<button type="button" class="ly_btn search_btn"><i>Search button</i></button>-->
+					<div class="hd_layer_box search_area">
+						<div class="inner">
+							<div class="form">
+								<input type="text" placeholder="검색어를 입력해 주세요." required />
+								<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
+							</div>
+
+							<dl class="keyword_ex">
+								<dt>keyword example</dt>
+								<dd>div, p, strong, width, border-color, click, function</dd>
+							</dl>
+						</div>
+					</div>
+					<button type="button" class="search_close">검색 닫기</button>
+				</div>
+
+				<!-- 사이트맵 -->
+				<div class="hd_assetsLink">
+					<button type="button" class="ly_btn assetsLink_btn"><i>Assets link button</i></button>
+					<div class="hd_layer_box assetsLink_area">
+						<!--<div class="ly_action_wrap">-->
+						<div class="assetsLink_in inner">
+							<strong class="sm_tit">Site <i>M</i>ap</strong>
+						</div>
+						<!--</div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

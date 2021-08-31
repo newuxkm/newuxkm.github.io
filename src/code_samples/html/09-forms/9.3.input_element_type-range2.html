@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>input_element type="range"</title>
+	</head>
+	<body>
+		<form oninput="x.value=parseInt(a.value)" action="#" method="get">
+			<label for="a">여러분의 나이대를 골라보세요.</label><br>
+			<input type="range" id="a" name="ages" min="10" max="60" step="10">
+			<output name="x" for="a"></output><br>
+		</form>
+		<hr>
+
+		<input type="range" list="tickmarks">
+		<datalist id="tickmarks">
+			<option value="0" label="0%">
+			<option value="10">
+			<option value="20">
+			<option value="30">
+			<option value="40">
+			<option value="50" label="50%">
+			<option value="60">
+			<option value="70">
+			<option value="80">
+			<option value="90">
+			<option value="100" label="100%">
+		</datalist>
+	</body>
+</html>

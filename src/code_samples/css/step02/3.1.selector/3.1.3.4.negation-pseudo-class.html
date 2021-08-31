@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 Negation pseudo-class</title>
+		<style>
+			li{color:blue;}
+			ol > li:not([title="CSS"]){color:red;}
+
+			.fancy{background-color:gold;}
+			p:not(.fancy){color:green;}
+			:not(p){text-decoration:underline;}
+			/*
+			:not()의사 클래스는 인수로 하나 이상의 선택기의 쉼표로 구분 된 목록이 필요합니다. 
+			목록에는 다른 부정 선택기 또는 의사 요소가 포함되어서는 안됩니다.
+			*/
+		</style>
+	</head>
+	<body>
+		<h1>UXKM 학습 요약</h1>
+		<ol>
+			<li title="HTML"><strong>HTML</strong>
+				<ul>
+					<li>블록 레벨 요소 vs 인라인 요소</li>
+					<li>섹션 콘텐츠 (Section Conetnt)</li>
+					<li>콘텐츠 그룹화(Grouping content)</li>
+					<li>문자 콘텐츠(Text-level semantics)</li>
+					<li>내장 콘텐츠(Embedded content)</li>
+				</ul>
+			</li>
+			<li title="CSS"><strong>CSS</strong>
+				<ul>
+					<li>블록 레벨 요소 vs 인라인 요소</li>
+					<li>섹션 콘텐츠 (Section Conetnt)</li>
+					<li>콘텐츠 그룹화(Grouping content)</li>
+					<li>문자 콘텐츠(Text-level semantics)</li>
+					<li>내장 콘텐츠(Embedded content)</li>
+				</ul>
+			</li>
+			<li title="Javascript"><strong>Javascript</strong></li>
+			<li title="NCS"><strong>NCS</strong></li>
+			<li title="Accessibility"><strong>Accessibility</strong></li>
+		</ol>
+
+		<p class="crazy">I am a paragraph.</p>
+		<p class="fancy">I am so very fancy!</p>
+		<div>I am NOT a paragraph.</div>
+	</body>
+</html>

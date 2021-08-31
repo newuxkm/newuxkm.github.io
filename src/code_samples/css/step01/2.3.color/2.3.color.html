@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS Color Properties</title>
+		<style>
+			.name-color{color:red;}
+			.hex-color1{color:#f00;}
+			.hex-color2{color:#ff0000;}
+			.rgb-color1{color:rgb(255,0,0);}
+			.rgb-color2{color:rgb(100%, 0%, 0%);}
+			.hsl-color1{color:hsl(0, 100%, 50%);}
+			/* 50% 투명 */
+			.rgba-color{color:rgba(255, 0, 0, 0.5);} 
+			.hsla-color{color:hsla(0, 100%, 50%, 0.5);}
+		</style>
+	</head>
+	<body>
+		<h2>color 예제</h2>
+		<p class="name-color">p{color:red;}</p>
+		<p class="hex-color1">p{color:#f00;}</p>
+		<p class="hex-color2">p{color:#ff0000;}</p>
+		<p class="rgb-color1">p{color:rgb(255,0,0);}</p>
+		<p class="rgb-color2">p{color:rgb(100%, 0%, 0%);}</p>
+		<p class="hsl-color1">p{color:hsl(0, 100%, 50%);}</p>
+		<p class="rgba-color">p{color:rgba(255, 0, 0, 0.5);}</p>
+		<p class="hsla-color">p{color:hsla(0, 100%, 50%, 0.5);}</p>
+
+		<h2>currentColor 예제</h2>
+		<div style="color: blue; border: 1px dashed currentColor;">
+			이 글의 색은 파랑입니다.
+			<div style="background: currentColor; height:9px;"></div>
+			이 블록은 파란 테두리로 둘러쌓여 있습니다.
+		</div>
+<!-- 
+	color: rebeccapurple;
+	color: #00ff00;
+	color: rgb(214, 122, 127);
+	color: hsl(30, 100%, 50%);
+	color: hsla(30, 100%, 50%, .3);
+	color: initial;
+
+	/* 키워드 값 */
+	color: currentcolor;
+
+	/* <named-color> 값 */
+	color: red;
+	color: orange;
+	color: tan;
+	color: rebeccapurple;
+
+	/* <hex-color> 값 */
+	color: #090;
+	color: #009900;
+	color: #090a;
+	color: #009900aa;
+
+	/* <rgb()> 값 */
+	color: rgb(34, 12, 64, 0.6);
+	color: rgba(34, 12, 64, 0.6);
+	color: rgb(34 12 64 / 0.6);
+	color: rgba(34 12 64 / 0.3);
+	color: rgb(34.0 12 64 / 60%);
+	color: rgba(34.6 12 64 / 30%);
+
+	/* <hsl()> 값 */
+	color: hsl(30, 100%, 50%, 0.6);
+	color: hsla(30, 100%, 50%, 0.6);
+	color: hsl(30 100% 50% / 0.6);
+	color: hsla(30 100% 50% / 0.6);
+	color: hsl(30.0 100% 50% / 60%);
+	color: hsla(30.2 100% 50% / 60%);
+
+	/* 전역 값 */
+	color: inherit;
+	color: initial;
+	color: unset;
+ -->
+	</body>
+</html>

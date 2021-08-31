@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS Table Properties</title>
+		<style>
+			section{width:600px;margin:0 auto;}
+			section h2{padding:10px 0;border-bottom:2px solid #ddd;text-align:center;}
+			article{width:600px;margin:10px auto;padding:10px;border:2px solid #000;}
+			table{display:inline-table;margin:1em;border:dashed 5px;}
+			table th,
+			table td {border: solid 3px;}
+			caption{font-weight:bold;}
+			caption code{font-weight:inherit;}
+
+			/* table border */
+			.fx { border-color: orange blue; }
+			.gk { border-color: black red; }
+			.ed { border-color: blue gold; }
+			.tr { border-color: aqua; }
+			.sa { border-color: silver blue; }
+			.wk { border-color: gold blue; }
+			.ch { border-color: red yellow green blue; }
+			.bk { border-color: navy blue teal aqua; }
+			.op { border-color: red; }
+
+
+			/* border-collapse */
+			.separate{border-collapse:separate;}
+			.collapse{border-collapse:collapse;}
+
+			/* border-spacing */
+			.spacing{border-spacing:5em .5em;}
+			.spacing td{
+				width:1.5em;
+				height:1.5em;
+				background:#d2d2d2;
+				text-align:center;
+				vertical-align:middle;
+			}
+
+			/* caption-side */
+			.caption-side-top caption{caption-side:top;}
+			.caption-side-bottom caption{caption-side:bottom;}
+
+			/* empty-cells */
+			.empty-cells-show{empty-cells:show;}
+			.empty-cells-hide{empty-cells:hide;}
+
+			/* table-layout */
+			.auto{width:100%;table-layout:auto;}
+			.fixed{width:100%;table-layout:fixed;}
+		</style>
+	</head>
+	<body>
+		<section>
+			<h2>table 기본예시</h2>
+			<table class="separate">
+				<caption><code>border-collapse: separate</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk">Blink</td></tr>
+					<tr><td class="op">Opera</td> <td class="bk">Blink</td></tr>
+				</tbody>
+			</table>
+			<table class="collapse">
+				<caption><code>border-collapse: collapse</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk">Blink</td></tr>
+					<tr><td class="op">Opera</td> <td class="bk">Blink</td></tr>
+				</tbody>
+			</table>
+			<table class="spacing">
+				<caption><code>border-spacing:1em .5em</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk">Blink</td></tr>
+					<tr><td class="op">Opera</td> <td class="bk">Blink</td></tr>
+				</tbody>
+			</table>
+			<table class="caption-side-top">
+				<caption><code>caption-side:top</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk">Blink</td></tr>
+					<tr><td class="op">Opera</td> <td class="bk">Blink</td></tr>
+				</tbody>
+			</table>
+			<table class="caption-side-bottom">
+				<caption><code>caption-side:bottom</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk">Blink</td></tr>
+					<tr><td class="op">Opera</td> <td class="bk">Blink</td></tr>
+				</tbody>
+			</table>
+			<table class="empty-cells-show">
+				<caption><code>empty-cells:show</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk"></td></tr>
+					<tr><td class="op">Opera</td> <td class="bk"></td></tr>
+				</tbody>
+			</table>
+			<table class="empty-cells-hide">
+				<caption><code>empty-cells:hide</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk"></td></tr>
+					<tr><td class="op">Opera</td> <td class="bk"></td></tr>
+				</tbody>
+			</table>
+			<table class="auto">
+				<caption><code>table-layout:auto</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk"></td></tr>
+					<tr><td class="op">Opera</td> <td class="bk"></td></tr>
+				</tbody>
+			</table>
+			<table class="fixed">
+				<caption><code>table-layout:fixed</code></caption>
+				<thead>
+					<tr><th>Browser</th> <th>Layout Engine</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="fx">Firefox</td> <td class="gk">Gecko</td></tr>
+					<tr><td class="ed">Edge</td> <td class="tr">EdgeHTML</td></tr>
+					<tr><td class="sa">Safari</td> <td class="wk">Webkit</td></tr>
+					<tr><td class="ch">Chrome</td> <td class="bk"></td></tr>
+					<tr><td class="op">Opera</td> <td class="bk"></td></tr>
+				</tbody>
+			</table>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS Font Properties</title>
+		<style>
+			.font-size-40 { font-size: 40px; }
+			.font-size-2x { font-size: 2.0em; }
+			.font-size-150ps { font-size: 150%; }
+			.font-size-large { font-size: large; }
+
+			.serif {font-family: "Times New Roman", Times, serif;}
+			.sans-serif {font-family: Arial, Helvetica, sans-serif;}
+			.monospace {font-family: "Courier New", Courier, monospace;}
+
+			/* font-style : normal / italic / oblique */
+			.italic {font-style: italic;}
+
+			/* font-weight : 100 ~ 900 or normal / bold / lighter / bolder */
+			.light {font-weight: lighter;}
+			.thick {font-weight: bold;}
+			.thicker {font-weight: 900;}
+
+			/* size | family */
+			.shorthand1{font: 2em "Open Sans", serif;}
+
+			/* style | size | family */
+			.shorthand2{font: italic 2em "Open Sans", sans-serif;}
+
+			/* style | variant | weight | size/line-height | family */
+			.shorthand3{font: italic small-caps bolder 16px/1.2 monospace;}
+
+			/* style | variant | weight | size/line-height | family */
+			/* font-variant: small-caps; 소문자를 대문자로 만든다. 단 크기는 일반 대문자에 비해 더 작다.*/
+			.shorthand4{font: italic small-caps bolder 16px/3 cursive;}
+		</style>
+	</head>
+	<body>
+		<h2>default font size: 16px</h2>
+		<p class='font-size-40'>font-size: 40px</p>
+		<p class='font-size-2x'>font-size: 2.0em</p>
+		<p class='font-size-150ps'>font-size: 150%</p>
+		<p class='font-size-large'>font-size: large</p>
+		<br>
+
+		<h2>font-family</h2>
+		<p class="serif">Times New Roman font.</p>
+		<p class="sans-serif">Arial font.</p>
+		<p class="monospace">Courier New font.</p>
+		<br>
+
+		<h2>font-style</h2>
+		<p class="italic">font-style: italic</p>
+		<br>
+
+		<h2>font-weight</h2>
+		<p class="light">font-weight: lighter</p>
+		<p class="thick">font-weight: bold</p>
+		<p class="thicker">font-weight: 900</p>
+		<br>
+
+		<h2>축약형(Shorthand font property)</h2>
+		<p class="shorthand1">font: 2em "Open Sans", serif;</p>
+		<p class="shorthand2">font: italic 2em "Open Sans", sans-serif;</p>
+		<p class="shorthand3">font: italic small-caps bolder 16px/1.2 monospace;</p>
+		<p class="shorthand4">font: italic small-caps bolder 16px/3 cursive;</p>
+	</body>
+</html>

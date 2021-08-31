@@ -1,0 +1,277 @@
+
+<!-- 상품 리스트 구조 -->
+{%- macro product_item(image, discount, name, brand, price1, price2, choice=false) %}
+<li class="lst_item">
+	<a href="/pages/product/detail.html">
+		<div class="thumb">
+			<p class="img"><img src="{{ image }}" width="100%" height="auto"></p>
+			<span class="discount">{{ discount }}</span>
+			{%- if choice %}
+			<label class="check">
+				<input type="checkbox">
+				<i>선택하기</i>
+			</label>
+			{%- endif %}
+		</div>
+		<div class="data">
+			<p class="brand">{{ brand }}</p>
+			<p class="name">{{ name }}</p>
+			<p class="price_box">
+				<span class="selling_price">{{ price1 }}</span>
+				<span class="cost_price">{{ price2 }}</span>
+			</p>
+		</div>
+	</a>
+</li>
+{%- endmacro %}
+
+
+<!-- 카테고리 메뉴 -->
+{%- macro category_tab(total=true, delivery=true) %}
+<nav class="category_tab tab_action">
+	<ul class="tab_nav">
+		{% if total -%}
+		<li class="tab total active"><a href="#"><i>전체</i></a></li>
+		{%- endif %}
+		<li class="tab coffee {% if total === false -%} active {%- endif %}"><a href="#"><i>커피/음료</i></a></li>
+		<li class="tab Icecream"><a href="#"><i>아이스크림</i></a></li>
+		<li class="tab bakery"><a href="#"><i>베이커리</i></a></li>
+		<li class="tab pizza"><a href="#"><i>피자/치킨</i></a></li>
+		<li class="tab fastfood"><a href="#"><i>패스트푸드</i></a></li>
+		<li class="tab eatout"><a href="#"><i>외식</i></a></li>
+		<li class="tab store"><a href="#"><i>편의점</i></a></li>
+		<li class="tab game"><a href="#"><i>상품권/게임</i></a></li>
+		{%- if delivery %}
+		<li class="tab delivery"><a href="#"><i>배송상품</i></a></li>
+		{%- endif %}
+		<li class="tab culture"><a href="#"><i>문화</i></a></li>
+	</ul>
+</nav>
+{%- endmacro %}
+
+
+<!-- 더보기 버튼 -->
+{%- macro more_button(style="a", href="#") %}
+<div class="more_link_box">
+	{% if style === "a" -%}
+	<a href="{{href}}" class="more_link"><i>더보기</i></a>
+	{%- elif style === "button" -%}
+	<button type="button" class="more_link"><i>더보기</i></button>
+	{%- endif %}
+</div>
+{%- endmacro %}
+
+
+<!-- board list item -->
+{%- macro board_item(style="default", title="title", date="0000-00-00 00:00:00", content="content", answer="") %}
+<li class="board_item {{ style }} {{ answer }}">
+	<div class="tit_box">
+		<p class="title">{{ title }}</p>
+		{%- if date !== "" %}
+		<p class="date">{{ date }}</p>
+		{%- endif %}
+
+		{%- if answer === "answer_waiting" %}
+		<p class="answer">답변 대기 중</p>
+		{%- elif answer === "answer_completed" %}
+		<p class="answer">답변 완료</p>
+		{%- endif %}
+	</div>
+	{%- if content !== "" %}
+	<div class="con_box">
+		<div class="content">
+			{{ content }}
+		</div>
+	</div>
+	{%- endif %}
+</li>
+{%- endmacro %}
+
+
+<!-- board inquiry item -->
+{%- macro inp_item(style="default", title="title", content="content") %}
+<dl class="item">
+	<dt>{{ title }}</dt>
+	<dd>{{ content }}</dd>
+</dl>
+{%- endmacro %}
+
+
+<!-- 회원가입 step -->
+{%- macro join_step(step) %}
+<ol>
+	<li class="{% if step === 1 -%} active {%- endif %}"><p>가입자유형</p></li>
+	<li class="{% if step === 2 -%} active {%- endif %}"><p>이용약관</p></li>
+	<li class="{% if step === 3 -%} active {%- endif %}"><p>회원정보</p></li>
+	<li class="{% if step === 4 -%} active {%- endif %}"><p>가입완료</p></li>
+</ol>
+<span class="dot"><i></i><i></i><i></i></span>
+{%- endmacro %}
+
+
+
+<!-- // form start ------------------------------------------------------------------------------------------------- -->
+
+
+<!--
+	// form 요소 옵션
+	id =					[string] 고유 아이디 입력
+	class =				[string] .form_box class 지정
+	label =				[string] 인풋 제목 입력
+	help =				[string] help 텍스트 입력
+
+	size =				[string] default / large
+	type = 				[string] text 기본
+	placeholder =	[string] placeholder text
+	value =				[string] value
+	inp_class =		[string] input(or textarea, select) class ( error / disabled / successful )
+
+	required =		[Boolean] 필수 입력 여부
+	disabled =		[Boolean]
+	readonly =		[Boolean]
+
+	del_action =	[Boolean] 텍스트 삭제 버튼
+	ex_button =		[string] 별도의 버튼 생성 (string 값을 설정하면 버튼의 이름으로 설정 됨)
+	ex_html = ""
+-->
+{%- macro text_input(
+	id="", class="", label="", help="",
+	size="default", type="text", value="", placeholder="", inp_class="",
+	required=false, disabled=false, readonly=false,
+	del_action=false, ex_button="", ex_body_html="", ex_html=""
+) %}
+{%- set input_id = id %}
+<div class="form_box
+	{%- if class %} {{ class }} {%- endif %}
+	{%- if del_action %} text_del_action {%- endif %}">
+	{%- if label %}
+	<div class="form_header {%- if required %} required_inp {%- endif %}">
+		<label {%- if input_id %} for="{{ input_id }}" {%- endif %} class="form_label">{{ label }}</label>
+		{%- if help %}
+		<p class="help_txt">{{ help }}</p>
+		{%- endif %}
+	</div>
+	{%- endif %}
+	<div class="form_body inp_{{ size }}">
+		<input type="{{ type }}" class="inp_common text_inp {%- if inp_class %} {{ inp_class }} {%- endif -%}"
+					 {%- if type==="number" %} inputmode="numeric" pattern="[0-9]*" {%- endif %}
+					 {%- if input_id %} id="{{ input_id }}" {%- endif %}
+					 {%- if placeholder %} placeholder="{{ placeholder }}" {%- endif %}
+					 {%- if value %} value="{{ value }}" {%- endif %}
+					 {%- if disabled %} disabled {%- endif %}
+					 {%- if readonly %} readonly {%- endif %}
+					 {%- if required %} required {%- endif %}>
+		{%- if del_action %}
+		<button type="button" class="inp_text_del"><i>텍스트 삭제</i></button>
+		{%- endif %}
+		{%- if ex_body_html %}
+		{{ ex_body_html }}
+		{%- endif %}
+	</div>
+	{%- if ex_button %}
+	<button type="button" class="btn_small ex_button"><i>{{ ex_button }}</i></button>
+	{%- endif %}
+	{%- if ex_html %}
+	{{ ex_html }}
+	{%- endif %}
+</div>
+{%- endmacro %}
+
+
+{%- macro textarea(
+	id="", class="", label="", help="",
+	placeholder="", inp_class="", value="",
+	disabled=false, required=false, readonly=false,
+	del_action=false
+) %}
+{%- set textarea_id = id %}
+<div class="form_box
+	{%- if class %} {{ class }} {%- endif %}
+	{%- if del_action %} text_del_action {%- endif %}">
+	{%- if label %}
+	<div class="form_header {%- if required %} required_inp {%- endif %}">
+		<label {%- if textarea_id %} for="{{ textarea_id }}" {%- endif %} class="form_label">{{ label }}</label>
+		{%- if help %}
+		<p class="help_txt">{{ help }}</p>
+		{%- endif %}
+	</div>
+	{%- endif %}
+	<div class="form_body text_body">
+		<textarea class="inp_common {%- if inp_class %} {{ inp_class }} {%- endif -%}"
+							{%- if textarea_id %} id="{{ textarea_id }}" {%- endif %}
+							{%- if placeholder %} placeholder="{{ placeholder }}" {%- endif %}
+							{%- if value %} value="{{ value }}" {%- endif %}
+							{%- if disabled %} disabled {%- endif %}
+							{%- if readonly %} readonly {%- endif %}
+							{%- if required %} required {%- endif %}></textarea>
+		{%- if del_action %}
+		<button type="button" class="inp_text_del"><i>텍스트 삭제</i></button>
+		{%- endif %}
+	</div>
+</div>
+{%- endmacro %}
+
+
+{%- macro select(
+	id="", class="", label="", help="",
+	inp_class="",	option="",
+	disabled=false, required=false, readonly=false
+) %}
+{%- set select_id = id %}
+<div class="form_box {%- if class %} {{ class }} {%- endif %}">
+	{%- if label %}
+	<div class="form_header {%- if required %} required_inp {%- endif %}">
+		<label {%- if select_id %} for="{{ select_id }}" {%- endif %} class="form_label">{{ label }}</label>
+		{%- if help %}
+		<p class="help_txt">{{ help }}</p>
+		{%- endif %}
+	</div>
+	{%- endif %}
+	<div class="form_body select_body">
+		<select class="inp_common {%- if inp_class %} {{ inp_class }} {%- endif %}"
+						{%- if select_id %} id="{{ select_id }}" {%- endif %}
+						{%- if disabled %} disabled {%- endif %}
+						{%- if readonly %} readonly {%- endif %}
+						{%- if required %} required {%- endif %}>
+		{%- for option_item in option %}
+			{% if loop.index === 1 -%}
+			<option value="" selected>{{ option_item }}</option>
+			{%- else -%}
+			<option value="{{ option_item }}">{{ option_item }}</option>
+			{%- endif %}
+		{%- endfor %}
+		</select>
+	</div>
+</div>
+{%- endmacro %}
+
+
+{%- macro radio_input(
+	class="",
+	label="", help="", name="", item="", checked="",
+	disabled=false, required=false
+) %}
+<div class="form_box {%- if class %} {{ class }} {%- endif %}">
+	{%- if label %}
+	<div class="form_header {%- if required %} required_inp {%- endif %}">
+		<p class="form_label">{{ label }}</p>
+		{%- if help %}
+		<p class="help_txt">{{ help }}</p>
+		{%- endif %}
+	</div>
+	{%- endif %}
+	<div class="form_body">
+	{%- for radio_item in item %}
+		<label class="radio_label">
+			<input type="radio" name="{{ name }}"
+						 {%- if disabled %} disabled {%- endif %}
+						 {%- if required %} required {%- endif %}
+						 {%- if checked===loop.index %} checked {%- endif %}>
+			<i>{{ radio_item }}</i>
+		</label>
+	{%- endfor %}
+	</div>
+</div>
+{%- endmacro %}
+
+

@@ -1,0 +1,7 @@
+<form action="myform.cgi">
+	<input type="file" name="fileupload" value="fileupload" id="fileupload">
+	<label for="fileupload"> Select a file to upload</label>
+	<input type="hidden" id="ipaddr" name="ipaddr" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">
+	<input type="hidden" id="referer" name="referer" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
+	<input type="submit" value="submit">
+</form>

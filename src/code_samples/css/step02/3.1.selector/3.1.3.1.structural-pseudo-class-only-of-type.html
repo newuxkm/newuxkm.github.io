@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 :only-of-type Structural pseudo-class</title>
+		<style>
+			main :only-of-type{color:red;}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div>I am `div` #1.</div>
+			<p>I am the only `p` among my siblings.</p>
+			<div>I am `div` #2.</div>
+			<div>I am `div` #3.
+				<i>I am the only `i` child.</i>
+				<em>I am `em` #1.</em>
+				<em>I am `em` #2.</em>
+			</div>
+		</main>
+	</body>
+</html>

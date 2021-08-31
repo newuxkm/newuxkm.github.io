@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>UXKM CSS3 Counter</title>
+<style>
+	*{margin:0;padding:0;box-sizing:border-box;}
+	ol {counter-reset: item;}
+	li {display: block;}
+	li:before { 
+		content: counters(item, ".") " "; 
+		counter-increment: item; 
+	}
+	li > ol{padding:0 20px;}
+</style>
+</head>
+<body>
+	<div class="box">
+		<ol>								<!-- {item[0]=0        -->
+			<li>item</li>					<!--  item[0]++ (=1)   -->
+			<li>item						<!--  item[0]++ (=2)   -->
+				<ol>						<!--  {item[1]=0       -->
+					<li>item</li>			<!--   item[1]++ (=1)  -->
+					<li>item</li>			<!--   item[1]++ (=2)  -->
+					<li>item				<!--   item[1]++ (=3)  -->
+						<ol>				<!--   {item[2]=0      -->
+							<li>item</li>	<!--    item[2]++ (=1) -->
+						</ol>				<!--                   -->
+						<ol>				<!--   }{item[2]=0     -->
+							<li>item</li>	<!--    item[2]++ (=1) -->
+						</ol>				<!--                   -->
+					</li>					<!--   }               -->
+					<li>item</li>			<!--   item[1]++ (=4)  -->
+				</ol>						<!--                   -->
+			</li>							<!--  }                -->
+			<li>item</li>					<!--  item[0]++ (=3)   -->
+			<li>item</li>					<!--  item[0]++ (=4)   -->
+		</ol>								<!--  }                -->
+		<hr>
+		<ol>								<!-- {item[0]=0       -->
+			<li>item</li>					<!--  item[0]++ (=1)   -->
+			<li>item</li>					<!--  item[0]++ (=2)   -->
+		</ol>								<!--                   -->
+	</div>
+</body>
+</html>

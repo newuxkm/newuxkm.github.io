@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 outline-offset Module</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			div{width:500px;margin:0 auto;padding:20px;}
+			p{width:80%;margin:100px auto;}
+			.box1 {
+				border: 1px solid blue;
+				outline: 1px dashed red;
+				outline-offset: 10px;
+				background: yellow;
+			}
+
+			.box2{
+				height: 100px;
+				padding: .75em;
+				border: 2px solid #dc143c;
+				outline: .75em solid;
+				outline-offset: 4px;
+				background-color: #ffd955;
+			}
+
+			.box3{
+				height: 100px;
+				padding: .75em;
+				border: 2px solid #dc143c;
+				outline: .75em solid;
+				outline-offset: .6rem;
+				background-color: #ffd955;
+			}
+
+			.box4{
+				height: 100px;
+				padding: .75em;
+				border: 2px solid #dc143c;
+				outline: 5px dashed blue;
+				outline-offset: 12px;
+				background-color: #ffd955;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+			<p class="box1">Gallia est omnis divisa in partes tres.</p>
+			<p class="box2">Gallia est omnis divisa in partes tres.</p>
+			<p class="box3">Gallia est omnis divisa in partes tres.</p>
+			<p class="box4">Gallia est omnis divisa in partes tres.</p>
+		</div>
+	</body>
+</html>

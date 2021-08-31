@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 flexible flex-shrink</title>
+		<style>
+			*{margin:0;padding:0;list-style: none;box-sizing:border-box;}
+			body {
+				padding: 20px;
+			}
+			h1 {
+				margin-bottom: 20px;
+				color: #643BFF;
+				font-size: 22px;
+				font-weight: 600;
+			}
+			.container {
+				display: flex;
+
+				max-width: 550px;
+				height: 180px;
+				margin-bottom: 10px;
+				background: #643BFF;
+			}
+			.item {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-basis: 120px;
+
+				height: 150px;
+				color: #fff;
+				font-size: 40px;
+			}
+			.item:nth-child(1) { background: #FFC447; }
+			.item:nth-child(2) { background: #E87635; }
+			.item:nth-child(3) { background: #FF4847; }
+			.item:nth-child(4) { background: #D335E8; }
+
+			.container2 .item:nth-child(1) { flex-shrink: 1; }
+			.container2 .item:nth-child(2) { flex-shrink: 2; }
+			.container2 .item:nth-child(3) { flex-shrink: 0; }
+			.container2 .item:nth-child(4) { flex-shrink: 0; }
+
+			.container3 .item:nth-child(1) { flex-shrink: 1; }
+			.container3 .item:nth-child(2) { flex-shrink: 4; }
+			.container3 .item:nth-child(3) { flex-shrink: 1; }
+			.container3 .item:nth-child(4) { flex-shrink: 1; }
+
+			hr {
+				margin: 50px 0;
+			}
+
+			.demo{
+				position:relative;
+			}
+
+			.shrink {
+				max-width: 500px;
+				margin: 50px 0 0;
+				padding: 20px;
+				background-color: #594255;
+
+				-webkit-display: -webkit-box;
+				-webkit-display: -webkit-flex;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+			}
+
+			.item {
+				width: 200px;
+				height: 100px;
+				margin: 1%;
+				background-color: #fff;
+				color: #594255;
+				font-weight: bold;
+				font-family: sans-serif;
+				font-size: 5em;
+				line-height: 100px;
+				text-align: center;
+
+				-webkit-flex-basis: 200px;
+				-ms-flex-preferred-size: 200px;
+				flex-basis: 200px;
+				-webkit-flex-grow: 0;
+				-webkit-box-flex: 0;
+				-ms-flex-positive: 0;
+				flex-grow: 0;
+			}
+
+			.controls {
+				position: static;
+				width: 150px;
+				padding: 20px;
+				border: 1px solid #ddd;
+				background-color: white;
+				line-height: 150%;
+			}
+
+			input {
+				width: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>flex-shrink: </h1>
+		<div class="container container1">
+			<div class="item">1</div>
+			<div class="item">1</div>
+			<div class="item">1</div>
+			<div class="item">1</div>
+		</div>
+
+		<div class="container container2">
+			<div class="item">1</div>
+			<div class="item">2</div>
+			<div class="item">0</div>
+			<div class="item">0</div>
+		</div>
+
+		<div class="container container3">
+			<div class="item">1</div>
+			<div class="item">4</div>
+			<div class="item">1</div>
+			<div class="item">1</div>
+		</div>
+
+		<div class="demo">
+			<div class="shrink" id="container">
+				<div class="item" id="one">1</div>
+				<div class="item" id="two">2</div>
+				<div class="item" id="three">3</div>
+				<div class="item" id="four">4</div>
+			</div>
+			<div class="controls">
+				<table>
+					<tr>
+						<td>One:</td>
+						<td><input type="text" value="1" onkeyup="var item=document.getElementById('one'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+					</tr>
+					<tr>
+						<td>Two:</td>
+						<td><input type="text" value="1" onkeyup="var item=document.getElementById('two'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+					</tr>
+					<tr>
+						<td>Three:</td>
+						<td><input type="text" value="1" onkeyup="var item=document.getElementById('three'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+					</tr>
+					<tr>
+						<td>Four:</td>
+						<td><input type="text" value="1" onkeyup="var item=document.getElementById('four'); item.style.WebkitFlexShrink = this.value; item.style.flexShrink = this.value;"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

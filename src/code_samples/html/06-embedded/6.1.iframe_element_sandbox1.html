@@ -1,0 +1,9 @@
+<iframe sandbox src="/"></iframe> <!-- 읽기 전용의 단순 웹페이지 -->
+<!--
+위의 제한이 너무 엄격하여 iframe 안의 페이지가 동작하지 않을때는 sandbox 속성에 다음과 같은 값을 지정하여 샌드박스 제한을 완화할 수 있다.
+
+allow-forms : 폼 요소로 페이지를 호출할 수 있음
+allow-scripts : 자바스크립트를 사용할 수 있음, 그러나 윈도우 팝업 iframe 요소 삽입을 금지
+allow-same-origin : 같은 도메인에 소속된 리소스를 이용할 수 있음 (서버와의 통신, 스토리지 이용등)
+-->
+<iframe sandbox="allow-scripts allow-forms" src="/"></iframe>

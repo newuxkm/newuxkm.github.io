@@ -1,0 +1,16 @@
+<style>
+	/* 뷰포트 너비가 768px 이상 '그리고' 1024px 이하이면 실행 */
+	@media all and (min-width:768px) and (max-width:1024px) { … }
+
+	/* 뷰포트 너비가 768px 이거나 '또는' 1024px 이면 실행 */
+	@media all and (width:768px), (width:1024px) { … }
+
+	/* 뷰포트 너비가 768px 이상 '그리고' 1024px 이하가 '아니면' 실행 */
+	@media not all and (min-width:768px) and (max-width:1024px) { … }
+
+	/* 스크린 너비가 320px '그리고' 높이가 480px 이면 실행 */
+	@media all and (device-width:320px) and (device-height:480px) { … }
+
+	/* 스크린 너비가 최소 320px 이상 '그리고' 높이가 최소 480px 이상이면 실행 */
+	@media all and (min-device-width:320px) and (min-device-height:480px) { … }
+</style>

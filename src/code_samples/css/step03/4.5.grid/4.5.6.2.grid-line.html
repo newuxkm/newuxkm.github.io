@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+		<meta name="format-detection" content="telephone=no, address=no, email=no, date=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>UXKM CSS3 grid-line</title>
+		<style>
+			*{margin:0;padding:0;box-sizing:border-box;}
+			body {
+				margin: 1rem;
+				font: 12px system-ui;
+			}
+
+			.wrapper { 
+				display: grid; 
+				grid-template-columns: repeat(3, 1fr); 
+				grid-auto-rows: 100px;
+
+				border: 2px solid #f76707;
+				border-radius: 5px;
+				background-color: #fff4e6;
+			}
+			.wrapper > div {
+				padding: 1em;
+				border: 2px solid #ffa94d;
+				border-radius: 5px;
+				background-color: #ffd8a8;
+				color: #d9480f;
+			}
+
+			.box1 { 
+				grid-column-start: 1; 
+				grid-column-end: 4; 
+				grid-row-start: 1; 
+				grid-row-end: 3; 
+			}
+
+			.box2 { 
+				grid-column-start: 1; 
+				grid-row-start: 3; 
+				grid-row-end: 5; 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="box1">One</div>
+			<div class="box2">Two</div>
+			<div class="box3">Three</div>
+			<div class="box4">Four</div>
+			<div class="box5">Five</div>
+		</div>
+	</body>
+</html>
