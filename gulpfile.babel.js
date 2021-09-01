@@ -182,6 +182,12 @@ const web_config = () => {
   .pipe( gulp.dest( dist ) );
 }
 
+// nojekyll
+const nojekyll = () => {
+  return gulp.src( './.nojekyll' )
+  .pipe( gulp.dest( dist ) );
+}
+
 
 // etc -----------------------------------------------------------------------------------------------------------------
 
@@ -240,7 +246,7 @@ const gh = () => {
 
 // build ---------------------------------------------------------------------------------------------------------------
 const prepare = gulp.series([ clean, img ]);
-const assets = gulp.series([ html, css, js, lib, code_sample, web_config ]);
+const assets = gulp.series([ html, css, js, lib, code_sample, web_config, nojekyll ]);
 const live = gulp.parallel([ webserver, watch ]);
 
 export const build = gulp.series([ prepare, assets ]);
