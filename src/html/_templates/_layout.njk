@@ -47,6 +47,10 @@
 	{{- gnb_data[d1].depth2[d2].d2_link }}
 {%- endset -%}
 
+{#- layout type ------------------------------------------------------------------------------------------------------#}
+{%- set layout_pub   = pageLayout.type === "publishing" -%}
+{%- set layout_build = pageLayout.type === "build_system" -%}
+
 {#- end setting ------------------------------------------------------------------------------------------------------#}
 
 
@@ -90,7 +94,7 @@
 			</nav>
 			<!-- // {{ title_d1 }} 주 탐색창 -->
 
-			{%- if pageLayout.type === "publishing" %}
+			{%- if layout_pub %}
 			{# ----------space--------- #}
 			<blockquote class="inner note_none" cite="https://uxkm.io">
 				<strong class="sound_only">{{ title_d1 }} 및 {{ title_d2 }} 요약설명</strong>
@@ -138,7 +142,7 @@
 			{% if pageLayout.sideMenu -%}
 			<aside class="side_menu_area">
 				<strong class="tit"><b>{{ title_d2 }}</b> <i>Table of Contents</i></strong>
-				<nav class="side_menu">
+				<nav class="side_menu {%- if layout_pub %} pub_side_nemu {%- elif layout_build %} build_side_nemu {%- endif %}">
 					{{ gnb_comp.d3_below(
 						gnb_data,
 						pageNumber,

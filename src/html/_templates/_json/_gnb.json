@@ -949,6 +949,20 @@
               "d3_link": "/06-file_management"
             }
           ]
+        },
+        {
+          "d2_name": "Gulp babel",
+          "d2_link": "/gulp-babel",
+          "depth3": [
+            {
+              "d3_name": "Gulp babel1",
+              "d3_link": "/01-gulp_babel1"
+            },
+            {
+              "d3_name": "Gulp babel2",
+              "d3_link": "/02-gulp_babel2"
+            }
+          ]
         }
       ]
     },
