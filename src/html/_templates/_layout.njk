@@ -25,7 +25,7 @@
 	{%- if pageNumber.part %} <span class="t_blue">{{ part_path.part_name }}</span> {%- endif %}
 {%- endset -%}
 {%- set title_d4_txt -%}
-	{{- d4_path.d4_name | replace('<i>','') | replace('</i>','') if pageNumber.depth4 }}
+	{{- d4_path.d4_name if pageNumber.depth4 }}
 	{%- if pageNumber.part %} {{ part_path.part_name }} {%- endif %}
 {%- endset -%}
 
@@ -77,7 +77,7 @@
 	{#- // main content area ------------------------------------------------------------------------------------------ #}
 	{%- else %}
 	<div class="uk_container sub_content_area">
-		<section class="sub_top">
+		<div class="sub_top">
 			<strong class="tit" data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }}</strong>
 
 			<nav class="top_link">
@@ -90,8 +90,8 @@
 			</nav>
 			<!-- // {{ title_d1 }} 주 탐색창 -->
 
-			{#- ----------------------------------------------------------------------------------------------------------- #}
-			{% if pageLayout.type === "publishing" %}
+			{%- if pageLayout.type === "publishing" %}
+			{# ----------space--------- #}
 			<blockquote class="inner note_none" cite="https://uxkm.io">
 				<strong class="sound_only">{{ title_d1 }} 및 {{ title_d2 }} 요약설명</strong>
 				{%- if pageLayout.Info %}
@@ -104,18 +104,18 @@
 			<!-- // {{ title_d1 }} 및 {{ title_d2 }} 요약설명 -->
 
 			{%- if pageLayout.note %}
-			{# ------------------------------------------------------------------------------------------------------------ #}
+			{# ----------space--------- #}
 			{{ include( reference_path + "/note.njk" ) | tabIndent(3) }}
 			{%- endif %}
 			{%- endif %}
-		</section>
+		</div>
 		<!-- // sub top content (.sub_top) -->
 
-		<section class="sub_content inner {%- if pageNumber.depth4 === undefined %} depth3_last {%- endif %}">
-			<main id="content" class="content_area" tabindex="0">
+		<div class="sub_content inner {%- if pageNumber.depth4 === undefined %} depth3_last {%- endif %}">
+			<main id="content" class="content_area" tabindex="-1">
 				<header>
 					{%- if pageNumber.depth4 %}
-					<h1 data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 }} <em class="sound_only">- by. UXKM</em></h1>
+					<h1 {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- else %}
 					<h1 data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- endif %}
@@ -148,7 +148,7 @@
 			</aside>
 			<!-- // {{ title_d2 }} side menu -->
 			{%- endif %}
-		</section>
+		</div>
 		<!-- // sub main content (.sub_content) -->
 	</div>
 	{#- // sub content area ------------------------------------------------------------------------------------------- #}

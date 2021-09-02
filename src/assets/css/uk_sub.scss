@@ -7,8 +7,8 @@
 
 
 // sub basic -----------------------------------------------------------------------------------------------------------
-.sub_page {background:#000;}
-.device.sub_page {background:#fff;}
+//.sub_page {background:#000;}
+//.device.sub_page {background:#fff;}
 .hd_assetsLink_on,
 .device.sub_page.sub_black  {background:#000;}
 
@@ -464,7 +464,7 @@ $line-height-mb:22px;
 	}
 	h1:before {content:attr(data-number);}
 	h1.html5:after {
-		margin:0 0 0 7px;
+		//margin:0 0 0 7px;
 		@include font-icon2; font-size:24px; font-weight:bold; color:$red;
 		content:"\f13b";
 	}

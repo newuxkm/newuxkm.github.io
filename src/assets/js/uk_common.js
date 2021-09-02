@@ -31,7 +31,7 @@ const _ukContainer = $('.uk_container');
 
 // header action -------------------------------------------------------------------------------------------------------
 _ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
-_assetsLink_btn.click(function(){
+_assetsLink_btn.on('click', function(){
 	//열기
 	if( !$(this).is('.active') ){
 		$(this).addClass('active').removeClass('after');
@@ -60,7 +60,6 @@ _assetsLink_btn.click(function(){
 	}
 	return false;
 });
-
 
 
 // cmomon function -----------------------------------------------------------------------------------------------------
@@ -514,11 +513,6 @@ $(document).ready(function(){
   if( _html.is('.sub_page') ){
   }
 });
-
-
-// const his = location.href;
-// const url = '/test';
-// history.pushState(his, '', url);
 
 
 
