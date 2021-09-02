@@ -908,7 +908,49 @@
 
     {
       "d1_name": "Build system",
-      "d1_link": "#"
+      "d1_link": "/buildSystem",
+      "depth2": [
+        {
+          "d2_name": "Gulp",
+          "d2_link": "/gulp",
+          "depth3": [
+            {
+              "d3_name": "걸프(Gulp)란?",
+              "d3_link": "/01-gulp-start"
+            },
+            {
+              "d3_name": "Gulp 설치 및 SCSS 컴파일러 설치",
+              "d3_link": "/02-gulp_scss"
+            },
+            {
+              "d3_name": "HTML과 웹서버",
+              "d3_link": "/03-html_webserver"
+            },
+            {
+              "d3_name": "Watch와 BrowserSync",
+              "d3_link": "/04-watch_browsersync"
+            },
+            {
+              "d3_name": "HTML Tamplate",
+              "d3_link": "/05-htmlTemplate",
+              "depth4": [
+                {
+                  "d4_name": "gulp-nunjucks 문법",
+                  "d4_link": "/01-njk_syntax"
+                },
+                {
+                  "d4_name": "gulp-nunjucks 설치 및 적용",
+                  "d4_link": "/02-njk_setting"
+                }
+              ]
+            },
+            {
+              "d3_name": "속도 개선과 파일 및 오류 관리",
+              "d3_link": "/06-file_management"
+            }
+          ]
+        }
+      ]
     },
 
     {
