@@ -16,10 +16,10 @@ const _ukNav= _ukNavArea.find('.nav');
 const _search_btn = _ukNavArea.find('.search_btn');
 const _search_area = _ukNavArea.find('.search_area');
 const _search_submit = _ukNavArea.find('.search_submit');
-const _assetsLink_btn = _ukNavArea.find('.assetsLink_btn');
-const _assetsLink_area = _ukNavArea.find('.assetsLink_area');
+const _sitemap_btn = _ukNavArea.find('.sitemap_btn');
+const _sitemap_area = _ukNavArea.find('.sitemap_area');
 const hd_progress = 'hd_progress';
-const hd_assetsLink_on = 'hd_assetsLink_on';
+const hd_sitemap_on = 'hd_sitemap_on';
 const hd_search_on = 'hd_search_on';
 
 // footer selector
@@ -31,12 +31,12 @@ const _ukContainer = $('.uk_container');
 
 // header action -------------------------------------------------------------------------------------------------------
 _ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
-_assetsLink_btn.on('click', function(){
+_sitemap_btn.on('click', function(){
 	//열기
 	if( !$(this).is('.active') ){
 		$(this).addClass('active').removeClass('after');
-		// $html.css('overflow','hidden').addClass(hd_assetsLink_on+' '+sub_black);
-		// $assetsLink_area.trigger('focus').removeClass(hash_move);
+		// $html.css('overflow','hidden').addClass(hd_sitemap_on+' '+sub_black);
+		// $sitemap_area.trigger('focus').removeClass(hash_move);
 		// offsetTopControl();
 		//
 		// setTimeout(function(){
@@ -48,7 +48,7 @@ _assetsLink_btn.on('click', function(){
 	//닫기
 	else if( $(this).is('.active') ){
 		$(this).removeClass('active').addClass('after');
-		// $html.removeAttr('style').removeClass(hd_assetsLink_on);
+		// $html.removeAttr('style').removeClass(hd_sitemap_on);
 		// setTimeout(function(){
 		//   $html.removeClass(sub_black);
 		// }, 300);
@@ -464,14 +464,23 @@ function uk_gist_skin_code(){
 
 // header common
 function hd_common(sct){
-	//uk_header ---------------------------//
+	// uk_header ---------------------------//
 	if( sct > 10 ) _ukHeader.addClass('fixed');
 	else _ukHeader.removeClass('fixed');
 
-	//uk_header progress
+	// uk_header progress
 	var docHeight = $(document).height() - window.innerHeight;
 	var hd_proW = (sct/docHeight)*100;  //Math.ceil();
 	$('.'+hd_progress).css('width',hd_proW+'%');
+
+  //
+
+  _sitemap_area.find('.depth3').each(function(i, e){
+    $(e).masonry({
+      itemSelector: '.item',
+      percentPosition: true
+    });
+  });
 }
 
 // pc&mb class
@@ -508,7 +517,6 @@ $(document).ready(function(){
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
-  const url = location.href;
 
   if( _html.is('.sub_page') ){
   }

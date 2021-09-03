@@ -80,76 +80,785 @@
 			<strong class="hd_logo uk_logo beta"><a href="/" class="uk_link" data-tit="Publishing">UXKM</a></strong>
 
 			<div class="hd_nav_area">
-				<nav class="nav">
-					<p class="sound_only">global menu</p>
+				<nav class="hd_nav">
+					<strong class="sound_only">global menu</strong>
 					<ul class="depth1">
 						<li class="active">
 							<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
 						</li>
 						<li>
-							<a href="/buildSystem/gulp/01-gulp-start">Build system</a>
+							<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
 						</li>
 						<li>
 							<a href="#">Template</a>
 						</li>
 					</ul>
 				</nav>
+				<!-- // global menu  -->
 
-				<div class="hd_search_link">
-					<!-- 검색 -->
-					<div class="hd_search">
-						<!--<button type="button" class="ly_btn search_btn"><i>Search button</i></button>-->
-						<div class="hd_layer_box search_area">
-							<div class="inner">
-								<div class="form">
-									<input type="text" placeholder="검색어를 입력해 주세요." required />
-									<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
-								</div>
-
-								<dl class="keyword_ex">
-									<dt>keyword example</dt>
-									<dd>div, p, strong, width, border-color, click, function</dd>
-								</dl>
+				<div class="hd_search">
+					<button type="button" class="ly_btn search_btn"><i>Search button</i></button>
+					<div class="hd_layer_box search_area" style="display:none">
+						<div class="inner">
+							<div class="form">
+								<input type="text" placeholder="검색어를 입력해 주세요." required />
+								<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
 							</div>
+
+							<dl class="keyword_ex">
+								<dt>keyword example</dt>
+								<dd>div, p, strong, width, border-color, click, function</dd>
+							</dl>
 						</div>
-						<button type="button" class="search_close">검색 닫기</button>
 					</div>
+					
+				</div>
+				<!-- // 검색 -->
 
-					<!-- 사이트맵 -->
-					<div class="hd_assetsLink">
-						<button type="button" class="ly_btn assetsLink_btn"><i>Assets link button</i></button>
-						<div class="hd_layer_box assetsLink_area">
-							<!--<div class="ly_action_wrap">-->
-							<div class="assetsLink_in inner">
-								<strong class="sm_tit">Site <i>M</i>ap</strong>
-							</div>
-							<!--</div>-->
-						</div>
+				<div class="hd_sitemap">
+					<button type="button" class="ly_btn sitemap_btn"><i>Site map button</i></button>
+					<div class="hd_layer_box sitemap_area">
+						<strong class="tit"><i>UXKM</i> Site map</strong>
+						<nav class="sitemap_in">
+
+							<ul class="depth1">
+								<li class="active">
+									<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
+									<ul class="depth2">
+										<li>
+											<a href="/publishing/html/01-htmlStart/01-html_start"><i>HTML</i></a>
+											<div class="depth3_wrap">
+												<ul class="depth3">
+													<li class="item">
+														<a href="/publishing/html/01-htmlStart/01-html_start">HTML 시작</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/01-htmlStart/01-html_start">HTML이란?</a>
+															</li>
+															<li>
+																<a href="/publishing/html/01-htmlStart/02-html_basic">HTML 기본구조</a>
+															</li>
+															<li>
+																<a href="/publishing/html/01-htmlStart/03-html_element">HTML 요소</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/02-blockInline/01-block_element">블록 요소 vs 인라인 요소</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/02-blockInline/01-block_element">블록 요소</a>
+															</li>
+															<li>
+																<a href="/publishing/html/02-blockInline/02-div_block">대표적인 블록 요소 - div</a>
+															</li>
+															<li>
+																<a href="/publishing/html/02-blockInline/03-inline_element">인라인 요소</a>
+															</li>
+															<li>
+																<a href="/publishing/html/02-blockInline/04-span_inline">대표적인 인라인 요소 - span</a>
+															</li>
+															<li>
+																<a href="/publishing/html/02-blockInline/05-element_nesting">요소 중첩</a>
+															</li>
+															<li>
+																<a href="/publishing/html/02-blockInline/06-only_empty">단일 요소 또는 빈 요소</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/03-sections/01-header_element">섹션 콘텐츠(Section Content)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/03-sections/01-header_element">header <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/03-sections/02-heading_element">heading(h1~h6) <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/03-sections/03-section_element">section <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/03-sections/04-nav_element">nav <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/03-sections/05-article_element">article <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/03-sections/06-footer_element">footer <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/03-sections/07-aside_element">aside <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/03-sections/08-hgroup_element">hgroup <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/04-grouping/01-main_element">콘텐츠 그룹화(Grouping content)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/04-grouping/01-main_element">main <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/02-p_element">p <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/03-ol_element">ol <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/04-ul_element">ul <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/05-li_element">li <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/06-dl_element">dl <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/07-dt_element">dt <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/08-dd_element">dd <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/09-address_element">address <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/10-figure_element">figure <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/11-figcaption_element">figcaption <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/12-pre_element">pre <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/04-grouping/13-blockquote_element">blockquote <i>element</i></a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/05-textLevel/01-a_element">문자 컨텐츠(Text-level semantics)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/05-textLevel/01-a_element">a <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/02-em_element">em <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/03-i_element">i <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/04-strong_element">strong <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/05-b_element">b <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/06-br_element">br <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/07-small_element">small <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/08-s_element">s <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/09-cite_element">cite <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/10-sub_element">sub <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/11-sup_element">sup <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/12-mark_element">mark <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/13-q_element">q <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/14-code_element">code <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/15-var_element">var <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/16-abbr_element">abbr <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/17-data_element">data <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/18-time_element">time <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/19-samp_element">samp <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/20-kbd_element">kbd <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/21-bdi_element">bdi <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/22-bdo_element">bdo <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/23-wbr_element">wbr <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/05-textLevel/24-ruby_element">ruby <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/06-embedded/01-iframe_element">내장 컨텐츠(Embedded content)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/06-embedded/01-iframe_element">iframe <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/02-img_element">img <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/03-map_element">map <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/04-area_element">area <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/05-video_element">video <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/06-audio_element">audio <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/07-track_element">track <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/08-picture_element">picture <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/09-source_element">source <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/10-svg_element">svg <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/11-embed_element">embed <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/12-object_element">object <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/06-embedded/13-param_element">param <i>element</i></a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/07-edits/01-del_element">수정(edits)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/07-edits/01-del_element">del(Deleted Text) <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/07-edits/02-ins_element">ins(insert) <i>element</i></a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/08-table/01-table_element">표 데이터(Tabular data)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/08-table/01-table_element">table <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/02-caption_element">caption <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/03-colgroup_element">colgroup <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/04-col_element">col <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/05-thead_element">thead <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/06-tbody_element">tbody <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/07-tfoot_element">tfoot <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/08-tr_element">tr <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/09-th_element">th <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/08-table/10-td_element">td <i>element</i></a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/09-forms/01-form_element">폼(forms)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/09-forms/01-form_element">form <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/02-label_element">label <i>element</i></a>
+															</li>
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/html/09-forms/03-input_element_part1">input <i>element</i> <em>part-1</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/html/09-forms/03-input_element_part2">input <i>element</i> <em>part-2</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/html/09-forms/03-input_element_part3">input <i>element</i> <em>part-3</em></a>
+																</p>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/04-button_element">button <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/05-select_element">select <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/06-optgroup_element">optgroup <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/07-option_element">option <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/08-datalist_element">datalist <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/09-textarea_element">textarea <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/10-output_element">output <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/11-progress_element">progress <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/12-meter_element">meter <i>element</i> <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/13-fieldset_element">fieldset <i>element</i></a>
+															</li>
+															<li>
+																<a href="/publishing/html/09-forms/14-legend_element">legend <i>element</i></a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/10-structure/01-html4_document">HTML 문서구조</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/html/10-structure/01-html4_document">HTML4에서의 문서 구조</a>
+															</li>
+															<li>
+																<a href="/publishing/html/10-structure/02-html5_document">HTML5에서의 문서 구조</a>
+															</li>
+															<li>
+																<a href="/publishing/html/10-structure/03-frameset_document">프레임셋 문서 구조</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/11-models/models">콘텐츠 모델(Content models)</a>
+													</li>
+													<li class="item">
+														<a href="/publishing/html/12-bookmark/bookmark">참조 사이트</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li class="active">
+											<a href="/publishing/css/01-cssStart/01-css_intro"><i>CSS</i></a>
+											<div class="depth3_wrap">
+												<ul class="depth3">
+													<li class="item">
+														<a href="/publishing/css/01-cssStart/01-css_intro">CSS 시작</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/css/01-cssStart/01-css_intro">CSS란?</a>
+															</li>
+															<li>
+																<a href="/publishing/css/01-cssStart/02-css_reason">CSS를 사용하는 이유?</a>
+															</li>
+															<li>
+																<a href="/publishing/css/01-cssStart/03-css_history">CSS의 발전</a>
+															</li>
+															<li>
+																<a href="/publishing/css/01-cssStart/04-css_modules">CSS 모듈과 표준화 과정</a>
+															</li>
+															<li>
+																<a href="/publishing/css/01-cssStart/05-css_syntax">CSS의 문법</a>
+															</li>
+															<li>
+																<a href="/publishing/css/01-cssStart/06-css_apply">CSS 선언방식</a>
+															</li>
+															<li>
+																<a href="/publishing/css/01-cssStart/07-css_cascading">CSS 상속과 캐스케이딩</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+															</li>
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/css/02-cssBeginner/02-css_selectors_level_part1">CSS 선택자 level 1, 2 <em>part-1</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/02-cssBeginner/02-css_selectors_level_part2">CSS 선택자 level 1, 2 <em>part-2</em></a>
+																</p>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/03-css_color">Color 속성</a>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/04-css_font">Font 속성</a>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/05-css_text">Text 속성</a>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/06-css_background">Background 속성</a>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/07-css_list">List 속성</a>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/08-css_table">Table 속성</a>
+															</li>
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/css/02-cssBeginner/09-css_boxmodel_part1">박스 모델 속성 <em>part-1</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/02-cssBeginner/09-css_boxmodel_part2">박스 모델 속성 <em>part-2</em></a>
+																</p>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/10-css_effects">시각적인 속성</a>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/11-css_formatting">위치 속성</a>
+															</li>
+															<li>
+																<a href="/publishing/css/02-cssBeginner/12-css_interface">사용자 인터페이스 속성</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/css/03-cssMiddleclass/01-css_selectors_level3_part1">CSS 중급</a>
+														<ul class="depth4">
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/css/03-cssMiddleclass/01-css_selectors_level3_part1">CSS 선택자 level 3 <em>part-1</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/03-cssMiddleclass/01-css_selectors_level3_part2">CSS 선택자 level 3 <em>part-2</em></a>
+																</p>
+															</li>
+															<li>
+																<a href="/publishing/css/03-cssMiddleclass/02-css_content">가상 요소</a>
+															</li>
+															<li>
+																<a href="/publishing/css/03-cssMiddleclass/03-css_counter">CSS 카운터</a>
+															</li>
+															<li>
+																<a href="/publishing/css/03-cssMiddleclass/04-css_vendor">접두어</a>
+															</li>
+															<li>
+																<a href="/publishing/css/03-cssMiddleclass/05-css_ir">IR 기법</a>
+															</li>
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/css/03-cssMiddleclass/06-css_module3_part1">CSS3 Module <em>part-1</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/03-cssMiddleclass/06-css_module3_part2">CSS3 Module <em>part-2</em></a>
+																</p>
+															</li>
+															<li>
+																<a href="/publishing/css/03-cssMiddleclass/07-css_atrule">@규칙(At-Rule)</a>
+															</li>
+															<li>
+																<a href="/publishing/css/03-cssMiddleclass/08-css_fontface">@font-face</a>
+															</li>
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/css/03-cssMiddleclass/09-css_media_part1">@media <em>part-1</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/03-cssMiddleclass/09-css_media_part2">@media <em>part-2</em></a>
+																</p>
+															</li>
+															<li>
+																<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item active">
+														<a href="/publishing/css/04-cssAdvanced/01-css_transform_part1">CSS 고급</a>
+														<ul class="depth4">
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/01-css_transform_part1">Transform <em>2D</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/01-css_transform_part2">Transform <em>3D</em></a>
+																</p>
+															</li>
+															<li>
+																<a href="/publishing/css/04-cssAdvanced/02-css_transition">Transition</a>
+															</li>
+															<li>
+																<a href="/publishing/css/04-cssAdvanced/03-css_animation">Animation</a>
+															</li>
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+																</p>
+															</li>
+															<li class="part_visible">
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/05-css_grid_part1">그리드 레이아웃 <em>요약, 함수, 단위</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+																</p>
+																<p>
+																	<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+																</p>
+															</li>
+															<li class="active">
+																<a href="/publishing/css/04-cssAdvanced/06-css_multicolumn">멀티 컬럼 레이아웃</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/css/05-bookmark/bookmark">참조 사이트</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+										<li>
+											<a href="/publishing/accessibility/01-waStart/waStart"><i>ACCESSIBILITY</i></a>
+											<div class="depth3_wrap">
+												<ul class="depth3">
+													<li class="item">
+														<a href="/publishing/accessibility/01-waStart/waStart">웹 접근성이란?</a>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/02-waMark/waMark">WA 인증 마크란?</a>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/03-waKwcag/waKwcag">KWCAG 2.1 개요</a>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/04-waContents/waContents">웹 접근성을 고려한 콘텐츠 제작 방법</a>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/05-waPerceivable/01-text">인식의 용이성(perceivable)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/accessibility/05-waPerceivable/01-text">대체 텍스트</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/05-waPerceivable/02-media">멀티미디어 대체 수단</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/05-waPerceivable/03-clarity">명료성</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/06-waOperable/01-input_devices">운용의 용이성(operable)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/accessibility/06-waOperable/01-input_devices">입력장치 접근성</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/06-waOperable/02-enough_time">충분한 시간 제공</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/06-waOperable/03-seizures">광과민성 발작 예방</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/06-waOperable/04-easy_navigation">쉬운 내비게이션</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/07-waUnderstandable/01-readable">이해의 용이성(understandable)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/accessibility/07-waUnderstandable/01-readable">가독성</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/07-waUnderstandable/02-predictable">예측 가능성</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/07-waUnderstandable/03-logical_order">콘텐츠의 논리성</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/07-waUnderstandable/04-input_assistance">입력 도움</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/08-waRobust/01-markup">견고성(robust)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/accessibility/08-waRobust/01-markup">문법 준수</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/08-waRobust/02-waa">웹 애플리케이션 접근성</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/09-waWcag/01-perceivable">WCAG 2.1</a>
+														<ul class="depth4">
+															<li>
+																<a href="/publishing/accessibility/09-waWcag/01-perceivable">인식의 용이성(Perceivable)</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/09-waWcag/02-operable">운용의 용이성(Operable)</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/09-waWcag/03-understandable">이해의 용이성(Understandable)</a>
+															</li>
+															<li>
+																<a href="/publishing/accessibility/09-waWcag/04-robust">견고성(Robust)</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/10-waVs/waVs">KWACG2.1 VS WCAG 2.1 비교</a>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/11-waAria/waAria">WAI-ARIA</a>
+													</li>
+													<li class="item">
+														<a href="/publishing/accessibility/12-bookmark/bookmark">참조 사이트</a>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
+									<ul class="depth2">
+										<li>
+											<a href="/buildSystem/gulp/01-gulp/01-gulp-start"><i>Gulp & Gulp.babel</i></a>
+											<div class="depth3_wrap">
+												<ul class="depth3">
+													<li class="item">
+														<a href="/buildSystem/gulp/01-gulp/01-gulp-start">걸프(Gulp)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/buildSystem/gulp/01-gulp/01-gulp-start">걸프(Gulp)란?</a>
+															</li>
+															<li>
+																<a href="/buildSystem/gulp/01-gulp/02-gulp_scss">Gulp 설치 및 SCSS 컴파일러 설치</a>
+															</li>
+															<li>
+																<a href="/buildSystem/gulp/01-gulp/03-html_webserver">HTML과 웹서버</a>
+															</li>
+															<li>
+																<a href="/buildSystem/gulp/01-gulp/04-watch_browsersync">Watch와 BrowserSync</a>
+															</li>
+															<li class="part_visible">
+																<p>
+																	<a href="/buildSystem/gulp/01-gulp/05-njk_syntax">HTML Tamplate <em>njk 문법</em></a>
+																</p>
+																<p>
+																	<a href="/buildSystem/gulp/01-gulp/05-njk_setting">HTML Tamplate <em>njk 설치 및 적용</em></a>
+																</p>
+															</li>
+															<li>
+																<a href="/buildSystem/gulp/01-gulp/06-file_management">속도 개선과 파일 및 오류 관리</a>
+															</li>
+														</ul>
+													</li>
+													<li class="item">
+														<a href="/buildSystem/gulp/02-gulp_babel/01-gulp_babel1">걸프 바벨(Gulp-babel)</a>
+														<ul class="depth4">
+															<li>
+																<a href="/buildSystem/gulp/02-gulp_babel/01-gulp_babel1">Gulp-babel1</a>
+															</li>
+															<li>
+																<a href="/buildSystem/gulp/02-gulp_babel/02-gulp_babel2">Gulp-babel2</a>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Template</a>
+								</li>
+							</ul>
+						</nav>
 					</div>
 				</div>
+				<!-- // 사이트맵 -->
 			</div>
 		</div>
 	</header>
 	<!-- // uk_header -->
 	
 	<div class="uk_container sub_content_area">
-		<div class="sub_top">
-			<strong class="tit" data-number="4. ">CSS 고급</strong>
+		<nav class="top_link">
+			<ul class="depth2">
+				<li>
+					<a href="/publishing/html/01-htmlStart/01-html_start"><i>HTML</i></a>
+				</li>
+				<li class="active">
+					<a href="/publishing/css/01-cssStart/01-css_intro"><i>CSS</i></a>
+				</li>
+				<li>
+					<a href="/publishing/accessibility/01-waStart/waStart"><i>ACCESSIBILITY</i></a>
+				</li>
+			</ul>
+		</nav>
+		<!-- // Publishing 주 탐색창 -->
 
-			<nav class="top_link">
-				<ul class="depth2">
-					<li>
-						<a href="/publishing/html/01-htmlStart/01-html_start"><i>HTML</i></a>
-					</li>
-					<li class="active">
-						<a href="/publishing/css/01-cssStart/01-css_intro"><i>CSS</i></a>
-					</li>
-					<li>
-						<a href="/publishing/accessibility/01-waStart/waStart"><i>ACCESSIBILITY</i></a>
-					</li>
-				</ul>
-			</nav>
-			<!-- // Publishing 주 탐색창 -->
+		<div class="sub_top">
+			<strong class="tit"><i data-number="4. ">CSS 고급</i></strong>
 			
 			<blockquote class="inner note_none" cite="https://uxkm.io">
 				<strong class="sound_only">Publishing 및 CSS 요약설명</strong>
@@ -173,14 +882,13 @@
 		<!-- // sub top content (.sub_top) -->
 
 		<div class="sub_content inner">
-			<main id="content" class="content_area" tabindex="-1">
+			<main id="content" class="content_area">
 				<header>
 					<h1 data-number="4.6. ">멀티 컬럼 레이아웃 <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
 				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-								
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 고급 참조</strong>
@@ -392,7 +1100,7 @@
 						<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
 					</li>
 					<li>
-						<a href="/buildSystem/gulp/01-gulp-start">Build system</a>
+						<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
 					</li>
 					<li>
 						<a href="#">Template</a>
