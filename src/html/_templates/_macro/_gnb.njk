@@ -88,45 +88,47 @@
 			<li {%- if d2_active %} class="active" {%- endif %}>
 				<a href="{{ d2_link }}"><i>{{ dep2.d2_name }}</i></a>
 				{%- if dep2.depth3 %}
-				<ul class="depth3">
-					{%- for dep3 in dep2.depth3 %}
-					{#- 3뎁스 link --------> #} {%- set d3_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ dep3.depth4[0].d4_link }} {%- endset %}
-					{#- 3뎁스 loop index --> #} {%- set d3_loop = loop.index %}
-					{#- 3뎁스 active ------> #} {%- set d3_active = d2_active and d3_loop === idx.d3 %}
-					<li {%- if d3_active %} class="active" {%- endif %}>
-						<a href="{{ d3_link }}" {%- if dep4.html5 %} class="html5" {%- endif %}>{{ dep3.d3_name }}</a>
-						{%- if dep3.depth4 %}
-						<ul class="depth4">
-							{%- for dep4 in dep3.depth4 %}
-							{#- 4뎁스 link --------> #} {%- set d4_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ dep4.d4_link }} {%- endset %}
-							{#- 4뎁스 loop index --> #} {%- set d4_loop = loop.index %}
-							{#- 4뎁스 active ------> #} {%- set d4_active = d3_active and d4_loop === idx.d4 %}
-							{#- d4_name ----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i>element</i>') %}
-							{#- d4 html5 ----------> #} {%- set html5 = ' <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>' if dep4.html5  %}
-							{#-<li class="{%- if d4_active -%} active {%- endif %} {%- if dep4.part %} part_visible {%- endif %}">#}
-							<li {%- if d4_active and dep4.part %} class="active part_visible"
-									{%- elif d4_active %} class="active"
-									{%- elif dep4.part %} class="part_visible"
-									{%- endif %}>
-								{%- if dep4.part %}
-								{%- for part in dep4.part %}
-								{#- part link --------> #} {%- set part_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ part.part_link }} {%- endset %}
-								{#- part loop index --> #} {%- set part_loop = loop.index %}
-								{#- part active ------> #} {%- set part_active = d4_active and part_loop === idx.part %}
-								<p {%- if part_active %} class="active" {%- endif %}>
-									<a href="{{ part_link }}">{{ d4_name }} <em>{{ part.part_name }}</em>{{ html5 }}</a>
-								</p>
+				<div class="depth3_wrap">
+					<ul class="depth3">
+						{%- for dep3 in dep2.depth3 %}
+						{#- 3뎁스 link --------> #} {%- set d3_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ dep3.depth4[0].d4_link }} {%- endset %}
+						{#- 3뎁스 loop index --> #} {%- set d3_loop = loop.index %}
+						{#- 3뎁스 active ------> #} {%- set d3_active = d2_active and d3_loop === idx.d3 %}
+						<li class="item {%- if d3_active %} active {%- endif %}">
+							<a href="{{ d3_link }}" {%- if dep4.html5 %} class="html5" {%- endif %}>{{ dep3.d3_name }}</a>
+							{%- if dep3.depth4 %}
+							<ul class="depth4">
+								{%- for dep4 in dep3.depth4 %}
+								{#- 4뎁스 link --------> #} {%- set d4_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ dep4.d4_link }} {%- endset %}
+								{#- 4뎁스 loop index --> #} {%- set d4_loop = loop.index %}
+								{#- 4뎁스 active ------> #} {%- set d4_active = d3_active and d4_loop === idx.d4 %}
+								{#- d4_name -----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i>element</i>') %}
+								{#- d4 html5 ----------> #} {%- set html5 = ' <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>' if dep4.html5  %}
+								{#-<li class="{%- if d4_active -%} active {%- endif %} {%- if dep4.part %} part_visible {%- endif %}">#}
+								<li {%- if d4_active and dep4.part %} class="active part_visible"
+										{%- elif d4_active %} class="active"
+										{%- elif dep4.part %} class="part_visible"
+										{%- endif %}>
+									{%- if dep4.part %}
+									{%- for part in dep4.part %}
+									{#- part link --------> #} {%- set part_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ part.part_link }} {%- endset %}
+									{#- part loop index --> #} {%- set part_loop = loop.index %}
+									{#- part active ------> #} {%- set part_active = d4_active and part_loop === idx.part %}
+									<p {%- if part_active %} class="active" {%- endif %}>
+										<a href="{{ part_link }}">{{ d4_name }} <em>{{ part.part_name }}</em>{{ html5 }}</a>
+									</p>
+									{%- endfor %}
+									{%- else %}
+									<a href="{{ d4_link }}">{{ d4_name }}{{ html5 }}</a>
+									{%- endif %}
+								</li>
 								{%- endfor %}
-								{%- else %}
-								<a href="{{ d4_link }}">{{ d4_name }}{{ html5 }}</a>
-								{%- endif %}
-							</li>
-							{%- endfor %}
-						</ul>
-						{%- endif %}
-					</li>
-					{%- endfor %}
-				</ul>
+							</ul>
+							{%- endif %}
+						</li>
+						{%- endfor %}
+					</ul>
+				</div>
 				{%- endif %}
 			</li>
 			{%- endfor %}

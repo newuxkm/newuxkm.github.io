@@ -911,56 +911,62 @@
       "d1_link": "/buildSystem",
       "depth2": [
         {
-          "d2_name": "Gulp",
+          "d2_name": "Gulp & Gulp.babel",
           "d2_link": "/gulp",
           "depth3": [
             {
-              "d3_name": "걸프(Gulp)란?",
-              "d3_link": "/01-gulp-start"
-            },
-            {
-              "d3_name": "Gulp 설치 및 SCSS 컴파일러 설치",
-              "d3_link": "/02-gulp_scss"
-            },
-            {
-              "d3_name": "HTML과 웹서버",
-              "d3_link": "/03-html_webserver"
-            },
-            {
-              "d3_name": "Watch와 BrowserSync",
-              "d3_link": "/04-watch_browsersync"
-            },
-            {
-              "d3_name": "HTML Tamplate",
-              "d3_link": "/05-htmlTemplate",
+              "d3_name": "걸프(Gulp)",
+              "d3_link": "/01-gulp",
               "depth4": [
                 {
-                  "d4_name": "gulp-nunjucks 문법",
-                  "d4_link": "/01-njk_syntax"
+                  "d4_name": "걸프(Gulp)란?",
+                  "d4_link": "/01-gulp-start"
                 },
                 {
-                  "d4_name": "gulp-nunjucks 설치 및 적용",
-                  "d4_link": "/02-njk_setting"
+                  "d4_name": "Gulp 설치 및 SCSS 컴파일러 설치",
+                  "d4_link": "/02-gulp_scss"
+                },
+                {
+                  "d4_name": "HTML과 웹서버",
+                  "d4_link": "/03-html_webserver"
+                },
+                {
+                  "d4_name": "Watch와 BrowserSync",
+                  "d4_link": "/04-watch_browsersync"
+                },
+                {
+                  "d4_name": "HTML Tamplate",
+                  "d4_link": "/05-njk_syntax",
+                  "part": [
+                    {
+                      "part_name": "njk 문법",
+                      "part_link": "/05-njk_syntax"
+                    },
+                    {
+                      "part_name": "njk 설치 및 적용",
+                      "part_link": "/05-njk_setting"
+                    }
+                  ]
+                },
+                {
+                  "d4_name": "속도 개선과 파일 및 오류 관리",
+                  "d4_link": "/06-file_management"
                 }
               ]
             },
             {
-              "d3_name": "속도 개선과 파일 및 오류 관리",
-              "d3_link": "/06-file_management"
-            }
-          ]
-        },
-        {
-          "d2_name": "Gulp babel",
-          "d2_link": "/gulp-babel",
-          "depth3": [
-            {
-              "d3_name": "Gulp babel1",
-              "d3_link": "/01-gulp_babel1"
-            },
-            {
-              "d3_name": "Gulp babel2",
-              "d3_link": "/02-gulp_babel2"
+              "d3_name": "걸프 바벨(Gulp-babel)",
+              "d3_link": "/02-gulp_babel",
+              "depth4": [
+                {
+                  "d4_name": "Gulp-babel1",
+                  "d4_link": "/01-gulp_babel1"
+                },
+                {
+                  "d4_name": "Gulp-babel2",
+                  "d4_link": "/02-gulp_babel2"
+                }
+              ]
             }
           ]
         }

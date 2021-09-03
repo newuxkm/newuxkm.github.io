@@ -81,18 +81,27 @@
 	{#- // main content area ------------------------------------------------------------------------------------------ #}
 	{%- else %}
 	<div class="uk_container sub_content_area">
-		<div class="sub_top">
-			<strong class="tit" data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }}</strong>
+		<nav class="top_link">
+			{%- if layout_pub %}
+			{{ gnb_comp.d2_gnb(
+				gnb_data,
+				pageNumber,
+				d1_index = d1+1,
+				only_depth2 = true
+			) | tabIndent(3)}}
+			{%- elif layout_build %}
+			{{ gnb_comp.d3_below(
+				gnb_data,
+				pageNumber,
+				start_depth3 = true,
+				only_depth3 = true
+			) | tabIndent(3)}}
+			{%- endif %}
+		</nav>
+		<!-- // {{ title_d1 }} 주 탐색창 -->
 
-			<nav class="top_link">
-				{{ gnb_comp.d2_gnb(
-					gnb_data,
-					pageNumber,
-					d1_index = d1+1,
-					only_depth2 = true
-				) | tabIndent(4)}}
-			</nav>
-			<!-- // {{ title_d1 }} 주 탐색창 -->
+		<div class="sub_top">
+			<strong class="tit"><i data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }}</i></strong>
 
 			{%- if layout_pub %}
 			{# ----------space--------- #}
@@ -112,11 +121,18 @@
 			{{ include( reference_path + "/note.njk" ) | tabIndent(3) }}
 			{%- endif %}
 			{%- endif %}
+			{#- Publishing sub top content end #}
+
+			{%- if layout_build and pageLayout.Info %}
+			{# ----------space--------- #}
+			{{ include( reference_path + "/info.njk" ) | tabIndent(3) }}
+			{%- endif %}
+			{#- build system sub top content end #}
 		</div>
 		<!-- // sub top content (.sub_top) -->
 
 		<div class="sub_content inner {%- if pageNumber.depth4 === undefined %} depth3_last {%- endif %}">
-			<main id="content" class="content_area" tabindex="-1">
+			<main id="content" class="content_area">
 				<header>
 					{%- if pageNumber.depth4 %}
 					<h1 {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 }} <em class="sound_only">- by. UXKM</em></h1>
@@ -129,7 +145,7 @@
 				{% filter tabIndent(3) %}
 					{% block content %}
 					<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-					{% endblock %}
+					{%- endblock %}
 				{%- endfilter %}
 
 				{%- if pageLayout.reference %}
@@ -142,7 +158,7 @@
 			{% if pageLayout.sideMenu -%}
 			<aside class="side_menu_area">
 				<strong class="tit"><b>{{ title_d2 }}</b> <i>Table of Contents</i></strong>
-				<nav class="side_menu {%- if layout_pub %} pub_side_nemu {%- elif layout_build %} build_side_nemu {%- endif %}">
+				<nav class="side_menu {%- if layout_pub %} pub_side_nemu {%- elif layout_build %} pub_side_nemu {%- endif %}">
 					{{ gnb_comp.d3_below(
 						gnb_data,
 						pageNumber,
