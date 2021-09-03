@@ -396,8 +396,8 @@ $hd_layer_timing: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 
-html {overflow:hidden;}
-.sitemap_area {
+//html {overflow:hidden;}
+.sitemap_area { display:none; // ★★★★★★★★★★★★★★★★★★★★★★★★★
 	overflow-y:scroll;
 	position:fixed; left:0; top:0; right:0; bottom:0; z-index:9;
 	background:rgba(#000, .9);
