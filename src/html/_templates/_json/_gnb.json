@@ -57,7 +57,7 @@
               ]
             },
             {
-              "d3_name": "섹션 콘텐츠(Section Content)",
+              "d3_name": "섹션 콘텐츠<span>(Section Content)</span>",
               "d3_link": "/03-sections",
               "depth4": [
                 {
@@ -102,7 +102,7 @@
               ]
             },
             {
-              "d3_name": "콘텐츠 그룹화(Grouping content)",
+              "d3_name": "콘텐츠 그룹화<span>(Grouping content)</span>",
               "d3_link": "/04-grouping",
               "depth4": [
                 {
@@ -164,7 +164,7 @@
               ]
             },
             {
-              "d3_name": "문자 컨텐츠(Text-level semantics)",
+              "d3_name": "문자 컨텐츠<span>(Text-level semantics)</span>",
               "d3_link": "/05-textLevel",
               "depth4": [
                 {
@@ -271,7 +271,7 @@
               ]
             },
             {
-              "d3_name": "내장 컨텐츠(Embedded content)",
+              "d3_name": "내장 컨텐츠<span>(Embedded content)</span>",
               "d3_link": "/06-embedded",
               "depth4": [
                 {
@@ -348,7 +348,7 @@
               ]
             },
             {
-              "d3_name": "표 데이터(Tabular data)",
+              "d3_name": "표 데이터<span>(Tabular data)</span>",
               "d3_link": "/08-table",
               "depth4": [
                 {
@@ -492,7 +492,7 @@
               ]
             },
             {
-              "d3_name": "콘텐츠 모델(Content models)",
+              "d3_name": "콘텐츠 모델<span>(Content models)</span>",
               "d3_link": "/11-models/models"
             },
             {

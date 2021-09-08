@@ -69,9 +69,15 @@
 {%- macro all_gnb(
 	gnb_data,
 	pageNumber,
-	only_depth1 = false
+	only_depth1 = false,
+	home=false
 ) %}
 <ul class="depth1">
+	{%- if home %}
+	<li>
+		<a href="/">Home</a>
+	</li>
+	{%- endif %}
 	{%- for gnb in gnb_data %}
 	{%- set idx = { d1: pageNumber.depth1, d2: pageNumber.depth2, d3: pageNumber.depth3, d4: pageNumber.depth4, part: pageNumber.part } %}
 	{#- 1뎁스 link --------> #} {%- set d1_link %} {{- gnb.d1_link }}{{ gnb.depth2[0].d2_link }}{{ gnb.depth2[0].depth3[0].d3_link }}{{ gnb.depth2[0].depth3[0].depth4[0].d4_link }} {%- endset %}

@@ -396,12 +396,13 @@ $hd_layer_timing: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 
-//html {overflow:hidden;}
-.sitemap_area { display:none; // ★★★★★★★★★★★★★★★★★★★★★★★★★
+html {overflow:hidden;}
+.sitemap_area { //display:none; // ★★★★★★★★★★★★★★★★★★★★★★★★★
 	overflow-y:scroll;
 	position:fixed; left:0; top:0; right:0; bottom:0; z-index:9;
-	background:rgba(#000, .9);
+	background:rgba(#000, .95);
 	$sm_blue:lighten($blue, 12%);
+	$active_blue:lighten($sm_blue, 5%);
 
 	.tit {
 		position:relative; z-index:1;
@@ -419,72 +420,176 @@ $hd_layer_timing: cubic-bezier(0.645, 0.045, 0.355, 1);
 
 	.sitemap_in {
 		$d1_height:50px;
-		*:not(.html5) {@include font-en;}
+		$color:rgba(#fff, .85);
+		$line-height:22px;
 
-		margin:0 $pc_padding; padding-top:20px;
-		border-top:1px solid rgba(#fff, .2);
-		a {
-			display:block; position:relative; z-index:1;
-			color:rgba(255,255,255,.85);
-		}
+		margin:0 $pc_padding;
+		a {display:block; position:relative; z-index:1;}
 		li:not(.active) {
 			> .depth3_wrap,
 			> ul:not(.depth4) {display:none;}
 		}
 
-		.depth1, .depth2 {
+		$d1_height:50px;
+		.depth1 {
+			$border_color:rgba(#fff, .2);
 			display:flex; align-items:center;
 			position:relative;
+			height:$d1_height + 1px;
+			border-bottom:1px solid $sm_blue;
+			> li {
+				width:200px;
+				border:1px solid #333;
+				border-bottom:0;
+				&:not(:first-child) {border-left:0;}
+				> a {
+					position:relative;
+					height:$d1_height - 1px; line-height:$d1_height - 1px;
+					text-align:center;
+					@include font-logo; font-size:18px; color:#ccc;
+				}
+				&.active > a {
+					height:$d1_height;
+					color:#fff; font-weight:bold;
+					&:after {
+						position:absolute; left:0; right:0; bottom:0;
+						height:1px; background:#0c0c0c;
+						content:"";
+					}
+					&:before {
+						position:absolute; left:-1px; top:-1px; right:-1px; bottom:0;
+						border:1px solid $sm_blue; border-bottom:0;
+						content:"";
+					}
+				}
+
+			}
+		}
+
+		.depth2 {
+			display:flex; align-items:center;
+			position:absolute; left:0; top:75px; right:0;
 			&:before {
-				display:block;
-				height:24px; line-height:24px; margin-right:10px; padding:0 10px;
-				@include font-en; font-size:14px; color:#000; font-weight:bold; letter-spacing:-0.5px;
-				background:rgba(255,255,255,.4); border-radius:100px;
+				display:none;
+				position:absolute; left:0; top:0; z-index:2;
+				height:20px; line-height:20px; margin-right:10px; padding:0 6px;
+				@include font-en; font-size:12px; color:#000; font-weight:bold; letter-spacing:-0.5px;
+				background:rgba(255,255,255,.9); border-radius:100px;
 				content:"";
 			}
 			> li {
 				> a {
 					height:$d1_height; line-height:$d1_height; padding:0 10px;
-					font-size:20px; color:#fff; font-weight:600;
+					@include font-logo; font-size:22px; color:#fff; font-weight:bold;
 				}
 				&.active > a {
 					color:$yellow;
-					&:after {
-						position:absolute; left:50%; bottom:5px; transform:translate(-50%, 0);
-						border-left:4px solid transparent;
-						border-right:4px solid transparent;
-						border-top:6px solid transparent;
-						content:"";
-					}
+					//color:darken($blue, 20%);
+					//background:$yellow;
+					//border-radius:100px;
 				}
 			}
 		}
-		.depth1:before {content:"1depth menu";}
-		.depth2:before {content:"2depth menu";}
-		//.depth1 > li.active > a:after {border-top-color:$yellow;}
-		//.depth2 > li.active > a:after {border-top-color:$sm_blue;}
 
-		.depth2 > li.active > a {color:$yellow;}
+		$in_padding:5px;
+		.depth3_wrap {
+			position:absolute; left:0; top:55px; right:0;
+			padding-bottom:$pc_padding;
+			*, *:before {line-height:$line-height;}
+			*, *:before:not(.html5) {@include font-kr; font-weight:300;}
 
-		.depth2, .depth3_wrap {
-			position:absolute; left:0; top:50px; right:0;
+			// counters
+			ul {
+				counter-reset:lst_number;
+				li {position:relative; counter-increment:lst_number;}
+				li:before {
+					position:absolute;
+					content:counters(lst_number, ".") ". ";
+				}
+			}
 		}
-
-		.depth3_wrap {top:70px; padding-bottom:$pc_padding;}
 		.depth3 {
+			$radius:3px;
+			$padding:15px;
 			@include clear;
+			margin:0 -10px;
 
 			> li {
-				$radius:5px;
 				float:left; overflow:hidden;
 				position:relative;
-				width:20%; padding:10px+$radius 10px 10px;
+				margin:20px 10px 0; padding:$padding 18px - $in_padding;
 				background:rgba(#000, .8); border-radius:$radius;
-				&.active:before {
-					position:absolute; left:0; top:0; right:0;
-					height:$radius;
-					background:$blue;
-					content:"";
+
+				width:calc(20% - 20px);
+				@media(max-width:1390px){ width:calc(25% - 20px); }
+				@media(max-width:1100px){ width:calc(33.333% - 20px); }
+				@media(max-width:860px){ width:calc(50% - 20px); }
+				@media(max-width:560px){ width:calc(100% - 20px); }
+
+				&:before,  > a {color:$color;}
+				&:before {left:$padding; top:$padding;}
+				> a {
+					padding-left:24px;
+					> span {display:inline-block;}
+				}
+
+				&:hover {
+					&:before, > a {color:$active_blue;}
+				}
+
+				&.active {
+					&:after {
+						position:absolute; left:0; top:0; right:0;
+						height:$radius;
+						//background:$sm_blue;
+						background:rgba($blue, .8);
+						content:"";
+					}
+					&:before, > a {color:$active_blue;}
+					> a {font-weight:600;}
+				}
+			}
+		}
+		.depth4 {
+			margin-top:13px; padding-top:12px;
+			border-top:1px solid rgba(#fff, .1);
+			li {
+				padding:0 $in_padding;
+				&:before, a {font-size:13px; color:rgba(#fff, .7); font-weight:300;}
+				a {
+					padding-left:32px;
+
+					i {display:inline-block; vertical-align:top; color:#777;}
+					.html5 {
+						font-size:0;
+						&:before {
+							display:inline-block;
+							vertical-align:top; margin-top:1px;
+							line-height:$line-height - 1px;
+							font-size:13px;
+						}
+					}
+				}
+
+				&:hover:before {color:$active_blue;}
+				&:not(.part_visible):hover {
+					a, i {color:$active_blue;}
+				}
+				&.part_visible:hover p:hover {
+					a, i {color:$active_blue;}
+				}
+
+				&.active:not(.part_visible) {
+					background:rgba($blue, .5);
+					border-radius:2px;
+					&:before, a, i {color:#fff;}
+				}
+				&.part_visible.active p.active {
+					margin-left:-$in_padding; margin-right:-$in_padding;
+					padding-left:$in_padding;
+					background:rgba($blue, .5);
+					border-radius:2px;
+					&:before, a, i {color:#fff;}
 				}
 			}
 		}
