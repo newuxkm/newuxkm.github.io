@@ -92,7 +92,7 @@
 			{#- 2뎁스 loop index --> #} {%- set d2_loop = loop.index %}
 			{#- 2뎁스 active ------> #} {%- set d2_active = d1_active and d2_loop === idx.d2 %}
 			<li {%- if d2_active %} class="active" {%- endif %}>
-				<a href="{{ d2_link }}"><i>{{ dep2.d2_name }}</i></a>
+				<a href="{{ d2_link }}" data-depth1="{{ gnb.d1_name }}"><i>{{ dep2.d2_name }}</i></a>
 				{%- if dep2.depth3 %}
 				<div class="depth3_wrap">
 					<ul class="depth3">

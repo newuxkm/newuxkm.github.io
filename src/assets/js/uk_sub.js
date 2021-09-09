@@ -5,6 +5,21 @@ const _side_name = $('.side_menu');
 const _side_menu_d3 = _side_name.find('.depth3 > li');
 
 
+// document ready ------------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+  header_common();
+  ukEditor_txtarea();
+  uk_editor();
+  uk_gist_skin_code();
+});
+
+
+// window load ---------------------------------------------------------------------------------------------------------
+$(window).on('load', function(){
+
+});
+
+
 // side menu -----------------------------------------------------------------------------------------------------------
 const tg_on = 'tg_on';
 _side_menu_d3.each(function(i, e){
@@ -34,7 +49,9 @@ $(window).on('scroll', function(){
 
 // window resize -------------------------------------------------------------------------------------------------------
 $(window).on('resize', function(){
- let win_w = $(window).width();
+  let win_w = $(window).width();
+  let win_h = $(window).height();
+  pc_mb_class(win_w);
 
  if( win_w > md_size ){
    _side_name.find('.depth4').removeAttr('style');

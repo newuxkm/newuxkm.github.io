@@ -18,6 +18,8 @@ const _search_area = _ukNavArea.find('.search_area');
 const _search_submit = _ukNavArea.find('.search_submit');
 const _sitemap_btn = _ukNavArea.find('.sitemap_btn');
 const _sitemap_area = _ukNavArea.find('.sitemap_area');
+const _sitemap_type_btn = _sitemap_area.find('.map_type button');
+const _sitemap_in = _sitemap_area.find('.sitemap_in');
 const hd_progress = 'hd_progress';
 const hd_sitemap_on = 'hd_sitemap_on';
 const hd_search_on = 'hd_search_on';
@@ -28,41 +30,133 @@ const _ukFooter = $('.uk_footer');
 // container selector
 const _ukContainer = $('.uk_container');
 
-
-// header action -------------------------------------------------------------------------------------------------------
-_ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
-_sitemap_btn.on('click', function(){
-	//열기
-	if( !$(this).is('.active') ){
-		$(this).addClass('active').removeClass('after');
-		// $html.css('overflow','hidden').addClass(hd_sitemap_on+' '+sub_black);
-		// $sitemap_area.trigger('focus').removeClass(hash_move);
-		// offsetTopControl();
-		//
-		// setTimeout(function(){
-		//   al_depth1.find('> li').each(function(i, e){
-		//     $(e).find('.al_depth2').masonry('layout');
-		//   });
-		// }, loadingEndTime);
-	}
-	//닫기
-	else if( $(this).is('.active') ){
-		$(this).removeClass('active').addClass('after');
-		// $html.removeAttr('style').removeClass(hd_sitemap_on);
-		// setTimeout(function(){
-		//   $html.removeClass(sub_black);
-		// }, 300);
-		// setTimeout(function(){
-		//   $('.'+top_link+' ul').removeClass(opacity_on).removeAttr('style');
-		//   $('.'+side_menu).removeClass(opacity_on).removeAttr('style');
-		//   $(window).trigger('scroll');
-		// }, 600);
-	}
-	return false;
+$('.test_btn').click(function(){
+  if( $(this).is('.active') ){
+    $(this).removeClass('active');
+    $('html').css('overflow','hidden');
+  }
+  else{
+    $(this).addClass('active');
+    $('html').css('overflow','scroll');
+  }
 });
 
+// functions -----------------------------------------------------------------------------------------------------------
 
-// cmomon function -----------------------------------------------------------------------------------------------------
+// header common
+function header_common(){
+  _ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
+
+// site map open/close
+  _sitemap_btn.on('click', function(){
+    //열기
+    if( !$(this).is('.active') ){
+      $(this).addClass('active').removeClass('after');
+      // $html.css('overflow','hidden').addClass(hd_sitemap_on+' '+sub_black);
+      // $sitemap_area.trigger('focus').removeClass(hash_move);
+      // offsetTopControl();
+      //
+      // setTimeout(function(){
+      //   al_depth1.find('> li').each(function(i, e){
+      //     $(e).find('.al_depth2').masonry('layout');
+      //   });
+      // }, loadingEndTime);
+    }
+    //닫기
+    else if( $(this).is('.active') ){
+      $(this).removeClass('active').addClass('after');
+      // $html.removeAttr('style').removeClass(hd_sitemap_on);
+      // setTimeout(function(){
+      //   $html.removeClass(sub_black);
+      // }, 300);
+      // setTimeout(function(){
+      //   $('.'+top_link+' ul').removeClass(opacity_on).removeAttr('style');
+      //   $('.'+side_menu).removeClass(opacity_on).removeAttr('style');
+      //   $(window).trigger('scroll');
+      // }, 600);
+    }
+    return false;
+  });
+
+// site map view type
+  _sitemap_type_btn.on('click', function(){
+    let type = $(this).attr('data-txt');
+    $(this).addClass('active').siblings().removeClass('active');
+    _sitemap_in.attr('data-type', type);
+
+    setTimeout(function(){
+      depth3_masonry();
+    });
+  });
+
+// site map tab view
+  _sitemap_in.find('.depth1 > li > a').on({
+    click:function(){
+      if( $(this).attr('href') === '#' ){
+        const d1_name = $(this).text();
+        alert(d1_name +' 준비중 입니다.');
+        return false;
+      }
+      if( _sitemap_in.attr('data-type') === 'type_tab' ){
+        type_tab_click( $(this) );
+        return false;
+      }
+    },
+    focus:function(){
+      if( _sitemap_in.attr('data-type') === 'type_tab' ){
+        type_tab_click( $(this) );
+        return false;
+      }
+    }
+  });
+  function type_tab_click( _target ){
+    _target.parent().addClass('active').siblings().removeClass('active');
+
+    const next_li = _target.next().find('> li');
+    if( !next_li.is('.active') ){
+      next_li.eq(0).addClass('active');
+    }
+  }
+  _sitemap_in.find('.depth2 > li > a').on('click focus', function(){
+    if( _sitemap_in.attr('data-type') === 'type_tab' ){
+      if( $(this).attr('href') !== '#' ){
+        $(this).parent().addClass('active').siblings().removeClass('active');
+      }
+      return false;
+    }
+  });
+
+  /*
+  _sitemap_in.find('.depth1 > li > a').on('click focus', function(){
+    if( _sitemap_in.attr('data-type') === 'type_tab' ){
+      if( $(this).attr('href') !== '#' ){
+        $(this).parent().addClass('active').siblings().removeClass('active');
+
+        const next_li = $(this).next().find('> li');
+        if( !next_li.is('.active') ){
+          next_li.eq(0).addClass('active');
+        }
+      }
+      else{
+        if( !focus_hashtags ){
+          focus_hashtags = true;
+          const d1_name = $(this).text();
+          alert(d1_name +' 준비중 입니다.');
+        }
+      }
+      return false;
+    }
+  });
+  _sitemap_in.find('.depth2 > li > a').on('click focus', function(){
+    if( _sitemap_in.attr('data-type') === 'type_tab' ){
+      if( $(this).attr('href') !== '#' ){
+        $(this).parent().addClass('active').siblings().removeClass('active');
+      }
+      return false;
+    }
+  });
+  */
+}
 
 // uk editor
 function ukEditor_txtarea(){
@@ -473,8 +567,12 @@ function hd_common(sct){
 	var hd_proW = (sct/docHeight)*100;  //Math.ceil();
 	$('.'+hd_progress).css('width',hd_proW+'%');
 
-  //
+  // masonry
+  depth3_masonry();
+}
 
+// depth3_masonry
+function depth3_masonry(){
   _sitemap_area.find('.depth3').each(function(i, e){
     $(e).masonry({
       itemSelector: '.item',
@@ -511,16 +609,6 @@ function pc_mb_class(win_w){
 		// }
 	}
 }
-
-
-$(document).ready(function(){
-  ukEditor_txtarea();
-  uk_editor();
-  uk_gist_skin_code();
-
-  if( _html.is('.sub_page') ){
-  }
-});
 
 
 

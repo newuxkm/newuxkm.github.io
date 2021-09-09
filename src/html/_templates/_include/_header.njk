@@ -1,4 +1,5 @@
 {%- set headerCss = 'main_header' if pageData.mainPage else 'sub_header' -%}
+{%- set sitemap_div = 'main_sitemap' if pageData.mainPage else 'sub_sitemap' -%}
 {%- import path.macro + "/_gnb.njk" as gnb_nemu %}
 <header class="uk_header {{headerCss}}" role="banner">
 	<div class="inner">
@@ -23,23 +24,28 @@
 							<input type="text" placeholder="검색어를 입력해 주세요." required />
 							<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
 						</div>
-
 						<dl class="keyword_ex">
 							<dt>keyword example</dt>
 							<dd>div, p, strong, width, border-color, click, function</dd>
 						</dl>
 					</div>
 				</div>
-				{#<button type="button" class="search_close">검색 닫기</button>#}
+				{#-<button type="button" class="search_close">검색 닫기</button>#}
 			</div>
 			<!-- // 검색 -->
 
 			<div class="hd_sitemap">
 				<button type="button" class="ly_btn sitemap_btn"><i>Site map button</i></button>
 				<div class="hd_layer_box sitemap_area">
-					<strong class="tit"><i>UXKM</i> Site map</strong>
-					<nav class="sitemap_in">
+					<div class="tit inner">
+						<strong class="tit_txt"><i>UXKM</i> Site map</strong>
+						<div class="map_type">
+							<button type="button" data-txt="type_tab" class="active"><i>Tab view</i></button>
+							<button type="button" data-txt="type_all"><i>All view</i></button>
+						</div>
+					</div>
 
+					<nav class="sitemap_in inner type_tab {{ sitemap_div }}" data-type="type_tab">
 						{{ gnb_nemu.all_gnb(
 							gnb_data,
 							pageNumber,
@@ -52,3 +58,6 @@
 		</div>
 	</div>
 </header>
+<button type="button" class="test_btn scroll" style="cursor:pointer; position:fixed; z-index:999999; right:50px; top:150px; width:100px; height:100px; background:red;">
+	test
+</button>
