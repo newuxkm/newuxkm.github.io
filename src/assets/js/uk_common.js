@@ -153,8 +153,9 @@ function focus_controll(){
   _ukContent.on({
     focusin:function(){
       if( is_sub ){
-        $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height()*2 );
-        console.log( _ukSubContent.offset().top - _ukHeader.height() );
+        setTimeout(function(){
+          $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height() );
+        });
       }
     },
     focusout:function(){
