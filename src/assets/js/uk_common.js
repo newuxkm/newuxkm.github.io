@@ -164,7 +164,7 @@ function focus_controll(){
 }
 
 $(window).on('load', function(){
-  $(window).scrollTop(1500);
+  //$(window).scrollTop(1500);
 });
 
 $(window).scroll(function(){
