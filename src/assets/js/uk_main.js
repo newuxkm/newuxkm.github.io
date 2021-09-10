@@ -13,6 +13,7 @@ const _mainInfoStep5 = _main_info.find('.step5');
 // document ready ------------------------------------------------------------------------------------------------------
 $(document).ready(function(){
   header_common();
+  focus_controll();
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
@@ -62,6 +63,7 @@ $(window).on('resize', function(){
   let win_w = $(window).width();
   let win_h = $(window).height();
   pc_mb_class(win_w);
+  hd_layer_open_resize(win_w);
 
   //main intro height
   if( device_check === 'device' ) _main_intro.css('height', win_h);

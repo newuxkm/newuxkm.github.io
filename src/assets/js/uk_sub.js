@@ -1,6 +1,6 @@
 
 // selector ------------------------------------------------------------------------------------------------------------
-const _top_link = $('.top_link ul');
+const _top_link = $('.top_link');
 const _side_name = $('.side_menu');
 const _side_menu_d3 = _side_name.find('.depth3 > li');
 
@@ -8,6 +8,7 @@ const _side_menu_d3 = _side_name.find('.depth3 > li');
 // document ready ------------------------------------------------------------------------------------------------------
 $(document).ready(function(){
   header_common();
+  focus_controll();
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
@@ -38,7 +39,7 @@ _side_menu_d3.each(function(i, e){
 
 
 // window scroll -------------------------------------------------------------------------------------------------------
-let top_link_offset = _top_link.offset().top;
+let top_link_offset = _top_link.find('ul').offset().top - 1;
 $(window).on('scroll', function(){
   let sct = $(window).scrollTop();
   hd_common(sct);
@@ -52,6 +53,7 @@ $(window).on('resize', function(){
   let win_w = $(window).width();
   let win_h = $(window).height();
   pc_mb_class(win_w);
+  hd_layer_open_resize(win_w);
 
  if( win_w > md_size ){
    _side_name.find('.depth4').removeAttr('style');
@@ -65,3 +67,9 @@ $(window).on('resize', function(){
    }
  }
 }).trigger('resize');
+
+
+// detect --------------------------------------------------------------------------------------------------------------
+_top_link.ukDetect({
+  browser_check: true
+});

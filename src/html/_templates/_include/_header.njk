@@ -1,7 +1,6 @@
-{%- set headerCss = 'main_header' if pageData.mainPage else 'sub_header' -%}
-{%- set sitemap_div = 'main_sitemap' if pageData.mainPage else 'sub_sitemap' -%}
+{%- set classDiv = 'main' if pageData.mainPage else 'sub' -%}
 {%- import path.macro + "/_gnb.njk" as gnb_nemu %}
-<header class="uk_header {{headerCss}}" role="banner">
+<header class="uk_header {{classDiv}}_header" role="banner">
 	<div class="inner">
 		<strong class="hd_logo uk_logo beta"><a href="/" class="uk_link" data-tit="{{ title_d1 }}">UXKM</a></strong>
 
@@ -16,10 +15,14 @@
 			</nav>
 			<!-- // global menu  -->
 
+			{#-
 			<div class="hd_search">
-				<button type="button" class="ly_btn search_btn"><i>Search button</i></button>
-				<div class="hd_layer_box search_area" style="display:none">
+				<button type="button" class="ly_btn {{classDiv}}_ly_btn search_btn" data-modal-button="search_modal"><i>Search button</i></button>
+				<div class="hd_layer_box search_area" data-modal-layer="search_modal">
 					<div class="inner">
+						<div class="tit">
+							<strong class="tit_txt"><i>UXKM</i> Search</strong>
+						</div>
 						<div class="form">
 							<input type="text" placeholder="검색어를 입력해 주세요." required />
 							<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
@@ -30,34 +33,33 @@
 						</dl>
 					</div>
 				</div>
-				{#-<button type="button" class="search_close">검색 닫기</button>#}
+				<button type="button" class="search_close">검색 닫기</button>
 			</div>
 			<!-- // 검색 -->
+			#}
 
 			<div class="hd_sitemap">
-				<button type="button" class="ly_btn sitemap_btn"><i>Site map button</i></button>
-				<div class="hd_layer_box sitemap_area">
-					<div class="tit inner">
-						<strong class="tit_txt"><i>UXKM</i> Site map</strong>
-						<div class="map_type">
-							<button type="button" data-txt="type_tab" class="active"><i>Tab view</i></button>
-							<button type="button" data-txt="type_all"><i>All view</i></button>
+				<button type="button" class="ly_btn {{classDiv}}_ly_btn sitemap_btn" data-modal-button="sitemap_modal"><i>Site map button</i></button>
+				<div class="hd_layer_box sitemap_area" data-modal-layer="sitemap_modal">
+					<div class="inner">
+						<div class="tit">
+							<strong class="tit_txt"><i>UXKM</i> Site map</strong>
+							<div class="map_type">
+								<button type="button" data-txt="type_tab" class="active"><i>Tab view</i></button>
+								<button type="button" data-txt="type_all"><i>All view</i></button>
+							</div>
 						</div>
+						<nav class="sitemap_in type_tab {{classDiv}}_sitemap" data-type="type_tab">
+							{{ gnb_nemu.all_gnb(
+								gnb_data,
+								pageNumber,
+								only_depth1 = false
+							) | tabIndent(7) }}
+						</nav>
 					</div>
-
-					<nav class="sitemap_in inner type_tab {{ sitemap_div }}" data-type="type_tab">
-						{{ gnb_nemu.all_gnb(
-							gnb_data,
-							pageNumber,
-							only_depth1 = false
-						) | tabIndent(6) }}
-					</nav>
 				</div>
 			</div>
 			<!-- // 사이트맵 -->
 		</div>
 	</div>
 </header>
-<button type="button" class="test_btn scroll" style="cursor:pointer; position:fixed; z-index:999999; right:50px; top:150px; width:100px; height:100px; background:red;">
-	test
-</button>
