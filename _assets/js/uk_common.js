@@ -4,65 +4,172 @@ const respon_size = 767 - 17;
 const md_size = 993 - 17;
 
 // selector ------------------------------------------------------------------------------------------------------------
+const _window = $(window);
 const _html = $('html');
 const _body = $('body');
 const _htmlBody = $('html, body');
 const _ukWrap = $('.uk_wrap');
+const _ukSkip = $('.uk_skip');
 
 // header selector
 const _ukHeader = $('.uk_header');
 const _ukNavArea = _ukHeader.find('.hd_nav_area');
 const _ukNav= _ukNavArea.find('.nav');
+const _hd_layer_btn = _ukHeader.find('.ly_btn');
 const _search_btn = _ukNavArea.find('.search_btn');
 const _search_area = _ukNavArea.find('.search_area');
 const _search_submit = _ukNavArea.find('.search_submit');
 const _sitemap_btn = _ukNavArea.find('.sitemap_btn');
 const _sitemap_area = _ukNavArea.find('.sitemap_area');
-const hd_progress = 'hd_progress';
-const hd_sitemap_on = 'hd_sitemap_on';
-const hd_search_on = 'hd_search_on';
+const _sitemap_type_btn = _sitemap_area.find('.map_type button');
+const _sitemap_in = _sitemap_area.find('.sitemap_in');
 
 // footer selector
 const _ukFooter = $('.uk_footer');
 
 // container selector
 const _ukContainer = $('.uk_container');
+const _ukContent = $('#content');
+const _ukSubContent = $('.sub_content');
+
+// class name
+const hd_progress = 'hd_progress';
+const hd_sitemap_on = 'hd_sitemap_on';
+const hd_search_on = 'hd_search_on';
+const hd_layer_open = 'hd_layer_open';
+
+// variable
+let scrollbar_size = 0;
+let is_main = _html.is('.main_page');
+let is_sub = _html.is('.sub_page');
 
 
-// header action -------------------------------------------------------------------------------------------------------
-_ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
-_sitemap_btn.on('click', function(){
-	//열기
-	if( !$(this).is('.active') ){
-		$(this).addClass('active').removeClass('after');
-		// $html.css('overflow','hidden').addClass(hd_sitemap_on+' '+sub_black);
-		// $sitemap_area.trigger('focus').removeClass(hash_move);
-		// offsetTopControl();
-		//
-		// setTimeout(function(){
-		//   al_depth1.find('> li').each(function(i, e){
-		//     $(e).find('.al_depth2').masonry('layout');
-		//   });
-		// }, loadingEndTime);
-	}
-	//닫기
-	else if( $(this).is('.active') ){
-		$(this).removeClass('active').addClass('after');
-		// $html.removeAttr('style').removeClass(hd_sitemap_on);
-		// setTimeout(function(){
-		//   $html.removeClass(sub_black);
-		// }, 300);
-		// setTimeout(function(){
-		//   $('.'+top_link+' ul').removeClass(opacity_on).removeAttr('style');
-		//   $('.'+side_menu).removeClass(opacity_on).removeAttr('style');
-		//   $(window).trigger('scroll');
-		// }, 600);
-	}
-	return false;
+// functions -----------------------------------------------------------------------------------------------------------
+
+// header common
+function header_common(){
+  _ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
+
+  // site map & search open/close
+  _hd_layer_btn.on('click', function(){
+    const target_name = $(this).attr('data-modal-button');
+
+    // open ---------------------------
+    if( !$(this).is('.active') ){
+      $(this).addClass('active').removeClass('after');
+
+      // scroll controll
+      let win_w = $(window).width();
+      _html.css('overflow','hidden').addClass(hd_layer_open);
+      _ukWrap.width(win_w);
+      _ukHeader.width(win_w);
+      scrollbar_size = _window.width() - _ukWrap.width();
+
+      // layer target
+      $('[data-modal-layer="'+target_name+'"]').addClass('active');
+
+      if( $(this).is('.search_btn') ){
+        console.log('search_btn');
+        _sitemap_btn.addClass('active').removeClass('after');
+      }
+    }
+
+    // close --------------------------
+    else if( $(this).is('.active') ){
+      $(this).removeClass('active').addClass('after');
+
+      // scroll controll
+      close_scroll();
+
+      // layer target
+      $('[data-modal-layer="'+target_name+'"]').removeClass('active');
+    }
+
+    return false;
+  });
+  $('.search_close').on('click', function(){
+    _search_btn.removeClass('active').addClass('after');
+    _sitemap_btn.removeClass('active').addClass('after');
+    _search_area.removeClass('active');
+
+    // scroll controll
+    close_scroll();
+
+    return false;
+  });
+  function close_scroll(){
+    _html.removeAttr('style').removeClass(hd_layer_open);
+    _ukWrap.removeAttr('style');
+    _ukHeader.removeAttr('style');
+    scrollbar_size = 0;
+  }
+
+  // site map view type
+  _sitemap_type_btn.on('click', function(){
+    let type = $(this).attr('data-txt');
+    $(this).addClass('active').siblings().removeClass('active');
+    _sitemap_in.attr('data-type', type);
+  });
+
+  // site map tab view
+  let is_type_tab = _sitemap_in.attr('data-type') === 'type_tab';
+  _sitemap_in.find('.depth1 > li > a, .depth2 > li > a').on('click focus', function(){
+    if( is_type_tab ){
+      $(this).parent().addClass('active').siblings().removeClass('active');
+
+      // depth1 click, focus
+      if( $(this).next().is('.depth2') ){
+        const next_li = $(this).next().find('> li');
+        if( !next_li.is('.active') ) next_li.eq(0).addClass('active');
+      }
+      return false;
+    }
+  });
+  _sitemap_in.find('.depth1 > li > a, .depth2 > li > a').on('keydown', function(e){
+    if( is_type_tab & e.keyCode == 9 && e.shiftKey ){
+      const _prev_el = $(this).parent().prev();
+      if( _prev_el.is(':visible') ){
+        _prev_el.addClass('active').siblings().removeClass('active');
+        _prev_el.find('> ul > li').last().addClass('active').siblings().removeClass('active');
+      }
+    }
+  });
+}
+
+// hd_layer_open resize (site map & search open/close 과 연계)
+function hd_layer_open_resize(win_w){
+  if( _html.is('.'+hd_layer_open) ){
+    _ukWrap.width( win_w - scrollbar_size );
+    _ukHeader.width( win_w - scrollbar_size );
+  }
+}
+
+// focus controll
+function focus_controll(){
+  _ukSkip.on('focusin', function(){
+    console.log('focusin');
+    _ukContent.attr('tabindex','0');
+  });
+  _ukContent.on({
+    focusin:function(){
+      if( is_sub ){
+        $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height()*2 );
+        console.log( _ukSubContent.offset().top - _ukHeader.height() );
+      }
+    },
+    focusout:function(){
+      $(this).removeAttr('tabindex');
+    }
+  });
+}
+
+$(window).on('load', function(){
+  //$(window).scrollTop(1500);
 });
 
-
-// cmomon function -----------------------------------------------------------------------------------------------------
+$(window).scroll(function(){
+  console.log( $(window).scrollTop() );
+});
 
 // uk editor
 function ukEditor_txtarea(){
@@ -473,8 +580,12 @@ function hd_common(sct){
 	var hd_proW = (sct/docHeight)*100;  //Math.ceil();
 	$('.'+hd_progress).css('width',hd_proW+'%');
 
-  //
+  // masonry
+  depth3_masonry();
+}
 
+// depth3_masonry
+function depth3_masonry(){
   _sitemap_area.find('.depth3').each(function(i, e){
     $(e).masonry({
       itemSelector: '.item',
@@ -512,15 +623,6 @@ function pc_mb_class(win_w){
 	}
 }
 
-
-$(document).ready(function(){
-  ukEditor_txtarea();
-  uk_editor();
-  uk_gist_skin_code();
-
-  if( _html.is('.sub_page') ){
-  }
-});
 
 
 

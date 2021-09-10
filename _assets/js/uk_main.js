@@ -1,4 +1,5 @@
 
+// selector ------------------------------------------------------------------------------------------------------------
 const _main_container = $('.main_page .uk_container')
 const _main_intro = _main_container.find('.main_intro');
 const _main_info = _main_container.find('.main_info');
@@ -9,6 +10,20 @@ const _mainInfoStep4 = _main_info.find('.step4');
 const _mainInfoStep5 = _main_info.find('.step5');
 
 
+// document ready ------------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+  header_common();
+  focus_controll();
+  ukEditor_txtarea();
+  uk_editor();
+  uk_gist_skin_code();
+
+  _sitemap_in.find('.depth1 > li').eq(0).addClass('active');
+  _sitemap_in.find('.depth2 > li').eq(0).addClass('active');
+});
+
+
+// window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
   _main_intro.addClass('start');
 
@@ -43,26 +58,19 @@ $(window).on('load', function(){
 });
 
 
-//메인 인트로 next클릯
-$(document).on('click', '.next_content', function(){
-  const topSize = _main_intro.height() - _ukHeader.height();
-  _htmlBody.stop().animate({'scrollTop':topSize}, 1000, 'easeInOutQuint');
-  return false;
-});
-
-
-//resize
+// resize --------------------------------------------------------------------------------------------------------------
 $(window).on('resize', function(){
   let win_w = $(window).width();
   let win_h = $(window).height();
   pc_mb_class(win_w);
+  hd_layer_open_resize(win_w);
 
   //main intro height
   if( device_check === 'device' ) _main_intro.css('height', win_h);
 }).trigger('resize');
 
 
-//scroll
+// scroll --------------------------------------------------------------------------------------------------------------
 $(window).on('scroll', function(){
   let sct = $(window).scrollTop();
   hd_common(sct);
@@ -88,3 +96,11 @@ $(window).on('scroll', function(){
     _mainInfoStep5.css('transform','translateY('+ (f_sct*-0.05) +'px)');
   }
 }).trigger('scroll');
+
+
+// 메인 인트로 next클릯 ------------------------------------------------------------------------------------------------
+$(document).on('click', '.next_content', function(){
+  const topSize = _main_intro.height() - _ukHeader.height();
+  _htmlBody.stop().animate({'scrollTop':topSize}, 1000, 'easeInOutQuint');
+  return false;
+});
