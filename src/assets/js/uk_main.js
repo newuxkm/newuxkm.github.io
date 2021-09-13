@@ -13,7 +13,6 @@ const _mainInfoStep5 = _main_info.find('.step5');
 // document ready ------------------------------------------------------------------------------------------------------
 $(document).ready(function(){
   header_common();
-  focus_controll();
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
@@ -25,6 +24,7 @@ $(document).ready(function(){
 
 // window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
+  focus_controll();
   _main_intro.addClass('start');
 
   $('.d3_button input').on('click', function(){

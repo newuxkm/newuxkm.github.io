@@ -512,6 +512,7 @@ $active_blue:lighten($sm_blue, 5%);
 // search design
 .search_area {
 	& + .search_close {display:none;}
+	* {color:#fff;}
 
 	&.active {
 		& + .search_close {
@@ -900,7 +901,7 @@ $active_blue:lighten($sm_blue, 5%);
 	&.active {
 		overflow-y:scroll;
 		top:0;
-		background-color:rgba(#000, .9);
+		background-color:rgba(#000, .9); //rgba(#000, .9)
 		transition:top 0s 0s, background-color $time - .05s 0s;
 
 		.inner {opacity:1; transform:translate(0, 0);}
@@ -1222,6 +1223,8 @@ $edt_btn_left:6px;
 				box-shadow:0 #{$dotSize} 0 0 #bbb, 0 -#{$dotSize} 0 0 #bbb;
 				content:"";
 			}
+			//&:focus {box-shadow:0 0 0 2px #000 inset;}
+			&:focus {outline:2px solid #000;}
 
 			iframe {
 				//position:absolute; right:0; top:@tit_height; z-index:2;

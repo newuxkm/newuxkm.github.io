@@ -8,7 +8,6 @@ const _side_menu_d3 = _side_name.find('.depth3 > li');
 // document ready ------------------------------------------------------------------------------------------------------
 $(document).ready(function(){
   header_common();
-  focus_controll();
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
@@ -17,7 +16,7 @@ $(document).ready(function(){
 
 // window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
-
+  focus_controll();
 });
 
 
