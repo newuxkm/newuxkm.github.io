@@ -11,12 +11,14 @@ $(document).ready(function(){
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
+  focus_controll();
 });
 
 
 // window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
-  focus_controll();
+  setTimeout(function(){
+  }, 500);
 });
 
 

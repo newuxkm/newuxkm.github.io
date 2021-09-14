@@ -1,12 +1,12 @@
 {% set pageNumber = { depth1: 1, depth2: 3, depth3: 4 } %}
 {% set pageData = {
-	title: "0000000",
-	description: "0000000 입니다.",
+	title: "웹 접근성을 고려한 콘텐츠 제작 방법",
+	description: "웹 접근성을 고려한 콘텐츠 제작 방법 입니다.",
 	keyword: "",
 	last_update: "0000-00-00"
 } %}
 {% set pageLayout = {
-	mainClass: "00000000",
+	mainClass: "waContents",
 	type: "publishing",
 	Info: true,
 	note: false,
@@ -18,5 +18,12 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	{{ super() }}
+	<footer class="reference_box">
+		<strong class="tit">{{ title_d3 }} 참조</strong>
+		<ul class="link_lst">
+			<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+		</ul>
+	</footer>
+{%- endblock %}

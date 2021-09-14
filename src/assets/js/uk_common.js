@@ -39,6 +39,7 @@ const _topLink = $('.top_link');
 
 const ukEditor = 'uk_editor';
 const result_wrap = 'result_wrap';
+const browserTitle = 'browserTitle';
 const focus_el = 'a, button, input, select, textarea';
 
 // class name
@@ -79,6 +80,18 @@ function header_common(){
 
       if( $(this).is('.'+search_btn) ){
         _sitemap_btn.addClass('active').removeClass('after');
+      }
+
+      if( $(this).is('.'+sitemap_btn) ){
+        if( is_main ){
+          _sitemap_in.find('.depth1 > li').eq(0).addClass('active').siblings().removeClass('active');
+          _sitemap_in.find('.depth2 > li').eq(0).addClass('active').siblings().removeClass('active');
+        }
+        if( is_sub ){
+          let active_number = _ukWrap.attr('data-active').split('/');
+          _sitemap_in.find('.depth1 > li').eq(active_number[0]).addClass('active').siblings().removeClass('active');
+          _sitemap_in.find('.depth2 > li').eq(active_number[1]).addClass('active').siblings().removeClass('active');
+        }
       }
     }
 
@@ -156,23 +169,18 @@ function hd_layer_open_resize(win_w){
 function focus_controll(){
   const layer_tit = '.tit strong';
 
-  // skin 메뉴 포커스일 경우 main.content에 tabindex 적용 및 main.content focusout시 tabindex 제거
-  /*_ukSkip.on('focusin', function(){
-    _ukContent.attr('tabindex','0');
-  });
-  // ****************************************
-  _ukContent.on({
-    focus:function(){
-      if( is_sub ){
-        setTimeout(function(){
-          $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height() );
-        }, 10);
-      }
-    },
-    blur:function(){
-      $(this).removeAttr('tabindex');
+  // focus 이동 순방향/역방향 감지
+  let focus_direction = null;
+  $(document).on('keydown', function(e){
+    // focus 순방향
+    if( e.keyCode == 9 && !e.shiftKey ){
+      focus_direction = true;
     }
-  });*/
+    // focus 역방향
+    else if( e.keyCode == 9 && e.shiftKey ){
+      focus_direction = false;
+    }
+  });
 
   // main h1 focus ----------------------------
   $(document).on({
@@ -180,20 +188,20 @@ function focus_controll(){
       if( is_sub ){
         _ukContent.find('h1').attr('tabindex','0');
       }
-    },
-    blur:function(){
-      _ukContent.find('h1').removeAttr('tabindex');
     }
+  });
+  $('#content_title').on('focus', function(){
+    setTimeout(function(){
+      $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height() );
+    }, 10);
   });
 
   // header search focus ----------------------
   _search_btn.on({
-    keydown:function(e){
+    blur:function(){
       // search 비활성 상태에서 텝 이동 시 site map 버튼으로 포커스 이동
-      if( e.keyCode == 9 && !e.shiftKey && !$(this).is('.active') ){
-        setTimeout(function(){
-          _sitemap_btn.trigger('focus');
-        }, 10);
+      if( focus_direction && !$(this).is('.active') ){
+        _sitemap_btn.trigger('focus');
       }
     },
     click:function(){
@@ -201,32 +209,22 @@ function focus_controll(){
       _search_area.find(layer_tit).attr('tabindex','0').trigger('focus');
     }
   });
-  _search_area.find(layer_tit).on({
-    keydown:function(e){
-      // search 활성화 상태에서 레이어 타이틀에서 역텝 이동 시 닫기 버튼으로 포커스 이동
-      if( e.keyCode == 9 && e.shiftKey ){
-        if( _search_btn.is('.active') ){
-          setTimeout(function(){
-            _search_close.trigger('focus');
-          }, 10);
-        }
-      }
+  _search_area.find(layer_tit).on('blur', function(){
+    // search 활성화 상태에서 레이어 타이틀에서 역텝 이동 시 닫기 버튼으로 포커스 이동
+    if( !focus_direction && _search_btn.is('.active') ){
+      _search_close.trigger('focus');
     }
   });
   _search_close.on({
-    keydown:function(e){
+    blur:function(){
       if( _search_btn.is('.active') ){
         // search 활성화 상태에서 닫기 버튼에서 텝 이동 시 레이어 타이틀로 포커스 이동
-        if( e.keyCode == 9 && !e.shiftKey ){
-          setTimeout(function(){
-            _search_area.find(layer_tit).trigger('focus');
-          }, 10);
+        if( focus_direction ){
+          _search_area.find(layer_tit).trigger('focus');
         }
         // search 활성화 상태에서 닫기 버튼에서 역텝 이동 시 포커스 가능 요소 중 마지막 요소로 포커스 이동
-        if( e.keyCode == 9 && e.shiftKey ){
-          setTimeout(function(){
-            _search_area.find(focus_el).last().trigger('focus');
-          }, 10);
+        else if( !focus_direction ){
+          _search_area.find(focus_el).last().trigger('focus');
         }
       }
     },
@@ -238,25 +236,19 @@ function focus_controll(){
 
   // header site map focus --------------------
   _sitemap_btn.on({
-    keydown:function(e){
+    blur:function(){
       // site map 비활성 상태에서 텝 이동 시 container의 포커스 요소 중 첫번째 요소로 포커스 이동
-      if( e.keyCode == 9 && !e.shiftKey && !$(this).is('.active') ){
-        setTimeout(function(){
-          _ukContainer.find(focus_el).first().trigger('focus');
-        }, 10);
+      if( focus_direction && !$(this).is('.active') ){
+        _ukContainer.find(focus_el).first().trigger('focus');
       }
-      if( e.keyCode == 9 && e.shiftKey ){
+      if( !focus_direction ){
         // site map 비활성 상태에서 역텝 이동 시 search 버튼으로 포커스 이동
         if( !$(this).is('.active') ){
-          setTimeout(function(){
-            _search_btn.trigger('focus');
-          }, 10);
+          _search_btn.trigger('focus');
         }
         // site map 활성 상태에서 역텝 이동 시 site map의 포커스 요소 중 마지막 요소로 포커스 이동
         else{
-          setTimeout(function(){
-            _sitemap_area.find(focus_el).last().trigger('focus');
-          }, 10);
+          _sitemap_area.find(focus_el).last().trigger('focus');
         }
       }
     },
@@ -272,96 +264,26 @@ function focus_controll(){
       }
     }
   });
-  _sitemap_area.find(focus_el).last().on({
-    keydown:function(e){
-      // site map의 마지막 포커스 요소에서 텝 이동 시 site map 버튼으로 포커스 이동
-      if( e.keyCode == 9 && !e.shiftKey ){
-        setTimeout(function(){
-          _sitemap_btn.trigger('focus');
-        }, 10);
-      }
+  _sitemap_area.find(focus_el).last().on('blur', function(){
+    // site map의 마지막 포커스 요소에서 텝 이동 시 site map 버튼으로 포커스 이동
+    if( focus_direction ){
+      _sitemap_btn.trigger('focus');
     }
   });
 
   // container first focus el -----------------
-  _ukContainer.find(focus_el).first().on({
-    keydown:function(e){
-      // container의 포커스 요소 중 첫번째 요소에서 역텝 이동 시 site map 버튼으로 포커스 이동
-      if( e.keyCode == 9 && e.shiftKey ){
-        setTimeout(function(){
-          _sitemap_btn.trigger('focus');
-        }, 10);
-      }
+  _ukContainer.find(focus_el).first().on('blur', function(){
+    // container의 포커스 요소 중 첫번째 요소에서 역텝 이동 시 site map 버튼으로 포커스 이동
+    if( !focus_direction ){
+      _sitemap_btn.trigger('focus');
     }
   });
-  // _topLink.find(focus_el).on('focus', function(){
-  //   _ukContent.attr('tabindex','0');
-  // });
 
-  // uk editor focus controll -----------------
-  /*
-  $(document).on({
-    keydown:function(e){
-      $('.'+ukEditor).each(function(i, e){
-        $(e).attr('tabindex','0').find('.result_wrap').attr('tabindex','0');
-      });
-    }
+  // focus 요소 text 확인
+  $('*').focus(function(){
+    //console.log( $(this).text() );
   });
-  */
-
-  // $('.'+ukEditor).each(function(i, e){
-  //   setTimeout(function(){
-  //     $(e).attr('tabindex','0').children('.result_wrap').attr('tabindex','0');
-  //
-  //     $(e).on({
-  //       keydown:function(e){
-  //         if( e.keyCode == 9 && !e.shiftKey ){
-  //           console.log('정방향');
-  //           setTimeout(function(){
-  //             $(e).find('.result_wrap').trigger('focus');
-  //             $(e).find('.result_wrap').css('border','10px solid red');
-  //           }, 10);
-  //         }
-  //         if( e.keyCode == 9 && e.shiftKey ){
-  //           console.log('역방향');
-  //         }
-  //       }
-  //     });
-  //   }, 300);
-  // });
-
-  // $('.'+ukEditor).on({
-  //   keydown:function(e){
-  //     if( e.keyCode == 9 && !e.shiftKey ){
-  //       console.log('정방향');
-  //       setTimeout(function(){
-  //         $(this).find('.result_wrap').trigger('focus');
-  //       }, 10);
-  //     }
-  //     if( e.keyCode == 9 && e.shiftKey ){
-  //       console.log('역방향');
-  //     }
-  //   }
-  // });
-
-  // $('.'+ukEditor).on('keydown blur', function(e){
-  //   if( e.keyCode == 9 && !e.shiftKey ){
-  //     console.log('정방향');
-  //     setTimeout(function(){
-  //       $(this).find('.result_wrap').focus();
-  //     }, 10);
-  //   }
-  //   if( e.keyCode == 9 && e.shiftKey ){
-  //     console.log('역방향');
-  //   }
-  // });
-  // $('.'+ukEditor).on('blur', function(e){
-  //     setTimeout(function(){
-  //       $(this).find('.result_wrap').focus();
-  //     }, 10);
-  // });
 }
-
 
 // uk editor
 function ukEditor_txtarea(){
@@ -390,94 +312,27 @@ function ukEditor_txtarea(){
     $(e).on('blur', function(){
       setTimeout(function(){
         if( editor_focus_move ){
-          $(e).find('.'+result_wrap).trigger('focus');
-          console.log( $(e).attr('class') );
+          $(e).find('.'+browserTitle).trigger('focus');
         }
       }, 10);
     });
 
-    $(e).find('.result_wrap').focusin(function(){
-      console.log( $(e).find('.result_wrap').attr('class') );
-      _html.css('border','10px solid red');
-    });
-    $(e).find('.result_wrap').blur(function(){
-      console.log( $(e).find('.result_wrap').attr('class') );
-      setTimeout(function(){
-        $(e).find('.result_wrap').hide();
-        if( !editor_focus_move ){
-          console.log('aaaaa');
-          $(e).trigger('focus');
-        }
-      }, 50);
-    });
+    setTimeout(function(){
+      let focus_el_length = $(e).find('.'+result_wrap+' iframe').contents().find(focus_el).length;
+      if( focus_el_length > 0 ){
+        $(e).find('.'+result_wrap+' iframe').removeAttr('tabindex');
+      }
 
-
-
-    // result focus controll
-    // let result_focus_move = null;
-    // $(e).find('.'+result_wrap).on('keydown', function(e){
-    //   if( e.keyCode == 9 && !e.shiftKey ){
-    //     result_focus_move = true;
-    //     console.log( result_focus_move, 'aaaa' );
-    //     console.log('정방향');
-    //   }
-    //   if( e.keyCode == 9 && e.shiftKey ){
-    //     result_focus_move = false;
-    //     console.log( result_focus_move );
-    //     console.log('역방향');
-    //   }
-    // });
-    // $(e).find('.'+result_wrap).on('blur', function(){
-    //   setTimeout(function(){
-    //     if( !result_focus_move ){
-    //       $(e).trigger('focus');
-    //     }
-    //   }, 10);
-    // });
-
-    // let focus_length = $(e).find('.'+result_wrap).children().contents().find(focus_el).length;
-    // $(e).find('.result_wrap').on('keydown blur', function(){
-    //   $(this).hide();
-    //   console.log('aaa');
-    //   if(e.shiftKey && e.keyCode === 9){
-    //     setTimeout(function(){
-    //       console.log('shift tab')
-    //       return false;
-    //     }, 10);
-    //   }
-    //   else if (e.keyCode === 9){
-    //     setTimeout(function(){
-    //       console.log('tab')
-    //       return false;
-    //     }, 10);
-    //   }
-    //   else if(e.type == 'blur') {
-    //     setTimeout(function(){
-    //       console.log('mosueOUt')
-    //     }, 10);
-    //   }
-    // });
-
-    // $(e).on({
-    //   keydown:function(e){
-    //     if( e.keyCode == 9 && !e.shiftKey ){
-    //       setTimeout(function(){
-    //         $(e).find('.'+result_wrap).trigger('focus');
-    //       }, 10);
-    //     }
-    //     if( e.keyCode == 9 && e.shiftKey ){}
-    //   }
-    // });
-
-    // let focus_length = _result_wrap.children().contents().find(focus_el).length;
-    // if( focus_length ){}
-    // _result_wrap.on({
-    //   keydown:function(e){
-    //     if( e.keyCode == 9 && !e.shiftKey ){
-    //       console.log('aaa');
-    //     }
-    //   }
-    // });
+      $(e).find('.'+browserTitle).each(function(j, k){
+        $(k).on('blur', function(){
+          setTimeout(function(){
+            if( !editor_focus_move ){
+              $(e).trigger('focus');
+            }
+          }, 10);
+        });
+      });
+    }, 1000);
 	});
 }
 

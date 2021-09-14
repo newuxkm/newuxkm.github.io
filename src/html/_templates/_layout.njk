@@ -34,7 +34,7 @@
 
 {#- reference path -#}
 {%- set reference_path %}
-	{%- for i in range(0, pageNum_leng - 1) %}
+	{%- for i in range(0, 3) %}
 		{{- gnb_data[d1].d1_link | replace("/", "")    if i === 0 }}
 		{{- gnb_data[d1].depth2[d2].d2_link            if i === 1 }}
 		{{- gnb_data[d1].depth2[d2].depth3[d3].d3_link if i === 2 }}
@@ -58,13 +58,13 @@
 <html lang="ko" class="{{ html_class }} ">
 {% include( path.include + "/_head.njk" ) %}
 <body class="{{ pageLayout.mainClass }}">
-<div class="uk_wrap">
+<div class="uk_wrap" {%- if pageData.mainPage !== true %} data-active="{{ d1 }}/{{ d2 }}" {%- endif %}>
 	{%- macro include(fileName) -%}
 	{%- include fileName ignore missing -%}
 	{%- endmacro %}
 
 	<nav class="uk_skip">
-		<a href="#content">본문내용으로 건너띄기</a>
+		<a href="{{ '#content' if pageData.mainPage else '#content_title' }}">본문내용으로 건너띄기</a>
 	</nav>
 	<!-- //uk_skip -->
 
@@ -111,21 +111,21 @@
 				{{ include( path.include + "/_common_info.njk" ) | tabIndent(4) }}
 				{%- endif %}
 				{%- if pageLayout.note === false %}
-				{{ include( info_path + "/info.njk" ) | tabIndent(4) }}
+				{{ include( info_path + "/_info.njk" ) | tabIndent(4) }}
 				{%- endif %}
 			</blockquote>
 			<!-- // {{ title_d1 }} 및 {{ title_d2 }} 요약설명 -->
 
 			{%- if pageLayout.note %}
 			{# ----------space--------- #}
-			{{ include( reference_path + "/note.njk" ) | tabIndent(3) }}
+			{{ include( reference_path + "/_note.njk" ) | tabIndent(3) }}
 			{%- endif %}
 			{%- endif %}
 			{#- Publishing sub top content end #}
 
 			{%- if layout_build and pageLayout.Info %}
 			{# ----------space--------- #}
-			{{ include( reference_path + "/info.njk" ) | tabIndent(3) }}
+			{{ include( reference_path + "/_info.njk" ) | tabIndent(3) }}
 			{%- endif %}
 			{#- build system sub top content end #}
 		</div>
@@ -135,7 +135,7 @@
 			<main id="content" class="content_area">
 				<header>
 					{%- if pageNumber.depth4 %}
-					<h1 {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 }} <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- else %}
 					<h1 data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- endif %}
@@ -150,7 +150,7 @@
 
 				{%- if pageLayout.reference %}
 				{# ----------space--------- #}
-				{{ include( reference_path + "/reference.njk" ) | tabIndent(4) }}
+				{{ include( reference_path + "/_reference.njk" ) | tabIndent(4) }}
 				{%- endif %}
 			</main>
 			<!-- // {{ title_d4_txt }} content (.content_area) -->

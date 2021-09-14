@@ -222,13 +222,14 @@ function uk_editor(){
         resultApp();
         function resultApp(){
           el_resultWrap.innerHTML = '';
-          el_resultWrap.setAttribute('tabindex','0');
+          //el_resultWrap.setAttribute('tabindex','0');
           var code_value = el_editor.value;
 
           if(typeof(code_value) == "string" && code_value.length >= 0) {
             //iframe 생성 및 코드 적용
             var ifr = document.createElement("iframe");
             ifr.setAttribute('frameborder','0');
+            ifr.setAttribute('tabindex','-1');
             el_resultWrap.appendChild(ifr);
             var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
             ifrw.document.open();
@@ -237,6 +238,13 @@ function uk_editor(){
 
             browserTitle();
             browserBtn();
+
+            // browserTitle을 맨 앞으로 이동
+            setTimeout(function(){
+              var b_title = e.querySelector('.browserTitle');
+              var b_title_parent = b_title.parentNode;
+              b_title_parent.insertBefore( b_title, b_title_parent.firstChild );
+            }, 300);
             return false;
           }
         }
@@ -307,6 +315,7 @@ function uk_editor(){
           }
           el_bTitle.classList.add(device_check);
           el_bTitle.setAttribute('data-tit',title_txt);
+          el_bTitle.setAttribute('tabindex','0');
           var title_txtNode = document.createTextNode(title_txt);
           el_bTitle.appendChild(append_icon);
           el_bTitle.appendChild(title_txtNode);

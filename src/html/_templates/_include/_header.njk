@@ -15,17 +15,17 @@
 			</nav>
 			<!-- // global menu  -->
 
-			{#-
-			#}
+			{# -#}
 			<div class="hd_search">
-				<button type="button" class="ly_btn {{classDiv}}_ly_btn search_btn" data-modal-button="search_modal"><i>Search button</i></button>
+				<button type="button" class="ly_btn {{classDiv}}_ly_btn search_btn" data-modal-button="search_modal"><i>Search</i></button>
 				<div class="hd_layer_box search_area" data-modal-layer="search_modal">
 					<div class="inner">
 						<div class="tit">
 							<strong class="tit_txt"><i>UXKM</i> Search</strong>
 						</div>
 						<div class="form">
-							<input type="text" placeholder="검색어를 입력해 주세요." required />
+							<label for="uxkm_search">UXKM 검색</label>
+							<input type="text" id="uxkm_search" placeholder="검색어를 입력해 주세요." required />
 							<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
 						</div>
 						<dl class="keyword_ex">
@@ -39,7 +39,7 @@
 			<!-- // 검색 -->
 
 			<div class="hd_sitemap">
-				<button type="button" class="ly_btn {{classDiv}}_ly_btn sitemap_btn" data-modal-button="sitemap_modal"><i>Site map button</i></button>
+				<button type="button" class="ly_btn {{classDiv}}_ly_btn sitemap_btn" data-modal-button="sitemap_modal"><i>Site map</i></button>
 				<div class="hd_layer_box sitemap_area" data-modal-layer="sitemap_modal">
 					<div class="inner">
 						<div class="tit">

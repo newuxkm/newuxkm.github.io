@@ -920,7 +920,7 @@
               "depth4": [
                 {
                   "d4_name": "걸프(Gulp)란?",
-                  "d4_link": "/01-gulp-start"
+                  "d4_link": "/01-gulp_start"
                 },
                 {
                   "d4_name": "Gulp 설치 및 SCSS 컴파일러 설치",

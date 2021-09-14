@@ -17,6 +17,7 @@ $(document).ready(function(){
   uk_editor();
   uk_gist_skin_code();
 
+  // site map tab menu active
   _sitemap_in.find('.depth1 > li').eq(0).addClass('active');
   _sitemap_in.find('.depth2 > li').eq(0).addClass('active');
 });
@@ -27,10 +28,22 @@ $(window).on('load', function(){
   focus_controll();
   _main_intro.addClass('start');
 
-  $('.d3_button input').on('click', function(){
+  // d3 button click
+  $('.d3_button input').on({
+    click:function(){
+      d3_button_click( $(this) );
+    },
+    keypress:function(e){
+      if((e.keyCode ? e.keyCode : e.which) == 13){
+        d3_button_click( $(this) );
+        $(this).trigger('click');
+      }
+    }
+  });
+  function d3_button_click(target){
     const none_3d = 'none_3d';
     const hover_state = 'hover_state';
-    if( $(this).is(":checked") === true ){
+    if( target.is(":checked") === true ){
       _main_intro.addClass(none_3d+' '+hover_state);
       const class_re = setInterval(function(){
         if( _main_intro.is('.'+none_3d) && !_main_intro.is('.'+hover_state) ){
@@ -40,14 +53,15 @@ $(window).on('load', function(){
         }
       }, 100);
     }
-    else if( $(this).is(":checked") === false ){
+    else if( target.is(":checked") === false ){
       _main_intro.removeClass(none_3d);
       setTimeout(function(){
         _main_intro.removeClass(hover_state);
       }, 1600);
     }
-  });
+  }
 
+  // main_intro ukDetect 적용
   _main_intro.ukDetect({
     device_check:true,
     all_check:false
