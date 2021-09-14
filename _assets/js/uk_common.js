@@ -15,11 +15,15 @@ const _ukSkip = $('.uk_skip');
 const _ukHeader = $('.uk_header');
 const _ukNavArea = _ukHeader.find('.hd_nav_area');
 const _ukNav= _ukNavArea.find('.nav');
+const search_btn = 'search_btn';
+const sitemap_btn = 'sitemap_btn';
+const search_close = 'search_close';
 const _hd_layer_btn = _ukHeader.find('.ly_btn');
-const _search_btn = _ukNavArea.find('.search_btn');
+const _search_btn = _ukNavArea.find('.'+search_btn);
+const _search_close = _ukNavArea.find('.'+search_close);
 const _search_area = _ukNavArea.find('.search_area');
 const _search_submit = _ukNavArea.find('.search_submit');
-const _sitemap_btn = _ukNavArea.find('.sitemap_btn');
+const _sitemap_btn = _ukNavArea.find('.'+sitemap_btn);
 const _sitemap_area = _ukNavArea.find('.sitemap_area');
 const _sitemap_type_btn = _sitemap_area.find('.map_type button');
 const _sitemap_in = _sitemap_area.find('.sitemap_in');
@@ -31,6 +35,12 @@ const _ukFooter = $('.uk_footer');
 const _ukContainer = $('.uk_container');
 const _ukContent = $('#content');
 const _ukSubContent = $('.sub_content');
+const _topLink = $('.top_link');
+
+const ukEditor = 'uk_editor';
+const result_wrap = 'result_wrap';
+const browserTitle = 'browserTitle';
+const focus_el = 'a, button, input, select, textarea';
 
 // class name
 const hd_progress = 'hd_progress';
@@ -68,9 +78,20 @@ function header_common(){
       // layer target
       $('[data-modal-layer="'+target_name+'"]').addClass('active');
 
-      if( $(this).is('.search_btn') ){
-        console.log('search_btn');
+      if( $(this).is('.'+search_btn) ){
         _sitemap_btn.addClass('active').removeClass('after');
+      }
+
+      if( $(this).is('.'+sitemap_btn) ){
+        if( is_main ){
+          _sitemap_in.find('.depth1 > li').eq(0).addClass('active').siblings().removeClass('active');
+          _sitemap_in.find('.depth2 > li').eq(0).addClass('active').siblings().removeClass('active');
+        }
+        if( is_sub ){
+          let active_number = _ukWrap.attr('data-active').split('/');
+          _sitemap_in.find('.depth1 > li').eq(active_number[0]).addClass('active').siblings().removeClass('active');
+          _sitemap_in.find('.depth2 > li').eq(active_number[1]).addClass('active').siblings().removeClass('active');
+        }
       }
     }
 
@@ -87,7 +108,7 @@ function header_common(){
 
     return false;
   });
-  $('.search_close').on('click', function(){
+  _search_close.on('click', function(){
     _search_btn.removeClass('active').addClass('after');
     _sitemap_btn.removeClass('active').addClass('after');
     _search_area.removeClass('active');
@@ -146,43 +167,172 @@ function hd_layer_open_resize(win_w){
 
 // focus controll
 function focus_controll(){
-  _ukSkip.on('focusin', function(){
-    console.log('focusin');
-    _ukContent.attr('tabindex','0');
+  const layer_tit = '.tit strong';
+
+  // focus 이동 순방향/역방향 감지
+  let focus_direction = null;
+  $(document).on('keydown', function(e){
+    // focus 순방향
+    if( e.keyCode == 9 && !e.shiftKey ){
+      focus_direction = true;
+    }
+    // focus 역방향
+    else if( e.keyCode == 9 && e.shiftKey ){
+      focus_direction = false;
+    }
   });
-  _ukContent.on({
-    focusin:function(){
+
+  // main h1 focus ----------------------------
+  $(document).on({
+    keydown:function(){
       if( is_sub ){
-        $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height()*2 );
-        console.log( _ukSubContent.offset().top - _ukHeader.height() );
+        _ukContent.find('h1').attr('tabindex','0');
+      }
+    }
+  });
+  $('#content_title').on('focus', function(){
+    setTimeout(function(){
+      $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height() );
+    }, 10);
+  });
+
+  // header search focus ----------------------
+  _search_btn.on({
+    blur:function(){
+      // search 비활성 상태에서 텝 이동 시 site map 버튼으로 포커스 이동
+      if( focus_direction && !$(this).is('.active') ){
+        _sitemap_btn.trigger('focus');
       }
     },
-    focusout:function(){
-      $(this).removeAttr('tabindex');
+    click:function(){
+      // search 버튼 클릭 시 레이어 타이틀에 포커스
+      _search_area.find(layer_tit).attr('tabindex','0').trigger('focus');
     }
+  });
+  _search_area.find(layer_tit).on('blur', function(){
+    // search 활성화 상태에서 레이어 타이틀에서 역텝 이동 시 닫기 버튼으로 포커스 이동
+    if( !focus_direction && _search_btn.is('.active') ){
+      _search_close.trigger('focus');
+    }
+  });
+  _search_close.on({
+    blur:function(){
+      if( _search_btn.is('.active') ){
+        // search 활성화 상태에서 닫기 버튼에서 텝 이동 시 레이어 타이틀로 포커스 이동
+        if( focus_direction ){
+          _search_area.find(layer_tit).trigger('focus');
+        }
+        // search 활성화 상태에서 닫기 버튼에서 역텝 이동 시 포커스 가능 요소 중 마지막 요소로 포커스 이동
+        else if( !focus_direction ){
+          _search_area.find(focus_el).last().trigger('focus');
+        }
+      }
+    },
+    click:function(){
+      _search_area.find(layer_tit).removeAttr('tabindex');
+      _search_btn.trigger('focus');
+    }
+  });
+
+  // header site map focus --------------------
+  _sitemap_btn.on({
+    blur:function(){
+      // site map 비활성 상태에서 텝 이동 시 container의 포커스 요소 중 첫번째 요소로 포커스 이동
+      if( focus_direction && !$(this).is('.active') ){
+        _ukContainer.find(focus_el).first().trigger('focus');
+      }
+      if( !focus_direction ){
+        // site map 비활성 상태에서 역텝 이동 시 search 버튼으로 포커스 이동
+        if( !$(this).is('.active') ){
+          _search_btn.trigger('focus');
+        }
+        // site map 활성 상태에서 역텝 이동 시 site map의 포커스 요소 중 마지막 요소로 포커스 이동
+        else{
+          _sitemap_area.find(focus_el).last().trigger('focus');
+        }
+      }
+    },
+    click:function(){
+      // site map 비활성 일 때 버튼 클릭 시 레이어 타이틀에 포커스
+      if( $(this).is('.active') ){
+        _sitemap_area.find(layer_tit).attr('tabindex','0').trigger('focus');
+      }
+      else{
+        // site map 활성 일 때 버튼 클릭 버튼에 포커스
+        _sitemap_area.find(layer_tit).removeAttr('tabindex');
+        $(this).trigger('focus');
+      }
+    }
+  });
+  _sitemap_area.find(focus_el).last().on('blur', function(){
+    // site map의 마지막 포커스 요소에서 텝 이동 시 site map 버튼으로 포커스 이동
+    if( focus_direction ){
+      _sitemap_btn.trigger('focus');
+    }
+  });
+
+  // container first focus el -----------------
+  _ukContainer.find(focus_el).first().on('blur', function(){
+    // container의 포커스 요소 중 첫번째 요소에서 역텝 이동 시 site map 버튼으로 포커스 이동
+    if( !focus_direction ){
+      _sitemap_btn.trigger('focus');
+    }
+  });
+
+  // focus 요소 text 확인
+  $('*').focus(function(){
+    //console.log( $(this).text() );
   });
 }
 
-$(window).on('load', function(){
-  //$(window).scrollTop(1500);
-});
-
-$(window).scroll(function(){
-  console.log( $(window).scrollTop() );
-});
-
 // uk editor
 function ukEditor_txtarea(){
-	var uk_editor = $('.uk_editor');
-	uk_editor.each(function(i, e){
-		var target = $(e).parent().attr('data-target');
-		var txtarea = $(e).find('textarea');
+  $('.'+ukEditor).each(function(i, e){
+		const target = $(e).parent().attr('data-target');
+    const txtarea = $(e).find('textarea');
 		txtarea.val('');
 		if( target !== 'none' || target !== 'false' || target !== '' ){
 			$.get('/_code_samples/'+target, function(content){
 				txtarea.val(content);
 			});
 		}
+
+    // editor focus controll
+    let editor_focus_move = null;
+    $(e).on('keydown', function(e){
+      if( e.keyCode == 9 && !e.shiftKey ){
+        editor_focus_move = true;
+        //console.log(editor_focus_move, '정방향');
+      }
+      if( e.keyCode == 9 && e.shiftKey ){
+        editor_focus_move = false;
+        //console.log(editor_focus_move, '역방향');
+      }
+    });
+    $(e).on('blur', function(){
+      setTimeout(function(){
+        if( editor_focus_move ){
+          $(e).find('.'+browserTitle).trigger('focus');
+        }
+      }, 10);
+    });
+
+    setTimeout(function(){
+      let focus_el_length = $(e).find('.'+result_wrap+' iframe').contents().find(focus_el).length;
+      if( focus_el_length > 0 ){
+        $(e).find('.'+result_wrap+' iframe').removeAttr('tabindex');
+      }
+
+      $(e).find('.'+browserTitle).each(function(j, k){
+        $(k).on('blur', function(){
+          setTimeout(function(){
+            if( !editor_focus_move ){
+              $(e).trigger('focus');
+            }
+          }, 10);
+        });
+      });
+    }, 1000);
 	});
 }
 

@@ -47,6 +47,7 @@ function uk_editor(){
       var readonly;
       var result_true = e.getAttribute('data-result') === 'true';
       e.classList.add(device_check);
+      e.setAttribute('tabindex','0');
 
 
       //타켓 정의 및 reset_btn 생성
@@ -77,7 +78,9 @@ function uk_editor(){
           */
         }
         if( result_true ){
-          if( e.children[i].className === wrapArr[1] ) var el_resultWrap = e.children[i];
+          if( e.children[i].className === wrapArr[1] ){
+            var el_resultWrap = e.children[i];
+          }
           if( e.children[i].className === wrapArr[2] ) var el_btnWrap = e.children[i];
           if( e.children[i].className === wrapArr[3] ) var el_infoWrap = e.children[i];
         }
@@ -102,7 +105,7 @@ function uk_editor(){
         /* 테마 */
 
         lineNumbers: true,        //라인 넘버 사용 여부
-        fixedGutter: true,       //라인 넘버 왼쪽 고정 여부
+        fixedGutter: false,       //라인 넘버 왼쪽 고정 여부
         styleActiveLine: true,
         readOnly: readonly,
         tabSize: 2,							//탭키 간격
@@ -126,6 +129,7 @@ function uk_editor(){
           for( i=0; i<btnArr.length; i++ ){
             var addBtn = document.createElement('button');
             addBtn.setAttribute('type','button');
+            addBtn.setAttribute('tabindex','-1');
             addBtn.classList.add('fas');
             addBtn.classList.add('edit_btn');
             addBtn.classList.add(btnArr[i]+'_btn');
@@ -218,12 +222,14 @@ function uk_editor(){
         resultApp();
         function resultApp(){
           el_resultWrap.innerHTML = '';
+          //el_resultWrap.setAttribute('tabindex','0');
           var code_value = el_editor.value;
 
           if(typeof(code_value) == "string" && code_value.length >= 0) {
             //iframe 생성 및 코드 적용
             var ifr = document.createElement("iframe");
             ifr.setAttribute('frameborder','0');
+            ifr.setAttribute('tabindex','-1');
             el_resultWrap.appendChild(ifr);
             var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
             ifrw.document.open();
@@ -232,6 +238,13 @@ function uk_editor(){
 
             browserTitle();
             browserBtn();
+
+            // browserTitle을 맨 앞으로 이동
+            setTimeout(function(){
+              var b_title = e.querySelector('.browserTitle');
+              var b_title_parent = b_title.parentNode;
+              b_title_parent.insertBefore( b_title, b_title_parent.firstChild );
+            }, 300);
             return false;
           }
         }
@@ -302,6 +315,7 @@ function uk_editor(){
           }
           el_bTitle.classList.add(device_check);
           el_bTitle.setAttribute('data-tit',title_txt);
+          el_bTitle.setAttribute('tabindex','0');
           var title_txtNode = document.createTextNode(title_txt);
           el_bTitle.appendChild(append_icon);
           el_bTitle.appendChild(title_txtNode);
@@ -354,6 +368,7 @@ function uk_editor(){
             var bwBtn = document.createElement("button");
             bwBtn.innerHTML = browserBtnArr[i][0];
             bwBtn.setAttribute('type','button');
+            bwBtn.setAttribute('tabindex','-1');
             bwBtn.setAttribute('title',browserBtnArr[i][1]);
             bwBtn.classList.add(browserBtnArr[i][0]+'_btn');
 

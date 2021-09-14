@@ -16,17 +16,17 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
 
-	<title>0000000 | UXKM</title>
+	<title>data element | UXKM</title>
 
 	<!-- opengraph -->
 	<meta name="title" content="UXKM">
-	<meta name="description" content="0000000 입니다.">
+	<meta name="description" content="data element 입니다.">
 	<meta name="author" content="UXKM">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="UXKM">
 	<meta property="og:site_name" content="UXKM">
 	<meta property="og:url" content="https://uxkm.io">
-	<meta property="og:description" content="0000000 입니다.">
+	<meta property="og:description" content="data element 입니다.">
 	<meta property="og:image" content="/_assets/images/og_image.png">
 	<meta property="og:image:width" content="1000">
 	<meta property="og:image:height" content="750">
@@ -67,11 +67,11 @@
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body class="00000000">
-<div class="uk_wrap">
+<body class="data_element">
+<div class="uk_wrap" data-active="0/0">
 
 	<nav class="uk_skip">
-		<a href="#content">본문내용으로 건너띄기</a>
+		<a href="#content_title">본문내용으로 건너띄기</a>
 	</nav>
 	<!-- //uk_skip -->
 
@@ -87,7 +87,7 @@
 							<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
 						</li>
 						<li>
-							<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
+							<a href="/buildSystem/gulp/01-gulp/01-gulp_start">Build system</a>
 						</li>
 						<li>
 							<a href="#">Template</a>
@@ -96,8 +96,30 @@
 				</nav>
 				<!-- // global menu  -->
 
+				<div class="hd_search">
+					<button type="button" class="ly_btn sub_ly_btn search_btn" data-modal-button="search_modal"><i>Search</i></button>
+					<div class="hd_layer_box search_area" data-modal-layer="search_modal">
+						<div class="inner">
+							<div class="tit">
+								<strong class="tit_txt"><i>UXKM</i> Search</strong>
+							</div>
+							<div class="form">
+								<label for="uxkm_search">UXKM 검색</label>
+								<input type="text" id="uxkm_search" placeholder="검색어를 입력해 주세요." required />
+								<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
+							</div>
+							<dl class="keyword_ex">
+								<dt>keyword example</dt>
+								<dd>div, p, strong, width, border-color, click, function</dd>
+							</dl>
+						</div>
+					</div>
+					<button type="button" class="search_close">검색 닫기</button>
+				</div>
+				<!-- // 검색 -->
+
 				<div class="hd_sitemap">
-					<button type="button" class="ly_btn sub_ly_btn sitemap_btn" data-modal-button="sitemap_modal"><i>Site map button</i></button>
+					<button type="button" class="ly_btn sub_ly_btn sitemap_btn" data-modal-button="sitemap_modal"><i>Site map</i></button>
 					<div class="hd_layer_box sitemap_area" data-modal-layer="sitemap_modal">
 						<div class="inner">
 							<div class="tit">
@@ -765,17 +787,17 @@
 										</ul>
 									</li>
 									<li>
-										<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
+										<a href="/buildSystem/gulp/01-gulp/01-gulp_start">Build system</a>
 										<ul class="depth2">
 											<li>
-												<a href="/buildSystem/gulp/01-gulp/01-gulp-start" data-depth1="Build system"><i>Gulp & Gulp.babel</i></a>
+												<a href="/buildSystem/gulp/01-gulp/01-gulp_start" data-depth1="Build system"><i>Gulp & Gulp.babel</i></a>
 												<div class="depth3_wrap">
 													<ul class="depth3">
 														<li class="item">
-															<a href="/buildSystem/gulp/01-gulp/01-gulp-start">걸프(Gulp)</a>
+															<a href="/buildSystem/gulp/01-gulp/01-gulp_start">걸프(Gulp)</a>
 															<ul class="depth4">
 																<li>
-																	<a href="/buildSystem/gulp/01-gulp/01-gulp-start">걸프(Gulp)란?</a>
+																	<a href="/buildSystem/gulp/01-gulp/01-gulp_start">걸프(Gulp)란?</a>
 																</li>
 																<li>
 																	<a href="/buildSystem/gulp/01-gulp/02-gulp_scss">Gulp 설치 및 SCSS 컴파일러 설치</a>
@@ -861,8 +883,8 @@
 			<blockquote class="uk_note" role="note">
 				<strong class="sound_only">문자 컨텐츠<span>(Text-level semantics)</span> 요약 설명</strong>
 				<ul>
-					<li>000000000000</li>
-					<li>000000000000</li>
+					<li>시작 &lt;body&gt; 태그와 종료 &lt;/body&gt; 태그 사이에 있는 콘텐츠의 블록이나 구획을 HTML 텍스트 콘텐츠를 사용해서 구성하세요.</li>
+					<li>accessibility와 SEO는 중요하며, 이 요소들은 콘텐츠의 구조나 목적을 식별화합니다.</li>
 				</ul>
 			</blockquote>
 			<!-- // 문자 컨텐츠<span>(Text-level semantics)</span> 요약 설명 -->
@@ -872,7 +894,7 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 class="html5" data-number="5.17. ">data element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" class="html5" data-number="5.17. ">data element <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
@@ -1253,21 +1275,21 @@
 	<!-- // uk_container -->
 
 	<footer class="uk_footer">
-		<nav class="nav inner">
-			<div class="depth1_nemu">
+		<div class="ft_nav inner">
+			<nav class="depth1_nemu">
 				<ul class="depth1">
 					<li class="active">
 						<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
 					</li>
 					<li>
-						<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
+						<a href="/buildSystem/gulp/01-gulp/01-gulp_start">Build system</a>
 					</li>
 					<li>
 						<a href="#">Template</a>
 					</li>
 				</ul>
-			</div>
-			<div class="depth2_nemu">
+			</nav>
+			<nav class="depth2_nemu">
 				<ul class="depth2">
 					<li class="active">
 						<a href="/publishing/html/01-htmlStart/01-html_start"><i>HTML</i></a>
@@ -1279,8 +1301,8 @@
 						<a href="/publishing/accessibility/01-waStart/waStart"><i>ACCESSIBILITY</i></a>
 					</li>
 				</ul>
-			</div>
-		</nav>
+			</nav>
+		</div>
 		<div class="btm">
 			<strong class="uk_logo"><a href="/" class="uk_link">uxkm</a></strong>
 			<p class="copy">&copy; 2019 All Right Reserved. By UXKM.</p>

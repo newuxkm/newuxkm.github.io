@@ -67,11 +67,11 @@
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body class="html_start">
-<div class="uk_wrap">
+<body class="element_nesting">
+<div class="uk_wrap" data-active="0/0">
 
 	<nav class="uk_skip">
-		<a href="#content">본문내용으로 건너띄기</a>
+		<a href="#content_title">본문내용으로 건너띄기</a>
 	</nav>
 	<!-- //uk_skip -->
 
@@ -87,7 +87,7 @@
 							<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
 						</li>
 						<li>
-							<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
+							<a href="/buildSystem/gulp/01-gulp/01-gulp_start">Build system</a>
 						</li>
 						<li>
 							<a href="#">Template</a>
@@ -96,8 +96,30 @@
 				</nav>
 				<!-- // global menu  -->
 
+				<div class="hd_search">
+					<button type="button" class="ly_btn sub_ly_btn search_btn" data-modal-button="search_modal"><i>Search</i></button>
+					<div class="hd_layer_box search_area" data-modal-layer="search_modal">
+						<div class="inner">
+							<div class="tit">
+								<strong class="tit_txt"><i>UXKM</i> Search</strong>
+							</div>
+							<div class="form">
+								<label for="uxkm_search">UXKM 검색</label>
+								<input type="text" id="uxkm_search" placeholder="검색어를 입력해 주세요." required />
+								<button type="button" class="sch_bt search_submit"><i>검색하기</i></button>
+							</div>
+							<dl class="keyword_ex">
+								<dt>keyword example</dt>
+								<dd>div, p, strong, width, border-color, click, function</dd>
+							</dl>
+						</div>
+					</div>
+					<button type="button" class="search_close">검색 닫기</button>
+				</div>
+				<!-- // 검색 -->
+
 				<div class="hd_sitemap">
-					<button type="button" class="ly_btn sub_ly_btn sitemap_btn" data-modal-button="sitemap_modal"><i>Site map button</i></button>
+					<button type="button" class="ly_btn sub_ly_btn sitemap_btn" data-modal-button="sitemap_modal"><i>Site map</i></button>
 					<div class="hd_layer_box sitemap_area" data-modal-layer="sitemap_modal">
 						<div class="inner">
 							<div class="tit">
@@ -765,17 +787,17 @@
 										</ul>
 									</li>
 									<li>
-										<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
+										<a href="/buildSystem/gulp/01-gulp/01-gulp_start">Build system</a>
 										<ul class="depth2">
 											<li>
-												<a href="/buildSystem/gulp/01-gulp/01-gulp-start" data-depth1="Build system"><i>Gulp & Gulp.babel</i></a>
+												<a href="/buildSystem/gulp/01-gulp/01-gulp_start" data-depth1="Build system"><i>Gulp & Gulp.babel</i></a>
 												<div class="depth3_wrap">
 													<ul class="depth3">
 														<li class="item">
-															<a href="/buildSystem/gulp/01-gulp/01-gulp-start">걸프(Gulp)</a>
+															<a href="/buildSystem/gulp/01-gulp/01-gulp_start">걸프(Gulp)</a>
 															<ul class="depth4">
 																<li>
-																	<a href="/buildSystem/gulp/01-gulp/01-gulp-start">걸프(Gulp)란?</a>
+																	<a href="/buildSystem/gulp/01-gulp/01-gulp_start">걸프(Gulp)란?</a>
 																</li>
 																<li>
 																	<a href="/buildSystem/gulp/01-gulp/02-gulp_scss">Gulp 설치 및 SCSS 컴파일러 설치</a>
@@ -855,26 +877,31 @@
 					<li>부족한 부분은 계속 보완 및 업데이트할 예정이며, 꼭 필요하거나 자주 사용되는 요소들 위주로 설명되어있어 일부 누락된 부분도 있을 수 있습니다.</li>
 					<li>모든 문서는 강의 목적으로 제작되었고 일부 부족한 설명은 강의하면서 진행될 예정입니다.</li>
 				</ul>
-				<ul class="top_info">
-					<li>HTML5 기준으로 작성하며, Deprecated(더 이상 사용되지 않는) 요소나 속성은 제외합니다.</li>
-					<li>의미론적(Semantic)인 내용 위주로 작성합니다.</li>
-					<li>표시적 의미(화면에 표시되는 방식)로 사용되지 않음을 전제하므로 그에 대한 내용은 생략합니다.</li>
-				</ul>
 			</blockquote>
 			<!-- // Publishing 및 HTML 요약설명 -->
+			
+			<blockquote class="uk_note" role="note">
+				<strong class="sound_only">블록 요소 vs 인라인 요소 요약 설명</strong>
+				<ul>
+					<li>HTML에는 두 가지 종류의 요소(element)가 있습니다. 블록 레벨 요소(block level element, 이후 블록 요소로 통칭)와 인라인 레벨 요소(inline level element, 이후 인라인 요소로 통칭)입니다.</li>
+					<li>HTML의 모든 요소는 해당 요소가 웹 브라우저에 어떻게 보이는가를 결정짓는 display 속성을 가집니다.</li>
+					<li>대부분의 HTML 요소는 이러한 display 속성값으로 대표적으로 block, inline 두 가지 값 중 하나를 가지게 됩니다.</li>
+					<li>단, table의 기본 속성값은 다르게 이루어집니다.</li>
+					<li>HTML5에서는 콘텐츠 모델별로 분류하며 HTML5의 각 요소들은 특성에 따라 분류한 요소가 어떤 분류에도 속하지 않을 수도 있고 여러 분류에 속해있을 수도 있습니다.</li>
+				</ul>
+			</blockquote>
+			<!-- // 블록 요소 vs 인라인 요소 요약 설명 -->
 		</div>
 		<!-- // sub top content (.sub_top) -->
 
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 data-number="2.5. ">요소 중첩 <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="2.5. ">요소 중첩 <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="2019-12-26">2019-12-26</time>
 				</header>
 
 				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				
-				
 			</main>
 			<!-- // 요소 중첩 content (.content_area) -->
 
@@ -1244,21 +1271,21 @@
 	<!-- // uk_container -->
 
 	<footer class="uk_footer">
-		<nav class="nav inner">
-			<div class="depth1_nemu">
+		<div class="ft_nav inner">
+			<nav class="depth1_nemu">
 				<ul class="depth1">
 					<li class="active">
 						<a href="/publishing/html/01-htmlStart/01-html_start">Publishing</a>
 					</li>
 					<li>
-						<a href="/buildSystem/gulp/01-gulp/01-gulp-start">Build system</a>
+						<a href="/buildSystem/gulp/01-gulp/01-gulp_start">Build system</a>
 					</li>
 					<li>
 						<a href="#">Template</a>
 					</li>
 				</ul>
-			</div>
-			<div class="depth2_nemu">
+			</nav>
+			<nav class="depth2_nemu">
 				<ul class="depth2">
 					<li class="active">
 						<a href="/publishing/html/01-htmlStart/01-html_start"><i>HTML</i></a>
@@ -1270,8 +1297,8 @@
 						<a href="/publishing/accessibility/01-waStart/waStart"><i>ACCESSIBILITY</i></a>
 					</li>
 				</ul>
-			</div>
-		</nav>
+			</nav>
+		</div>
 		<div class="btm">
 			<strong class="uk_logo"><a href="/" class="uk_link">uxkm</a></strong>
 			<p class="copy">&copy; 2019 All Right Reserved. By UXKM.</p>
