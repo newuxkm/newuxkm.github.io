@@ -52,6 +52,7 @@ const hd_layer_open = 'hd_layer_open';
 let scrollbar_size = 0;
 let is_main = _html.is('.main_page');
 let is_sub = _html.is('.sub_page');
+let active_number = _ukWrap.attr('data-active') ? _ukWrap.attr('data-active').split('/') : false;
 
 
 // functions -----------------------------------------------------------------------------------------------------------
@@ -59,6 +60,10 @@ let is_sub = _html.is('.sub_page');
 // header common
 function header_common(){
   _ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
+  _ukHeader.ukDetect({
+    device_check:true,
+    all_check:false
+  });
 
   // site map & search open/close
   _hd_layer_btn.on('click', function(){
@@ -78,17 +83,18 @@ function header_common(){
       // layer target
       $('[data-modal-layer="'+target_name+'"]').addClass('active');
 
+      // search open
       if( $(this).is('.'+search_btn) ){
         _sitemap_btn.addClass('active').removeClass('after');
       }
 
+      // sitemap open
       if( $(this).is('.'+sitemap_btn) ){
         if( is_main ){
           _sitemap_in.find('.depth1 > li').eq(0).addClass('active').siblings().removeClass('active');
           _sitemap_in.find('.depth2 > li').eq(0).addClass('active').siblings().removeClass('active');
         }
         if( is_sub ){
-          let active_number = _ukWrap.attr('data-active').split('/');
           _sitemap_in.find('.depth1 > li').eq(active_number[0]).addClass('active').siblings().removeClass('active');
           _sitemap_in.find('.depth2 > li').eq(active_number[1]).addClass('active').siblings().removeClass('active');
         }
@@ -99,11 +105,11 @@ function header_common(){
     else if( $(this).is('.active') ){
       $(this).removeClass('active').addClass('after');
 
-      // scroll controll
-      close_scroll();
-
       // layer target
       $('[data-modal-layer="'+target_name+'"]').removeClass('active');
+
+      // scroll controll
+      layer_close_scroll();
     }
 
     return false;
@@ -114,16 +120,10 @@ function header_common(){
     _search_area.removeClass('active');
 
     // scroll controll
-    close_scroll();
+    layer_close_scroll();
 
     return false;
   });
-  function close_scroll(){
-    _html.removeAttr('style').removeClass(hd_layer_open);
-    _ukWrap.removeAttr('style');
-    _ukHeader.removeAttr('style');
-    scrollbar_size = 0;
-  }
 
   // site map view type
   _sitemap_type_btn.on('click', function(){
@@ -156,6 +156,12 @@ function header_common(){
     }
   });
 }
+function layer_close_scroll(){
+  _html.removeAttr('style').removeClass(hd_layer_open);
+  _ukWrap.removeAttr('style');
+  _ukHeader.removeAttr('style');
+  scrollbar_size = 0;
+}
 
 // hd_layer_open resize (site map & search open/close 과 연계)
 function hd_layer_open_resize(win_w){
@@ -180,13 +186,35 @@ function focus_controll(){
     else if( e.keyCode == 9 && e.shiftKey ){
       focus_direction = false;
     }
+
+    // esc 클릭으로 팝업 닫기
+    if( e.keyCode == 27 ){
+      if( _html.is('.'+hd_layer_open) ){
+        // search 닫기
+        if( _search_btn.is('.active') ){
+          console.log('search');
+          _search_btn.removeClass('active').addClass('after').trigger('focus');
+          _sitemap_btn.removeClass('active').addClass('after');
+          _search_area.removeClass('active');
+          layer_close_scroll();
+        }
+        // site map 닫기
+        if( _sitemap_btn.is('.active') ){
+          console.log('sitemap');
+          _sitemap_btn.removeClass('active').addClass('after').trigger('focus');
+          _sitemap_area.removeClass('active');
+          layer_close_scroll();
+        }
+      }
+    }
   });
 
   // main h1 focus ----------------------------
+  const _content_h1 = _ukContent.find('h1');
   $(document).on({
     keydown:function(){
       if( is_sub ){
-        _ukContent.find('h1').attr('tabindex','0');
+        _content_h1.attr('tabindex','0');
       }
     }
   });
@@ -194,6 +222,11 @@ function focus_controll(){
     setTimeout(function(){
       $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height() );
     }, 10);
+  });
+  _content_h1.on('mousedown', function(){
+    if( is_sub && _content_h1.attr('tabindex') === '0' ){
+      _content_h1.removeAttr('tabindex');
+    }
   });
 
   // header search focus ----------------------
@@ -251,13 +284,30 @@ function focus_controll(){
           _sitemap_area.find(focus_el).last().trigger('focus');
         }
       }
+
+      /*
+      if( !$(this).is('.active') ){
+        if( focus_direction ){
+          _ukContainer.find(focus_el).first().trigger('focus');
+        }
+        else if( !focus_direction ){
+          _search_btn.trigger('focus');
+        }
+      }
+      else if( $(this).is('.active') ){
+        if( !focus_direction ){
+          _sitemap_area.find(focus_el).last().trigger('focus');
+        }
+      }
+      */
     },
     click:function(){
+      focus_direction = true;
       // site map 비활성 일 때 버튼 클릭 시 레이어 타이틀에 포커스
       if( $(this).is('.active') ){
         _sitemap_area.find(layer_tit).attr('tabindex','0').trigger('focus');
       }
-      else{
+      if( !$(this).is('.active') ){
         // site map 활성 일 때 버튼 클릭 버튼에 포커스
         _sitemap_area.find(layer_tit).removeAttr('tabindex');
         $(this).trigger('focus');

@@ -142,6 +142,16 @@
 					<time class="last_update" datetime="{{ pageData.last_update }}">{{ pageData.last_update }}</time>
 				</header>
 
+				{% if pageNumber.part -%}
+				<nav class="tab_menu mt_xxl">
+					{{ gnb_comp.d3_below(
+						gnb_data,
+						pageNumber,
+						start_part = true
+					) | tabIndent(5)}}
+				</nav>
+				{%- endif %}
+
 				{% filter tabIndent(3) %}
 					{% block content %}
 					<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
@@ -203,7 +213,7 @@
 <script type="text/javascript" src="{{ path.lib }}/codemirror/uk_editor.js"></script>
 <!-- script - ui -->
 <script type="text/javascript" src="{{ path.js }}/uk_common.js"></script>
-{%- set js_div = 'uk_main' if pageData.mainPage === true else 'uk_sub' %}
+{%- set js_div = 'uk_main' if pageData.mainPage else 'uk_sub' %}
 <script type="text/javascript" src="{{ path.js }}/{{ js_div }}.js"></script>
 {%- block script %}
 {%- endblock %}

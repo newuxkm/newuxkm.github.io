@@ -317,7 +317,11 @@
 	{#- part loop index --> #} {%- set part_loop = loop.index %}
 	{#- part active ------> #} {%- set part_active = part_loop === idx.part %}
 	<li class="{%- if part_active -%} active {%- endif %}">
-		<a href="{{ part_link }}">{{ dep4.d4_name }} <em>{{ part.part_name }}</em></a>
+		{%- set part_nm = dep4.d4_name | replace(' element','') | replace('플렉서블 레이아웃','') | replace('그리드 레이아웃','') %}
+		<a href="{{ part_link }}">
+			{%- if part_nm | length !== 0 %}<span>{{ part_nm }}</span> {% endif -%}
+			{#- -#} <em>{{ part.part_name }}</em>{#- -#}
+		</a>
 	</li>
 	{%- endfor %}
 </ul>
