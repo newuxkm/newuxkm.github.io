@@ -16,10 +16,6 @@ $(document).ready(function(){
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
-
-  // site map tab menu active
-  _sitemap_in.find('.depth1 > li').eq(0).addClass('active');
-  _sitemap_in.find('.depth2 > li').eq(0).addClass('active');
 });
 
 
