@@ -57,7 +57,7 @@ body {@include font-kr;}
 	background-repeat:no-repeat;
 	//transition:width .6s, height .3s;
 }
-.uk_logo a:after {
+.uk_logo a.version:after {
 	$height:20px;
 	position:absolute; left:28px; top:28px; z-index:3;
 	transform:rotate(-20deg);
@@ -66,7 +66,7 @@ body {@include font-kr;}
 	background:$blue; border-radius:2px;
 	content:attr(data-version);
 }
-.sub_page .uk_logo a:after {left:-22px; top:12px;}
+.sub_page .uk_logo a.version:after {left:-22px; top:12px;}
 @media (max-width:$screen-md-max){
 	.uk_logo a {
 		width:140px; height:78px;
@@ -74,13 +74,13 @@ body {@include font-kr;}
 		background-size:140px auto;
 	}
 	.device .uk_logo a {background-image:url('#{$bg-url}/logo_140_device.gif');}
-	.uk_logo a:after {
+	.uk_logo a.version:after {
 		$height:18px;
 		left:24px; top:31px;
 		height:$height; line-height:$height; padding:0 4px;
 		font-size:12px;
 	}
-	.sub_page .uk_logo a:after {left:-21px; top:15px;}
+	.sub_page .uk_logo a.version:after {left:-21px; top:15px;}
 }
 @media (max-width:$screen-sm-max){
 	.uk_logo a {
@@ -88,7 +88,7 @@ body {@include font-kr;}
 		background-image:url('#{$bg-url}/logo_140_desktop.gif');
 		background-size:100px auto;
 	}
-	.uk_logo a:after {
+	.uk_logo a.version:after {
 		$height:14px;
 		left:-1px; top:8px;
 		height:$height; line-height:$height; padding:0 3px;
@@ -107,7 +107,7 @@ body {@include font-kr;}
 			content:attr(data-tit);
 		}
 	}
-	.sub_page .uk_header .uk_logo a:after {
+	.sub_page .uk_header .uk_logo a.version:after {
 		left:55px; top:12px;
 		transform:rotate(0);
 	}

@@ -44,7 +44,7 @@ function uk_editor(){
       var browser_mini = 'browser_mini';
       var browser_fixed = 'browser_fixed';
       var pullscreen_mode = 'fullscreen_mode';
-      var readonly;
+      var readonly, fixedGutter;
       var result_true = e.getAttribute('data-result') === 'true';
       e.classList.add(device_check);
       e.setAttribute('tabindex','0');
@@ -52,8 +52,14 @@ function uk_editor(){
 
       //타켓 정의 및 reset_btn 생성
       if( result_true ){
-        if(device_check === 'device') readonly = 'nocursor';
-        else if (device_check === 'desktop') readonly = false;
+        if(device_check === 'device'){
+          readonly = 'nocursor';
+          fixedGutter = false;
+        }
+        else if (device_check === 'desktop'){
+          readonly = false;
+          fixedGutter = true;
+        }
 
         var rs_wrap = document.createElement('div');
         e.appendChild(rs_wrap).classList.add(wrapArr[1]);
@@ -104,16 +110,16 @@ function uk_editor(){
         theme: 'ayu-mirage',
         /* 테마 */
 
-        lineNumbers: true,        //라인 넘버 사용 여부
-        fixedGutter: false,       //라인 넘버 왼쪽 고정 여부
+        lineNumbers: true,         //라인 넘버 사용 여부
+        fixedGutter: fixedGutter,  //라인 넘버 왼쪽 고정 여부
         styleActiveLine: true,
         readOnly: readonly,
-        tabSize: 2,							//탭키 간격
+        tabSize: 2,							   //탭키 간격
         indentWithTabs: true,
-        scrollbarStyle: 'simple',		//스크롤바 스타일 //simple
-        //lineWrapping: true,			//가로 스크롤바 숨김, 너비에 맞게 줄바꿈.
-        //keyMap: "sublime",			//괄호강조
-        //matchBrackets: true,			//괄호강조
+        scrollbarStyle: 'simple',	 //스크롤바 스타일 //simple
+        //lineWrapping: true,			 //가로 스크롤바 숨김, 너비에 맞게 줄바꿈.
+        //keyMap: "sublime",			 //괄호강조
+        //matchBrackets: true,		 //괄호강조
         highlightSelectionMatches: {showToken: /\w/, annotateScrollbar: true}, // 같은단어강조
       });
       code_editor.on('change', function(){
