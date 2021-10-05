@@ -761,7 +761,7 @@ $active_blue:lighten($sm_blue, 5%);
 				margin-top:$pc_padding;
 			}
 			> a {
-				display:inline-block;
+				display:inline-block; cursor:default;
 				@include font-logo; font-size:32px; color:#fff; font-weight:bold;
 				&:first-letter {color:$yellow;}
 			}
@@ -771,8 +771,10 @@ $active_blue:lighten($sm_blue, 5%);
 			margin-top:30px;
 			&:not(:first-child) {margin-top:40px;}
 			> a {
-				display:inline-block;
-				position:sticky; top:35px; z-index:2;
+				display:inline-block; cursor:default;
+				position:-webkit-sticky;
+				position:sticky;
+				top:35px; z-index:2;
 				height:36px; line-height:36px; padding:0 20px;
 				@include font-logo; font-size:22px; color:#fff; font-weight:bold;
 				background:rgba($blue, .85); border-radius:3px;

@@ -1,8 +1,10 @@
 
 // selector ------------------------------------------------------------------------------------------------------------
 const _top_link = $('.top_link');
-const _side_name = $('.side_menu');
-const _side_menu_d3 = _side_name.find('.depth3 > li');
+const _side_menu_area = $('.side_menu_area');
+const _side_toggle = _side_menu_area.find('.side_menu_toggle');
+const _side_menu = $('.side_menu');
+const _side_menu_d3 = _side_menu.find('.depth3 > li');
 
 
 // document ready ------------------------------------------------------------------------------------------------------
@@ -12,6 +14,19 @@ $(document).ready(function(){
   uk_editor();
   uk_gist_skin_code();
   focus_controll();
+
+  _side_toggle.on('click', function(){
+    console.log('aaa');
+    const _this = $(this);
+    const side_close = 'side_close';
+    if( !_this.is('.active') ){
+      _this.addClass('active').parent().addClass(side_close);
+    }
+    else{
+      _this.removeClass('active').parent().removeClass(side_close);
+    }
+    return false;
+  });
 });
 
 
@@ -25,7 +40,7 @@ $(window).on('load', function(){
 // side menu -----------------------------------------------------------------------------------------------------------
 const tg_on = 'tg_on';
 _side_menu_d3.each(function(i, e){
-  if( _side_name.is('.pub_side_nemu') ){
+  if( _side_menu.is('.pub_side_nemu') ){
     if( $(e).children().length > 1 ){
       $(e).is('.active') ? $(e).addClass(tg_on) : false;
       $(e).addClass('toggle_box');
@@ -57,9 +72,9 @@ $(window).on('resize', function(){
   hd_layer_open_resize(win_w);
 
  if( win_w > md_size ){
-   _side_name.find('.depth4').removeAttr('style');
+   _side_menu.find('.depth4').removeAttr('style');
    if( _side_menu_d3.is('.active') ){
-     _side_name.find('.depth3 > li.active').addClass(tg_on);
+     _side_menu.find('.depth3 > li.active').addClass(tg_on);
    }
  }
  else{

@@ -177,7 +177,7 @@
 					line-height:33px; padding:0 6px;
 					font-size:13px;
 				}
-				&:hover a {color:fade($navy, 85%)}
+				&:hover a {color:rgba($navy, .85)}
 				&.on i:before {bottom:5px; height:10px;}
 			}
 		}
@@ -210,6 +210,7 @@
 
 // sub content common --------------------------------------------------------------------------------------------------
 $course_padding:50px;
+$side_menu_width:250px;
 .sub_content {
 	display:flex; flex-direction:row-reverse;
 	padding-top:$course_padding; padding-bottom:100px;
@@ -217,11 +218,13 @@ $course_padding:50px;
 .side_menu_area {
 	align-self:flex-start;
 	position:sticky; top:$hdHeight + $course_padding; z-index:5;
-	width:250px; margin-right:$course_padding;
+	width:$side_menu_width; margin-right:$course_padding;
+
+	$toggle_btn:30px;
 
 	.tit {
 		display:block;
-		line-height:130%; padding:4px 0 10px;
+		line-height:130%; padding:10px $toggle_btn+10px 10px 0;
 		@include font-en; font-size:18px; color:#777; font-weight:600; letter-spacing:-1px;
 		border-bottom:5px solid #eee;
 		b, i {display:inline-block;}
@@ -306,8 +309,54 @@ $course_padding:50px;
 		.depth4 {display:none;}
 		.active .depth4 {display:block;}
 	}
+	.side_menu_toggle {
+		cursor:pointer;
+		position:absolute; right:0; top:5px;
+		width:$toggle_btn; height:$toggle_btn; //margin-top:-5px;
+		text-align:center;
+		background:#ddd;
+		border-radius:4px;
+		&:before {
+			position:absolute; left:50%; top:50%; z-index:2; transform:translate(-50%, -50%);
+			border-top:5px solid transparent;
+			border-bottom:5px solid transparent;
+			border-right:8px solid #fff;
+			content:"";
+		}
+		i {
+			position:relative; z-index:1;
+			display:inline-block;
+			font-size:0; text-indent:-9999px;
+		}
+		&:hover {background-color:$blue;}
+	}
+
+	&.side_close {
+		width:0; margin-right:20px;
+		.tit, .side_menu {display:none;}
+		.side_menu_toggle {
+			$text_width:40px;
+			right:auto; left:-$course_padding;
+			width:$text_width; height:auto;
+			border-radius:0;
+			background-color:transparent;
+			&:before {
+				top:12px; transform:translate(-50%, 0);
+				border-right:0; border-left:8px solid #fff;
+			}
+			i {
+				transform:rotate(90deg); transform-origin:0 100%;
+				height:$text_width; line-height:$text_width + 2px; margin-top:-$text_width;
+				padding-left:32px; padding-right:13px;
+				//@include font_code;
+				font-size:15px; color:#fff; text-indent:0; font-weight:600; letter-spacing:0.5px;
+				white-space:pre;
+				background:$blue; border-radius:5px 5px 0 0;
+			}
+		}
+	}
 }
-.content_area {flex:1; width:calc(100% - (250px + 50px));}
+.content_area {flex:1; width:calc(100% - (#{$side_menu_width} + 50px));}
 @media(max-width:$screen-md-max){
 	.sub_content {
 		flex-direction:column-reverse;
@@ -374,6 +423,12 @@ $course_padding:50px;
 			}
 			.active .depth4 {display:none;}
 		}
+		.side_menu_toggle {display:none;}
+
+		&.side_close {
+			width:100%; margin-right:0;
+			.side_menu {display:block;}
+		}
 	}
 	.depth3_last {
 		.side_menu_area {display:none;}
@@ -428,6 +483,8 @@ $course_padding:50px;
 				}
 			}
 		}
+
+		&.side_close {width:calc(100% + 20px);}
 	}
 	.depth3_last {
 		z-index:1;
@@ -511,14 +568,14 @@ $line-height-mb:22px;
 		@include font-icon2; font-size:22px; font-weight:bold; color:$skyBlue;
 		content:"\f38b";
 	}
-	h3 {line-height:28px; font-size:18px; color:fade($navy, 90%); letter-spacing:-0.3px;}
+	h3 {line-height:28px; font-size:18px; color:rgba($navy, .9); letter-spacing:-0.3px;}
 	h3 * {line-height:28px;}
 	h3 .fa-html5 {margin:0 0 0; color:$red;}
 	h3 .fa-css3-alt {margin:0 0 0; color:$skyBlue;}
 	h3.reference a {font-weight:bold;}
-	h4 {line-height:24px; font-size:16px; color:fade($navy, 90%); letter-spacing:-0.3px;}
-	h5 {line-height:22px; font-size:15px; color:fade($navy, 90%); letter-spacing:-0.3px;/* .weight-500;*/}
-	h6 {line-height:22px; font-size:14px; color:fade($navy, 90%); letter-spacing:-0.3px;}
+	h4 {line-height:24px; font-size:16px; color:rgba($navy, .9); letter-spacing:-0.3px;}
+	h5 {line-height:22px; font-size:15px; color:rgba($navy, .9); letter-spacing:-0.3px;/* .weight-500;*/}
+	h6 {line-height:22px; font-size:14px; color:rgba($navy, .9); letter-spacing:-0.3px;}
 	//heading line-height, font-size
 	h2 {line-height:32px; font-size:22px;}
 	h2.ve_tit:before {font-size:20px; margin-top:1px;}
@@ -693,15 +750,15 @@ $line-height-mb:22px;
 		content:counters($name, ".") ". ";
 	}
 	> li.line_code:before,
-	> ol > li.line_code:before {line-height:28px; font-size:18px; color:fade($navy, 90%);}
+	> ol > li.line_code:before {line-height:28px; font-size:18px; color:rgba($navy, .9);}
 	> li.tit_h3,
 	> ol > li.tit_h3 {padding-left:28px;}
 	> li.tit_h3:before,
-	> ol > li.tit_h3:before {line-height:28px; font-size:18px; color:fade($navy, 90%); font-weight:bold;}
+	> ol > li.tit_h3:before {line-height:28px; font-size:18px; color:rgba($navy, .9); font-weight:bold;}
 	> li.tit_h4,
 	> ol > li.tit_h4 {padding-left:26px;}
 	> li.tit_h4:before,
-	> ol > li.tit_h4:before {line-height:24px; font-size:16px; color:fade($navy, 90%); font-weight:bold;}
+	> ol > li.tit_h4:before {line-height:24px; font-size:16px; color:rgba($navy, .9); font-weight:bold;}
 	> li.line_code.font14:before,
 	> ol > li.line_code.font14:before {line-height:26px; font-size:14px;}
 	> li.t_black,
@@ -810,7 +867,7 @@ $line-height-mb:22px;
 
 .line_code {
 	strong {
-		display:inline-block; vertical-align:top; color:fade($navy, 90%);
+		display:inline-block; vertical-align:top; color:rgba($navy, .9);
 		//font-weight:500;
 		font-weight:500;
 		code {font-weight:normal;}
@@ -1216,7 +1273,6 @@ $line-height-mb:22px;
 }
 
 .browser_support {
-	display:flex;
 	position:relative;
 	text-align:center;
 	border:4px solid #eee;
@@ -1231,8 +1287,12 @@ $line-height-mb:22px;
 		@include font-kr; font-weight:500;
 		content:"주요 웹 브라우저의 벤더 프리픽스 "attr(data-tit);
 	}
+	ul {
+		display:flex; flex-wrap:wrap;
+	}
 	li, p {
-		width:16.666%; padding:15px 0 10px;
+		flex:auto;
+		padding:15px 0 10px;
 		border-right:1px solid #eee;
 		&:last-child {border-right:0;}
 		&:before {
@@ -1331,8 +1391,8 @@ $line-height-mb:22px;
 			margin:15px auto 0; padding-top:20%;
 			li {
 				position:absolute; cursor:pointer;
-				border:3px solid fade($blue, 70%); border-radius:100%;
-				background:fade($blue, 50%);
+				border:3px solid rgba($blue, .7); border-radius:100%;
+				background:rgba($blue, .5);
 				i {
 					position:absolute; left:0; right:0; top:50%;
 					line-height:16px; margin-top:-8px;
