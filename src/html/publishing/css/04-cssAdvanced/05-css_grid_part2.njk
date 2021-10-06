@@ -18,5 +18,208 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<!-- 4.5.4. 명시적 그리드(Explicit Grids)와 암시적 그리드(Implicit Grids)의 차이점 -->
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">4.5.4. <i class="t_blue">명시적</i> 그리드(Explicit Grids)와 <i class="t_blue">암시적</i> 그리드(Implicit Grids)의 차이점</h2>
+
+		<!-- 명시적 그리드(Explicit Grids) -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">명시적 그리드(Explicit Grids)</h3>
+			<p class="mt_ms">
+				속성을 사용하여 격자를 형성하는 선 트랙의 고정 된 수를 정의할 수 있습니다.<br>
+				<code>grid-template-rows</code>, <code>grid-template-columns</code>, <code>grid-template-areas</code> 으로 정의 된 그리드를 명시적 그리드 라고 합니다.
+			</p>
+
+			<!-- 4 개의 수직 트랙 (열)과 2 개의 수평 트랙 (행)이있는 명시적 그리드 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">4 개의 수직 트랙 (열)과 2 개의 수평 트랙 (행)이있는 명시적 그리드</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-explicit-grid.svg" alt="4 개의 수직 트랙 (열)과 2 개의 수평 트랙 (행)이있는 명시적 그리드">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-explicit-grid.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 반복 표기법으로 생성 된 100px 너비의 세로 트랙 4 개가 포함 된 명시적 그리드 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">반복 표기법으로 생성 된 100px 너비의 세로 트랙 4 개가 포함 된 명시적 그리드</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-explicit-grid-auto-fitting.svg" alt="반복 표기법으로 생성 된 100px 너비의 세로 트랙 4 개가 포함 된 명시적 그리드">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-explicit-grid-auto-fitting.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 그리드 컨테이너에 맞게 너비가 100px 인 수직 트랙을 반복 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">그리드 컨테이너에 맞게 너비가 100px 인 수직 트랙을 반복</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-explicit-grid-auto-fill.svg" alt="그리드 컨테이너에 맞게 너비가 100px 인 수직 트랙을 반복">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-explicit-grid-auto-fill.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- auto-fit 키워드를 사용한 반복 표기법은 그리드 컨테이너에 필요한만큼 많은 트랙을 만듬 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">auto-fit 키워드를 사용한 반복 표기법은 그리드 컨테이너에 필요한만큼 많은 트랙을 만듬</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-explicit-grid-auto-fit.svg" alt="auto-fit 키워드를 사용한 반복 표기법은 그리드 컨테이너에 필요한만큼 많은 트랙을 만듬">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-explicit-grid-auto-fit.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 세로 트랙보다 많은 항목이 있으면 더 많은 행이 추가 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">세로 트랙보다 많은 항목이 있으면 더 많은 행이 추가</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-explicit-grid-rows.svg" alt="세로 트랙보다 많은 항목이 있으면 더 많은 행이 추가">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-explicit-grid-rows.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 두 축에서 auto-fill 키워드를 사용한 반복 표기법 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">두 축에서 auto-fill 키워드를 사용한 반복 표기법</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-explicit-grid-auto-fill-both.svg" alt="두 축에서 auto-fill 키워드를 사용한 반복 표기법">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-explicit-grid-auto-fill-both.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+		</article>
+
+		<!-- 암시적 그리드(Implicit Grids) -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">암시적 그리드(Implicit Grids)</h3>
+			<p class="mt_ms">
+				그리드에 셀보다 많은 그리드 항목이 있거나 그리드 항목이 명시적 그리드 외부에 배치 될 때
+				그리드 컨테이너는 그리드에 그리드 선을 추가하여 그리드 트랙을 자동으로 생성합니다.<br>
+				이러한 추가 암시적 트랙 및 선과 함께 명시적 그리드는 소위 암시적 그리드를 형성합니다.<br>
+				암시적 트랙은 명시적 그리드의 끝에 추가 될 수 없습니다. 명시적 그리드를 시작으로 확장해야 합니다.
+			</p>
+
+			<!-- 암시적 선 및 트랙을 생성하는 명시적 그리드 외부에 배치 된 두 개의 항목 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">암시적 선 및 트랙을 생성하는 명시적 그리드 외부에 배치 된 두 개의 항목</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-implicit-grids.svg" alt="암시적 선 및 트랙을 생성하는 명시적 그리드 외부에 배치 된 두 개의 항목">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-implicit-grids.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 암시적 트랙의 고정 너비 및 높이 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">암시적 트랙의 고정 너비 및 높이</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-implicit-grids-tracks.svg" alt="암시적 트랙의 고정 너비 및 높이">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-implicit-grids-tracks.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 한 행과 한 열씩 시작으로 확장 된 암시적 그리드 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">한 행과 한 열씩 시작으로 확장 된 암시적 그리드</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-implicit-grids2.svg" alt="한 행과 한 열씩 시작으로 확장 된 암시적 그리드">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-implicit-grids-grid.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 항목 수가 셀 수를 초과하면 행 대신 새 열이 추가 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">항목 수가 셀 수를 초과하면 행 대신 새 열이 추가</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-implicit-grids-auto-flow.svg" alt="항목 수가 셀 수를 초과하면 행 대신 새 열이 추가">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-implicit-grids-auto-flow.html">
+					<div class="uk_editor min-height-550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- 명시적인 선과 트랙이없는 암시적 그리드 -->
+			<section class="indent mt_l">
+				<h4 class="ml_mn">명시적인 선과 트랙이없는 암시적 그리드</h4>
+				<figure class="img_figure mt_m">
+					<img src="{{ path.img_grid }}/uxkm_grid-implicit-grids-only.svg" alt="명시적인 선과 트랙이없는 암시적 그리드">
+				</figure>
+				<div class="view_editor edit_code mt_m" data-target="/css/step03/4.5.grid/4.5.4.grid-implicit-grids-only.html">
+					<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</div>
+			</section>
+		</article>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="grid">
+		<ul>
+			<li class="ie">10+ -ms-</li>
+			<li class="edge">16.0</li>
+			<li class="chrome">57.0</li>
+			<li class="firefox">52.0</li>
+			<li class="opera">44.0</li>
+			<li class="safari">10.1</li>
+		</ul>
+	</aside>
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">그리드 레이아웃 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/css-grid-1/" target="_blank" class="fas" title="새창열림">W3C CSS Grid Layout Module Level 1</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-grid-2" target="_blank" class="fas" title="새창열림">W3C CSS Grid Layout Module Level 2</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-align-3/" target="_blank" class="fas" title="새창열림">W3C CSS Grid Layout Module Level 2</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" class="fas" title="새창열림">MDN CSS Grid Layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_grid_layout" target="_blank" class="fas" title="새창열림">MDN Relationship_of_grid_layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout" target="_blank" class="fas" title="새창열림">MDN Box alignment in CSS Grid Layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment" target="_blank" class="fas" title="새창열림">MDN CSS Box Alignment</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts" target="_blank" class="fas" title="새창열림">MDN CSS Grid Inspector: Examine grid layouts</a></li>
+			<li class="reference"><a href="https://grid.layoutit.com/" target="_blank" class="fas" title="새창열림">CSS Grid 제작 온라인 도구 | layoutit.com</a></li>
+			<li class="reference"><a href="https://gridbyexample.com/examples/" target="_blank" class="fas" title="새창열림">CSS Grid Layout Example</a></li>
+			<li class="reference"><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" class="fas" title="새창열림">Guide to Grid</a></li>
+			<li class="reference"><a href="http://cssgridgarden.com/#ko" target="_blank" class="fas" title="새창열림">CSS Grid Garden</a></li>
+			<li class="reference"><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators/" target="_blank" class="fas" title="새창열림">창시자가 말하는 CSS 그리드 이야기</a></li>
+			<li class="reference"><a href="https://speakerdeck.com/malarkey/art-directing-for-the-web-five-minutes-with-css-template-areas" target="_blank" class="fas" title="새창열림">웹 디자인 방법에 관한 Andy Clarke의 발표 슬라이드</a></li>
+			<li class="reference"><a href="https://uid.gitbook.io/css-grid/" target="_blank" class="fas" title="새창열림">CSS Grid Layout Guidebook by 야무(yamoo9)</a></li>
+			<li class="reference"><a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/dev-guides/hh673533(v=vs.85)?redirectedfrom=MSDN" target="_blank" class="fas" title="새창열림">Microsoft's documentation Grid layout</a></li>
+			<li class="reference"><a href="https://css-tricks.com/css-grid-in-ie-css-grid-and-the-new-autoprefixer/" target="_blank" class="fas" title="새창열림">CSS Grid in IE: CSS Grid and the New Autoprefixer</a></li>
+			<li class="reference"><a href="https://css-tricks.com/css-grid-in-ie-debunking-common-ie-grid-misconceptions/" target="_blank" class="fas" title="새창열림">CSS Grid in IE: Debunking Common IE Grid Misconceptions</a></li>
+			<li class="reference"><a href="https://rachelandrew.co.uk/css/cheatsheets/box-alignment" target="_blank" class="fas" title="새창열림">Box 정렬 치트시트 | rachelandrew.co.uk</a></li>
+			<li class="reference"><a href="https://caniuse.com/#feat=css-grid" target="_blank" class="fas" title="새창열림">supported by all major browsers</a></li>
+		</ul>
+	</aside>
+{%- endblock %}

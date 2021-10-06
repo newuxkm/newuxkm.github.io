@@ -79,8 +79,9 @@
 	}
 }
 .sub_top {
-	position:relative; text-align:center;
+	position:relative; z-index:1;
 	padding:35px 0 55px;
+	text-align:center;
 	border-bottom:1px solid #eee;
 
 	.tit {
@@ -332,6 +333,91 @@ $side_menu_width:250px;
 	}
 
 	&.side_close {
+		width:0; margin-top:5px; margin-right:70px;
+		$radius_size:10px;
+		$active_color:#ddd;
+
+		.tit, .side_menu {display:none;}
+		.side_menu_toggle {
+			$text_width:26px;
+			position:relative; left:0; right:auto; top:0; z-index:1;
+			width:$text_width; height:$text_width*4;
+			border-radius:0 10px 10px 0;
+			background-color:$active_color;
+			span {
+				&:before, &:after {
+					position:absolute; left:50%; top:50%;
+					width:16px; height:4px; margin-left:-12px;
+					border:0; border-radius:10px;
+					background:#fff;
+					transform-origin:100% 50%;
+					content:"";
+				}
+				&:before {transform:translate(0, -1px) rotate(65deg);}
+				&:after {transform:translate(0, -3px) rotate(-65deg);}
+			}
+			i {
+				position:absolute; left:0; top:$text_width*3;
+				transform:rotate(90deg); transform-origin:0 100%;
+				height:$text_width; line-height:$text_width;
+				padding-left:15px; padding-right:40px;
+				font-size:14px; color:darken($active_color, 10%);
+				text-indent:0; font-weight:600; letter-spacing:0.4px;
+				border-bottom:1px solid $active_color;
+				//border-bottom-width:1px;
+				//border-bottom-style:solid;
+				//border-color:transparent;
+				//border-image:linear-gradient(to right, $active_color 85%, rgba(#fff, 0) 100%);
+				//border-image-slice: 1;
+				white-space:pre;
+				border-radius:0;
+			}
+			b {font-size:0;}
+		}
+
+		// 위, 아래 라운드
+		&:before, &:after, .side_menu_toggle:before, .side_menu_toggle:after {
+			position:absolute; left:0; z-index:-2;
+			width:$radius_size; height:$radius_size;
+			background:$active_color;
+			transform:translate(0, 0);
+			border:0;
+			content:"";
+		}
+		&:before, &:after {top:-$radius_size;}
+		&:after {
+			background:#fff;
+			border-radius:0 0 0 $radius_size;
+		}
+		.side_menu_toggle:before, .side_menu_toggle:after {top:auto; bottom:-$radius_size;}
+		.side_menu_toggle:after {
+			background:#fff; z-index:-1;
+			border-radius:$radius_size 0 0 0;
+		}
+
+		// side_close hover
+		&:hover {
+			$active_color:lighten($blue, 5%);
+			.side_menu_toggle {
+				background-color:$active_color;
+				span {
+					&:before, &:after {background:#fff;}
+				}
+				i {
+					color:$active_color;
+					border-color:$active_color;
+					border-image:none;
+					//border-image:linear-gradient(to right, #{$active_color} 85%, rgba(#fff, 0) 100%);
+				}
+			}
+
+			// 위, 아래 라운드
+			&:before, .side_menu_toggle:before {background:$active_color;}
+		}
+	}
+
+	/* design backup
+	&.side_close {
 		width:0; margin-right:20px;
 		.tit, .side_menu {display:none;}
 		.side_menu_toggle {
@@ -355,6 +441,7 @@ $side_menu_width:250px;
 			}
 		}
 	}
+	*/
 }
 .content_area {flex:1; width:calc(100% - (#{$side_menu_width} + 50px));}
 @media(max-width:$screen-md-max){
@@ -502,6 +589,66 @@ $side_menu_width:250px;
 	.side_menu_area {
 		.side_menu > ul > li > a:before {font-size:14px;}
 	}
+}
+
+// content loading
+$loading_top:75px;
+$loading_circle_hide:.05s;
+$loading_bg_hide:.03s;
+.sub_content {
+	// loading
+	&:before {
+		position:absolute; left:50%; top:$loading_top; z-index:6;
+		width:50px; height:50px;
+		border:10px solid $blue; border-right-color:transparent;
+		border-radius:100%;
+		animation:content_loading_rotate .75s linear infinite;
+		transition:
+				opacity $loading_circle_hide linear,
+				left 0s $loading_circle_hide;
+		content:"";
+	}
+	&.loading_fixed:before {position:fixed; top:$hdHeight + $loading_top;}
+
+	// content show
+	&:after {
+		position:absolute; left:0; top:0; z-index:5;
+		width:100%; height:100%;
+		background:#fff;
+		transition:
+				opacity $loading_bg_hide linear,
+				left 0s $loading_bg_hide,
+				width 0s $loading_bg_hide,
+				height 0s $loading_bg_hide;
+		content:"";
+	}
+
+	// content load
+	&.content_load {
+		&:before {left:-9999px; opacity:0;}
+		&:after {left:-9999px; opacity:0; width:1px; height:1px;}
+	}
+}
+.uk_footer {
+	&:after {
+		position:absolute; left:0; top:0; z-index:5;
+		width:100%; height:100%;
+		background:#fff;
+		transition:
+				opacity $loading_bg_hide linear,
+				left 0s $loading_bg_hide,
+				width 0s $loading_bg_hide,
+				height 0s $loading_bg_hide;
+		content:"";
+	}
+	&.content_load {
+		&:after {left:-9999px; opacity:0; width:1px; height:1px;}
+	}
+}
+//.sub_content:before, .sub_content:after, .uk_footer:after {display:none;} // 로딩 숨김
+@keyframes content_loading_rotate {
+	0% {transform:translate(-50%, 0) rotate(0deg);}
+	100% {transform:translate(-50%, 0) rotate(360deg);}
 }
 
 

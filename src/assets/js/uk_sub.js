@@ -1,10 +1,14 @@
 
 // selector ------------------------------------------------------------------------------------------------------------
 const _top_link = $('.top_link');
+const _sub_content = $('.sub_content');
 const _side_menu_area = $('.side_menu_area');
 const _side_toggle = _side_menu_area.find('.side_menu_toggle');
 const _side_menu = $('.side_menu');
 const _side_menu_d3 = _side_menu.find('.depth3 > li');
+
+const loading_scroll_top = 'loading_scroll_top';
+let loading_sct = null;
 
 
 // document ready ------------------------------------------------------------------------------------------------------
@@ -15,25 +19,54 @@ $(document).ready(function(){
   uk_gist_skin_code();
   focus_controll();
 
+  // side menu toggle
+  const sideToggle = 'sideToggle';
+  const side_close = 'side_close';
   _side_toggle.on('click', function(){
-    console.log('aaa');
     const _this = $(this);
-    const side_close = 'side_close';
+    
+    // 닫기
     if( !_this.is('.active') ){
-      _this.addClass('active').parent().addClass(side_close);
+      _this.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
+      _this.find('b').text('OPEN');
+      sessionStorage.setItem(sideToggle, true);
     }
+    // 열기
     else{
-      _this.removeClass('active').parent().removeClass(side_close);
+      _this.removeClass('active').attr('title','사이드 메뉴 닫기').parent().removeClass(side_close);
+      _this.find('b').text('CLOSE');
+      sessionStorage.clear(sideToggle);
     }
     return false;
   });
+
+  // sessionStorage 의 sideToggle 에 true 값이 있으면 side menu 닫기
+  if( sessionStorage.getItem(sideToggle) ){
+    _side_toggle.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
+    _side_toggle.find('b').text('OPEN');
+  }
+
 });
 
 
 // window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
   setTimeout(function(){
-  }, 500);
+    _sub_content.addClass('content_load');
+    _ukFooter.addClass('content_load');
+
+    // window loading 후 기존 스크롤 탑 유지
+    if( window.performance.navigation.type === 1 ){
+      $(window).on('scroll', function(){
+        loading_sct = $(window).scrollTop();
+        sessionStorage.setItem(loading_scroll_top, loading_sct);
+      });
+      _htmlBody.animate({'scrollTop':sessionStorage.getItem(loading_scroll_top)}, 0);
+    }
+    if( window.performance.navigation.type === 0 ){
+      sessionStorage.setItem(loading_scroll_top, 0);
+    }
+  }, 200);
 });
 
 
@@ -60,7 +93,11 @@ $(window).on('scroll', function(){
   let sct = $(window).scrollTop();
   hd_common(sct);
 
+  // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우)
   sct > top_link_offset - _ukHeader.height() ?  _top_link.addClass('fixed') : _top_link.removeClass('fixed');
+
+  // 로딩 상단 고정(scroll top 값이 sub_content 의 offset().top 보다 클 경우)
+  sct > _sub_content.offset().top - _ukHeader.height() ? _sub_content.addClass('loading_fixed') : _sub_content.removeClass('loading_fixed') ;
 }).trigger('scroll');
 
 
