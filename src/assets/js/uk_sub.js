@@ -52,21 +52,27 @@ $(document).ready(function(){
 // window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
   setTimeout(function(){
-    _sub_content.addClass('content_load');
-    _ukFooter.addClass('content_load');
-
-    // window loading 후 기존 스크롤 탑 유지
+    // 새로고침 시 window loading 후 기존 스크롤 탑 유지
     if( window.performance.navigation.type === 1 ){
       $(window).on('scroll', function(){
         loading_sct = $(window).scrollTop();
         sessionStorage.setItem(loading_scroll_top, loading_sct);
       });
       _htmlBody.animate({'scrollTop':sessionStorage.getItem(loading_scroll_top)}, 0);
+
+      setTimeout(function(){
+        _sub_content.addClass('content_load');
+        _ukFooter.addClass('content_load');
+      }, 100);
     }
+
+    // front, back 버튼 또는 링크로 이동 시
     if( window.performance.navigation.type === 0 ){
       sessionStorage.setItem(loading_scroll_top, 0);
+      _sub_content.addClass('content_load');
+      _ukFooter.addClass('content_load');
     }
-  }, 200);
+  }, 300);
 });
 
 
