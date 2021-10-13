@@ -1,8 +1,14 @@
 
 // selector ------------------------------------------------------------------------------------------------------------
 const _top_link = $('.top_link');
-const _side_name = $('.side_menu');
-const _side_menu_d3 = _side_name.find('.depth3 > li');
+const _sub_content = $('.sub_content');
+const _side_menu_area = $('.side_menu_area');
+const _side_toggle = _side_menu_area.find('.side_menu_toggle');
+const _side_menu = $('.side_menu');
+const _side_menu_d3 = _side_menu.find('.depth3 > li');
+
+const loading_scroll_top = 'loading_scroll_top';
+let loading_sct = null;
 
 
 // document ready ------------------------------------------------------------------------------------------------------
@@ -12,20 +18,68 @@ $(document).ready(function(){
   uk_editor();
   uk_gist_skin_code();
   focus_controll();
+
+  // side menu toggle
+  const sideToggle = 'sideToggle';
+  const side_close = 'side_close';
+  _side_toggle.on('click', function(){
+    const _this = $(this);
+    
+    // 닫기
+    if( !_this.is('.active') ){
+      _this.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
+      _this.find('b').text('OPEN');
+      sessionStorage.setItem(sideToggle, true);
+    }
+    // 열기
+    else{
+      _this.removeClass('active').attr('title','사이드 메뉴 닫기').parent().removeClass(side_close);
+      _this.find('b').text('CLOSE');
+      sessionStorage.clear(sideToggle);
+    }
+    return false;
+  });
+
+  // sessionStorage 의 sideToggle 에 true 값이 있으면 side menu 닫기
+  if( sessionStorage.getItem(sideToggle) ){
+    _side_toggle.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
+    _side_toggle.find('b').text('OPEN');
+  }
+
 });
 
 
 // window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
   setTimeout(function(){
-  }, 500);
+    // 새로고침 시 window loading 후 기존 스크롤 탑 유지
+    if( window.performance.navigation.type === 1 ){
+      $(window).on('scroll', function(){
+        loading_sct = $(window).scrollTop();
+        sessionStorage.setItem(loading_scroll_top, loading_sct);
+      });
+      _htmlBody.animate({'scrollTop':sessionStorage.getItem(loading_scroll_top)}, 0);
+
+      setTimeout(function(){
+        _sub_content.addClass('content_load');
+        _ukFooter.addClass('content_load');
+      }, 100);
+    }
+
+    // front, back 버튼 또는 링크로 이동 시
+    if( window.performance.navigation.type === 0 ){
+      sessionStorage.setItem(loading_scroll_top, 0);
+      _sub_content.addClass('content_load');
+      _ukFooter.addClass('content_load');
+    }
+  }, 300);
 });
 
 
 // side menu -----------------------------------------------------------------------------------------------------------
 const tg_on = 'tg_on';
 _side_menu_d3.each(function(i, e){
-  if( _side_name.is('.pub_side_nemu') ){
+  if( _side_menu.is('.pub_side_nemu') ){
     if( $(e).children().length > 1 ){
       $(e).is('.active') ? $(e).addClass(tg_on) : false;
       $(e).addClass('toggle_box');
@@ -45,7 +99,11 @@ $(window).on('scroll', function(){
   let sct = $(window).scrollTop();
   hd_common(sct);
 
+  // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우)
   sct > top_link_offset - _ukHeader.height() ?  _top_link.addClass('fixed') : _top_link.removeClass('fixed');
+
+  // 로딩 상단 고정(scroll top 값이 sub_content 의 offset().top 보다 클 경우)
+  sct > _sub_content.offset().top - _ukHeader.height() ? _sub_content.addClass('loading_fixed') : _sub_content.removeClass('loading_fixed') ;
 }).trigger('scroll');
 
 
@@ -57,9 +115,9 @@ $(window).on('resize', function(){
   hd_layer_open_resize(win_w);
 
  if( win_w > md_size ){
-   _side_name.find('.depth4').removeAttr('style');
+   _side_menu.find('.depth4').removeAttr('style');
    if( _side_menu_d3.is('.active') ){
-     _side_name.find('.depth3 > li.active').addClass(tg_on);
+     _side_menu.find('.depth3 > li.active').addClass(tg_on);
    }
  }
  else{

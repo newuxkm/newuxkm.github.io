@@ -163,7 +163,7 @@ function layer_close_scroll(){
   scrollbar_size = 0;
 }
 
-// hd_layer_open resize (site map & search open/close 과 연계)
+// hd_layer_open resize (site map & search open/close 와 연계)
 function hd_layer_open_resize(win_w){
   if( _html.is('.'+hd_layer_open) ){
     _ukWrap.width( win_w - scrollbar_size );
