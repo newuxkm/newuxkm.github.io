@@ -72,7 +72,6 @@
 		position:absolute; left:50%; bottom:0; z-index:1;
 		transform:translate(-50%, 0);
 		padding-bottom:$pb;
-		perspective:500px;
 		&:before {
 			opacity:$line_opacity - .05;
 			position:absolute; left:calc(50% - 1px); bottom:$pb - 30px; z-index:-1;
@@ -225,6 +224,7 @@
 			.name {
 				display:inline-block; position:relative;
 				text-rendering:optimizeLegibility;
+				perspective:400px;
 				.uxkm_front, .uxkm_back {
 					display:inline-block;
 					line-height:110%; padding:0 10px;
