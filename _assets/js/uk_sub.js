@@ -104,6 +104,11 @@ $(window).on('scroll', function(){
 
   // 로딩 상단 고정(scroll top 값이 sub_content 의 offset().top 보다 클 경우)
   sct > _sub_content.offset().top - _ukHeader.height() ? _sub_content.addClass('loading_fixed') : _sub_content.removeClass('loading_fixed') ;
+
+  // side menu 타이틀 노출( side_close일 경우 )
+  let sub_top_offset = _sub_content.offset().top + Number(_sub_content.css('padding-top').replace('px','')) + $('#content_title').height()/2;
+  sub_top_offset -= _ukHeader.height();
+  sct > sub_top_offset ? _side_menu_area.addClass('title_show') : _side_menu_area.removeClass('title_show') ;
 }).trigger('scroll');
 
 

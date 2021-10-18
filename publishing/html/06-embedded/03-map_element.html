@@ -896,13 +896,62 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="6.3. ">map element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="6.3. ">map <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;map&gt;</code> 요소는 클라이언트 사이드 이미지맵(client-side image-map)을 정의할 때 사용합니다.<br>
+						이미지맵(image-map)은 클릭할 수 있는 영역을 가지는 이미지를 의미합니다.<br>
+						<code>&lt;area&gt;</code> 요소는 이러한 이미지맵의 클릭할 수 있는 영역을 정의하는데 사용되며, <code>&lt;map&gt;</code> 요소는 하나 이상의 <code>&lt;area&gt;</code> 요소를 포함할 수 있습니다.<br>
+						<code>&lt;map&gt;</code> 요소의 필수 속성인 name 속성은 <code>&lt;img&gt;</code> 요소의 usemap 속성과 결합하여, 이미지(image)와 맵(map) 사이의 관계를 설정합니다.<br>
+						HTML5에서는 요소에 id 속성을 명시할 때 그 값을 반드시 name 속성값과 같은 값으로 명시해야만 합니다.<br>
+						XHTML에서는 name 속성을 더 이상 지원하지 않으므로, name 속성 대신 전역 속성인 id 속성을 사용해야 합니다. HTML5에서는 nohref 속성은 폐기되었습니다.<br>
+						<mark>HTML5.1부터 hreflang, type 속성은 더 이상 지원하지 않습니다.</mark>
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="map element CSS default">
+							<textarea readonly="readonly">
+								map {
+									display: inline;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="txt_ex mt_xxl">
+					<!--<h2>6.3.1. map 속성</h2>-->
+					<h2>map 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[name] <span class="t_blue">&lt;img name=&quot;이름&quot; id=&quot;name이름과 동일&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							필수 속성으로, 이미지맵의 이름을 명시합니다.
+						</p>
+					</article>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.3.map_element.html">
+					<h2 class="ve_tit">map element 예제</h2>
+					<div class="uk_editor indent min-height-400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="img">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">지원</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">내장 컨텐츠<span>(Embedded content)</span> 참조</strong>
@@ -1271,7 +1320,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="6.3. map element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

@@ -894,13 +894,48 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="4.8. ">dd element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="4.8. ">dd <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						정의 목록 요소(<code>&lt;dl&gt;</code>)에서 용어의 정의를 나타냅니다.<br>
+						이것은 정의 목록 요소의 자식 요소로서만 등장할 수 있으며, <code>&lt;dt&gt;</code>뒤에 요소가 따라와야 합니다.<br>
+						종료 태그는 이 요소 바로 뒤에 다른 <code>&lt;dd&gt;</code> 요소가 있거나, 부모 요소에 더 이상 다른 요소가 없을 경우 생략 가능합니다.<br>
+						종료 태그를 사용하는 것에 대한 습관을 들이는 것을 권장합니다.
+					</p>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="view_editor ex_code mt_xxl" data-target="html/04-grouping/4.8.dt_element/4.8.dd_element.html">
+					<h2 class="ve_tit">기본 문법</h2>
+					<div class="uk_gist_code_box indent mt_ms" data-tit="dd element">
+						<textarea readonly="readonly">
+							<dl>
+								<dt>Beast of Bodmin</dt>
+								<dd>A large feline inhabiting Bodmin Moor.</dd>
+
+								<dt>Morgawr</dt>
+								<dd>A sea serpent.</dd>
+
+								<dt>Owlman</dt>
+								<dd>A giant owl-like creature.</dd>
+							</dl>
+						</textarea>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="dd">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">콘텐츠 그룹화<span>(Grouping content)</span> 참조</strong>
@@ -1269,7 +1304,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="4.8. dd element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

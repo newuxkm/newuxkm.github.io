@@ -894,13 +894,91 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" class="html5" data-number="4.1. ">main element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" class="html5" data-number="4.1. ">main <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="ol_lst mt_xxl">
+					<p>
+						<code>&lt;main&gt;</code> 요소는 문서나 앱 <code>&lt;body&gt;</code>의 주요 콘텐츠를 나타냅니다.
+						주요 콘텐츠 영역은 문서의 핵심 주제나 애플리케이션의 핵심 기능성에 대해 부연, 또는 직접적으로 연관된 콘텐츠들로 이루어집니다.<br>
+						<code>&lt;main&gt;</code> 요소는 대부분의 인터넷 익스플로러 11 이하를 제외한 브라우저에서 지원합니다.<br>
+						따라서 &quot;main&quot; ARIA role 속성을 <code>&lt;main&gt;</code> 요소에 추가해 인터넷 익스플로러에서도 접근성을 확보하는 편이 좋습니다.
+					</p>
+					<ol class="indent mt_s">
+						<li>
+							<code>&lt;main&gt;</code> 요소의 콘텐츠는 사이드 바나, 내비게이션 링크, 저작권 정보, 사이트 로고,
+							(문서의 주요 기능이 검색 폼이 아닐 경우)검색 폼과 같은 모든 문서에 반복적으로 있는 어떠한 콘텐츠라도 제외되어야 하며 문서 안에 가장 유일한 요소여야 합니다.
+						</li>
+						<li>한 문서에 반복적으로 사용하는 경우 hidden 속성으로 표시하여 사용해야 합니다.</li>
+						<li>hidden 속성 없이는 문서에 하나보다 많은 <code>&lt;main&gt;</code> 요소가 존재해선 안됩니다.</li>
+					</ol>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="view_editor ex_code mt_xxl">
+					<h2 class="ve_tit">main 요소를 하나 이상 사용할 때 올바른 예</h2>
+
+					<div class="uk_gist_code_box indent mt_ms" data-tit="main element">
+						<textarea readonly="readonly">
+							<header>Gecko facts</header>
+							<main role="main">
+								<p>Geckos are a group of usually small, usually nocturnal lizards. They are found on every continent except Australia.</p>
+								<p>Many species of gecko have adhesive toe pads which enable them to climb walls and even windows.</p>
+							</main>
+						</textarea>
+					</div>
+
+					<div class="uk_gist_code_box indent mt_ms" data-tit="main element">
+						<textarea readonly="readonly">
+							<main>
+								<h1>Apples</h1>
+								<p>The apple is the pomaceous fruit of the apple tree.</p>
+								<article>
+									<h2>Red Delicious</h2>
+									<p>These bright red apples are the most common found in many supermarkets.</p>
+									<p>... </p>
+									<p>... </p>
+								</article>
+								<article>
+									<h2>Granny Smith</h2>
+									<p>These juicy, green apples make a great filling for apple pies.</p>
+									<p>... </p>
+									<p>... </p>
+								</article>
+							</main>
+						</textarea>
+					</div>
+
+					<div class="uk_gist_code_box indent mt_ms" data-tit="main element">
+						<textarea readonly="readonly">
+							<main>...</main>
+							<main hidden>...</main>
+							<main hidden>...</main>
+						</textarea>
+					</div>
+				</section>
+
+				<section class="view_editor ex_code ex_wrong mt_xxl" data-target="html/04-grouping/4.1.main_element/4.1.main_element4.html">
+					<h2 class="ve_tit">main 요소를 하나 이상 사용할 때 잘못된 예</h2>
+					<div class="uk_gist_code_box indent mt_ms" data-tit="main element">
+						<textarea readonly="readonly">
+							<main>...</main>
+							<main>...</main>
+							<main>...</main>
+						</textarea>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="main">
+					<ul>
+						<li class="ie false">지원안함</li>
+						<li class="edge">12.0</li>
+						<li class="chrome">26.0</li>
+						<li class="firefox">21.0</li>
+						<li class="opera">16.0</li>
+						<li class="safari">7.0</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">콘텐츠 그룹화<span>(Grouping content)</span> 참조</strong>
@@ -1269,7 +1347,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="4.1. main element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

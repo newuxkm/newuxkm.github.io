@@ -894,13 +894,95 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" class="html5" data-number="5.24. ">ruby element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" class="html5" data-number="5.24. ">ruby <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="ol_lst font14 mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;ruby&gt;</code> 요소는 동아시아 일부 지역의 언어에서 일본어의 후리가나와 같이 해당 문자의 발음이나 설명을 작은 크기의 윗 첨자로 알려주는 루비 주석(ruby annotation)을 정의할 때 사용합니다.<br>
+						<code>&lt;ruby&gt;</code> 요소는 <code>&lt;rt&gt;</code> 요소만 포함하거나, <code>&lt;rt&gt;</code> 요소와 함께 <code>&lt;rp&gt;</code> 요소도 포함할 수 있습니다.<br>
+						<code>&lt;ruby&gt;</code> 요소는 발음이나 설명이 필요한 한 개 이상의 문자로 구성되며, <code>&lt;rt&gt;</code> 요소는 그에 대한 발음이나 설명을 정의합니다.<br>
+						추가적으로 사용할 수 있는 <code>&lt;rp&gt;</code> 요소는 <code>&lt;ruby&gt;</code> 요소를 지원하지 않는 브라우저에서만 표시될 문자를 정의합니다.
+					</p>
+					<p class="mt_s">
+						<code>&lt;ruby&gt;</code>, <code>&lt;rp&gt;</code>, <code>&lt;rt&gt;</code> 요소는 HTML5에서 새롭게 추가된 요소입니다.
+					</p>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">ruby 의 세부 요소</h2>
+
+					<article class="txt_ex mt_l">
+						<h3>&lt;rp&gt; 요소</h3>
+						<p class="mt_ms indent">
+							<code>&lt;rp&gt;</code> 요소는 루비 주석(ruby annotation)을 지원하지 않는 브라우저에서만 표시될 문자를 정의할 때 사용합니다.<br>
+							<code>&lt;rp&gt;</code> 요소는 <code>&lt;ruby&gt;</code> 요소 내부에 위치하며, <code>&lt;rt&gt;</code> 요소와 함께 사용합니다.<br>
+							<code>&lt;rp&gt;</code> 요소는 보통 <code>&lt;rt&gt;</code> 요소를 감싸는 형태로 한 쪽에는 여는 괄호를 포함하며 다른 한 쪽에는 닫는 괄호를 포함하여,
+							루비 주석을 지원하지 않는 브라우저에서는 <code>&lt;rt&gt;</code> 요소의 내용이 괄호 안에 나타나도록 할 수 있습니다.
+						</p>
+					</article>
+
+					<article class="txt_ex mt_l">
+						<h3>&lt;rt&gt; 요소</h3>
+						<p class="mt_ms indent">
+							<code>&lt;rt&gt;</code> 요소는 루비 주석(ruby annotation)에서 발음이나 설명을 나타내는 윗 첨자를 정의할 때 사용합니다.
+						</p>
+					</article>
+
+					<article class="txt_ex mt_l">
+						<h3>&lt;rb&gt; 요소</h3>
+						<p class="mt_ms indent">
+							<code>&lt;rb&gt;</code> 요소는 각 개별 텍스트를 구성 요소로 구분하는 데 사용합니다.<br>
+							<mark>Edge : No support(지원하지 않음)</mark>
+						</p>
+					</article>
+
+					<article class="txt_ex mt_l">
+						<h3>&lt;rp&gt; 요소</h3>
+						<p class="mt_ms indent">
+							<code>&lt;rp&gt;</code> 요소는 루비 주석의 표시를 지원하지 않는 브라우저를 위한 백 괄호를 제공하는 데 사용됩니다.<br>
+							<mark>Edge : No support(지원하지 않음)</mark>
+						</p>
+					</article>
+
+					<article class="txt_ex mt_l">
+						<h3>&lt;rtc&gt; 요소</h3>
+						<p class="mt_ms indent">
+							<code>&lt;rtc&gt;</code> 요소는 루비 주석에 대한 표시문자를 정의합니다.<br>
+							<mark>Firefox 만 지원</mark>
+						</p>
+					</article>
+				</section>
+
+				<section class="ol_lst mt_xxl sound_only"><!-- sound_only -->
+					<h2>상세 설명</h2><!-- class="sound_only" -->
+					<ol class="indent mt_ms">
+						<li>루비 문자 태그</li>
+						<li><code>&lt;ruby&gt;</code>의 내용 중 rt 태그 내의 내용이 상단에 작게 표시됩니다.</li>
+						<li><code>&lt;rp&gt;</code> 내의 내용은 무시됩니다.</li>
+						<li>일본어 후리가나, 중국어 병음 및 주음, 한국어 한자 독음 등에 주로 사용합니다.</li>
+					</ol>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.24.ruby_element.html">
+					<h2 class="ve_tit">ruby element 예제</h2>
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="ruby">
+					<ul>
+						<li class="ie">5.0+</li>
+						<li class="edge">지원</li>
+						<li class="chrome">5.0</li>
+						<li class="firefox">38.0</li>
+						<li class="opera">15.0</li>
+						<li class="safari">5.0</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">문자 컨텐츠<span>(Text-level semantics)</span> 참조</strong>
@@ -1269,7 +1351,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="5.24. ruby element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

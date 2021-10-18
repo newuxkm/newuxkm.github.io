@@ -896,13 +896,440 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" class="html5" data-number="6.5. ">video element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" class="html5" data-number="6.5. ">video <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<blockquote class="uk_note mt_xxl" role="note">
+					<h3 class="sound_only">요약 설명</h3>
+					<p>
+						원본 비디오를 압축해서 동영상 파일로 변환한 것을 <b>인코딩(encording)</b>이라 하고,<br>
+						영상을 꺼내 플레이어에서 보여주는 것을 <b>디코딩(decoding)</b>이라고 하며,<br>
+						이 두 가지를 처리하는 것이 <b>비디오 코덱</b>입니다.
+					</p>
+				</blockquote>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="mt_l">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;video&gt;</code>는 비디오 재생을 문서에 지원하는 미디어 플레이어를 내장합니다.<br>
+						오디오 컨텐츠에도 <code>&lt;video&gt;</code>를 사용할 수 있지만 <code>&lt;audio&gt;</code> 요소는 보다 적절한 사용자 경험을 제공할 수 있습니다.<br>
+						autoplay가 지정된 경우, preload는 무시됩니다.<br>
+						<span class="reference mt_l"><a href="https://convertio.co/kr/webm-mp4/" target="_blank" title="새창열림">webm to mp4 converter</a></span>
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="video element CSS default">
+							<textarea readonly="readonly">
+								video {
+									display: inline;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.5.1. video 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[src] <span class="t_blue">&lt;video src=&quot;URL&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							삽입(embed)할 동영상의 주소(url)입니다.<br>
+							이 속성은 선택 사항으로, 비디오 블록 내의 <code>&lt;source&gt;</code> 요소를 사용하여 삽입할 동영상을 명시할 수도 있습니다.
+						</p>
+						<aside class="browser_support mt_ms" data-tit="src">
+							<ul>
+								<li class="ie">9+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">3.0</li>
+								<li class="firefox">3.5</li>
+								<li class="opera">10.5</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[width], [height] <span class="t_blue">&lt;video width=&quot;Number&quot; height=&quot;Number&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							비디오의 출력 영역 너비와 높이이며, CSS 픽셀 단위입니다.
+						</p>
+						<aside class="browser_support mt_ms" data-tit="width, height">
+							<ul>
+								<li class="ie">9+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">3.0</li>
+								<li class="firefox">3.5</li>
+								<li class="opera">10.5</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[autoplay](Boolean) <span class="t_blue">&lt;video autoplay&gt;</span></h3>
+						<p class="mt_ms">
+							이 값이 설정되면, 데이터 로딩이 완료되지 않더라도 재생 가능한 시점에 자동으로 재생이 시작됩니다.<br>
+							iPhone 또는 Android에서는 지원되지 않으며, 모든 데스크톱 브라우저, iPad, Firefox와 Android용 Opera에서는 지원됩니다.
+						</p>
+						<aside class="browser_support mt_ms" data-tit="autoplay">
+							<ul>
+								<li class="ie">9+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">3.0</li>
+								<li class="firefox">3.5</li>
+								<li class="opera">10.5</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[controls](Boolean) <span class="t_blue">&lt;video controls&gt;</span></h3>
+						<p class="mt_ms">
+							기본 동영상 컨트롤을 표시합니다(재생, 일시 중지 등).
+						</p>
+						<aside class="browser_support mt_ms" data-tit="controls">
+							<ul>
+								<li class="ie">9+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">3.0</li>
+								<li class="firefox">3.5</li>
+								<li class="opera">10.5</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[loop](Boolean) <span class="t_blue">&lt;video loop&gt;</span></h3>
+						<p class="mt_ms">
+							이 값이 설정되면, 동영상 재생이 마친 후(동영상의 마지막에 도달하면) 자동으로 처음으로 돌아가서 다시 재생됩니다.
+						</p>
+						<aside class="browser_support mt_ms" data-tit="loop">
+							<ul>
+								<li class="ie">9+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">3.0</li>
+								<li class="firefox">11</li>
+								<li class="opera">10.5</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[muted](Boolean) <span class="t_blue">&lt;video muted&gt;</span></h3>
+						<p class="mt_ms">
+							비디오에 포함되어 있는 오디오의 기본 설정을 나타내는 부울 속성입니다.<br>
+							설정하면 오디오가 나오지 않습니다.<br>
+							기본 값은 <mark>false</mark>이며 이는 비디오가 재생되면 오디오도 같이 재생됨을 의미합니다.
+						</p>
+						<aside class="browser_support mt_ms" data-tit="muted">
+							<ul>
+								<li class="ie">9+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">3.0</li>
+								<li class="firefox">10.0</li>
+								<li class="opera">지원</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[poster] <span class="t_blue">&lt;video poster=&quot;URL&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							동영상 콘텐츠를 다운로드할 필요가 없이 동영상 요소가 표시되자마자 브라우저에 나타낼 수 있는 이미지 파일의 주소(URL)입니다.<br>
+							이 속성이 명시되지 않으면, 첫 번째 프레임이 사용 가능하게 될 때까지 아무것도 출력되지 않다가, 가능하게 되면 첫 번째 프레임을 포스터 프레임으로 출력합니다.
+						</p>
+						<aside class="browser_support mt_ms" data-tit="poster">
+							<ul>
+								<li class="ie">9+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">3.0</li>
+								<li class="firefox">3.6</li>
+								<li class="opera">10.5</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[preload] <span class="t_blue">&lt;video preload=&quot;none | metadata | auto&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							사전 로드할 정보나 콘텐츠의 크기를 브라우저에 알려줍니다.<br>
+							스펙에서는 기본값으로 metadata를 권장하지만 설정하지 않았다면 각 브라우저가 정한 기본값을 설정하게 됩니다.
+						</p>
+						<p class="mt_s">
+							비디오를 자동으로 재생하려 한다면 브라우저가 이를 다운로드 해야 하기 때문에 autoplay 속성보다 우선시 됩니다.<br>
+							autoplay 속성과 preload 속성을 둘 다 설정하는 것은 스펙상 가능합니다만,<br>
+							브라우저가 이 속성을 반드시 스팩대로 따라야 하는 것은 아닙니다. 단지 힌트일 뿐입니다.
+						</p>
+						<div class="ol_lst indent mt_ms">
+							<ol>
+								<li class="line_code font14">
+									<strong>none</strong>
+									<p>사용자가 동영상을 보지 못 할 수도 있습니다. 아무것도 사전 로드하지 않습니다.</p>
+								</li>
+								<li class="line_code font14">
+									<strong>metadata</strong>
+									<p>최소한의 동영상과 함께 메타 데이터(기간, 크기, 텍스트 트랙)를 사전 로드합니다.</p>
+								</li>
+								<li class="line_code font14">
+									<strong>auto</strong>
+									<p>전체 동영상을 즉시 다운로드하는 것이 바람직한 것으로 여겨집니다.</p>
+								</li>
+								<li class="line_code font14">
+									<strong>빈 문자열</strong>
+									<p>auto 와 동일합니다.</p>
+								</li>
+							</ol>
+						</div>
+						<aside class="browser_support mt_m" data-tit="preload">
+							<ul>
+								<li class="ie">9+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">3.0</li>
+								<li class="firefox">4.0</li>
+								<li class="opera">10.5</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.5.video_element.html">
+					<h2 class="ve_tit">video element 예제</h2>
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<section class="view_editor ex_code mt_xl" data-target="html/06-embedded/6.5.video_element_poster.html">
+					<h2 class="ve_tit">poster 예제</h2>
+					<div class="uk_gist_code_box indent mt_ms" data-tit="video element [poster] attribute">
+						<textarea readonly="readonly">
+							<video src="videofile.ogg" autoplay poster="posterimage.jpg">
+								브라우저가 동영상을 지원하지 않습니다.
+								동영상을 <a href="videofile.ogg">다운로드</a> 하여 window(or mac) player로 시청하세요.
+							</video>
+						</textarea>
+					</div>
+					<p class="indent mt_ms">
+						동영상을 더 다운받기 위해서 멈추지 않아도 될 정도로 영상이 다운로드 되면 바로 영상이 재생됩니다.<br />
+						동영상이 재생되기 전까지 "posterimage.jpg" 이미지가 표현됩니다.
+					</p>
+				</section>
+
+				<section class="view_editor ex_code mt_xl" data-target="html/06-embedded/6.5.video_element_subtitles.html">
+					<h2 class="ve_tit">subtitles 예제</h2>
+					<div class="uk_gist_code_box indent mt_ms" data-tit="video element [subtitles] attribute">
+						<textarea readonly="readonly">
+							<video src="foo.ogg">
+								<track kind="subtitles" src="foo.en.vtt" srclang="en" label="English">
+								<track kind="subtitles" src="foo.sv.vtt" srclang="sv" label="Svenska">
+							</video>
+						</textarea>
+					</div>
+					<p class="indent mt_ms">
+						사용자가 서로다른 자막을 선택할 수 있습니다.
+					</p>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="video">
+					<ul>
+						<li class="ie">9+</li>
+						<li class="edge">지원</li>
+						<li class="chrome">3.0</li>
+						<li class="firefox">3.5</li>
+						<li class="opera">10.5</li>
+						<li class="safari">3.1</li>
+					</ul>
+				</aside>
+
+				<hr class="dashed_line mt_xxl">
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.5.2. 웹에서 사용하는 비디오 파일 형식</h2>
+					<ol class="ol_lst indent">
+						<li class="mt_ml tit_h3">
+							<h3>MPEG4(.mp4/.m4v)</h3>
+							<p class="mt_s">
+								영상과 음성을 디지털 데이터로 전송하고 저장하는 규격 중 하나.
+								part1에서 part27까지 다양한 표준으로 구성되어있고 새로운 기술이 적용되면 새로운 파트가 생깁니다.<br>
+								최근 많이 사용되는 .mp4와 m4v는 MPEG-4의 part14로 규정된 파일 형식이며, 최근에는 H.264 코덱이 MPEG-4의 part10 AVC로 규격화 되었습니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>MP4 H.264 (AAC 또는 MP3)</h3>
+							<p class="mt_s">
+								H.264 비디오 코덱과 AAC 오디오 코덱이 포함된 MP4 컨테이너 형식은 데스크톱 / 모바일 Internet Explorer, Safari 및 Chrome에서 기본적으로 지원되지만 Chromium과 Opera는 이 형식을 지원하지 않습니다.<br>
+								IE와 Chrome은 MP4 컨테이너에서 MP3 오디오 코덱을 지원하지만 Safari는 지원하지 않습니다. Android / Firefox 용 Firefox / Firefox OS는 경우에 따라 형식을 지원하지만 타사 디코더를 사용할 수있는 경우에만 장치 하드웨어가 MP4를 인코딩하는 데 사용되는 프로필을 처리 할 수 ​​있습니다.
+							</p>
+							<p class="mt_s">
+								높은 프로필로 인코딩 된 MP4는 로우 엔드 폰과 같은 저가형 하드웨어에서 실행되지 않습니다.
+							</p>
+							<p class="mt_s">
+								MPEG 미디어 형식은 자유롭게 라이센스가 부여되지 않은 특허에 의해 보호됩니다.<br>
+								필요한 라이센스 중 일부는 MPEG LA에서 구입할 수 있습니다.<br>
+								H.264는 현재 로열티가 없는 형식이 아니기 때문에 Mozilla [ 1 , 2 ], Google [ 1 , 2 ] 및 Opera에 따르면 개방형 웹 플랫폼에는 적합하지 않습니다.<br>
+								그러나 로열티가없는 형식은 Internet Explorer와 Safari에서 지원되지 않기 때문에 Mozilla는 형식을 지원하기로 결정 했으며 Google은 Chrome에서 지원하지 않을 것이라고 약속했습니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>MP3</h3>
+							<p class="mt_s">
+								운영 체제가 MP3 디코더를 제공 할 때 MP3 오디오 형식 (.mp3, audio/mpeg , MP4 컨테이너의 위의 MP3 오디오와 구분됨)은 Firefox / Firefox for Android / Firefox OS에서 <code>&lt;audio&gt;</code>로 지원됩니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>ogg</h3>
+							<p class="mt_s">
+								공개 소스 형식으로 Vorbis, FLAC 같은 오디오 코덱과 Ogg Theora 같은 비디오 코덱이 있습니다.<br>
+								공개 소스이기 때문에 각종 무료 및 상용 미디어 플레이어에 Ogg의 여러 코덱을 사용할 수 있습니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>WebM</h3>
+							<p class="mt_s">
+								구글이 2010년 발표한 공개 소스 방식의 파일 형식입니다.<br>
+								WebM 형식은 Matroska 컨테이너 형식의 제한된 버전을 기반으로 합니다. 항상 VP8 또는 VP9 비디오 코덱과 Vorbis 또는 Opus 오디오 코덱을 사용합니다.<br>
+								WebM 포맷, 특히 VP8 비디오 코덱은 MPEG LA의 특허 풀 형성 요청에 응한 기업 그룹의 특허 침해 혐의로 기소되었지만 MPEG LA는 특허 출원을 구글 에 &quot;영원히, 양도할 수 있는, 로열티 없는 면허&quot;. 이것은 사실상 WebM 형식의 모든 알려진 특허가 모든 사람에게 무료로 라이센스 된다는 것을 의미합니다.
+							</p>
+							<p class="mt_s">
+								Gecko는 다음 MIME 유형을 WebM 파일로 인식합니다.
+							</p>
+							<p class="mt_s">
+								video/webm - 비디오가 포함 된 WebM 미디어 파일 (가능하면 오디오도 가능).<br>
+								audio/webm - 오디오 만 포함 된 WebM 미디어 파일.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>avi</h3>
+							<p class="mt_s">
+								윈도우 운영체제에서 지원하는 동영상 파일 형식으로 화질은 뛰어나지만 용량이 크기 때문에 스트리밍 방식의 실시간 웹 영상에는 적합하지 않습니다.
+							</p>
+						</li>
+					</ol>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.5.3. 비디오 코덱의 종류</h2>
+					<ol class="ol_lst indent">
+						<li class="mt_ml tit_h3">
+							<h3>H.264(MPEG-4)</h3>
+							<p class="mt_s">
+								H.264는 MPEG 컨소시엄에서 특허권을 가지고 있기 때문에 사용료를 지불하여야 합니다.<br>
+								하지만 HTML5 웹 표준 동영상 재생 용도로 사용할 경우에 한하여 무료로 사용할 수 있습니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>VP8(WebM)</h3>
+							<p class="mt_s">
+								구글이 인수한 코덱 전문업체에서 보유한 기술로 2010년 5월에 오픈 소스로 공개한 코덱입니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>MP4 FLAC</h3>
+							<p class="mt_s">
+								Firefox 51부터는 MediaSource Extensions 및 DRM 지원 여부와 관계없이 FLAC 코덱을 사용하여 MP4 파일을 재생할 수 있습니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>오그 테오 라 보비스(Ogg)</h3>
+							<p class="mt_s">
+								공개 코덱으로 테오라 코덱은 Ogv(Theora+Vorbis) 파일에 주로 사용됩니다.<br>
+								Theora 동영상 코덱과 Vorbis 오디오 코덱이 포함 된 Ogg 컨테이너 형식은 데스크톱 / 모바일 Gecko (Firefox), Chrome 및 Opera에서 지원되며 형식에 대한 지원은 추가 기능을 설치하여 Safari(iOS 제외)에 추가 할 수 있습니다.<br>
+								Internet Explorer에서 지원되지 않습니다.
+							</p>
+							<p class="mt_s">
+								WebM은 일반적으로 Ogg Theora Vorbis보다 선호됩니다. 품질 대비 압축률이 높고 더 많은 브라우저에서 지원되기 때문입니다. 그러나 Ogg 형식은 이전 브라우저 버전을 지원하는 데 사용할 수 있습니다.<br>
+								(예 : Firefox 3.5 / 3.6은 WebM을 지원하지 않지만 Ogg는 지원합니다).
+							</p>
+							<p class="mt_s">
+								Theora의 특허 상황은 WebM의 특허 상황과 유사합니다.
+							</p>
+							<p class="mt_s">
+								Theora Cookbook을 읽으면 Ogg 미디어를 만드는 방법에 대해 자세히 알아볼 수 있습니다.
+							</p>
+							<p class="mt_s">
+								Gecko는 다음 MIME 유형을 Ogg 파일로 인식합니다.
+							</p>
+							<div class="mt_m line_code">
+								<p><b>audio/ogg</b> - 오디오만 포함 된 ogg 파일.</p>
+								<p><b>video/ogg</b> - 비디오(및 가능하게는 오디오)를 포함한 ogg 파일.</p>
+								<p><b>application/ogg</b> - 불특정 콘텐츠를 가진 ogg 파일. 다른 두 MIME 유형 중 하나를 사용하는 것이 좋지만 파일의 내용을 모르는 경우 이 방법을 사용할 수 있습니다.</p>
+							</div>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>오그 오푸스</h3>
+							<p class="mt_s">
+								Ogg 컨테이너에는 Opus 코덱을 사용하여 인코딩한 오디오도 포함될 수 있습니다.<br>
+								이 기능은 Gecko 15.0 (Firefox 15.0 / Thunderbird 15.0 / SeaMonkey 2.12) 이상에서 데스크탑 및 모바일 브라우저에서 사용할 수 있습니다.
+							</p>
+							<p class="mt_s">
+								Firefox는 다음 MIME 유형을 인식합니다.
+							</p>
+							<div class="mt_m line_code">
+								<p><b>audio/ogg; codecs=opus</b></p>
+							</div>
+						</li>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>오그 FLAC</h3>
+							<p class="mt_s">
+								Ogg 컨테이너에는 FLAC 코덱을 사용하여 인코딩한 오디오도 포함될 수 있습니다.<br>
+								이 기능은 Gecko 51.0 (Firefox 51.0 / Thunderbird 51.0 / SeaMonkey 2.48)에서 사용할 수 있으며, 나중에 데스크탑 및 모바일 Gecko 58.0(Firefox 58.0 / Thunderbird 58.0 / SeaMonkey 2.55)에서 사용할 수 있습니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>웨이브 PCM</h3>
+							<p class="mt_s">
+								PCM 오디오 코덱(WAVE 코덱 &quot;1&quot;)이 있는 WAVE 컨테이너 형식은 데스크탑 / 모바일 Gecko (Firefox) 및 Safari에서 지원됩니다.<br>
+								WAVE 컨테이너 형식의 파일은 대개 &quot;.wav&quot; 확장자로 끝납니다.
+							</p>
+							<p class="mt_s">
+								Gecko는 다음 MIME 유형을 WAVE 오디오 파일로 인식합니다.
+							</p>
+							<div class="mt_m line_code">
+								<p><b>audio/wave</b> (기본 설정, Chrome에서는 작동하지 않음)</p>
+								<p><b>audio/wav</b></p>
+								<p><b>audio/x-wav</b></p>
+								<p><b>audio/x-pn-wav</b></p>
+							</div>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>FLAC</h3>
+							<p class="mt_s">
+								FLAC 오디오 코덱 (FLAC 코덱)이 있는 FLAC 컨테이너 형식은<br>
+								데스크탑 Gecko Firefox 51.0 (Firefox 51.0 / Thunderbird 51.0 / SeaMonkey 2.48) 및 모바일 Gecko 58.0 (Firefox 58.0 / Thunderbird 58.0 / SeaMonkey 2.55)에서 지원됩니다.<br>
+								FLAC 컨테이너 형식의 파일은 대개 &quot;.flac&quot; 확장자로 끝납니다.
+							</p>
+							<p class="mt_s">
+								Gecko는 다음 MIME 유형을 FLAC 오디오 파일로 인식합니다.
+							</p>
+							<div class="mt_m line_code">
+								<p><b>audio/flac</b>(선호)</p>
+								<p><b>audio/x-flac</b></p>
+							</div>
+						</li>
+					</ol>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.5.4. 브라우저별 파일형식, 지원코덱</h2>
+					<ol class="ol_lst indent">
+						<li class="mt_m"><b>파이어폭스 :</b> ogg 테오라</li>
+						<li class="mt_s"><b>오페라 :</b> ogg 테오라</li>
+						<li class="mt_s"><b>사파리 :</b> mp4 H.264</li>
+						<li class="mt_s"><b>크롬 :</b> ogg, mp4 테오라, H.264</li>
+						<li class="mt_s"><b>아이폰, 안드로이드 :</b> mp4 H.264</li>
+						<li class="mt_s"><b>익스플로러 9+ :</b> mp4 H.264C</li>
+						<li class="mt_s"><b>익스플로러 8 :</b> 지원안함</li>
+					</ol>
+				</section>
 				
 				<footer class="reference_box">
 					<strong class="tit">내장 컨텐츠<span>(Embedded content)</span> 참조</strong>
@@ -1271,7 +1698,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="6.5. video element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

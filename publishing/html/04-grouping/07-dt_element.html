@@ -894,13 +894,49 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="4.7. ">dt element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="4.7. ">dt <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;dt&gt;</code>(definition term element)는 정의 목록에서 용어를 구분합니다.<br>
+						이 요소는 <code>&lt;dl&gt;</code> 요소의 자식으로서만 사용할 수 있습니다.<br>
+						보통 이것은 <code>&lt;dd&gt;</code>요소 전에 나오는데, 연속적으로 나오는 여러 개의 <code>&lt;dt&gt;</code>요소는
+						바로 다음에 나오는 <code>&lt;dd&gt;</code>요소에 의해 정의되는 몇 개의 용어를 가리킵니다.<br>
+						<code>&lt;dd&gt;</code>요소 없이 <code>&lt;dt&gt;</code>요소 단독으로는 사용할 수 없습니다.<br>
+						종료 태그는 이 요소 바로 뒤에 다른 <code>&lt;dd&gt;</code> 태그가 따라오거나, 부모 요소에 더 이상 다른 요소가 없을떄 생략 가능합니다.<br>
+						종료 태그를 사용하는 것에 대한 습관을 들이는 것을 권장합니다.
+					</p>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="view_editor ex_code mt_xxl" data-target="html/04-grouping/4.7.dt_element/4.7.dt_element.html">
+					<h2 class="ve_tit">기본 문법</h2>
+					<div class="uk_gist_code_box indent mt_ms" data-tit="dt element">
+						<textarea readonly="readonly">
+							<dl>
+								<dt>Denim (semigloss finish)</dt>
+								<dd>Ceiling</dd>
+
+								<dt>Denim (eggshell finish)</dt>
+								<dt>Evening Sky (eggshell finish)</dt>
+								<dd>Layered on the walls</dd>
+							</dl>
+						</textarea>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="dt">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">콘텐츠 그룹화<span>(Grouping content)</span> 참조</strong>
@@ -1269,7 +1305,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="4.7. dt element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

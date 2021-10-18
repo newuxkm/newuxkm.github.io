@@ -894,13 +894,64 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="5.4. ">strong element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="5.4. ">strong <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;strong&gt;</code> 요소는 해당 콘텐츠의 중요성이나 심각함, 긴급함 등을 강조할 때 사용합니다.<br>
+						브라우저는 일반적으로 <code>&lt;strong&gt;</code> 요소의 콘텐츠를 굵은 텍스트로 표현합니다.
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="strong element CSS default">
+							<textarea readonly="readonly">
+								strong {
+									font-weight: bold;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.4.strong_element.html">
+					<h2 class="ve_tit">strong element 예제</h2>
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2><mark><code>&lt;strong&gt;</code></mark> vs. <mark><code>&lt;em&gt;</code></mark></h2>
+					<p class="indent">
+						HTML4에서 <code>&lt;strong&gt;</code>은 좀 더 강한 <!--emphasis--><code>&lt;em&gt;</code>으로 인식되었습니다.
+						하지만 HTML5에서 <code>&lt;strong&gt;</code> 태그는 &quot;콘텐츠에서 가장 중요한 부분&quot;을 나타냅니다. 이것이 가장 큰 차이점입니다.<br>
+						<!--emphasis--><code>&lt;em&gt;</code>은 (&quot;I love carrots&quot; vs. &quot;I love carrots&quot;)와 같은 구어체 강조와 같이 문장의 의미를 변경하는데 사용되지만,
+						<code>&lt;strong&gt;</code>은 (e.g., &quot;Warning! This is very dangerous.&quot;)와 같이 문장의 일부분에 중요도를 추가하고 싶을 때 사용됩니다.<br>
+						<code>&lt;strong&gt;</code>과 <!--emphasis--><code>&lt;em&gt;</code>을 각각 중첩해서 사용함으로써 중요성이나 강조의 상대적인 정도를 증가시킬 수 있습니다.
+					</p>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2><mark><code>&lt;strong&gt;</code></mark> vs. <mark><code>&lt;b&gt;</code></mark></h2>
+					<p class="indent">
+						<code>&lt;b&gt;</code> 요소는 콘텐츠의 중요성보다는 텍스트 자체에 주의를 끌기 위해 사용되지만,
+						<code>&lt;strong&gt;</code> 요소는 콘텐츠 자체의 중요성을 강조할 때 사용됩니다.
+					</p>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="strong">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">1.0</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">문자 컨텐츠<span>(Text-level semantics)</span> 참조</strong>
@@ -1269,7 +1320,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="5.4. strong element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

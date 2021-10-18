@@ -896,13 +896,70 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="6.13. ">param element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="6.13. ">param <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;object&gt;</code> 요소에 의해 호출되는 플러그인의 매개 변수(parameter)를 정의할 때 사용합니다.<br>
+						단일 요소이며, HTML에서는 <code>&lt;param&gt;</code> 요소를 닫지 않지만, XHTML에서는 반드시 태그를 닫아야만 합니다.
+					</p>
+					<p class="mt_s">
+						HTML5에서는 <code>&lt;param&gt;</code>요소에서 type, valuetype 속성을 더 이상 지원하지 않습니다.
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="param element CSS default">
+							<textarea readonly="readonly">
+								param {
+									display: none;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="txt_ex mt_xxl">
+					<h2>6.13.1. param 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[name] <span class="t_blue">&lt;param name="이름"&gt;</span></h3>
+						<p class="mt_ms">
+							매개변수의 이름을 명시합니다.
+							이 속성은 value 속성과 함께 사용하여 <code>&lt;object&gt;</code> 요소에 의해 호출되는 플러그인의 매개변수(parameter)를 명시합니다.
+							name 속성값에는 명시된 객체가 지원하는 이름이라면 어떠한 이름이라도 사용할 수 있습니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[value] <span class="t_blue">&lt;param value="값"&gt;</span></h3>
+						<p class="mt_ms">
+							매개변수의 값을 명시합니다.
+							이 속성은 name 속성과 함께 사용하여 <code>&lt;object&gt;</code> 요소에 의해 호출되는 플러그인의 매개변수(parameter)를 명시합니다.
+							value 속성값에는 명시된 객체가 지원하는 값이라면 어떠한 값이라도 사용할 수 있습니다.
+						</p>
+					</article>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.13.param_element.html">
+					<h2 class="ve_tit">param element 예제</h2>
+					<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="param">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">1.0</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">내장 컨텐츠<span>(Embedded content)</span> 참조</strong>
@@ -1271,7 +1328,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="6.13. param element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

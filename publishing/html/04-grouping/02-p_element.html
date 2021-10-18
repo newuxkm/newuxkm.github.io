@@ -894,13 +894,112 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="4.2. ">p element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="4.2. ">p <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						시작 태그는 필수이며, 닫는 태그는 <code>&lt;p&gt;</code> 요소의 바로 뒤에
+						<code>&lt;address&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;blockquote&gt;</code>,
+						<code>&lt;div&gt;</code>, <code>&lt;dl&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;form&gt;</code>,
+						<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>,
+						<code>&lt;header&gt;</code>, <code>&lt;hr&gt;</code>, <code>&lt;menu&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;ol&gt;</code>,
+						<code>&lt;pre&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;table&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;p&gt;</code>
+						요소가 위치하는 경우 또는, 부모 태그의 콘텐츠가 더 존재하지 않고 부모가 <code>&lt;a&gt;</code> 요소가 아닐 때 생략할 수 있습니다.
+						<br>
+						종료 태그를 사용하는 것에 대한 습관을 들이는 것을 권장합니다.
+					</p>
+				</blockquote>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="ol_lst mt_l">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						단락(paragraph)이란 내용상 끊어서 구분할 수 있는 하나하나의 부분을 의미하며, 문단이라고도 부릅니다.<br>
+						HTML에서는 <code>&lt;p&gt;</code>태그를 이용하여 이러한 단락을 표현합니다.<br>
+						브라우저 기본 스타일은 문단끼리 한 줄의 간격으로 분리합니다. 첫 줄 들여쓰기 등 다른 구분 방법은 CSS를 통해 사용할 수 있습니다.
+					</p>
+					<ol class="indent mt_s">
+						<li>콘텐츠를 문단으로 나누면 페이지의 접근성을 높입니다.</li>
+						<li>스크린 리더 등 보조 기술은 다음 문단으로 넘어갈 수 있는 단축키 등을 제공하므로, 시각적 매체의 여백이 사용자의 빠른 콘텐츠 탐색을 돕는 것과 같은 효과를 얻을 수 있습니다.</li>
+						<li>빈 <code>&lt;p&gt;</code> 요소를 사용해 두 문단에 여백을 추가하는건 스크린 리더 사용자에게 부정적인 경험을 줄 수 있습니다.</li>
+						<li>스크린 리더가 문단의 존재는 알려주고서 그 내용은, 사실 아무 내용도 없기 때문에, 읽지 않을 것이기 때문에 스크린 리더 사용자는 혼란스러울 수 있습니다.</li>
+						<li>여분의 공간이 필요하다면 margin 등 CSS 속성을 통해 적용하세요.</li>
+					</ol>
+				</section>
+
+				<section class="ex_code view_editor mt_xxl">
+					<h2 class="ve_tit">예제</h2>
+
+					<div class="uk_gist_code_box indent mt_ms" data-tit="p element">
+						<textarea readonly="readonly">
+							<section>
+								<p>Geckos are a group of usually small, usually nocturnal lizards. They are found on every continent except Australia.</p>
+								<p>Many species of gecko have adhesive toe pads which enable them to climb walls and even windows.</p>
+							</section>
+						</textarea>
+					</div>
+
+					<div class="uk_gist_code_box indent mt_ms" data-tit="p element">
+						<textarea readonly="readonly">
+							&lt;fieldset&gt;
+								&lt;legend&gt;Personal information&lt;/legend&gt;
+								&lt;p&gt;
+									&lt;label&gt;Name: &lt;input name=&quot;n&quot;&gt;&lt;/label&gt;
+									&lt;label&gt;&lt;input name=&quot;anon&quot; type=&quot;checkbox&quot;&gt; Hide from other users&lt;/label&gt;
+								&lt;/p&gt;
+								&lt;p&gt;&lt;label&gt;Address: &lt;textarea name=&quot;a&quot;&gt;&lt;/textarea&gt;&lt;/label&gt;&lt;/p&gt;
+							&lt;/fieldset&gt;
+						</textarea>
+					</div>
+
+					<div class="uk_gist_code_box indent mt_ms" data-tit="p element">
+						<textarea readonly="readonly">
+							<!-- 기술적으로 올바른 예시 -->
+							<section>
+								<p>Last modified: 2001-04-23</p>
+								<p>Author: fred@example.com</p>
+							</section>
+
+							<!-- 위의 기술적인 예시보다 아래 예시가 W3C에서 제공하는 올바른 예 -->
+							<section>
+								<footer>Last modified: 2001-04-23</footer>
+								<address>Author: fred@example.com</address>
+							</section>
+							Or:
+							<section>
+								<footer>
+									<p>Last modified: 2001-04-23</p>
+									<address>Author: fred@example.com</address>
+								</footer>
+							</section>
+						</textarea>
+					</div>
+
+					<div class="uk_gist_code_box indent mt_ms" data-tit="p element">
+						<textarea readonly="readonly">
+							<p>For instance, this fantastic sentence has bullets relating to</p>
+							<ul>
+								<li>wizards,</li>
+								<li>faster-than-light travel, and</li>
+								<li>telepathy,</li>
+							</ul>
+							<p>and is further discussed below.</p>
+						</textarea>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="p">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">지원</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">콘텐츠 그룹화<span>(Grouping content)</span> 참조</strong>
@@ -1269,7 +1368,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="4.2. p element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

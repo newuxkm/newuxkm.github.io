@@ -894,13 +894,60 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="5.6. ">br element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="5.6. ">br <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;br&gt;</code> 요소는 텍스트 내의 줄바꿈(line-break)을 정의할 때 사용합니다.<br>
+						HTML 소스 코드 내에서는 엔터(Enter)를 사용하여 줄바꿈을 실시하여도 브라우저 화면에 실제로 적용되지는 않습니다.<br>
+						따라서 <code>&lt;br&gt;</code> 요소는 주소(address)나 시(poem) 등 줄바꿈이 중요한 텍스트에 유용하게 사용됩니다.
+					</p>
+					<p class="mt_s">
+						<code>&lt;br&gt;</code> 요소는 빈 태그(empty)로, 종료 태그가 존재하지 않습니다.<br>
+						HTML4에서는 <code>&lt;br&gt;</code> 요소를 닫지 않지만, XHTML에서는 다음과 같이 반드시 태그를 닫아야만 합니다.<br>
+						HTML5에서는 <code>&lt;br&gt;</code> 요소의 종료 태그 닫아도 되고 닫지 않는것 모두 허용합니다.
+					</p>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+					<div class="line_code mt_ms">
+						<strong class="t_green weight-600">기본 문법 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="br element">
+						<textarea readonly="readonly">
+							<!-- xhtml -->
+							<p>
+								UXKM 홈페이지는 강의 목적으로 제작되었으며,<br />
+								공부를 위해 홈페이지에 접속한 모두를 환영합니다.
+							</p>
+
+							<!-- html5 -->
+							<p>
+								UXKM 홈페이지는 강의 목적으로 제작되었으며,<br>
+								공부를 위해 홈페이지에 접속한 모두를 환영합니다.
+							</p>
+						</textarea>
+						</div>
+					</div>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.6.br_element.html">
+					<h2 class="ve_tit">br element 예제</h2>
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="br">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">1.0</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">문자 컨텐츠<span>(Text-level semantics)</span> 참조</strong>
@@ -1269,7 +1316,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="5.6. br element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

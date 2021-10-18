@@ -894,13 +894,58 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="5.12. ">mark element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="5.12. ">mark <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="ol_lst mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;mark&gt;</code> 요소는 <mark>형광펜으로 칠한 것처럼 하이라이트된(highlighted) 텍스트</mark>를 정의할 때 사용합니다.<br>
+						예를 들면, 검색 결과에서 검색에 대한 단어의 모든 인스턴스를 표시하기 위해 사용될 수 있습니다.<br>
+						<code>&lt;mark&gt;</code> 요소는 HTML5에서 새롭게 추가된 요소입니다.
+					</p>
+					<ol class="indent mt_s">
+						<li>
+							인용 (<code>&lt;q&gt;</code>) 또는 블록 인용 (<code>&lt;blockquote&gt;</code>)에 사용되는 경우
+							일반적으로 특별한 관심이 있지만 원본 소스 자료에 표시되지 않은 텍스트 또는 원저자가 생각하지 않았더라도 특별한 조사가 필요한 자료를 나타냅니다.<br>
+							특히 중요합니다. 책에서 형광펜을 사용하여 관심있는 구절을 표시하는 것과 같이 생각하십시오.
+						</li>
+						<li>
+							그렇지 않으면, <code>&lt;mark&gt;</code> 사용자의 현재 활동과 관련이 있을 수 있는 문서 내용의 일부를 나타냅니다.
+							예를 들어 검색 작업과 일치하는 단어를 나타내는 데 사용할 수 있습니다.
+						</li>
+					</ol>
+					<div class="line_code mt_ms">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="mark element CSS default">
+							<textarea readonly="readonly">
+								mark {
+									background-color: yellow;
+									color: black;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.12.mark_element.html">
+					<h2 class="ve_tit">mark element 예제</h2>
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="mark">
+					<ul>
+						<li class="ie">9+</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">4.0</li>
+						<li class="opera">11.0</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">문자 컨텐츠<span>(Text-level semantics)</span> 참조</strong>
@@ -1269,7 +1314,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="5.12. mark element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

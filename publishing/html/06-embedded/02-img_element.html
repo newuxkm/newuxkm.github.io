@@ -896,13 +896,331 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="6.2. ">img element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="6.2. ">img <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;img&gt;</code> 요소는 빈 요소(empty elements) 또는 단일요소 이며, HTML 문서에서 이미지(image)를 정의할 때 사용합니다.<br>
+						<code>&lt;img&gt;</code> 요소로 정의된 이미지는 HTML 문서에 직접 삽입되는 것이 아니라, HTML 문서에 이미지가 링크되는 형태입니다.<br>
+						즉, <code>&lt;img&gt;</code> 요소는 참조된 이미지를 위한 일종의 수용 공간을 만들어 주는 것입니다.
+					</p>
+					<p class="mt_s">
+						<code>&lt;img&gt;</code> 요소에는 src(source) 속성과 alt(alternative text) 속성을 반드시 명시해야만 합니다.<br>
+						HTML5에서는 <code>&lt;img&gt;</code> 요소의 align, border, hspace, vspace 속성을 더 이상 지원하지 않습니다.<br>
+						HTML에서는 <code>&lt;img&gt;</code> 요소를 닫지 않지만, XHTML에서는 다음과 같이 반드시 요소를 닫아야만(/) 합니다.
+					</p>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="img element CSS default">
+							<textarea readonly="readonly">
+								img {
+									display: inline-block;
+								}
+							</textarea>
+						</div>
+					</div>
+
+					<div class="line_code mt_ms">
+						<strong class="t_blue weight-600">DOCTYPE 별 문법 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="img element">
+							<textarea readonly="readonly">
+								<!-- HTML -->
+								<img src="images/html/content-venn.png" alt="HTML 콘텐츠 모델">
+
+								<!-- XHTML -->
+								<img src="images/html/content-venn.png" alt="HTML 콘텐츠 모델" />
+							</textarea>
+						</div>
+					</div>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.2.1. img 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[src] <span class="t_blue">&lt;img src=&quot;URL&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							이 속성은 <code>&lt;img&gt;</code>요소에 필수입니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[alt] <span class="t_blue">&lt;img alt=&quot;이미지 대체 텍스트&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							이미지를 보여줄 수 없을 때 해당 이미지를 대체할 텍스트를 명시합니다.<br>
+							이러한 alt 속성은 사용자가 느린 네트워크 환경이나 src 속성값의 오류,
+							시각 장애인용 스크린 리더의 사용 등 어떤 이유로든 사용자가 이미지를 볼 수 없을 때 이미지 대신 제공할 대체 정보를 제공합니다.
+						</p>
+						<ol class="ol_lst mt_s indent">
+							<li>만약 이미지가 정보를 포함하고 있다면, 텍스트는 이미지를 묘사해야 합니다.</li>
+							<li>만약 이미지가 <code>&lt;a&gt;</code> 요소 내에 위치하고 있다면, 텍스트는 링크가 어디와 연결되어 있는지를 설명해야 합니다.</li>
+							<li>만약 이미지가 정보를 포함하지 않은 단순한 장식이라면 <code>alt=&quot;&quot;</code>와 같이 사용해야 합니다만, 이런 경우에는 css를 사용하여 배경(background-image)으로 사용하는 것을 권장합니다.</li>
+						</ol>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[width], [height]</h3>
+						<p class="mt_ms">
+							<code>&lt;img width=&quot;이미지의 너비를 픽셀(pixel) 단위로 명시함&quot; height=&quot;이미지의 높이를 픽셀(pixel) 단위로 명시함&quot;&gt;</code><br>
+							이미지의 height 속성과 width 속성은 언제나 명시하는 것이 좋습니다.<br>
+							이 속성들이 명시되어 있으면 웹 페이지가 로드될 때 브라우저가 해당 이미지를 위한 적절한 공간을 남겨둘 수 있지만,
+							이 속성들이 명시되어 있지 않으면 브라우저는 이미지의 크기를 알 수 없어 필요한 공간을 남겨둘 수 없게 됩니다.<br>
+							따라서 이미지가 로딩되는 순간 페이지의 레이아웃이 변형되는 결과를 초래할 수 있습니다.<br>
+							height 속성과 width 속성을 사용하여 크기가 큰 이미지를 작게 보이도록 했을지라도 사용자가 해당 이미지를 다운로드하면 여전히 원본 크기의 이미지를 내려받게 됩니다.<br>
+							따라서 사용자에게 현재 화면에 출력된 크기의 이미지를 내려받게 하고 싶다면 이미지를 웹 페이지에 사용하기 전에 이미지의 크기를 재조정하여 사용해야 합니다.<br>
+							HTML 4.01에서 <code>&lt;img&gt;</code> 요소의 width, height 속성값은 픽셀(pixel) 단위뿐만 아니라 퍼센트(%) 단위로도 정의할 수 있었습니다.<br>
+							하지만 HTML5에서는 오직 픽셀(pixel) 단위만을 사용해야 합니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[usemap] <span class="t_blue">&lt;img usemap=&quot;#맵이름&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;img&gt;</code> 요소의 usemap 속성은 클라이언트 사이드 이미지 맵(client-side image-map)으로 이미지를 명시합니다.<br>
+							usemap 속성은 <code>&lt;map&gt;</code> 요소의 name 속성과 결합하여, <code>&lt;img&gt;</code> 요소와 <code>&lt;map&gt;</code> 요소 사이의 관계를 생성합니다.<br>
+							만약 해당 <code>&lt;img&gt;</code> 요소가 <code>&lt;a&gt;</code>요소나 <code>&lt;button&gt;</code> 요소의 자손 요소(descendant element)이면 usemap 속성은 사용할 수 없습니다.
+						</p>
+						<ol class="ol_lst mt_s indent">
+							<li>#맵이름 값 : 해시 문자(#)와 함께 사용할 <code>&lt;map&gt;</code> 요소의 name 속성값을 명시합니다.</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="img element [usemap] attribute" data-ex="img_area">
+							<textarea readonly="readonly">
+								<img src="/examples/images/img_imagemap.jpg" alt="진실 혹은 거짓" usemap="#vending" style="width:320px; height:240px" />
+								<map name="vending">
+									<area>
+									<area>
+								</map>
+							</textarea>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[ismap] <span class="t_blue">&lt;img ismap&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;img&gt;</code> 요소의 ismap 속성은 해당 이미지가 서버 사이드 이미지맵(server-side image map)의 일부인지 여부를 명시합니다.<br>
+							이 속성은 해당 <code>&lt;img&gt;</code> 요소가 유효한 href 속성값을 가지는 <code>&lt;a&gt;</code> 요소의 자손 요소인 경우에만 허용됩니다.<br>
+							ismap 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.<br>
+							XHTML에서는 속성값을 생략할 수 없으므로, 다음과 같이 속성명과 속성값을 모두 명시해야만 합니다.<br>
+							<code>&lt;img ismap=&quot;ismap&quot; /&gt;</code>
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[srcset] <span class="t_blue">&lt;img srcset=&quot;/images/img1.jpg 960w, /images/img2.jpg 575w&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							이 브라우저에 제시할(사용할) 이미지들과 그 이미지들의 원본 크기를 지정합니다.<br>
+							다양한 상황 (예 : 고해상도 디스플레이, 소형 모니터 등)에서 사용할 이미지<br>
+							<code>&lt;img&gt;</code> 요소의 srcset 속성은 각각 다른 환경에서 사용될 이미지 소스를 명시합니다.<br>
+							srcset 속성은 브라우저가 사용할 수 있는 이미지 소스를 나타내는 하나 이상의 문자열을 콤마(,)로 결합한 리스트를 속성값으로 가집니다.<br>
+							각 이미지 소스를 나타내는 문자열은 다음과 같이 구성됩니다.<br>
+							<mark>Internet Explorer는 지원하지 않습니다.</mark>
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li class="line_code font14">
+								<strong>w 단위(Width descriptor)는 이미지의 원본 크기(가로 너비)를 의미합니다. 예를 들어 400x300(px) 크기 이미지의 w값은 400w입니다.</strong>
+								<p>뷰포트 너비가 400px 이하일 때 small.png(400px)가 사용됩니다.</p>
+								<p>뷰포트 너비가 401~700px 일 때 medium.png(700px)가 사용됩니다.</p>
+								<p>뷰포트 너비가 701px 이상일 때 large.png(1000px)가 사용됩니다.</p>
+								<p><code>&lt;img srcset=&quot;small.png 400w, medium.png 700w, large.png 1000w&quot; src=&quot;img.png&quot; alt=&quot;img&quot;&gt;</code></p>
+							</li>
+							<li class="line_code font14 mt_s">
+								<strong>x 단위(Device pixel ratio descriptor)는 이미지의 비율 의도를 의미합니다.</strong>
+								<p>w 단위를 사용하면 x 단위를 사용할 필요가 없습니다. 대부분의 경우 w 단위를 사용하면 됩니다.</p>
+								<p><code>&lt;img srcset=&quot;small.png 1x, medium.png 1.75x, large.png 2.5x&quot; src=&quot;images/img.png&quot; alt=&quot;img&quot;&gt;</code></p>
+							</li>
+						</ol>
+						<aside class="browser_support mt_m" data-tit="srcset">
+							<ul>
+								<li class="ie false">지원안함</li>
+								<li class="edge">지원</li>
+								<li class="chrome">34.0</li>
+								<li class="firefox">38.0</li>
+								<li class="opera">21.0</li>
+								<li class="safari">8.0</li>
+							</ul>
+						</aside>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[sizes] <span class="t_blue">&lt;img sizes=&quot;(min-width: 960px) 50vw, (min-width: 575px) 75vw, 100vw&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							미디어조건과 그 조건에 해당하는 이미지의 ‘최적화 출력 크기’를 지정합니다.<br>
+							<code>&lt;img&gt;</code> 요소의 sizes 속성은 서로 다른 페이지 레이아웃에 대한 이미지 소스의 크기를 명시합니다.<br>
+							sizes 속성은 이미지 소스의 크기를 나타내는 하나 이상의 문자열을 콤마(,)로 결합한 리스트를 속성값으로 가집니다.<br>
+							각 이미지 소스의 크기를 나타내는 문자열은 다음과 같이 구성됩니다.<br>
+							<mark>Internet Explorer는 지원하지 않습니다.</mark>
+						</p>
+						<ol class="ol_lst mt_s indent">
+							<li>미디어 상태(마지막 아이템에서는 생략함).</li>
+							<li>이미지 소스의 크기값.</li>
+							<li>sizes와 width를 같이 작성할 경우 width가 우선합니다.</li>
+							<li>srcset 속성은 쉼표(,)로 구분된 사용할 이미지들의 경로와 해당 이미지의 원본 크기를 지정하고,</li>
+							<li>sizes 속성은 쉼표(,)로 구분된 미디어조건(선택적)과 그에 따라 최적화되어 출력될 이미지 크기를 지정합니다.</li>
+							<li>src 속성은 srcset을 사용할 수 없는 환경에서 동작합니다.</li>
+						</ol>
+
+						<div class="mt_m">
+							<strong class="t_blue weight-600">sizes 기본 문법 :</strong>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="img element [sizes] attribute">
+								<textarea readonly="readonly">
+									<img srcset="/images/image_960.jpg 960w, /images/people_575.jpg 575w"
+										 sizes="(min-width: 960px) 50vw, (min-width: 575px) 75vw, 100vw"
+										 src="/images/people_575.jpg" alt="people">
+
+									<img srcset="경로 원본크기, 경로 원본크기, 경로 원본크기"
+										 sizes="(미디어조건) 최적화출력크기, (미디어조건) 최적화출력크기, 기본출력크기"
+										 src="경로" alt="대체텍스트">
+								</textarea>
+							</div>
+						</div>
+
+						<div class="mt_m">
+							<strong class="t_blue weight-600">미디어 조건 예 :</strong>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="img element [sizes] attribute">
+								<textarea readonly="readonly">
+									<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+										 sizes="(min-width: 1000px) 700px"
+										 src="default.png" alt="default">
+								</textarea>
+							</div>
+							<p class="indent mt_ms">
+								뷰포트 너비가 400px 이하일 때 small.png(400px)가 사용됩니다.<br />
+								뷰포트 너비가 401~700px 일 때 medium.png(700px)가 사용됩니다.<br />
+								뷰포트 너비가 701~999px 일 때 large.png(1000px)가 사용됩니다.<br />
+								뷰포트 너비가 1000px 이상일 때 medium.png(700px)가 사용됩니다.<br />
+							</p>
+							<p class="indent mt_s">
+								sizes="(min-width: 1000px) 700px"에서 (min-width: 1000px)은 ‘뷰포트 너비(가로)가 1000px 이상일 때’를 의미하며,<br />
+								이어나오는 700px은 그 조건일 때 이미지를 ‘700px로 최적화 출력하겠다’를 의미합니다.<br />
+								그렇다면 700px로 이미지를 출력하기 위해 srcset 목록에서 사용될 최적의 이미지는 medium.png이며,<br />
+								결과로 뷰포트 너비(가로)가 1000px 이상일 때 medium.png가 사용되었습니다.
+							</p>
+						</div>
+
+						<div class="mt_m">
+							<strong class="t_blue weight-600">미디어 조건 생략 예 :</strong>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="img element [sizes] attribute">
+								<textarea readonly="readonly">
+									<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+										 sizes="500px"
+										 src="default.png" alt="default">
+								</textarea>
+							</div>
+							<p class="indent mt_ms">
+								위 예제의 결과로, 뷰포트 너비와 상관없이 medium.png만 사용됩니다.<br />
+								또한 medium.png는 500px의 크기를 가집니다.(원래는 700px 크기의 이미지입니다.)
+							</p>
+						</div>
+
+						<div class="mt_m">
+							<strong class="t_blue weight-600">sizes는 없고 width만 있는 경우 예 :</strong>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="img element [sizes] attribute">
+								<textarea readonly="readonly">
+									<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+										 width="500"
+										 src="default.png" alt="default">
+								</textarea>
+							</div>
+							<p class="indent mt_ms">
+								위 예제의 결과로,<br />
+								뷰포트 너비가 400px 이하일 때 small.png가 사용됩니다.<br />
+								뷰포트 너비가 401~700px 일 때 medium.png가 사용됩니다.<br />
+								뷰포트 너비가 701px 이상일 때 large.png가 사용됩니다.<br />
+								뷰포트 너비에 따라 사용되는 이미지가 달라지지만 크기는 500px로 고정되었습니다.
+							</p>
+							<p class="indent mt_s">
+								width는 이미지의 ‘출력 크기’만 지정하는 데 반해, sizes는 이미지의 ‘출력 크기’ + ‘최적 크기’도 함께 지정하는 개념입니다.<br />
+								따라서 sizes="500px"이 지정된 첫번째 예제는 500px에 최적화된 이미지로 medium.png를 사용했고 이미지 크기도 500px로 설정한 것입니다.
+							</p>
+							<p class="indent mt_s">
+								sizes와 width를 같이 작성할 경우 width가 우선합니다.
+							</p>
+						</div>
+
+						<div class="mt_m">
+							<strong class="t_blue weight-600">혼합하여 사용하는 경우 예 :</strong>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="img element [sizes] attribute">
+								<textarea readonly="readonly">
+									<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+										 sizes="(min-width: 701px) 1000px, (min-width: 401px) 700px, 400px"
+										 src="default.png" alt="default">
+
+									<!-- 위 예제는 아래와 동일하기 때문에 sizes를 사용할 필요가 없음 -->
+									<img srcset="small.png 400w, medium.png 700w, large.png 1000w"
+										 src="default.png" alt="default">
+								</textarea>
+							</div>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[crossorigin] <span class="t_blue">&lt;img crossorigin=&quot;anonymous | use-credentials&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;canvas&gt;</code> 요소에 사용될 이미지에 교차 출처 접근(cross-origin access)을 허용하는 제3의 사이트(third-party site)로부터의 이미지 허용 여부를 명시합니다.
+						</p>
+						<ol class="ol_lst mt_s indent">
+							<li>
+								anonymous 값 : 교차 출처 요청(예 : Origin:HTTP 헤더 사용)이 수행되지만 자격 증명이 전송되지 않습니다.<br>
+								(예 : 쿠키, X.509 인증서 또는 HTTP 기본 인증 없음).<br>
+								서버가 Access-Control-Allow-OriginHTTP 헤더를 설정하지 않고 원본 사이트에 자격 증명을 제공하지 않으면 이미지가 오염되고 사용이 제한됩니다.
+							</li>
+							<li>
+								use-credentials : Origin 전송된 자격 증명<br>
+								(예 : 쿠키, 인증서 또는 HTTP 기본 인증)과 함께 수행되는 교차 출처 요청(즉, HTTP 헤더 사용)<br>
+								서버가 Access-Control-Allow-CredentialsHTTP 헤더를 통해 원본 사이트에 자격 증명을 제공하지 않으면 이미지가 오염되고 사용이 제한됩니다.<br>
+								속성이 없으면 CORS 요청없이(즉, OriginHTTP 헤더 를 보내지 않고) 리소스를 가져와서 <code>&lt;canvas&gt;</code>요소 에서 오염되지 않은 사용을 방지합니다.
+								유효하지 않은 경우, anonymous값이 사용된 것처럼 처리됩니다.
+							</li>
+						</ol>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[longdesc] <span class="t_blue">&lt;img longdesc=&quot;[html-longdesc]에 정의 된 이미지의 확장 된 설명에 대한 링크를 제공하는 URL&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;img&gt;</code> 요소의 longdesc 속성은 이미지에 대한 alt 속성의 설명이 부족한 경우 longdesc 속성을 제공하여 부가적인 설명을 제공하는 URL을 명시합니다.<br>
+							현재는 접근성 관련하여 이 속성보다는 다른방법으로 대체하는 것을 권장합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="img element [longdesc] attribute">
+								<textarea readonly="readonly">
+									<header>
+										<h1>The Lady of Shalott</h1>
+										<p>A poem by Alfred Lord Tennyson</p>
+									</header>
+
+									<img src="shalott.jpeg" alt="Painting - a young woman with long hair, sitting in a wooden boat. Full description below."
+										 longdesc="#des">
+									<p><a href="#des">Description of the painting</a>.</p>
+
+									<!-- Full Recitation of Alfred, Lord Tennyson’s Poem.  -->
+
+									...
+									...
+									...
+									<p id="des">The woman in the painting is wearing a flowing white dress. A large piece of intricately
+										patterned fabric is draped over the side. In her right hand she holds the chain mooring the boat. Her expression
+										is mournful. She stares at a crucifix lying in front of her. Beside it are three candles. Two have blown out.
+										<a href="https://bit.ly/5HJvVZ">Further information about the painting</a>.
+									</p>
+								</textarea>
+						</div>
+					</article>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="img">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">지원</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">내장 컨텐츠<span>(Embedded content)</span> 참조</strong>
@@ -1271,7 +1589,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="6.2. img element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

@@ -896,13 +896,251 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" class="html5" data-number="6.6. ">audio element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" class="html5" data-number="6.6. ">audio <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						사운드 콘텐츠를 문서에 포함시키는 데 사용됩니다.<br>
+						src 속성 또는 <code>&lt;source&gt;</code> 요소를 사용하여 표현한 하나 이상의 오디오 소스를 포함할 수 있습니다.<br>
+						브라우저가 가장 적합한 것을 선택합니다. MediaStream을 사용하여 스트리밍 미디어의 대상이 될 수도 있습니다.<br>
+						autoplay가 지정된 경우, preload는 무시됩니다.
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="audio element CSS default">
+							<textarea readonly="readonly">
+								audio {
+									display: inline;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="txt_ex mt_xxl">
+					<h2>6.6.1. audio 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[src] <span class="t_blue">&lt;audio src=&quot;URL&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							삽입할 오디오의 URL입니다.<br>
+							오디오 블록 내의 <code>&lt;source&gt;</code> 요소를 사용하여 포함할 오디오를 지정할 수 있습니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[autoplay] <span class="t_blue">&lt;audio autoplay&gt;</span></h3>
+						<p class="mt_ms">
+							이 속성이 지정된 경우 오디오는 전체 오디오 파일의 다운로드가 완료될 때까지 기다리지 않고 자동으로 재생을 시작합니다.<br>
+							오디오(또는 오디오 트랙이 있는 비디오)를 자동으로 재생하는 사이트는 사용자에게 불편한 경험 일 수 있으므로 가능한 경우 피해야 합니다.<br>
+							자동 재생 기능을 제공해야 하는 경우 자동 재생 기능을 사용하도록 설정해야 합니다(사용자가 특별히 사용하도록 설정해야 합니다).<br>
+							그러나 나중에 사용자가 제어할 수 있도록 소스가 나중에 설정되는 미디어 요소를 만들 때 유용할 수 있습니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[controls] <span class="t_blue">&lt;audio controls&gt;</span></h3>
+						<p class="mt_ms">
+							이 속성이 있으면 브라우저는 볼륨, 탐색, 재생 일시 중지 / 다시 시작 등 오디오 재생을 제어할 수있는 컨트롤을 제공합니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[loop] <span class="t_blue">&lt;audio loop&gt;</span></h3>
+						<p class="mt_ms">
+							이 속성이 지정된 경우 오디오의 끝 부분에 도달하면 자동으로 시작 부분으로 되돌아갑니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[muted] <span class="t_blue">&lt;audio muted&gt;</span></h3>
+						<p class="mt_ms">
+							오디오가 처음에 소거 여부를 나타내는 Boolean 속성입니다. 기본값은 false 입니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[preload] <span class="t_blue">&lt;audio preload=&quot;none | metadata | auto&quot;&gt;</span></h3>
+						<p class="mt_ms">
+							음악을 재생하기 전에 사전 로드할 정보나 콘텐츠의 크기를 브라우저에 알려줍니다.<br>
+							스펙에서는 기본값으로 metadata를 권장하지만 설정하지 않았다면 각 브라우저가 정한 기본값을 설정하게 됩니다.
+						</p>
+						<p class="mt_s">
+							오디오를 자동으로 재생하려 한다면 브라우저가 이를 다운로드 해야 하기 때문에 autoplay 속성보다 우선시 됩니다.<br>
+							autoplay 속성과 preload 속성을 둘 다 설정하는 것은 스펙상 가능합니다만,<br>
+							브라우저가 이 속성을 반드시 스팩대로 따라야 하는 것은 아닙니다. 단지 힌트일 뿐입니다.
+						</p>
+						<div class="ol_lst indent mt_s">
+							<ol>
+								<li class="line_code font14">
+									<strong>none</strong>
+									<p>오디오가 사전 로드되지 않아야 함을 나타냅니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong>metadata</strong>
+									<p>오디오 메타 데이터(예 : 길이)를 사전 로드합니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong>auto</strong>
+									<p>사용자가 오디오 파일을 사용할 것으로 예상되지 않더라도 전체 오디오 파일을 다운로드 할 수 있음을 나타냅니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong>빈 문자열</strong>
+									<p>auto 와 동일합니다.</p>
+								</li>
+							</ol>
+						</div>
+						<p class="mt_s">
+							설정되지 않은 경우, 기본값은 브라우저 정의입니다.
+							(즉, 각 브라우저마다 고유한 기본값이 있을 수 있습니다).<br>
+							스펙에서는 metadata로 설정하도록 권고합니다.
+						</p>
+					</article>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.6.audio_element.html">
+					<h2 class="ve_tit">audio element 예제</h2>
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="audio">
+					<ul>
+						<li class="ie">9+</li>
+						<li class="edge">지원</li>
+						<li class="chrome">3.0</li>
+						<li class="firefox">3.5</li>
+						<li class="opera">10.5</li>
+						<li class="safari">3.1</li>
+					</ul>
+				</aside>
+
+				<hr class="dashed_line mt_xxl">
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.6.2. 오디오 코덱의 종류</h2>
+					<ol class="ol_lst indent">
+						<li class="mt_ml tit_h3">
+							<h3>MP3(MPEG-1 AUDIO Layer3)</h3>
+							<p class="mt_s">
+								MP3는 오디오 압축 형식으로 PCM 오디오 데이터 중에서 사람이 들을 수 없는 부분과 필요없는 부분을 버리고 인코딩하는 방식이며 1991년에 표준화되었고, 특허권이 등록되어 있습니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>AAC</h3>
+							<p class="mt_s">
+								애플의 아이폰, 아이팟, 아이튠즈에서 사용되는 기본 오디오 형식으로 채널이 2개인 MP3에 비해 채널을 최대 48개까지 확장하였습니다. 1997년에 표준화 되었고 특허권이 등록되어 있습니다.
+							</p>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>Vorbis</h3>
+							<p class="mt_s">
+								공개 오디오 코덱입니다. 확장자는 ogg나 oga를 사용합니다.<br>
+								Vorbis는 같은 비트 레이트의 MP3보다 음질이 좋고 AAC와는 비슷하거나 그 이상의 음질도 가능하지만 재생할 수 있는 플레이어가 적고 상대적으로 긴 인코딩 시간을 소비합니다.
+							</p>
+						</li>
+					</ol>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.6.3. 브라우저별 파일형식, 지원코덱</h2>
+					<ol class="ol_lst indent">
+						<li class="mt_m"><b>파이어폭스 :</b> Vorbis(.ogg, .oga)</li>
+						<li class="mt_s"><b>오페라 :</b> Vorbis(.ogg, .oga)</li>
+						<li class="mt_s"><b>사파리 :</b> AAC</li>
+						<li class="mt_s"><b>크롬 :</b> Vorbis(.ogg, .oga), H.264, AAC</li>
+						<li class="mt_s"><b>아이폰, 안드로이드 :</b> AAC</li>
+						<li class="mt_s"><b>익스플로러 9+ :</b> AAC</li>
+						<li class="mt_s"><b>익스플로러 8 :</b> 지원안함</li>
+					</ol>
+				</section>
+
+				<hr class="dashed_line mt_xxl">
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.5.4. 자바스크립트를 통한 속성들 접근</h2>
+					<ol class="ol_lst indent">
+						<li class="mt_ml tit_h3">
+							<h3>video와 같이 제어와 관련된 속성값으로</h3>
+							<div class="mt_s line_code">
+								<p><b>currentTime</b> - 현재 재생중인 시간</p>
+								<p><b>defaultPlaybackRate</b> - 기본 재생 속도 playbackRate 현재 재생 속도</p>
+								<p><b>volume</b> - 비디오의 볼륨</p>
+							</div>
+						</li>
+						<li class="mt_ml tit_h3">
+							<h3>video와 같이 위의 속성들을 바꿔줌으로써 audio의 상태들을 제어할 수 있게 됩니다.</h3>
+							<div class="mt_s line_code">
+								<p><b>load()</b> - 로드를 시작</p>
+								<p><b>canPlayType(type)</b> - ype이 재생 가능한지 여부</p>
+								<p><b>play()</b> - 비디오를 재생</p>
+								<p><b>pause()</b> - 비디오를 일시 정지</p>
+							</div>
+						</li>
+					</ol>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>6.5.5. &lt;video&gt;와 &lt;audio&gt;의 이벤트</h2>
+					<p class="indent mt_ml">
+						단순히 보여주기만 해서는 기존의 다양한 플러그인들을 대체할 수는 없을 것이라는 생각이 들기도 했을 것입니다.
+						따라서 위의 자바스크립트 제어 이외에도 자바스크립트로 video와 audio의 상태 변화에 대한 이벤트 또한 다양하게 UX를 증진시키는데 중요한 역할을 합니다.
+					</p>
+					<ol class="ol_lst indent_max">
+						<li class="mt_m">
+							<p>addEventListener의 첫 번째 인자로 들어가는 이벤트 명과 발생하는 상황에 대한 설명</p>
+							<div class="mt_s line_code">
+								<p><b>loadstart</b> - 브라우져가 미디어를 찾기 시작할 때 발생</p>
+								<p><b>progress</b> - 브라우져가 미디어 데이터를 가져오는 중에 발생</p>
+								<p><b>suspend</b> - 브라우져가 현재 데이터를 전부 다운하지 않았는데 미디어 데이터를 가져오는 것이 멈췄을 때 발생</p>
+								<p><b>abort</b> - 브라우져가 에러가 아닌 상황에서 미디어 데이터를 가져오는 것을 멈췄을 때 발생</p>
+								<p><b>error</b> - 미디어 데이터를 가져오다가 에러가 발생했을 때 발생</p>
+								<p><b>emptied</b> - 미디어의 networkState가 NETWORK_EMPTY 상태로 들어가게 되었을 때 발생(치명적인 오류로 멈추거나, 이미 리소스 선택 알고리즘이 실행중이었는데 load() 함수가 호출되었을 때)</p>
+								<p><b>play</b> - 재생되었을 때, play() 함수가 리턴하고 나서, autoplay로 인해 재생이 시작되었을 때 호출</p>
+								<p><b>pause</b> - 미디어가 일시정지 되었을 때 발생(pause()함수가 리턴 되고나서 발생)</p>
+								<p><b>loadedmetadata</b> - 브라우져가 미디어의 길이와 넓이, 높이의 메타정보를 가져왔을 때 발생</p>
+								<p><b>loadeddata</b> - 브라우져가 현재 재생 위치에서 미디어 정보를 제공할 수 있는 상태로 준비되면 발생</p>
+								<p><b>waiting</b> - 다음 프레임이 로드되지 않아서 재생이 멈추었을 때 발생, 브라우져는 곧 프레임이 가능해질 것이라고 예상하고 있음</p>
+								<p><b>playing</b> - 재생이 시작되었을 때 발생</p>
+								<p><b>canplay</b> - 브라우져가 미디어 데이터의 재생이 가능해질 때 발생, 하지만 지금 재생을 시작하면 이후 버퍼링 속도가 느려서 다시 멈추지 않고 재생이 불가할 것이라고 측정함</p>
+								<p><b>canplaythrough</b> - 브라우저가 현재 재생을 시작하면 버퍼링 속도와 재생 속도를 고려했을 때 끝까지 멈추지 않고 재생 가능할 것이라고 측정함</p>
+								<p><b>seeking seek</b> - 동작이 길게 유지되어서 브라우져에서 이벤트가 발생할 정도가 되었을 때 발생</p>
+								<p><b>seeked</b> - seeking이 끝나면 발생</p>
+								<p><b>timeupdate</b> - 현재 재생 위치가 바뀌었을 때 발생</p>
+								<p><b>ended</b> - 미디어의 끝에 도달해서 재생이 멈추었을 때 발생</p>
+								<p><b>ratechange</b> - defaultPlaybackRate나 playbackRate의 속성이 변경되었을 때 발생</p>
+								<p><b>durationchange</b> - duration 속성이 바뀌었을 때 발생</p>
+								<p><b>volumechange</b> - volume 속성이 변하거나 muted 속성이 변했을 때 발생</p>
+							</div>
+						</li>
+						<li class="mt_m">
+							<p>video와 같이 위의 속성들을 바꿔줌으로써 audio의 상태들을 제어할 수 있게 됩니다.</p>
+							<div class="mt_s line_code">
+								<p><b>load()</b> - 로드를 시작</p>
+								<p><b>canPlayType(type)</b> - ype이 재생 가능 여부 확인</p>
+								<p><b>play()</b> - 비디오를 재생</p>
+								<p><b>pause()</b> - 비디오를 일시 정지</p>
+							</div>
+						</li>
+						<li class="mt_m">
+							<p><code>&lt;video&gt;</code> 태그 응용의 예</p>
+							<div class="mt_s line_code">
+								<p class="reference"><a href="00000000000000" target="_blank" title="새창열림">html과 자바스크립트로만 구현한 예시</a></p>
+								<p class="reference">
+									<a href="00000000000000" target="_blank" title="새창열림">&lt;video&gt;를 3d처럼 돌려가면서 보여주는 효과 예시</a><br>
+									플러그인 없이 오로지 브라우저로만 위와 같은 효과가 가능한 것입니다.<br>
+									플래시가 안 되는 모바일에서도 물론 똑같이 실행된다는 사실입니다.<br>
+									물론 이러한 것들은 오로지 &lt;video&gt; 요소만을 가지고 구현할 수는 없고 &lt;canvas&gt; 요소와 조합해서 이러한 효과들을 나타내는 것입니다.
+								</p>
+								<p class="reference"><a href="00000000000000" target="_blank" title="새창열림">Getting Started with WebRTC</a></p>
+							</div>
+						</li>
+					</ol>
+				</section>
 				
 				<footer class="reference_box">
 					<strong class="tit">내장 컨텐츠<span>(Embedded content)</span> 참조</strong>
@@ -1271,7 +1509,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="6.6. audio element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

@@ -896,13 +896,84 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="6.11. ">embed element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="6.11. ">embed <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						외부 응용 프로그램이나 대화형 플러그인을 삽입합니다.<br>
+						HTML 5에서 표준화되기 전에는 모든 표준 브라우저에서 구현된 비표준 요소였습니다.<br>
+						HTML 5 이전의 동작은 다양합니다.<br>
+						<code>&lt;embed&gt;</code> 요소는 외부(일반적으로 비 HTML) 응용 프로그램 또는 대화형 내용에 대한 통합 지점을 제공합니다.<br>
+						브라우저 플러그인 용 컨텐츠를 삽입하는 데 사용됩니다. 이것에 대한 예외는 표준에 따라 다르게 처리되는 <code>SVG</code>와 <code>HTML</code>입니다.<br>
+						임베드 된 컨텐츠로 수행할 수 있는 작업과 수행할 수 없는 작업에 대한 세부 사항은 문제의 브라우저 플러그인에 달려 있습니다.
+					</p>
+					<ol class="ol_lst indent mt_ms">
+						<li class="line_code font14">
+							<strong>SVG의 경우 다음과 같이 부모로부터 임베디드 SVG 문서에 액세스 할 수 있습니다.</strong>
+							<p>svg = document.getElementById("parent_id").getSVGDocument();</p>
+						</li>
+						<li class="line_code font14 mt_ms">
+							<strong>내장된 SVG 또는 HTML 문서의 내부에서 다음을 통해 부모에게 연락할 수 있습니다.</strong>
+							<p>parent = window.parent.document;</p>
+						</li>
+						<li class="line_code font14 mt_ms">
+							<strong>임베디드 HTML의 경우, 내가 찾은 부모로부터 임베디드 문서를 얻을 수 있는 방법이 없습니다.</strong>
+						</li>
+					</ol>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="txt_ex mt_xxl">
+					<h2>6.11.1. embed 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[src]</h3>
+						<p class="mt_ms">
+							포함된 리소스의 URL
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[type]</h3>
+						<p class="mt_ms">
+							인스턴스화할 플러그인을 고르기 위해 사용되는 MIME 타입
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[width]</h3>
+						<p class="mt_ms">
+							리소스의 표시될 가로 길이를 CSS 픽셀로 지정
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[height]</h3>
+						<p class="mt_ms">
+							리소스의 표시될 높이 길이를 CSS 픽셀로 지정
+						</p>
+					</article>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.11.embed_element.html">
+					<h2 class="ve_tit">embed element 예제</h2>
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="embed">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">내장 컨텐츠<span>(Embedded content)</span> 참조</strong>
@@ -1271,7 +1342,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="6.11. embed element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>

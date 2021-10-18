@@ -894,13 +894,48 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="5.16. ">abbr element <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="5.16. ">abbr <span class="t_bbb">element</span> <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				
+				<section class="ol_lst font14 mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;abbr&gt;</code> 요소는 약어 또는 두문자어를 나타냅니다. 선택 속성인 title을 사용하면 약어의 전체 글자나 설명을 제공할 수 있습니다.<br>
+						title 속성은 전체 설명만을 가져야 하며 그 외의 다른 내용은 포함할 수 없습니다.<br>
+						<code>&lt;abbr&gt;</code> 요소는 &quot;W3C&quot;, &quot;HTML&quot;, &quot;ASAP&quot; 등과 같이 단어의 축약형(abbreviation)이나 머리 글자로만 된 단어(acronym)를 정의할 때 사용합니다.<br>
+						이러한 <code>&lt;abbr&gt;</code> 요소는 브라우저나 번역 시스템, 검색 엔진에게 유용한 정보를 줄 수 있습니다.<br>
+						<code>&lt;abbr&gt;</code> 요소 위에 마우스를 올려놓으면 title 속성으로 명시한 단어의 원형이 나타납니다.<br>
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="abbr element CSS default">
+							<textarea readonly="readonly">
+								abbr[title] {
+									text-decoration: underline dotted;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.16.abbr_element.html">
+					<h2 class="ve_tit">abbr element 예제</h2>
+					<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="abbr">
+					<ul>
+						<li class="ie">7+</li>
+						<li class="edge">지원</li>
+						<li class="chrome">2.0</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">문자 컨텐츠<span>(Text-level semantics)</span> 참조</strong>
@@ -1269,7 +1304,7 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="5.16. abbr element">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>
