@@ -18,5 +18,67 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;optgroup&gt;</code> 요소는 옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)에서 사용되는 옵션들의 그룹을 정의할 때 사용합니다.<br>
+			드롭다운 리스트에서 옵션의 수가 많을 경우 <code>&lt;optgroup&gt;</code> 요소를 사용하여 관련된 옵션끼리 각각의 그룹으로 묶어주면
+			사용자가 좀 더 쉽게 드롭다운 리스트를 사용할 수 있습니다.
+		</p>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>9.6.1. optgroup 속성</h2>
+
+		<!-- disabled -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[disabled] <span class="t_blue">&lt;optgroup disabled&gt;</span></h3>
+			<p class="mt_ms">
+				disabled 속성이 명시된 옵션 그룹은 사용할 수 없으며, 사용자가 클릭할 수도 없습니다.<br>
+				따라서 이 속성을 사용하면 특정 조건이 충족될 때까지 사용자가 해당 옵션 그룹에 속한 옵션들을 클릭할 수 없도록 설정하고,
+				특정 조건이 충족되면 자바스크립트 등으로 disabled 속성값을 삭제하여 사용자가 해당 옵션들을 다시 사용할 수 있도록 조절할 수 있습니다.<br>
+				disabled 속성은 불리언(boolean) 속성입니다.<br>
+				불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.6.optgroup_element_disabled.html">
+				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+			<aside class="browser_support mt_m" data-tit="disabled">
+				<ul>
+					<li class="ie">8+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">1.0</li>
+					<li class="firefox">1.0</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- label -->
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[label] <span class="t_blue">&lt;optgroup label="텍스트"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;optgroup&gt;</code> 요소의 label 속성은 해당 옵션 그룹의 레이블(label)을 명시합니다.
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.6.optgroup_element_label.html">
+				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+			<aside class="browser_support mt_m" data-tit="label">
+				<ul>
+					<li class="ie">5.5+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">1.0</li>
+					<li class="firefox">1.0</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+	</section>
+{%- endblock %}

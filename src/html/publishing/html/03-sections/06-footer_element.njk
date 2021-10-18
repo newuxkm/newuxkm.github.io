@@ -18,5 +18,43 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;footer&gt;</code>는 가장 가까운 구조화 콘텐츠나 구조화 루트의 하단 영역을 나타냅니다.<br>
+			푸터는 일반적으로 작성자, 저작권 데이터, 관련된 문서의 링크에 대한 정보를 포함합니다.<br>
+			<code>&lt;address&gt;</code> 요소에 들어 있는 작성자에 대한 정보도 <code>&lt;footer&gt;</code> 요소에 포함될 수 있습니다.
+		</p>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/03-sections/3.6.footer_element.html">
+		<h2 class="ve_tit">기본 문법</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="footer element">
+			<textarea readonly="readonly">
+				<article>
+					<h1>How to be a wizard</h1>
+					<ol>
+						<li>Grow a long, majestic beard.</li>
+						<li>Wear a tall, pointed hat.</li>
+						<li>Have I mentioned the beard?</li>
+					</ol>
+					<footer>
+						<p>© 2019 Gandalf</p>
+					</footer>
+				</article>
+			</textarea>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="footer">
+		<ul>
+			<li class="ie">9+</li>
+			<li class="edge">지원</li>
+			<li class="chrome">5.0</li>
+			<li class="firefox">4.0</li>
+			<li class="opera">11.1</li>
+			<li class="safari">4.1</li>
+		</ul>
+	</aside>
+{%- endblock %}

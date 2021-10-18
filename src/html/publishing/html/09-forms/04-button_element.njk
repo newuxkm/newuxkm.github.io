@@ -18,5 +18,75 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;button&gt;</code> 요소는 클릭할 수 있는 버튼을 정의할 때 사용합니다.<br>
+			<code>&lt;button&gt;</code> 요소 안에는 텍스트나 이미지와 같은 콘텐츠를 삽입할 수 있지만,
+			<code>&lt;input&gt;</code> 요소를 사용한 버튼에는 이와 같은 콘텐츠를 삽입할 수 없습니다.<br>
+			브라우저별로 <code>&lt;button&gt;</code> 요소에 대해 서로 다른 기본 타입을 사용할 수 있으므로,
+			<code>&lt;button&gt;</code> 요소에는 언제나 type 속성값을 명시하는 것이 좋습니다.
+		</p>
+		<p class="mt_s">
+			HTML5에서는 <code>&lt;button&gt;</code> 요소에 다음과 같은 속성들이 추가되었습니다.<br>
+			<code>&lt;button&gt;</code> 요소에 추가된 속성과 <code>&lt;input&gt;</code> 요소에 추가된 속성은 동일하게 사용됩니다.<br>
+			<code>autofocus</code>, <code>form</code>, <code>formaction</code>, <code>formenctype</code>, <code>formmethod</code>, <code>formnovalidate</code>, <code>formtarget</code><br>
+			위의 추가된 속성은 <code>&lt;input&gt;</code>요소에 사용되는 속성과 동일하기에 자세한 설명은 제외.
+		</p>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>9.4.1. button 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[type] <span class="t_blue">&lt;button type="button | submit | reset"&gt;버튼명&lt;/button&gt;</span></h3>
+			<p class="mt_ms">
+				해당 버튼의 이름(name)을 명시합니다.<br>
+				기본적으로 <code>button</code>, <code>reset</code>, <code>submit</code>의 값들이 있습니다.
+			</p>
+			<div class="ol_lst indent mt_ms">
+				<h4 class="ml_mn">type 속성에 사용되는 값은 다음과 같습니다.</h4>
+				<ol>
+					<li class="line_code font14 mt_s">
+						<strong>button</strong>
+						<p>해당 버튼이 클릭할 수 있는 버튼(clickable button)임을 명시합니다.</p>
+					</li>
+					<li class="line_code font14 mt_s">
+						<strong>reset</strong>
+						<p>해당 버튼이 폼 데이터를 초기값으로 되돌리는 리셋 버튼(reset button)임을 명시합니다.</p>
+					</li>
+					<li class="line_code font14 mt_s">
+						<strong>submit</strong>
+						<p>해당 버튼이 폼 데이터(form data)를 제출하는 제출 버튼(submit button)임을 명시합니다.</p>
+					</li>
+				</ol>
+			</div>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[name], [value], [disabled] <span class="t_blue">&lt;button name="해당 버튼의 이름(name)" value="텍스트" disabled&gt;버튼명&lt;/button&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;input&gt;</code>의 <code>name</code>, <code>value</code>, <code>disabled</code> 요소의 속성과 동일합니다.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/09-forms/9.4.button_element.html">
+		<h2 class="ve_tit">button element 예제</h2>
+		<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="button">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">지원</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

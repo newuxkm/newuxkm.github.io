@@ -18,5 +18,58 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;frameset&gt;</code> 요소는 문서의 레이아웃을 구성하기 위해 사용되는 프레임(frame)들의 집합을 정의할 때 사용합니다.<br>
+			<code>&lt;frameset&gt;</code> 요소는 하나 이상의 <code>&lt;frame&gt;</code> 요소를 포함하며, 각각의 <code>&lt;frame&gt;</code> 요소는 서로 다른 문서를 포함할 수 있습니다.<br>
+			<code>&lt;frameset&gt;</code> 요소는 열(column)이나 행(row)의 개수뿐만 아니라 각 열과 행이 어느 정도의 면적을 차지하고 있는지 퍼센트(%)나 픽셀(pixel) 단위로 명시합니다.
+		</p>
+		<p class="mt_s">
+			HTML5에서는 <code>&lt;frameset&gt;</code> 요소를 더 이상 지원하지 않습니다.<br>
+			더 이상 지원되지 않는 <code>&lt;frame&gt;</code> 요소를 사용하면서 HTML 유효성 검사를 통과하기 위해서는 다음의 두 가지 방법처럼 DOCTYPE을 선언해야 합니다.<br>
+		</p>
+
+		<div class="uk_gist_code_box mt_ms" data-tit="frameset document">
+				<textarea readonly="readonly">
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+				</textarea>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<!--<h2 class="sound_only">프레임셋 속성</h2>-->
+		<h2>10.3.1. 프레임셋 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[cols 속성] - <span class="t_blue">픽셀, %, *</span></h3>
+			<p class="mt_ms">
+				프레임셋의 열(column)의 개수와 각각의 크기를 명시합니다.<br>
+				HTML5에서는 더 이상 지원하지 않습니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[rows 속성] - <span class="t_blue">픽셀, %, *</span></h3>
+			<p class="mt_ms">
+				프레임셋의 행(row)의 개수와 각각의 크기를 명시합니다.<br>
+				HTML5에서는 더 이상 지원하지 않습니다.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl">
+		<h2 class="ve_tit">프레임셋 코드 예제</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="frameset document">
+			<textarea readonly="readonly">
+				<frameset cols="33%,*,33%">
+					<frame name="left" src="/html/intro"/>
+					<frame name="center" src="/css/intro"/>
+					<frame name="right" src="/php/intro"/>
+				</frameset>
+			</textarea>
+		</div>
+	</section>
+{%- endblock %}

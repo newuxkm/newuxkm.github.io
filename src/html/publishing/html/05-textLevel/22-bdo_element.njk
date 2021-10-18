@@ -18,5 +18,51 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="ol_lst font14 mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;bdo&gt;</code> 요소(bidirectional override element)는 현재 텍스트의 방향을 오버라이드 하기 위해 사용됩니다.<br>
+			<code>&lt;bdo&gt;</code> 요소의 BDO는 Bi-Directional Override를 의미하며, 자식 요소의 텍스트 방향성(text directionality)을 정의할 때 사용합니다.<br>
+			다른 요소들과는 달리 <code>&lt;bdo&gt;</code> 요소의 dir 속성의 기본값은 부모 요소로부터 상속받지 않는다는 의미를 가지는 auto값으로 자동 설정됩니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="bdo element CSS default">
+				<textarea readonly="readonly">
+					bdo {
+						unicode-bidi: bidi-override;
+					}
+				</textarea>
+			</div>
+		</div>
+		<ol class="indent mt_ms">
+			<li>
+				<mark>dir</mark> 속성 - <code>&lt;bdo dir=&quot;(이 요소의 텍스트 방향)ltr | rtl | auto&quot;&gt;</code>
+				<div class="line_code mt_s">
+					<p><mark>ltr:</mark> 텍스트가 왼쪽에서 오른쪽 방향으로 이동해야 함을 나타내며, 필수 속성으로 반드시 명시해야 합니다.</p>
+					<p><mark>rtl:</mark> 텍스트가 오른쪽에서 왼쪽 방향으로 이동해야 함을 나타내며, 요소 내에 위치한 텍스트의 방향성을 명시합니다.</p>
+					<p><mark>auto:</mark> 요소의 내용에 기초하여 브라우저가 방향을 결정합니다.</p>
+				</div>
+			</li>
+		</ol>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.22.bdo_element.html">
+		<h2 class="ve_tit">bdo element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="bdo">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">지원</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

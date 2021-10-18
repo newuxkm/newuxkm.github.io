@@ -135,14 +135,15 @@
 			<main id="content" class="content_area">
 				<header>
 					{%- if pageNumber.depth4 %}
-					<h1 id="content_title" {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 }} <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 | replace('element', '<span class="t_bbb">element</span>') }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- else %}
 					<h1 data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- endif %}
 					<time class="last_update" datetime="{{ pageData.last_update }}">{{ pageData.last_update }}</time>
 				</header>
 
-				{% if pageNumber.part -%}
+				{%- if pageNumber.part %}
+				{# ----------space--------- #}
 				<nav class="tab_menu mt_xxl">
 					{{ gnb_comp.d3_below(
 						gnb_data,
@@ -166,6 +167,13 @@
 			<!-- // {{ title_d4_txt }} content (.content_area) -->
 
 			{% if pageLayout.sideMenu -%}
+			{%- set page_title -%}
+				{%- if pageNumber.depth4 -%}
+					{{- d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}{{ title_d4 | replace('<span class="t_blue">', '(') | replace('</span>', ')') -}}
+				{%- else -%}
+					{{- d3 + 1 + '. '}}{{- title_d3 | replace('<span>', '') | replace('</span>', '') -}}
+				{%- endif -%}
+			{%- endset -%}
 			<aside class="side_menu_area">
 				<strong class="tit"><b>{{ title_d2 }}</b> <i>Table of Contents</i></strong>
 				<nav class="side_menu {%- if layout_pub %} pub_side_nemu {%- elif layout_build %} pub_side_nemu {%- endif %}">
@@ -175,7 +183,7 @@
 						start_depth3 = true
 					) | tabIndent(5)}}
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i>SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="{{ page_title }}">SIDE MENU <b>CLOSE</b></i></span></button>
 			</aside>
 			<!-- // {{ title_d2 }} side menu -->
 			{%- endif %}

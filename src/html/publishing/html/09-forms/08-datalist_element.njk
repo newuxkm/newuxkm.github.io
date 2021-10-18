@@ -18,5 +18,46 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;datalist&gt;</code> 요소는 <code>&lt;input&gt;</code> 요소에서 사용하기 위한 옵션들의 리스트를 미리 정의할 때 사용합니다.<br>
+			<code>&lt;datalist&gt;</code> 요소는 사용자가 <code>&lt;input&gt;</code> 요소에 데이터를 입력할 때 미리 정의된 옵션을 드롭다운 리스트로 보여줌으로써 자동 완성 기능을 제공합니다.<br>
+			<code>&lt;input&gt;</code> 요소의 list 속성값으로 <code>&lt;datalist&gt;</code> 요소의 id 속성값을 명시하면,
+			해당 <code>&lt;datalist&gt;</code> 요소에서 미리 정의한 옵션들을 <code>&lt;input&gt;</code> 요소에서 사용할 수 있습니다.
+		</p>
+		<p class="mt_s">
+			이 요소는 전역 특성만 포함합니다.<br>
+			<code>&lt;datalist&gt;</code> 요소는 HTML5에서 새롭게 추가된 요소입니다.
+		</p>
+		<div class="mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="datalist element CSS default">
+				<textarea readonly="readonly">
+					datalist {
+						display: none;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/09-forms/9.8.datalist_element.html">
+		<h2 class="ve_tit">datalist element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="datalist">
+		<ul>
+			<li class="ie">10+</li>
+			<li class="edge">12.0</li>
+			<li class="chrome">20.0</li>
+			<li class="firefox">4.0</li>
+			<li class="opera">9.5</li>
+			<li class="safari">12.1</li>
+		</ul>
+	</aside>
+{%- endblock %}

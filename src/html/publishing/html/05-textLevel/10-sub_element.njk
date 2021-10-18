@@ -18,5 +18,43 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;sub&gt;</code> 요소는 아랫 첨자(subscript) 텍스트를 표현할 때 사용합니다.<br>
+			<code>&lt;sub&gt;</code> 요소 내부의 텍스트는 일반 텍스트 라인보다 아래쪽에 절반 크기의 작은 문자로 표현되며,<br>
+			이러한 아랫 첨자는 수학 공식<i class="t_blue">(ex) nPr = n!/(n-r)!)</i>이나 분자식, 화학 반응식<i class="t_blue">(ex) 2H2 + O2 &rarr; 2H2O)</i> 등을 표현할 수 있습니다.<br>
+			윗 첨자(superscript) 텍스트를 표현할 때는 <code>&lt;sup&gt;</code> 요소를 사용합니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="sub element CSS default" data-ex="sub">
+				<textarea readonly="readonly">
+					.sub {
+						vertical-align: sub;
+						font-size: smaller;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.10.sub_element.html">
+		<h2 class="ve_tit">sub element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="sub">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

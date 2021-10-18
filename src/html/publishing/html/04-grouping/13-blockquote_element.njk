@@ -18,5 +18,71 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;blockquote&gt;</code>(block quotation) 요소는 감싸진 텍스트가 긴 인용문임을 가리킵니다.<br>
+			일반적으로 이것은 들여쓰기로 렌더링 됩니다.
+		</p>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>4.13.1. blockquote 속성</h2>
+		<!--<h2>blockquote 속성</h2>-->
+
+		<article class="txt_ex indent_max mt_ml">
+			<h3 class="ml_mn">[cite] <span class="t_blue">&lt;blockquote cite="URL"&gt;</span></h3>
+			<p class="mt_ms">URL은 인용된 정보에 대한 원본 문서 또는 메시지를 나타냅니다. 이 속성은 인용문의 컨텍스트나 참조를 설명하는 정보입니다.</p>
+		</article>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl">
+		<h2 class="ve_tit">기본 문법</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="blockquote element">
+			<textarea readonly="readonly">
+				<blockquote cite="http://developer.mozilla.org">
+					<p>This is a quotation taken from the Mozilla Developer Center.</p>
+				</blockquote>
+			</textarea>
+		</div>
+		<div class="uk_gist_code_box indent mt_m" data-tit="blockquote element">
+			<textarea readonly="readonly">
+				<figure>
+					<blockquote>
+						"That monster custom, who all sense doth eat
+						Of habit’s devil," <abbr title="et cetera">&c.</abbr> not in Folio
+						&nbsp;
+						"What a falling off was there !
+						From me, whose love was of that dignity
+						That it went hand in hand even with the vow
+						I made to her in marriage, and to decline
+						Upon a wretch."
+					</blockquote>
+					<footer>
+						— <cite class="title">Shakespeare manual</cite> by <cite class="author">Frederick Gard Fleay</cite>,
+						p19 (in Google Books)
+					</footer>
+				</figure>
+			</textarea>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/04-grouping/4.13.blockquote_element/4.13.blockquote_element3.html">
+		<h2 class="ve_tit">blockquote element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="blockquote">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

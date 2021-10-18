@@ -18,5 +18,41 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p class="italic">
+			Emphasis 요소 <code>(&lt;em&gt;)</code> 는 강조된 텍스트(emphasized text)를 표시할 때 사용합니다. <code>&lt;em&gt;</code> 요소는 중첩될 수 있으며, 중첩의 단계는 강조의 단계를 나타냅니다.<br>
+			일반적으로 이 요소는 이탤릭체로 표시됩니다.<br>
+			하지만, 이 요소는 단순히 이탤릭 타입을 표시하기 위해 사용되어서는 안됩니다.(단순히 이탤릭 타입을 표시하고 싶다면, CSS 스타일링을 사용하세요.)
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="em element CSS default">
+				<textarea readonly="readonly">
+					em {
+						font-style: italic;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.2.em_element.html">
+		<h2 class="ve_tit">em element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="em">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

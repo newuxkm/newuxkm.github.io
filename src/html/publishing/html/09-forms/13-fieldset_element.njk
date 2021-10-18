@@ -18,5 +18,104 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;fieldset&gt;</code> 요소는 <code>&lt;form&gt;</code> 요소에서 연관된 요소들을 하나의 그룹으로 묶을 때 사용합니다.<br>
+			<code>&lt;fieldset&gt;</code> 요소는 하나의 그룹으로 묶은 요소들 주변으로 박스 모양의 선을 그려줍니다.<br>
+			또한, <code>&lt;legend&gt;</code> 요소를 사용하면 <code>&lt;fieldset&gt;</code> 요소의 캡션(caption)을 정의할 수 있습니다.
+		</p>
+		<p class="mt_s">
+			HTML5에서는 <code>&lt;fieldset&gt;</code> 요소에 새로운 속성들이 추가되었습니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="fieldset element CSS default">
+				<textarea readonly="readonly">
+					fieldset {
+						display: block;
+						margin: 0 2px;
+						padding: 0.35em 0.75em 0.625em;
+						border: 2px groove (internal value);
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>9.13.1. fieldset 속성</h2>
+
+		<!-- name -->
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[name] <i class="fab fa-html5"></i> <span class="t_blue">&lt;fieldset name="숫자"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>name</code> 속성은 <code>&lt;fieldset&gt;</code> 요소의 이름을 명시합니다.<br>
+				<code>name</code> 속성은 자바스크립트에서 요소를 참조하거나, 폼이 제출된 뒤 폼 데이터(form data)를 참조할 때 사용됩니다.
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.13.fieldset_element_name.html">
+				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+		</article>
+
+		<!-- disabled -->
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[disabled] <i class="fab fa-html5"></i> <span class="t_blue">&lt;fieldset disabled&gt;</span></h3>
+			<p class="mt_ms">
+				<code>disabled</code> 속성은 <code>&lt;fieldset&gt;</code> 요소에 포함된 <code>&lt;form&gt;</code> 요소들이 비활성화됨을 명시합니다.<br>
+				<code>disabled</code> 속성이 명시된 <code>&lt;fieldset&gt;</code> 요소에 포함된 모든 요소들은 사용할 수 없으며 사용자가 클릭할 수도 없습니다.<br>
+				따라서 이 속성을 사용하면 특정 조건이 충족될 때까지 사용자가 <code>&lt;fieldset&gt;</code> 요소에 포함된 요소들을 클릭할 수 없도록 설정하고,
+				특정 조건이 충족되면 자바스크립트 등으로 disabled 속성값을 삭제하여 사용자가 다시 요소들을 사용할 수 있도록 조정할 수 있습니다.
+			</p>
+			<p class="mt_s">
+				<code>disabled</code> 속성은 불리언(boolean) 속성입니다.<br>
+				불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.<br>
+				엣지 브라우저의 경우 중첩된 <code>&lt;fieldset&gt;</code> 요소에서는 <code>disabled</code> 속성이 제대로 적용되지 않습니다.<br>
+				<code>&lt;fieldset disabled&gt;&lt;fieldset&gt;&lt;!-- 여전히 사용할 수 있습니다. --&gt;&lt;/fieldset&gt;&lt;/fieldset&gt;</code>
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.13.fieldset_element_disabled.html">
+				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+		</article>
+
+		<!-- form -->
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[form] <i class="fab fa-html5"></i> <span class="t_blue">&lt;fieldset form="form id"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;fieldset&gt;</code> 요소에 포함될 <code>&lt;form&gt;</code> 요소의 id를 명시합니다.<br>
+				이 속성값은 반드시 같은 문서 내에 존재하는<br>
+				요소의 id 속성값이어야 합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="fieldset element [form] attribute">
+				<textarea readonly="readonly">
+					<fieldset form="loginForm">
+						<legend>학사 관리 로그인</legend>
+						이름 : <input type="text" name="st_name"><br>
+						학번 : <input type="text" name="st_id"><br>
+					</fieldset>
+
+					<form action="/examples/media/action_target.php" method="get" id="loginForm">
+						학과 : <input type="text" name="department"><br>
+						<button type="submit">제출하기</button>
+					</form>
+				</textarea>
+			</div>
+		</article>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="fieldset">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">지원</li>
+			<li class="opera">12.0</li>
+			<li class="safari">6.0</li>
+		</ul>
+	</aside>
+{%- endblock %}

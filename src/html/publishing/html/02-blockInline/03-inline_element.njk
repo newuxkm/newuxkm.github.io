@@ -18,5 +18,51 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			대표적인 인라인 요소에는 다음과 같은 요소들이 있습니다.<br>
+			<code>span</code>,
+			<code>a</code>,
+			<code>img</code>,
+			<code>strong</code>,
+			<code>b</code>,
+			<code>em</code>,
+			<code>i</code>,
+			<code>ins</code>,
+			<code>del</code>요소는
+			<code>display</code> 속성값이 인라인(inline)인 대표적인 요소입니다.<br>
+			이 외에 다른 요소들도 많이 있습니다.
+		</p>
+	</blockquote>
+
+	<section class="ol_lst mt_l">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>display</code> 속성값이 인라인(inline)인 요소는 새로운 라인(line)에서 시작하지 않습니다.
+			또한, 요소의 너비(width)도 해당 라인 전체가 아닌 해당 HTML 요소의 내용(content)만큼만 차지합니다. 그리고 인라인 요소 안에 블록 요소가 들어 올 수 없습니다.
+		</p>
+		<ol class="indent mt_sm">
+			<li>인라인 요소(Inline elements)는 항상 블록 요소 내에 포함되어 있습니다.</li>
+			<li>인라인 요소는 문서의 한 단락과 같은 큰 범위에는 적용될 수 없고 문장, 단어 등의 작은 부분에 대해서만 적용될 수 있습니다.</li>
+			<li>
+				인라인 요소는 새로운 줄(line)을 만들지 않습니다. 즉, 인라인 요소를 작성하면 그것을 작성한 단락 내에 나타나게 됩니다.<br>
+				예를 들어, 인라인 요소에는 하이퍼링크를 정의하는 요소인 <code>&lt;a&gt;</code>, 텍스트(text)를 강조하는 요소인 <code>&lt;em&gt;</code>, <code>&lt;strong&gt;</code> 등이 있습니다.
+			</li>
+		</ol>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/02-blockInline/2.3.inline_element.html">
+		<h2 class="ve_tit">inline 요소의 기본 구조</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="Inline elements">
+				<textarea readonly="readonly">
+					<p>
+						<span style="background-color:grey; color:orange">span태그</span>는 display 속성값이 기본이 인라인인 요소입니다.
+					</p>
+
+					<em>first</em><em>second</em><em>third</em>
+				</textarea>
+		</div>
+	</section>
+{%- endblock %}

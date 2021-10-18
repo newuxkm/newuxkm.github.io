@@ -18,5 +18,231 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;source&gt;</code> 요소는 <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;picture&gt;</code> 요소의 다중 미디어 리소스를 지정하기 위해 사용됩니다.<br>
+			이것은 빈 요소 입니다.<br>
+			이것은 일반적으로 다른 브라우저에서 지원하는 여러 포맷들을 통해 같은 미디어를 제공하기 위해 사용됩니다.
+		</p>
+		<p class="mt_s">
+			<code>&lt;source&gt;</code> 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
+			<mark>Internet Explorer 9+ 부터 지원합니다.</mark>
+		</p>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>6.9.1. source 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[src] <span class="t_blue">&lt;source src="URL"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;source&gt;</code> 요소가 <code>&lt;audio&gt;</code> 요소나 <code>&lt;video&gt;</code> 요소 내부에 사용될 때 필수 속성으로, 미디어 파일의 URL을 명시합니다.<br>
+				만약 <code>&lt;source&gt;</code> 요소가 <code>&lt;picture&gt;</code> 요소 내부에 있을 경우, 이 속성은 무시됩니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[type] <span class="t_blue">&lt;source type="미디어 타입(MIME 타입)"&gt;</span></h3>
+			<p class="mt_ms">
+				미디어 리소스의 미디어 타입(MIME 타입)을 명시합니다(선택적으로 codecs 매개 변수도 함께).<br>
+				<span class="reference mt_l"><a href="http://tools.ietf.org/html/rfc4281" target="_blank" title="새창열림">RFC 4281</a></span>에
+				코덱을 어떻게 지정하는지에 대한 정보를 확인할 수 있습니다.
+			</p>
+			<aside class="browser_support mt_ms" data-tit="type">
+				<ul>
+					<li class="ie">9+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">3.5</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[srcset] <span class="t_blue">&lt;source srcset="URL"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;source&gt;</code> 요소가 <code>&lt;picture&gt;</code> 요소 내부에 사용될 때 필수 속성으로, 각각 다른 환경에서 사용될 이미지의 URL을 명시합니다.
+			</p>
+			<aside class="browser_support mt_ms" data-tit="srcset">
+				<ul>
+					<li class="ie">9+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">38</li>
+					<li class="opera">25.0</li>
+					<li class="safari">9.0</li>
+				</ul>
+			</aside>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[sizes] <span class="t_blue">&lt;source sizes="유효한 크기값"&gt;</span></h3>
+			<p class="mt_ms">
+				각각 다른 페이지 레이아웃에서 사용될 이미지의 크기를 명시합니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[media] <span class="t_blue">&lt;source media="속성값"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;picture&gt;</code> 요소에서 이미지 리소스의 용도에 맞는 매체의 미디어 쿼리를 명시합니다.
+			</p>
+			<div class="ol_lst indent mt_ms">
+				<ol>
+					<li class="line_code font14">
+						<strong class="mb_sm">속성값에 사용할 수 있는 연산자는 다음과 같습니다.</strong>
+						<p><b>and</b> - AND 연산을 명시합니다.</p>
+						<p><b>not</b> - NOT 연산을 명시합니다.</p>
+						<p><b>,</b> - OR 연산을 명시합니다.</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">속성값에 사용할 수 있는 장치는 다음과 같습니다.</strong>
+						<p><b>all</b> - 기본값으로, 모든 미디어 타입의 장치</p>
+						<p><b>aural</b> - 음성 합성 장치</p>
+						<p><b>braille</b> - 점자 기기</p>
+						<p><b>handheld</b> - 손으로 들 수 있는 소형 장치</p>
+						<p><b>projection</b> - 프로젝터</p>
+						<p><b>print</b> - 인쇄 미리 보기 기능 또는 페이지 출력</p>
+						<p><b>screen</b> - 컴퓨터나 테블릿, 스마트폰 등의 스크린</p>
+						<p><b>tty</b> - 텔레타이프 장치</p>
+						<p><b>tv</b> - 텔레비젼</p>
+					</li>
+				</ol>
+			</div>
+			<div class="ol_lst indent mt_m">
+				<h4 class="mt_ml">속성값에 사용할 수 있는 값은 다음과 같습니다.</h4>
+				<ol class="indent">
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">width</strong>
+						<p>대상 디스플레이 영역의 너비를 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (max-width:900px)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">height</strong>
+						<p>대상 디스플레이 영역의 높이를 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (min-height:600px)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">device-width</strong>
+						<p>대상 디스플레이 또는 종이의 너비를 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (min-device-width:500px)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">device-height</strong>
+						<p>대상 디스플레이 또는 종이의 높이를 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (max-device-height:800px)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">orientation</strong>
+						<p>대상 디스플레이 또는 종이의 방향을 명시합니다.</p>
+						<p>"portrait"는 세로 방향, "landscape"는 가로 방향을 명시합니다.</p>
+						<p>ex) media="print and (orientation:landscape)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">spect-ratio</strong>
+						<p>대상 디스플레이 영역의 너비와 높이의 비율을 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (aspect-ratio:16/9)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">device-aspect-ratio</strong>
+						<p>대상 디스플레이 또는 종이의 장치 너비와 장치 높이의 비율을 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (device-aspect-ratio:16/9)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">color</strong>
+						<p>대상 디스플레이의 색상 당 비트수를 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (color:4)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">color-index</strong>
+						<p>대상 디스플레이가 처리할 수 있는 색상의 개수를 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (color-index: 512)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">monochrome</strong>
+						<p>단색 프레임 버퍼에서의 픽셀 당 비트수를 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="screen and (monochrome:3)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">resolution</strong>
+						<p>대상 디스플레이 또는 종이의 화소밀도(pixel density)를 명시합니다.</p>
+						<p>"min-" 접두사로 최솟값, "max-" 접두사로 최대값을 명시할 수 있습니다.</p>
+						<p>ex) media="print and (resolution:360dpi)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">scan</strong>
+						<p>TV 디스플레이의 주사법(scanning method)을 명시합니다.</p>
+						<p>"progressive"는 프로그레시브 방식, "interlace"는 인터레이스 방식을 명시합니다.</p>
+						<p>ex) media="tv and (scan:progressive)"</p>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">grid</strong>
+						<p>출력 장치가 그리드(grid)인지 비트맵(bitmap)인지를 명시합니다.</p>
+						<p>"1"은 그리드, "0"은 그리드 이외의 장치를 명시합니다.</p>
+						<p>ex) media="projection and (grid:1)"</p>
+					</li>
+				</ol>
+			</div>
+			<aside class="browser_support mt_m" data-tit="media">
+				<ul>
+					<li class="ie">9+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">15.0</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/06-embedded/6.9.source_element.html">
+		<h2 class="ve_tit">source element 코드 예제</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="source element">
+			<textarea readonly="readonly">
+				<picture>
+					<source media="(min-width: 700px)" srcset="/examples/images/people_960.jpg">
+					<source media="(min-width: 400px)" srcset="/examples/images/people_575.jpg">
+					<img src="/examples/images/people_200.jpg" alt="People">
+				</picture>
+
+				<video controls width="250" height="200" muted>
+					<source src="media/flower.webm" type="video/webm">
+					<source src="media/flower.mp4" type="video/mp4">
+					This browser does not support the HTML5 video element.
+				</video>
+
+				<video controls>
+					<source src="foo.webm" type="video/webm">
+					<source src="foo.ogg" type="video/ogg">
+					<source src="foo.mov" type="video/quicktime">
+					죄송합니다. 당신의 브라우저는 HTML5 동영상을 지원하지 않습니다.
+				</video>
+			</textarea>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="source">
+		<ul>
+			<li class="ie">10+</li>
+			<li class="edge">지원</li>
+			<li class="chrome">23.0</li>
+			<li class="firefox">31.0</li>
+			<li class="opera">12.1</li>
+			<li class="safari">6.0</li>
+		</ul>
+	</aside>
+{%- endblock %}

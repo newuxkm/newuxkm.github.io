@@ -18,5 +18,49 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="ol_lst font14 mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			이 요소는 포함된 텍스트의 방향을 알 수 없을 떄 내부의 텍스트의 방향이 고정되도록 하는데에 유용합니다.<br>
+			<code>&lt;bdi&gt;</code> 요소의 BDI는 Bi-Directional Isolation을 의미하며, 주위의 텍스트들과는 다른 방향으로 출력되는 텍스트 영역을 정의할 때 사용합니다.<br>
+			한글이나 영어와 같이 대부분의 언어는 왼쪽부터 시작해서 오른쪽 방향으로(left-to-right, LTR) 텍스트를 나열합니다.<br>
+			하지만 아랍어(Arabic)와 같은 일부 언어에서는 오른쪽부터 시작하여 왼쪽 방향으로(right-to-left, RTL) 텍스트를 나열합니다.<br>
+			브라우저는 이러한 텍스트의 방향성을 유니코드 양방향 알고리즘(Unicode Bidirectional Algorithm)이라는 알고리즘을 사용하여 처리하게 되는데,
+			바로 이 때 특정 텍스트 영역에 <code>&lt;bdi&gt;</code> 요소를 사용하게 되면 양방향 알고리즘은 해당 텍스트의 방향성을 그 주위에 위치한 다른 텍스트들과는 별도로 처리하게 됩니다.<br>
+			따라서 <code>&lt;bdi&gt;</code> 요소는 텍스트의 방향성을 미리 알 수 없는 사용자에 의해 생성되는 콘텐츠 등을 문서에 포함시킬 때 유용하게 사용됩니다.
+		</p>
+		<p class="mt_s">
+			<code>&lt;bdi&gt;</code> 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
+			<mark>Internet Explorer, Edge, Safari, Opera : No support(지원하지 않음)</mark>
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="bdi element CSS default">
+				<textarea readonly="readonly">
+					bdi {
+						unicode-bidi: -webkit-isolate;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.21.bdi_element.html">
+		<h2 class="ve_tit">bdi element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="bdi">
+		<ul>
+			<li class="ie false">지원안함</li>
+			<li class="edge false">지원안함</li>
+			<li class="chrome">16.0</li>
+			<li class="firefox">10.0</li>
+			<li class="opera false">지원안함</li>
+			<li class="safari false">지원안함</li>
+		</ul>
+	</aside>
+{%- endblock %}

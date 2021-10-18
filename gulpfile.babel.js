@@ -33,6 +33,7 @@ const das = '/_assets';
 const PATH = {
   HTML: src + '/html',
   TEMP: src + '/html/_templates',
+  SAMPLE: src + '/code_samples',
   ASSETS: {
     CSS: src + as + '/css',
     FONTS: src + as + '/fonts',
@@ -44,6 +45,7 @@ const PATH = {
 // 산출물 경로 ('dist'에 생성한다.)
 const DEST_PATH = {
   HTML: dist,
+  SAMPLE: dist + '/_code_samples',
   ASSETS: {
     CSS: dist + das +'/css',
     FONTS: dist + das +'/fonts',
@@ -172,8 +174,11 @@ const lib = () => {
 
 // code sample
 const code_sample = () => {
-  return gulp.src( src + '/code_samples/**/*' )
-  .pipe( gulp.dest( dist + '/_code_samples' ) );
+  // return gulp.src( src + '/code_samples/**/*' )
+  // .pipe( gulp.dest( dist + '/_code_samples' ) );
+  return gulp.src( PATH.SAMPLE + '/**/*' )
+  .pipe( cached('code_sample') )
+  .pipe( gulp.dest( DEST_PATH.SAMPLE ) );
 }
 
 // web config
@@ -202,6 +207,9 @@ const webserver = () => gulp.src(dist).pipe(ws({ /*port: 8000,*/ livereload: tru
 const watch = () => {
   const html_watcher = gulp.watch(PATH.HTML + "/**/*", html);
   file_management(html_watcher, PATH.HTML, DEST_PATH.HTML);
+
+  const code_samples_watcher = gulp.watch(PATH.SAMPLE + "/**/*", code_sample);
+  file_management(code_samples_watcher, PATH.SAMPLE, DEST_PATH.SAMPLE);
 
   const img_watcher = gulp.watch(PATH.ASSETS.IMAGES + "/**/*", img);
   file_management(img_watcher, PATH.ASSETS.IMAGES, DEST_PATH.ASSETS.IMAGES);

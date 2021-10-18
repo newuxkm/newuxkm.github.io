@@ -18,5 +18,77 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p class="italic">
+			일반적으로 이 요소는 이탤릭체로 표시됩니다.<br>
+			HTML 4.01에서 <code>&lt;i&gt;</code> 요소는 이탤릭체의 텍스트로만 표현되었지만, HTML5에서는 반드시 이탤릭체로만 표현되지는 않습니다.
+			스타일시트를 사용하여 <code>&lt;i&gt;</code> 요소에 포함된 텍스트의 서식을 자유롭게 변경할 수 있습니다.<br>
+			<code>&lt;i&gt;</code> 요소는 평범한 글자와 구분하기 위해 사용됩니다.<br>
+			예를 들면, 기술적인 용어(전문용어), 외국어 문구, 소설속 인물의 생각, 다른 언어의 관용구, 문어체, 서양 문헌에 나오는 배 이름 등이 있습니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="i element CSS default">
+				<textarea readonly="readonly">
+					i {
+						font-style: italic;
+					}
+				</textarea>
+			</div>
+		</div>
+		<div class="ol_lst mt_m italic">
+			<strong>다음과 같은 의미 요소(semantic element) 중에서 사용하기에 적당한 요소를 찾지 못했을 때만 <mark><code>&lt;i&gt;</code></mark> 요소를 사용할 수 있습니다.</strong>
+			<ol class="indent">
+				<li>강조된 텍스트로 나타낼 떄 <mark><code>&lt;em&gt;</code></mark> 요소 사용</li>
+				<li>중요한(중요성) 텍스트로 나타낼 때 <mark><code>&lt;strong&gt;</code></mark> 요소 사용</li>
+				<li>창작물의 제목, 작품(책, 플레이, 음악)의 이름을 표시할 때는 <mark><code>&lt;cite&gt;</code></mark> 요소 사용</li>
+				<li>용어(term)의 정의 인스턴스를 표시할 때는 <mark><code>&lt;dfn&gt;</code></mark> 요소 사용</li>
+				<li>하이라이트된(highlighted) 텍스트로 나타낼 때 <mark><code>&lt;mark&gt;</code></mark> 요소 사용</li>
+			</ol>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.3.i_element.html">
+		<h2 class="ve_tit">i element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2><mark><code>&lt;i&gt;</code></mark> vs. <mark><code>&lt;em&gt;</code></mark></h2>
+		<p class="indent">
+			신입 개발자들은 글자를 강조하는데에 왜 이렇게 많은 요소들이 있는지에 대해 혼란스러워합니다.<br>
+			아마도 <code>&lt;i&gt;</code>와 <code>&lt;em&gt;</code>가 그 중 흔한 경우일 것입니다..
+			왜 <code>&lt;em&gt;&lt;/em&gt;</code>와 <code>&lt;i&gt;&lt;/i&gt;</code>를 사용하는걸까요? 분명 그들은 같은 결과를 나타내는데 말입니다.
+		</p>
+		<p class="indent">
+			하지만 전혀 그렇지 않습니다. 두 태그 모두 기본적으로 이탤릭체로 렌더링되지만 의미론적 뜻이 다릅니다.<br>
+			<code>&lt;em&gt;</code>은 내용의 강조를 나타내는데에 비해 <code>&lt;i&gt;</code> 태그는 일반적인 글자와 분리된 글자를 나타낼 때 사용합니다.<br>
+			(책이나 영화의 이름, 외국 단어, 혹은 단어가 의미론적 뜻 대신에 단어의 정의를 나타낼 때는 <code>&lt;cite&gt;</code>를 사용해야 합니다.
+		</p>
+		<p class="indent">
+			<code>&lt;em&gt;</code>은 이런 식으로 쓰일 수 있습니다: &quot;Just <em>do</em> it already!&quot;, 또는: &quot;We <em>had</em> to do something about it&quot;.<br>
+			여기서 이탤릭체로 표현된 단어를 읽는 사용자나 소프트웨어는 이 단어는 강조된 단어라고 판단할 겁니다.
+		</p>
+		<p class="indent">
+			<code>&lt;i&gt;</code> 는 이런 식으로 쓰일 수 있습니다: &quot;The <i class="italic">Queen Mary</i> sailed last night&quot;.<br>
+			여기서 <i class="italic">&quot;Queen Mary&quot;</i> 단어에 추가된 강조나 중요성은 없습니다. 이건 Mary라는 이름을 가진 여왕이 아니라,
+			<i class="italic">Queen Mary</i>라는 이름을 나타내는것 뿐입니다.<br>
+			<code>&lt;i&gt;</code>에 대한 또 다른 예시로 다음과 같은 문장이 있습니다: &quot;The word <i class="italic">the</i> is an article&quot;.
+		</p>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="i">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">지원</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

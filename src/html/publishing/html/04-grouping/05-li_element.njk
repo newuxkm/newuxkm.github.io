@@ -18,5 +18,68 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			리스트 항목을 나타낼 때 사용됩니다.<br>
+			이 요소는 자신이 리스트에서 하나의 개체를 나타내는 정렬된 리스트(<code>&lt;ol&gt;</code>), 정렬되지 않은 리스트(<code>&lt;ul&gt;</code>)에 포함되어야 합니다.<br>
+			메뉴와 정렬되지 않은 리스트에서, 리스트 항목들은 일반적으로 글머리 기호와 함께 표시됩니다.<br>
+			정렬된 리스트에서는, 숫자나 글자가 내림차순으로 왼쪽에 같이 표시됩니다.<br>
+			종료 태그는 자신 바로 뒤에 다른 <code>&lt;li&gt;</code> 요소가 따라오거나, 부모 요소 안에 더 이상 다른 요소가 없을경우 생략될수 있습니다.<br>
+			종료 태그를 사용하는 것에 대한 습관을 들이는 것을 권장합니다.
+		</p>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>4.5.1. li 속성</h2>
+		<!--<h2>li 속성</h2>-->
+
+		<article class="txt_ex indent mt_ml">
+			<h3>[value] <span class="t_blue">&lt;li value="숫자"&gt;</span></h3>
+			<p class="indent mt_ms">
+				의미로는 항목의 순서를 설정, 값은 숫자(Number)로 표시, 특징은 이하 항목들의 순서가 다시 지정됨.<br>
+				이 정수 속성은 <code>&lt;ol&gt;</code> 요소 내부의 항목의 현재 서수 값을 나타냅니다.<br>
+				리스트가 로마 숫자나 문자로 표시되더라도 이 속성에는 숫자만 넣을 수 있습니다.<br>
+				이 속성이 지정된 리스트 항목 뒤를 따르는 다른 항목들은 여기서 지정된 값에서부터 번호가 매겨집니다.<br>
+				value 속성은 정렬되지 않은 리스트 (<code>&lt;ul&gt;</code>)에서는 아무 의미가 없습니다.<br>
+				Note: 이 속성은 HTML4에서 더 이상 사용되지 않지만 HTML5에서 다시 도입되었습니다.<br>
+				Note: Gecko 9.0 이전에는 음수 값들이 비정상적으로 0으로 변환되었습니다. Gecko 9.0 에서부터는 모든 정수값들이 올바르게 변환됩니다.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/04-grouping/4.5.li_element/4.5.li_element1.html">
+		<h2 class="ve_tit">기본 문법</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="li element">
+			<textarea readonly="readonly">
+				<p>Apollo astronauts:<p/>
+				<ul>
+					<li>Neil Armstrong</li>
+					<li>Alan Bean</li>
+					<li>Peter Conrad</li>
+					<li>Edgar Mitchell</li>
+					<li>Alan Shepard</li>
+				</ul>
+			</textarea>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/04-grouping/4.5.li_element/4.5.li_element2.html">
+		<h2 class="ve_tit">value 속성 사용과 ol reversed 사용 비교</h2>
+		<div class="uk_editor min-height-650 indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default"><!-- min-height-650 -->
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="li">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

@@ -18,5 +18,49 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="ol_lst mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;cite&gt;</code> 요소는 책이나 음악, 영화, 예술 작품 등과 같은 창작물의 제목을 정의할 때 사용합니다.<br>
+			HTML 4.01에서 <code>&lt;cite&gt;</code> 요소는 인용구(citation)를 명시했었지만, HTML5에서는 창작물이나 저작물 등의 제목을 명시할 때 사용됩니다.
+		</p>
+		<ol class="indent mt_s">
+			<li>
+				창작물은 책, 논문, 에세이, 시, 악보, 노래, 스크립트, 영화, TV 쇼, 게임, 조각품, 그림, 연극 제작, 연극, 오페라, 뮤지컬, 전시,
+				법적 사례 보고서, 컴퓨터 프로그램, 웹 사이트, 웹 페이지, 블로그 게시물 또는 의견, 포럼 게시물이나 댓글, 트윗, 서면 또는 구두 진술 등을 포함합니다.
+			</li>
+			<li>
+				온라인 리소스에 대한 참조를 위해 <code>&lt;cite&gt;</code> 속성을<code>&lt;blockquote&gt;</code> 또는 <code>&lt;q&gt;</code> 요소에 사용하세요.
+			</li>
+		</ol>
+		<div class="line_code mt_ms">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="cite element CSS default">
+				<textarea readonly="readonly">
+					cite {
+						font-style: italic;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.9.cite_element.html">
+		<h2 class="ve_tit">cite element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="cite">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">지원</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

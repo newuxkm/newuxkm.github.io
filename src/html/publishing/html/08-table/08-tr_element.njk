@@ -18,5 +18,45 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;tr&gt;</code> 요소는 테이블에서 셀들로 이루어진 하나의 행(row)을 정의할 때 사용합니다.<br>
+			<code>&lt;tr&gt;</code> 요소는 하나 이상의 <code>&lt;th&gt;</code> 요소(header cell)나 <code>&lt;td&gt;</code> 요소(data cell)를 포함할 수 있습니다.
+		</p>
+		<p class="mt_s">
+			HTML5에서는 <code>&lt;tr&gt;</code> 요소의 <code>align</code>, <code>bgcolor</code>, <code>char</code>, <code>charoff</code>, <code>valign</code> 속성을 더 이상 지원하지 않습니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="tr element CSS default">
+				<textarea readonly="readonly">
+					tr {
+						display: table-row;
+						border-color: inherit;
+						vertical-align: middle;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/08-table/8.8.tr_element.html">
+		<h2 class="ve_tit">tr element 예제</h2>
+		<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="tr">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

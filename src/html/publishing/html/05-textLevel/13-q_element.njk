@@ -18,5 +18,55 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="ol_lst font14 mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;q&gt;</code> 요소는 짧은 인용구(short quotation)를 정의할 때 사용합니다.
+			이러한 인용구를 브라우저는 보통 앞뒤에 따옴표를 추가하여 표현합니다.
+			다른 출처로부터 인용된 인용 블록을 정의할 때는 <code>&lt;q&gt;</code> 요소보다는 <code>&lt;blockquote&gt;</code> 요소를 사용하는 것이 바람직합니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="q element CSS default">
+				<textarea readonly="readonly">
+					q {
+						display: inline;
+					}
+					q:before {
+						content: open-quote;
+					}
+					q:after {
+						content: close-quote;
+					}
+				</textarea>
+			</div>
+		</div>
+		<ol class="indent mt_ms">
+			<li>
+				cite 속성 - <code>&lt;q cite=&quot;https://www.w3.org/TR/html52/textlevel-semantics.html#the-q-element&quot;&gt;</code>
+				<div class="line_code">
+					<p>이 속성의 값은 인용된 정보의 원본 문서나 메세지를 가리키는 URL를 나타냅니다.</p>
+				</div>
+			</li>
+		</ol>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.13.q_element.html">
+		<h2 class="ve_tit">q element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="q">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

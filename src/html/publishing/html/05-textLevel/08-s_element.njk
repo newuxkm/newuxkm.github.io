@@ -18,5 +18,42 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;s&gt;</code> 요소는 텍스트를 가로지르는 라인(line)을 추가하여 더 이상 정확하지 않거나 관련이 없는 텍스트를 표현할 때 사용합니다.<br>
+			<code>&lt;s&gt;</code> 요소를 사용하여 문서에서 대체되거나 삭제된 텍스트를 표현해서는 안 되며, 해당 텍스트는 <code>&lt;del&gt;</code> 요소를 사용해서 표현해야만 합니다.<br>
+			텍스트를 가로지르는 라인을 추가하는 용도로 사용되던 <code>&lt;s&gt;</code> 요소는 HTML 4.01에서 더 이상 지원되지 않도록 변경되었습니다.<br>
+			하지만 HTML5에서 <code>&lt;s&gt;</code> 요소는 더 이상 정확하지 않거나 관련이 없는 텍스트를 표현하도록 의미를 재정의하여 다시 추가되었습니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="s element CSS default">
+				<textarea readonly="readonly">
+					s {
+						text-decoration: line-through;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.8.s_element.html">
+		<h2 class="ve_tit">s element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="s">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

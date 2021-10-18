@@ -18,5 +18,112 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="ol_lst mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;figure&gt;</code> 요소는 독립적인 콘텐츠를 표현합니다.<br>
+			흔히 설명(<code>&lt;figcaption&gt;</code>)과 함께 사용되며, 보통 단일적으로 참조됩니다.
+		</p>
+		<ol class="indent mt_s">
+			<li>보통 <code>&lt;figure&gt;</code>는 주 문서에 영향을 주지 않으면서 다른 부분이나 부록으로 옮길 수 있는, 주 문서에서 참조하는 사진, 도표, 삽화, 오디오, 비디오, 코드 등입니다.</li>
+			<li><code>&lt;figure&gt;</code>는 섹션 루트로, 안쪽 내용은 주 문서의 내용에서 배제됩니다.</li>
+			<li>안에 (첫번째나 마지막 자식으로)<code>&lt;figcaption&gt;</code>을 넣어서 설명을 <code>&lt;figure&gt;</code> 요소와 연관지을 수 있습니다.</li>
+			<li>
+				<code>&lt;figure&gt;</code>와 <code>&lt;aside&gt;</code> 차이
+				<div class="line_code mt_sm">
+					<p>내용이 단순히 관련되어(느슨하게) 있고, 필수적인 내용이 아니면 <code>&lt;aside&gt;</code></p>
+					<p>내용이 직접적인 관련이 있지만, 문맥상 그것의 위치가 중요하지 않으면 <code>&lt;figure&gt;</code></p>
+				</div>
+			</li>
+		</ol>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/04-grouping/4.10.figure_element/4.10.figure_element1.html">
+		<h2 class="ve_tit">이미지 삽입</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="figure element Insert image">
+			<textarea readonly="readonly">
+				<figure>
+					<img src="images/html/img_html_tag_structure.png" alt="html 요소 설명">
+				</figure>
+
+				<figure>
+					<img src="images/html/img_html_tag_structure.png" alt="html 요소 설명">
+					<figcaption>HTML 요소의 기본 구조 설명</figcaption>
+				</figure>
+			</textarea>
+		</div>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/04-grouping/4.10.figure_element/4.10.figure_element2.html">
+		<h2 class="ve_tit">코드 삽입</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="figure element Insert code">
+			<textarea readonly="readonly">
+				<!-- 코드 삽입 -->
+				<figure>
+					<figcaption>navigator를 이용하여 브라우저 정보 얻기</figcaption>
+					<pre>
+				function NavigatorExample() {
+					var txt;
+					txt = "Browser CodeName: " + navigator.appCodeName;
+					txt+= "Browser Name: " + navigator.appName;
+					txt+= "Browser Version: " + navigator.appVersion ;
+					txt+= "Cookies Enabled: " + navigator.cookieEnabled;
+					txt+= "Platform: " + navigator.platform;
+					txt+= "User-agent header: " + navigator.userAgent;
+				}
+					</pre>
+				</figure>
+			</textarea>
+		</div>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/04-grouping/4.10.figure_element/4.10.figure_element3.html">
+		<h2 class="ve_tit">인용문 삽입</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="figure element Insert citation">
+			<textarea readonly="readonly">
+				<figure>
+					<figcaption><cite>Edsger Dijkstra:</cite></figcaption>
+					<blockquote>
+						If debugging is the process of removing software bugs,
+						then programming must be the process of putting them in.
+					</blockquote>
+				</figure>
+			</textarea>
+		</div>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/04-grouping/4.10.figure_element/4.10.figure_element4.html">
+		<h2 class="ve_tit">중첩</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="figure element nesting">
+			<textarea readonly="readonly">
+				<figure>
+					<figcaption>The castle through the ages: 1423, 1858, and 1999 respectively.</figcaption>
+					<figure>
+						<figcaption>Etching. Anonymous, ca. 1423.</figcaption>
+						<img src="castle1423.jpeg" alt="The castle has one tower, and a tall wall around it.">
+					</figure>
+					<figure>
+						<figcaption>Oil-based paint on canvas. Maria Towle, 1858.</figcaption>
+						<img src="castle1858.jpeg" alt="The castle now has two towers and two walls.">
+					</figure>
+					<figure>
+						<figcaption>Film photograph. Peter Jankle, 1999.</figcaption>
+						<img src="castle1999.jpeg" alt="The castle lies in ruins, the original tower all that remains in one piece.">
+					</figure>
+				</figure>
+			</textarea>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="figure">
+		<ul>
+			<li class="ie">9+</li>
+			<li class="edge">지원</li>
+			<li class="chrome">8.0</li>
+			<li class="firefox">4.0</li>
+			<li class="opera">11.0</li>
+			<li class="safari">5.1</li>
+		</ul>
+	</aside>
+{%- endblock %}

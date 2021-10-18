@@ -18,5 +18,87 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;td&gt;</code> 태그는 HTML 테이블에서 하나의 데이터 셀(data cell)을 정의할 때 사용합니다.<br>
+			HTML 테이블를 구성하는 셀(cell)은 두 종류로 구분할 수 있으며,
+			하나는 <code>&lt;th&gt;</code> 요소를 사용한 헤더 정보를 저장하는 헤더 셀과 또 다른 하나는 <code>&lt;td&gt;</code> 요소를 사용한 일반적인 데이터를 저장하는 데이터 셀입니다.<br>
+			<code>&lt;th&gt;</code> 요소 내의 텍스트는 기본적으로 굵은 폰트로 중앙 정렬되며,
+			<code>&lt;td&gt;</code> 요소 내의 텍스트는 일반적인 두께의 폰트로 좌측 정렬됩니다.
+		</p>
+		<p class="mt_s">
+			colspan 속성과 rowspan 속성을 사용하면 콘텐츠를 여러 셀에 걸쳐 나타낼 수 있습니다.
+		</p>
+		<p class="mt_s">
+			HTML5에서는 <code>&lt;td&gt;</code> 요소의 <code>abbr</code>, <code>align</code>, <code>axis</code>, <code>bgcolor</code>, <code>char</code>,
+			<code>charoff</code>, <code>height</code>, <code>nowrap</code>, <code>scope</code>, <code>valign</code>, <code>width</code> 속성을 더 이상 지원하지 않습니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="td element CSS default">
+				<textarea readonly="readonly">
+					td {
+						display: table-cell;
+						vertical-align: inherit;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>8.10.1. td 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[colspan] <span class="t_blue">&lt;td colspan="숫자"&gt;</span></h3>
+			<p class="mt_ms">
+				해당 요소의 colspan 속성은 해당 헤더 셀이 확장될 열(column)의 개수를 명시합니다. 기본값은 1입니다.<br>
+				이때 colspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 열 그룹(colgroup)의 마지막 열까지 확장됩니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[rowspan] <span class="t_blue">&lt;td rowspan="숫자"&gt;</span></h3>
+			<p class="mt_ms">
+				해당 요소의 rowspan 속성은 해당 헤더 셀(cell)이 확장될 행(row)의 개수를 명시합니다. 기본값은 1입니다.<br>
+				rowspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 테이블 영역(thead, tbody, tfoot)의 마지막 행까지 확장됩니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[headers] <span class="t_blue">&lt;td headers="header id"&gt;</span></h3>
+			<p class="mt_ms">
+				해당 요소의 headers 속성은 해당 헤더 셀과 연관된 하나 이상의 헤더 셀(header cell)을 명시합니다.<br>
+				header id값은 해당 헤더 셀과 연관된 헤더 셀(header cell)들의 id 속성값을 공백으로 구분한 리스트입니다.<br>
+				일반 웹 브라우저에서는 해당 요소에 headers 속성을 명시해도 시각적으로 어떠한 효과도 보여주지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용됩니다.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/08-table/8.10.td_element.html">
+		<h2 class="ve_tit">td element 예제</h2>
+		<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/08-table/8.10.td_element_aria.html">
+		<h2 class="ve_tit">ARIA(Accessible Rich Internet Applications)를 활용한 table 예시</h2>
+		<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="td">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

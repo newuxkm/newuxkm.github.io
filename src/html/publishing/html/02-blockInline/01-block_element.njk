@@ -18,5 +18,61 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			대표적인 블록 요소에는 다음과 같은 요소들이 있습니다.<br>
+			<code>div</code>,
+			<code>p</code>,
+			<code>h1~6</code>,
+			<code>ul</code>,
+			<code>ol</code>,
+			<code>li</code>,
+			<code>dl</code>,
+			<code>dt</code>,
+			<code>dd</code>,
+			<code>header</code>,
+			<code>section</code>,
+			<code>article</code>,
+			<code>nav</code>,
+			<code>footer</code>,
+			<code>address</code>,
+			<code>form</code>
+			요소는
+			<code>display</code> 속성값이 블록(block)인 대표적인 요소입니다.<br>
+			이 외에 다른 요소들도 많이 있습니다.
+		</p>
+	</blockquote>
+
+	<section class="ol_lst">
+		<h2 class="sound_only">요소 설명</h2>
+		<p class="mt_l"><code>display</code> 속성값이 블록(block)인 요소는 언제나 새로운 라인(line)에서 시작하며, 값을 지정해주지 않는 이상 해당 라인의 모든 너비(width)를 차지합니다.</p>
+		<ol class="indent mt_sm">
+			<li>블록 요소(block elements)는 웹페이지 상에 블록(block)을 만드는 요소입니다.</li>
+			<li>블록 요소는 앞뒤 요소 사이에 새로운 줄(line)을 만들고 나타납니다. 즉, 블록 요소 이전과 이후 요소 사이의 줄을 바꿉니다.</li>
+			<li>
+				블록 요소는 일반적으로 페이지의 구조적 요소를 나타낼 때 사용됩니다.
+				예를 들어 개발자는 블록 요소를 사용하여 단락(Paragraphs), 목록(lists), 네비게이션 메뉴(navigation Menus), 꼬리말(footers) 등을 표현할 수 있습니다.
+			</li>
+			<li>
+				블록 요소는 인라인 요소(inline elements) 안에 포함될(nested inside)수 없습니다.
+				그러나 블록 요소는 다른 블록 요소 내부에 포함될 수 있으나, 다른 블록 요소를 포함할 수 없는 블록 요소도 일부 존재합니다.
+				(예 : <code>h1~6</code>, <code>dt</code>, <code>p</code>)
+			</li>
+		</ol>
+	</section>
+
+	<section class="mt_xxl">
+		<h2 class="ve_tit">block 요소의 기본 구조</h2>
+
+		<div class="uk_gist_code_box indent mt_ms" data-tit="block elements">
+				<textarea readonly="readonly">
+					<p style="border: 3px solid red">
+						p요소는 display 속성값이 기본이 블록인 요소입니다.
+					</p>
+				</textarea>
+		</div>
+	</section>
+
+{%- endblock %}

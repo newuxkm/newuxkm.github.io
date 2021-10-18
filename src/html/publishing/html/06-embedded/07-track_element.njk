@@ -18,5 +18,100 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;track&gt;</code> 요소는 미디어 요소(<code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>)의 자식으로 사용됩니다.<br>
+			<code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>같은 미디어가 재생 중일 때 표시될 자막, 캡션 파일 등을 지정합니다.
+		</p>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>6.7.1. track 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[default] <span class="t_blue">&lt;track default&gt;</span></h3>
+			<p class="mt_ms">
+				이 속성은 만일 사용자의 설정이 다른 자막이 더 적절하다고 가리키지 않을 경우 활성화될 자막을 가리킵니다.<br>
+				이 속성은 하나의 미디어 요소에서 하나의 track 요소에만 사용됩니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[kind] <span class="t_blue">&lt;track kind=&quot;subtitles | captions | descriptions | chapters | metadata&quot;&gt;</span></h3>
+			<p class="mt_ms">
+				이 속성은 만일 사용자의 설정이 다른 자막이 더 적절하다고 가리키지 않을 경우 활성화될 자막을 가리킵니다.<br>
+				이 속성은 하나의 미디어 요소에서 하나의 track 요소에만 사용됩니다.<br>
+				텍스트 자막의 어떻게 사용될 것인지를 의미합니다. 생략될경우 subtitles이 기본값입니다. 다음 키워드들이 값으로 사용될 수 있습니다.
+			</p>
+			<div class="ol_lst indent mt_ms">
+				<ol>
+					<li class="line_code font14">
+						<strong>subtitles</strong>
+						<p>자막은 시청자가 이해할 수 없는 내용의 번역을 제공합니다. 영어 언어 영화에서 영어가 아닌, 예를 들어 대화 또는 텍스트를 의미합니다.</p>
+						<p>자막에는 추가 콘텐츠, 일반적으로 추가 배경 정보가 포함될 수 있습니다. 예를 들어 Star Wars 영화의 시작 부분에 있는 텍스트 또는 장면의 날짜, 시간 및 위치입니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>captions</strong>
+						<p>캡션은 전사 가능성이 오디오의 번역을 제공합니다.</p>
+						<p>캡션은 음악 큐 또는 음향 효과 같은 중요한 비언어적 정보를 포함할 수 있습니다. 이 큐의 소스(예를 들어, 음악, 텍스트, 문자)를 나타낼 수 있습니다.</p>
+						<p>캡션은 청각 장애가 있거나 소리가 소거된 사용자에게 적합합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>descriptions</strong>
+						<p>비디오 컨텐츠의 텍스트 설명</p>
+						<p>시각 장애인이나, 동영상을 볼 수 없을 떄 적절합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>chapters</strong>
+						<p>챕터 제목은 사용자가 미디어 리소스를 탐색할 때 사용됩니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>metadata</strong>
+						<p>자막이 스크립트에 의해 사용됩니다. 사용자에게 보여지지 않습니다.</p>
+					</li>
+				</ol>
+			</div>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[label] <span class="t_blue">&lt;track label="Key Stage 1"&gt;</span></h3>
+			<p class="mt_ms">
+				브라우저가 사용 가능한 자막 텍스트를 나열할 떄 사용되는 사용자가 읽을 수 있는 자막 텍스트의 제목들입니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[src] <span class="t_blue">&lt;track src="자막의 주소(.vtt 파일)"&gt;</span></h3>
+			<p class="mt_ms">
+				자막의 주소(.vtt 파일). 이것은 유효한 URL이여야 합니다. 이 속성은 반드시 정의되어야 합니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[srclang] <span class="t_blue">&lt;track srclang="ko"&gt;</span></h3>
+			<p class="mt_ms">
+				자막 텍스트 데이터의 언어. 만일 kind 속성이 subtitles로 설정되었을 경우, srclang 속성은 반드시 정의되어야 합니다.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.7.track_element.html">
+		<h2 class="ve_tit">track element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="track">
+		<ul>
+			<li class="ie">10+</li>
+			<li class="edge">지원</li>
+			<li class="chrome">23.0</li>
+			<li class="firefox">31.0</li>
+			<li class="opera">12.1</li>
+			<li class="safari">6.0</li>
+		</ul>
+	</aside>
+{%- endblock %}

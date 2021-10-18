@@ -18,5 +18,40 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			HTML Table Column 요소(<code>&lt;col&gt;</code>)는 표 내부의 열을 정의하며 모든 공통 셀들의 공통 시멘틱을 정의하기 위해 사용됩니다.<br>
+			반드시 <code>&lt;colgroup&gt;</code> 요소의 자식 요소로 존재해야 합니다.<br>
+			단일 요소로 종료 태그 없이 사용됩니다.
+		</p>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/08-table/8.4.colgroup_element.html">
+		<h2 class="ve_tit">col element 코드 예제</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="col element">
+			<textarea readonly="readonly">
+				<table>
+					<colgroup>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					...
+				</table>
+			</textarea>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="col">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

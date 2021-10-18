@@ -18,5 +18,40 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;h1&gt;–&lt;h6&gt;</code> 요소는 6단계의 문서 제목을 구현합니다.<br>
+			구조적인 단계는 <code>&lt;h1&gt;</code>이 가장 높고 <code>&lt;h6&gt;</code>은 가장 낮습니다.<br>
+			제목 요소는 <code>&lt;section&gt;</code>의 주제를 짧게 설명합니다.<br>
+			제목 정보는 사용자 에이전트에 의해 사용될 수 있습니다.<br>
+			예를 들면, 문서의 각주를 자동적으로 생성하는데 사용될 수 있습니다.
+		</p>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl">
+		<h2 class="ve_tit">heading element 예제</h2>
+		<div class="view_editor edit_code indent" data-target="html/03-sections/3.2.heading_element1.html">
+			<div class="uk_editor min-height-450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+		<div class="view_editor edit_code indent mt_s" data-target="html/03-sections/3.2.heading_element2.html">
+			<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="h1~h6">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

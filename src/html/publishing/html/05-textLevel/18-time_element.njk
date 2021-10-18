@@ -18,5 +18,52 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="ol_lst font14 mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;time&gt;</code> 요소는 사람이 읽을 수 있는(human-readable) 형태의 날짜와 시간 데이터를 정의할 때 사용합니다.<br>
+			<code>&lt;time&gt;</code> 요소는 대부분의 웹 브라우저에서 특별한 형태로 렌더링되지는 않지만,
+			검색 엔진의 검색 결과 향상이나 알림 및 스케줄과 같은 사용자 기능을 위해 날짜와 시간 데이터를
+			기계가 읽을 수 있는(machine-readable) 형태로 변환해주는 datetime 속성을 포함할 수 있습니다.
+		</p>
+		<p class="mt_s">
+			<code>&lt;time&gt;</code> 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
+			<mark>Internet Explorer : No support(지원하지 않음)</mark>
+		</p>
+		<ol class="indent mt_ms">
+			<li>
+				<code>datetime</code> 속성 - <b class="t_blue">&lt;time datetime=&quot;날짜와 시간&quot;&gt;</b>
+				<div class="line_code mt_s">
+					<p><code>&lt;time&gt;</code> 요소의 날짜와 시간 데이터를 기계가 읽을 수 있는 형태로 명시함.</p>
+				</div>
+			</li>
+		</ol>
+		<div class="indent mt_m">
+			<strong class="t_black"><code>&lt;time&gt;</code> 요소의 datetime 속성값으로 유효한 데이터는 다음과 같습니다.</strong>
+		</div>
+		<ol class="indent_max mt_sm">
+			<li>24시간 형태로 표현된 시간 데이터</li>
+			<li>그레고리력(Gregorian calendar)으로 표현되는 날짜 데이터(선택사항으로 시간 및 시간대 데이터를 포함할 수 있음)</li>
+			<li>유효한 기간 데이터</li>
+		</ol>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.18.time_element.html">
+		<h2 class="ve_tit">time element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="time">
+		<ul>
+			<li class="ie false">지원안함</li>
+			<li class="edge">지원</li>
+			<li class="chrome">62.0</li>
+			<li class="firefox">22.0</li>
+			<li class="opera">49.0</li>
+			<li class="safari">7.0</li>
+		</ul>
+	</aside>
+{%- endblock %}

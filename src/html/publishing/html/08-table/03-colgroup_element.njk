@@ -18,5 +18,39 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			HTML Table Column Group 요소(<code>&lt;colgroup&gt;</code>)는 표 내부의 칸의 그룹을 정의합니다.<br>
+			<code>&lt;table&gt;</code>의 자식 요소로 생략이 가능합니다.
+		</p>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/08-table/8.3.colgroup_element.html">
+		<h2 class="ve_tit">colgroup element 코드 예제</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="colgroup element">
+			<textarea readonly="readonly">
+				<table>
+					<colgroup>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+					...
+				</table>
+			</textarea>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="colgroup">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

@@ -18,5 +18,121 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			이미지를 삽입합니다.(<code>&lt;img&gt;</code>의 srcset, sizes로 대체 가능)<br>
+			<code>&lt;picture&gt;</code> 요소는 <code>&lt;img&gt;</code> 요소의 다중 이미지 리소스(multiple image resources)를 위한 컨테이너를 정의할 때 사용합니다.<br>
+			<code>&lt;picture&gt;</code> 요소는 뷰포트(viewport)의 너비에 따라 커지거나 작아지는 하나의 이미지를 사용하는 대신 서로 다른 디스플레이나 기기에서 해당 뷰포트에 알맞게 채워질 수 있도록 여러 개의 이미지 중에서 적절한 이미지를 사용할 수 있도록 합니다. 이러한 요소는 웹 개발자가 이미지의 리소스를 보다 유연하게 지정할 수 있도록 해주므로, 반응형 디자인(responsive design)에서 주로 사용합니다.<br>
+			<code>&lt;picture&gt;</code> 요소는 0개 이상의 <code>&lt;source&gt;</code> 요소와 하나의 <code>&lt;img&gt;</code> 요소로 구성되며, 브라우저는 <code>&lt;source&gt;</code> 요소 중에서 해당 뷰포트와 가장 잘 어울리는 <code>&lt;source&gt;</code> 요소를 다음과 같은 방법을 사용하여 선택합니다.<br>
+		</p>
+		<p class="mt_s">
+			브라우저는 <code>&lt;source&gt;</code> 요소들의 속성값을 각각 확인해 나가며 조건을 만족하는 첫 번째 <code>&lt;source&gt;</code> 요소를 사용하고, 나머지 <code>&lt;source&gt;</code> 요소들은 무시합니다.<br>
+			이 때 <code>&lt;img&gt;</code> 요소는 <code>&lt;picture&gt;</code> 요소의 자식 요소 중에서 가장 마지막에 위치해야 합니다.<br>
+			이러한 <code>&lt;img&gt;</code> 요소는 <code>&lt;picture&gt;</code> 요소를 지원하지 않는 브라우저를 위한 하위 호환성(backward compatibility)을 위해 사용되거나 명시된 <code>&lt;source&gt;</code> 요소가 모두 조건을 만족하지 못 할 경우 사용됩니다.<br>
+		</p>
+		<p class="mt_s">
+			<code>&lt;picture&gt;</code> 요소는 HTML5에서 새롭게 추가된 요소입니다.<br>
+			<mark>Internet Explorer는 지원하지 않습니다.</mark>
+		</p>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>6.8.1. picture 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[media] <span class="t_blue">&lt;source media="미디어 조건"&gt;</span></h3>
+			<p class="mt_ms">
+				사용자 에이전트가 각 <code>&lt;source&gt;</code> 요소에 대해 평가할 미디어 조건(미디어 쿼리와 유사)을 지정합니다.<br>
+				미디어 조건을 만족하지 못하면 해당 <code>&lt;source&gt;</code>요소를 무시합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="picture element [media] attribute">
+				<textarea readonly="readonly">
+					<picture>
+						<source srcset="mdn-logo-wide.png" media="(min-width: 600px)">
+						<img src="mdn-logo-narrow.png" alt="MDN">
+					</picture>
+				</textarea>
+			</div>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[type] <span class="t_blue">&lt;source type="MIME 유형(image/webp)"&gt;</span></h3>
+			<p class="mt_ms">
+				요소 속성에서 리소스 URL에 대한 MIME 유형을 지정합니다.<br>
+				사용자 에이전트가 지정된 유형을 지원하지 않으면 srcset 요소를 무시합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="picture element [type] attribute">
+				<textarea readonly="readonly">
+					<picture>
+						<source srcset="logo-768.png 768w, logo-768-1.5x.png 1.5px">
+						<source srcset="logo-480.png, logo-480-2x.png 2x">
+						<img src="logo-320.png" alt="logo">
+					</picture>
+				</textarea>
+			</div>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[srcset] <span class="t_blue">&lt;source srcset="URL"&gt;</span></h3>
+			<p class="mt_ms">
+				브라우저가 크기에 따라 사용할 수 있는 이미지를 나타냅니다.<br>
+				높은 DPI의 스크린의 고해상도 영상을 제공하기 위해 사용합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="picture element [srcset] attribute">
+				<textarea readonly="readonly">
+					<picture>
+						<source srcset="logo.webp" type="image/webp">
+						<img src="logo.png" alt="logo">
+					</picture>
+				</textarea>
+			</div>
+		</article>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/06-embedded/6.8.picture_element.html">
+		<h3 class="ve_tit">picture element 코드 예제</h3>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="picture element">
+			<textarea readonly="readonly">
+				<picture>
+					<source media="(min-width: 700px)" srcset="images/html/people_960.jpg">
+					<source media="(min-width: 400px)" srcset="images/html/people_575.jpg">
+					<img src="images/html/people_200.jpg" alt="People">
+				</picture>
+
+				<picture>
+					<source srcset="images/html/surfer-240-200.jpg" media="(min-width: 800px)">
+					<img src="images/html/painted-hand-298-332.jpg" alt="">
+				</picture>
+
+				<picture>
+					<source srcset="mdn-logo-wide.png" media="(min-width: 600px)">
+					<img src="mdn-logo-narrow.png" alt="MDN">
+				</picture>
+
+				<picture>
+					<source srcset="logo-768.png 768w, logo-768-1.5x.png 1.5px">
+					<source srcset="logo-480.png, logo-480-2x.png 2x">
+					<img src="logo-320.png" alt="logo">
+				</picture>
+
+				<picture>
+					<source srcset="logo.webp" type="image/webp">
+					<img src="logo.png" alt="logo">
+				</picture>
+			</textarea>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="picture">
+		<ul>
+			<li class="ie">지원안함</li>
+			<li class="edge">13.0</li>
+			<li class="chrome">38.0</li>
+			<li class="firefox">38.0</li>
+			<li class="opera">25.0</li>
+			<li class="safari">9.1</li>
+		</ul>
+	</aside>
+{%- endblock %}

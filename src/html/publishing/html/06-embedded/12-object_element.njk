@@ -18,5 +18,132 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			멀티미디어, 중첩된 브라우저 컨텍스트(프레임), 플러그인 등을 삽입합니다.<br>
+			<code>&lt;object&gt;</code> 요소는 외부 리소스의 종류에 따라 문서 내에서 처리하는 방식을 변경할 수 있는 임베디드 객체(embedded object)를 정의할 때 사용합니다.<br>
+			<code>&lt;object&gt;</code> 요소를 사용하면 다양한 멀티미디어(오디오, 비디오, 자바 애플릿, 액티브X, 플래시 등)를 웹 페이지에 삽입할 수 있으며, 웹 페이지 자체를 다른 HTML 문서에 삽입할 수도 있습니다.
+		</p>
+		<p class="mt_s">
+			이러한 <code>&lt;object&gt;</code> 요소는 <code>&lt;body&gt;</code> 요소 내부에만 위치할 수 있으며,
+			<code>&lt;object&gt;</code> 요소를 지원하지 않는 브라우저를 위해 <code>&lt;object&gt;</code> 태그와 <code>&lt;/object&gt;</code> 태그 사이에 대체 텍스트를 포함시킬 수 있습니다.<br>
+			또한, <code>&lt;object&gt;</code> 요소는 data 속성이나 type 속성 중 하나를 반드시 명시해야만 합니다.
+		</p>
+		<p class="mt_s">
+			<code>&lt;param&gt;</code> 요소를 사용하여 <code>&lt;object&gt;</code> 요소에 의해 호출되는 플러그인의 매개 변수를 정의할 수 있으며,
+			페이지에 이미지를 삽입할 때도 <code>&lt;img&gt;</code> 요소가 아닌 <code>&lt;object&gt;</code> 요소를 대신 사용할 수도 있습니다.
+		</p>
+		<p class="mt_s">
+			HTML5에서는 <code>&lt;object&gt;</code> 요소에 form 속성이 새롭게 추가되었으며,
+			몇몇 속성(align, archive, border, classid, codebase, codetype, declare, hspace, standby, vspace)을 더 이상 지원하지 않습니다.<br>
+			또한, <code>&lt;object&gt;</code> 요소가 더 이상 <code>&lt;head&gt;</code> 요소 내에 위치할 수 없게 되었으며, 폼(form)에서 <code>&lt;object&gt;</code> 요소를 사용하거나 제출할 수 있도록 변경되었습니다.
+		</p>
+
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="object element CSS default">
+				<textarea readonly="readonly">
+					object:focus {
+						outline: none;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>6.12.1. object 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[width], [height] <span class="t_blue">&lt;object width="너비" height="높이"&gt;</span></h3>
+			<p class="mt_ms">
+				객체의 너비와 높이를 명시합니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[name] <span class="t_blue">&lt;object name="이름"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;object&gt;</code> 요소의 이름을 명시합니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[usemap] <span class="t_blue">&lt;object usemap="#맵이름"&gt;</span></h3>
+			<p class="mt_ms">
+				객체와 함께 사용될 클라이언트 사이드 이미지맵(client-side image-map)의 이름을 명시합니다.<br>
+				usemap 속성은 <code>&lt;map&gt;</code> 요소의 name 속성과 결합하여, <code>&lt;object&gt;</code> 요소와 <code>&lt;map&gt;</code> 요소 사이의 관계를 생성합니다.<br>
+				크롬, 오페라, 사파리는 지원하지 않음. IE, 파이어폭스만 지원.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[data] <span class="t_blue">&lt;object data="URL"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;object&gt;</code> 요소에서 사용할 리소스의 URL을 명시합니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[form] <i class="fab fa-html5"></i> <span class="t_blue">&lt;object form="form id"&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;object&gt;</code> 요소가 포함될 하나 이상의 <code>&lt;form&gt;</code> 요소를 명시함합니다.<br>
+				현재는 모든 브라우저에 지원하지 않습니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="object element [form] attribute">
+				<textarea readonly="readonly">
+					<form action="/examples/media/action_target.php" method="get">
+						<object data="/examples/media/sample.mp4" height="180" width="288">
+						</object><br>
+						<input type="submit">
+					</form>
+				</textarea>
+			</div>
+		</article>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/06-embedded/6.12.object_element.html">
+		<h2 class="ve_tit">object element 코드 예제</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="object element">
+			<textarea readonly="readonly">
+				<object type="application/pdf" data="https://interactive-examples.mdn.mozilla.net/media/examples/In-CC0.pdf" width="250" height="200">
+				</object>
+
+				<object data="/examples/media/sample.mp4" height="180" width="288">
+					현재 사용 중인 브라우저는 object 요소를 지원하지 않습니다!
+				</object>
+
+				<object data="/examples/media/sample.mp4" height="180" width="288" name="video1">
+					현재 사용 중인 브라우저는 object 요소를 지원하지 않습니다!
+				</object><br>
+				<button type="button" onclick="changeHeight()">높이변경</button>
+
+				<script>
+					function changeHeight() {
+						document.getElementsByName('video1')[0].height = "360";
+					}
+				</script>
+
+				<object data="/examples/images/img_imagemap.jpg" height="240" width="320" usemap="#vending">
+				</object>
+				<map name="vending">
+					<area shape="poly" coords="50,150,230,120,230,180,50,210" alt="진실" href="https://ko.wikipedia.org/wiki/%EC%A7%84%EC%8B%A4">
+					<area shape="circle" coords="140,100,40" alt="거짓" href="https://ko.wikipedia.org/wiki/%EA%B1%B0%EC%A7%93%EB%A7%90">
+				</map>
+			</textarea>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="object">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

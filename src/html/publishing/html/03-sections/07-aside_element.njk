@@ -18,5 +18,53 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;aside&gt;</code> 요소는 문서의 주요 콘텐츠에 별도로 이어진 콘텐츠가 있는 문서의 한 구조를 말합니다. 주로 사이드 바로 나타냅니다.
+		</p>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/03-sections/3.7.aside_element1.html">
+		<h2 class="ve_tit">기본 문법</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="aside element">
+			<textarea readonly="readonly">
+				<section>
+					<div>
+						The Disney movie <em>The Little Mermaid</em> was
+						first released to theatres in 1989.
+					</div>
+					<p>
+						The Disney movie <em>The Little Mermaid</em> was
+						first released to theatres in 1989.
+					</p>
+					<aside>
+						The movie earned $87 million during its initial release.
+					</aside>
+					<p>
+						More info about the movie...
+					</p>
+				</section>
+			</textarea>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/03-sections/3.7.aside_element2.html">
+		<h2 class="ve_tit">aside element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="aside">
+		<ul>
+			<li class="ie">9+</li>
+			<li class="edge">지원</li>
+			<li class="chrome">5.0</li>
+			<li class="firefox">4.0</li>
+			<li class="opera">11.1</li>
+			<li class="safari">4.1</li>
+		</ul>
+	</aside>
+{%- endblock %}

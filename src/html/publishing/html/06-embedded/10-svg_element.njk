@@ -18,5 +18,71 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			스케일러블 벡터 그래픽스(Scalable Vector Graphics, SVG)는 2차원 벡터 그래픽을 표현하기 위한 XML 기반의 파일 형식으로,<br>
+			1999년 W3C(World Wide Web Consortium)의 주도하에 개발된 오픈 표준의 벡터 그래픽 파일 형식입니다.<br>
+			<code>&lt;SVG&gt;</code>는 백터(vector) 이미지를 표현하기 위한 포맷으로 W3C에서 만든 백터 이미지 표준입니다.<br>
+			<code>&lt;SVG&gt;</code>는 텍스트 기반의 오픈 웹 표준이며, 의심할 바 없이 CSS, DOM, SMIL 같은 다른 웹 표준과 함께 작동하기 위해서 디자인 되었습니다.
+		</p>
+		<p class="mt_s">
+			<code>&lt;SVG&gt;</code> 이미지들, 그것과 관련된 작동들은 XML XML 텍스트 파일로 정의되어 있습니다.
+			그렇기에 검색될 수 있고, 색인 가능하고, 스크립트 될 수 있고 압축 가능합니다.<br>
+			<code>&lt;SVG&gt;</code> 자체는 CSS가 아닙니다만 CSS를 이용해서 다양한 효과를 줄 때 SVG를 활용하는 경우가 많기 떄문에
+			여기서는 <code>&lt;SVG&gt;</code>에 대해서 간략하게 설명만 하도록 하겠습니다.
+		</p>
+	</section>
+
+	<section class="txt_ex">
+		<h2 class="sound_only">SVG 레퍼런스</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn reference"><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Element" target="_blank" title="새창열림">MDN SVG 요소 레퍼런스</a></h3>
+			<p class="mt_s">
+				MDN SVG 요소들에 대한 상세한 정보를 담고 있습니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn reference"><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Attribute" target="_blank" title="새창열림">MDN SVG 속성 레퍼런스</a></h3>
+
+			<p class="mt_s">
+				MDN SVG 속성들에 대한 상세한 정보를 담고 있습니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn reference"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model#SVG_interfaces" target="_blank" title="새창열림">MDN SVG DOM 인터페이스 레퍼런스</a></h3>
+			<p class="mt_s">
+				MDN 전체 SVG DOM API에 대한 상세한 정보를 담고 있습니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn reference"><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Applying_SVG_effects_to_HTML_content" target="_blank" title="새창열림">MDN HTML 컨텐츠에 SVG 효과 적용하기</a></h3>
+			<p class="mt_s">
+				MDN SVG는 HTML, CSS, JavaScript와 함께 동작합니다. SVG를 사용해 일반적인 HTML와 웹 애플리케이션을 개선할 수 있습니다.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.10.svg_element.html">
+		<h2 class="ve_tit">svg element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="svg">
+		<ul>
+			<li class="ie">9+</li>
+			<li class="edge">18.0</li>
+			<li class="chrome">4.0</li>
+			<li class="firefox">2.0</li>
+			<li class="opera">10.0</li>
+			<li class="safari">3.1</li>
+		</ul>
+	</aside>
+{%- endblock %}

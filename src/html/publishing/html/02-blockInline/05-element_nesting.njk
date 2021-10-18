@@ -18,5 +18,46 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>요소를 다른 요소의 안에 놓을 수 있습니다. 이것을 <b>중첩(nesting)</b>이라고 부릅니다.</p>
+	</section>
+
+	<section class="view_editor ex_code mt_xxl" data-target="html/02-blockInline/2.5.element_nesting1.html">
+		<h2 class="ve_tit">요소 중첩의 올바른 예</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="Correct example of element nesting">
+			<textarea readonly="readonly">
+				<p>
+					블록요소(단락) 안에 <strong>인라인 요소(강조)</strong> 가 중첩되어 있습니다.
+				</p>
+			</textarea>
+		</div>
+	</section>
+
+	<blockquote class="uk_note mt_xxl" role="note">
+		<h2 class="sound_only">요약 설명</h2>
+		<p>마크업 시 요소가 적절히 중첩되었는지 확인할 필요가 있습니다.</p>
+		<p>
+			위의 예제에서 우리는 <code>&lt;p&gt;</code> 요소를 먼저 열었고,
+			그다음 <code>&lt;strong&gt;</code>을 열었기 때문에 <code>&lt;/strong&gt;</code> 요소를 먼저 닫고,
+			다음으로 <code>&lt;/p&gt;</code>를 닫아야 합니다.
+		</p>
+		<p>블록 요소안에 인라인 요소는 중첩될 수 있으나, 인라인 요소에 블록요소는 중첩될 수 없습니다.</p>
+		<p>다음은 잘못된 예제입니다.</p>
+	</blockquote>
+
+	<section class="view_editor ex_code ex_wrong mt_xxl" data-target="html/02-blockInline/2.5.element_nesting2.html">
+		<h2 class="ve_tit">요소 중첩의 잘못된 예</h2>
+		<div class="uk_gist_code_box indent mt_ms" data-tit="Incorrect example of element nesting">
+			<textarea readonly="readonly">
+				<p>
+					블록요소(단락) 안에 <strong>인라인 요소(강조)____error__</p>__error____ 가 중첩되어 있습니다.
+				____error__</span>__error____
+				<span>
+					<p>블록요소(단락) 안에 <strong>인라인 요소(강조)</strong> 가 중첩되어 있습니다.____error__</p>__error____
+				____error__</span>__error____
+			</textarea>
+		</div>
+	</section>
+{%- endblock %}

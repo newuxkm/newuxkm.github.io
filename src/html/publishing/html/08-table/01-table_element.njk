@@ -18,5 +18,63 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			HTML Table 요소는 (<code>&lt;table&gt;</code>) 2차원 이상의 데이터를 나타냅니다.<br>
+			테이블에는 자손에는 행, 열 및 셀이 있습니다. 행과 열은 그리드를 형성합니다.
+		</p>
+		<ol class="ol_lst indent mt_s">
+			<li class="line_code font14"><strong>표는 <code>&lt;table&gt;</code> 태그로 만듭니다.</strong></li>
+			<li class="line_code font14"><strong>행(가로 한 줄)은 <code>&lt;tr&gt;</code> 태그로 만듭니다.</strong></li>
+			<li class="line_code font14"><strong>열의 제목이 들어가는 셀은 <code>&lt;th&gt;</code> 태그로 만듭니다.</strong></li>
+			<li class="line_code font14"><strong>내용이 들어가는 셀은 <code>&lt;td&gt;</code> 태그로 만듭니다.</strong></li>
+			<li class="line_code font14"><strong>각 열의 의미에 따라 <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code> 태그로 구분지을 수도 있습니다.</strong></li>
+			<li class="line_code font14"><strong>가로로 이웃한 셀을 합칠 때에는 colspan 속성을 사용합니다.</strong></li>
+			<li class="line_code font14"><strong>세로로 이웃한 셀을 합칠 때에는 rowspan 속성을 사용합니다.</strong></li>
+			<li class="line_code font14"><strong>표 제목은 <code>&lt;caption&gt;</code> 태그로 만듭니다.</strong></li>
+			<li class="line_code font14">
+				<strong class="mb_sm">deprecated(더 이상 사용되지 않음)속성은 CSS 속성을 사용</strong>
+				<p><b>align</b> - CSS 속성값으로 사용</p>
+				<p><b>bgcolor</b> - CSS 속성값으로 사용</p>
+				<p><b>border</b> - CSS 속성값으로 사용</p>
+				<p><b>cellpadding</b> - CSS 속성값으로 사용</p>
+				<p><b>cellspacing</b> - CSS 속성값으로 사용</p>
+				<p><b>frame</b> - CSS 속성값으로 사용</p>
+				<p><b>rules</b> - CSS 속성값으로 사용</p>
+				<p><b>width</b> - CSS 속성값으로 사용</p>
+			</li>
+			<li class="line_code font14 mt_s">
+				<strong class="mb_sm">
+					summary - 테이블을 직접 확인할 수 없는 경우에 대비하여<br>
+					해당 테이블을 설명하기 위한 대체 텍스트 사용을 정의합니다.<br>
+					일반적으로 점자 화면을 사용하여 웹을 탐색하는 사람들이 정보를 얻을 수 있도록 설명합니다.<br>
+					더 이상 사용되지 않는 속성으로, 다음과 같이 대체할 수 있습니다.
+				</strong>
+				<p>테이블의 <code>&lt;caption&gt;</code>요소를 사용.</p>
+				<p><code>&lt;details&gt;</code>내부 요소 <code>&lt;caption&gt;</code>요소를 사용.</p>
+				<p><code>&lt;figure&gt;</code>요소에 <code>&lt;table&gt;</code>요소를 포함시키고 설명을 추가.</p>
+				<p><code>&lt;figure&gt;</code>안에 <code>&lt;figcaption&gt;</code>요소를 사용하여 설명을 추가.</p>
+			</li>
+		</ol>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/08-table/8.1.table_element.html">
+		<h2 class="ve_tit">table element 예제</h2>
+		<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="table">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

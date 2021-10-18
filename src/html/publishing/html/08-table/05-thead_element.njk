@@ -18,5 +18,50 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;thead&gt;</code> 요소는 테이블의 각 영역(header, body, footer)을 명시하기 위해 <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code> 요소와 함께 사용됩니다.
+			브라우저는 이러한 요소들을 사용하여 테이블의 헤더나 푸터와는 독립적으로 테이블의 내용만 스크롤되게 할 수 있으며, 여러 페이지에 걸쳐 있는 큰 테이블을 인쇄할 때 각 페이지의 상단과 하단에 테이블의 헤더와 푸터가 모두 인쇄되도록 할 수도 있습니다.<br>
+		</p>
+		<p class="mt_s">
+			<code>&lt;thead&gt;</code> 요소는 <code>&lt;table&gt;</code> 요소의 자식 요소로써, 반드시 <code>&lt;caption&gt;</code>, <code>&lt;colgroup&gt;</code> 요소 다음에 위치해야 합니다.<br>
+			또한, <code>&lt;thead&gt;</code> 요소는 반드시 하나 이상의 <code>&lt;tr&gt;</code> 요소를 포함하고 있어야 합니다. <br>
+			<code>&lt;thead&gt;</code>와 <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code> 요소는 기본적으로 웹 페이지의 레이아웃에 전혀 영향을 주지 않지만, 이 요소들의 스타일을 CSS를 사용하여 변경할 수는 있습니다.
+		</p>
+		<p class="mt_s">
+			HTML5에서는 <code>&lt;thead&gt;</code> 요소의 <code>align</code>, <code>char</code>, <code>charoff</code>, <code>valign</code> 속성을 더 이상 지원하지 않습니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="thead element CSS default">
+				<textarea readonly="readonly">
+					thead {
+						display: table-header-group;
+						border-color: inherit;
+						vertical-align: middle;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/08-table/8.5.thead_element.html">
+		<h2 class="ve_tit">thead element 예제</h2>
+		<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="thead">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

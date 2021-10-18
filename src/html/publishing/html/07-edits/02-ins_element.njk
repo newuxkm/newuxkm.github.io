@@ -18,5 +18,63 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;ins&gt;</code>요소(또는 HTML 삽인된 텍스트)는 문서에서 추가된 글자의 범위를 나타냅니다.<br>
+			<code>&lt;ins&gt;</code> 태그는 텍스트 아래쪽에 라인(line)을 추가하여 문서에 추가된 텍스트를 표현할 때 사용합니다.<br>
+			또한, <code>&lt;del&gt;</code> 요소는 텍스트 한가운데 라인을 추가하여 문서에서 삭제된 텍스트를 표현합니다.<br>
+			이와 같이 <code>&lt;del&gt;</code> 요소와 <code>&lt;ins&gt;</code> 요소는 문서에 대한 업데이트나 수정을 표현할 때 사용하며, 브라우저는 이를 일반 텍스트에 라인을 추가하는 것으로 표현할 것입니다.
+		</p>
+		<div class="line_code mt_s">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="ins element CSS default">
+				<textarea readonly="readonly">
+					ins {
+						text-decoration: underline;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>7.2.1. ins 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[cite] <span class="t_blue">&lt;ins cite="URL"&gt;</span></h3>
+			<p class="mt_ms">
+				텍스트가 추가되거나 변경된 이유에 대해서 알 수 있는 문서의 URL을 명시합니다.<br>
+				예를 들면, 회의록이나 문제 해결 시스템의 링크 같은 것들이 있습니다.
+			</p>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[datetime] <span class="t_blue">&lt;ins datetime="YYYY-MM-DDThh:mm:ssTZD"&gt;</span></h3>
+			<p class="mt_ms">
+				텍스트가 추가되거나 변경된 날짜와 시간을 명시합니다.<br>
+				이 속성은 요소의 시간과 날짜를 나타내며 선택적으로 시간 정보를 갖는 유효한 날짜 문자열이어야 합니다.<br>
+				만일 값이 선택적으로 시간 정보를 갖는 날짜 문자열로 파싱될 수 없다면, 요소는 관련된 타임스탬프를 소유하지 않게 됩니다.
+			</p>
+		</article>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/07-edits/7.2.ins_element.html">
+		<h2 class="ve_tit">ins element 예제</h2>
+		<div  class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="ins">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

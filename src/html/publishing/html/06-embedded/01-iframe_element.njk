@@ -18,5 +18,325 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;iframe&gt;</code> 요소는 인라인 프레임(inline frame)을 정의할 때 사용합니다.<br>
+			인라인 프레임은 현재 HTML 문서에 다른 문서를 포함시킬 때 사용합니다.<br>
+			<code>&lt;iframe&gt;</code> 요소의 시작 태그와 종료 태그 사이에는 <code>&lt;iframe&gt;</code> 요소를 지원하지 않는 브라우저를 위한 텍스트를 포함할 수 있습니다.<br>
+			주로 다른 도메인 또는 하위 도메인의 리소스를 포함하는 데 사용되지만 동일한 도메인의 콘텐츠도 포함하는 데 사용할 수 있습니다.<br>
+			<code>&lt;iframe&gt;</code>의 장점은 임베디드 코드가 <code>&apos;라이브&apos;</code>상태이며 부모 문서와 통신 할 수 있다는 것입니다.<br>
+		</p>
+		<p class="mt_ms">
+			HTML5에서는 <code>&lt;iframe&gt;</code> 요소의 align, frameborder, longdesc, marginheight, marginwidth, scrolling 속성이 더 이상 지원되지 않도록 변경되었습니다.<br>
+			또한, sandbox 속성과 srcdoc 속성이 새롭게 추가되었습니다.<br>
+			seamless 속성은 WHATWG 및 W3C HTML5 사양 모두에서 속성이 제거되었습니다. XHTML에서는 name 속성을 더 이상 지원하지 않으므로, name 속성 대신 전역 속성인 id 속성을 사용해야 합니다.
+		</p>
+		<div class="line_code mt_ms">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="iframe element CSS default">
+				<textarea readonly="readonly">
+					iframe:focus {
+						outline: none;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>6.1.1. iframe 속성</h2>
+
+		<article class="indent_max txt_ex mt_l">
+			<h3 class="ml_mn">[src] <span class="t_blue">&lt;iframe src=&quot;URL&quot;&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;iframe&gt;</code> 요소에 보일 문서의 URL를 명시합니다.(address of the resource)
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="iframe element [src] attribute">
+				<textarea readonly="readonly">
+					<iframe src="https://uxkm.github.io">
+						<p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+					</iframe>
+				</textarea>
+			</div>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[width & height] <span class="t_blue">&lt;iframe width=&quot;픽셀(200)&quot; height=&quot;픽셀(200)&quot;&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;iframe&gt;</code> 요소의 너비(horizontal dimension)와 높이(vertical dimension)를 픽셀(pixel) 단위로 명시합니다.<br>
+				HTML 4.01에서 <code>&lt;iframe&gt;</code> 요소의 width, height 속성값은 픽셀(pixel) 단위뿐만 아니라 퍼센트(%) 단위로도 정의할 수 있었습니다.<br>
+				하지만 HTML5에서는 오직 픽셀(pixel) 단위만을 사용해야 합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="iframe element [width & height] attribute">
+				<textarea readonly="readonly">
+					<iframe src="https://uxkm.github.io/html/" height="400" width="400">
+						<p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+					</iframe>
+					<a href="https://uxkm.github.io/" target="myframe">UXKM</a>
+				</textarea>
+			</div>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[name] <span class="t_blue">&lt;iframe name=&quot;이름&quot;&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;iframe&gt;</code> 요소의 이름을 명시합니다.(name of nested browsing context)<br>
+				name 속성은 자바스크립트에서 해당 요소를 참조하기 위해 사용되거나, <code>&lt;a&gt;</code> 요소나 <code>&lt;form&gt;</code> 요소의 target 속성이나,
+				<code>&lt;input&gt;</code> 요소 또는 <code>&lt;button&gt;</code> 요소의 formtarget 속성의 속성값으로 사용될 수 있습니다.<br>
+				XHTML에서는 name 속성을 더 이상 지원하지 않으므로, name 속성 대신 전역 속성인 id 속성을 사용해야 합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="iframe element [name] attribute">
+				<textarea readonly="readonly">
+					<iframe src="https://uxkm.github.io/html/" name="myframe">
+						<p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+					</iframe>
+					<a href="https://uxkm.github.io/" target="myframe">UXKM</a>
+				</textarea>
+			</div>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn html5">[srcdoc] <i class="fab fa-html5"></i> <span class="t_blue">&lt;iframe srcdoc=&quot;HTML 코드(요소에 보일 HTML 코드로 반드시 유효한 HTML 코드이어야 함.)&quot;&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;iframe&gt;</code> 요소에 보일 웹 페이지의 HTML 코드를 명시합니다.(a document to render in the iframe)<br>
+				만약 srcdoc 속성이 명시되어 있고 해당 브라우저가 srcdoc 속성을 지원하면, <code>&lt;iframe&gt;</code> 요소의 src 속성값은 srcdoc 속성값으로 재정의될 것입니다.<br>
+				하지만 srcdoc 속성이 명시되어 있지만 해당 브라우저가 srcdoc 속성을 지원하지 않으면, 브라우저는 src 속성에 명시된 파일을 <code>&lt;iframe&gt;</code> 요소에 보여줄 것입니다.<br>
+				srcdoc 속성은 HTML5에서 새롭게 추가된 속성입니다.<br>
+				<mark>Edge, Internet Explorer에서는 지원하지 않습니다.</mark>
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="iframe element [srcdoc] attribute">
+				<textarea readonly="readonly">
+					<iframe srcdoc="<p>Hello World!!</p>" src="https://uxkm.github.io/">
+						<p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+					</iframe>
+				</textarea>
+			</div>
+			<aside class="browser_support mt_m" data-tit="srcdoc">
+				<ul>
+					<li class="ie false">지원안함</li>
+					<li class="edge false">지원안함</li>
+					<li class="chrome">20.0</li>
+					<li class="firefox">25.0</li>
+					<li class="opera">15.0</li>
+					<li class="safari">6.0</li>
+				</ul>
+			</aside>
+		</article>
+
+		<article class="indent_max txt_ex mt_xl">
+			<h3 class="ml_mn">[sandbox] <span class="t_blue">&lt;iframe sandbox=&quot;속성값&quot;&gt;</span></h3>
+			<p class="mt_ms">
+				<code>&lt;iframe&gt;</code> 요소에 보일 콘텐츠에 대한 추가적인 제한 사항(restrictions)들의 집합을 명시합니다.(security rules for nested content)<br>
+				<code>&lt;iframe&gt;</code> 요소의 sandbox 속성은 HTML5에서 새롭게 추가된 속성입니다.
+			</p>
+			<ul class="dot_lst indent mt_s">
+				<li>실제 존재하지 않는 도메인(오리진)에 속한 것으로 간주하므로 자신이 소속된 도메인과도(allow-scripts에 의해 실행이 가능해져도) 통신할 수 없습니다.</li>
+				<li>플러그인 실행 금지.</li>
+				<li>자바스크립트 사용 금지.</li>
+				<li>폼 요소에 의한 페이지 호출 금지.</li>
+			</ul>
+
+			<div class="ol_lst mt_m">
+				<h4>사용 가능한 속성 값</h4>
+				<ol class="indent mt_sm">
+					<li class="line_code font14">
+						<strong>sandbox(빈 값)</strong>
+						<p>모든 제한 사항(restrictions)을 적용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-forms</strong>
+						<p>리소스(resource)가 폼 데이터를 제출할 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-modals</strong>
+						<p>리소스가 모달 윈도우(modal window)를 열 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-orientation-lock</strong>
+						<p>리소스가 화면 방향 전환을 잠글 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-pointer-lock</strong>
+						<p>리소스가 Pointer Lock API를 사용할 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-popups</strong>
+						<p>window.open()이나 target="_blank", showModalDialog() 등의 팝업(popup)을 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-popups-to-escape-sandbox</strong>
+						<p>모든 제한 사항이 적용된 문서(sandboxed document)에서 새로운 창(window)을 열 때 제한 사항을 상속받지 않은 창을 열 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-presentation</strong>
+						<p>리소스가 프레젠테이션 세션(presentation section)을 시작할 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-same-origin</strong>
+						<p>리소스가 same-origin policy를 통과된 것처럼 취급될 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-scripts</strong>
+						<p>리소스가 스크립트를 실행할 수 있도록 허용하지만, 팝업창은 생성하지 못합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-storage-access-by-user-activation</strong>
+						<p>리소스가 Storage Access API를 사용하여 상위 스토리지 기능에 접근 요청을 할 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-top-navigation</strong>
+						<p>리소스가 최상위 브라우징 컨텍스트(_top)를 탐색할 수 있도록 허용합니다.</p>
+					</li>
+					<li class="line_code font14 mt_sm">
+						<strong>allow-top-navigation-by-user-activation</strong>
+						<p>리소스가 사용자의 요청이 있을 때만 최상위 브라우징 컨텍스트(_top)를 탐색할 수 있도록 허용합니다.</p>
+					</li>
+				</ol>
+			</div>
+
+			<div class="uk_gist_code_box indent mt_ms" data-tit="iframe element [sandbox] attribute">
+				<textarea readonly="readonly">
+					<iframe sandbox src="/"></iframe> <!-- 읽기 전용의 단순 웹페이지 -->
+					<!--
+						위의 제한이 너무 엄격하여 iframe 안의 페이지가 동작하지 않을때는 sandbox 속성에 다음과 같은 값을 지정하여 샌드박스 제한을 완화할 수 있다.
+
+						allow-forms : 폼 요소로 페이지를 호출할 수 있음
+						allow-scripts : 자바스크립트를 사용할 수 있음, 그러나 윈도우 팝업 iframe 요소 삽입을 금지
+						allow-same-origin : 같은 도메인에 소속된 리소스를 이용할 수 있음 (서버와의 통신, 스토리지 이용등)
+					-->
+					<iframe sandbox="allow-scripts allow-forms" src="/"></iframe>
+				</textarea>
+			</div>
+			<div class="uk_gist_code_box indent mt_ms" data-tit="iframe element [sandbox] attribute">
+				<textarea readonly="readonly">
+					<iframe src="/examples/media/iframe_sandbox.html" sandbox>
+						<p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+					</iframe>
+
+					<iframe src="/examples/media/iframe_sandbox.html">
+						<p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+					</iframe>
+
+					<iframe src="/examples/media/iframe_sandbox_form.html" sandbox="">
+						<p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+					</iframe>
+
+					<iframe src="/examples/media/iframe_sandbox_form.html" sandbox="allow-forms">
+						<p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+					</iframe>
+				</textarea>
+			</div>
+			<div class="uk_gist_code_box indent mt_ms" data-tit="iframe element [sandbox] attribute">
+				<textarea readonly="readonly">
+					<article>
+						<footer> Thirteen minutes ago, <a href="/users/ch">ch</a> wrote: </footer>
+						<iframe sandbox srcdoc="<p>did you get a cover picture yet?"></iframe>
+					</article>
+
+					<article>
+						<footer> Nine minutes ago, <a href="/users/cap">cap</a> wrote: </footer>
+						<iframe sandbox srcdoc="<p>Yeah, you can see it <a href="/gallery?mode=cover&amp;page=1">in my gallery</a>."></iframe>
+					</article>
+
+					<article>
+						<footer> Five minutes ago, <a href="/users/ch">ch</a> wrote: </footer>
+						<iframe sandbox srcdoc="<p>hey that's earl's table.
+						<p>you should get earl&amp;me on the next cover."></iframe>
+					</article>
+				</textarea>
+			</div>
+
+			<aside class="browser_support mt_m" data-tit="sandbox">
+				<ul>
+					<li class="ie">10+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">4.0</li>
+					<li class="firefox">17.0</li>
+					<li class="opera">15.0</li>
+					<li class="safari">5.0</li>
+				</ul>
+			</aside>
+		</article>
+	</section>
+
+	<section class="txt_ex mt_xxl">
+		<h2>6.1.2. iframe 속성 간단 요약</h2>
+		<div class="indent_max mt_l">
+			<h3 class="ml_mn">[기본 속성]</h3>
+			<p class="mt_ms">
+				<code>&lt;iframe name=&quot;test&quot; src=&quot;주소&quot; width=&quot;500&quot; height=&quot;100&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;</code>
+			</p>
+			<ul class="dot_lst mt_sm">
+				<li class="t_black">src : 아이프레임 홈페이지 url 주소</li>
+				<li class="t_black">width : 아이프레임 가로 넓이</li>
+				<li class="t_black">height: 아이프레임 세로 길이</li>
+				<li class="t_black">frameborder : 테두리 굵기. 0이면 테두리 없음</li>
+				<li>
+					<p class="t_black">scrolling : 스크롤바 표시</p>
+					<div class="indent">
+						scrolling="no"는 스크롤바 없음<br>
+						scrolling="yes"는 무조건 스크롤바 표시<br>
+						scrolling="auto"는 스크롤바 자동 표시
+					</div>
+				</li>
+				<li>
+					<p class="t_black">align : 정렬</p>
+					<div class="indent">
+						align="left" 왼쪽 정렬<br>
+						align="right" 오른쪽 정렬<br>
+						align="middle" 중앙 정렬<br>
+						align="absmiddle" 줄 중간 정렬
+					</div>
+				</li>
+				<li class="t_black">name : 아이프레임 이름</li>
+			</ul>
+			<p class="mt_sm"><mark>align, frameborder, scrolling 속성은 html4만 지원되고 html5 는 지원이 안됨.</mark></p>
+		</div>
+
+		<div class="indent_max mt_xl">
+			<h3 class="ml_mn">[html5부터 추가된 속성]</h3>
+			<p class="mt_ms">
+				srcdoc 속성 : 주소가 아니라 직접 태그소스를 <code>&lt;iframe&gt;</code>으로 표시할 수 있습니다.<br>
+				<code>&lt;iframe srcdoc=&quot;&lt;p&gt;하이?&lt;/p&gt;&quot; &lt;/iframe&gt;</code> 이렇게 하면
+				입력한 태그가 <code>&lt;iframe&gt;</code>내에 표시됩니다.<br>
+				<mark>익스플로러는 지원하지 않습니다.</mark>
+			</p>
+		</div>
+
+		<div class="indent_max mt_xl">
+			<h3 class="ml_mn">[sandbox 속성]</h3>
+			<p class="mt_ms">
+				보안을 위해서 <code>&lt;iframe&gt;</code>에서 <code>&lt;form&gt;</code>이나 <code>&lt;javascript&gt;</code> 같은 게 실행되지 못하게 합니다.
+				아이프레임을 통하여 해킹을 자주 시도하여 생긴 속성입니다.
+			</p>
+			<ul class="dot_lst mt_sm">
+				<li>'익스플로러10'부터 지원합니다.</li>
+				<li>allow-forms - 폼 실행을 허용합니다.</li>
+				<li>allow-same-origin 같은 도메인의 리소스 이용이 가능합니다.</li>
+				<li>allow-scripts 스크립트 실행을 허용합니다.</li>
+				<li><code>&lt;iframe sandbox=&quot;&quot; src=&quot;주소&quot;&gt;&lt;/iframe&gt;</code></li>
+				<li><code>&lt;iframe sandbox=&quot;allow-scripts&quot; src=&quot;주소&quot;&gt;&lt;/iframe&gt;</code> 스크립트는 실행이 가능해집니다.</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.1.iframe_element.html">
+		<h2 class="ve_tit">iframe element 예제</h2>
+		<div class="uk_editor indent min-height-600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="iframe">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">지원</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}

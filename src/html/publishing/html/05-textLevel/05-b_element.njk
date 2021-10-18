@@ -18,5 +18,64 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content %}
-{%- endblock %}#}
+{% block content %}
+	<section class="ol_lst mt_xxl">
+		<h2 class="sound_only">요소 설명</h2>
+		<p>
+			<code>&lt;b&gt;</code> 요소는 다른 부가적인 목적 없이 단순히 굵게 표현되는 텍스트를 정의할 때 사용합니다.<br>
+			HTML5에서 제목(heading)은 <code>&lt;h1&gt;</code>부터 <code>&lt;h6&gt;</code> 요소로, 강조된 텍스트는 <code>&lt;em&gt;</code> 요소로,
+			중요한 의미를 가지는 텍스트는 <code>&lt;strong&gt;</code> 요소로, 마지막으로 하이라이트된(highlighted)
+			텍스트는 <code>&lt;mark&gt;</code> 요소로 표현되어야 합니다.
+		</p>
+		<p class="mt_s">
+			따라서 위의 태그들에서 적절한 태그를 찾을 수 없을 때만 마지막 선택지로 <code>&lt;b&gt;</code> 태그를 사용해야 합니다.<br>
+			<code>&lt;b&gt;</code> 요소를 사용한 굵은 텍스트는 CSS의 font-weight 속성을 사용해도 같은 결과를 얻을 수 있습니다.
+		</p>
+		<ol class="indent mt_s">
+			<li>
+				<code>&lt;b&gt;</code> 요소와 <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>,<code>&lt;mark&gt;</code> 요소들을 혼동하지 마세요.<br>
+				<code>&lt;strong&gt;</code> 요소는 중요한 글자를 나타내며, <code>&lt;em&gt;</code> 요소는 글자에 약간의 강조를 주며, <code>&lt;mark&gt;</code> 요소는 글자의 관련성을 나타냅니다.<br>
+				<code>&lt;b&gt;</code> 요소는 어떠한 특별한 시멘틱 정보를 전달하지 않습니다. 다른 맞는 요소가 없을떄 사용합니다.
+			</li>
+			<li>
+				유사하게, <code>&lt;b&gt;</code> 요소를 타이틀과 제목을 표시하는데 쓰지 마세요. 타이틀과 제목은 heading element(<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>)를 사용해야 합니다.<br>
+				또한 css를 통해 <code>&lt;b&gt;</code> 요소의 css 기본값을 normal(기본 굵기)로 변경할 수 있습니다.
+			</li>
+			<li>
+				추가 의미 정보를 전달하기 위해 클래스 속성을 사용하는 것이 좋습니다<br>
+				(예 <code>&lt;b class=&quot;lede&quot;&gt;</code>: 단락의 첫 문장). 이를 통해 HTML 코드를 변경하지 않고도 웹 문서의 여러 스타일을 쉽게 개발할 수 있습니다.
+			</li>
+			<li>
+				<code>&lt;b&gt;</code> 요소를 사용하는데에 있어 아무런 시멘틱 목적이 없다면, CSS 속성 <code>font-weight:bold</code>값을 사용하는것이 글자를 굵게 만드는데에 더 좋습니다.
+			</li>
+		</ol>
+		<div class="line_code mt_ms">
+			<strong class="t_blue weight-600">CSS 기본값 :</strong>
+			<div class="uk_gist_code_box indent mt_s" data-tit="b element CSS default">
+				<textarea readonly="readonly">
+					b {
+						font-weight: bold;
+					}
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.5.b_element.html">
+		<h2 class="ve_tit">b element 예제</h2>
+		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="b">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">지원</li>
+			<li class="chrome">지원</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">지원</li>
+			<li class="safari">지원</li>
+		</ul>
+	</aside>
+{%- endblock %}
