@@ -73,6 +73,68 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="{{ path.lib }}/jquery-3.4.1.min.js"></script>
+	<script>
+		// [ dom 이 그려질때 바로 실행되야 하는 스크립트 ] -----------------------------------------------------------------
+
+		// 새로고침 시 sessionStorage 에 저장한 document height 값 적용(window.load 후 삭제)
+    if( window.performance.navigation.type === 1 ) {
+      $('html').css('height', sessionStorage.getItem('html_height'));
+    }
+
+    // 새로고침 시 기존 scroll top 유지
+    if( window.performance.navigation.type === 1 ){
+      $(window).on('scroll', function(){
+        let loading_sct = $(window).scrollTop();
+        sessionStorage.setItem('loading_scroll_top', loading_sct);
+      });
+      $('html, body').animate({'scrollTop':sessionStorage.getItem('loading_scroll_top')}, 0);
+		}
+
+		setTimeout(function(){
+			let sct = $(window).scrollTop();
+
+			// uk_header progress
+			let docHeight = $(document).height() - window.innerHeight;
+			let hd_proW = (sct/docHeight)*100;
+			$('.hd_progress').css('width', hd_proW+'%');
+
+			// top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우)
+			let top_link_offset = $('.top_link').find('ul').offset().top - 1;
+			sct > top_link_offset - $('.uk_header').height() ?  $('.top_link').addClass('fixed') : $('.top_link').removeClass('fixed');
+
+			// side menu 타이틀 노출( side_close일 경우 )
+			let sub_top_offset = $('.sub_content').offset().top + Number($('.sub_content').css('padding-top').replace('px','')) + $('#content_title').height()/2;
+			sub_top_offset -= $('.uk_header').height();
+			sct > sub_top_offset ? $('.side_menu_area').addClass('title_show') : $('.side_menu_area').removeClass('title_show') ;
+
+      // uk_gist_code_box 적용 전 세로값 유지
+      $('.uk_gist_code_box').each(function(i, e){
+        const _txtarea = $(e).find('textarea');
+        const str = _txtarea.val();
+        const line = str.split('\n');
+        const lineLength = line.length - 1;
+        const line_height = Number(_txtarea.css('line-height').replace('px',''));
+        _txtarea.css({'box-sizing':'content-box', 'height':line_height*lineLength});
+
+        //모든 문장의 앞에 있는 불필요한 tab 공백 추츨
+        const line_tab_split = line[0].trim().split('')[0];
+        const line_tab_size = line[0].split(line_tab_split)[0];
+        let str_content = '';
+
+        for( i=0; i<lineLength; i++ ){
+          //모든 문장의 앞에 있는 불필요한 tab 공백 제거
+          if( line[i].match(line_tab_size) ){
+            line[i] = line[i].replace(line_tab_size, '');
+            console.log( line[i] );
+            str_content += line[i] + '\n';
+          }
+				}
+        _txtarea.val(str_content);
+      });
+		});
+
+
+	</script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="{{ path.lib }}/html5.js"></script>
 	<script type="text/javascript" src="{{ path.lib }}/respond.min.js"></script>

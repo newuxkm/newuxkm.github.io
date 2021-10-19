@@ -184,6 +184,13 @@
 					) | tabIndent(5)}}
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="{{ page_title }}">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+          // sessionStorage 의 sideToggle 에 true 값이 있으면 side menu 닫기 (빠른 동작을 위해 이곳에 선언)
+          if( sessionStorage.getItem('sideToggle') ){
+            $('.side_menu_toggle').addClass('active').attr('title','사이드 메뉴 열기').parent().addClass('side_close');
+            $('.side_menu_toggle').find('b').text('OPEN');
+          }
+				</script>
 			</aside>
 			<!-- // {{ title_d2 }} side menu -->
 			{%- endif %}

@@ -59,7 +59,6 @@ let active_number = _ukWrap.attr('data-active') ? _ukWrap.attr('data-active').sp
 
 // header common
 function header_common(){
-  _ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
   _ukHeader.ukDetect({
     device_check:true,
     all_check:false
@@ -507,6 +506,8 @@ function uk_gist_skin_code(){
 
     //----------------------------------------------------------------------------------------
 
+    // textarea 삭제 후 코드 적용
+    //$(e).find('textarea').remove();
     $(e).append(
       '<div class="'+uk_gist_content+'">' +
       '<pre class="'+uk_gist_code_pre+'">' +
@@ -610,6 +611,7 @@ function uk_gist_skin_code(){
     }
   });
 
+
   //highlight.js 적용 및 색상 커스텀
   const hljsSelectorClass = '.hljs-selector-class';
   const hljsSelectorId = '.hljs-selector-id';
@@ -617,8 +619,8 @@ function uk_gist_skin_code(){
   setTimeout(function(){
     $('.'+uk_gist_code_wrap).each(function(i, e){
       //$(e).addClass('xml');
+      //$(this).parents('.'+uk_gist_content).siblings('textarea').remove(); //-----------------------
       hljs.highlightBlock(e);
-      $(this).parents('.'+uk_gist_content).siblings('textarea').remove();
 
       //class '.' 색상 변경 class 지정
       if( $(e).find(hljsSelectorClass).is(':visible') ){
@@ -775,10 +777,10 @@ function hd_common(sct){
 	if( sct > 10 ) _ukHeader.addClass('fixed');
 	else _ukHeader.removeClass('fixed');
 
-	// uk_header progress
+	// uk_header progress (<head>에도 추가)
 	var docHeight = $(document).height() - window.innerHeight;
 	var hd_proW = (sct/docHeight)*100;  //Math.ceil();
-	$('.'+hd_progress).css('width',hd_proW+'%');
+	$('.'+hd_progress).css('width', hd_proW+'%');
 
   // masonry
   depth3_masonry();
