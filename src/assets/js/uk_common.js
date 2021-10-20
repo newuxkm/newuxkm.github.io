@@ -399,7 +399,8 @@ function uk_gist_skin_code(){
   const ko_check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
   const code_tab_size = '  ';
 
-  $('.'+uk_gist_code_box).each(function(i, e){
+  // 빠른 로드를 위해 <head>로 이동
+  /*$('.'+uk_gist_code_box).each(function(i, e){
     const str = $(e).find('textarea').val()
     .replace(/</g,"&lt;")                                                 // '<' 변환
     .replace(/>/g,"&gt;")                                                 // '>' 변환
@@ -507,7 +508,7 @@ function uk_gist_skin_code(){
     //----------------------------------------------------------------------------------------
 
     // textarea 삭제 후 코드 적용
-    //$(e).find('textarea').remove();
+    //$(e).find('.txtarea').remove();
     $(e).append(
       '<div class="'+uk_gist_content+'">' +
       '<pre class="'+uk_gist_code_pre+'">' +
@@ -609,8 +610,7 @@ function uk_gist_skin_code(){
     for( i=0; i<lineLength; i++ ){
       $(e).find('.line_number').append('<li></li>');
     }
-  });
-
+  });*/
 
   //highlight.js 적용 및 색상 커스텀
   const hljsSelectorClass = '.hljs-selector-class';
@@ -619,7 +619,7 @@ function uk_gist_skin_code(){
   setTimeout(function(){
     $('.'+uk_gist_code_wrap).each(function(i, e){
       //$(e).addClass('xml');
-      //$(this).parents('.'+uk_gist_content).siblings('textarea').remove(); //-----------------------
+      $(this).parents('.'+uk_gist_content).siblings('textarea').remove(); //-----------------------
       hljs.highlightBlock(e);
 
       //class '.' 색상 변경 class 지정

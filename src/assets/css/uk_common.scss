@@ -1202,10 +1202,11 @@ $edt_btn_left:6px;
 	&[data-result="true"]{
 		$scroll_height:17px;
 		$min_height:320px;
+		$max_height:600px;
 		textarea {opacity:0;}
 		.code_wrap {min-height:$min_height + $scroll_height; background:#1a1d28;}
 		.CodeMirror {height:100%;}
-		.CodeMirror-scroll {min-height:$min_height; max-height:528px;}
+		.CodeMirror-scroll {min-height:$min_height; max-height:$max_height;}
 
 		&.min_height_350 {
 			$min_height:350px;
@@ -1800,8 +1801,8 @@ $edt_btn_left:6px;
 				}
 			}
 			&.fullscreen_mode {
-				.code_wrap {height:calc(50% - #{$mg_top}/2);}
-				.result_wrap {height:calc(50% + #{$mg_top}/2);}
+				.code_wrap {height:calc(50% - #{$mg_top}/2); min-height:auto;}
+				.result_wrap {height:calc(50% + #{$mg_top}/2); min-height:auto;}
 				.result_wrap {
 					position:relative; top:0;
 					border-left:0; border-top:1px solid #000;

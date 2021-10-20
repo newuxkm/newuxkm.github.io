@@ -11,15 +11,13 @@ const loading_scroll_top = 'loading_scroll_top';
 let loading_sct = null;
 
 
-
-
 // document ready ------------------------------------------------------------------------------------------------------
 $(document).ready(function(){
   header_common();
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
-  focus_controll();
+  //focus_controll();
 
   // side menu toggle
   const sideToggle = 'sideToggle';
@@ -39,6 +37,7 @@ $(document).ready(function(){
       _this.find('b').text('CLOSE');
       sessionStorage.clear(sideToggle);
     }
+
     return false;
   });
 
@@ -76,14 +75,14 @@ $(window).on('load', function(){
     }
   }, 300);
 
-  // 새로고침 시 html height 값 저장
+  // 새로고침 시 document height, scrollTop 값 저장
   $(document).on('keydown', function(e){
     e.keyCode === 116 ? sessionStorage.setItem('html_height', $(document).height()) : false;
   });
   window.addEventListener('beforeunload', function(){
     sessionStorage.setItem('html_height', $(document).height());
+    sessionStorage.setItem(loading_scroll_top, $(window).scrollTop());
   });
-
 });
 
 
