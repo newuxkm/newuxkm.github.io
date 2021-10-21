@@ -3,7 +3,13 @@
   "path": {
     "img": "/_assets/images",
     "img_html": "/_assets/images/html",
+
     "img_css": "/_assets/images/css",
+    "img_cssStart": "/_assets/images/css/cssStart",
+    "img_cssBeginner": "/_assets/images/css/cssBeginner",
+    "img_cssMiddleclass": "/_assets/images/css/cssMiddleclass",
+    "img_cssAdvanced": "/_assets/images/css/cssAdvanced",
+    "img_cursor": "/_assets/images/css/cursor",
     "img_grid": "/_assets/images/css/grid",
     "img_gulp": "/_assets/images/gulp",
     "img_favicon": "/_assets/images/favicon",

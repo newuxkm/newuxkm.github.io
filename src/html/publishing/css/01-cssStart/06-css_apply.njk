@@ -18,5 +18,105 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<section class="txt_ex mt_xxl">
+		<h2>HTML 문서에 CSS 스타일을 선언할 때 사용하는 네 가지 방법</h2>
+
+		<!-- 인라인 스타일(Inline style) -->
+		<article class="indent_max mt_xl">
+			<h3 class="ml_mn">인라인 스타일(Inline style)</h3>
+			<p class="mt_ms">
+				HTML 요소에 직접 style 속성값을 지정하는 방법을 말합니다.<br>
+				이러한 인라인 스타일은 해당 요소에만 스타일을 적용할 수 있습니다.<br>
+				이 방식은 한 번 설정된 스타일을 변경하기가 매우 어려우며, 스타일 시트를 사용하는 많은 이점을 잃게 됩니다.<br>
+				동일한 요소에 CSS를 적용해도 인라인 스타일 방식이 먼저 적용됩니다.<br>
+				한 문서에 한 요소만 적용이 됩니다.<br>
+				따라서 이 방식은 될 수 있으면 꼭 필요한 경우에만 사용해야 합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="Inline style CSS">
+				<textarea readonly="readonly">
+					<body>
+						<h1 style="font-size:20px;">uxkm.github.io</h1>
+					</body>
+				</textarea>
+			</div>
+		</article>
+
+		<!-- 내부 스타일(Internal style) -->
+		<article class="indent_max mt_xl">
+			<h3 class="ml_mn">내부 스타일(Internal style)</h3>
+			<p class="mt_ms">
+				내부 스타일 시트를 이용하는 방법은 HTML 문서 내의 <code>&lt;head&gt;</code> 요소에 <code>&lt;style&gt;</code> 요소를 사용하여 CSS 스타일을 적용합니다.<br>
+				head 요소에 넣는 것이 정석이지만, 상황에 따라 body 요소 안에도 선언이 가능합니다.<br>
+				HTML5.2 권고안(2017년 12월 14일 발표)에 따르면 <code>&lt;body&gt;</code> 안에 <code>&lt;style&gt;</code> 사용 가능하다고 명시됩니다.<br>
+				이러한 내부 스타일 시트는 해당 HTML 문서에만 스타일을 적용할 수 있습니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="Internal style CSS">
+				<textarea readonly="readonly">
+					<head>
+						<style type="text/css">
+							h1 {font-size:20px}
+							p {font-size:16px}
+						</style>
+					</head>
+				</textarea>
+			</div>
+		</article>
+
+		<!-- 외부 스타일(External style)[권장방식] -->
+		<article class="indent_max mt_xl">
+			<h3 class="ml_mn">외부 스타일(External style) <span class="t_red">[권장방식]</span></h3>
+			<p class="mt_ms">
+				<code>&lt;link&gt;</code> 요소로 외부 CSS 불러오는 방식입니다.<br>
+				외부 스타일 시트를 이용하는 방법은 웹 사이트 전체의 스타일을 하나의 파일에서 변경할 수 있도록 해줍니다.<br>
+				외부에 작성된 이러한 스타일 시트 파일은 .css 확장자를 사용하여 저장됩니다.<br>
+				스타일을 적용할 웹 페이지의 <code>&lt;head&gt;</code>요소에 <code>&lt;link&gt;</code>요소를 사용하여 외부 스타일 시트를 포함해야만 스타일이 적용됩니다.<br>
+				웹 사이트의 스타일 적용은 외부 스타일 시트를 사용하는 것이 유지 보수도 편하며, 가장 안정적입니다.<br>
+				현재 권장하는 방식이며 제일 많이 사용하는 방식입니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="External style CSS">
+				<textarea readonly="readonly">
+					<head>
+						<link rel="stylesheet" type="text/css" href="css/ukReset.css">
+					</head>
+				</textarea>
+			</div>
+		</article>
+
+		<!-- at-rule 임포트 스타일 시트(@import style) -->
+		<article class="indent_max mt_xl">
+			<h3 class="ml_mn">at-rule 임포트 스타일 시트(@import style)</h3>
+			<p class="mt_ms">
+				Internal 또는 External 방식으로 링크된 CSS 안에 또 다른 CSS를 @import를 통해 불러오는 방식입니다.<br>
+				사용하는 방식은 @import url('css경로'); 으로 css파일을 불러들이는 방식으로 적용됩니다.<br>
+				이 방식은 CSS 적용을 하기 전 CSS 문서의 최상위에 위치해서 불러들여야 합니다.<br>
+				이 방식은 권장하는 방식은 아니지만, 프로젝트 환경에 따라 사용할 수 있습니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="@import style CSS">
+				<textarea readonly="readonly">
+					<head>
+						<style type="text/css">
+							@import url('ukReset.css');
+							h1 {font-size:20px}
+							p {font-size:16px}
+						</style>
+					</head>
+				</textarea>
+			</div>
+			<div class="uk_gist_code_box mt_m" data-tit="@import style CSS">
+				<textarea readonly="readonly">
+					/*
+					<head>
+						<link rel="stylesheet" type="text/css" href="css/ukReset.css">
+					</head>
+					위처럼 외부 스타일 방식으로 불러들이는 ukReset.css 안에 다음과 같이 사용
+					*/
+
+					@import url('ukFont.css');
+					h1 {font-size:20px}
+					p {font-size:16px}
+				</textarea>
+			</div>
+		</article>
+	</section>
+{%- endblock %}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>박스모델</title>
+	<link href="//fonts.googleapis.com/css?family=Black+Han+Sans|Hi+Melody|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext" rel="stylesheet">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no, email=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content=" yes">
+	<meta name="robots" content="index,follow">
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<!--<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">-->
+	<meta http-equiv="Expires" content="-1">
+
+	<!-- css -->
+	<link href="/_code_samples/kmtemp/lib/css/bootstrap.css" rel="stylesheet" />
+	<link href="/_code_samples/kmtemp/lib/css/animate.min.css" rel="stylesheet" />
+	<link href="/_assets/css/temp_transform.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="/_code_samples/kmtemp/lib/js/jquery-1.9.1.min.js"></script>
+	<script src="/_code_samples/kmtemp/lib/js/ukDetect-1.0.0.js"></script>
+	<style>
+		.box.b_width {box-shadow:none !important;}
+	</style>
+</head>
+<body>
+<div class="wrap">
+
+	<section class="contentArea" style="padding:0;">
+
+		<!-- box model -->
+		<article class="box_md" style="max-width:100%; margin:0 auto;">
+			<ul class="lst_area" style="margin:0;">
+				<li class="form_set ex_wrap">
+					<div class="box_clear">
+						<div class="box_wrap" data-tit="box-sizing: content-box">
+							<i class="line lw"></i><i class="line lh"></i>
+							<div class="box_cover"><div class="box"><p>안녕하세요 추교성입니다.</p></div></div>
+							<div class="box b_width"></div>
+							<p class="w_txt">content-box<br>(default)</p>
+						</div>
+						<div class="box_wrap" data-tit="box-sizing: border-box">
+							<i class="line lw"></i><i class="line lh"></i>
+							<div class="box_cover"><div class="box"><p>안녕하세요 추교성입니다.</p></div></div>
+							<div class="box b_width"></div>
+							<p class="w_txt">border-box</p>
+						</div>
+						<div class="color_set"></div>
+					</div>
+					<div class="color_box">
+						<p class="margin">margin</p>
+						<p class="border">border</p>
+						<p class="padding">padding</p>
+						<!--<p class="b_box">box</p>-->
+						<p class="comparison">box width(& height)</p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box { <!--<span class="ex_t">(width에 height 포함)</span>--></p>
+							<div class="css_txt clear">
+								<p class="copy_txt lft"><span>width: <i>0</i>px</span>;</p>
+								<p class="copy_txt lft"><span>height: <i>0</i>px</span>;</p>
+								<p class="copy_txt both"><span>padding: <i>0</i>px</span>;</p>
+								<p class="copy_txt lft"><span>border: <i>0</i>px solid #ff8383</span>;</p>
+								<p class="copy_txt lft"><span>border-radius: <i>0</i>px</span>;</p>
+								<p class="copy_txt both"><span>margin: <i>0</i>px</span>;</p>
+								<!--<p class="copy_txt both"><span>box-shadow: <i>0</i>px <i>0</i>px <i>0</i>px <i>0</i>px <i>0</i> <i>0</i></span>;</p>-->
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit inp_range clear mobil_set clear">
+							<!--
+							<p class="copy_w" data-tit="width"><input type="range" min="60" max="120" step="1" value="120"></p>
+							<p class="hide" data-tit="height"><input type="range" min="60" max="120" step="1" value="120"></p>
+							-->
+							<p class="lf" data-tit="width"><input type="range" min="60" max="120" step="1" value="120"></p>
+							<p class="lf" data-tit="height"><input type="range" min="60" max="120" step="1" value="120"></p>
+							<p class="lf" data-tit="padding"><input type="range" min="0" max="30" step="1" value="20"></p>
+							<p class="both" data-tit="border"><input type="range" min="0" max="30" step="1" value="10"></p>
+							<p class="lf" data-tit="border-radius"><input type="range" min="0" max="100" step="1" value="20"></p>
+							<p class="both" data-tit="margin"><input type="range" min="0" max="30" step="1" value="20"></p>
+							<!--
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="X"><input type="text" value="10"></p>
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="y"><input type="text" value="10"></p>
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="blur"><input type="text" value="10"></p>
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="spread"><input type="text" value="10"></p>
+							<p class="lft" style="width:auto; padding-right:2px;" data-tit="color"><input type="text" value="blue"></p>
+							-->
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+	</section>
+
+
+
+</div>
+<!-- //wrap -->
+
+<script src="/_code_samples/kmtemp/transform/js/js.js"></script>
+</body>
+</html>

@@ -18,5 +18,114 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			이 섹션에서는 overflow, visibility 속성에 대해 정의합니다.<br>
+			overflow 속성은 해당 요소의 크기에서 내용이 넘칠 경우 어떻게 보여줄것인지 결정합니다.<br>
+			visibility 속성은 해당 요소를 보여줄것인지 아닐지 결정합니다.<br>
+			visibility 속성과 display 속성의 숨김 제어 여부차이점은,<br>
+			display 속성은 해당 요소의 영역자체를 숨겨버리고,<br>
+			visibility 속성은 해당 요소의 영역은 남아있고 내용만 안보이게 처리합니다.
+		</p>
+	</blockquote>
+
+	<!-- overflow 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">overflow</i> 속성</h2>
+		<p class="mt_ms">
+			요소의 내용이 너무 커서 지정한 영역에 맞지 않을 때 내용을 클립할지(자를지) 또는 스크롤 막대를 추가할지 여부를 지정합니다.<br>
+			overflow 속성은 지정된 높이의 블록 요소에 대해서만 작동합니다.<br>
+			overflow 속성은 overflow-x 속성과 overflow-y 속성으로 구분지어 사용할 수 있습니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="overflow">
+			<textarea readonly="readonly">
+				div {
+					overflow: visible | hidden | scroll | auto;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">visible</strong> : 기본값으로 내용(Content)이 잘리지 않으며, 컨텐트 박스(Content box) 영역을 벗어나서 렌더링 될 수도 있습니다.</li>
+				<li><strong class="t_black">hidden</strong> : 필요하다면 컨텐트 박스에 맞게 내용이 잘립니다. 스크롤 바가 제공되진 않습니다.</li>
+				<li><strong class="t_black">scroll</strong> : 박스크기에 비해 내용이 넘치는 경우 내용이 안 보였을때 스크롤 막대가 추가되어 나머지 내용을 볼 수 있습니다.</li>
+				<li><strong class="t_black">auto</strong> : 박스크기에 비해 내용이 넘치는 경우 내용이 안 보였을때 자동으로 스크롤 막대가 추가되어 나머지 내용을 볼 수 있습니다.</li>
+			</ol>
+		</div>
+		<div class="view_editor edit_code mt_m" data-target="css/step01/2.10.visual-effects/2.10.overflow.html">
+			<div class="uk_editor min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+		<aside class="browser_support mt_m" data-tit="overflow">
+			<ul>
+				<li class="ie">4.0+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">1.0</li>
+				<li class="opera">7.0</li>
+				<li class="safari">1.0</li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- visibility 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">visibility</i> 속성</h2>
+		<p class="mt_ms">
+			문서의 레이아웃을 변경하지 않고 요소를 보이거나 숨깁니다. visibility로 <code>&lt;table&gt;</code>의 행이나 열을 숨길 수도 있습니다.<br>
+			문서를 숨기고, 레이아웃에서도 제외하려면, visibility를 사용하는 대신 display 속성을 none으로 설정합니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="visibility">
+			<textarea readonly="readonly">
+				div {
+					visibility: visible | hidden | collapse;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">visible</strong> : 기본값으로 해당 요소를 보이게 한다.</li>
+				<li><strong class="t_black">hidden</strong> : 해당 요소를 보이지 않게 한다. display: none;은 해당 요소의 공간까지 사라지게 하지만 visibility: hidden;은 해당 요소의 공간은 사라지지 않고 남아있게 된다.</li>
+				<li>
+					<strong class="t_black">collapse</strong> : table 요소에 사용하며 행이나 열을 보이지 않게 한다. IE10+ 부터 지원.
+					<div class="line_code mt_s">
+						<p>
+							<code>&lt;table&gt;</code>의 행, 열, 행 그룹과 열 그룹에 적용하면 display를 none으로 설정한 것과 동일하게 요소를 숨기고 차지하던 공간도 제거합니다.<br>
+							그러나 다른 행(열)의 크기는 collapse를 적용한 행(열)이 보이는 것 처럼 취급해 계산합니다.<br>
+							따라서 표의 너비나 높이의 재계산 없이 빠르게 행이나 열을 제거할 수 있습니다.
+						</p>
+						<p>플렉스 아이템에 적용하면 요소를 숨기고 차지하던 공간도 제거합니다.</p>
+						<p>다른 요소에서는 hidden과 동일합니다.</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="view_editor edit_code mt_m" data-target="css/step01/2.10.visual-effects/2.10.visibility.html">
+			<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</div>
+		<aside class="browser_support mt_m" data-tit="visibility">
+			<ul>
+				<li class="ie">4.0+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">1.0</li>
+				<li class="opera">4.0</li>
+				<li class="safari">1.0</li>
+			</ul>
+		</aside>
+	</section>
+
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">시각적인 속성 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/visufx.html" target="_blank" class="fas" title="새창열림">3C Visual effects</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Overflow" target="_blank" class="fas" title="새창열림">MDN CSS Overflow</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/visibility" target="_blank" class="fas" title="새창열림">MDN CSS Visibility</a></li>
+		</ul>
+	</aside>
+{%- endblock %}

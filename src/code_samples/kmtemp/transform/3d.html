@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>transform 3d</title>
+	<link href="//fonts.googleapis.com/css?family=Black+Han+Sans|Hi+Melody|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext" rel="stylesheet">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no, email=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content=" yes">
+	<meta name="robots" content="index,follow">
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<!--<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">-->
+	<meta http-equiv="Expires" content="-1">
+
+	<!-- css -->
+	<link href="/assets/kmtemp/lib/css/bootstrap.css" rel="stylesheet" />
+	<link href="/assets/kmtemp/lib/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets/lib/css/temp_transform.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="/assets/kmtemp/lib/js/jquery-1.9.1.min.js"></script>
+	<script src="/assets/kmtemp/lib/js/ukDetect-1.0.0.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+
+	<section class="contentArea">
+
+		<!-- translateZ -->
+		<article class="t3d">
+			<h2>translateZ & <i>z축에 대한 이해</i></h2>
+			<p class="s_tit">x, y축은 2d와 동일 / z축은 사용자와의 거리</p>
+			<p class="s_tit">.box가 커져 보이는 것은 .box가 당신에게 다까이 다가왔기때문입니다.</p>
+			<ul class="lst_area">
+				<li class="form_set" data-tit="translateZ(n)">
+					<div class="box_clear">
+						<div class="box_wrap">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+						<div class="box_wrap box_3d fix_3d">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>translateZ(<i>0</i>px)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form">
+							<p><input type="text" value="80"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- translate3d -->
+		<article class="t3d">
+			<h2>translate3d</h2>
+			<p class="s_tit">객체의 위치를 x, y, z 방향으로 한번에 정의하여 이동</p>
+			<ul class="lst_area">
+				<li class="form_set" data-tit="translate3d(x, y, z)">
+					<div class="box_clear">
+						<div class="box_wrap">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+						<div class="box_wrap box_3d fix_3d">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>translate3d(<i>0</i>px, <i>0</i>px, <i>0</i>px)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="20"></p>
+							<p data-tit="Y"><input type="text" value="30"></p>
+							<p data-tit="Z"><input type="text" value="90"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- scale3d -->
+		<article class="t3d">
+			<h2>scale3d</h2>
+			<p class="s_tit">x, y축은 2d와 동일 / 객체의 크기를 x, y, z 방향으로 한번에 정의</p>
+			<ul class="lst_area">
+				<li class="form_set" data-tit="scale3d(x, y, z)">
+					<div class="box_clear">
+						<div class="box_wrap">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+						<div class="box_wrap box_3d fix_3d">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>perspective(300px) scale3d(<i>0</i>, <i>0</i>, <i>0</i>) translateZ(20px)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="1"></p>
+							<p data-tit="Y"><input type="text" value="1"></p>
+							<p data-tit="Z"><input type="text" value="3"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<p class="ex_txt">
+				css에는 두께라는 개념이 없기 때문에 scale의 z축은 그 자체로는 의미가 없습니다.<br>
+				perspective와 translateZ를 같이 사용하면 더 깊은 원근감을 표현할 수 있습니다.
+			</p>
+		</article>
+
+		<!-- rotate x, y, z -->
+		<article class="t3d">
+			<h2>rotate X, Y, Z & rotate3d</h2>
+			<p class="s_tit">각 축을 중심으로 회전 / Z는 2D rotate와 동일</p>
+			<ul class="lst_area">
+				<li class="form_set rotate_3d" data-tit="rotateX(n)">
+					<div class="box_wrap">
+						<div class="parent">
+							<p class="box"></p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span class="hide">perspective(300px)</span> <span>rotateX(<i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form">
+							<p><input type="text" value="45"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set rotate_3d" data-tit="rotateY(n)">
+					<div class="box_wrap">
+						<div class="parent">
+							<p class="box"></p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span class="hide">perspective(300px)</span><span>rotateY(<i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form">
+							<p><input type="text" value="45"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set rotate_3d" data-tit="rotateZ(n)">
+					<div class="box_wrap">
+						<div class="parent">
+							<p class="box"></p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>rotateZ(<i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form">
+							<p><input type="text" value="45"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="lst_area">
+				<li class="form_set rotate_3d" data-tit="rotate3d(x, y, z)">
+					<div class="box_clear">
+						<div class="box_wrap">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+						<div class="box_wrap box_3d fix_3d">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>rotate3d(<i>0</i>, <i>0</i>, <i>0</i>, <i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="1"></p>
+							<p data-tit="Y"><input type="text" value="-1"></p>
+							<p data-tit="Z"><input type="text" value="1"></p>
+							<p data-tit="angle"><input type="text" value="45"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<p class="ex_txt">
+				회전축은 <b>transform-origin으로 정의된 기준점</b>과 rotate3d(<b>z, y, z</b>, angle)를 통과합니다. 계산이 쉽지 않습니다.<br>
+				어렵게 생각될 경우 rotateX, rotateY, rotateZ 따로 쓰는편이 계산하기 좋습니다.
+			</p>
+		</article>
+
+		<!-- Perspective -->
+		<article class="t3d">
+			<h2>Perspective <i>(원근)</i></h2>
+			<p class="s_tit">3D transform에서 반드시 필요한 원근감의 깊이를 조정합니다.</p>
+			<p class="s_tit">px의 수치가 낮을수록 원근감은 깊어집니다.</p>
+			<ul class="lst_area">
+				<li class="form_set rotate_3d ex_wrap" data-tit="perspective(n)">
+					<div class="box_clear">
+						<div class="box_wrap">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+						<div class="box_wrap box_3d fix_3d">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>perspective(<i>0</i>px) rotateY(45deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit inp_range mobil_set">
+							<div class="clear" style="max-width:500px;">
+								<p data-tit="perspective"><input type="range" min="50" max="200" step="1" value="150"></p>
+							</div>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<div class="ex_tit">
+				<strong>속성 선언 방법</strong>
+				<span>
+					<i>transform: perspective(n)</i> 단일 객체에 선언<br>
+					<i>perspective: n</i> 부모 요소에 선언, 자식 동일 적용
+				</span>
+				<!--
+				<p>
+					예제 마크업 구조<br class="dp_xxxxs">
+					[ .box_wrap > .parent > .box ]
+				</p>
+				-->
+			</div>
+			<!--
+			<ul class="ex_txt">
+				<li>[transform: perspective(n);] - 단일 객체에 선언</li>
+				<li>[perspective: n;] - 부모 요소에 한번만 선언해서 자식 객체에 동일한 적용</li>
+			</ul>
+			-->
+			<ul class="lst_area perspective_ex">
+				<li class="type1">
+					<div class="box_wrap" data-tit="box_wrap">
+						<div class="parent" data-tit="parent">
+							<p class="box">box</p>
+							<p class="box">box</p>
+							<p class="box">box</p>
+							<p class="box">box</p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code ing">
+							<p>.box_wrap {</p>
+							<p class="css_txt">선언 없음</p>
+							<p>}</p>
+							<p>.parent {</p>
+							<p class="css_txt">선언 없음</p>
+							<p>}</p>
+							<p>.box {</p>
+							<p class="css_txt">
+								transform: <span>perspective(150px)</span> rotateY(50deg);
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+				<li class="type2">
+					<div class="box_wrap" data-tit="box_wrap">
+						<div class="parent" data-tit="parent">
+							<p class="box">box</p>
+							<p class="box">box</p>
+							<p class="box">box</p>
+							<p class="box">box</p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code ing">
+							<p>.box_wrap {</p>
+							<p class="css_txt">선언 없음</p>
+							<p>}</p>
+							<p>.parent {</p>
+							<p class="css_txt"><span>perspective: 150px</span>;</p>
+							<p>}</p>
+							<p>.box {</p>
+							<p class="css_txt">transform: rotateY(45deg);</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+				<li class="type3">
+					<div class="box_wrap" data-tit="box_wrap">
+						<div class="parent" data-tit="parent">
+							<p class="box">box</p>
+							<p class="box">box</p>
+							<p class="box">box</p>
+							<p class="box">box</p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code ing">
+							<p>.box_wrap {</p>
+							<p class="css_txt"><span>perspective: 400px;</span></p>
+							<p>}</p>
+							<p>.parent {</p>
+							<p class="css_txt">transform: rotateY(50deg);</p>
+							<p>}</p>
+							<p>.box {</p>
+							<p class="css_txt">선언 없음</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- perspective-origin -->
+		<article class="t3d">
+			<h2>perspective-origin <i>(원근의 시작점)</i></h2>
+			<p class="s_tit"><i>transform-origin</i>과 같은 개념으로 반드시 반드시 perspective 속성과 함께 적용해야 합니다.</p>
+			<p class="s_tit">perspective-origin은 객체 하나하나에 속성을 선언하는 것이 아니라, 모든 객체를 품고 있는 부모 객체 하나에만 선언합니다.</p>
+			<ul class="lst_area">
+				<li class="form_set po_box ex_wrap" data-tit="perspective-origin(x, y)">
+					<div class="box_wrap">
+						<div class="po_box_wrap">
+							<div class="cube">
+								<div class="cube01 b_front">front</div>
+								<div class="cube02 b_back">back</div>
+								<div class="cube03 b_right">right</div>
+								<div class="cube04 b_left">left</div>
+								<div class="cube05 b_top">top</div>
+								<div class="cube06 b_bottom">bottom</div>
+							</div>
+						</div>
+						<a class="spin_btn"><i data-txt="회전">박스 회전하기</i></a>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.po_box_wrap {</p>
+							<div class="css_txt">
+								<p class="copy_txt">perspective-origin:<span><i>0</i>% <i>0</i>%</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit inp_range mobil_set">
+							<div class="clear" style="max-width:500px;">
+								<p data-tit="perspective-origin X"><input type="range" min="0" max="100" step="1" value="50"></p>
+								<p data-tit="perspective-origin Y"><input type="range" min="0" max="100" step="1" value="50"></p>
+							</div>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- transform-style -->
+		<article class="t3d">
+			<h2>transform-style</h2>
+			<p class="s_tit">자식 객체를 3차원 공간에서 어떻게 표현할 지 선택할 수 있습니다.</p>
+			<p class="s_tit"><b>flat</b>(객체 자신만)과 <b>preserve-3d</b>(자식 객체 포함)가 있으며, 기본 값은 flat입니다.</p>
+
+			<ul class="lst_area">
+				<li class="form_set rotate_3d ex_wrap" data-tit="flat / preserve-3d">
+					<div class="box_clear">
+						<div class="box_wrap box_3d fix_3d none_3dBtn">
+							<div class="parent flat_3d">
+								<p class="box"></p>
+							</div>
+						</div>
+						<div class="box_wrap box_3d fix_3d none_3dBtn">
+							<div class="parent">
+								<p class="box"></p>
+							</div>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<div class="code_div">
+								<div class="lft">
+									<p>.parent {</p>
+									<div class="css_txt">
+										<p>transform-style: <span>flat</span>;</p>
+									</div>
+									<p>}</p>
+								</div>
+								<div class="rgt">
+									<p>.parent {</p>
+									<div class="css_txt">
+										<p>transform-style: <span>preserve-3d</span>;</p>
+									</div>
+									<p>}</p>
+								</div>
+							</div>
+							<p>.box {</p>
+							<div class="css_txt dp_md_pc">
+								<p class="copy_txt">transform: rotateY(<i>45</i>deg);</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit inp_range dp_md_pc">
+							<p data-tit="perspective"><input type="range" min="0" max="90" step="1" value="45"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="ex_txt">
+				<li><b>flat</b>이 선언되면 자식은 3D 공간 값을 가지지 못합니다.</li>
+				<li><b>preserve-3d</b>가 선언되면 자식은 부모의 3D 영역을 공유하여 <b>부모의 각도를 기준</b>으로 3D transform 선언이 작동됩니다.</li>
+			</ul>
+		</article>
+
+		<!-- backface-visibility -->
+		<article class="t3d dp_pc">
+			<h2>backface-visibility</h2>
+			<p class="s_tit">객체의 뒷면이 보이지 않도록 하는 속성</p>
+			<p class="s_tit">기본 값 <b>visible</b> / 뒷면이 보이지 않게 하려면 <b>hidden</b></p>
+			<ul class="lst_area backface">
+				<li class="form_set rotate_3d none_3dBtn none_cpBtn dp_pc" data-tit="default : visible">
+					<div class="box_wrap">
+						<div class="parent">
+							<p class="box"></p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code ing">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								transform: <span>rotateY(180deg)</span>;
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form hide">
+							<p><input type="text" value="180"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set rotate_3d none_3dBtn" data-tit="hidden">
+					<div class="box_wrap">
+						<div class="parent">
+							<p class="box"></p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code ing">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								transform: rotateY(180deg);<br>
+								<span class="copy_txt">backface-visibility: hidden;</span>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form hide">
+							<p><input type="text" value="180"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<div class="ex_tit">
+				<strong>backface-visibility 예제</strong>
+				<span>앞, 뒷면이 다른 box (mouse enter!)</span>
+			</div>
+			<ul class="lst_area backface_ex">
+				<li class="rotate_3d">
+					<div class="box_wrap">
+						<div class="parent">
+							<p class="box front">FRONT</p>
+							<p class="box back">BACK</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+	</section>
+
+
+</div>
+<!-- //wrap -->
+
+<script src="/assets/kmtemp/transform/js/js.js"></script>
+</body>
+</html>

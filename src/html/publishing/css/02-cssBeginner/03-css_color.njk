@@ -18,5 +18,283 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			CSS에서 색을 표현하는 방법이며, 디자인을 하는데 있어서 가장 기본적인 속성입니다.<br>
+			색상을 표현하는 대표적인 방법에는 색상 이름으로 표현, RGB 색상값으로 표현, 16진수 색상값으로 표현하는 방법 등이 있습니다.<br>
+			현재 W3C에서 명시하는 색상 단위로 다음과 같이 표현 가능합니다.<br>
+			기본 color 키워드<br>
+			수치 color 값(RGB, RGBA, transparent, HSL, HSLA)<br>
+			확장 color 키워드(currentColor)<br>
+			시스템 color : 더 이상 사용되지 않습니다.
+		</p>
+		<p class="mt_s reference">
+			CSS Level 1은 16개의 기본 색상만 지니고 있었습니다. VGA 그래픽 카드가 표현할 수 있는 색에서 가져온 것이기에 VGA 색상이라고 칭했습니다.<br>
+			CSS Level 2에서는 orange 키워드를 추가했습니다.<br>
+			초기 브라우저들은 명세에 없음에도 불구하고 주로 X11 색상표에서 가져온 다양한 색상을 지원했습니다.<br>
+			그러나 SVG 1.0과 CSS Colors Level 3 이전까지 그 목록이 정식으로 정해진 적은 없었습니다.<br>
+			추가한 색상 키워드는 확장 색상 키워드, X11 색상, 또는 SVG 색상이라고 부릅니다.<br>
+			CSS Colors Level 4에선 웹 개척자 에릭 메이어를 기리기 위해 <a href="https://codepen.io/trezy/post/honoring-a-great-man" target="_blank" title="새창열림">rebeccapurple 키워드</a>를 추가했습니다.
+		</p>
+	</blockquote>
+	<p class="mt_m">
+		color의 기본값은 <code>inherit</code>으로 부모의 색상을 가져옵니다.<br>
+	</p>
+	<div class="uk_gist_code_box mt_ms" data-tit="color CSS value">
+		<textarea readonly="readonly">
+			p {
+				color: inherit | rgb() | rgba() | hsl() | hsla() | hex-color | named-color | currentcolor;
+			}
+		</textarea>
+	</div>
+
+	<!-- color 키워드 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">color 키워드</h2>
+		<p class="mt_ms">
+			color 키워드는 대소문자를 구분하지 않는 식별자로
+			<span style="color:red">red</span>,
+			<span style="color:blue">blue</span>,
+			<span style="color:black">black</span>,
+			<span style="color:lightseagreen">lightseagreen</span>
+			처럼 특정 색을 나타냅니다.
+			<br>
+			이름이 표현하는 색을 그럭저럭 가리키고 있긴 하지만 모든 키워드의 본질은 인위적이며 어떤 특정한 규칙을 따르거나 하지 않습니다.
+		</p>
+		<div class="ol_lst mt_m">
+			<strong class="font-16 t_black">색상 키워드를 사용할 때 몇 가지 고려할 점</strong>
+			<ol class="indent mt_s">
+				<li>
+					HTML은 CSS1에서 찾을 수 있는 16가지 기본 색상만 인식합니다.<br>
+					알 수 없는 값은 특정 알고리즘을 사용해 변환하는데 그 결과는 대개 완전히 다른 색입니다.<br>
+					나머지 색상 키워드는 CSS와 SVG에서만 사용해야 합니다.
+				</li>
+				<li class="mt_sm">
+					HTML과 달리 CSS는 알 수 없는 키워드를 완전히 무시합니다.
+				</li>
+				<li class="mt_sm">
+					모든 색상 키워드는 투명도 없는 단일 색상을 표현합니다.
+				</li>
+				<li class="mt_sm">
+					어떤 키워드는 다른 키워드의 다른 이름입니다.<br>
+					<div class="color_keyword_ex">
+						<span style="background:aqua; color:#000;">aqua</span> /
+						<span style="background:cyan; color:#000;">cyan</span><br>
+						<span style="background:fuchsia; color:#fff;">fuchsia</span> /
+						<span style="background:magenta; color:#fff;">magenta</span><br>
+						<span style="background:darkgray; color:#fff;">darkgray</span> /
+						<span style="background:darkgrey; color:#fff;">darkgrey</span><br>
+						<span style="background:darkslategray; color:#fff;">darkslategray</span> /
+						<span style="background:darkslategrey; color:#fff;">darkslategrey</span><br>
+						<span style="background:dimgray; color:#fff;">dimgray</span> /
+						<span style="background:dimgrey; color:#fff;">dimgrey</span><br>
+						<span style="background:lightgray; color:#000;">lightgray</span> /
+						<span style="background:lightgrey; color:#000;">lightgrey</span><br>
+						<span style="background:lightslategray; color:#fff;">lightslategray</span> /
+						<span style="background:lightslategrey; color:#fff;">lightslategrey</span><br>
+						<span style="background:gray; color:#fff;">gray</span> /
+						<span style="background:grey; color:#fff;">grey</span><br>
+						<span style="background:slategray; color:#fff;">slategray</span> /
+						<span style="background:slategrey; color:#fff;">slategrey</span>
+					</div>
+				</li>
+			</ol>
+		</div>
+		<div class="uk_gist_code_box mt_m" data-tit="color : keyword">
+			<textarea readonly="readonly">
+				p {color: red;}
+				p {color: blue;}
+			</textarea>
+		</div>
+		<aside class="browser_support mt_m" data-tit="color">
+			<ul>
+				<li class="ie">지원</li>
+				<li class="edge">지원</li>
+				<li class="chrome">지원</li>
+				<li class="firefox">지원</li>
+				<li class="opera">지원</li>
+				<li class="safari">지원</li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- RGB 색상 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">RGB 색상</h2>
+		<p class="mt_ms">
+			RGB 색상 모델은 빨강, 초록, 파랑을 통해 특정 색을 표현합니다. 선택사항으로 색의 투명도를 알파 채널로 표현할 수 있습니다.<br>
+			RGB 색상은 # 뒤의 16진수 표기법이나 함수형 표기법(<code>rgb()</code>, <code>rgba()</code>)으로 표현할 수 있습니다.
+		</p>
+		<div class="ol_lst indent mt_m">
+			<ol>
+				<li class="line_code font14">
+					<strong>16진수 표기법: #RRGGBB[AA]</strong>
+					<p class="mt_sm">R(빨강), G(초록), B(파랑), A(알파)는 16진수 문자(0-9, A-F)입니다. A는 선택사항입니다. 예를 들어 #ff0000은 #ff0000ff와 같습니다.</p>
+				</li>
+				<li class="line_code font14 mt_s">
+					<strong>16진수 표기법: #RGB[A]</strong>
+					<p class="mt_sm">R(빨강), G(초록), B(파랑), A(알파)는 16진수 문자(0-9, A-F)입니다. A는 선택사항입니다.</p>
+					<p>세 글자 표기법(#RGB)은 여섯 글자 표기법(#RRGGBB)의 단축 표현입니다. 예를 들어 #f09는 #ff0099와 같습니다.</p>
+					<p>비슷하게 네 글자 표기법(#RGBA)은 여덟 글자 표기법(#RRGGBBAA)의 단축 표기법 입니다. 예를 들어 #0f38은 #00ff3388과 같습니다.</p>
+				</li>
+				<li class="line_code font14 mt_s">
+					<strong>함수형 표기법(콤마 구분): rgb(R, G, B[, A]) 또는 rgba(R, G, B, A)</strong>
+					<p class="mt_sm">R(빨강), G(초록), B(파랑)은 <code>&lt;integer&gt;</code>나 <code>&lt;percentage&gt;</code>이며 숫자 255가 100%와 동일합니다.</p>
+					<p>A(알파)는 0과 1 사이의 <code>&lt;number&gt;</code>거나 <code>&lt;percentage&gt;</code>이며 숫자 1이 100%(불투명)와 동일합니다.</p>
+				</li>
+				<li class="line_code font14 mt_s">
+					<strong>함수형 표기법(공백 구분): rgb(R G B[ A]) 또는 rgba(R G B A)</strong>
+					<p class="mt_sm">CSS Colors Level 4부터 공백으로 구분한 값을 함수형 표기법과 사용할 수 있습니다.</p>
+				</li>
+			</ol>
+		</div>
+		<div class="uk_gist_code_box mt_m" data-tit="color : rgb">
+			<textarea readonly="readonly">
+				/* 아래 4가지 표기법은 모두 같은 색상(red)으로 표현됩니다. */
+				p {color: #f00;}
+				p {color: #ff0000;}
+				p {color: rgb(255, 0, 0);}
+				p {color: rgba(255, 0, 0, 1);}
+			</textarea>
+		</div>
+		<aside class="browser_support mt_m" data-tit="RGB">
+			<ul>
+				<li class="ie">3.0</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">1.0</li>
+				<li class="opera">3.5</li>
+				<li class="safari">1.0</li>
+			</ul>
+		</aside>
+		<aside class="browser_support mt_m" data-tit="RGBA">
+			<ul>
+				<li class="ie">9+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">3.0</li>
+				<li class="opera">10.0</li>
+				<li class="safari">3.1</li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- HSL 색상 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">HSL 색상</h2>
+		<p class="mt_ms">
+			HSL 색상 모델은 색상, 채도, 명도를 통해 특정 색상을 표현합니다. 선택사항으로 색의 투명도를 알파 채널로 표현할 수 있습니다.<br>
+			많은 디자이너들은 색상, 채도, 명도를 따로 조절할 수 있는 HSL이 RGB보다 더 직관적임을 발견합니다.<br>
+			또한 HSL을 사용하면 짝이 맞는 색(예컨대 한 가지 색의 여러 밝기) 여러 종류를 더 쉽게 만들 수 있습니다.<br>
+			HSL 색상은 함수형 <code>hsl()</code>과 <code>hsla()</code> 표기법을 사용합니다.
+		</p>
+		<p class="mt_s">
+			참고: CSS Colors Level 4부터 <code>hsla()</code>는 <code>hsl()</code>의 다른 이름입니다. Level 4 표준을 구현한 브라우저에서는 같은 매개변수를 받고 동일하게 행동합니다.
+		</p>
+		<div class="ol_lst indent mt_m">
+			<ol>
+				<li class="line_code font14">
+					<strong>함수형 표기법(콤마 구분)</strong>
+					<p class="mt_sm"><code>hsl(H, S, L[, A])</code> 또는 <code>hsla(H, S, L, A)</code></p>
+					<p>
+						H(색상)은 색상원에서의 <code>&lt;angle&gt;</code>로 CSS Color Module Level 4 기준 deg, rad, grad, turn을 사용할 수 있습니다.<br>
+						단위 없이 <code>&lt;number&gt;</code>로 표현할 경우 CSS Color Module Level 3에 명시된 것과 같이 각도로 해석합니다.<br>
+						정의에 따르면 빨강=0deg=360deg이며 다른 색은 (초록=120deg, 파랑=240deg 등) 원을 따라 분포하고 있습니다.<br>
+						<code>&lt;angle&gt;</code>이라면 암묵적으로 원의 주위를 한 바퀴 돕니다. 예컨대 -120deg=240deg, 480deg=120deg, -1turn=1turn 입니다.
+					</p>
+					<p>
+						S(채도)와 L(명도)는 <code>&lt;percentage&gt;</code>입니다. 100% 채도는 제일 진한 색이며 0%는 회색입니다.<br>
+						100% 명도는 흰색, 0% 명도는 검은색, 50% 명도는 &quot;보통&quot; 색입니다.
+					</p>
+					<p>A(알파)는 0과 1 사이의 <code>&lt;number&gt;</code>거나 <code>&lt;percentage&gt;</code>이며 숫자 1이 100%(불투명)와 동일합니다.</p>
+				</li>
+				<li class="line_code font14 mt_s">
+					<strong>함수형 표기법(공백 구분)</strong>
+					<p class="mt_sm"><code>hsl(H S L[ A])</code> 또는 <code>hsla(H S L A)</code></p>
+					<p>CSS Colors Level 4부터 공백으로 구분한 값을 함수형 표기법과 사용할 수 있습니다.</p>
+				</li>
+			</ol>
+		</div>
+		<div class="uk_gist_code_box mt_m" data-tit="color : HSL">
+			<textarea readonly="readonly">
+				p {color: hsla(0, 100%, 50%, 1);}     /* #ff0000와 같은 색(red) */
+				p {color: hsla(120, 100%, 50%, 1);}   /* #00ff00와 같은 색(green) */
+				p {color: hsla(240, 100%, 50%, 1);}   /* #0000ff와 같은 색(blue) */
+				p {color: hsla(240, 100%, 50%, 0.5);} /* #0000ff와 같은 색(blue)이면서 50% 만큼의 투명도를 가지고 있음 */
+			</textarea>
+		</div>
+		<aside class="browser_support mt_m" data-tit="HSL">
+			<ul>
+				<li class="ie">3.0</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">1.0</li>
+				<li class="opera">3.5</li>
+				<li class="safari">1.0</li>
+			</ul>
+		</aside>
+		<aside class="browser_support mt_m" data-tit="HSLA">
+			<ul>
+				<li class="ie">9+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">3.0</li>
+				<li class="opera">10.0</li>
+				<li class="safari">3.1</li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- transparent 키워드 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn css3">transparent 키워드</h2>
+		<p class="mt_ms">
+			CSS3 속성<br>
+			<code>transparent</code> 키워드는 완전히 투명한 색으로, "색"을 입힌 항목의 뒷편이 모두 보입니다.<br>
+			<code>transparent</code> = <code>rgba(0,0,0,0)</code> 와 같습니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="color : transparent">
+			<textarea readonly="readonly">
+				p {color: transparent;}
+			</textarea>
+		</div>
+		<aside class="browser_support mt_m" data-tit="transparent">
+			<ul>
+				<li class="ie">9+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">3.0</li>
+				<li class="opera">10.0</li>
+				<li class="safari">3.1</li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- currentColor 키워드 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn css3">currentColor 키워드</h2>
+		<p class="mt_ms">
+			CSS3 속성<br>
+			currentColor 키워드는 요소의 color 속성값을 나타냅니다. 이를 통해 다른 속성이 color 속성값을 따라가도록 설정할 수 있습니다.<br>
+			color 속성의 값으로 currentColor 키워드를 사용하면, 값을 상속받은 color 속성에서 대신 가져옵니다.<br>
+			color: inherit 과 동일.
+		</p>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="css/step01/2.3.color/2.3.color.html">
+		<h2 class="ve_tit">Color 속성 예제</h2>
+		<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<section class="reference_box mt_xxl">
+		<h2 class="tit">Color 속성 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/css-color-3/" target="_blank" class="fas" title="새창열림">CSS Color Module Level 3</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/color" target="_blank" class="fas" title="새창열림">MDN CSS Color</a></li>
+		</ul>
+	</section>
+{%- endblock %}

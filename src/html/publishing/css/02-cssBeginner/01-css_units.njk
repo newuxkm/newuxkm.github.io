@@ -18,5 +18,548 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			CSS에서 사용되는 단위에는 길이에 사용되는 단위와 color에 사용되는 단위로 나누어집니다.<br>
+			길이에 사용되는 단위에는 상대 길이 단위, 절대 길이 단위로 나누어지고,
+			color에 사용되는 단위로는 색상이름, RGB, HEX, HSL로 나누어집니다.<br>
+			em과 rem은 사용자가 글꼴 크기를 늘려도 페이지의 수직 흐름을 유지하는, 확대 가능한 레이아웃을 만들기 위해 많이 쓰입니다.<br>
+			cm, mm, inch 등의 단위도 존재하나 CSS에서 사용하는 대표적인 크기 단위는 px, em, %입니다.<br>
+			px은 절대값이고 em, %는 상대값입니다.<br>
+			대부분 브라우저의 폰트 사이즈 기본값은 16px, 1em, 100%입니다.<br>
+			프로퍼티 값이 0인 경우, 단위를 생략할 수 있습니다.<br>
+			단위를 사용할 때, 앞의 숫자와 단위 사이에 공백을 두지 않습니다.(예: 2em, 3px, 5in(○) / 2 em, 3 px, 5 in(&times;))<br>
+			좀 더 상세한 내용은 각 속성들을 설명할 때 다루도록 하겠습니다.<br>
+			<code>font-size</code>의 단위를 설정하는 방법은 크게 절대 단위(px)와 상대 단위(%,em) 등이 있는데 모바일이나 반응형을 고려할 시 상대 단위를 사용하는 것을 권장합니다.<br>
+			예시로 px, pt, cm 등의 단위로 지정하거나 xx-small, x-small, small, medium, large, x-large, xx-large 중에서 선택 가능하며,
+			medium은 기본값으로 12pt = 19px = 13m = 100%, *구 IE 버전의 경우, small이 기본값이라 doctype을 선언해야 medium이 기본값으로 나옵니다.
+		</p>
+	</blockquote>
+
+	<!-- 2.1.1. 상대 길이 단위 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">2.1.1. 상대 길이 단위</h2>
+		<p class="mt_ms">
+			상대 길이 단위(em, rem, ch, ex, vw, vh, vmin, vmax) : 어떤 기준을 통해 상대적으로 변할 수 있는 단위이며, 다양한 매체에 쓰기 적절합니다.<br>
+			상대 길이 단위란 다른 길이에 상대적인 길이를 말하는데, 글꼴에 상대적인 길이가 있고, 브라우저 창(viewport)에 상대적인 길이가 있습니다.<br>
+			상대 단위를 사용하면 브라우저 환경에 따라 좀 더 쉽게 크기 조절이 가능하다는 장점이 있지만, 계산하기 복잡하다는 단점이 있습니다.<br>
+			글꼴에 상대적인 길이 : em, ex, ch, rem 사용<br>
+			브라우저 창(viewport)에 비례한 길이 : vw, vh, vmin, vmax 사용
+		</p>
+
+		<!-- 글꼴에 상대적인 길이(Font-relative Lengths) -->
+		<article class="mt_l">
+			<h3>글꼴에 상대적인 길이(Font-relative Lengths)</h3>
+			<div class="ol_lst indent">
+				<ol>
+					<!-- em 단위 -->
+					<li class="line_code tit_h4 before_blue mt_l">
+						<h4 class="t_blue">em 단위</h4>
+						<blockquote class="uk_note mt_ms" role="note">
+							<h4 class="sound_only">요약 설명</h4>
+							<p>
+								em은 상대적인 크기를 지니는 단위로써 요소에 저정하는 글자 크기 단위를 설정할 수 있습니다.<br>
+								본래 em이라는 단위는 어원적으로 글꼴 세트의 알파벳 대문자의 'M'의 너비를 의미합니다.<br>
+								일반적으로 웹 브라우저에서는 1em = 16px으로 환산되며, 1em은 웹 브라우저에서 글자 크기사이즈를 지정하지 않았을 때 표시되는 글꼴 크기의 기본값입니다.<br>
+								em 단위를 사용하면 부모 요소에서 지정한 글자크기를 기준으로 배율을 조정하게 됩니다.<br>
+								따라서 1.5em을 지정하면 부모요소(E.g. html,body)의 글자 크기의 1.5배가 됩니다.<br>
+								일반적으로 문서 레이아웃을 글자 크기에 따라 유동적으로 만들 때 많이 사용됩니다.
+							</p>
+						</blockquote>
+						<div class="line_code mt_ms">
+							<p>요소의 글꼴 크기에 상대적인 값입니다(2em이란 현재 글꼴 크기의 2배를 의미).</p>
+							<p>주로 웹 문서에서 사용되며, 다양한 장치에서 크기 조절이 가능합니다.</p>
+							<p>em 단위는 상위 요소 크기의 몇 배인지로 크기를 정합니다. 예를 들어 font-size: 1.5em;은 글자 크기를 상위 요소 크기의 1.5배로 하겠다는 뜻입니다.</p>
+							<p>percent(%)는 CSS에서는 상대적인 길이 값으로 사용되고 있지만, 그 자체는 길이 단위가 아니므로 여기에서 제외하며, em을 %로 바꾼 것과 동일합니다.</p>
+							<p>
+								브라우저의 기본값은 1em = 16px 이므로 12px을 사용하고자 할 때,<br>
+								em 계산법은 12(사용하고 싶은 px) / 16(기준크기 px) = 0.75em이 됩니다.<br>
+								참고로 em은 소수점 3자리까지 가능합니다.
+							</p>
+							<p>
+								% 로 변환할 시,<br>
+								12(사용하고자 하는 px) / 16(기준크기 px) * 100 = 75%가 됩니다.
+							</p>
+						</div>
+						<div class="view_editor edit_code mt_s" data-target="css/step01/2.1.unit/2.1.1.em.html">
+							<div class="uk_editor min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<figure class="img_figure mt_s">
+							<img src="{{ path.img_cssBeginner }}/img_unit_em.png" alt="em 단위 결과 캡쳐 화면">
+							<figcaption>[em 단위 결과 화면]</figcaption>
+						</figure>
+					</li>
+
+					<!-- rem 단위 -->
+					<li class="line_code tit_h4 before_blue mt_l">
+						<h4 class="t_blue">rem 단위</h4>
+						<blockquote class="uk_note mt_ms" role="note">
+							<h4 class="sound_only">요약 설명</h4>
+							<p>
+								CSS 3의 폰트 크기 값으로 새로 등장한 rem은 'root em'이라는 뜻으로, HTML 문서의 root 요소인 <code>&lt;html&gt;</code> 요소를 가리키며,
+								이 요소에 지정된 크기를 기준으로 상대적인 값을 가지게 된다는 것입니다.<br>
+								em 단위는 부모로부터 글꼴 크기를 상속받지만, rem 단위는 부모가 아닌 시조(root = html)로부터 폰트 크기를 상속받는다는 점이 다릅니다.<br>
+								예를 들어, em 단위는 부모로부터 폰트 크기를 상속받기 때문에 같은 값이 설정되어 있다 하더라도 노드가 깊어질 수록 폰트크기가 기하급수적으로 크거나 작아집니다.<br>
+								이런 방식의 문제점은 부모 또는 조상 노드 가운데 어떤 요소의 폰트 크기 값을 변경할 경우 모든 자식과 자손 요소도 그 영향을 받는다는 점입니다.<br>
+								그래서 예측하기 어렵고 계산하기 복잡하다는 단점이 있습니다.<br>
+								물론 글꼴의 확대 축소를 유연하게 만들기 위한 목적으로 존재하기는 하지만 이러한 복잡성으로 개발자들은 이 방법을 잘 이용하지는 않습니다.
+							</p>
+							<p class="mt_s">
+								html = 100% = 16px<br>
+								body = 0.5em = 8px<br>
+								div = 0.5em = 4px<br>
+								p = 0.5em = 20px
+							</p>
+							<p class="mt_s">
+								하지만 rem 단위는 부모가 아닌 시조로부터 글꼴 크기를 상속받기 때문에 html 요소에 기본 글꼴 크기를 지정 해두면 항상 HTML 요소로부터 글꼴 크기를 상속받습니다.<br>
+								html 요소의 글꼴 크기를 변경하는것 만으로 페이지의 모든 글꼴 크기를 변경할 수 있다는 점 자체는 em 요소 다를 바 없지만
+								rem 요소는 부모 요소로부터 상속을 받지 않기 때문에 페이지의 모든 글꼴 크기 변화를 예측할 수 있고 계산하기도 훨씬 수월합니다.
+							</p>
+						</blockquote>
+						<div class="line_code mt_ms">
+							<p>root 요소의 글꼴 크기에 상대적인 크기 입니다.</p>
+							<p>root 요소란 &lt;html&gt; 요소를 말합니다.</p>
+							<p>각 요소마다 크기가 다를 수 있는 em과 달리, rem은 문서 전체에 일관적입니다.</p>
+							<p>root 요소의 font-size를 참조하는 rem을 제외하고, 글꼴에 상대적인 길이는 부모로부터 상속받은 font-size 값을 참조합니다.</p>
+							<p>부모에 font-size가 없을 때는, 초기값을 참조합니다(일반적으로 16px).</p>
+						</div>
+						<div class="view_editor edit_code mt_s" data-target="css/step01/2.1.unit/2.1.1.rem.html">
+							<div class="uk_editor min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<figure class="img_figure mt_s">
+							<img src="{{ path.img_cssBeginner }}/img_unit_rem.png" alt="rem 단위 결과 캡쳐 화면">
+							<figcaption>[rem 단위 결과 화면]</figcaption>
+						</figure>
+					</li>
+
+					<!-- ex 단위 -->
+					<li class="line_code tit_h4 before_blue mt_l">
+						<h4 class="t_blue">ex 단위</h4>
+						<div class="line_code mt_ms">
+							<p>요소 font의 x 높이를 나타냅니다. &quot;x&quot;문자를 가진 글꼴에서는 보통 소문자 높이와 같습니다. 많은 글꼴에서 1ex ≈ 0.5em입니다.</p>
+							<p>현재 글꼴의 x 높이에 상대적인 값입니다(드물게 사용되며, x 높이란 소문자 x의 높이를 지칭).</p>
+						</div>
+					</li>
+
+					<!-- ch 단위 -->
+					<li class="line_code tit_h4 before_blue mt_l">
+						<h4 class="t_blue">ch 단위</h4>
+						<div class="line_code mt_ms">
+							<p>요소 font의 문자 &quot;0&quot;(영, 유니코드 U+0030)의 너비를 나타냅니다.</p>
+							<p>&quot;0&quot;의 너비에 상대적인 값입니다.</p>
+						</div>
+					</li>
+				</ol>
+			</div>
+		</article>
+
+		<!-- 브라우저 창(viewport)에 비례한 길이(뷰포트 백분율 길이) -->
+		<article class="mt_xl">
+			<h3>브라우저 창(viewport)에 비례한 길이(뷰포트 백분율 길이)</h3>
+			<div class="ol_lst indent">
+				<ol>
+					<!-- vw 단위 -->
+					<li class="line_code tit_h4 before_blue mt_l">
+						<h4 class="t_blue">vw 단위</h4>
+						<div class="line_code mt_ms">
+							<p>뷰포트의 초기 컨테이닝 블록 너비 1%와 같습니다.</p>
+							<p>사용자 창 너비의 1%에 비례합니다.</p>
+						</div>
+					</li>
+
+					<!-- vh 단위 -->
+					<li class="line_code tit_h4 before_blue mt_l">
+						<h4 class="t_blue">vh 단위</h4>
+						<div class="line_code mt_ms">
+							<p>뷰포트의 초기 컨테이닝 블록 높이 1%와 같습니다.</p>
+							<p>사용자 창 높이의 1%에 비례합니다.</p>
+						</div>
+					</li>
+
+					<!-- vmin 단위 -->
+					<li class="line_code tit_h4 before_blue mt_l">
+						<h4 class="t_blue">vmin 단위</h4>
+						<div class="line_code mt_ms">
+							<p>vw와 vh 중 작은 것과 같습니다.</p>
+							<p>사용자 창 높이와 너비 사이 최소값의 1%에 비례합니다.</p>
+						</div>
+					</li>
+
+					<!-- vmax 단위 -->
+					<li class="line_code tit_h4 before_blue mt_l">
+						<h4 class="t_blue">vmax 단위</h4>
+						<div class="line_code mt_ms">
+							<p>vw와 vh 중 큰 것과 같습니다.</p>
+							<p>사용자 창의 높이와 너비 사이 최대값의 1%에 비례합니다.</p>
+						</div>
+					</li>
+				</ol>
+			</div>
+		</article>
+	</section>
+
+	<!-- 2.1.2. 절대 길이 단위 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">2.1.2. 절대 길이 단위</h2>
+		<p class="mt_ms">
+			절대 길이 단위(px, mm, cm, in, pt, pc) : 정확한 기준에 의해 고정된 단위입니다.<br>
+			절대 길이 단위는 프린트 등 출력 수단의 크기를 알 수 있을 때의 물리적 측정 거리를 나타냅니다.<br>
+			구현은 어떤 단위를 물리적인 실제 거리에 맞춰 기준으로 삼고, 나머지 단위를 상대적으로 계산해 설정합니다.<br>
+			기준 단위는 화면 등 저해상도 장치와 프린터 등 고해상도 장치에서 다릅니다.<br>
+			저해상도 장치에서 px 단위는 물리적인 픽셀을 의미하며 나머지는 이에 상대적입니다.<br>
+			따라서 1in은 96px로 정의하며 이는 72pt와 동일합니다.<br>
+			그러나 인치(in), 센티미터(cm), 밀리미터(mm) 등 이렇게 정의하는 단위가 같은 이름을 가진 물리적인 측정 단위와 일치하지 않을 수 있다는 문제점이 있습니다.<br>
+			고해상도 장치에서 인치(in), 센티미터(cm), 밀리미터(mm)가 기준이 되어 물리적 거리와 동일합니다. 그래서 px 단위도 이에 맞춰 1인치의 1/96로 정의합니다.<br>
+			절대 길이 단위는 고정된 크기 단위로, 장치에 따라 크기 조절이 안 된다는 단점이 있습니다.
+		</p>
+
+		<!-- px(pixels) 단위 -->
+		<article class="mt_l">
+			<h3>px(pixels) 단위</h3>
+			<p class="indent mt_s">
+				px은 화소를 의미합니다.<br>
+				px 단위는 요소를 이미지에 맞춰 정확히 배치해야 할 때 사용하면 좋습니다. 이미지의 크기 단위가 px이기 때문입니다.<br>
+				1 픽셀. 화면에서는 전통적으로 하나의 장치 픽셀(점)을 의미했지만, 프린터나 고해상도 화면에서는 1/96 in을 맞출 수 있도록 여러 개의 장치 픽셀을 의미합니다.<br>
+				화면 해상도에 따라 달라집니다. 크기를 px로 지정해 둔다면 '1028 &times; 768'에서는 작게 보이는 글자가 '800 &times; 600' 해상도에서는 크게 보일 것입니다.
+			</p>
+		</article>
+
+		<!-- mm(millimeters) 단위 -->
+		<article class="mt_l">
+			<h3>mm(millimeters) 단위</h3>
+			<p class="indent mt_s">
+				1 밀리미터, 1mm = 1/10 cm.
+			</p>
+		</article>
+
+		<!-- cm(centimeters) 단위 -->
+		<article class="mt_l">
+			<h3>cm(centimeters) 단위</h3>
+			<p class="indent mt_s">
+				cm는 화면의 논리적 센티미터를 의미합니다. 1in 는 2.54cm입니다.<br>
+				1 센티미터, 1cm = 96px/2.54
+			</p>
+		</article>
+
+		<!-- in(inches) 단위 -->
+		<article class="mt_l">
+			<h3>in(inches) 단위</h3>
+			<p class="indent mt_s">
+				1 인치, 1in = 2.54cm = 96px.
+			</p>
+		</article>
+
+		<!-- pt(points) 단위 -->
+		<article class="mt_l">
+			<h3>pt(points) 단위</h3>
+			<p class="indent mt_s">
+				포인트를 의미합니다. 1pt는 1/72in 입니다.<br>
+				One point. 1pt = 1/72nd of 1in. 주로 인쇄매체에 사용합니다.
+			</p>
+		</article>
+
+		<!-- pc(picas) 단위 -->
+		<article class="mt_l">
+			<h3>pc(picas) 단위</h3>
+			<p class="indent mt_s">
+				pc는 파이카를 의미합니다. 1pc 는 12pt이며 1/6in 입니다.<br>
+				1 파이카, 1pc = 12pt = 1/61in.
+			</p>
+		</article>
+
+		<article class="view_editor edit_code mt_l" data-target="css/step01/2.1.unit/2.1.2.absolute.length.html">
+			<h3 class="ve_tit">절대 길이 단위 에제</h3>
+			<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+	</section>
+
+	<!-- 2.1.3. CSS 단위 비교 표 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">2.1.3. CSS 단위 비교 표</h2>
+		<!-- 1차 완료 후 작업 예정
+		<div class="css_unit_comparison">
+			<ul class="lst_hd">
+				<li class="cell px">Pixels</li>
+				<li class="cell em">Ems</li>
+				<li class="cell pc">Percent</li>
+				<li class="cell pi">Points</li>
+				<li class="cell html">HTML</li>
+				<li class="cell key">Keyword</li>
+			</ul>
+			<ul class="lst_bd">
+				<li>
+					<p class="cell px">6px</p>
+					<p class="cell em">0.375em</p>
+					<p class="cell pc">37.5</p>
+					<p class="cell pi">000</p>
+					<p class="cell html">000</p>
+					<p class="cell key">000</p>
+				</li>
+			</ul>
+		</div>
+		-->
+
+		<figure class="img_figure mt_m">
+			<img src="{{ path.img_cssBeginner }}/uxkm_unit_table.svg" alt="CSS 단위 비교 표">
+			<figcaption>[px, em, %, pt, HTML, KeyCode 비교표]</figcaption>
+		</figure>
+	</section>
+
+	<!-- 2.1.4. 색상 표현 단위 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">2.1.4. 색상 표현 단위</h2>
+		<p class="mt_ms">
+			색상을 지정하는 모든 요소에 사용됩니다.<br>
+			CSS속성에서 대표적인 예로 color, background-color, border-color에 사용됩니다.<br>
+			색상를 표현할 수 있는 키워드 리스트는 <span class="reference"><a href="https://www.w3.org/TR/css-color-3/" target="_blank" title="새창열림">W3C css3-color</a></span>를 참고하시기 바랍니다.<br>
+			CSS 색상값(color value)을 입력할 때 다음 색상 단위를 이용할 수 있습니다.<br>
+			단위 값은 소문자, 대문자를 구분하지 않습니다.
+		</p>
+		<div class="ol_lst indent mt_sm">
+			<ol>
+				<li>색상 이름(red,black, blue 등)</li>
+				<li>rgb(red, green, blue)값</li>
+				<li>rgba(red, green, blue, alpha)값</li>
+				<li>hsl(hue, saturation, linhtness)값</li>
+				<li>hsla(hue, saturation, lightness, alpha)값</li>
+			</ol>
+		</div>
+		<p class="mt_s">위의 5가지 방법 중에서 rgba, hsl, hsla는 CSS 3에서 새로 추가된 속성입니다.</p>
+
+		<!-- 색상 이름 -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn">색상 이름</h3>
+			<p class="mt_s">
+				색상 이름(color keyword)을 지정하는 방법 ex) red, green, blue...등<br>
+				색상을 지정하기 위해 키워드(red, blue…)를 사용할 수 있습니다. 사용이 간편하다는 장점이 있으나 표현할 수 있는 색상의 수는 제한됩니다.
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="css/step01/2.1.unit/2.1.4.name-color.html">
+				<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+			<aside class="browser_support mt_m" data-tit="color keyword">
+				<ul>
+					<li class="ie">지원</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">지원</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- HEX 코드 단위 -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn">HEX 코드 단위</h3>
+			<p class="mt_s">
+				HEX 코드 단위(Hexadecimal Colors)로 지정하는 방법(16진수)입니다. ex) #000000...등
+			</p>
+			<p class="mt_s">
+				다음 색상 값은 모두 동일합니다.<br>
+				#f00<br>
+				#ff0000<br>
+				rgb(255,0,0)<br>
+				rgb(100%, 0%, 0%)<br>
+				예: #fb0 = #ffbb00 / #fff = #ffffff
+			</p>
+			<p class="mt_s">
+				각각의 HTML 코드는 &quot;#&quot;와 6자리 숫자로 되어있습니다. 이 숫자는 16진법의 숫자 시스템입니다. 예를 들면 16진법에서 &quot;FF&quot;는 십진법에서의 숫자 25를 나타냅니다.
+			</p>
+			<p class="mt_s">
+				HTML컬러 코드에서 처음 두 자리의 상징(#'00'9AFF)은 빨강색의 강도를 나타냅니다. 00는 최소값이며 FF는 최대값을 의미합니다.<br>
+				세 번째와 네 번째(#00'9A'FF)는 녹색의 강도를 표현하며 다섯 번째 및 여섯 번째(#009A'FF')는 파랑의 강도를 나타냅니다.<br>
+				빨강, 녹색 그리고 파랑의 강도를 조합하여 희망하는 컬러를 만들 수 있습니다.<br>
+				만약 각 색을 표현하는 두 자릿수의 코드값이 각각 같은 경우, 각각 1자리로 줄여 사용이 가능합니다.(예 : #0099FF &rarr; #09F / #009AFF &rarr; #09AF(&times;))<br>
+				코드값에 영문이 들어가는 경우, 대소문자를 가리지 않으나 소문자 사용을 권장합니다.(예 : #009AFF(○) / #009aff(○))
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="css/step01/2.1.unit/2.1.4.hex-color.html">
+				<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+			<aside class="browser_support mt_m" data-tit="Hexadecimal Colors">
+				<ul>
+					<li class="ie">지원</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">지원</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- RGB 단위 -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn">RGB 단위</h3>
+			<p class="mt_s">
+				RGB(Red, Green, Blue) rgb(255, 255, 0)<br>
+				RGB로 표현할 때는 0과 255 사이의 숫자 또는 백분율 0% 100% 사이로 표현합니다.<br>
+				rgb(0,0,255) = rgb(0%,0%,255%)
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="css/step01/2.1.unit/2.1.4.rgb-color.html">
+				<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+			<aside class="browser_support mt_m" data-tit="RGB">
+				<ul>
+					<li class="ie">지원</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">지원</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- RGBA 단위 -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn">RGBA 단위</h3>
+			<p class="mt_s">
+				RGBA(Red, Green, Blue, Alpha/투명도) rgba(255, 255, 0, 1)<br>
+				RGB 색상에 alpha(투명도)가 추가된 것입니다.<br>
+				alpha 값은 0.0(완전 투명) 과 1.0(완전 불투명) 사이 입니다.
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="css/step01/2.1.unit/2.1.4.rgba-color.html">
+				<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+			<aside class="browser_support mt_m" data-tit="RGBA">
+				<ul>
+					<li class="ie">9+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">지원</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- HSL 단위 -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn">HSL 단위</h3>
+			<p class="mt_s">
+				HSL(Hue/색상, Saturation/채도, Lightness/명도) hsl(0, 100%, 25%)<br>
+				CSS 3에서 rgb색상에 대한 보완으로 hue,saturation,lightness 색상값을 추가했습니다.<br>
+				hue 는 0~360 사이의 숫자.( 0 또는 360은 red, 120은 green, 240은 blue)<br>
+				saturation은 0%~100%(0%는 회색 빛, 100%는 원래의 완전한 색상)<br>
+				lightness은 0%~100%(0%는 검정색, 100%는 흰색)
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="css/step01/2.1.unit/2.1.4.hsl-color.html">
+				<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+			<aside class="browser_support mt_m" data-tit="HSL">
+				<ul>
+					<li class="ie">9+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">지원</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- HSLA 단위 -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn">HSLA 단위</h3>
+			<p class="mt_s">
+				HSLA(Hue, Saturation, Lightness, Alpha) hsla(60, 100%, 50%, 1)<br>
+				HSL에 ahpha(투명도)가 추가된 것입니다.
+			</p>
+			<div class="view_editor edit_code mt_s" data-target="css/step01/2.1.unit/2.1.4.hsla-color.html">
+				<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+			<aside class="browser_support mt_m" data-tit="HSLA">
+				<ul>
+					<li class="ie">9+</li>
+					<li class="edge">지원</li>
+					<li class="chrome">지원</li>
+					<li class="firefox">지원</li>
+					<li class="opera">지원</li>
+					<li class="safari">지원</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- color의 단위 종합 예제 -->
+		<article class="view_editor edit_code mt_l" data-target="css/step01/2.1.unit/2.1.color.html">
+			<!--<h3 class="ve_tit">color의 단위 종합 예제</h3>-->
+			<h3 class="ve_tit">색상 표현 단위 종합 예제</h3>
+			<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<aside class="reference_box mt_l">
+			<h2 class="tit">참조</h2>
+			<ul class="link_lst">
+				<li class="reference"><a href="https://www.w3.org/TR/css3-values/#relative-lengths" target="_blank" class="fas" title="새창열림">W3C Unit</a></li>
+				<li class="reference"><a href="https://www.w3.org/TR/css-color-3/#colorunits" target="_blank" class="fas" title="새창열림">W3C CSS Color Module Level 3</a></li>
+				<li class="reference"><a href="https://search.naver.com/search.naver?where=nexearch&query=%EC%83%89%EC%83%81%EC%BD%94%EB%93%9C&sm=top_hty&fbm=1&ie=utf8" target="_blank" class="fas" title="새창열림">네이버 색상 코드표</a></li>
+				<li class="reference"><a href="https://www.css3maker.com/css-3-rgba.html" target="_blank" class="fas" title="새창열림">css3maker.com</a></li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- 2.1.5. opacity 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">2.1.5. opacity 속성</h2>
+		<p class="mt_ms">
+			요소의 불투명도를 설정합니다. 불투명도는 요소 뒤쪽 콘텐츠가 숨겨지는 정도로, 투명도의 반대입니다.<br>
+			opacity는 요소의 내용을 포함해 모든 곳에 영향을 주지만 자식 요소가 상속하지는 않습니다.<br>
+			따라서 요소와 자식의 투명도가 서로 다르더라도 배경에 대해서는 상대적으로 같은 투명도를 갖습니다.<br>
+			opacity 값이 1이 아니면 요소를 새로운 쌓임 맥락에 배치합니다.<br>
+			자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하세요.
+		</p>
+		<div class="ol_lst indent mt_s">
+			<ol>
+				<li>
+					<p>
+						<code>&lt;number&gt;</code> : 0.0 이상, 1.0 이하의 불투명도를 나타내는 수(알파채널의 값). 범위 밖의 숫자는 구문 상 유효하지만, 실제 적용 시에는 범위에 들어가도록 잘라냅니다.
+					</p>
+					<div class="line_code mt_s">
+						<p>0 : 요소가 완전히 투명해 보이지 않습니다.</p>
+						<p>0과 1 사이의 <code>&lt;number&gt;</code> : 요소가 반투명해 뒤의 내용을 볼 수 있습니다.</p>
+						<p>1(기본값) : 요소가 불투명합니다.</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+
+		<article class="view_editor edit_code mt_m" data-target="css/step01/2.1.unit/2.1.5.opacity.html">
+			<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<aside class="browser_support mt_m" data-tit="opacity">
+			<ul>
+				<li class="ie">9+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">1.0</li>
+				<li class="firefox">1.0</li>
+				<li class="opera">9.0</li>
+				<li class="safari">2.0</li>
+			</ul>
+		</aside>
+	</section>
+{%- endblock %}

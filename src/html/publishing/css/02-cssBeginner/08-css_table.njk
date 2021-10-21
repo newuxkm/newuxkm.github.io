@@ -18,5 +18,226 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			테이블 데이터를 레이아웃하는 방법을 정의하는 CSS 모듈입니다.<br>
+			CSS를 이용하면 다양한 형태의 테이블을 만들 수 있습니다.<br>
+			테이블에 다음 속성을 사용하여 CSS 스타일을 적용할 수 있습니다.<br>
+			border<br>
+			border-collapse<br>
+			border-spacing<br>
+			caption-side<br>
+			empty-cells<br>
+			table-layout
+		</p>
+	</blockquote>
+
+	<!-- border 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">border</i> 속성</h2>
+		<p class="mt_s">
+			<code>border</code> 속성으로 테이블의 테두리(border)를 설정할 수 있습니다.<br>
+			이 속성을 명시하지 않으면 해당 테이블은 기본 설정으로 빈 테두리를 가지게 됩니다.<br>
+		</p>
+		<!--
+		<p class="mt_s">
+			예시)
+			<code>top | bottom | inherit | initial | unset</code>
+		</p>
+		-->
+		<div class="uk_gist_code_box mt_ms" data-tit="table border">
+			<textarea readonly="readonly">
+				table,
+				table th,
+				table td {
+					border: width style color | inherit | initial | unset;
+				}
+			</textarea>
+		</div>
+		<!--
+		<p class="mt_ms indent">
+			위의 예시에서 테이블의 테두리(border)가 두 줄씩 나타나는 이유는 <code>&lt;th&gt;</code>요소와 <code>&lt;td&gt;</code>요소가 각각 자신만의 테두리를 가지고 있기 때문입니다.<br>
+			위와 같이 두 줄로 표현되는 테두리를 한 줄로 설정하려면 border-collapse 속성을 사용해야 합니다.
+		</p>
+		-->
+		<p class="mt_ms">
+			<code>table</code>, <code>th</code>, <code>td</code>에 <code>border</code>를 선언하면 각각 자신만의 테두리를 가지고 있기 때문에 <code>border</code>가 2줄로 표현됩니다.<br />
+			<code>border</code>가 한 줄로 보이게 설정하려면 <code>border-collapse</code> 속성을 사용해야 합니다.
+		</p>
+	</section>
+
+	<!-- border-collapse 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">border-collapse</i> 속성</h2>
+		<p class="mt_s">
+			<code>border-collapse</code> 속성값을 <code>collapse</code>로 설정하면 해당 테이블의 테두리는 한 줄로 표현됩니다.<br>
+			이 속성을 명시하지 않으면 해당 테이블은 기본 설정으로 테이블 요소별 테두리를 모두 표현하게 됩니다.
+		</p>
+		<!--
+		<div class="mt_s">
+			예시)
+			<code>table, th, td { border: 2px solid orange; } table { border-collapse: collapse; }</code>
+		</div>
+		-->
+		<div class="uk_gist_code_box mt_ms" data-tit="table border-collapse">
+			<textarea readonly="readonly">
+				table {
+					border-collapse: collapse | separate;
+				}
+				table th,
+				table td {
+					border: 2px solid orange;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">collapse</strong> : 인접한 셀은 경계를 공유합니다 (축소 된 테두리 테이블 렌더링 모델).</li>
+				<li><strong class="t_black">separate</strong> : 인접한 셀은 서로 다른 경계 (분리 된 경계 테이블 렌더링 모델)를 갖습니다.</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- border-spacing 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">border-spacing</i> 속성</h2>
+		<p class="mt_s">
+			<code>border-spacing</code> 속성은 테이블 요소(th, td)간의 여백을 설정해 줍니다.<br>
+			horizontal length(세로 간격) | vertical length(가로 간격)<br>
+			IE8+ 부터 지원합니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="table border-spacing">
+			<textarea readonly="readonly">
+				table,
+				table th,
+				table td  {
+					border: 1px solid black;
+				}
+				table {
+					width: 100%;
+					border-collapse: seperate;
+					border-spacing: 20px 30px;
+				}
+			</textarea>
+		</div>
+	</section>
+
+	<!-- caption-side 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">caption-side</i> 속성</h2>
+		<p class="mt_s">
+			테이블의 캡션(caption)을 설정합니다.<br>
+			IE8+ 부터 지원합니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="table caption-side">
+			<textarea readonly="readonly">
+				table caption {
+					caption-side: top | bottom | inherit | initial | unset;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">top</strong> : 테이블 위에 위치.</li>
+				<li><strong class="t_black">bottom</strong> : 테이블 아래에 위치.</li>
+			</ol>
+		</div>
+
+		<!--
+		<figure class="img_figure indent mt_m">
+			<img src="/ukncs/images/css/cssBeginner/uxkm_table_container.svg" alt="caption 다이어그램">
+			<figcaption>caption 다이어그램 [이미지 참조 : W3C Table]</figcaption>
+		</figure>
+		-->
+	</section>
+
+	<!-- vertical-align 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">vertical-align</i> 속성</h2>
+		<p class="mt_s">
+			HTML 요소 내의 수직 방향 정렬을 설정합니다.<br>
+			<mark>인라인 블록</mark> 또는 <mark>인라인 테이블 셀 박스</mark>의 수직 방향을 설정합니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="table vertical-align">
+			<textarea readonly="readonly">
+				table th,
+				table td {
+					vertical-align: top | middle | bottom | inherit | initial | unset;
+				}
+			</textarea>
+		</div>
+	</section>
+
+	<!-- empty-cells 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">empty-cells</i> 속성</h2>
+		<p class="mt_s">
+			테이블 내의 빈 셀(cell)들의 테두리 및 배경색을 표현할지 안 할지를 설정합니다.<br>
+			이 속성은 <code>border-collapse</code>속성의 값이 <code>separate</code> 일 때만 효과가 있습니다.<br>
+			IE8+ 부터 지원합니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="table empty-cells">
+			<textarea readonly="readonly">
+				table th,
+				table td {
+					empty-cells: show | hide | inherit | initial | unset;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">show</strong> : 테두리와 배경은 일반 셀처럼 그려집니다.</li>
+				<li><strong class="t_black">hide</strong> : 테두리 나 배경이 그려지지 않습니다.</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- table-layout 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">table-layout</i> 속성</h2>
+		<p class="mt_s">
+			테이블에 사용되는 너비를 설정합니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="table-layout">
+			<textarea readonly="readonly">
+				table {
+					table-layout: auto | fixed | inherit | initial | unset;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">auto</strong> : 기본값으로 대부분의 브라우저는 자동 테이블 레이아웃 알고리즘을 사용합니다. 표와 셀의 너비는 내용에 맞게 조정됩니다.</li>
+				<li><strong class="t_black">fixed</strong> : 테이블 및 열 너비는 셀의 너비 table와 col요소 또는 첫 번째 행의 너비로 설정됩니다. 후속 행의 셀은 열 너비에 영향을 미치지 않습니다.</li>
+			</ol>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="css/step01/2.8.table/2.8.table.html">
+		<h2 class="ve_tit">Table 속성 예제</h2>
+		<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="Table-style">
+		<ul>
+			<li class="ie">5+</li>
+			<li class="edge">12.0</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">4.0</li>
+			<li class="safari">1.2</li>
+		</ul>
+	</aside>
+
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">Table 속성 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html" target="_blank" class="fas" title="새창열림">W3C Table</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Table" target="_blank" class="fas" title="새창열림">MDN Table</a></li>
+		</ul>
+	</aside>
+{%- endblock %}

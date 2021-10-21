@@ -18,5 +18,329 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<h2 class="sound_only">요약 설명</h2>
+		<p>
+			CSS를 사용하면 웹 페이지에 나타나는 글꼴(Font) 선언하여 다양하게 정의하는 CSS 모듈입니다.
+		</p>
+	</blockquote>
+
+	<!-- font-family 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">font-family</i> 속성</h2>
+		<p class="mt_ms">
+			폰트를 지정합니다. 컴퓨터에 해당 폰트가 설치되어 있지 않으면 적용되지 않습니다.<br>
+			<code>font-family</code> 속성은 하나의 글꼴만을 설정할 수도 있고, 여러 개의 글꼴을 같이 설정할 수도 있습니다.<br>
+			<code>font-family</code> 속성값이 여러 개의 글꼴로 설정되어 있으면, 웹 브라우저는 앞에서부터 순서대로 글꼴을 읽어 들입니다.<br>
+			만약 사용자의 컴퓨터에 첫 번째로 읽어 들인 글꼴이 없으면 다음 글꼴을 확인하게 됩니다.<br>
+			이런 방식으로 계속해서 읽어 들인 글꼴이 존재하는지를 확인하여, 읽어 들인 글꼴이 사용자의 컴퓨터에 존재하면 해당 글꼴로 표시하게 됩니다.<br>
+			글꼴의 이름이 한 단어 이상으로 이루어지면 반드시 따옴표를 사용하여 둘러 쌓아야 합니다.<br>
+			또한, 여러 개의 글꼴을 나열할 때에는 쉼표(,)로 구분 짓습니다.
+		</p>
+		<div class="mt_s">
+			<strong class="t_black">CSS에는 두 가지의 글꼴 집합(font family)이 존재합니다.</strong><br>
+			<div class="indent">
+				<i class="t_black">generic family</i> : 비슷한 모양을 가지는 글꼴 집합 (<code>Serif</code>, <code>Sans Serif</code>, <code>Display</code>, <code>Handwriting</code>, <code>Monospace</code> 등)<br>
+				<i class="t_black">font family</i> : 특정 글꼴 집합 (<code>"Roboto"</code>, <code>"Noto Sans KR"</code>, <code>"Nanum Gothic"</code> 등)
+			</div>
+		</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="font-family">
+			<textarea readonly="readonly">
+				p {
+					font-family: inherit | family-name;
+				}
+				p {
+					font-family: "Malgun Gothic", "Times New Roman", Times, serif;
+				}
+			</textarea>
+		</div>
+	</section>
+
+	<!-- font-style 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">font-style</i> 속성</h2>
+		<p class="mt_ms">
+			font-style 속성은 주로 이탤릭체를 사용하기 위해 사용하며, 다음과 같이 4가지의 속성값을 가집니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="font-style">
+			<textarea readonly="readonly">
+				p {
+					font-style: normal | italic | oblique | inherit;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">normal</strong> : 기본값으로 텍스트에 어떠한 스타일도 적용하지 않습니다.</li>
+				<li><strong class="t_black">italic</strong> : 텍스트를 이탤릭체로 나타냅니다.</li>
+				<li><strong class="t_black">oblique</strong> : 비스듬한(oblique) 모양으로 지정한다. 이 속성값은 italic과 매우 유사하지만 지원하는 웹 브라우저가 거의 없습니다.</li>
+				<li><strong class="t_black">inherit</strong> : 부모 요소로부터 값을 상속 받습니다.</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- font-size 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">font-size</i> 속성</h2>
+		<p class="mt_ms">
+			font-size 속성은 텍스트의 크기를 설정합니다.<br>
+			웹 디자인에서 텍스트의 크기는 매우 중요한 표현 요소입니다.<br>
+			하지만 제목을 표현하기 위해서 텍스트의 크기만을 크게 해서는 안 됩니다.<br>
+			이때에는 제목을 위한 HTML 요소인 <code>&lt;h1&gt;</code>부터 <code>&lt;h6&gt;</code> 요소를 사용해야 합니다.<br>
+			font-size 속성값은 절대 크기 와 상대 크기로 사용할 수 있습니다.<br>
+			절대 크기는 텍스트의 크기를 명시된 크기 그대로 설정하고자 할 때 사용합니다.<br>
+			절대 크기로 설정된 텍스트는 모든 웹 브라우저에서 같은 크기로 표현됩니다.<br>
+			상대 크기는 텍스트를 둘러싸고 있는 HTML 요소들의 크기에 따라 텍스트의 크기도 같이 변하는 방식입니다.<br>
+			또한, 사용자가 웹 브라우저를 통해 텍스트의 크기를 직접 변경할 수도 있습니다.<br>
+			font-size 속성값에 자주 사용되는 대표적인 크기 단위는 백분율 단위(%), 배수 단위(em), 픽셀 단위(px)를 설정합니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="font-size">
+			<textarea readonly="readonly">
+				p {
+					font-size: 절대 크기(xx-small | x-small | small | medium | large | x-large | xx-large) | 상대 크기(em) | length(길이) | % | inherit;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">length(길이)</strong> : 부동 소수점 숫자 뒤에 절대 단위 지정자( cm , mm , in , pt , pc ) 또는 상대 단위 지정자( em , ex , px )가 오는 값을 지정한다.</li>
+				<li><strong class="t_black">%(퍼센트)</strong> : 퍼센트 부호(%)가 뒤에 오는 정수를 지정한다.</li>
+				<li><strong class="t_black">intial</strong> : 기본값을 지정한다.</li>
+				<li><strong class="t_black">inherit</strong> : 부모 요소로부터 값을 상속 받는다.</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- font-weight 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">font-weight</i> 속성</h2>
+		<p class="mt_ms">
+			글꼴의 두께를 지정합니다.<br>
+			font-weight 속성은 텍스트를 얼마나 두껍게 표현할지를 설정합니다.<br>
+			사용할 수 있는 속성값에는 lighter, normal, bold, bolder 등이 있습니다.<br>
+			또한, 100, 200, 300, ... , 900 등과 같이 숫자로 텍스트의 두께를 설정할 수도 있습니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="font-weight">
+			<textarea readonly="readonly">
+				p {
+					font-weight: normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | inherit;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">normal</strong> : 기본값으로 보통 두께를 지정한다.</li>
+				<li><strong class="t_black">bold</strong> : 굵은 글꼴을 지정한다.</li>
+				<li><strong class="t_black">bolder</strong> : 두께가 기본 bold 이상인 글꼴을 지정한다.</li>
+				<li><strong class="t_black">lighter</strong> : 보통보다 두께가 얇은 글꼴을 지정한다.</li>
+				<li><strong class="t_black">100, 200, 300, 400, 500, 600, 700, 800, 900</strong> : 100이 가장 얇고 숫자가 커질수록 더 굵어 진다. 400이 보통인 normal과 같고 700이 굵은인 bold와 같다.</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- font-variant 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">font-variant</i> 속성</h2>
+		<p class="mt_ms">
+			글꼴을 작은 대문자로 지정합니다.<br>
+			font-variant 속성은 속성값이 small-caps로 설정되면, 텍스트에 포함된 영문자 중 모든 소문자를 작은 대문자(small-caps) 글꼴로 변경시킵니다.<br>
+			이때 영문자 중 대문자는 기존 크기 그대로 출력합니다.<br>
+			작은 대문자(small-caps) 글꼴이란 텍스트의 기존 대문자보다는 약간 작은 크기의 대문자를 의미합니다.<br>
+			font-variant 속성은 한글에는 적용되지 않으며, 영문자에만 적용됩니다.<br>
+			글자 크기를 줄이는 <code>font-size:0.8em</code> 과 함께 <code>text-transform:uppercase</code>를 지정하면
+			smallcaps과 비슷한 효과를 얻을수 있다.(smallcaps를 지원하는 기본폰트가 적기때문에)
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="font-variant">
+			<textarea readonly="readonly">
+				p {
+					font-variant: normal | small-caps | inherit;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">normal</strong> : 기본값으로 보통 글꼴을 지정한다.</li>
+				<li><strong class="t_black">small-caps</strong> : 작은 대문자 글꼴을 지정한다.</li>
+				<li><strong class="t_black">inherit</strong> : 부모 요소로부터 값을 상속 받는다.</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- font-stretch 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn css3"><i class="t_blue">font-stretch</i> 속성</h2>
+		<p class="mt_ms">
+			CSS3에 추가된 속성입니다.<br>
+			글자의 폭을 넓게(wide) 늘이거나 좁게(narrow) 축소합니다. 즉 글자의 폭(너비)에 대해서 설정하는 속성입니다.<br>
+			font-stretch 속성은 처음에 CSS2에서 정의되었지만 브라우저 구현 부족으로 인해 CSS2.1에서 삭제되고 CSS3로 다시 정의되었습니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="font-stretch">
+			<textarea readonly="readonly">
+				p {
+					font-stretch: normal | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded;
+				}
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">ultra-condensed</strong> : 할수있는 한 폭을 좁힌다.</li>
+				<li><strong class="t_black">extra-condensed</strong> : condensed 보다 좁지만, ultra-condensed 보다 폭을 좁히진 않는다.</li>
+				<li><strong class="t_black">condensed</strong> : semi-condensed 보다 좁지만, extra-condensed 보다 폭을 좁히진 않는다.</li>
+				<li><strong class="t_black">semi-condensed</strong> : normal 보다 좁지만, condensed 보다 폭을 좁히진 않는다.</li>
+				<li><strong class="t_black">normal</strong> : 기본값으로, 글꼴을 넓히거나 좁히지 않는다.</li>
+				<li><strong class="t_black">semi-expanded</strong> : normal 보다 넓지만, expanded 보다 폭을 넓히진 않는다.</li>
+				<li><strong class="t_black">expanded</strong> : semi-expanded 보다 넓지만, extra-expanded 보다 폭을 넓히진 않는다.</li>
+				<li><strong class="t_black">extra-expanded</strong> : expanded 보다 넓지만, ultra-expanded 보다 폭을 넓히진 않는다.</li>
+				<li><strong class="t_black">ultra-expanded</strong> : 할수있는 한 폭을 넓힌다.</li>
+				<li><strong class="t_black">inherit</strong> : 부모 요소로부터 값을 상속 받는다.</li>
+			</ol>
+		</div>
+
+		<figure class="img_figure mt_m">
+			<img src="{{ path.img_cssBeginner }}/universwidths.png" alt="font-stretch 예시">
+			<figcaption>font-stretch 예시 [이미지 참조 : W3C CSS Fonts Module Level 3]</figcaption>
+		</figure>
+		<aside class="browser_support mt_m" data-tit="font-stretch">
+			<ul>
+				<li class="ie">9+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">48.0</li>
+				<li class="firefox">9.0</li>
+				<li class="opera">45.0</li>
+				<li class="safari">11.0</li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- font-size-adjust 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn css3"><i class="t_blue">font-size-adjust</i> 속성</h2>
+		<p class="mt_ms">
+			대문자가 아닌 소문자의 높이에 따라 선택되는 방법.<br>
+			작은 크기에서 글꼴의 가독성이 대문자의 크기보다 소문자의 크기에 의해 결정되므로 유용합니다.<br>
+			소문자 (글꼴의 x 높이에 의해 결정됨)<br>
+			CSS3에 추가된 속성으로 소문자와 대문자 사이의 비율을 유지하고 font-size 속성 값을 조정하여 x-height 속성 값이 글꼴에 관계없이 고정되게 함으로써 가독성을 유지하고 값이 상속됩니다.<br>
+			일반적으로 font-family에 지정한 글꼴에 따라 글꼴 크기가 다르기 때문에 문제가 될 여지가 있습니다.<br>
+			이때 font-size-adjust 속성으로 글꼴 크기를 지정해 놓으면 이에 대한 예방이 됩니다.<br>
+			대소문자 사이의 비율은 font x-height/font size 값입니다.<br>
+			font-size-adjust은 처음에 CSS2에서 정의되었지만 CSS 2.1에서는 삭제되고 CSS3에서 새롭게 정의되었습니다.<br>
+			지원 안되는 브라우저가 많아서 사용하기에는 아직 유용하지 않습니다.<br>
+			<mark>현재 파이어폭스에서만 지원하고 있습니다.</mark>
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="font-size-adjust">
+			<textarea readonly="readonly">
+				p {font-size-adjust: none | number | inherit;}
+				p {
+					font-size: 14px;
+					font-size-adjust: 0.5;
+				}
+				/* (0.5 × 14px) = 14px */
+			</textarea>
+		</div>
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li><strong class="t_black">nubmer(숫자)</strong> : 사용할 비율을 지정한다.</li>
+				<li><strong class="t_black">none</strong> : 기본값으로 글꼴 크기를 변경하지 않는다.</li>
+				<li><strong class="t_black">inherit</strong> : 부모 요소로부터 값을 상속 받는다.</li>
+			</ol>
+		</div>
+
+		<figure class="img_figure mt_m">
+			<img src="{{ path.img_cssBeginner }}/fontsizeadjust.png" alt="font-size-adjust 예시">
+			<figcaption>font-size-adjust 예시 [이미지 참조 : W3C CSS Fonts Module Level 3]</figcaption>
+		</figure>
+		<aside class="browser_support mt_m" data-tit="font-size-adjust">
+			<ul>
+				<li class="ie false">지원안함</li>
+				<li class="edge false">지원안함</li>
+				<li class="chrome false">지원안함</li>
+				<li class="firefox">3.0</li>
+				<li class="opera false">지원안함</li>
+				<li class="safari false">지원안함</li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- line-height 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">line-height</i> 속성</h2>
+		<p class="mt_ms">
+			line-height 속성은 텍스트의 줄 간격을 설정합니다.<br>
+			line-height 속성은 font의 축약형 방식으로 사용할 때 font-size/line-height 형식으로 같이 사용됩니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="line-height">
+			<textarea readonly="readonly">
+				p {line-height: normal | number | length | initial | inherit;}
+
+				p {line-height: normal;}
+				p {line-height: 1.6;}
+				p {line-height: 26px;}
+				p {line-height: 140%;}
+			</textarea>
+		</div>
+	</section>
+
+	<!-- 축약형 속성 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">축약형</i> 속성</h2>
+		<p class="mt_ms">
+			font 속성을 축약형(Shorthand font property) 방식으로 사용합니다. 모든 font 속성을 한번에 사용할 수 있습니다.<br>
+			축약형 방식으로 사용할 때는 line-height 속성도 같이 사용 가능합니다.
+		</p>
+		<div class="uk_gist_code_box mt_ms" data-tit="Shorthand font property">
+			<textarea readonly="readonly">
+				p { font: font-style | font-variant | font-weight | font-stretch | font-size/line-height | font-family | inherit }
+				p { font: 12pt/14pt sans-serif; }
+				p { font: 80% sans-serif; }
+				p { font: x-large/110% "new century schoolbook", serif; }
+				p { font: bold italic large Palatino, serif; }
+				p { font: normal small-caps 120%/120% fantasy; }
+				p { font: condensed oblique 12pt "Helvetica Neue", serif; }
+
+				/* 글씨 크기 12픽셀, 줄 높이 14픽셀, 글꼴 sans-serif */
+				p { font: 12px/14px sans-serif }
+
+				/* 글씨 크기 부모 또는 기본값(부모가 없을 경우)의 80%, 글꼴 sans-serif */
+				p { font: 80% sans-serif }
+
+				/* 글씨 굵기 굵게, 스타일 기울이기, 글씨 크기 크게, 글꼴 serif */
+				p { font: bold italic large serif }
+
+				/* 창의 상태표시줄과 같은 글꼴 사용 */
+				p { font: status-bar }
+			</textarea>
+		</div>
+	</section>
+
+	<section class="view_editor edit_code mt_xxl" data-target="css/step01/2.4.font/2.4.font.html">
+		<h2 class="ve_tit">Font 속성 예제</h2>
+		<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+			<div class="code_wrap"><textarea></textarea></div>
+		</div>
+	</section>
+
+	<figure class="img_figure mt_xxl">
+		<img src="{{ path.img_cssBeginner }}/uxkm_typo.svg" alt="Typography 예시">
+		<figcaption>[Typography 예시]</figcaption>
+	</figure>
+
+	<aside class="browser_support mt_xxl" data-tit="font">
+		<ul>
+			<li class="ie">지원</li>
+			<li class="edge">12.0</li>
+			<li class="chrome">1.0</li>
+			<li class="firefox">1.0</li>
+			<li class="opera">3.5</li>
+			<li class="safari">1.0</li>
+		</ul>
+	</aside>
+
+	<section class="reference_box mt_xxl">
+		<h2 class="tit">Font 속성 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/CSS2/fonts.html" target="_blank" class="fas" title="새창열림">W3C Font</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-fonts-3/" target="_blank" class="fas" title="새창열림">CSS Fonts Module Level 3</a></li>
+		</ul>
+	</section>
+{%- endblock %}

@@ -25,6 +25,7 @@ setTimeout(function(){
   if( sessionStorage.getItem('sideToggle') ){
     $('.side_menu_toggle').addClass('active').attr('title','사이드 메뉴 열기').parent().addClass('side_close');
     $('.side_menu_toggle').find('b').text('OPEN');
+    $('html').addClass('side_close');
   }
 
   // uk_header progress ------------------------------------------------------------------------------------------------
@@ -47,6 +48,10 @@ setTimeout(function(){
   // }
 
   // uk_gist_code_box 적용 전 세로값 유지 ------------------------------------------------------------------------------
+  uk_gist_code_layout();
+});
+
+function uk_gist_code_layout(){
   const uk_gist_code_box = 'uk_gist_code_box';
   const uk_gist_content = 'uk_gist_content';
   const uk_gist_code_pre = 'uk_gist_code_pre';
@@ -267,5 +272,29 @@ setTimeout(function(){
       $(e).find('.line_number').append('<li></li>');
     }
   });
-});
+}
+
+// iframe 컨텐츠 height 값 적용 | 사용 안함 ( @media로 적용 )
+function uk_kmTemp_con(){
+  if( $('.iframe_con').is(':visible') ){
+    $('.iframe_con').each(function(i, e) {
+      var target = $(e).find('iframe');
+      var the_height;
+      the_height = target.contents().find('body').height();
+      $(e).css({'height': the_height});
+
+      if( the_height === null ){
+        var th_interval = setInterval(function(){
+          if( the_height === null ){
+            the_height = target.contents().find('body').height();
+            $(e).css({'height': the_height});
+          }
+          else {
+            clearInterval(th_interval);
+          }
+        }, 100);
+      }
+    });
+  }
+}
 // setTimeout end ------------------------------------------------------------------------------------------------------

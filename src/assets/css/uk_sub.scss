@@ -1242,6 +1242,8 @@ $line-height-mb:22px;
 		.uk_gist_code_wrap {
 			padding:$pd_top 0 $pd_top $line_size + 5px;
 			background:transparent;
+			color:#969896;
+			&.code_show {color:#111;}
 		}
 		.uk_gist_code_line {
 			overflow:hidden;
@@ -1324,7 +1326,7 @@ $line-height-mb:22px;
 	.uk_gist_code_box {
 		$line_size:36px;
 		$pd_top: 8px;
-		$line-height:24px;
+		$line-height:20px;
 		/*
 		&[data-filename] {
 			&:before {
@@ -1643,6 +1645,21 @@ $line-height-mb:22px;
 	border:0; border-top:1px dotted #ddd;
 }
 
+.table_basic {
+	border:4px solid #eee;
+	.cell {
+		display:table-cell; vertical-align:middle;
+		padding:5px 10px;
+		border-bottom:1px solid #eee; border-left:1px solid #eee;
+	}
+	.lst_hd,
+	.lst_bd > li {display:table; width:100%; table-layout:fixed;}
+	.lst_hd {text-align:center; color:#444; background:#fbfbfb;}
+	.lst_bd > li:last-child .cell {border-bottom:0;}
+
+	&.first_cell_th .lst_bd .cell:first-child {background:#fbfbfb;}
+}
+
 
 //coming soon ----------------------------------------------------------------------------------------------------------
 .ready_content {
@@ -1660,3 +1677,139 @@ $line-height-mb:22px;
 		p {line-height:20px; font-size:18px;}
 	}
 }
+
+
+
+// sub 개별 컨텐츠 -----------------------------------------------------------------------------------------------------
+
+// CSS 선택자 level 1, 2 part-1
+.specificity1, .specificity2 {
+	.tit {width:150px;}
+	.con_a, .con_b, .con_c, .equals {width:50px; text-align:center;}
+	.result {text-align:left; padding-left:15px;}
+}
+@media(max-width:$screen-sm){
+	.specificity1, .specificity2 {
+		font-size:12px;
+		.lst_hd {line-height:16px;}
+		.cell {padding:5px;}
+		.tit {width:100px;}
+		.con_a, .con_b, .con_c, .equals {width:30px;}
+		.result {padding-left:10px;}
+	}
+}
+
+// CSS 선택자 level 1, 2 part-2
+.adjacent_sibling {
+	$pd:165px;
+	padding:15px 10px; text-align:center;
+	border:4px solid #eee;
+	.inner_wrap {
+		position:relative;
+		display:inline-block; padding-right:$pd;
+	}
+	ul {
+		li {
+			position:relative; z-index:1; text-align:center;
+			width:50px; height:30px; line-height:30px;
+			font-size:14px; color:#fff;
+			background:rgba($blue, .7); border-radius:2px;
+			&:before {
+				position:absolute; z-index:-1;
+				background:#ccc;
+				content:"";
+			}
+		}
+		li:first-child:before {
+			left:20px; top:100%;
+			width:1px; height:146px;
+		}
+		li:not(:first-child) {
+			margin-top:10px; margin-left:40px;
+			&:before {
+				left:-20px; top:50%;
+				width:20px; height:1px;
+			}
+		}
+	}
+
+	.arr {
+		position:absolute; left:100%; top:50%;
+		width:$pd; line-height:20px;
+		margin-top:-10px; padding-left:25px;
+	}
+	.fas {
+		position:absolute; left:100%;
+		line-height:30px; margin-left:7px;
+		color:$red;
+	}
+}
+
+
+
+// iframe_con (km temp) ------------------------------------------------------------------------------------------------
+.iframe_con {
+	position:relative;
+	background:#f3f3f3;
+	&:before {
+		position:absolute; left:50%; top:100px;
+		transform:translate(-50%, 0);
+		line-height:30px;
+		font-size:26px; color:#bbb; font-weight:800;
+		content:"로딩중...";
+	}
+
+	iframe {
+		position:absolute; left:0; top:0;
+		width:100%; height:100%;
+	}
+}
+$iframe_border:8px;
+
+// 박스 모델 속성 part-2 [box-sizing 테스트] ---------------
+.box_model_iframe {height:761px;}
+// side menu open
+@media(max-width:1444px + 17px){
+	html:not(.side_close) .box_model_iframe {height:747px;}
+}
+@media(max-width:1217px + 17px){
+	html:not(.side_close) .box_model_iframe {height:577px;}
+}
+@media(max-width:$screen-md-max){
+	html:not(.side_close) .box_model_iframe {height:747px;}
+}
+@media(max-width:917px + 17px){
+	html:not(.side_close) .box_model_iframe {height:577px;}
+}
+@media(max-width:408px){
+	html:not(.side_close) .box_model_iframe {height:603px;}
+}
+// side menu close
+@media(max-width:1213px + 17px){
+	html.side_close .box_model_iframe {height:747px;}
+}
+@media(max-width:988px + 17px){
+	html.side_close .box_model_iframe {height:577px;}
+}
+@media(max-width:$screen-md-max){
+	html.side_close .box_model_iframe {height:747px;}
+}
+@media(max-width:917px + 17px){
+	html.side_close .box_model_iframe {height:577px;}
+}
+@media(max-width:408px){
+	html.side_close .box_model_iframe {height:603px;}
+}
+
+
+/*.iframe_con {
+	position:relative; overflow-y:hidden;
+	//height:678px;
+	//border:4px solid #eee;
+	iframe {
+		position:absolute; left:0; top:0;
+		width:100%; height:100%;
+		overflow:hidden;
+	}
+}*/
+

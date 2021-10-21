@@ -29,12 +29,14 @@ $(document).ready(function(){
     if( !_this.is('.active') ){
       _this.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
       _this.find('b').text('OPEN');
+      _html.addClass('side_close');
       sessionStorage.setItem(sideToggle, true);
     }
     // 열기
     else{
       _this.removeClass('active').attr('title','사이드 메뉴 닫기').parent().removeClass(side_close);
       _this.find('b').text('CLOSE');
+      _html.removeClass('side_close');
       sessionStorage.clear(sideToggle);
     }
 
@@ -82,6 +84,17 @@ $(window).on('load', function(){
   window.addEventListener('beforeunload', function(){
     sessionStorage.setItem('html_height', $(document).height());
     sessionStorage.setItem(loading_scroll_top, $(window).scrollTop());
+  });
+
+  $('.uk_gist_code_box').each(function(i, e){
+    if( !$(e).find('.uk_gist_content').is(':visible') ){
+      console.log( 'uk_gist_code error !!!!!!!!!!' );
+      uk_gist_code_layout();
+      setTimeout(function(){
+        uk_gist_skin_code();
+        console.log( 'uk_gist_code error - solve a problem !!' );
+      });
+    }
   });
 });
 

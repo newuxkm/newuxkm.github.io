@@ -621,6 +621,7 @@ function uk_gist_skin_code(){
       //$(e).addClass('xml');
       $(this).parents('.'+uk_gist_content).siblings('textarea').remove(); //-----------------------
       hljs.highlightBlock(e);
+      $(e).addClass('code_show');
 
       //class '.' 색상 변경 class 지정
       if( $(e).find(hljsSelectorClass).is(':visible') ){
@@ -727,7 +728,7 @@ function uk_gist_skin_code(){
       //background 속성 > background-repeat 속성 오류 대처
       value_error( 'background-repeat' );
       //background 속성 > background-position 속성 오류 대처
-      value_error( 'background-position' );
+      //value_error( 'background-position' );
       function value_error( target ){
         if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === target ){
           const txt_clone = $(e).find('.hljs-attribute').clone();

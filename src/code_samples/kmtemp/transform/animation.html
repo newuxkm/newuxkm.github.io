@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>animation</title>
+	<link href="//fonts.googleapis.com/css?family=Black+Han+Sans|Hi+Melody|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext" rel="stylesheet">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no, email=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content=" yes">
+	<meta name="robots" content="index,follow">
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<!--<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">-->
+	<meta http-equiv="Expires" content="-1">
+
+	<!-- css -->
+	<link href="/assets/kmtemp/lib/css/bootstrap.css" rel="stylesheet" />
+	<link href="/assets/kmtemp/lib/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets/lib/css/temp_transform.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="/assets/kmtemp/lib/js/jquery-1.9.1.min.js"></script>
+	<script src="/assets/kmtemp/lib/js/ukDetect-1.0.0.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+
+	<section class="contentArea">
+		<!-- 간단 설명 -->
+		<article class="ex_lst" style="margin-top:0;">
+			<dl>
+				<dt><i class="fas fa-info-circle"></i> 간단 설명</dt>
+				<dd><i>transition</i>보다 더 <b>정교한 애니메이션</b>이 가능합니다.</dd>
+				<dd>
+					그렇다 하더라도 10초 이상의 만화영화 같은 애니메이션은 설계 및 제작이 힘듭니다.<br>
+					<b>5초 이내</b> 또는 <b>단순 무한 반복(<i>loop</i>)</b> 애니메이션을 제작할때만 추천합니다.
+				</dd>
+				<dd>2D, 3D transform과 같이 사용할 수 있습니다.</dd>
+				<dd>페이지가 로드되면서 자동 시작될 수 있습니다.</dd>
+				<dd><b>click, hover, focus등의 이벤트가 없어도 애니메이션을 작동시킬 수 있습니다.</b></dd>
+			</dl>
+		</article>
+
+		<!-- 종합 예제 -->
+		<article class="transition_ex animation_ex not_mbCode">
+			<h2>Animation <i>종합 예제</i></h2>
+			<p class="s_tit">하단의 예제만으로 이해가 된다면 밑의 설명글은 굳이 필요 없습니다.</p>
+
+			<ul class="lst_area">
+				<li class="form_set">
+					<div class="box_wrap"><p class="box ani_start"></p></div>
+					<div class="code_wrap">
+						<div class="code">
+							<p><span class="t_red">@keygrames</span> <span class="t_orange">myName</span> {</p>
+							<div class="tab1">
+								<p>0% { <span>left</span>: <span>0</span>; <span>background-color</span>: <span>blue</span>; }</p>
+								<p>100% { <span>left</span>: <span>100%</span>; <span>background-color</span>: <span>pink</span>; }</p>
+							</div>
+							<p>}</p>
+
+							<p>.box {</p>
+							<div class="tab1">
+								<p>position: absolute; left: 50%; top: 100px;</p>
+								<p>width: 100px; height: 100px;</p>
+							</div>
+							<div class="css_txt ani_txt">
+								<p class="copy_txt"><span class="t_red">animation</span>: <span class="t_orange">myName <i>2s</i> <i>infinite</i> <i>ease-in-out</i> <i>alternate</i> <i>both</i> <i>0s</i></span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="duration">
+								<select>
+									<option value="4s">4s</option>
+									<option value="3s">3s</option>
+									<option value="2s" selected>2s</option>
+									<option value="1s">1s</option>
+									<option value=".5s">.5s</option>
+									<option value=".4s">.4s</option>
+									<option value=".3s">.3s</option>
+									<option value=".2s">.2s</option>
+									<option value=".1s">.1s</option>
+								</select>
+							</p>
+							<p data-tit="iteration-count">
+								<select>
+									<option value="infinite" selected>infinite</option>
+									<option value="5">5</option>
+									<option value="4">4</option>
+									<option value="3">3</option>
+									<option value="2">2</option>
+									<option value="1">1</option>
+								</select>
+							</p>
+							<p data-tit="timing-function">
+								<select>
+									<option value="linear">linear</option>
+									<option value="ease">ease</option>
+									<option value="ease-in">ease-in</option>
+									<option value="ease-out">ease-out</option>
+									<option value="ease-in-out" selected>ease-in-out</option>
+									<option value="steps(10)">steps(10)</option>
+									<option value="steps(8)">steps(8)</option>
+									<option value="steps(6)">steps(6)</option>
+									<option value="steps(4)">steps(4)</option>
+									<option value="steps(3)">steps(3)</option>
+								</select>
+							</p>
+							<p data-tit="direction">
+								<select>
+									<option value="normal">normal</option>
+									<option value="alternate" selected>alternate</option>
+									<option value="reverse">reverse</option>
+									<option value="alternate-reverse">alternate-reverse</option>
+								</select>
+							</p>
+							<p data-tit="fill-mode">
+								<select>
+									<option value="none">none</option>
+									<option value="forwards">forwards</option>
+									<option value="backwards">backwards</option>
+									<option value="both" selected>both</option>
+								</select>
+							</p>
+							<p data-tit="delay">
+								<select>
+									<option value="4s">4s</option>
+									<option value="3s">3s</option>
+									<option value="2s">2s</option>
+									<option value=".1s">1s</option>
+									<option value=".5s">.5s</option>
+									<option value=".4s">.4s</option>
+									<option value=".3s">.3s</option>
+									<option value=".2s">.2s</option>
+									<option value=".1s">.1s</option>
+									<option value="0s" selected>0s</option>
+								</select>
+							</p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- 속성 설명 및 작성 방법 -->
+		<article class="transition_ex">
+			<!--<h2><i>속성 설명 및 작성 방법</i></h2>-->
+			<h2><i>Animation & @keyframes Ruls</i></h2>
+			<p class="s_tit">항상 animation의 모든 속성을 사용하는 것은 아니지만, 필요할 때(적재적소에) 사용하려면 각 속성의 역할은 확실히 알아야 합니다.</p>
+			<p class="s_tit">초급에게는 어려울 수 있는 내용이므로 단순 반복 학습으로 천천히 이해하는 방법을 추천합니다.</p>
+
+			<div class="ex_lst transition_wrap">
+				<!-- CSS 구문 -->
+				<div class="keyframes">
+					<p class="tit"><i class="fas fa-info-circle"></i> CSS 구문</p>
+
+					<!-- 예제 -->
+					<div class="code_wrap mt15">
+						@keyframes <span class="t_orange">myName</span> {
+						<div class="tab1">
+							<span class="t_blue">0%</span>
+							{
+							<span class="t_blue">background-color:</span>
+							<span class="t_yellow">red</span><span class="t_blue">;</span>
+							}
+						</div>
+						<div class="tab1">
+							<span class="t_blue">100%</span>
+							{
+							<span class="t_blue">background-color:</span>
+							<span class="t_yellow">blue</span><span class="t_blue">;</span>
+							}
+						</div>
+						}<br>
+						.box {
+						<span class="t_blue">animation:</span>
+						<span class="t_orange">myName</span>
+						<span class="t_yellow">1s ease-in-out alternate infinite</span>;
+						}
+						<div class="test_ani1">.box</div>
+					</div>
+					<ul class="c_sub">
+						<li><b>animation</b>은 <b>@keyframes Rule</b>과 <b>반드시 같이 사용</b>되어야 합니다.</li>
+						<li>@keyframes Rule은 객체가 시간의 흐름에 따라 어떻게 변형될 지 모양새에 관련된 선언하고,</li>
+						<li>animation은 transition과 마찬가지로 타이밍, 지연시간, 반복 등 움직임에 관한 선언을 합니다.</li>
+						<li>
+							@keyframes Rule을 이용해서 애니메이션의 이름을 지어주어야 합니다.<br>
+							위 예문에서는 <b>myName</b>이라는 이름을 지정하였습니다.<br>
+							※ 네이밍 규칙은 따로 없으므로 상황에 맞는 이름을 창작하면 됩니다.
+						</li>
+					</ul>
+				</div>
+
+				<!-- @keyframes Rule -->
+				<div class="keyframes">
+					<p class="tit">
+						<i class="fas fa-info-circle"></i> @keyframes Rule
+						<span class="tit_ex2">
+							2개의 주축이 되는 키프레임 사이에 위치한 중간 프레임의 움직임을 자동으로 처리하는 선형 보간(Linear Interpolation) 방식 애니메이션입니다.<br>
+							키프레임을 더 많이 만들수록 더 디테일한 움직임을 표현할 수 있습니다.
+						</span>
+					</p>
+
+					<div class="code_wrap mt15 clear">
+						<div class="lft">
+							@keyframes <span class="t_orange">myName</span> {
+							<div class="tab1">
+								<span class="t_blue">0%</span>
+								{
+								<span class="t_blue">background-color:</span>
+								<span class="t_yellow">pink</span><span class="t_blue">;</span>
+								}
+							</div>
+							<div class="tab1">
+								<span class="t_blue">25%</span>
+								{
+								<span class="t_blue">background-color:</span>
+								<span class="t_yellow">brown</span><span class="t_blue">;</span>
+								}
+							</div>
+							<div class="tab1">
+								<span class="t_blue">50%</span>
+								{
+								<span class="t_blue">background-color:</span>
+								<span class="t_yellow">red</span><span class="t_blue">;</span>
+								}
+							</div>
+							<div class="tab1">
+								<span class="t_blue">75%</span>
+								{
+								<span class="t_blue">background-color:</span>
+								<span class="t_yellow">brown</span><span class="t_blue">;</span>
+								}
+							</div>
+							<div class="tab1">
+								<span class="t_blue">100%</span>
+								{
+								<span class="t_blue">background-color:</span>
+								<span class="t_yellow">pink</span><span class="t_blue">;</span>
+								}
+							</div>
+							}<br>
+						</div>
+						<div class="lft">
+							@keyframes <span class="t_orange">myName</span> {
+							<div class="tab1">
+								<span class="t_blue">0%, 100%</span>
+								{
+								<span class="t_blue">background-color:</span>
+								<span class="t_yellow">pink</span><span class="t_blue">;</span>
+								}
+							</div>
+							<div class="tab1">
+								<span class="t_blue">25%, 75%</span>
+								{
+								<span class="t_blue">background-color:</span>
+								<span class="t_yellow">brown</span><span class="t_blue">;</span>
+								}
+							</div>
+							<div class="tab1">
+								<span class="t_blue">50%</span>
+								{
+								<span class="t_blue">background-color:</span>
+								<span class="t_yellow">red</span><span class="t_blue">;</span>
+								}
+							</div>
+							}<br>
+						</div>
+					</div>
+					<ul class="c_sub">
+						<li>
+							위 예문처럼 키프레임 단계를 세분화할 수 있으며,
+							각 키프레임 중 css의 속성이 정확히 겹치는 키프레임이 있다면 콤마(,)로 이어서 선언할 수 있습니다.
+						</li>
+						<li>
+							각 키프레임의 시점을 <b>%</b>대신 <b>from, to</b>로도 선언할 수 있지만, 거의 사용하지 않으므로 예문에서 배제하였습니다.<br>
+							<b>%로 사용할 것을 추천</b>합니다.
+						</li>
+					</ul>
+				</div>
+
+				<!-- Animation 속성 설명 및 작성 방법 -->
+				<div class="transition_attr">
+					<p class="tit"><i class="fas fa-info-circle"></i> Animation 속성 설명 및 선언 방법</p>
+
+					<!-- 1. 속성별 선언 -->
+					<div class="type">
+						<p class="c_tit">1. 속성별 선언</p>
+						<div class="code_wrap">
+							.box {
+							<div class="tab1">
+								<p class="t_blue">
+									<span>animation-name:</span>
+									<span class="t_orange">myName</span>;
+								</p>
+								<p class="t_blue">
+									<span>animation-duration:</span>
+									<span class="t_yellow">4s</span>;
+								</p>
+								<p class="t_blue">
+									<span>animation-iteration-count:</span>
+									<span class="t_yellow">infinite</span>;
+								</p>
+								<p class="t_blue">
+									<span>animation-direction:</span>
+									<span class="t_yellow">alternate</span>;
+								</p>
+								<p class="t_blue">
+									<span>animation-timing-function:</span>
+									<span class="t_yellow">ease-in-out</span>;
+								</p>
+								<p class="t_blue">
+									<span>animation-fill-mode:</span>
+									<span class="t_yellow">forwards</span>;
+								</p>
+								<p class="t_blue">
+									<span>animation-delay:</span>
+									<span class="t_yellow">2s</span>;
+								</p>
+							</div>
+							}
+						</div>
+					</div>
+
+					<!-- 2. 속성 설명 -->
+					<div class="type ani_attr table_wrap">
+						<p class="c_tit">2. 속성 설명</p>
+						<p class="t_sub">
+							속성의 이름이 길기 때문에 아래 속성 이름에서는 <span class="t_red2">animation-</span>부분을 <span class="t_red2">생략</span>했습니다.
+							실제 속성별로 선언할 때는 '<span class="t_red2">animation-name</span>' 이런 식으로 작성되어야 합니다.<br>
+							<b>버튼을 클릭하여 해당 속성의 값이 어떻게 작동되는지 확인할 수 있습니다.</b>
+						</p>
+						<div class="table">
+							<ul class="lst_hd">
+								<li class="cell attr">속성</li>
+								<li class="cell value">값</li>
+							</ul>
+							<ul class="lst_bd">
+								<!-- name -->
+								<li>
+									<p class="cell attr"><i>name</i><br><span class="t_red2">(필수 선언)</span></p>
+									<p class="cell value">
+										<b>@keyframes Rule에서 선언한 애니메이션 이름</b>을 적용합니다.<br>
+										이 페이지에서는 <b>myName</b>이라는 이름을 지어 사용했습니다.
+										<span class="value_color"><span>값 :</span> <b>당신이 @keyframes에 선언한 이름</b></span>
+									</p>
+								</li>
+
+								<!-- duration -->
+								<li>
+									<p class="cell attr"><i>duration</i><br><span class="t_red2">(필수 선언)</span></p>
+									<p class="cell value">
+										@keyframe Rule에서 선언한 0%부터 100%까지의 움직임을 몇 초에 걸쳐 구현할 지 선언합니다.<br>
+										1s는 1초이며, 0.1s는 숫자 0를 생략하고 .1s로 표기 가능합니다.<br>
+										(ms의 단위로 할 경우 1초 = 1000ms)
+										<span class="value_color"><span>값 :</span> <b>#s or #ms</b></span>
+									</p>
+								</li>
+
+								<!-- iteration-count -->
+								<li>
+									<p class="cell attr"><i>iteration-count</i></p>
+									<p class="cell value">
+										애니메이션을 얼마나 반복시킬 지 정의합니다. <b>숫자</b>(<b>양의 정수</b>)와 <b>infinite</b>(<b>무한 반복</b>)만 선언 가능합니다.<br>
+										만약 숫자 5를 선언하면 다섯번 반복 후 애니메이션이 정지됩니다.<br>
+										<b>기본값은 1이며 기본값으로 사용할 경우 생략 가능합니다.</b>
+
+										<span class="value_color"><span>값 :</span> <b>숫자(1~)</b>, <b>infinite</b></span>
+									</p>
+								</li>
+
+								<!-- direction -->
+								<li>
+									<p class="cell attr"><i>direction</i></p>
+									<div class="cell value">
+										애니메이션의 반복(loop)이 최소 2회 이상일 경우, 한 사이클(0% 부터 100%)이 종료되고 나서 다음 반복 때는 어떤 방향으로 움직임을 이어 나갈지 정의합니다.<br>
+										<b>기본값은 normal이며 기본값으로 사용할 경우 생략 가능합니다.</b>
+
+										<span class="value_color"><span>값 :</span> <b>normal</b>, <b>alternate</b>, <b>reverse</b>, <b>alternate-reverse</b></span>
+										<div class="direction_attr attr_play">
+											<div class="control">
+												<span>움직임 보기 :</span>
+												<button type="button" class="play"><i>Play</i></button>
+												<button type="button" class="replay disabled"><i>Replay</i></button>
+												<button type="button" class="stop disabled"><i>Stop</i></button>
+											</div>
+											<ul class="c_sub enter_effect">
+												<li class="play1"><span><i>normal</i> : 한 사이클이 끝나도 같은 방향으로 움직입니다.</span></li>
+												<li class="play2"><span><i>alternate</i> : 한 사이클이 끝나면 역방향으로 움직입니다.</span></li>
+												<li class="play3"><span><i>reverse</i> : 처음부터 역방향으로 움직입니다.</span></li>
+												<li class="play4"><span><i>alternate-reverse</i> : 처음부터 역방향으로 움직이고, 한 사이클이 끝나면 정상 방향으로 움직입니다.(alternate의 반대)</span></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<!-- timing-function -->
+								<li>
+									<p class="cell attr"><i>timing-function</i></p>
+									<div class="cell value">
+										변화의 시작과 끝 타이밍을 정의하며,
+										조금 더 정교한 또는 현실적인 움직임을 표현하기 위해 사용됩니다.<br>
+										<b>기본값은 ease이며 기본값으로 사용할 경우 생략 가능합니다.</b>
+
+										<span class="value_color"><span>값 :</span> <b>ease</b>, <b>linear</b>, <b>ease-in</b>, <b>ease-out</b>, <b>ease-in-out</b>, <b>step(n)</b>, <b>cubic-bezier(n,n,n,n)</b></span>
+
+										<div class="timing_attr attr_play">
+											<div class="control">
+												<span>움직임 보기 :</span>
+												<button type="button" class="play"><i>Play</i></button>
+												<button type="button" class="replay disabled"><i>Replay</i></button>
+												<button type="button" class="stop disabled"><i>Stop</i></button>
+											</div>
+											<ul class="c_sub">
+												<li class="play1"><span><i>ease</i> : 느리게 시작하여 점점 빨라졌다가 느리게 끝납니다.</span></li>
+												<li class="play2"><span><i>linear</i> : 모든 속도가 같은 등속 운동</span></li>
+												<li class="play3"><span><i>ease-in</i> : 느리게 시작한 후 일정한 속도에 다다르면 그 상태로 등속 운동</span></li>
+												<li class="play4"><span><i>ease-out</i> : 일정한 속도의 등속으로 시작해서 점점 느려지면서 끝납니다.</span></li>
+												<li class="play5"><span><i>ease-in-out</i> : ease와 비슷하다. 느리게 시작하여 느리게 끝납니다.</span></li>
+												<li class="not_play">
+													<i>steps(n)</i> : 애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
+													<p class="ani">아래 <b class="t_red2 underline">5. Steps 선언</b>에서 자세히 다룹니다.</p>
+													<p class="tra">아래 <b class="t_red2 underline">5. Steps 선언</b>에서 자세히 다룹니다.</p>
+												</li>
+												<li class="not_play">
+													<i>cubic-bezier(n,n,n,n)</i> : 처음과 끝의 속도를 0과 1 사이의 수치를 이용하여 4단계로 지정할 수 있다. 베지어(Bezier)라는 곡선 운동을 정의합니다.<br>
+													<div class="tab1">
+														<a href="https://easings.net/" target="_blank">https://easings.net/</a><br>
+														위 사이트에서 미리 만들어져있는 cubic-bezier 값을 가져다 쓰면 좋습니다.<br>
+														<a href="https://cubic-bezier.com/" target="_blank">https://cubic-bezier.com/</a><br>
+														위 사이트에서는 cubic-bezier의 움직임을 직접 만들 수 있습니다.
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<!-- fill-mode -->
+								<li>
+									<p class="cell attr"><i>fill-mode</i></p>
+									<div class="cell value">
+										한 사이클의 애니메이션이 종료되고 난 후, 애니메이션의 상태를 정의합니다.<br>
+										<b>기본값은 none이며 기본값으로 사용할 경우 생략 가능합니다.</b>
+
+										<span class="value_color"><span>값 :</span> <b>none</b>, <b>forwards</b>, <b>backwards</b>, <b>both</b></span>
+
+										<div class="code_wrap fill_wrap">
+											@keyframes <span class="t_orange">myName</span> {
+											<div class="tab1">
+												<span class="t_blue">0%</span>
+												{
+												<span class="t_blue">left:</span>
+												<span class="t_yellow">0%</span><span class="t_blue">;</span>
+												}
+												<span class="color4">//@keyframes 위치</span>
+											</div>
+											<div class="tab1">
+												<span class="t_blue">100%</span>
+												{
+												<span class="t_blue">left:</span>
+												<span class="t_yellow">100%</span><span class="t_blue">;</span>
+												}
+											</div>
+											}<br>
+											.box {
+											<div class="tab1">
+												<p>
+													<span class="t_blue">left:</span>
+													<span class="t_yellow">50px</span>;
+													<span class="color4">//css 위치</span>
+												</p>
+												<p>
+													<span class="t_blue">animation:</span>
+													<span class="t_orange">myName</span>
+													<span class="t_yellow">2.5s ease</span>;
+												</p>
+											</div>
+											}
+										</div>
+
+										<div class="fill_attr attr_play">
+											<div class="control">
+												<span>움직임 보기 :</span>
+												<button type="button" class="play"><i>Play</i></button>
+												<button type="button" class="replay disabled"><i>Replay</i></button>
+												<button type="button" class="stop disabled"><i>Stop</i></button>
+											</div>
+											<ul class="c_sub">
+												<li class="play1"><span><i>none</i> : 대기(css 위치) > 시작(@keyframes 위치) > 종료(css 위치)</span></li>
+												<li class="play2"><span><i>forwards</i> : 대기(css 위치) > 시작(@keyframes 위치) > 종료(그대로 유지)</span></li>
+												<li class="play3"><span><i>backwards</i> : 대기(@keyframes 위치) > 시작(@keyframes 위치) > 종료(css 위치)</span></li>
+												<li class="play4"><span><i>both</i> : 대기(@keyframes 위치) > 시작(@keyframes 위치) > 종료(그대로 유지)</span></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<!-- delay -->
+								<li>
+									<p class="cell attr"><i>delay</i></p>
+									<p class="cell value">
+										효과의 지연시간을 정의합니다.<br>
+										3s(3초)로 설정하면 이벤트 발생 후 3초 후에 animation이 작동됩니다.<br>
+										<b>지연시간이 필요 없으면 생략 가능합니다.</b>
+
+										<span class="value_color"><span>값 :</span> <b>#s or #ms</b></span>
+									</p>
+								</li>
+
+								<!-- play-state -->
+								<li>
+									<p class="cell attr"><i>play-state</i></p>
+									<div class="cell value">
+										애니메이션 진행상태를 설정합니다. 초기화가 아닌 정지, 재생을 할 수 있습니다.<br>
+										<b>필요한 상황에만 사용합니다.</b>
+
+										<span class="value_color"><span>값 :</span> <b>paused</b>, <b>running</b>, <b>initial</b>, <b>inherit</b></span>
+
+										<div class="code_wrap fill_wrap">
+											@keyframes <span class="t_orange">myName</span> {
+											<div class="tab1">
+												<span class="t_blue">0%</span>
+												{
+												<span class="t_blue">left:</span>
+												<span class="t_yellow">0%</span><span class="t_blue">;</span>
+												}
+											</div>
+											<div class="tab1">
+												<span class="t_blue">100%</span>
+												{
+												<span class="t_blue">left:</span>
+												<span class="t_yellow">100%</span><span class="t_blue">;</span>
+												}
+											</div>
+											}<br>
+											.box {
+											<span class="t_blue">animation:</span>
+											<span class="t_orange">myName</span>
+											<span class="t_yellow">3s ease infinite</span>;
+											}<br>
+											.box.paused {
+											<span class="t_blue">animation-play-state:</span>
+											<span class="t_yellow">paused</span>;
+											}<br>
+											.box.running {
+											<span class="t_blue">animation-play-state:</span>
+											<span class="t_yellow">running</span>;
+											}
+										</div>
+
+										<div class="pstate_attr attr_play">
+											<div class="control">
+												<span>움직임 보기 :</span>
+												<button type="button" class="paused"><i>Paused</i></button>
+												<button type="button" class="running disabled"><i>Running</i></button>
+											</div>
+											<p class="ani_bar"></p>
+											<ul class="c_sub">
+												<li class="play1"><span><i>paused</i> : 애니메이션의 움직임을 정지시킵니다.</span></li>
+												<li class="play2"><span><i>running</i> : 정지된 애니메이션을 움직이게 합니다.</span></li>
+												<li class="play4"><span><i>inherit</i> : 애니메이션 움직임을 상위 요소한테 상속받습니다.</span></li>
+												<li class="play3"><span><i>initial</i> : 이 속성을 기본값으로 설정합니다.</span></li>
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- 3. 축약형 선언 -->
+					<div class="type">
+						<p class="c_tit">3. 축약형 선언</p>
+						<p class="c_sub">transition과 마찬가지로 속성을 축약하여 선언할 수 있습니다.</p>
+						<div class="code_wrap">
+							.box {
+							<p class="tab1">
+								<span>animation:</span>
+								<span class="t_orange">myName</span>
+								<span class="t_yellow">.5s</span>
+								<span class="t_blue2">2s</span>
+								<span class="t_red">ease-in</span>
+								<span class="t_green">infinite</span>
+								<span class="t_pink">alternate</span>
+								<span class="t_purple">both</span>;
+							</p>
+							}
+						</div>
+						<p class="c_sub">위 예문의 작성순서는 다음과 같습니다.</p>
+						<div class="code_wrap">
+							.box {
+							<p class="tab1">
+								<span>animation:</span>
+								<span class="t_orange">name</span>
+								<span class="t_yellow">duration</span>
+								<span class="t_blue2">delay</span>
+								<span class="t_red">timing-function</span>
+								<span class="t_green">iteration-count</span>
+								<span class="t_pink">direction</span>
+								<span class="t_purple">fill-mode</span>;
+							</p>
+							}
+						</div>
+					</div>
+
+					<!-- 4. 복수 선언 -->
+					<div class="type">
+						<p class="c_tit">4. 복수 선언</p>
+						<p class="c_sub">콤마(,)로 구분하여 두 개 이상의 @keyframes Rule로 정의 된 애니메이션을 한번에 선언할 수 있습니다.</p>
+						<div class="code_wrap">
+							.box {
+							<div class="t_blue tab1">
+								<span>animation:</span>
+								<div class="tab2">
+									<span class="t_yellow"><span class="t_orange">myName1</span> .5s 1s ease</span>,<br>
+									<span class="t_yellow"><span class="t_orange">myName2</span> 1s 2s ease-in-out both</span>;
+								</div>
+							</div>
+							}
+						</div>
+					</div>
+
+					<!-- 5. Steps 선언 -->
+					<div class="type steps_con">
+						<p class="c_tit">5. Steps 선언</p>
+						<p class="c_sub">
+							애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
+							duration 값과 연계해서 선언하여 일종의 <b>Frame Rate(초당 프레임 수)를 설정</b>하거나 혹은, <b>셀 애니메이션처럼 연계된 동작</b>을 표현할 수도 있습니다.<br>
+							steps(스텝 수)로 선언합니다.
+						</p>
+
+						<br>
+						<p class="c_tit">5-1. Steps 예제 (시계 초침)</p>
+						<div class="code_wrap">
+							.box {
+							<span class="t_blue">
+								animation:
+								<span class="t_yellow">myName 60s <span class="t_orange">steps(60)</span> linear infinite</span>;
+								</span>
+							}
+						</div>
+						<div class="steps_ex1 clear">
+							<div class="lft">
+								<p class="tt">steps() 미적용</p>
+								<div class="clock linear">
+									<span class="c1"></span>
+									<span class="c2"></span>
+									<span class="c3"></span>
+									<span class="c4"></span>
+									<span class="c5"></span>
+									<span class="c5"></span>
+									<span class="c6"></span>
+									<i>초침</i>
+								</div>
+							</div>
+							<div class="lft">
+								<p class="tt">steps(60) 적용</p>
+								<div class="clock steps">
+									<span class="c1"></span>
+									<span class="c2"></span>
+									<span class="c3"></span>
+									<span class="c4"></span>
+									<span class="c5"></span>
+									<span class="c6"></span>
+									<i>초침</i>
+								</div>
+							</div>
+						</div>
+
+						<br>
+						<p class="c_tit">5-2. Steps 예제 (셀 애니)</p>
+						<div class="code_wrap">
+							.box {
+							<span class="t_blue">
+								animation:
+								<span class="t_yellow">myName .8s <span class="t_orange">steps(10)</span> infinite</span>;
+								</span>
+							}
+						</div>
+						<div class="steps_ex2 clear">
+							<p class="img"><img src="/assets/kmtemp/lib/img/sprite-steps.png"></p>
+							<div class="lft">
+								<p class="tt">steps() 미적용</p>
+								<div class="ani_box"></div>
+							</div>
+							<div class="lft">
+								<p class="tt">steps(10) 적용</p>
+								<div class="ani_box steps"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+
+
+</div>
+<!-- //wrap -->
+
+<script src="/assets/kmtemp/transform/js/js.js"></script>
+</body>
+</html>
