@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -897,12 +900,584 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						CSS 텍스트는 줄 바꿈, 자리 맞추기 및 정렬, 공백 처리 및 텍스트 변환과 같은 텍스트 조작을 수행하는 방법을 정의하는 CSS 모듈입니다.
+					</p>
+				</blockquote>
+
+				<!-- text-align 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">text-align</i> 속성</h2>
+					<p class="mt_ms">
+						text-align 속성은 텍스트의 수평 방향 정렬을 설정합니다.<br>
+						text-align 속성으로 설정된 정렬 방향은 text-direction 속성과는 상관없이 우선적으로 적용됩니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="text-align">
+						<textarea readonly="readonly">
+							p {
+								text-align: left | right | center | justify | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">left</strong> : 박스의 왼쪽 정렬.</li>
+							<li><strong class="t_black">right</strong> : 박스의 오른쪽 정렬.</li>
+							<li><strong class="t_black">center</strong> : 박스의 중앙 정렬.</li>
+							<li><strong class="t_black">justify</strong> : 텍스트는 마지막 줄을 제외하고 양쪽 정렬 (자동 줄바꿈시 오른쪽 경계선 부분 정리)</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.text-align.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="text-align">
+						<ul>
+							<li class="ie">지원</li>
+							<li class="edge">지원</li>
+							<li class="chrome">지원</li>
+							<li class="firefox">지원</li>
+							<li class="opera">지원</li>
+							<li class="safari">지원</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- vertical-align 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">vertical-align</i> 속성</h2>
+					<p class="mt_ms">
+						HTML 요소 내의 인라인(inline)요소와 인라인 블럭(inline-block)요소의 수직 방향 정렬을 설정합니다.<br>
+						요소 자체만을 정렬하고, 내용에는 영향을 미치지 않습니다. (table cell에 적용할 때는 제외)<br>
+						table cell에 적용할 때는 내용에 영향을 미칩니다.<br>
+						vertical-align은 정렬하려는 요소를 다른 인라인 요소에 상대적으로 정렬합니다.<br>
+						같은 줄에서 인라인 요소의 크기에 따라 높낮이가 달라질 수 있고, 그 줄에 있는 line-height 설정에 따라서도 달라질 수 있습니다.<br>
+						대부분 부모 요소에 상대적으로 정렬합니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="vertical-align" data-ex="align_vertical-align" data-text=": baseline | length | % | sub | super | top | text-top | middle | bottom | text-bottom | initial | inherit;">
+						<textarea readonly="readonly">
+							p {
+								vertical-align: ;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst mt_m">
+						<p class="font-16 t_black"><strong>부모 기준 값</strong> : 이 값은 요소를 부모 요소를 기준으로 세로로 정렬합니다.</p>
+						<ol class="indent mt_s">
+							<li><strong class="t_black">baseline</strong> : 기본값으로 부모 요소의 기준 선(baseline)에 맞춤.</li>
+							<li><strong class="t_black">middle</strong> : 부모 요소 중앙에 위치. 인라인요소를 줄에서 가장 큰 요소의 중간에 정렬하지 않고 가장 작은 소문자 x 높이의 중앙에 정렬합니다.</li>
+							<li><strong class="t_black">sub</strong> : 부모의 아래첨자 기준선에 맞춤.</li>
+							<li><strong class="t_black">super</strong> : 부모의 위첨자 기준선에 맞춤.</li>
+							<li><strong class="t_black">text-top</strong> : 요소의 맨 위를 부모 font의 맨 위에 맞춤.</li>
+							<li><strong class="t_black">text-bottom</strong> : 요소의 맨 아래를 부모 font의 맨 아래에 맞춤.</li>
+							<li><strong class="t_black">길이값(px, cm등)</strong> : 0px는 baseline과 같은 값.</li>
+							<li><strong class="t_black">%(백분율)</strong> : line-height(줄간격)의 백분율, 0%는 baseline과 같은 값.</li>
+						</ol>
+					</div>
+					<div class="ol_lst mt_m">
+						<p class="font-16 t_black"><strong>라인 기준 값</strong> : 전체 라인을 기준으로 요소를 세로로 정렬합니다. 기준선이없는 요소의 경우 아래쪽 여백 가장자리가 대신 사용됩니다.</p>
+						<ol class="indent mt_s">
+							<li><strong class="t_black">top</strong> : 요소의 상단과 하위 항목을 전체 줄의 상단(가장 큰 요소의 맨 위)과 정렬합니다.</li>
+							<li><strong class="t_black">bottom</strong> : 요소의 아래쪽과 그 하위 항목을 전체 줄의 아래쪽(가장 낮은 요소)에 맞춥니다.</li>
+						</ol>
+					</div>
+					<div class="ol_lst mt_m">
+						<p class="font-16 t_black"><strong>테이블 셀의 값</strong></p>
+						<ol class="indent mt_s">
+							<li><strong class="t_black">baseline(그리고 sub, super, text-top, text-bottom, length, %)</strong> : 셀의 기준선을 기준선이 정렬 된 행에있는 다른 모든 셀의 기준선과 정렬합니다.</li>
+							<li><strong class="t_black">top</strong> : 셀의 위쪽 패딩 가장자리를 행의 위쪽에 맞춥니다.</li>
+							<li><strong class="t_black">middle</strong> : 행 내에서 셀의 패딩 상자를 가운데에 맞춥니다.</li>
+							<li><strong class="t_black">bottom</strong> : 셀의 아래쪽 패딩 모서리를 행의 아래쪽에 맞춥니다.</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.vertical-align.html">
+						<div class="uk_editor min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="vertical-align">
+						<ul>
+							<li class="ie">지원</li>
+							<li class="edge">지원</li>
+							<li class="chrome">지원</li>
+							<li class="firefox">지원</li>
+							<li class="opera">지원</li>
+							<li class="safari">지원</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- letter-spacing 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">letter-spacing</i> 속성</h2>
+					<p class="mt_ms">
+						letter-spacing 속성은 텍스트 내에서 글자 사이의 간격(자간)을 설정합니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="letter-spacing">
+						<textarea readonly="readonly">
+							p {
+								letter-spacing: normal | length | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">normal</strong> : 현재 글꼴의 일반적인 문자 간격입니다.</li>
+							<li><strong class="t_black">length</strong> : 문자 사이의 기본 공백 외에 추가 문자 간 공백 을 지정 합니다. 값은 음수 일 수 있지만 구현 별 제한이있을 수 있습니다. 사용자 에이전트는 텍스트를 정당화하기 위해 문자 간 공간을 더 늘리거나 줄일 수 없습니다.</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.letter-spacing.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="letter-spacing">
+						<ul>
+							<li class="ie">지원</li>
+							<li class="edge">지원</li>
+							<li class="chrome">지원</li>
+							<li class="firefox">지원</li>
+							<li class="opera">지원</li>
+							<li class="safari">지원</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- word-spacing 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">word-spacing</i> 속성</h2>
+					<p class="mt_ms">
+						word-spacing 속성은 텍스트 내에서 단어 사이의 간격을 설정합니다.<br>
+						letter-spacing 속성과는 달리 문자 간의 간격이 아닌 단어 간의 간격을 기준으로 설정합니다.<br>
+						참조 : 일부 스크린리더기에서는 양수 또는 음수 word-spacing값이 크면 스타일링이 적용된 문장을 읽을 수 없게됩니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="word-spacing">
+						<textarea readonly="readonly">
+							p {
+								word-spacing: normal | length | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">normal</strong> : 현재 글꼴 또는 브라우저에 의해 정의 된 일반적인 단어 간격입니다.</li>
+							<li><strong class="t_black">length</strong> : 글꼴로 정의 된 고유 한 단어 간 간격 외에 추가 간격을 지정합니다.</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.word-spacing.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="word-spacing">
+						<ul>
+							<li class="ie">6+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">3.5</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- word-break 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">word-break</i> 속성</h2>
+					<p class="mt_ms">
+						단어의 분리(줄바꿈)를 어떻게 할 것인지 결정하는 속성입니다.<br>
+						줄바꿈을 할 때 단어 기준으로 할 지 글자 기준으로 할 지 정하는 속성입니다.<br>
+						반응형 웹디자인의 경우 가로 크기가 작을 때를 대비해서 word-break의 속성값을 break-all로 정하는 것이 좋습니다.<br>
+						참고 : 중국어/일본어/한글의 경우 W3C문서에서 CJK(Chinese, Japanes, Korean 의 약자)로 사용하고 있습니다.
+					</p>
+					<p class="mt_s">
+						줄 바꿈은 허용된 중단점에서 수행(soft wrap opportunity) 되는 것이며,
+						모든 속성이 기본값이라는 전제하에 줄 바꿈은 대부분의 non-CJK(CJK 이외의 문자)의 경우 '공백(띄어쓰기)'에서, CJK의 경우 '음절'에서 수행됩니다.<br>
+						값은 normal(기본값), break-all, keep-all 이 있습니다. (keep-all 의 경우 IE에서는 계속 지원하였으나 webkit에서는 15년 6월부터 지원하였습니다.)
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="word-break" data-ex="align_word-break" data-text=": normal | keep-all | break-all | break-word;">
+						<textarea readonly="readonly">
+							p {
+								word-break: ;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">normal</strong> : 기본값으로 CJK 문자는 글자(음절) 기준으로, CJK 이외의 문자는 단어 또는 공백(띄어쓰기, 하이픈'-') 기준으로 줄바꿈합니다.</li>
+							<li><strong class="t_black">keep-all</strong> : 공백(띄어쓰기, 하이픈’-‘, 그 외 기호) 기준으로 줄바꿈합니다.(CJK에만 적용됨)</li>
+							<li><strong class="t_black">break-all</strong> : 글자(음절) 기준으로 줄바꿈합니다.</li>
+							<li><strong class="t_black">break-word</strong> : 단어 기준으로 줄바꿈합니다.(IE에서는 지원 안 함)</li>
+						</ol>
+					</div>
+					<blockquote class="uk_note mt_m" role="note">
+						<h2 class="sound_only">요약 설명</h2>
+						<p class="reference">
+							W3C에서 모든 어휘 자원(<a href="http://www.unicode.org/reports/tr14/" target="_blank" title="새창열림">w3의 모든 [UAX14] 유니코드 내용</a>)을 제공하는 것이 아니기 때문에 CSS는 줄 바꿈이 허용되는 곳을 완전히 정의하지 않으며
+							예외 사항이 존재할 수 있습니다.<br>
+							태국어, 라오어 및 크메르어와 같은 언어는 단어를 구분하는데 공백이나 구두점을 사용하지 않습니다.(음절 사이사이를 기반으로 한다는 정의도 없습니다.)<br>
+							결과적으로 그러한 텍스트의 중단점 수행 기회를 식별하기 위해서는 어휘 자원이 필요합니다.
+						</p>
+					</blockquote>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.word-break.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="word-break">
+						<ul>
+							<li class="ie">5.5+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">4.0</li>
+							<li class="firefox">15.0</li>
+							<li class="opera">15.0</li>
+							<li class="safari">3.1</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- word-wrap 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">word-wrap</i> 속성</h2>
+					<p class="mt_ms">
+						박스의 가로 영역을 넘친 단어 내에서 임의의 분리 여부를 결정<br>
+						넘친 단어를 줄 바꿈 하고 싶다면, word-wrap 속성의 값을 바꾸면 됩니다.<br>
+						이때, 넘친 단어의 임의의 분리는 음절에서 발생하며 white-space 속성이 기본 값(normal) 일 때만 적용됩니다.<br>
+						word-wrap 속성의 값은 normal(기본값), break-word 가 있습니다.<br>
+						줄바꿈을 할 때 word-break속성과 word-wrap속성을 같이 사용하면 좀 더 원하는 결과를 얻게 됩니다.
+					</p>
+					<ul class="dot_lst mt_s">
+						<li>예)줄바꿈을 글자 단위로 하면 <code>word-wrap: break-word; word-break: break-all;</code></li>
+						<li>예)줄바꿈을 단어 단위로 하면 <code>word-wrap: break-word; word-break: keep-all;</code></li>
+					</ul>
+					<div class="uk_gist_code_box mt_ms" data-tit="word-wrap">
+						<textarea readonly="readonly">
+							p {
+								word-spacing: normal | length | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">normal</strong> : 기본값으로 글자가 길어도 끊어지지 않고 한 줄에 계속 표시</li>
+							<li><strong class="t_black">break-word</strong> : 강제로 끊어서 줄바꿈 함</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.word-wrap.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="word-wrap">
+						<ul>
+							<li class="ie">5.5+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">3.5</li>
+							<li class="opera">10.5</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- white-space 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">white-space</i> 속성</h2>
+					<p class="mt_ms">
+						HTML 요소 내의 여백을 설정함.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="white-space">
+						<textarea readonly="readonly">
+							p {
+								white-space: normal | pre | nowrap | pre-wrap | pre-line | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">normal</strong> : 기본값으로 공백을 여러개 넣어도 공백 1개만 표시, 글이 길어지면 텍스트가 자동 줄바꿈 됨(wrap).</li>
+							<li><strong class="t_black">nowrap</strong> : 공백을 여러개 넣어도 1개만 표시, 텍스트가 길어도 줄바꿈 되지 않고 같은 줄에 계속 표시.</li>
+							<li><strong class="t_black">pre</strong> : 공백을 코드에 있는 그대로 표시함. &lt;pre&gt;요소처럼 행동함. 코드에 줄바꿈이 없다면 줄바꿈이 되지 않음.</li>
+							<li><strong class="t_black">pre-wrap</strong> : 공백을 코드에 있는 그대로 표시함. 코드에 줄바꿈이 없어도 자동 줄바꿈이 됨. IE8+ 부터 지원.</li>
+							<li><strong class="t_black">pre-line</strong> : 공백을 여러개 넣어도 1개만 표시. 코드에 줄바꿈이 없어도 자동 줄바꿈이 되며, 코드에 줄바꿈이 있을 때도 그대로 표시. IE8+ 부터 지원.</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.white-space.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="white-space">
+						<ul>
+							<li class="ie">6+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">6.0</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- text-indent 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">text-indent</i> 속성</h2>
+					<p class="mt_ms">
+						text-indent 속성은 단락의 첫 줄에 들여쓰기할지 안 할지를 설정합니다.<br>
+						웹 페이지에서 단락은 기본적으로 들여쓰기가 설정되어 있지 않습니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="text-indent">
+						<textarea readonly="readonly">
+							p {
+								text-indent: normal | length | percentage | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">normal</strong> : 기본값으로 기본 공란을 재설정. 현재 글꼴 및 브라우저에 의해 정의 된 일반적인 단어 간격.</li>
+							<li><strong class="t_black">length</strong> : px, em, cm등으로 지정. (음수값 허용)</li>
+							<li><strong class="t_black">percentage</strong> : 간격을 백분율(%)로 지정.</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.text-indent.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="text-indent">
+						<ul>
+							<li class="ie">지원</li>
+							<li class="edge">지원</li>
+							<li class="chrome">지원</li>
+							<li class="firefox">지원</li>
+							<li class="opera">지원</li>
+							<li class="safari">지원</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- text-decoration 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">text-decoration</i> 속성</h2>
+					<p class="mt_ms reference">
+						text-decoration 속성은 텍스트에 여러 가지 효과를 설정하거나 제거하는데 사용합니다.<br>
+						text-decoration 속성값을 none으로 설정하여 링크(link)가 설정된 텍스트의 밑줄을 제거하는데 자주 사용합니다.<br>
+						text-decoration 속성값은 <a href="https://drafts.csswg.org/css-text-decor-3/#text-decoration-line" target="_blank" title="새창열림">CSS Text Decoration Module Level 3 해당 사양에서 'text-decoration-line'으로 새롭게 정의</a>.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="text-decoration">
+						<textarea readonly="readonly">
+							p {
+								text-decoration: none | [ underline | overline | line-through ] | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">none</strong> : 기본값으로 밑줄이 없는 보통 글자.</li>
+							<li><strong class="t_black">underline</strong> : 글자 아래에 밑줄.</li>
+							<li><strong class="t_black">overline</strong> : 글자 위에 줄이 그어짐.</li>
+							<li><strong class="t_black">line-through</strong> : 글자 중간에 줄이 그어짐.</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.text-decoration.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="text-decoration">
+						<ul>
+							<li class="ie">6+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">4.0</li>
+							<li class="firefox">2.0</li>
+							<li class="opera">10.0</li>
+							<li class="safari">3.2</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- text-transform 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">text-transform</i> 속성</h2>
+					<p class="mt_ms reference">
+						text-transform 속성은 텍스트에 포함된 영문자에 대한 대소문자를 설정합니다.<br>
+						이 속성은 텍스트에 포함된 모든 영문자를 대문자나 소문자로 변경시켜 줍니다.<br>
+						또한, 단어의 첫 문자만을 대문자로 변경시킬 수도 있습니다.<br>
+						text-transform 속성은 한글에는 영향을 주지 않으며, 오직 영문자에만 적용됩니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="text-transform">
+						<textarea readonly="readonly">
+							p {
+								text-transform: none | capitalize | uppercase | lowercase | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">none</strong> : 기본값으로, 텍스트를 html 코드에 있는 그대로 읽음.</li>
+							<li><strong class="t_black">capitalize</strong> : 각 단어의 첫 번째 문자를 대문자로 만듦. (예: Cascading Style Sheets.)</li>
+							<li><strong class="t_black">uppercase</strong> : 모든 문자를 대문자로 바꿈. (예: CASCADING STYLE SHEETS.)</li>
+							<li><strong class="t_black">lowercase</strong> : 모든 문자를 소문자로 바꿈. (예: cascading style sheets.)</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.text-transform.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="text-transform">
+						<ul>
+							<li class="ie">6+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">3.5</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- text-overflow 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">text-overflow</i> 속성</h2>
+					<p class="mt_ms reference">
+						부모 영역을 벗어난 wrapping(자동줄바꿈)이 되지 않은 텍스트의 처리 방법을 정의합니다. 이 프로퍼티를 사용하기 위해서는 아래의 조건이 필요합니다.<br>
+						width 프로퍼티가 지정되어 있어야 한다. 이를 위해 필요할 경우 block 레벨 요소로 변경하여야 합니다.<br>
+						자동 줄바꿈을 방지하려면 white-space 프로퍼티를 nowrap으로 설정합니다.<br>
+						overflow 프로퍼티에 반드시 "visible" 이외의 값이 지정되어 있어야 합니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="text-overflow">
+						<textarea readonly="readonly">
+							p {
+								text-overflow: clip | ellipsis | initial | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">clip</strong> : 영역을 벗어난 텍스트를 표시하지 않는다. (기본값)</li>
+							<li><strong class="t_black">ellipsis</strong> : 영역을 벗어난 텍스트를 잘라내어 보이지 않게 하고 말줄임표(…)를 표시한다.</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.text-overflow.html">
+						<div class="uk_editor min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="text-overflow">
+						<ul>
+							<li class="ie">6+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">7.0</li>
+							<li class="opera">11.0</li>
+							<li class="safari">1.3</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- direction 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">direction</i> 속성</h2>
+					<p class="mt_ms reference">
+						direction 속성은 텍스트가 써지는 방향을 설정합니다.<br>
+						웹 페이지에서 텍스트는 기본적으로 왼쪽에서 오른쪽 방향으로 써집니다.<br>
+						direction 속성이 left-to-right(ltr)일 때는 기본 설정처럼 텍스트가 왼쪽에서 오른쪽 방향으로 써집니다.<br>
+						하지만, direction 속성이 right-to-left(rtl)일 때는 텍스트가 반대 방향인 오른쪽에서 왼쪽 방향으로 써집니다.<br>
+						아랍어는 한글이나 영어와는 달리 오른쪽에서 왼쪽 방향으로 텍스트를 읽고 쓰는 언어입니다.<br>
+						따라서 아랍어와 같이 텍스트를 반대 방향으로 쓰는 언어를 나타낼 때는 텍스트가 써지는 방향을 direction 속성을 사용하여 변경해 줘야 합니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="direction">
+						<textarea readonly="readonly">
+							p {
+								direction: ltr | rtl;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">ltr</strong> : 기본값으로 왼쪽에서 오른쪽으로 이동.</li>
+							<li><strong class="t_black">rtl</strong> : 오른쪽에서 왼쪽으로 이동.</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.direction.html">
+						<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="direction">
+						<ul>
+							<li class="ie">5.5+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">2.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">9.2</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- text-shadow 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">text-shadow</i> 속성</h2>
+					<p class="mt_ms reference">
+						text-shadow 속성은 텍스트에 그림자 효과를 설정합니다.<br>
+						text-shadow 속성은 쉼표(,)로 구분하여 여러 개의 텍스트 그림자를 적용 할 수 있습니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="text-shadow">
+						<textarea readonly="readonly">
+							p {
+								text-shadow: offset-x offset-y blur-radius color | none | initial | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">none</strong> : 글림자 효과를 없앱니다.</li>
+							<li><strong class="t_black">initial</strong> : 기본값으로 설정합니다.</li>
+							<li><strong class="t_black">inherit</strong> : 부모 요소의 속성값을 상속받습니다.</li>
+							<li><strong class="t_black">offset-x</strong> : 그림자의 수평 거리를 정합니다. (필수)</li>
+							<li><strong class="t_black">offset-y</strong> : 그림자의 수직 거리를 정합니다. (필수)</li>
+							<li><strong class="t_black">blur-radius</strong> : 흐림 정도를 정합니다. (선택 : 값을 정하지 않으면 0)</li>
+							<li><strong class="t_black">color</strong> : 색을 정합니다. (선택 : 값을 정하지 않으면 브라우저 기본값)</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.5.text/2.5.text-shadow.html">
+						<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<aside class="browser_support mt_m" data-tit="text-shadow">
+						<ul>
+							<li class="ie">10+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">2.0</li>
+							<li class="firefox">3.5</li>
+							<li class="opera">9.5</li>
+							<li class="safari">1.1</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section class="reference_box mt_xxl">
+					<h2 class="tit">Text 속성 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/CSS2/text.html" target="_blank" class="fas" title="새창열림">W3C Text</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/css-text-3/" target="_blank" class="fas" title="새창열림">CSS Text Module Level 3</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/css-text-decor-3/" target="_blank" class="fas" title="새창열림">CSS Text Decoration Module Level 3</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text" target="_blank" class="fas" title="새창열림">MDN Text</a></li>
+					</ul>
+				</section>
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 초급 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html" target="_blank" class="fas" title="새창열기">W3C UI</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface" target="_blank" class="fas" title="새창열기">MDN User Interface</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1095,6 +1670,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="2.5. Text 속성">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // CSS side menu -->
 		</div>
@@ -1142,7 +1719,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

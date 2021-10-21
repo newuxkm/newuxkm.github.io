@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -908,12 +911,387 @@
 					</ul>
 				</nav>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						<b class="t_blue">CSS 선택자 level 1, 2 part-2</b> 에서는<br>
+						<span class="t_black">조합 선택자(Combinators)</span>,<br>
+						<span class="t_black">속성 선택자(Attribute Selector)</span>,<br>
+						<span class="t_black">의사(가상) 클래스(Pseudo-classes)</span>에 대한 내용을 다루고 있습니다.
+					</p>
+					<p class="mt_ms">
+						선택자는 보통 스타일링하고 싶은 HTML 요소나 부여한 ID 혹은 class가 위치합니다.<br>
+						선언부에 여러개의 속성과 속성값이 있을때는 ;(세미콜론)으로 구분합니다.<br>
+						각각의 선언은 속성과 속성값을 :(콜론)으로 구분합니다.<br>
+						CSS는 기본적으로 선언된 순서에 따라 적용되지만 각종 선택자와 삽입 위치에 따라 우선순위가 달라질 수 있습니다.<br>
+						선택자 우선순위는 !important > 인라인 스타일 > 아이디 선택자 > 클래스/속성/가상 선택자 > 태그 선택자 > 전체 선택자 로 적용됩니다.
+					</p>
+				</blockquote>
+
+				<!-- 2.2.4. 조합 선택자(Combinators) -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.2.4. 조합 선택자(Combinators)</h2>
+
+					<!-- 2.2.4.1. 하위 조합(Descendant combinator) or 하위 선택자) -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn t_blue">2.2.4.1. 하위 조합(Descendant combinator) or 하위 선택자</h3>
+						<p class="mt_ms">
+							CSS Level 1 선택자<br>
+							하위 조합 선택자는 특정 요소의 하위에 있는 요소를 선택합니다.<br>
+							하위 조합 콤비 네이터를 사용하는 선택기를 하위 선택자 라고 합니다.<br>
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="Descendant combinator">
+								<textarea readonly="readonly">
+									ul li {
+										/* style 작성 */
+									}
+								</textarea>
+						</div>
+						<div class="view_editor edit_code mt_m" data-target="css/step01/2.2.selector/2.2.4.1.descendant-combinator.html">
+							<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<aside class="browser_support mt_m" data-tit="Descendant combinator">
+							<ul>
+								<li class="ie">지원</li>
+								<li class="edge">지원</li>
+								<li class="chrome">지원</li>
+								<li class="firefox">지원</li>
+								<li class="opera">지원</li>
+								<li class="safari">지원</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- 2.2.4.2. 자식 연결자(Child combinator) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">2.2.4.2. 자식 연결자(Child combinator)</h3>
+						<p class="mt_ms">
+							CSS Level 2 선택자<br>
+							자식 연결자(Child Selector)는 특정 요소의 자식 요소를 선택합니다.<br>
+							첫 번째 요소와 일치하는 요소의 직접적인 하위 요소인 두 번째 선택자와 일치하는 요소만 일치합니다.<br>
+							두 번째 선택자와 일치하는 요소는 첫 번째 선택자와 일치하는 요소의 직계 자식이어야 합니다.<br>
+							특정 요소의 자식 요소를 선택. 한단계 아래에 있는 요소만 선택한다.<br>
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="Child combinator">
+								<textarea readonly="readonly">
+									ul > li {
+										/* style 작성 */
+									}
+								</textarea>
+						</div>
+						<div class="view_editor edit_code mt_m" data-target="css/step01/2.2.selector/2.2.4.2.child-combinator.html">
+							<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<aside class="browser_support mt_m" data-tit="Child combinator">
+							<ul>
+								<li class="ie">7+</li>
+								<li class="edge">12.0</li>
+								<li class="chrome">1.0</li>
+								<li class="firefox">1.0</li>
+								<li class="opera">9.2</li>
+								<li class="safari">1.3</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- 2.2.4.3. 인접한 형제 선택자(Adjacent sibling combinator) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">2.2.4.3. 인접한 형제 선택자(Adjacent sibling combinator)</h3>
+						<p class="mt_ms">
+							CSS Level 2 선택자<br>
+							형제(동위) 셀렉터는 형제 관계(동위 관계)에서 뒤에 위치하는 요소를 선택할 때 사용합니다.<br>
+							인접한 형제 선택자(Adjacent Sibling Selector)는 요소의 형제 요소 중 첫번째 형제 요소를 선택하며,<br>
+							지정된 요소의 인접한 형제와 만 일치합니다. 즉, 요소는 동일한 상위 요소를 가져야하며 지정된 요소 바로 다음에 와야합니다.
+						</p>
+						<p class="mt_s">
+							셀렉터A의 형제 요소 중 셀렉터A 바로 뒤에 위치하는 셀렉터B 요소를 선택하며, A와 B 사이에 다른 요소가 존재하면 선택되지 않습니다.
+						</p>
+						<p class="mt_s t_black"><strong>Element + Element(셀렉터A + 셀렉터B)</strong></p>
+						<div class="uk_gist_code_box mt_ms" data-tit="Adjacent sibling combinator">
+								<textarea readonly="readonly">
+									p + ul {
+										/* style 작성 */
+									}
+								</textarea>
+						</div>
+						<div class="adjacent_sibling mt_m">
+							<div class="inner_wrap">
+								<ul>
+									<li>body</li>
+									<li>p</li>
+									<li>
+										ul
+										<p class="arr t_black">p + ul {<i class="t_red">color:</i><i class="t_green">#ff0000</i><i class="t_red">;</i>}</p>
+										<i class="fas fa-long-arrow-alt-left"></i>
+									</li>
+									<li>h1</li>
+									<li>ul</li>
+								</ul>
+							</div>
+							<p class="txt mt_ms">[인접한 형제 선택자]</p>
+						</div>
+						<div class="view_editor edit_code mt_m" data-target="css/step01/2.2.selector/2.2.4.3.adjacent-sibling-combinator.html">
+							<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<aside class="browser_support mt_m" data-tit="Adjacent sibling combinator">
+							<ul>
+								<li class="ie">7+</li>
+								<li class="edge">12.0</li>
+								<li class="chrome">1.0</li>
+								<li class="firefox">1.0</li>
+								<li class="opera">9.5</li>
+								<li class="safari">1.3</li>
+							</ul>
+						</aside>
+					</article>
+				</section>
+
+				<!-- 2.2.5. 속성 선택자(Attribute Selector) -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.2.5. 속성 선택자(Attribute Selector)</h2>
+					<p class="mt_ms">
+						CSS Level 2 선택자<br>
+						CSS 속성 선택기는 주어진 속성의 존재 또는 값에 따라 요소를 일치시킵니다.<br>
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="Attribute Selector" data-ex="attribute_selector">
+							<textarea readonly="readonly">
+								div[attribute] { … }
+								[attribute='value'] { … }
+								[attribute~='bar'] { … }
+								[attribute|='en'] { … }
+							</textarea>
+					</div>
+
+					<!-- [attribute] -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn t_blue">[attribute]</h3>
+						<p class="mt_s">
+							지정된 속성을 가진 요소를 선택.<br>
+							ex) h1[title] /*title 속성을 가진 h1 요소를 선택*/
+						</p>
+					</article>
+
+					<!-- [attribute="value"] -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn t_blue">[attribute="value"]</h3>
+						<p class="mt_s">
+							속성의 값이 value인 요소를 선택. 속성값이 정확히 일치해야 합니다.<br>
+							ex) h1[title="abc"] /*title 속성의 값이 abc인 h1 요소를 선택*/
+						</p>
+					</article>
+
+					<!-- [attribute~="value"] -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn t_blue">[attribute~="value"]</h3>
+						<p class="mt_s">
+							지정된 속성 값이 지정된 값을 (공백으로 분리된) 단어로 포함하는 요소를 선택합니다.<br>
+							속성의 값이 value를 포함한 요소를 선택. 포함 여부는 단어 기준으로 판단합니다.<br>
+							ex) h1[title~="abc"] /*title 속성의 값이 abc를 포함한 h1 요소를 선택. "abc xyz"는 선택되지만 "abcxyz"는 선택되지 않습니다.*/
+						</p>
+					</article>
+
+					<!-- [attribute|="value"] -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn t_blue">[attribute|="value"]</h3>
+						<p class="mt_s">
+							지지정된 속성 값과 일치하거나 지정 속성 값 뒤 연이은 하이픈("값-")으로 시작하는 요소를 선택합니다.<br>
+							속성의 값이 value이거나 value-로 시작하는 요소를 선택합니다.<br>
+							ex) h1[title|="abc"] /*title 속성의 값이 abc이거나 abc로 시작하는 h1 요소를 선택. "abc-xyz"는 선택되지만 "abc xyz"는 선택되지 않습니다*/
+						</p>
+					</article>
+
+					<article class="view_editor edit_code mt_l" data-target="css/step01/2.2.selector/2.2.5.attr-selector.html">
+						<h3 class="ve_tit">속성 선택자(Attribute Selector) 예제</h3>
+						<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</article>
+					<aside class="browser_support mt_m" data-tit="Adjacent sibling combinator">
+						<ul>
+							<li class="ie">7+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">6.0</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- 2.2.6. 의사(가상) 클래스(Pseudo-classes) -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.2.6. 의사(가상) 클래스(Pseudo-classes)</h2>
+
+					<!-- 2.2.6.1. 링크 셀렉터(Link pseudo-classes), 동적 셀렉터(User action pseudo-classes) -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn t_blue">2.2.6.1. 링크 셀렉터(Link pseudo-classes), 동적 셀렉터(User action pseudo-classes)</h3>
+						<p class="mt_ms">
+							선택자 뒤에 :가상이벤트를 붙이면 특정 이벤트마다 적용 할 스타일을 설정 할 수 있으며, 이를 가상 (추상)클래스라 합니다.<br>
+							CSS Level 1 선택자 - <code>E:link</code> / <code>E:visited</code><br>
+							CSS Level 1, 2 선택자 - <code>E:active</code> / <code>E:hover</code> / <code>E:focus</code><br>
+							링크의 기본 스타일 효과를 주는 속성과 링크에 활성화를 더해주는 속성으로 구분합니다.(The link pseudo-classes or The user action pseudo-classes)<br>
+							링크에 사용되는 동적 의사 클래스<br>
+							<code>:hover</code>는 반드시 <code>:link</code>와 <code>:visited</code>가 먼저 정의된 후에 정의되어야 정상적으로 동작합니다.<br>
+							<code>:active</code>는 반드시 <code>:hover</code>가 먼저 정의된 후에 정의되어야 정상적으로 동작합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="Pseudo-classes">
+								<textarea readonly="readonly">
+									a:link { … }
+									a:visited { … }
+									a:active { … }
+									a:hover { … }
+									a:focus { … }
+								</textarea>
+						</div>
+						<div class="mt_l">
+							<strong class="font-16 t_blue mt_m">:link</strong>
+							<p class="indent mt_s">
+								아직 방문하지 않은 요소를 나타냅니다.<br>
+								링크의 기본 상태이며, 사용자가 아직 한 번도 이 링크를 통해 연결된 페이지를 방문하지 않은 상태입니다.
+							</p>
+						</div>
+						<div class="mt_l">
+							<strong class="font-16 t_blue mt_m">:visited</strong>
+							<p class="indent mt_s">
+								방문한 링크일 때<br>
+								사용자가 한 번이라도 이 링크를 통해 연결된 페이지를 방문한 상태입니다.
+							</p>
+						</div>
+						<div class="mt_l">
+							<strong class="font-16 t_blue mt_m">:active</strong>
+							<p class="indent mt_s">
+								클릭된 상태일 때<br>
+								사용자가 마우스로 링크를 클릭하고 있는 상태입니다.
+							</p>
+						</div>
+						<div class="mt_l">
+							<strong class="font-16 t_blue mt_m">:hover</strong>
+							<p class="indent mt_s">
+								마우스가 올라와 있을 때<br>
+								사용자의 마우스 커서가 링크 위에 올라가 있는 상태입니다.
+							</p>
+						</div>
+						<div class="mt_l">
+							<strong class="font-16 t_blue mt_m">:focus</strong>
+							<p class="indent mt_s">
+								포커스가 들어와 있을 때<br>
+								키보드나 마우스의 이벤트(event) 또는 다른 형태로 해당 요소가 포커스(focus)를 가지고 있는 상태입니다.
+							</p>
+						</div>
+
+						<div class="view_editor edit_code mt_l" data-target="css/step01/2.2.selector/2.2.6.1.link-pseudo-class.html">
+							<h4 class="ve_tit">링크 셀렉터, 동적 셀렉터 예제</h4>
+							<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<aside class="browser_support mt_m" data-tit="Link, User action">
+							<ul>
+								<li class="ie">지원</li>
+								<li class="edge">지원</li>
+								<li class="chrome">지원</li>
+								<li class="firefox">지원</li>
+								<li class="opera">지원</li>
+								<li class="safari">지원</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- 2.2.6.2. 구조적 의사(가상)클래스(Structural pseudo-class) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">2.2.6.2. 구조적 의사(가상)클래스(Structural pseudo-class)</h3>
+						<blockquote class="uk_note mt_m" role="note">
+							<h4 class="sound_only">요약 설명</h4>
+							<p>
+								<i class="t_blue">CSS Level 2 선택자</i><br />
+								구조 의사 클래스를 사용하면 HTML 요소의 계층 구조에서 특정 위치에 있는 요소를 선택할 수 있습니다.
+							</p>
+						</blockquote>
+						<p class="mt_m">
+							셀렉터에 해당하는 요소 유형(타입)에 상관없이 모든 요소 중 첫번째 자식인 요소를 선택합니다.<br>
+							부모의 첫 번째 자식 인 요소를 나타냅니다.<br>
+							이 가상 클래스는 CSS2.1에서 먼저 정의되었고 IE7+ 모든 브라우저들이 지원하고 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="Structural pseudo-class">
+								<textarea readonly="readonly">
+									p:first-child {
+										/* style 작성 */
+									}
+								</textarea>
+						</div>
+						<div class="view_editor edit_code mt_m" data-target="css/step01/2.2.selector/2.2.6.2.structural-pseudo-class.html">
+							<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<aside class="browser_support mt_m" data-tit="first-child">
+							<ul>
+								<li class="ie">지원</li>
+								<li class="edge">지원</li>
+								<li class="chrome">지원</li>
+								<li class="firefox">지원</li>
+								<li class="opera">지원</li>
+								<li class="safari">지원</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- 2.2.6.3. 언어 의사(가상) 클래스(The language pseudo-class) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">2.2.6.3. 언어 의사(가상) 클래스(The language pseudo-class)</h3>
+						<p class="mt_ms">
+							CSS Level 2 선택자<br>
+							language 의사 클래스는 문서의 언어를 기반으로 요소를 선택합니다.
+						</p>
+						<p class="mt_s">
+							특정 요소를 언어 설정에 따라 다르게 표현할 때에 사용합니다.<br>
+							최상위 html에 lang="언어코드"가 있으면 최상위에 있는것이 먼저 적용됩니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="The language pseudo-class">
+								<textarea readonly="readonly">
+									p:lang(언어코드) {
+										/* style 작성 */
+									}
+								</textarea>
+						</div>
+						<div class="view_editor edit_code mt_m" data-target="css/step01/2.2.selector/2.2.6.3.language-pseudo-class.html">
+							<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<aside class="browser_support mt_m" data-tit="language pseudo">
+							<ul>
+								<li class="ie">8+</li>
+								<li class="edge">12.0</li>
+								<li class="chrome">1.0</li>
+								<li class="firefox">1.0</li>
+								<li class="opera">8.0</li>
+								<li class="safari">3.1</li>
+							</ul>
+						</aside>
+					</article>
+				</section>
+
+				<section class="reference_box mt_xxl">
+					<h2 class="tit">CSS 선택자 level 1,2 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/selectors/#selectors" target="_blank" class="fas" title="새창열림">W3C Selectors Level</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_%EC%84%A0%ED%83%9D%EC%9E%90" target="_blank" class="fas" title="새창열림">4 MDN CSS 선택자</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/selectors-3/#specificity" target="_blank" class="fas" title="새창열림">CSS 우선순위</a></li>
+					</ul>
+				</section>
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 초급 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html" target="_blank" class="fas" title="새창열기">W3C UI</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface" target="_blank" class="fas" title="새창열기">MDN User Interface</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1106,6 +1484,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="2.2. CSS 선택자 level 1, 2 (part-2)">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // CSS side menu -->
 		</div>
@@ -1153,7 +1533,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

@@ -59,7 +59,6 @@ let active_number = _ukWrap.attr('data-active') ? _ukWrap.attr('data-active').sp
 
 // header common
 function header_common(){
-  _ukHeader.append('<span class="'+hd_progress+'">스크롤 진행상태</span>');
   _ukHeader.ukDetect({
     device_check:true,
     all_check:false
@@ -400,7 +399,8 @@ function uk_gist_skin_code(){
   const ko_check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
   const code_tab_size = '  ';
 
-  $('.'+uk_gist_code_box).each(function(i, e){
+  // 빠른 로드를 위해 <head>로 이동
+  /*$('.'+uk_gist_code_box).each(function(i, e){
     const str = $(e).find('textarea').val()
     .replace(/</g,"&lt;")                                                 // '<' 변환
     .replace(/>/g,"&gt;")                                                 // '>' 변환
@@ -507,6 +507,8 @@ function uk_gist_skin_code(){
 
     //----------------------------------------------------------------------------------------
 
+    // textarea 삭제 후 코드 적용
+    //$(e).find('.txtarea').remove();
     $(e).append(
       '<div class="'+uk_gist_content+'">' +
       '<pre class="'+uk_gist_code_pre+'">' +
@@ -608,7 +610,7 @@ function uk_gist_skin_code(){
     for( i=0; i<lineLength; i++ ){
       $(e).find('.line_number').append('<li></li>');
     }
-  });
+  });*/
 
   //highlight.js 적용 및 색상 커스텀
   const hljsSelectorClass = '.hljs-selector-class';
@@ -617,8 +619,9 @@ function uk_gist_skin_code(){
   setTimeout(function(){
     $('.'+uk_gist_code_wrap).each(function(i, e){
       //$(e).addClass('xml');
+      $(this).parents('.'+uk_gist_content).siblings('textarea').remove(); //-----------------------
       hljs.highlightBlock(e);
-      $(this).parents('.'+uk_gist_content).siblings('textarea').remove();
+      $(e).addClass('code_show');
 
       //class '.' 색상 변경 class 지정
       if( $(e).find(hljsSelectorClass).is(':visible') ){
@@ -725,7 +728,7 @@ function uk_gist_skin_code(){
       //background 속성 > background-repeat 속성 오류 대처
       value_error( 'background-repeat' );
       //background 속성 > background-position 속성 오류 대처
-      value_error( 'background-position' );
+      //value_error( 'background-position' );
       function value_error( target ){
         if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === target ){
           const txt_clone = $(e).find('.hljs-attribute').clone();
@@ -775,10 +778,10 @@ function hd_common(sct){
 	if( sct > 10 ) _ukHeader.addClass('fixed');
 	else _ukHeader.removeClass('fixed');
 
-	// uk_header progress
+	// uk_header progress (<head>에도 추가)
 	var docHeight = $(document).height() - window.innerHeight;
 	var hd_proW = (sct/docHeight)*100;  //Math.ceil();
-	$('.'+hd_progress).css('width',hd_proW+'%');
+	$('.'+hd_progress).css('width', hd_proW+'%');
 
   // masonry
   depth3_masonry();

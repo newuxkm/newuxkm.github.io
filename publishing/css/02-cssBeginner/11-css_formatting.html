@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -897,12 +900,646 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						이 섹션에서는 display, position, float 속성과 같은 레이아웃에 관련된 속성을 정의합니다.<br>
+						실제 홈페이지의 디자인에 중요한 역할을 하며, 항상 사용되고 가장 중요한 속성들입니다.
+					</p>
+				</blockquote>
+
+				<!-- 2.11.1. 표시 관련 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.11.1. 표시 관련 속성</h2>
+
+					<!-- display 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">display</i> 속성</h3>
+						<p class="mt_s">
+							display 속성은 웹 페이지의 레이아웃(layout)을 결정하는 CSS의 중요한 속성 중 하나입니다.<br>
+							이 속성은 해당 HTML 요소가 웹 브라우저에 언제 어떻게 보이는가를 결정합니다.<br>
+							HTML의 모든 요소는 각각의 기본 display 속성값을 가지고 있습니다.<br>
+							display 속성값이 블록인 요소의 속성값을 인라인으로 바꿀 수 있습니다.<br>
+							또한, 반대로 display 속성값이 인라인인 요소의 속성값을 블록으로 바꿀 수도 있습니다.<br>
+							이렇게 HTML 요소의 display 속성값을 변경함으로써 웹 페이지를 개발자가 원하는 모양으로 변경할 수 있습니다.<br>
+							display 속성값을 변경해도, 실제로 해당 요소가 완전히 다른 타입의 요소로 바뀌는 것은 아닙니다.<br>
+							즉, display 속성값을 인라인에서 블록으로 변경했더라도, 변경된 요소는 내부에 다른 요소를 포함할 수 없습니다.<br>
+							왜냐하면, 처음부터 display 속성값이 블록인 요소만이 내부에 다른 요소를 포함할 수 있기 때문입니다.<br>
+							display 속성값은 많이 있지만 해당 섹션에서는 대표적인 4가지로 구분하여 설명합니다.
+						</p>
+						<div class="ol_lst indent mt_m">
+							<strong class="font-16 t_black ml_mn">대표적인 display 속성의 기본 4가지 값으로 다음과 같습니다.</strong>
+							<div class="uk_gist_code_box mt_ms" data-tit="display">
+								<textarea readonly="readonly">
+									div {
+										display: none | block | inline | inline-block;
+									}
+								</textarea>
+							</div>
+							<ol class="mt_ms">
+								<li class="line_code font14">
+									<strong>none</strong>
+									<div class="line_code">
+										<p>CSS Level 1</p>
+										<p>해당 요소를 숨깁니다. 마치 존재하지 않는 것처럼 페이지가 렌더링됩니다.</p>
+										<p>visibility: hidden;으로 설정하면 요소가 감춰질 테지만 해당 요소는 완전히 보이지 않게 되더라도 여전히 공간을 차지합니다.</p>
+									</div>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong>block</strong>
+									<div class="line_code">
+										<p>CSS Level 1</p>
+										<p>display 속성값이 블록(block)인 요소는 언제나 새로운 라인(line)에서 시작하며, 해당 라인의 모든 너비를 차지합니다.</p>
+									</div>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong>inline</strong>
+									<div class="line_code">
+										<p>CSS Level 1</p>
+										<p>display 속성값이 인라인(inline)인 요소는 새로운 라인(line)에서 시작하지 않습니다.</p>
+										<p>또한, 요소의 너비도 해당 라인 전체가 아닌 해당 HTML 요소의 내용(content)만큼만 차지합니다.</p>
+									</div>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong>inline-block</strong>
+									<div class="line_code">
+										<p>CSS Level 2</p>
+										<p>해당 요소 자체는 인라인(inline) 요소처럼 동작합니다. 하지만 해당 요소 내부에서는 블록(block) 요소처럼 동작합니다.</p>
+										<p>이처럼 인라인-블록 요소는 인라인 요소와 비슷하지만, 너비와 높이를 설정할 수 있습니다.</p>
+										<p>또한, 블록 요소처럼 margin을 이용하여 여백을 지정할 수도 있게 됩니다.</p>
+									</div>
+								</li>
+							</ol>
+						</div>
+
+						<p class="font-16 t_black mt_ml"><strong>위에서 설명한 속성 값 외에 CSS Display Module Level 3, CSS Grid Layout, CSS Flexible Box Layout Module 에 명시된 다음과 같은 값들도 있습니다.</strong></p>
+						<div class="ol_lst indent mt_m">
+							<ol>
+								<!-- display-outside -->
+								<li class="line_code font14">
+									<strong><code>&lt;display-outside&gt;</code> 값</strong>
+									<div class="uk_gist_code_box mt_sm" data-tit="[display-outside]">
+										<textarea readonly="readonly">
+											div {
+												display: block;
+												display: inline;
+												display: run-in;
+											}
+										</textarea>
+									</div>
+								</li>
+
+								<!-- display-inside -->
+								<li class="line_code font14 mt_ms">
+									<strong><code>&lt;display-inside&gt;</code> 값</strong>
+									<div class="uk_gist_code_box mt_sm" data-tit="[display-inside]">
+										<textarea readonly="readonly">
+											div {
+												display: flow;
+												display: flow-root;
+												display: table;
+												display: flex;
+												display: grid;
+												display: ruby;
+											}
+										</textarea>
+									</div>
+								</li>
+
+								<!-- display-outside + display-inside -->
+								<li class="line_code font14 mt_ms">
+									<strong><code>&lt;display-outside&gt; + &lt;display-inside&gt;</code> 값</strong>
+									<div class="uk_gist_code_box mt_sm" data-tit="[display-outside] + [display-inside]">
+										<textarea readonly="readonly">
+											div {
+												display: block flow;
+												display: inline table;
+												display: flex run-in;
+											}
+										</textarea>
+									</div>
+								</li>
+
+								<!-- display-listitem -->
+								<li class="line_code font14 mt_ms">
+									<strong><code>&lt;display-listitem&gt;</code> 값</strong>
+									<div class="uk_gist_code_box mt_sm" data-tit="[display-listitem]">
+										<textarea readonly="readonly">
+											div {
+												display: list-item;
+												display: list-item block;
+												display: list-item inline;
+												display: list-item flow;
+												display: list-item flow-root;
+												display: list-item block flow;
+												display: list-item block flow-root;
+												display: flow list-item block;
+											}
+										</textarea>
+									</div>
+								</li>
+
+								<!-- display-internal -->
+								<li class="line_code font14 mt_ms">
+									<strong><code>&lt;display-internal&gt;</code> 값</strong>
+									<div class="uk_gist_code_box mt_sm" data-tit="[display-internal]">
+										<textarea readonly="readonly">
+											div {
+												display: table-row-group;
+												display: table-header-group;
+												display: table-footer-group;
+												display: table-row;
+												display: table-cell;
+												display: table-column-group;
+												display: table-column;
+												display: table-caption;
+												display: ruby-base;
+												display: ruby-text;
+												display: ruby-base-container;
+												display: ruby-text-container;
+											}
+										</textarea>
+									</div>
+								</li>
+
+								<!-- display-box -->
+								<li class="line_code font14 mt_ms">
+									<strong><code>&lt;display-box&gt;</code> 값</strong>
+									<div class="uk_gist_code_box mt_sm" data-tit="[display-box]">
+										<textarea readonly="readonly">
+											div {
+												display: contents;
+												display: none;
+											}
+										</textarea>
+									</div>
+								</li>
+
+								<!-- display-legacy -->
+								<li class="line_code font14 mt_ms">
+									<strong><code>&lt;display-legacy&gt;</code> 값</strong>
+									<div class="uk_gist_code_box mt_sm" data-tit="[display-legacy]">
+										<textarea readonly="readonly">
+											div {
+												display: inline-block;
+												display: inline-table;
+												display: inline-flex;
+												display: inline-grid;
+											}
+										</textarea>
+									</div>
+								</li>
+
+								<!-- 전역 값 -->
+								<li class="line_code font14 mt_ms">
+									<strong>전역 값</strong>
+									<div class="uk_gist_code_box mt_sm" data-tit="display global value">
+										<textarea readonly="readonly">
+											div {
+												display: inherit;
+												display: initial;
+												display: unset;
+											}
+										</textarea>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</article>
+					<aside class="browser_support mt_m" data-tit="display">
+						<ul>
+							<li class="ie">4+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">7.0</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+					<aside class="reference_box mt_m">
+						<h2 class="tit">display 참조</h2>
+						<ul class="link_lst">
+							<li class="reference"><a href="https://www.w3.org/TR/CSS2/visuren.html#display-prop" target="_blank" class="fas" title="새창열림">W3C CSS display</a></li>
+							<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/display" target="_blank" class="fas" title="새창열림">MDN CSS display</a></li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- 2.11.2. 위치 및 정렬 관련 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.11.2. 위치 및 정렬 관련 속성</h2>
+					<p class="mt_ms">
+						문서 상에 요소를 배치하는 방법을 지정합니다.<br>
+						top, right, bottom, left 속성이 요소를 배치할 최종 위치를 결정하며 z-index 속성으로 보이는 순서를 결정합니다.
+					</p>
+
+					<!-- position 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">position</i> 속성</h3>
+						<p class="mt_s">
+							position 속성은 HTML 요소가 위치를 결정하는 방식을 설정합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="position">
+							<textarea readonly="readonly">
+								div {
+									position: static | relative | absolute | fixed | sticky;
+								}
+							</textarea>
+						</div>
+
+						<div class="indent mt_l">
+							<strong class="font-16 t_black ml_mn">CSS에서 요소의 위치를 결정하는 방식에는 다음과 같이 대표적인 4가지 방식이 있습니다.</strong>
+						</div>
+
+						<!-- 1. 정적 위치(static position) 지정 방식 -->
+						<div class="indent_max mt_m">
+							<h4 class="ml_mn">1. 정적 위치(<i class="t_blue">static position</i>) 지정 방식</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="static position">
+								<textarea readonly="readonly">
+									div {
+										position: static;
+									}
+								</textarea>
+							</div>
+							<div class="line_code mt_ms">
+								<p>모든 HTML 요소의 position 속성의 기본 설정값은 static입니다.</p>
+								<p>기본값으로 static이 지정된 요소는 document의 일반적인 흐름(normal flow)을 따라 배치됩니다.</p>
+								<p>top, right, bottom, left, z-index 속성들이 static에서는 아무런 효과도 주지 못합니다.</p>
+								<p>즉 position을 초기화 할 때 많이 사용됩니다.</p>
+							</div>
+							<div class="view_editor edit_code mt_ms" data-target="css/step01/2.11.visual-formatting-model/2.11.2.position-static.html">
+								<h3 class="ve_tit sound_only">예제</h3>
+								<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 2. 상대 위치(relative position) 지정 방식 -->
+						<div class="indent_max mt_l">
+							<h4 class="ml_mn">2. 상대 위치(<i class="t_blue">relative position</i>) 지정 방식</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="relative position">
+								<textarea readonly="readonly">
+									div {
+										position: relative;
+									}
+								</textarea>
+							</div>
+							<div class="line_code mt_ms">
+								<p>relative가 지정된 요소 역시 document의 일반적인 흐름(normal flow)을 따라 배치됩니다.</p>
+								<p>해당 요소가 정적 위치 지정 방식일 때의 위치에 상대적으로 위치합니다.</p>
+								<p>table-*-group, table-row, table-column, table-cell, table-caption 요소에 relative가 주는 효과는 정의되지 않았습니다.</p>
+							</div>
+							<div class="view_editor edit_code mt_ms" data-target="css/step01/2.11.visual-formatting-model/2.11.2.position-relative.html">
+								<h3 class="ve_tit sound_only">예제</h3>
+								<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 3. 절대 위치(absolute position) 지정 방식 -->
+						<div class="indent_max mt_l">
+							<h4 class="ml_mn">3. 절대 위치(<i class="t_blue">absolute position</i>) 지정 방식</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="absolute position">
+								<textarea readonly="readonly">
+									div {
+										position: absolute;
+									}
+								</textarea>
+							</div>
+							<div class="line_code mt_ms">
+								<p>대 위치(absolute position) 지정 방식은 고정 위치가 뷰포트를 기준으로 위치를 결정하는 것과 비슷하게 동작합니다.</p>
+								<p>지 뷰포트(viewport)를 기준으로 하는 것이 아닌 위치가 설정된 조상(ancestor) 요소를 기준으로 위치를 설정하게 됩니다.</p>
+								<p>지만 위치가 설정된 조상(ancestor) 요소를 가지지 않는다면, HTML 문서의 body 요소를 기준으로 위치를 설정하게 됩니다.</p>
+								<p>치가 설정된 요소라는 것은 정적 위치(static position) 지정 방식을 제외한 다른 방식(relative, fixed, absolute)으로 위치가 설정된 요소를 의미합니다.</p>
+							</div>
+							<div class="view_editor edit_code mt_ms" data-target="css/step01/2.11.visual-formatting-model/2.11.2.position-absolute.html">
+								<h3 class="ve_tit sound_only">예제</h3>
+								<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
+								</div>
+							</div>
+						</div>
+
+						<!-- 4. 고정 위치(fixed position) 지정 방식 -->
+						<div class="indent_max mt_l">
+							<h4 class="ml_mn">4. 고정 위치(<i class="t_blue">fixed position</i>) 지정 방식</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="fixed position">
+								<textarea readonly="readonly">
+									div {
+										position: fixed;
+									}
+								</textarea>
+							</div>
+							<div class="line_code mt_ms">
+								<p>고정 위치(fixed position) 지정 방식은 뷰포트(viewport)를 기준으로 위치를 설정하는 방식입니다.</p>
+								<p>즉, 웹 페이지가 스크롤 되어도 고정 위치로 지정된 요소는 항상 같은 곳에 위치하게 됩니다.</p>
+							</div>
+							<div class="view_editor edit_code mt_ms" data-target="css/step01/2.11.visual-formatting-model/2.11.2.position-fixed.html">
+								<h3 class="ve_tit sound_only">예제</h3>
+								<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<!-- top 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">top</i> 속성</h3>
+						<p class="mt_s">
+							위치가 설정된 조상 요소의 위에서부터의 좌표값 설정합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="position top">
+							<textarea readonly="readonly">
+								div {
+									position: [relative | absolute | fixed];
+									top: length | %;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- right 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">right</i> 속성</h3>
+						<p class="mt_s">
+							위치가 설정된 조상 요소의 오른쪽으로부터의 좌표값 설정합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="position left">
+							<textarea readonly="readonly">
+								div {
+									position: [relative | absolute | fixed];
+									right: length | %;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- bottom 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">bottom</i> 속성</h3>
+						<p class="mt_s">
+							위치가 설정된 조상 요소의 아래로부터의 좌표값 설정합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="position left">
+							<textarea readonly="readonly">
+								div {
+									position: [relative | absolute | fixed];
+									bottom: length | %;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- left 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">left</i> 속성</h3>
+						<p class="mt_s">
+							위치가 설정된 조상 요소의 왼쪽으로부터의 좌표값 설정합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="position left">
+							<textarea readonly="readonly">
+								div {
+									position: [relative | absolute | fixed];
+									left: length | %;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- z-index 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">z-index</i> 속성</h3>
+						<p class="mt_s">
+							HTML 요소의 위치를 설정하게 되면 어떤 요소들은 설정된 위치 및 방식에 따라 서로 겹칠 수도 있습니다.<br>
+							z-index 속성은 이렇게 겹쳐지는 요소들이 쌓이는 스택(stack)의 순서를 설정합니다.<br>
+							스택(stack)의 순서는 양수나 음수 모두 설정할 수 있으며, 크기가 클수록 앞쪽에 위치하고 작을수록 뒤쪽에 위치하게 됩니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="z-index">
+							<textarea readonly="readonly">
+								div {
+									position: [relative | absolute | fixed];
+									z-index: length;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<article class="view_editor edit_code mt_l" data-target="css/step01/2.11.visual-formatting-model/2.11.2.position.html">
+						<h3 class="ve_tit">position 속성 예제</h3>
+						<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</article>
+					<aside class="browser_support mt_l" data-tit="position">
+						<ul>
+							<li class="ie">4+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">4.0</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+					<aside class="reference_box mt_m">
+						<h2 class="tit">position 참조</h2>
+						<ul class="link_lst">
+							<li class="reference"><a href="https://www.w3.org/TR/CSS2/visuren.html#propdef-position" target="_blank" class="fas" title="새창열림">W3C CSS position</a></li>
+							<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/position" target="_blank" class="fas" title="새창열림">MDN CSS position</a></li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- 2.11.3. 흐름 관련 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.11.3. 흐름 관련 속성</h2>
+
+					<!-- float 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">float</i> 속성</h3>
+						<p class="mt_s">
+							float 속성은 해당 HTML 요소가 주변의 다른 요소들과 자연스럽게 어울리도록 만들어 줍니다.<br>
+							이 속성은 본래 위와 같은 목적으로 만들어졌지만, 현재는 웹 페이지의 레이아웃(layout)을 작성할 때 자주 사용됩니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="float">
+							<textarea readonly="readonly">
+								div {
+									float: none | left | right;
+								}
+							</textarea>
+						</div>
+						<div class="ol_lst mt_ms">
+							<ol>
+								<li><strong class="t_black">none</strong> : 요소가 부동하지 않아야 함을 나타내는 키워드입니다.</li>
+								<li><strong class="t_black">left</strong> : 좌측 정렬. 요소가 자신의 포함(containing) 블록의 좌측에 부동(float, 떠움직여)해야 함을 나타내는 키워드입니다.</li>
+								<li><strong class="t_black">right</strong> : 우측 정렬. 요소가 자신의 포함 블록의 우측에 부동해야 함을 나타내는 키워드입니다.</li>
+							</ol>
+						</div>
+					</article>
+
+					<!-- clear 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">clear</i> 속성</h3>
+						<p class="mt_s">
+							clear 속성은 float 속성이 적용된 이후 나타나는 요소들의 동작을 조절해 줍니다.<br>
+							컨테이너 요소에 float 속성이 적용되면 그 이후에 등장하는 모든 요소들은 정확한 위치를 설정하기가 매우 힘들어집니다.<br>
+							따라서 float 속성을 적용하고자 하는 요소가 모두 등장한 이후에는 clear 속성을 사용하여,
+							이후에 등장하는 요소들이 더는 flaot 속성에 영향을 받지 않도록 설정해줘야 합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="clear">
+							<textarea readonly="readonly">
+								div {
+									clear: both | left | right | none;
+								}
+							</textarea>
+						</div>
+						<div class="ol_lst mt_ms">
+							<ol>
+								<li><strong class="t_black">both</strong> : 전체 해제. 요소가 지난 both left 및 right 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드입니다.</li>
+								<li><strong class="t_black">left</strong> : 좌측 해제. 요소가 지난 left 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드입니다.</li>
+								<li><strong class="t_black">right</strong> : 우측 해제. 요소가 지난 right 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드입니다.</li>
+								<li><strong class="t_black">none</strong> : 요소가 지난 부동 요소를 해제하기 위해 아래로 이동되지 않음을 나타내는 키워드입니다.</li>
+							</ol>
+						</div>
+					</article>
+
+					<!-- float을 해제하는 3가지 방법 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">float을 해제하는 3가지 방법</i></h3>
+						<p class="mt_s">
+							clear 속성은 float 속성이 적용된 이후 나타나는 요소들의 동작을 조절해 줍니다.<br>
+							컨테이너 요소에 float 속성이 적용되면 그 이후에 등장하는 모든 요소들은 정확한 위치를 설정하기가 매우 힘들어집니다.<br>
+							따라서 float 속성을 적용하고자 하는 요소가 모두 등장한 이후에는 clear 속성을 사용하여,
+							이후에 등장하는 요소들이 더는 flaot 속성에 영향을 받지 않도록 설정해줘야 합니다.
+						</p>
+						<div class="ol_lst mt_ms">
+							<ol>
+								<li>
+									<strong class="t_black">float을 사용한 부모요소 하단에 빈 요소 삽입</strong>
+									<div class="line_code mt_sm">
+										<p>빈 요소를 삽입하지만 추후에 유지보수 할 때마다 빈 요소를 삽입해야 하는 단점이 있습니다.</p>
+									</div>
+									<div class="uk_gist_code_box mt_s" data-tit="clear type1">
+										<textarea readonly="readonly">
+											<!-- 마크업 구조 -->
+											<div class="wrap">
+												<div class="left">left content</div>
+												<div class="right">right content</div>
+												<div class="clear"></div><!-- 빈 요소 -->
+											</div>
+
+											<!-- style -->
+											<style>
+												.left {float: left;}
+												.right {float: right;}
+												.clear {clear: both;}
+											</style>
+										</textarea>
+									</div>
+								</li>
+								<li class="mt_ms">
+									<strong class="t_black">float을 사용한 부모요소에 overflow 속성 사용</strong>
+									<div class="line_code mt_sm">
+										<p>빈 요소를 삽입하는 방법보다 유용하지만 overflow:hidden을 사용할 경우 자식요소가 부모요소를 벗어났을 경우 해당요소는 안보이게 됩니다.</p>
+										<p>overflow:auto 방식을 사용할 경우 자식요소가 부모요소를 벗어났을 경우 해당요소는 보이게 되지만 잘못하면 스크롤이 발생합니다.</p>
+										<p>해당 디자인에 맞추어 적절하게 사용해야 합니다.</p>
+									</div>
+									<div class="uk_gist_code_box mt_s" data-tit="clear type2">
+										<textarea readonly="readonly">
+											<!-- 마크업 구조 -->
+											<div class="wrap">
+												<div class="left">left content</div>
+												<div class="right">right content</div>
+											</div>
+
+											<!-- style -->
+											<style>
+												.wrap {overflow: hidden;}
+												.left {float: left;}
+												.right {float: right;}
+											</style>
+										</textarea>
+									</div>
+								</li>
+								<li class="mt_ms">
+									<strong class="t_black">float을 사용한 부모요소에 가상요소(::after)를 사용</strong>
+									<div class="line_code mt_sm">
+										<p>가장 많이 사용하면서 빈 요소를 삽입하는 방식과 동일하지만 불필요하게 마크업을 수정할 필요없이 CSS로만 수정 가능합니다.</p>
+									</div>
+									<div class="uk_gist_code_box mt_s" data-tit="clear type3">
+										<textarea readonly="readonly">
+											<!-- 마크업 구조 -->
+											<div class="wrap">
+												<div class="left">left content</div>
+												<div class="right">right content</div>
+											</div>
+
+											<!-- style -->
+											<style>
+												.wrap {zoom: 1;}
+												.wrap:after {display: block; clear: both; content: "";}
+												.left {float: left;}
+												.right {float: right;}
+											</style>
+										</textarea>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</article>
+
+					<article class="view_editor edit_code mt_l" data-target="css/step01/2.11.visual-formatting-model/2.11.3.float.html">
+						<h3 class="ve_tit">float, clear 속성 예제</h3>
+						<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</article>
+					<aside class="browser_support mt_m" data-tit="float">
+						<ul>
+							<li class="ie">4+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">7.0</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+					<aside class="browser_support mt_m" data-tit="clear">
+						<ul>
+							<li class="ie">4+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">3.5</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+					<aside class="reference_box mt_m">
+						<h2 class="tit">float, clear 참조</h2>
+						<ul class="link_lst">
+							<li class="reference"><a href="https://www.w3.org/TR/CSS2/visuren.html#float-position" target="_blank" class="fas" title="새창열림">W3C CSS float</a></li>
+							<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/float" target="_blank" class="fas" title="새창열림">MDN CSS float</a></li>
+							<li class="reference"><a href="https://www.w3.org/TR/CSS2/visuren.html#flow-control" target="_blank" class="fas" title="새창열림">W3C CSS clear</a></li>
+							<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/clear" target="_blank" class="fas" title="새창열림">MDN CSS clear</a></li>
+						</ul>
+					</aside>
+				</section>
+
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">위치 속성 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/visuren.html" target="_blank" class="fas" title="새창열림">W3C Visual formatting model</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Visual_formatting_model" target="_blank" class="fas" title="새창열림">MDN Visual formatting model</a></li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 초급 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html" target="_blank" class="fas" title="새창열기">W3C UI</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface" target="_blank" class="fas" title="새창열기">MDN User Interface</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1095,6 +1732,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="2.11. 위치 속성">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // CSS side menu -->
 		</div>
@@ -1142,7 +1781,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

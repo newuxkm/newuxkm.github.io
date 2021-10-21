@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>transform 2d</title>
+	<link href="//fonts.googleapis.com/css?family=Black+Han+Sans|Hi+Melody|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext" rel="stylesheet">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no, email=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content=" yes">
+	<meta name="robots" content="index,follow">
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<!--<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">-->
+	<meta http-equiv="Expires" content="-1">
+
+	<!-- css -->
+	<link href="/assets/kmtemp/lib/css/bootstrap.css" rel="stylesheet" />
+	<link href="/assets/kmtemp/lib/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets/lib/css/temp_transform.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="/assets/kmtemp/lib/js/jquery-1.9.1.min.js"></script>
+	<script src="/assets/kmtemp/lib/js/ukDetect-1.0.0.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+
+	<section class="contentArea">
+		<!-- translate -->
+		<article id="translate">
+			<h2>translate <i>: 이동</i></h2>
+			<p class="s_tit">단위 : <i>px, %</i></p>
+			<p class="s_tit">기본 값 : <i>px</i> = 엘리먼트 기본 크기 / <i>%</i> = <i>100%</i></p>
+			<ul class="lst_area">
+				<li class="form_set translate_x" data-tit="translateX(n)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>translateX(<i>0</i>px)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="80"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set translate_y" data-tit="translateY(n)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>translateY(<i>0</i>px)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="50"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set translate_xy" data-tit="translate(x,y)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>translate(<i>0</i>px, <i>0</i>px)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="50"></p>
+							<p data-tit="Y"><input type="text" value="-60"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- scale -->
+		<article id="scale">
+			<h2>scale <i>: 크기</i></h2>
+			<p class="s_tit">단위 : 없음 / 기본 값 : 1</p>
+			<ul class="lst_area">
+				<li class="form_set translate_x" data-tit="scaleX(n)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>scaleX(<i>0</i>)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="2"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set translate_y" data-tit="scaleY(n)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>scaleY(<i>0</i>)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="Y"><input type="text" value="3"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set translate_xy" data-tit="scale(x,y)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>scale(<i>0</i>, <i>0</i>)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="3"></p>
+							<p data-tit="Y"><input type="text" value="2.5"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- rotate -->
+		<article>
+			<h2>rotate <i>: 회전</i></h2>
+			<p class="s_tit">단위 : <i>deg</i> / 기본 값 : <i>0deg</i></p>
+			<ul class="lst_area">
+				<li class="form_set translate_x" data-tit="rotate(n)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>rotate(<i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form">
+							<p><input type="text" value="45"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set translate_y" data-tit="rotate(-n)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>rotate(<i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form">
+							<p><input type="text" value="-70"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- skew -->
+		<article>
+			<h2>skew <i>: 기울기</i></h2>
+			<p class="s_tit">단위 : <i>deg</i> / 기본 값 : <i>0deg</i></p>
+			<ul class="lst_area">
+				<li class="form_set translate_x" data-tit="skewX(n)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>skewX(<i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="45"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set translate_y" data-tit="skewY(n)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>skewY(<i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="Y"><input type="text" value="30"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+				<li class="form_set translate_y" data-tit="skew(x,y)">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>skew(<i>0</i>deg, <i>0</i>deg)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="X"><input type="text" value="20"></p>
+							<p data-tit="Y"><input type="text" value="30"></p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<!-- matrix -->
+		<article>
+			<h2>matrix</h2>
+			<p class="s_tit">너비, 수직기울기, 수평기울기, 높이, 수평이동, 수직이동</p>
+			<ul class="lst_area">
+				<li class="form_set translate_x" data-tit="matrix">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">transform: <span>matrix(<i>0</i>, <i>0</i>, <i>0</i>, <i>0</i>, <i>0</i>, <i>0</i>)</span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="scaleX"><input type="text" value="2"></p>
+							<p data-tit="tanY"><input type="text" value="0.5"></p>
+							<p data-tit="tanX"><input type="text" value="0.5"></p>
+							<p data-tit="scaleY"><input type="text" value="2"></p>
+							<p data-tit="translateX"><input type="text" value="60"></p>
+							<p data-tit="translateY"><input type="text" value="-20"></p>
+							<a href="#" class="result">Result</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<dl class="ex_txt">
+				<dt>Matrix 부가설명</dt>
+				<dd>너비(scaleX)와 높이(scaleY)는 0부터 9까지의 수치를 사용합니다. 1은 기본 값, 2는 두 배, 0.5는 절반이다. 음수는 사용할 수 없습니다.</dd>
+				<dd>매트릭스에서의 기울기는 skew() 함수를 쓰지 않고 tan() 함수를 사용하며, 0부터 9까지의 수치로 표현합니다.</dd>
+				<dd>이동(trnaslate)은 픽셀 단위를 사용하는데, 단위명은 쓰지 않습니다. <i>따라서 100px을 이동시키려고 한다면 그냥 <b>100</b>이라고 적어야 합니다.</i> 다른 단위를 사용하려면 매트릭스를 사용하지 않아야 합니다. 음수 사용이 가능하며, 반대방향을 의미합니다.</dd>
+				<!--<dd class="source">설명글 출처 : beautifulcss [<a href="http://www.beautifulcss.com/archives/2136" target="_blank">http://www.beautifulcss.com/archives/2136</a>]</dd>-->
+			</dl>
+		</article>
+
+		<!-- 기준점 -->
+		<article id="transform_origin" class="t_origin">
+			<h2><i>기준점 : </i><span>transform-origin</span></h2>
+			<p class="s_tit">단위 : <i>px, %</i> / 기본 값 : <i>50% 50%</i></p>
+			<ul class="lst_area">
+				<li class="form_set">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>0% 0%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+				<li class="form_set">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>50% 0%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+				<li class="form_set">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>100% 0%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+
+				<li class="form_set">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>0% 50%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+				<li class="form_set" data-tit="기본 값">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>50% 50%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+				<li class="form_set">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>100% 50%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+
+				<li class="form_set">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>0% 100%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+				<li class="form_set">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>50% 100%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+				<li class="form_set">
+					<div class="box_wrap">
+						<p class="box"></p>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box:hover {</p>
+							<p class="css_txt">
+								transform: scale(2, 2);<br>
+								transform-origin: <i>100% 100%</i>;
+							</p>
+							<p>}</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</article>
+	</section>
+
+
+</div>
+<!-- //wrap -->
+
+<script src="/assets/kmtemp/transform/js/js.js"></script>
+</body>
+</html>

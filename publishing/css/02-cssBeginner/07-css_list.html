@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -897,12 +900,181 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						CSS를 이용하면 리스트에 다양한 효과를 적용할 수 있습니다.<br>
+						목록 요소는 내비게이션 메뉴를 만들 때 자주 사용된다.<br>
+						기본 속성 스타일은 'display: list-item' 이며 CSS에서 사용할 수 있는 list-style 속성은 다음과 같습니다.<br>
+						list-style-type<br>
+						list-style-image<br>
+						list-style-position<br>
+						list-style
+					</p>
+				</blockquote>
+
+				<!-- list-style-type -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">list-style-type</i></h2>
+					<p class="mt_ms">
+						리스트 요소의 앞에 위치하는 숫자나 기호를 마커(marker)라고 합니다.<br>
+						리스트에 다양한 마커(marker)를 적용할 수 있습니다.<br>
+						미리 정의된 타입의 마커는 다양하게 있지만 모든 브라우저를 지원하지는 않습니다.<br>
+						마커의 타입은 다음과 같이 있습니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="list-style-type">
+						<textarea readonly="readonly">
+							ul {
+								list-style-type: Numeric | Alphabetic | Symbolic;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li class="line_code font14">
+								<strong>넘버순(Numeric)</strong>
+								<p class="mt_sm">decimal : (e.g., 1, 2, 3, ..., 98, 99, 100).</p>
+								<p>decimal-leading-zero : (e.g., 01, 02, 03, ..., 98, 99, 100).</p>
+								<p>arabic-indic : (e.g., ١‎, ٢‎, ٣‎, ٤‎, ..., ٩٨‎, ٩٩‎, ١٠٠‎).</p>
+								<p>armenian, upper-armenian : (e.g., Ա, Բ, Գ, ..., ՂԸ, ՂԹ, Ճ).</p>
+								<p>lower-armenian : (e.g., ա, բ, գ, ..., ղը, ղթ, ճ).</p>
+								<p>bengali : (e.g., ১, ২, ৩, ..., ৯৮, ৯৯, ১০০).</p>
+								<p>cambodian, khmer : (e.g., ១, ២, ៣, ..., ៩៨, ៩៩, ១០០).</p>
+								<p>cjk-decimal : (e.g., 一, 二, 三, ..., 九八, 九九, 一〇〇).</p>
+								<p>devanagari : (e.g., १, २, ३, ..., ९८, ९९, १००).</p>
+								<p>georgian : (e.g., ა, ბ, გ, ..., ჟჱ, ჟთ, რ).</p>
+								<p>gujarati : (e.g., ૧, ૨, ૩, ..., ૯૮, ૯૯, ૧૦૦).</p>
+								<p>gurmukhi : (e.g., ੧, ੨, ੩, ..., ੯੮, ੯੯, ੧੦੦).</p>
+								<p>hebrew : (e.g., א‎, ב‎, ג‎, ..., צח‎, צט‎, ק‎).</p>
+								<p>kannada : (e.g., ೧, ೨, ೩, ..., ೯೮, ೯೯, ೧೦೦).</p>
+								<p>lao : (e.g., ໑, ໒, ໓, ..., ໙໘, ໙໙, ໑໐໐).</p>
+								<p>malayalam : (e.g., ൧, ൨, ൩, ..., ൯൮, ൯൯, ൧൦൦).</p>
+								<p>mongolian : (e.g., ᠑, ᠒, ᠓, ..., ᠙᠘, ᠙᠙, ᠑᠐᠐).</p>
+								<p>myanmar : (e.g., ၁, ၂, ၃, ..., ၉၈, ၉၉, ၁၀၀).</p>
+								<p>oriya : (e.g., ୧, ୨, ୩, ..., ୯୮, ୯୯, ୧୦୦).</p>
+								<p>persian : (e.g., ۱, ۲, ۳, ۴, ..., ۹۸, ۹۹, ۱۰۰).</p>
+								<p>lower-roman : (e.g., i, ii, iii, ..., xcviii, xcix, c).</p>
+								<p>upper-roman : (e.g., I, II, III, ..., XCVIII, XCIX, C).</p>
+								<p>tamil : (e.g., ௧, ௨, ௩, ..., ௯௮, ௯௯, ௧௦௦).</p>
+								<p>telugu : (e.g., ౧, ౨, ౩, ..., ౯౮, ౯౯, ౧౦౦).</p>
+								<p>thai : (e.g., ๑, ๒, ๓, ..., ๙๘, ๙๙, ๑๐๐).</p>
+								<p>tibetan : (e.g., ༡, ༢, ༣, ..., ༩༨, ༩༩, ༡༠༠).</p>
+							</li>
+							<li class="line_code font14 mt_s">
+								<strong>알파벳순(Alphabetic)</strong>
+								<p class="mt_sm">lower-alpha, lower-latin : (e.g., a, b, c, ..., z, aa, ab).</p>
+								<p>upper-alpha, upper-latin : (e.g., A, B, C, ..., Z, AA, AB).</p>
+								<p>cjk-earthly-branch : (e.g., 子, 丑, 寅, ..., 亥, 子子, 子丑).</p>
+								<p>cjk-heavenly-stem : (e.g., 甲, 乙, 丙, ..., 癸, 甲甲, 甲乙).</p>
+								<p>lower-greek : (e.g., α, β, γ, ..., ω, αα, αβ).</p>
+								<p>hiragana : (e.g., あ, い, う, ..., ん, ああ, あい).</p>
+								<p>hiragana-iroha : (e.g., い, ろ, は, ..., す, いい, いろ).</p>
+								<p>katakana : (e.g., ア, イ, ウ, ..., ン, アア, アイ).</p>
+								<p>katakana-iroha : (e.g., イ, ロ, ハ, ..., ス, イイ, イロ)</p>
+							</li>
+							<li class="line_code font14 mt_s">
+								<strong>심볼(Symbolic)</strong>
+								<p class="mt_sm">disc, circle, square, disclosure-open, disclosure-closed</p>
+								<p>disc : • U+2022 BULLET.</p>
+								<p>circle : ◦ U+25E6 WHITE BULLET.</p>
+								<p>square : ◾ U+25FE BLACK MEDIUM SMALL SQUARE.</p>
+							</li>
+						</ol>
+					</div>
+					<div class="view_editor edit_code mt_l" data-target="css/step01/2.7.list/2.7.list-style-type.html">
+						<h3 class="ve_tit">list-style-type 예제</h3>
+						<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- list-style-image -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">list-style-image</i></h2>
+					<p class="mt_ms">
+						<code>list-style-image</code> 속성을 이용하면 마커(marker)로 자신만의 이미지를 사용할 수 있습니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="list-style-image">
+						<textarea readonly="readonly">
+							ul {
+								list-style-image: <url> | none | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.7.list/2.7.list-style-image.html">
+						<div class="uk_editor min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- list-style-position -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">list-style-position</i></h2>
+					<p class="mt_ms">
+						<code>list-style-position</code> 속성을 이용하면 리스트 요소의 위치를 설정할 수 있습니다.<br>
+						<code>list-style-position</code> 속성의 기본 속성값은 outside로 설정되어 있습니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="list-style-position">
+						<textarea readonly="readonly">
+							ul {
+								list-style-position: inside | outside | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.7.list/2.7.list-style-position.html">
+						<div class="uk_editor min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- list-style -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">list-style Shorthand</i></h2>
+					<p class="mt_ms">
+						모든 list-style 속성을 이용한 스타일을 한 줄에 축약형 방식으로 설정할 수 있음.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="list-style Shorthand">
+						<textarea readonly="readonly">
+							ul {
+								list-style: [list-style-type | list-style-position | list-style-image ] | inherit;
+							}
+						</textarea>
+					</div>
+					<div class="view_editor edit_code mt_m" data-target="css/step01/2.7.list/2.7.list-style.html">
+						<div class="uk_editor min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="list-style">
+					<ul>
+						<li class="ie">4+</li>
+						<li class="edge">12.0</li>
+						<li class="chrome">1.0</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">7.0</li>
+						<li class="safari">1.0</li>
+					</ul>
+				</aside>
+
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">List 속성 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/CSS21/generate.html#propdef-list" target="_blank" class="fas" title="새창열림">W3C List</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/css-lists-3/" target="_blank" class="fas" title="새창열림">W3C CSS Lists Module Level 3</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type" target="_blank" class="fas" title="새창열림">MDN list-style-type</a></li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 초급 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html" target="_blank" class="fas" title="새창열기">W3C UI</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface" target="_blank" class="fas" title="새창열기">MDN User Interface</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1095,6 +1267,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="2.7. List 속성">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // CSS side menu -->
 		</div>
@@ -1142,7 +1316,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

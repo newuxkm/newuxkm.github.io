@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -901,12 +904,279 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;body&gt;</code> 요소 안에 배치된 콘텐츠는 모두 적어도 하나의 섹션 안에 포함되어 자리하게 됩니다.<br>
+						그리고 HTML5에서 섹션은 서로 중첩되서 표시될 수도 있습니다.<br>
+						<code>&lt;body&gt;</code> 요소에 의해 정의된 주요 섹션을 제외하고, 모든 섹션은 명시적으로나 혹은 은연중 자동으로 구분되어 정의될 수 있습니다.<br>
+						명시적으로 정의되는 섹션은 <code>&lt;body&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>,
+						<code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;header&gt;</code>, 그리고 <code>&lt;nav&gt;</code> 요소들 안에 포함된 콘텐츠입니다.
+					</p>
+					<p class="mt_s">
+						각 섹션은 자기들만의 제목 계층을 가질 수 있습니다. 그래서, 중첩된 섹션이라도 <code>&lt;h1&gt;</code> 제목을 가질 수 있습니다.
+					</p>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/10-structure/10.2.html5_document_layout.html">
+					<h2 class="ve_tit">HTML5 기본 레이아웃</h2>
+					<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/10-structure/10.2.html5_document_basic.html">
+					<h2 class="ve_tit">HTML5 콘텐츠 기본 구조</h2>
+					<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+
+					<div class="mt_s indent">
+						<h3 class="sound_only">설명</h3>
+						<div class="line_code">
+							위에 있는 HTML 코드에선 가장 윗 단계에 두 개의 섹션이 정의되었으며,
+							첫 번째 섹션에선 세 개의 하위 섹션이 존재합니다.<br>
+							그래서 위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+							<p class="mt_sm t_green">
+								<span>1. HTML</span><br>
+								<span class="indent">1.1 HTML 이란?</span><br>
+								<span class="indent">1.2 HTML 기본구조</span><br>
+								<span class="indent">1.3 광고 구역 (aside)</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">HTML5에서 제목 지정하는 법</h2>
+
+					<p class="mt_ms">
+						비록 명시적 HTML 섹션 요소가 문서의 전체 구조를 정해주기는 하지만, 그 아웃라인을 좀 더 명확하게 표현하려면 제목의 사용도 중요합니다.<br>
+						기본 규칙은 단순합니다.<br>
+						처음 쓰인 HTML 제목 요소(<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code> 중 하나)가 해당 섹션의 제목으로 정해집니다.
+					</p>
+					<p class="mt_s">
+						제목 요소엔 요소 이름에 붙은 숫자를 가지고 계급을 매기는데, <code>&lt;h1&gt;</code>이 최상위 계급이며 <code>&lt;h6&gt;</code>는 최하위 계급이 됩니다.<br>
+						제목 간 계급의 상대적 등급은 오로지 같은 섹션 안에서만 중요해집니다.<br>
+						이 말은 섹션의 구조가 문서의 아웃라인을 결정짓는 데 중요한 변수로 작용하지만, 섹션 안에서 사용된 제목의 계급은 여기에 아무런 관련이 없다는 얘기입니다.<br>
+						아래 예시를 들어보면,
+					</p>
+					<div class="view_editor edit_code mt_s" data-target="html/10-structure/10.2.html5_document_heading.html">
+						<div class="uk_editor min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<div class="mt_s">
+						<h2 class="sound_only">설명</h2>
+						<div class="line_code">
+							위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+							<p class="mt_sm t_green">
+								<span>1. 둥근귀코끼리</span><br>
+								<span class="indent">1.1 서식지</span><br>
+								<span>2. 몽골 게르빌루스쥐</span>
+							</p>
+						</div>
+						<p class="mt_s">
+							여기서 쓰인 제목 요소의 계급(위 보기에선 처음 최상위 섹션의 <code>&lt;h1&gt;</code>,<br>
+							그 하위 섹션의 <code>&lt;h2&gt;</code><br>
+							그리고 두 번째 최상위 섹션에서 사용된 &lt;h3&gt;)은 중요하지 않다는 점을 주목하십시오.<br>
+							(명시적으로 정의된 섹션의 제목으로 어떠한 계급을 써도 상관은 없지만, 이 방식이 권장되는 것은 아닙니다.)
+						</p>
+					</div>
+				</section>
+
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">은연중 자동으로 정의되는 섹션</h2>
+
+					<p class="mt_ms">
+						HTML5에서 소개된 명시적 섹션 요소들만이 문서의 아웃라인을 정의하는 데 절대적으로 필요한 요소는 아니므로,
+						기존 웹에서 지배적으로 사용되는 HTML4와의 호환성을 지키려는 노력의 일환으로, 이들 없이도 섹션을 정의하는 또 하나의 방법이 있습니다.<br>
+						이를 은연중 자동으로 정의되는 섹션이라 하겠습니다.
+					</p>
+					<p class="mt_s">
+						HTML 제목 요소(<code>&lt;h1&gt;</code>부터 <code>&lt;h6&gt;</code>)는 만약에 그들이 속한 상위 명시적 섹션의 첫 번째 제목으로 사용되지 않았다면,
+						자동으로 또 하나의 새로운 암묵적인 섹션으로 분류/정의되어 집니다.<br>
+						이들 암묵적 섹션이 문서 아웃라인에서 위치하게 되는 기준은 기존 이들 제목을 포함하고 있는 상위 섹션에서 사용된 제목과의 상대적 계급에 따라 결정됩니다.<br>
+						만약 전에 사용된 제목보다 계급이 더 낮다면, 은연중으로 해당 섹션의 하위 섹션으로 자리 잡게 됩니다.<br>
+						아래 코드를 살펴보면,
+					</p>
+					<div class="view_editor edit_code mt_l" data-target="html/10-structure/10.2.html5_document_definition1.html">
+						<h3 class="ve_tit">예제1</h3>
+						<div class="uk_editor indent min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<div class="indent mt_s">
+						<h3 class="sound_only">설명</h3>
+						<div class="line_code">
+							위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+							<p class="mt_sm t_green">
+								<span>1. 둥근귀코끼리</span><br>
+								<span class="indent">1.1 서식지 (h3 요소에 의해 은연중 자동으로 정의됨)</span>
+							</p>
+						</div>
+						<p class="mt_s">
+							만약에 이전에 사용된 제목과 같은 계급이라면,(명시적으로 정의되었을 수도 있지요!)<br>
+							바로 이전 섹션과 구분되면서 같은 계급의 또 하나의 새로운 암묵적 섹션으로 자리하게 됩니다.
+						</p>
+					</div>
+
+					<div class="view_editor edit_code mt_l" data-target="html/10-structure/10.2.html5_document_definition2.html">
+						<h2 class="ve_tit">예제2</h2>
+						<div class="uk_editor indent min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<div class="indent mt_s">
+						<h3 class="sound_only">설명</h3>
+						<div class="line_code">
+							위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+							<p class="mt_sm t_green">
+								<span>1. 둥근귀코끼리</span><br>
+								<span>2. 몽골 게르빌루스쥐(h1 요소에 의해 자동으로 정의됨과 동시에 이전 섹션과 구분됨)</span>
+							</p>
+						</div>
+						<p class="mt_s">
+							만약에 이전에 사용된 제목보다 더 높은 계급의 제목이 사용되었다면,<br>
+							이전 섹션과 구분되면서 더 높은 제목의 계급을 가진 또 하나의 새로운 암묵적 섹션으로 자리하게 됩니다.
+						</p>
+					</div>
+
+					<div class="view_editor edit_code mt_l" data-target="html/10-structure/10.2.html5_document_definition3.html">
+						<h2 class="ve_tit">예제3</h2>
+						<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<div class="indent mt_s">
+						<h3 class="sound_only">설명</h3>
+						<div class="line_code">
+							위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+							<p class="mt_sm t_green">
+								<span>1. 포유 동물</span><br>
+								<span class="indent">1.1 고래(h2 요소에 의해 자동으로 정의됨)</span><br>
+								<span class="indent">1.2 둥근귀코끼리(섹션 요소에 의해 명시적으로 정의됨)</span><br>
+								<span class="indent">1.3 몽골 게르빌루스쥐(h3 요소에 의해 자동으로 정의됨과 동시에 이전 섹션과 구분됨)</span><br>
+								<span>2. 파충류(h2 요소에 의해 자동으로 정의됨과 동시에 이전 섹션과 구분됨)</span>
+							</p>
+						</div>
+						<p class="mt_s">
+							단순히 써진 제목의 태그들만 살펴본다면, 이것은 결코 예상했던 문서의 아웃라인은 아닐 것입니다.<br>
+							그래서 작성한 마크업이 다른 사람에게도 쉽게 이해되도록 하려면,<br>
+							섹션을 구분할 때 명시적 섹션 요소의 태그들을 쓰는 것이 바람직하며,<br>
+							원래 의도하는 섹션의 중첩 수준을 고려해서 그에 어울리는 제목의 계급을 써야 합니다.
+						</p>
+						<p class="mt_s">
+							그런데 이것이 꼭 HTML5 명세서에서 요구하는 필수 준수 사항은 아닙니다.<br>
+							만약에 작성한 문서의 아웃라인을 브라우저가 원래 의도한 방향으로 표시해 주지 못한다면,<br>
+							혹시 사용한 제목 요소가 은연 중 자동으로 기존 섹션과 구분되게 사용되었는지 확인해 보시기 바랍니다.
+						</p>
+						<p class="mt_s">
+							제목의 계급은 항상 해당 섹션의 중첩 수준과 일치하도록 쓰라는 규칙의 예외도 있을 수 있는데,
+							그 중 하나 여러 문서에서 공통으로 재사용되는 섹션의 경우가 있습니다.<br>
+							예를 들면, 섹션 내용이 어떤 콘텐츠 관리 시스템에 저장되어 실시간으로 여러 다른 저장된 내용과 함께 조합되어 문서에 표시될 때가 있습니다.<br>
+							이 경우엔, 재사용되는 섹션의 가장 최상위 제목으로 <code>&lt;h1&gt;</code>부터 시작해서 사용하실 것을 권장합니다.<br>
+							그러면 재사용되는 섹션의 중첩 수준은 문서의 섹션 계층 중 해당 섹션이 삽입되어 보이는 위치에 따라 자동으로 결정될 것입니다.<br>
+							이 경우에도 명시적 섹션 태그가 문서 아웃라인을 명확히 하는 데 도움을 줍니다.
+						</p>
+					</div>
+				</section>
+
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">섹션 구분의 근원점</h2>
+
+					<p class="mt_ms">
+						섹션 구분의 근원점은 HTML 요소 중 자기만의 아웃라인을 가질 수는 있지만,
+						그 안의 섹션이나 제목이 자기 위에 있는 요소의 아웃라인에는 어떠한 영향도 끼치지 않는 것들을 가리킵니다.<br>
+						논리적으로 따지면 당연히 문서의 섹션을 구분하는데 그 근본이 되는 <code>&lt;body&gt;</code>가 여기에 포함되고,
+						이 외에도 종종 외부 콘텐츠를 페이지에 표시하는 데 사용되는 다음과 같은 요소들도 있습니다.<br>
+						<code>&lt;blockquote&gt;</code>, <code>&lt;details&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;figure&gt;</code>, <code>&lt;td&gt;</code>
+					</p>
+					<div class="view_editor edit_code mt_s" data-target="html/10-structure/10.2.html5_document_division.html">
+						<div class="uk_editor min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+					<div class="mt_s">
+						<h3 class="sound_only">설명</h3>
+						<div class="line_code">
+							위의 보기에선 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+							<p class="mt_sm t_green">
+								<span>1. 숲 코끼리</span><br>
+								<span class="indent">1.1 소개</span><br>
+								<span class="indent"> 1.2 서식지</span>
+							</p>
+						</div>
+						<p class="mt_s">
+							이 문서의 아웃라인을 살펴보면 외부 인용 문구로 사용된 <code>&lt;blockquote&gt;</code> 요소의 경우,<br>
+							섹션 구분의 근원이 되는 요소 중 하나로서 자기가 포함하고 있는 내부 내용의 아웃라인이 외부의 것과 완전히 차단되면서,<br>
+							전체 문서의 아웃라인에는 포함되지 않았습니다.
+						</p>
+					</div>
+				</section>
+
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">문서의 아웃라인 밖에 존재하는 섹션</h2>
+
+					<p class="mt_ms">
+						HTML5에선 웹 문서의 주요 아웃라인에 속하지 않는 섹션을 정의할 수 있도록 하는 새로운 네 가지의 요소들을 소개하고 있습니다.
+					</p>
+					<div class="ol_lst indent mt_s">
+						<ol>
+							<li>
+								HTML Aside 섹션 요소(<code>&lt;aside&gt;</code>)는 주요 문맥을 담은 요소와 어떤 관련성을 지니고 있지만,
+								어떤 부연 설명 표시 영역이나 광고처럼 문맥의 주요 흐름 줄기엔 속하지 않는 섹션을 나타냅니다.<br>
+								물론 자기만의 아웃라인을 가지고 있어서, 문서의 주요 아웃라인엔 포함되지 않습니다.
+							</li>
+							<li class="mt_sm">
+								HTML Navigational 섹션 요소(<code>&lt;nav&gt;</code>)는 내비게이션 링크들을 포함하고 있는 섹션입니다.<br>
+								이런 링크들은 문서에 여러 개가 있을 수 있는데,
+								예를 들어, 콘텐츠 목차와 같은 페이지 내부 링크나 사이트의 내비게이션 링크가 있습니다.<br>
+								이런 링크는 문서의 주요 문맥과 아웃라인에 포함되지 않아서 보통 처음에는 스크린 리더나 비슷한 보조 기술을 사용하는 장치에서 읽어들이지 않을 수도 있습니다.
+							</li>
+							<li class="mt_sm">
+								HTML Header 섹션 요소(<code>&lt;header&gt;</code>)는 페이지의 도입부로서 보통 로고나 사이트 이름 그리고 수평 메뉴를 포함하고 있습니다.<br>
+								이름에서 풍기는 느낌과는 달리 꼭 페이지 처음에 있을 필요는 없습니다.
+							</li>
+							<li class="mt_sm">
+								HTML Footer 섹션 요소(<code>&lt;footer&gt;</code>)는 페이지의 종결부로서 보통 저작권이나 법률적 고지 혹은 약간의 링크들을 포함하고 있습니다.<br>
+								이것도 역시 이름이 가진 직설적 의미와 달리 페이지 끝에 있을 필요는 없습니다.
+							</li>
+						</ol>
+					</div>
+				</section>
+
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">섹션을 구분짓는 요소의 주소와 발행 시간</h2>
+
+					<p class="mt_ms">
+						문서를 작성하다 보면 종종 저자의 이름이나 주소와 같은 연락 정보를 공개하고 싶을 때가 있습니다.<br>
+						HTML4에선 이런 목적으로 <code>&lt;address&gt;</code> 요소가 쓰였는데, HTML5에선 여기에 더 보완된 내용이 추가되었습니다.<br>
+						가끔 문서에는 여러 명의 저자가 작성한 여러 개의 섹션이 포함되어 있을 수도 있습니다.
+					</p>
+					<p class="mt_s">
+						메인 페이지의 저자와 다른 또 다른 사람이 작성한 콘텐츠가 포함된 섹션은 <code>&lt;article&gt;</code> 요소를 써서 정의합니다.<br>
+						이렇게 하면, <code>&lt;address&gt;</code> 요소는 지정된 위치에 따라 가장 가까운 상위의 <code>&lt;body&gt;</code> 혹은 <code>&lt;article&gt;</code>과 연관된 정보로 표시됩니다.<br>
+						비슷하게, HTML5의 새 <code>&lt;time&gt;</code> 요소에 pubdate boolean 속성이 지정되었다면 문서 전체의 발행 날짜를 표시해 주는데,
+						article에서처럼, 가장 가까운 상위의 <code>&lt;body&gt;</code> 혹은 <code>&lt;article&gt;</code> 과 연관된 정보로 표시됩니다.
+					</p>
+				</section>
+
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>HTML5에서 소개된 새로운 섹션과 제목 요소는 웹 문서의 구조와 아웃라인을 표준화된 방법으로 작성할 수 있게 도와줍니다.</p>
+					<p>
+						또한, HTML5를 지원하는 브라우저 사용자나 페이지 내용을 제대로 전달하는데 그 구조 파악이 중요한,<br>
+						예를 들어 보조 지원 기술의 도움으로 페이지의 내용을 파악하는, 사용자 모두에게 커다란 이득을 안겨다 줍니다.
+					</p>
+					<p>새로 소개된 의미가 담긴 요소들은, 약간의 노력만 기울인다면, 사용이 간편해서 HTML5 미지원 브라우저에서도 온전히 사용하실 수 있습니다.</p>
+				</blockquote>
 				
 				<footer class="reference_box">
 					<strong class="tit">HTML 문서구조 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html52/sec-forms.html#sec-forms" target="_blank" class="fas" title="새창열기">W3C 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas" title="새창열기">MDN 문서</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1271,6 +1541,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="10.2. HTML5에서의 문서 구조">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>
@@ -1318,7 +1590,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

@@ -17,7 +17,7 @@ $(document).ready(function(){
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
-  focus_controll();
+  //focus_controll();
 
   // side menu toggle
   const sideToggle = 'sideToggle';
@@ -29,30 +29,32 @@ $(document).ready(function(){
     if( !_this.is('.active') ){
       _this.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
       _this.find('b').text('OPEN');
+      _html.addClass('side_close');
       sessionStorage.setItem(sideToggle, true);
     }
     // 열기
     else{
       _this.removeClass('active').attr('title','사이드 메뉴 닫기').parent().removeClass(side_close);
       _this.find('b').text('CLOSE');
+      _html.removeClass('side_close');
       sessionStorage.clear(sideToggle);
     }
+
     return false;
   });
 
-  // sessionStorage 의 sideToggle 에 true 값이 있으면 side menu 닫기
-  if( sessionStorage.getItem(sideToggle) ){
-    _side_toggle.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
-    _side_toggle.find('b').text('OPEN');
-  }
-
+  // sessionStorage 의 sideToggle 에 true 값이 있으면 side menu 닫기 (<head>로 이동)
+  // if( sessionStorage.getItem(sideToggle) ){
+  //   _side_toggle.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
+  //   _side_toggle.find('b').text('OPEN');
+  // }
 });
 
 
 // window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
   setTimeout(function(){
-    // 새로고침 시 window loading 후 기존 스크롤 탑 유지
+    // 새로고침 시 window loading 후 기존 스크롤 탑 유지 (<head>에도 추가 / 스크롤 떨림 방지)
     if( window.performance.navigation.type === 1 ){
       $(window).on('scroll', function(){
         loading_sct = $(window).scrollTop();
@@ -63,6 +65,7 @@ $(window).on('load', function(){
       setTimeout(function(){
         _sub_content.addClass('content_load');
         _ukFooter.addClass('content_load');
+        _html.removeAttr('style');
       }, 100);
     }
 
@@ -73,6 +76,26 @@ $(window).on('load', function(){
       _ukFooter.addClass('content_load');
     }
   }, 300);
+
+  // 새로고침 시 document height, scrollTop 값 저장
+  $(document).on('keydown', function(e){
+    e.keyCode === 116 ? sessionStorage.setItem('html_height', $(document).height()) : false;
+  });
+  window.addEventListener('beforeunload', function(){
+    sessionStorage.setItem('html_height', $(document).height());
+    sessionStorage.setItem(loading_scroll_top, $(window).scrollTop());
+  });
+
+  $('.uk_gist_code_box').each(function(i, e){
+    if( !$(e).find('.uk_gist_content').is(':visible') ){
+      console.log( 'uk_gist_code error !!!!!!!!!!' );
+      uk_gist_code_layout();
+      setTimeout(function(){
+        uk_gist_skin_code();
+        console.log( 'uk_gist_code error - solve a problem !!' );
+      });
+    }
+  });
 });
 
 
@@ -99,13 +122,13 @@ $(window).on('scroll', function(){
   let sct = $(window).scrollTop();
   hd_common(sct);
 
-  // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우)
+  // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우) (<head>에도 추가)
   sct > top_link_offset - _ukHeader.height() ?  _top_link.addClass('fixed') : _top_link.removeClass('fixed');
 
   // 로딩 상단 고정(scroll top 값이 sub_content 의 offset().top 보다 클 경우)
   sct > _sub_content.offset().top - _ukHeader.height() ? _sub_content.addClass('loading_fixed') : _sub_content.removeClass('loading_fixed') ;
 
-  // side menu 타이틀 노출( side_close일 경우 )
+  // side menu 타이틀 노출( side_close일 경우 ) (<head>에도 추가)
   let sub_top_offset = _sub_content.offset().top + Number(_sub_content.css('padding-top').replace('px','')) + $('#content_title').height()/2;
   sub_top_offset -= _ukHeader.height();
   sct > sub_top_offset ? _side_menu_area.addClass('title_show') : _side_menu_area.removeClass('title_show') ;

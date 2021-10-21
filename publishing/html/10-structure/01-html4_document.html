@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -901,12 +904,69 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						문서의 구조, 즉 <code>&lt;body&gt;</code>와 <code>&lt;/body&gt;</code> 사이에 있는 것의 의미론적 구조는 페이지 내용을 사용자에게 전달하는 데 중요한 토대가 됩니다.<br>
+						HTML4에선 일종의 섹션과 그 하위 섹션으로 구분하는 개념을 써서 문서의 구조를 표현합니다.<br>
+						섹션은 HTML <code>&lt;div&gt;</code> 요소와 함께 그 안에 있는
+						제목을 정의하는 HTML 제목 요소(<code>&lt;h1&gt;</code> ~ <code>&lt;h6&gt;</code>)를 써서 정의됩니다.<br>
+						이런 HTML 구획 요소와 HTML 제목 요소의 관계가 문서의 구조와 그 아웃라인을 결정짓게 됩니다.<br>
+						보통 <code>&lt;div&gt;</code> 요소로 레이아웃 구조를 표현합니다.
+					</p>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/10-structure/10.1.html4_document_layout.html">
+					<h2 class="ve_tit">HTML4 기본 레이아웃</h2>
+					<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/10-structure/10.1.html4_document_basic.html">
+					<h2 class="ve_tit">HTML4 콘텐츠 기본 구조1</h2>
+					<div class="uk_editor indent min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+
+					<div class="mt_s indent">
+						<h3 class="sound_only">설명</h3>
+						<div class="line_code">
+							위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+							<p class="mt_sm t_green">
+								<span>1. HTML</span><br>
+								<span class="indent">1.1 HTML 이란?</span>
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/10-structure/10.1.html4_document_basic2.html">
+					<h2 class="ve_tit">HTML4 콘텐츠 기본 구조2</h2>
+					<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+
+					<div class="mt_s indent">
+						<h3 class="sound_only">설명</h3>
+						<div class="line_code">
+							위와 같이 새로운 섹션을 정의할 때 <code>&lt;div&gt;</code> 요소가 꼭 필요한 것은 아닙니다. 단순히 HTML 제목 요소만 있으면 새로운 섹션이 시작됨을 자동으로 암시해 줍니다.<br>
+							위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+							<p class="mt_sm t_green">
+								<span>1. HTML</span><br>
+								<span class="indent">1.1 HTML 이란?</span><br>
+								<span class="indent">1.2 HTML 기본구조</span><br>
+								<span>2. CSS</span>
+							</p>
+						</div>
+					</div>
+				</section>
 				
 				<footer class="reference_box">
 					<strong class="tit">HTML 문서구조 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html52/sec-forms.html#sec-forms" target="_blank" class="fas" title="새창열기">W3C 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas" title="새창열기">MDN 문서</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1271,6 +1331,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="10.1. HTML4에서의 문서 구조">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>
@@ -1318,7 +1380,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

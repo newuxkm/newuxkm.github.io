@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>transition</title>
+	<link href="//fonts.googleapis.com/css?family=Black+Han+Sans|Hi+Melody|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext" rel="stylesheet">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no, email=no, address=no">
+	<meta name="apple-mobile-web-app-capable" content=" yes">
+	<meta name="robots" content="index,follow">
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+	<!--<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">-->
+	<meta http-equiv="Expires" content="-1">
+
+	<!-- css -->
+	<link href="/assets/kmtemp/lib/css/bootstrap.css" rel="stylesheet" />
+	<link href="/assets/kmtemp/lib/css/animate.min.css" rel="stylesheet" />
+	<link href="/assets/lib/css/temp_transform.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="/assets/kmtemp/lib/js/jquery-1.9.1.min.js"></script>
+	<script src="/assets/kmtemp/lib/js/ukDetect-1.0.0.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+
+	<section class="contentArea">
+
+		<!-- 간단 설명 -->
+		<article class="ex_lst pc_mt_0">
+			<dl>
+				<dt><i class="fas fa-info-circle"></i> 간단 설명</dt>
+				<dd><i>transition</i>은 <i>animation</i>의 속성보다는 <b>제한적인 기능</b>을 가지고 있습니다.</dd>
+				<dd><b>따라서 간단한 인스턴트 적인 동작을 구현하는 용도</b>로 적합합니다.</dd>
+				<dd><i>transition</i>에 <i>loop</i> 기능은 없습니다.</dd>
+				<dd><i>transition</i>은 페이지가 로드되면서 자동으로 시작되지 않습니다.</dd>
+				<dd><b>반드시 <i>click</i>, <i>hover</i>, <i>focus</i>등의 이벤트가 발생해야만 작동됩니다.</b></dd>
+			</dl>
+		</article>
+
+		<!-- Transition 미적용/적용 예제 -->
+		<article class="transition_ex not_mbCode">
+			<h2>Transition <i>미적용/적용 예제</i></h2>
+			<!--<p class="s_tit"><i>transition: all .5s ease;</i> (아래 <i>.box</i>에 적용된 <i>transition</i>)</p>-->
+			<p class="s_tit">왼쪽 미적용 / 오른쪽 적용( <i>transition: all .5s ease;</i> )</p>
+			<ul class="lst_area">
+				<li class="form_set">
+					<div class="box_clear">
+						<div class="box_wrap" data-tit="미적용">
+							<p class="box"></p>
+						</div>
+						<div class="box_wrap" data-tit="적용">
+							<p class="box"></p>
+						</div>
+					</div>
+					<div class="code_wrap">
+						<div class="code">
+							<p>.box {</p>
+							<div class="css_txt">
+								<p>transition: <span>all .5s ease</span>;</p>
+							</div>
+							<p>}</p>
+							<p>.box:hover {</p>
+							<div class="css_txt">
+								<p class="copy_txt">width: <span><i>0</i>px</span>;</p>
+								<p class="copy_txt">height: <span><i>0</i>px</span>;</p>
+								<p class="copy_txt">background-color: <span><i>0</i></span>;</p>
+								<p class="copy_txt">border-radius: <span><i>0</i></span>;</p>
+							</div>
+							<p>}</p>
+						</div>
+						<div class="form f_tit">
+							<p data-tit="width"><input type="text" value="120"></p>
+							<p data-tit="height"><input type="text" value="120"></p>
+							<p data-tit="background">
+								<select>
+									<option value="red">red</option>
+									<option value="blue">blue</option>
+									<option value="green">green</option>
+									<option value="pink" selected>pink</option>
+									<option value="brown">brown</option>
+									<option value="black">black</option>
+								</select>
+							</p>
+							<p data-tit="border-radius">
+								<select>
+									<option value="0">0</option>
+									<option value="10px">10px</option>
+									<option value="20px" selected>20px</option>
+									<option value="50px">50px</option>
+									<option value="100%">100%</option>
+								</select>
+							</p>
+							<button type="button" class="result">Result</button>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="ex_txt">
+				<li><b>transition</b>이 선언되면(오른쪽) 해당 엘리먼트가 의도된 형태로 변화하는 과정이 보여진다.</li>
+				<li>반대로 선언되지 않으면(기본/왼쪽) 변화하는 과정 없이 결과만 보여준다.</li>
+			</ul>
+		</article>
+
+		<!-- 속성 설명 및 작성 방법 -->
+		<article class="transition_ex">
+			<h2><i>속성 설명 및 작성 방법</i></h2>
+			<p class="s_tit">Transition은 다른 css처럼(ex, border or background) <b>축약</b> 또는 <b>속성별로 나눠서</b> 작성 할 수 있습니다.</p>
+
+			<div class="ex_lst transition_wrap">
+				<!-- Transition 속성 설명 -->
+				<div class="transition_attr  table_wrap">
+					<p class="tit"><i class="fas fa-info-circle"></i> Transition 속성 설명</p>
+					<div class="table">
+						<ul class="lst_hd">
+							<li class="cell attr">속성</li>
+							<li class="cell value">값</li>
+						</ul>
+						<ul class="lst_bd">
+							<!-- property -->
+							<li>
+								<p class="cell attr"><i>transition-property</i></p>
+								<p class="cell value">
+									transition 효과를 적용할 속성들을 나열, 2개 이상일 경우는 쉼표(,)로 구분합니다.<br>
+									<b>css의 모든 속성에 적용(<span class="t_red2">all</span>)할 경우 생략 가능합니다.</b>
+									<span class="value_color"><span>값 :</span> <b>all</b> 또는 <b>width</b>, <b>height</b>, <b>transform</b>등의 <b>css 속성</b></span>
+								</p>
+							</li>
+
+							<!-- duration -->
+							<li>
+								<p class="cell attr"><i>transition-duration</i><br><span class="t_red2">(필수 선언)</span></p>
+								<p class="cell value">
+									transition 효과의 지속 시간 표기.<br>
+									1s는 1초이며, 0.1s는 숫자 0를 생략하고 .1s로 표기 가능합니다.<br>
+									(ms의 단위로 할 경우 1초 = 1000ms)
+									<span class="value_color"><span>값 :</span> <b>#s or #ms</b></span>
+								</p>
+							</li>
+
+							<!-- timing-function -->
+							<li>
+								<p class="cell attr"><i>transition-timing-function</i></p>
+								<div class="cell value">
+									변화의 시작과 끝 타이밍을 정의하며,
+									조금 더 정교한 또는 현실적인 움직임을 표현하기 위해 사용됩니다.<br>
+									<b>기본값은 ease이며 기본값으로 사용할 경우 생략 가능합니다.</b>
+
+									<span class="value_color"><span>값 :</span> <b>ease</b>, <b>linear</b>, <b>ease-in</b>, <b>ease-out</b>, <b>ease-in-out</b>, <b>step(n)</b>, <b>cubic-bezier(n,n,n,n)</b></span>
+
+									<div class="timing_attr attr_play">
+										<div class="control">
+											<span>움직임 보기 :</span>
+											<button type="button" class="play"><i>Play</i></button>
+											<button type="button" class="replay disabled"><i>Replay</i></button>
+											<button type="button" class="stop disabled"><i>Stop</i></button>
+										</div>
+										<ul class="c_sub">
+											<li class="play1"><span><i>ease</i> : 느리게 시작하여 점점 빨라졌다가 느리게 끝납니다.</span></li>
+											<li class="play2"><span><i>linear</i> : 모든 속도가 같은 등속 운동</span></li>
+											<li class="play3"><span><i>ease-in</i> : 느리게 시작한 후 일정한 속도에 다다르면 그 상태로 등속 운동</span></li>
+											<li class="play4"><span><i>ease-out</i> : 일정한 속도의 등속으로 시작해서 점점 느려지면서 끝납니다.</span></li>
+											<li class="play5"><span><i>ease-in-out</i> : ease와 비슷하다. 느리게 시작하여 느리게 끝납니다.</span></li>
+											<li class="not_play">
+												<i>steps(n)</i> : 애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
+												<p class="ani">아래 <b class="t_red2 underline">5. Steps 선언</b>에서 자세히 다룹니다.</p>
+												<p class="tra">아래 <b class="t_red2 underline">5. Steps 선언</b>에서 자세히 다룹니다.</p>
+											</li>
+											<li class="not_play">
+												<i>cubic-bezier(n,n,n,n)</i> : 처음과 끝의 속도를 0과 1 사이의 수치를 이용하여 4단계로 지정할 수 있다. 베지어(Bezier)라는 곡선 운동을 정의합니다.<br>
+												<div class="tab1">
+													<a href="https://easings.net/" target="_blank">https://easings.net/</a><br>
+													위 사이트에서 미리 만들어져있는 cubic-bezier 값을 가져다 쓰면 좋습니다.<br>
+													<a href="https://cubic-bezier.com/" target="_blank">https://cubic-bezier.com/</a><br>
+													위 사이트에서는 cubic-bezier의 움직임을 직접 만들 수 있습니다.
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+
+							<!-- delay -->
+							<li>
+								<p class="cell attr"><i>transition-delay</i></p>
+								<p class="cell value">
+									효과의 지연시간을 정의.<br>
+									3s(3초)로 설정하면 이벤트 발생 3초 후에 transition이 작동된다.<br>
+									<b>지연시간이 필요 없으면 생략 가능하다.</b>
+									<span class="value_color"><span>값 :</span> <b>#s or #ms</b></span>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 작성 방법 -->
+				<div class="writing_method">
+					<p class="tit">
+						<i class="fas fa-info-circle"></i> 작성 방법
+						<span class="tit_ex"><b>최대 단축형</b>과 <b>확장 단축형</b>이 주로 쓰입니다.</span>
+					</p>
+
+					<!-- 최대 단축형 -->
+					<div class="type type1">
+						<p class="c_tit">1. 최대 단축형</p>
+						<div class="code_wrap">
+							<span>.box {</span>
+							<span class="t_blue">transition:</span>
+							<div class="t_yellow">
+								all
+								<p class="arr a_top">
+									<strong>property</strong>
+									<i>css 속성</i>
+									<span></span>
+								</p>
+							</div>
+							<div class="t_yellow">
+								.5s
+								<p class="arr a_btm">
+									<strong>duration</strong>
+									<i>지속시간</i>
+									<span></span>
+								</p>
+							</div>
+							<div class="t_yellow">
+								ease
+								<p class="arr a_top">
+									<strong>timing</strong>
+									<i>타이밍</i>
+									<span></span>
+								</p>
+							</div>
+							<div class="t_yellow">
+								2s
+								<p class="arr a_btm">
+									<strong>delay</strong>
+									<i>지연시간</i>
+									<span></span>
+								</p>
+							</div>
+							<span class="lst_s">}</span>
+						</div>
+						<ul class="c_sub">
+							<li>변경할 속성이 한 개 또는 모든 css속성일 경우에만 사용됩니다. (주로 property가 all일 경우에 많이 쓰입니다.)</li>
+							<li>
+								모든 css속성(property)에 적용하고, 기본 타이밍(ease)을 사용하고, 지연시간(delay)이 없을 경우<br>
+								[ <b>transition:.5s;</b> ] 이렇게 지속시간(duration)만 선언하여 사용 가능합니다.
+							</li>
+						</ul>
+					</div>
+
+					<!-- 확장 단축형 -->
+					<div class="type type2">
+						<p class="c_tit">2. 확장 단축형</p>
+						<div class="code_wrap">
+							.box {
+							<p class="t_blue tab1">transition:</p>
+							<div class="clear tab2"><p class="lft t_yellow">transform .5s ease .2s</p><p class="lft t_blue">,</p></div>
+							<div class="clear tab2"><p class="lft t_yellow">color .3s linear 1s</p><p class="lft t_blue">;</p></div>
+							}
+						</div>
+						<p class="c_sub">
+							변경할 속성이 <b>두 개 이상일 때 사용</b>되며, 각 속성별로 <b>독립적인 움직임</b>을 줄 수 있습니다.
+						</p>
+					</div>
+
+					<!-- 기본형 -->
+					<div class="type type3">
+						<p class="c_tit">3. 기본형</p>
+						<div class="code_wrap">
+							.box {
+							<div class="t_blue tab1">transition-property: <span class="t_yellow">transform, color, border;</span></div>
+							<div class="t_blue tab1">transition-duration: <span class="t_yellow">.5s;</span></div>
+							<div class="t_blue tab1">transition-timing-function: <span class="t_yellow">ease;</span></div>
+							<div class="t_blue tab1">transition-delay: <span class="t_yellow">.2s;</span></div>
+							}
+						</div>
+						<ul class="c_sub">
+							<li>transition의 속성을 분리해서 정의할 수 있습니다.</li>
+							<li>code가 길어지는 단점이 있지만, 전체 속성(all) 대신 꼭 필요한 속성만 사용할 수 있습니다.</li>
+						</ul>
+					</div>
+
+					<!-- 대입형 -->
+					<div class="type type4">
+						<p class="c_tit">4. 대입형</p>
+						<div class="code_wrap">
+							.box {
+							<div class="t_blue tab1">transition-property: <span class="t_yellow">transform, color, border;</span></div>
+							<div class="t_blue tab1">transition-duration: <span class="t_yellow">.5s, .3s, .25s;</span></div>
+							<div class="t_blue tab1">transition-timing-function: <span class="t_yellow">ease, linear, linear;</span></div>
+							<div class="t_blue tab1">transition-delay: <span class="t_yellow">.2s, 1s, 0s;</span></div>
+							}
+						</div>
+						<div class="c_sub">
+							transition-property에 나열된 순서대로 다른 transitiondml 속성이 대입 적용됩니다.<br>
+							(3개 이상부터는 관리가 어려운 개인적인 판단에 이 방법은 추천하지 않습니다.)
+						</div>
+					</div>
+
+					<!-- steps -->
+					<div class="type steps_con transition_steps">
+						<p class="c_tit">5. Steps 선언</p>
+						<!--<p class="c_sub">아래는 <span class="t_red2">mouse hover 중이라는 가정</span>하에 steps(n)의 미적용/적용 예제이다.</p>-->
+						<p class="c_sub">
+							애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
+							duration 값과 연계해서 선언하여 일종의 <b>Frame Rate(초당 프레임 수)를 설정</b>하거나 혹은, <b>셀 애니메이션처럼 연계된 동작</b>을 표현할 수도 있습니다.<br>
+							아래 예제 박스에 마우스를 올리거나 Result버튼을 클릭하면 확인할 수 있습니다.
+						</p>
+						<div class="tra_ex_wrap clear">
+							<!-- 미적용 -->
+							<div class="lft">
+								<strong class="t_blue3">
+									[미적용]
+									<button type="button" class="result_btn"><i>Result</i></button>
+								</strong>
+								<div class="ex_code">
+									<div class="code_wrap">
+										.box {
+										<div class="t_blue tab1">transition: <span class="t_yellow">all 1s <span class="t_orange">ease</span>;</span></div>
+										}
+									</div>
+									<div class="move">
+										<div class="box">.box</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- 적용 -->
+							<div class="lft steps">
+								<strong class="t_blue3">
+									[적용]
+									<button type="button" class="result_btn"><i>Result</i></button>
+								</strong>
+								<div class="ex_code">
+									<div class="code_wrap">
+										.box {
+										<div class="t_blue tab1">transition: <span class="t_yellow">all 1s <span class="t_orange">steps(10)</span>;</span></div>
+										}
+									</div>
+									<div class="move">
+										<div class="box">.box</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</article>
+
+	</section>
+
+
+</div>
+<!-- //wrap -->
+
+<script src="/assets/kmtemp/transform/js/js.js"></script>
+</body>
+</html>

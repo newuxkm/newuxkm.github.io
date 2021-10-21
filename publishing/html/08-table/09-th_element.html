@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -900,12 +903,115 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;th&gt;</code> 요소는 HTML 테이블에서 제목이 되는 헤더 셀(header cell)을 정의할 때 사용합니다.<br>
+						HTML 테이블를 구성하는 셀(cell)은 두 종류로 구분할 수 있으며,
+						하나는 <code>&lt;th&gt;</code> 요소를 사용한 헤더 정보를 저장하는 헤더 셀과 또 다른 하나는 <code>&lt;td&gt;</code> 요소를 사용한 일반적인 데이터를 저장하는 데이터 셀입니다.<br>
+						<code>&lt;th&gt;</code> 요소 내의 텍스트는 기본적으로 굵은 폰트로 중앙 정렬되며,
+						<code>&lt;td&gt;</code> 요소 내의 텍스트는 일반적인 두께의 폰트로 좌측 정렬됩니다.<br>
+					</p>
+					<p class="mt_s">
+						<code>colspan</code> 속성과 <code>rowspan</code> 속성을 사용하면 콘텐츠를 여러 셀에 걸쳐 나타낼 수 있습니다.
+					</p>
+					<p class="mt_s">
+						HTML5에서는 <code>&lt;th&gt;</code> 요소의 <code>align</code>, <code>axis</code>, <code>bgcolor</code>, <code>char</code>, <code>charoff</code>, <code>height</code>, <code>nowrap</code>, <code>valign</code>, <code>width</code> 속성을 더 이상 지원하지 않습니다.
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="th element CSS default">
+							<textarea readonly="readonly">
+								th {
+									display: table-cell;
+									vertical-align: inherit;
+									font-weight: bold;
+									text-align: center;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>8.9.1. th 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[abbr] <span class="t_blue">&lt;th abbr="텍스트"&gt;</span></h3>
+						<p class="mt_ms">
+							해당 요소의 abbr 속성은 헤더 셀 내부의 콘텐츠에 대한 짧은 설명을 명시합니다.<br>
+							일반 웹 브라우저에서는 해당 요소에 scope 속성을 명시해도 아무런 시각적 효과도 나타나지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용될 수 있습니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[colspan] <span class="t_blue">&lt;th colspan="숫자"&gt;</span></h3>
+						<p class="mt_ms">
+							해당 요소의 colspan 속성은 해당 헤더 셀이 확장될 열(column)의 개수를 명시합니다. 기본값은 1입니다.<br>
+							이때 colspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 열 그룹(colgroup)의 마지막 열까지 확장됩니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[rowspan] <span class="t_blue">&lt;th rowspan="숫자"&gt;</span></h3>
+						<p class="mt_ms">
+							해당 요소의 rowspan 속성은 해당 헤더 셀(cell)이 확장될 행(row)의 개수를 명시합니다. 기본값은 1입니다.<br>
+							rowspan 속성값을 0으로 명시하면, 해당 셀은 자신이 포함된 테이블 영역(thead, tbody, tfoot)의 마지막 행까지 확장됩니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[headers] <span class="t_blue">&lt;th headers="header id"&gt;</span></h3>
+						<p class="mt_ms">
+							해당 요소의 headers 속성은 해당 헤더 셀과 연관된 하나 이상의 헤더 셀(header cell)을 명시합니다.<br>
+							header id값은 해당 헤더 셀과 연관된 헤더 셀(header cell)들의 id 속성값을 공백으로 구분한 리스트입니다.<br>
+							일반 웹 브라우저에서는 해당 요소에 headers 속성을 명시해도 시각적으로 어떠한 효과도 보여주지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용됩니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[scope] <span class="t_blue">&lt;th scope="col | row | colgroup | rowgroup"&gt;</span></h3>
+						<p class="mt_ms">
+							해당 요소의 scope 속성은 테이블에서 헤더 셀과 데이터 셀을 연결하는 방법을 명시합니다.<br>
+							일반 웹 브라우저에서는 해당 요소에 headers 속성을 명시해도 시각적으로 어떠한 효과도 보여주지 않지만, 스크린 리더기와 같은 장치에서는 유용하게 사용됩니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><b>col</b> : 해당 셀이 열(column)을 위한 헤더 셀임을 명시함.</li>
+							<li><b>row</b> : 해당 셀이 행(row)을 위한 헤더 셀임을 명시함.</li>
+							<li><b>colgroup</b> : 해당 셀이 열의 그룹을 위한 헤더 셀임을 명시함.</li>
+							<li><b>rowgroup</b> : 해당 셀이 행의 그룹을 위한 헤더 셀임을 명시함.</li>
+						</ol>
+					</article>
+				</section>
+
+				<figure class="img_figure indent mt_xl">
+					<img src="/ukncs/images/html/uxkm_img_table_rowcol.svg" alt="html 요소 설명">
+					<figcaption>[table 요소의 부분 설명]</figcaption>
+				</figure>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/08-table/8.9.th_element.html">
+					<h2 class="ve_tit">th element 예제</h2>
+					<div  class="uk_editor indent min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="th">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">1.0</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">표 데이터<span>(Tabular data)</span> 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html52/tabular-data.html#the-table-element" target="_blank" class="fas" title="새창열기">W3C 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas" title="새창열기">MDN 문서</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1270,6 +1376,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="8.9. th element">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>
@@ -1317,7 +1425,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

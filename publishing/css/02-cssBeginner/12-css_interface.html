@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -897,12 +900,258 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						css 초급 과정의 속성 외 UI에 관련된 속성들에 대해 정의합니다.
+					</p>
+				</blockquote>
+
+				<!-- outline 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">outline</i> 속성</h2>
+					<p class="mt_ms">
+						outline 속성은 HTML 요소의 가장 바깥 부분을 둘러싸고 있는 아웃라인 부분의 스타일을 설정합니다.<br>
+						이 속성은 border 속성과 마찬가지로 style, width, color 속성을 가집니다.<br>
+						하지만 outline 속성은 border 속성과는 달리 HTML 요소의 전체 크기에는 포함되지 않습니다.<br>
+						HTML 요소의 높이나 너비는 outline의 두께에 전혀 영향을 받지 않습니다.<br>
+						outline 속성을 설정하기 위해서는 반드시 outline-style 속성이 먼저 설정되어 있어야 합니다.<br>
+						익스플로러 8과 그 이전 버전에서는 HTML 문서에 <code>&lt;!DOCTYPE html&gt;</code>이 선언되어 있어야 outline 속성이 제대로 표현됩니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="outline">
+						<textarea readonly="readonly">
+							div {
+								outline: outline-width outline-style outline-color;
+							}
+						</textarea>
+					</div>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li><strong class="t_black">outline</strong> : 아웃라인 축약 표현(outline shorthand)으로 모든 outline 속성을 이용한 스타일을 한 줄에 설정할 수 있습니다.</li>
+							<li><strong class="t_black">outline-width</strong> : 아웃라인(outline)의 너비를 설정합니다.</li>
+							<li><strong class="t_black">outline-style</strong> : 아웃라인(outline)를 다양한 모양으로 설정합니다.</li>
+							<li><strong class="t_black">outline-color</strong> : 아웃라인(outline)의 색상을 설정합니다.</li>
+							<li><strong class="t_black">outline-offset</strong> : 테두리(border)와 아웃라인(outline) 사이의 여백을 설정합니다. IE는 지원 안합니다.</li>
+						</ol>
+					</div>
+
+					<!-- outline-width 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">outline-width</i> 속성</h3>
+						<p class="mt_s">
+							<code>outline-width</code> 속성은 아웃라인(outline)의 두께를 설정합니다.<br>
+							px, em, cm 등과 같은 CSS 크기 단위를 이용하여 두께를 직접 설정할 수 있습니다.<br>
+							또한, 미리 설정해 놓은 예약어인 thin, medium, thick을 사용하여 설정할 수도 있습니다.
+						</p>
+					</article>
+
+					<!-- outline-style 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">outline-style</i> 속성</h3>
+						<p class="mt_s">
+							<code>outline-style</code> 속성을 이용하면 아웃라인(outline)을 다양한 모양으로 설정할 수 있습니다.
+						</p>
+						<div class="ol_lst indent mt_s">
+							<ol>
+								<li><strong class="t_black">dotted</strong> : 아웃라인을 점선으로 설정합니다.</li>
+								<li><strong class="t_black">dashed</strong> : 아웃라인을 약간 긴 점선으로 설정합니다.</li>
+								<li><strong class="t_black">solid</strong> : 아웃라인을 실선으로 설정합니다.</li>
+								<li><strong class="t_black">double</strong> : 아웃라인을 이중 실선으로 설정합니다.</li>
+								<li><strong class="t_black">groove</strong> : 아웃라인을 3차원인 입체적인 선으로 설정하며, outline-color 속성값에 영향을 받습니다.</li>
+								<li><strong class="t_black">ridge</strong> : 아웃라인을 3차원인 능선효과가 있는 선으로 설정하며, outline-color 속성값에 영향을 받습니다.</li>
+								<li><strong class="t_black">inset</strong> : 3차원인 내지로 끼운 선으로 설정하며, outline-color 속성값에 영향을 받습니다.</li>
+								<li><strong class="t_black">outset</strong> : 3차원인 외지로 끼운 선으로 설정하며, outline-color 속성값에 영향을 받습니다.</li>
+								<li><strong class="t_black">none</strong> : 아웃라인(outline)을 없앱니다.</li>
+								<li><strong class="t_black">hidden</strong> : 아웃라인(outline)이 존재하기는 하지만 표현되지는 않습니다.</li>
+							</ol>
+						</div>
+					</article>
+
+					<!-- outline-color 속성 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn"><i class="t_blue">outline-color</i> 속성</h3>
+						<p class="mt_s">
+							<code>outline-color</code> 속성은 아웃라인(outline)의 색상을 설정합니다.<br />
+							기본적인 color 속성값들뿐만 아니라 색반전을 나타내는 invert 속성값을 사용할 수 있습니다.<br />
+							또한, invert 속성값은 배경색과 상관없이 아웃라인을 보여주기 위한 색반전을 설정합니다.
+						</p>
+					</article>
+
+					<article class="view_editor edit_code mt_l" data-target="css/step01/2.12.ui-interface/2.11.outline.html">
+						<h3 class="ve_tit">outline 속성 예제</h3>
+						<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</article>
+
+					<aside class="browser_support mt_m" data-tit="outline">
+						<ul>
+							<li class="ie">8+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.5</li>
+							<li class="opera">7.0</li>
+							<li class="safari">1.2</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- cursor 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">cursor</i> 속성</h2>
+					<p class="mt_ms">
+						요소 위에 마우스 커서가 올라갔을 때 보여줄 모양을 지정합니다.<br>
+						속성 값에 따라 브라우저 지원이 다릅니다.
+					</p>
+					<!--
+					<p class="mt_s">
+						<code>
+							cursor:[ [ &lt;url&gt; [ &lt;x&gt; &lt;y&gt; ]? , ]* [ auto | default | none | context-menu | help | pointer | progress | wait | cell | crosshair | text | vertical-text | alias | copy | move | no-drop | not-allowed | e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll | zoom-in | zoom-out | grab | grabbing ] ]
+						</code>
+					</p>
+					-->
+					<p class="mt_m">
+						<strong class="font-16 t_black">대표적인 마우스 커서 값은 다음과 같습니다.</strong>
+						<!--<b class="font-16 t_blue">(아래 예제에 마우스를 올려보세요.)</b>-->
+					</p>
+
+					<div class="ol_lst indent mt_s">
+						<div class="uk_gist_code_box mt_ms" data-tit="cursor">
+							<textarea readonly="readonly">
+								div {
+									/* 1. 일반 */
+									cursor: auto | default | none;
+									/* 2. 링크와 상태 */
+									cursor: context-menu | help | pointer | progress | wait;
+									/* 3. 선택 */
+									cursor: cell | crosshair | text | vertical-text;
+									/* 4. 드래그 앤 드롭 */
+									cursor: alias | copy | move | no-drop(not-allowed) | grab | grabbing;
+									/* 5. 크기 조절과 스크롤 */
+									cursor: all-scroll | col-resize | row-resize | n-resize | e-resize | s-resize | w-resize | ne-resize | nw-resize | se-resize | sw-resize | ew-resize | ns-resize | nesw-resize | nwse-resize;
+									/* 6. 확대와 축소 */
+									cursor: zoom-in | zoom-out;
+								}
+							</textarea>
+						</div>
+						<p class="font-16 t_blue mt_m"><strong>아래 예제에 마우스를 올려보세요.</strong></p>
+						<ol>
+							<!-- 일반 -->
+							<li class="line_code font14 mt_ms">
+								<strong>일반</strong>
+								<div class="line_code mt_sm">
+									<p>auto : 사용자 에이전트가 현재 맥락에 맞춰 표시할 커서를 결정. 예를 들어 글씨 위에서는 text를 사용합니다.</p>
+									<p style="cursor:default;">default : <img src="/_assets/images/css/cursor/default.gif" alt="default"> 플랫폼에 따라 다른 기본 커서. 보통 화살표입니다.</p>
+									<p>none : 커서 없음.</p>
+								</div>
+							</li>
+
+							<!-- 링크와 상태 -->
+							<li class="line_code font14 mt_s">
+								<strong>링크와 상태</strong>
+								<div class="line_code mt_sm">
+									<p style="cursor:context-menu;">context-menu : <img src="/_assets/images/css/cursor/context-menu.png" alt="context-menu"> 콘텍스트 메뉴 사용 가능.</p>
+									<p style="cursor:help;">help : <img src="/_assets/images/css/cursor/help.gif" alt="help"> 도움말 사용 가능.</p>
+									<p style="cursor:pointer;">pointer : <img src="/_assets/images/css/cursor/pointer.gif" alt="pointer"> 링크를 나타내는 포인터. 보통 한 쪽을 가리키는 손입니다.</p>
+									<p style="cursor:progress;">progress : <img src="/_assets/images/css/cursor/progress.gif" alt="progress"> 프로그램이 백그라운드에서 작업 중이지만, 사용자가 인터페이스와 상호작용할 수 있음. (wait과 반대)</p>
+									<p style="cursor:wait;">wait : <img src="/_assets/images/css/cursor/wait.gif" alt="wait"> 프로그램이 작업 중이고, 사용자가 인터페이스와 상호작용할 수 없음. (progress와 반대) 간혹 모래시계나 시계모양 그림을 사용합니다.</p>
+								</div>
+							</li>
+
+
+							<!-- 선택 -->
+							<li class="line_code font14 mt_s">
+								<strong>선택</strong>
+								<div class="line_code mt_sm">
+									<p style="cursor:cell;">cell : <img src="/_assets/images/css/cursor/cell.gif" alt="cell"> 표의 칸이나 여러 칸을 선택할 수 있음.</p>
+									<p style="cursor:crosshair;">crosshair : <img src="/_assets/images/css/cursor/crosshair.gif" alt="crosshair"> 십자 커서. 종종 비트맵 선택에 사용합니다.</p>
+									<p style="cursor:text;">text : <img src="/_assets/images/css/cursor/text.gif" alt="text"> 글씨 선택 가능. 보통 I빔 모양입니다.</p>
+									<p style="cursor:vertical-text;">vertical-text : <img src="/_assets/images/css/cursor/vertical-text.gif" alt="help"> 세로쓰기 글씨 선택 가능. 보통 옆으로 누운 I빔 모양입니다.</p>
+								</div>
+							</li>
+
+							<!-- 드래그 앤 드롭 -->
+							<li class="line_code font14 mt_s">
+								<strong>드래그 앤 드롭</strong>
+								<div class="line_code mt_sm">
+									<p style="cursor:alias;">alias : <img src="/_assets/images/css/cursor/alias.gif" alt="alias"> 별칭이나 바로가기를 만드는 중.</p>
+									<p style="cursor:copy;">copy : <img src="/_assets/images/css/cursor/copy.gif" alt="copy"> 복사하는 중.</p>
+									<p style="cursor:move;">move : <img src="/_assets/images/css/cursor/move.gif" alt="move"> 움직이는 중.</p>
+									<p style="cursor:no-drop;">no-drop : <img src="/_assets/images/css/cursor/no-drop.gif" alt="no-drop"> 현재 위치에 놓을 수 없음. Windows와 Mac OS X에서 no-drop은 not-allowed와 같습니다.</p>
+									<p style="cursor:grab;">grab : <img src="/_assets/images/css/cursor/grab.gif" alt="grab"> 잡을 수 있음. (잡아서 이동)</p>
+									<p style="cursor:grabbing;">grabbing : <img src="/_assets/images/css/cursor/grabbing.gif" alt="grabbing"> 잡고 있음. (잡아서 이동)</p>
+								</div>
+							</li>
+
+							<!-- 크기 조절과 스크롤 -->
+							<li class="line_code font14 mt_s">
+								<strong>크기 조절과 스크롤</strong>
+								<div class="line_code mt_sm">
+									<p style="cursor:all-scroll;">all-scroll : <img src="/_assets/images/css/cursor/all-scroll.gif" alt="all-scroll"> 모든 방향으로 이동 가능. (패닝) Windows에서 all-scroll은 move와 같습니다</p>
+									<p style="cursor:col-resize;">col-resize<img src="/_assets/images/css/cursor/col-resize.gif" alt="col-resize"> 항목/행의 크기를 좌우로 조절할 수 있음. 종종 좌우 화살표의 가운데를 세로로 분리한 모양을 사용합니다.</p>
+									<p style="cursor:row-resize;">row-resize<img src="/_assets/images/css/cursor/row-resize.gif" alt="row-resize"> 항목/열의 크기를 상하로 조절할 수 있음. 종종 상하 화살표의 가운데를 가로로 분리한 모양을 사용합니다.</p>
+									<p>동, 서, 남, 북 resize : 움직일 수 있는 모서리. 예를 들어, se-resize 커서는 움직임이 사각형의 동남쪽에서 시작할 때 사용합니다.<br>
+										어떤 환경에선 동일한 방향의 양방향 화살표를 대신 보여줍니다. 즉 n-resize와 s-resize는 ns-resize와 같습니다.<br>
+										현재 모든 브라우저에서 양방향 크기 조절 커서와 동일하게 보임.
+										<span style="display:block;cursor:n-resize;">n-resize <img src="/_assets/images/css/cursor/n-resize.gif" alt="n-resize"></span>
+										<span style="display:block;cursor:e-resize;">e-resize <img src="/_assets/images/css/cursor/e-resize.gif" alt="e-resize"></span>
+										<span style="display:block;cursor:s-resize;">s-resize <img src="/_assets/images/css/cursor/s-resize.gif" alt="s-resize"></span>
+										<span style="display:block;cursor:w-resize;">w-resize <img src="/_assets/images/css/cursor/w-resize.gif" alt="w-resize"></span>
+										<span style="display:block;cursor:ne-resize;">ne-resize <img src="/_assets/images/css/cursor/ne-resize.gif" alt="ne-resize"></span>
+										<span style="display:block;cursor:nw-resize;">nw-resize <img src="/_assets/images/css/cursor/nw-resize.gif" alt="nw-resize"></span>
+										<span style="display:block;cursor:se-resize;">se-resize <img src="/_assets/images/css/cursor/se-resize.gif" alt="se-resize"></span>
+										<span style="display:block;cursor:sw-resize;">sw-resize <img src="/_assets/images/css/cursor/sw-resize.gif" alt="sw-resize"></span>
+									</p>
+									<p>양방향 크기 조절 커서.
+										<span style="display:block;cursor:ew-resize;">ew-resize <img src="/_assets/images/css/cursor/ew-resize.gif" alt="ew-resize"></span>
+										<span style="display:block;cursor:ns-resize;">ns-resize <img src="/_assets/images/css/cursor/ns-resize.gif" alt="ns-resize"></span>
+										<span style="display:block;cursor:nesw-resize;">nesw-resize <img src="/_assets/images/css/cursor/nesw-resize.gif" alt="nesw-resize"></span>
+										<span style="display:block;cursor:nwse-resize;">nwse-resize <img src="/_assets/images/css/cursor/nwse-resize.gif" alt="nwse-resize"></span>
+									</p>
+								</div>
+							</li>
+
+							<!-- 확대와 축소 -->
+							<li class="line_code font14 mt_s">
+								<strong>확대와 축소</strong>
+								<div class="line_code mt_sm">
+									<p>IE에서는 기본 pointer 커서로 렌더링됨.</p>
+									<p>확대/축소할 수 있음.
+										<span style="display:block;cursor:zoom-in;">zoom-in <img src="/_assets/images/css/cursor/zoom-in.gif" alt="zoom-in"></span>
+										<span style="display:block;cursor:zoom-out;">zoom-out <img src="/_assets/images/css/cursor/zoom-out.gif" alt="zoom-out"></span>
+									</p>
+								</div>
+							</li>
+						</ol>
+					</div>
+
+					<aside class="browser_support mt_m" data-tit="cursor">
+						<ul>
+							<li class="ie">4+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">7.0</li>
+							<li class="safari">1.2</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!--
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">사용자 인터페이스 속성 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html" target="_blank" class="fas" title="새창열림">W3C UI</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface" target="_blank" class="fas" title="새창열림">MDN User Interface</a></li>
+					</ul>
+				</aside>
+				-->
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 초급 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html" target="_blank" class="fas" title="새창열기">W3C UI</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface" target="_blank" class="fas" title="새창열기">MDN User Interface</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1095,6 +1344,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="2.12. 사용자 인터페이스 속성">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // CSS side menu -->
 		</div>
@@ -1142,7 +1393,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

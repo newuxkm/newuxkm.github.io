@@ -22,6 +22,7 @@ $(document).ready(function(){
 // window load ---------------------------------------------------------------------------------------------------------
 $(window).on('load', function(){
   focus_controll();
+  _html.removeAttr('style');
   _main_intro.addClass('start');
 
   // d3 button click
@@ -45,7 +46,6 @@ $(window).on('load', function(){
         if( _main_intro.is('.'+none_3d) && !_main_intro.is('.'+hover_state) ){
           _main_intro.addClass(hover_state);
           clearInterval(class_re);
-          console.log('aaaa');
         }
       }, 100);
     }

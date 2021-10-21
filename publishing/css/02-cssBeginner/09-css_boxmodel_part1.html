@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -908,12 +911,541 @@
 					</ul>
 				</nav>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						<b class="t_blue">박스 모델 속성 part-1</b> 에서는<br>
+						<span class="t_black">박스 크기(width, height) 속성</span>,<br>
+						<span class="t_black">박스 외부 여백(margin) 속성</span>,<br>
+						<span class="t_black">박스 내부 여백(padding) 속성</span>에 대한 내용을 다루고 있습니다.
+					</p>
+					<p class="mt_ms">
+						CSS의 기본 개념 중 하나 인 박스 모델을 설명합니다. 이 모델은 CSS가 내용, 패딩, 경계 및 여백 영역을 포함하여 요소를 배치하는 방법을 정의합니다.<br>
+						box-sizing속성으로 설정하면 content-box(기본값) 및 요소가 블록 요소의 경우, 콘텐츠 영역의 크기는 명시적으로 정의 할 수 있습니다.<br>
+						실제 홈페이지의 디자인에 중요한 역할을 하며, 항상 사용되고 가장 중요한 속성들입니다.<br>
+						width와 height 속성을 비롯한 모든 박스모델 관련 속성(margin, padding, border, box-sizing 등)은 상속되지 않습니다.
+					</p>
+				</blockquote>
+
+				<figure class="img_figure mt_l">
+					<img src="/_assets/images/css/cssBeginner/uxkm_boxmodel.svg" alt="박스 모델 다이어그램">
+					<!--
+					<img src="/ukncs/images/css/boxdim.png" alt="박스 모델 다이어그램">
+					<img src="/ukncs/images/css/img_css_boxsize.png" alt="박스 모델 예시">
+					<img src="/ukncs/images/css/img_box-model-detail.png" alt="박스 모델 상세">
+					-->
+					<figcaption>
+						<strong class="t_black">[박스 모델 다이어그램]</strong><!--[이미지 참조:W3C 박스 모델]-->
+						<ul>
+							<li>내용(content) : 텍스트나 이미지가 들어있는 박스의 실질적인 내용 부분입니다.</li>
+							<li>패딩(padding) : 내용과 테두리 사이의 간격입니다. 패딩은 눈에 보이지 않습니다.</li>
+							<li>테두리(border) : 내용와 패딩 주변을 감싸는 테두리입니다.</li>
+							<li>마진(margin) : 테두리와 이웃하는 요소 사이의 간격입니다. 마진은 눈에 보이지 않습니다.</li>
+							<li><code>width : width + right padding + left padding + right border + left border + right margin + left margin</code></li>
+							<li><code>height : height + top padding + bottom padding + top border + bottom border + top margin + bottom margin</code></li>
+						</ul>
+					</figcaption>
+				</figure>
+
+				<figure class="img_figure mt_l">
+					<figcaption class="mt_0">
+						<code>
+							width:200px;
+							height:200px;
+							margin:20px auto;
+							padding:20px;
+							border:10px solid skyblue;
+						</code><br>
+						<span class="t_blue">위와 같이 명시된 경우의 크롬 devTool에서 확인한 boxmodel 예시</span>
+					</figcaption>
+					<hr class="dashed_line mt_ml">
+					<div class="mt_m">
+						<strong class="t_black">[박스모델]</strong><br>
+						<img src="/_assets/images/css/cssBeginner/img_devtool_boxmodel_boxmodel.png" alt="boxmodel" class="mt_s">
+					</div>
+					<hr class="dashed_line mt_ml">
+					<div class="mt_m">
+						<strong class="t_black">[Contents 영역]</strong><br>
+						<img src="/_assets/images/css/cssBeginner/img_devtool_boxmodel_content.png" alt="content boxmodel" class="mt_s">
+					</div>
+					<hr class="dashed_line mt_ml">
+					<div class="mt_m">
+						<strong class="t_black">[Padding 영역]</strong><br>
+						<img src="/_assets/images/css/cssBeginner/img_devtool_boxmodel_padding.png" alt="padding boxmodel" class="mt_s">
+					</div>
+					<hr class="dashed_line mt_ml">
+					<div class="mt_m">
+						<strong class="t_black">[Border 영역]</strong><br>
+						<img src="/_assets/images/css/cssBeginner/img_devtool_boxmodel_border.png" alt="border boxmodel" class="mt_s">
+					</div>
+					<hr class="dashed_line mt_ml">
+					<div class="mt_m">
+						<strong class="t_black">[Margin 영역]</strong><br>
+						<img src="/_assets/images/css/cssBeginner/img_devtool_boxmodel_margin.png" alt="margin boxmodel" class="mt_s">
+					</div>
+				</figure>
+
+				<!-- 2.9.1. 박스 크기(width, height)를 제어하는 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.9.1. 박스 크기(<i class="t_blue">width</i>, <i class="t_blue">height</i>)를 제어하는 속성</h2>
+					<p class="mt_ms">
+						CSS를 이용하면 HTML 요소의 크기를 마음대로 설정할 수 있습니다.<br>
+						CSS에서 크기 조절을 위해 사용할 수 있는 속성은 다음과 같습니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="width, height">
+							<textarea readonly="readonly">
+								div {
+									width: <length> | <percentage>;
+									height: <length> | <percentage>;
+									max-width: <length> | <percentage>;
+									max-height: <length> | <percentage>;
+									min-width: <length> | <percentage>;
+									min-height: <length> | <percentage>;
+								}
+							</textarea>
+					</div>
+
+					<!-- width 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">width</i> 속성</h3>
+						<p class="mt_s">
+							이 속성의 기본 설정값은 auto이며, 웹 브라우저가 각 HTML 요소에 맞게 자동으로 너비를 설정해 줍니다.
+						</p>
+						<p class="mt_s">
+							<code>width: &lt;length&gt; | &lt;percentage&gt;</code>
+						</p>
+					</article>
+
+					<!-- height 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">height</i> 속성</h3>
+						<p class="mt_s">
+							이 속성의 기본 설정값은 auto이며, 웹 브라우저가 각 HTML 요소에 맞게 자동으로 높이를 설정해 줍니다.
+						</p>
+						<p class="mt_s">
+							<code>height: &lt;length&gt; | &lt;percentage&gt;</code>
+						</p>
+					</article>
+
+					<!-- min-width 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">min-width</i> 속성</h3>
+						<p class="mt_s">
+							min-width 속성은 해당 HTML 요소가 가질 수 있는 최소 너비(width)를 설정합니다.<br>
+							이 속성의 기본 설정값은 0이며, 해당 HTML 요소의 너비에 제한을 두지 않겠다는 의미입니다.<br>
+							min-width 속성이 설정된 요소에 width 속성값을 따로 설정하지 않으면 초기 너비(width)는 100%를 가지게 됩니다.<br>
+							이때 웹 브라우저의 크기가 줄어들면 거기에 맞춰 HTML 요소의 너비도 자동으로 줄어듭니다.<br>
+							하지만 웹 브라우저가 min-width 속성으로 설정된 너비 이하로 줄어들면, HTML 요소의 너비는 더는 줄어들지 않고 수평 스크롤 바를 생성하게 됩니다.
+						</p>
+						<p class="mt_s">
+							<code>min-width: &lt;length&gt; | &lt;percentage&gt;</code>
+						</p>
+					</article>
+
+					<!-- min-height 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">min-height</i> 속성</h3>
+						<p class="mt_s">
+							min-height 속성은 지정된 HTML 요소가 가질 수 있는 최소 높이(height)를 설정합니다.<br>
+							이 속성의 기본 설정값은 0이며, 해당 HTML 요소의 높이에 제한을 두지 않겠다는 의미입니다.<br>
+							min-height 속성을 설정하면 해당 HTML 요소의 높이를 설정된 높이 이하로 제한합니다.<br>
+							즉 height 속성값이 min-height 속성값 이하로 낮아지지 않도록 합니다.<br>
+							이러한 min-height 속성값은 max-height 속성값과 height 속성값보다 먼저 적용됩니다.
+						</p>
+						<p class="mt_s">
+							<code>min-height: &lt;length&gt; | &lt;percentage&gt;</code>
+						</p>
+					</article>
+
+					<!-- max-width 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">max-width</i> 속성</h3>
+						<p class="mt_s">
+							max-width 속성은 해당 HTML 요소가 가질 수 있는 최대 너비(width)를 설정합니다.<br>
+							이 속성의 기본 설정값은 none이며, 해당 HTML 요소의 너비에 제한을 두지 않겠다는 의미입니다.<br>
+							width 속성으로 너비를 설정하면, 설정된 너비 이하로 브라우저의 크기가 줄어들 때 해당 요소에 스크롤 바를 생성하게 됩니다.<br>
+							하지만 max-width 속성으로 너비를 설정하면 다음과 같이 좀 더 유연한 결과를 얻을 수 있습니다.<br>
+							max-width 속성으로 너비를 설정하면 줄어드는 웹 브라우저의 크기에 맞춰 해당 HTML 요소의 너비도 자동으로 줄어듭니다.
+						</p>
+						<p class="mt_s">
+							<code>max-width: &lt;length&gt; | &lt;percentage&gt;</code>
+						</p>
+					</article>
+
+					<!-- max-height 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">max-height</i> 속성</h3>
+						<p class="mt_s">
+							max-height 속성은 해당 HTML 요소가 가질 수 있는 최대 높이(height)를 설정합니다.<br>
+							이 속성의 기본 설정값은 none이며, 해당 HTML 요소의 크기에 따라 높이가 자동으로 설정됩니다.<br>
+							max-height 속성으로 최대 높이를 설정하면, 해당 HTML 요소의 높이를 설정된 높이 이하로 제한합니다.<br>
+							만약 해당 요소의 높이가 설정된 최대 높이보다 클 경우에는 수직 스크롤 바를 생성하게 됩니다.
+						</p>
+						<p class="mt_s">
+							<code>max-height: &lt;length&gt; | &lt;percentage&gt;</code>
+						</p>
+					</article>
+
+					<aside class="browser_support mt_xl" data-tit="box size">
+						<ul>
+							<li class="ie">4+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">7.0</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- 2.9.2. 박스 외부 여백(margin)을 제어하는 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.9.2. 박스 외부 여백(<i class="t_blue">margin</i>)을 제어하는 속성</h2>
+					<p class="mt_ms">
+						margin 속성은 테두리(border)와 이웃하는 요소 사이의 간격인 마진 영역의 크기를 설정합니다.<br>
+						이러한 마진 영역은 패딩 영역과는 달리 background-color 속성으로 설정하는 배경색의 영향을 받지 않습니다.<br>
+						CSS를 사용하면 마진 영역의 크기를 방향별로 따로 설정할 수 있습니다.<br>
+						margin 속성값을 음수로 설정하여 해당 요소를 다른 요소의 위에 겹치게 할 수도 있습니다.<br>
+						margin 속성값을 inherit로 설정하면, 부모(parent) 요소의 margin 속성값을 그대로 물려받습니다.<br>
+						모든 margin 속성을 이용한 스타일을 한 줄에 설정할 수 있습니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="margin">
+							<textarea readonly="readonly">
+								div {
+									margin: margin-width | inherit;
+								}
+							</textarea>
+					</div>
+					<figure class="img_figure mt_m">
+						<img src="/_assets/images/css/cssBeginner/uxkm_boxmodel_margin.svg" alt="margin boxmodel">
+						<figcaption>[margin boxmodel 다이어그램]</figcaption>
+					</figure>
+
+					<!-- margin 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">margin</i> 속성</h3>
+						<p class="mt_s">
+							margin을 각각 방향별로 설정할 수 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="margin">
+								<textarea readonly="readonly">
+									div {
+										margin-top: 10px;    /* 윗쪽의 마진(margin) 값을 설정합니다. */
+										margin-right: 10px;  /* 오른쪽의 마진(margin) 값을 설정합니다. */
+										margin-bottom: 10px; /* 아래쪽의 마진(margin) 값을 설정합니다. */
+										margin-left: 10px;   /* 왼쪽의 마진(margin) 값을 설정합니다. */
+									}
+								</textarea>
+						</div>
+					</article>
+
+					<!-- margin-top 속성
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">margin-top</i> 속성</h3>
+						<p class="mt_s">
+							윗쪽의 마진(margin) 값을 설정함.
+						</p>
+					</article>
+					-->
+
+					<!-- margin-right 속성
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">margin-right</i> 속성</h3>
+						<p class="mt_s">
+							오른쪽의 마진(margin) 값을 설정함.
+						</p>
+					</article>
+					-->
+
+					<!-- margin-bottom 속성
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">margin-bottom</i> 속성</h3>
+						<p class="mt_s">
+							아래쪽의 마진(margin) 값을 설정함.
+						</p>
+					</article>
+					-->
+
+					<!-- margin-left 속성
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">margin-left</i> 속성</h3>
+						<p class="mt_s">
+							왼쪽의 마진(margin) 값을 설정함.
+						</p>
+					</article>
+					-->
+
+					<!-- margin 축약형 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">margin</i> 축약형 속성</h3>
+						<p class="mt_s">
+							모든 margin 속성을 이용한 스타일을 한 줄에 설정할 수 있습니다.<br>
+							축약형(shorthand) 방식으로 사용할 때 값이 동일한 경우 4가지 방식으로 사용할 수 있습니다.<br>
+							margin 속성값을 auto로 설정하면, 웹 브라우저가 수평 방향 마진(margin) 값을 자동으로 설정합니다.<br>
+							즉, 해당 HTML 요소의 왼쪽과 오른쪽 마진을 자동으로 설정하게 됩니다.<br>
+							그 결과 해당 요소는 그 요소를 포함하고 있는 부모(parent) 요소의 정중앙에 위치하게 됩니다.
+						</p>
+						<div class="ol_lst indent mt_s">
+							<ol>
+								<li class="line_code font14 mt_ms">
+									<strong>4개의 값을 지정할 때 top, right, bottom, left 순(시계방향)으로 설정합니다.</strong>
+									<div class="uk_gist_code_box mt_s" data-tit="margin shorthand">
+											<textarea readonly="readonly">
+												div {
+													margin: 10px 20px 30px 40px;
+													/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+													margin-top: 10px;
+													margin-right: 20px;
+													margin-bottom: 30px;
+													margin-left: 40px;
+												}
+											</textarea>
+									</div>
+								</li>
+								<li class="line_code font14 mt_ml">
+									<strong>3개의 값을 지정할 때 top, [right/left], bottom 순으로 설정합니다.</strong>
+									<p class="mt_sm">좌/우의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
+									<div class="uk_gist_code_box mt_s" data-tit="margin shorthand">
+											<textarea readonly="readonly">
+												div {
+													margin: 25px 50px 75px;
+													/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+													margin-top: 25px;
+													margin-right: 50px;
+													margin-left: 50px;
+													margin-bottom: 75px
+												}
+											</textarea>
+									</div>
+								</li>
+								<li class="line_code font14 mt_ml">
+									<strong>2개의 값을 지정할 때 [top/bottom], [right/left] 순으로 설정합니다.</strong>
+									<p class="mt_sm">상/하의 값이 같고, 좌/우의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
+									<p>이 때 좌/우의 값을 auto로 지정하면 가운데로 정렬이 가능합니다.</p>
+									<div class="uk_gist_code_box mt_s" data-tit="margin shorthand">
+											<textarea readonly="readonly">
+												div {
+													margin: 25px 50px;
+													/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+													margin-top: 25px;
+													margin-bottom: 25px;
+													margin-right: 50px;
+													margin-left: 50px;
+												}
+											</textarea>
+									</div>
+								</li>
+								<li class="line_code font14 mt_ml">
+									<strong>1개의 값을 지정하여 설정합니다.</strong>
+									<p class="mt_sm">상/우/하/좌의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
+									<div class="uk_gist_code_box mt_s" data-tit="margin shorthand">
+											<textarea readonly="readonly">
+												div {
+													margin: 25px;
+													/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+													margin-top: 25px;
+													margin-right: 25px;
+													margin-bottom: 25px;
+													margin-left: 25px;
+												}
+											</textarea>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</article>
+
+					<aside class="browser_support mt_l" data-tit="margin">
+						<ul>
+							<li class="ie">4+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">3.5</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- 2.9.3. 박스 내부 여백(padding)을 제어하는 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">2.9.3. 박스 내부 여백(<i class="t_blue">padding</i>)을 제어하는 속성</h2>
+					<p class="mt_ms">
+						padding 속성은 내용(content)과 테두리(border) 사이의 간격인 패딩 영역의 크기를 설정합니다.<br>
+						이러한 패딩 영역은 background-color 속성으로 설정하는 배경색의 영향을 함께 받습니다.<br>
+						CSS를 사용하면 패딩 영역의 크기를 방향별로 따로 설정할 수 있습니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="padding">
+							<textarea readonly="readonly">
+								div {
+									padding: padding-width | inherit;
+								}
+							</textarea>
+					</div>
+					<figure class="img_figure mt_m">
+						<img src="/_assets/images/css/cssBeginner/uxkm_boxmodel_padding.svg" alt="padding boxmodel">
+						<figcaption>[padding boxmodel 다이어그램]</figcaption>
+					</figure>
+
+					<!-- padding 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">padding</i> 속성</h3>
+						<p class="mt_s">
+							padding을 각각 방향별로 설정할 수 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="margin">
+								<textarea readonly="readonly">
+									div {
+										padding-top: 10px;    /* 윗쪽의 패딩(padding) 값을 설정합니다. */
+										padding-right: 10px;  /* 오른쪽의 패딩(padding) 값을 설정합니다. */
+										padding-bottom: 10px; /* 아래쪽의 패딩(padding) 값을 설정합니다. */
+										padding-left: 10px;   /* 왼쪽의 패딩(padding) 값을 설정합니다. */
+									}
+								</textarea>
+						</div>
+					</article>
+
+					<!-- padding-top 속성
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">padding-top</i> 속성</h3>
+						<p class="mt_s">
+							윗쪽의 패딩(padding) 값을 설정함.
+						</p>
+					</article>
+					-->
+
+					<!-- padding-right 속성
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">padding-right</i> 속성</h3>
+						<p class="mt_s">
+							오른쪽의 패딩(padding) 값을 설정함.
+						</p>
+					</article>
+					-->
+
+					<!-- padding-bottom 속성
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">padding-bottom</i> 속성</h3>
+						<p class="mt_s">
+							아래쪽의 패딩(padding) 값을 설정함.
+						</p>
+					</article>
+					-->
+
+					<!-- padding-left 속성
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">padding-left</i> 속성</h3>
+						<p class="mt_s">
+							왼쪽의 패딩(padding) 값을 설정함.
+						</p>
+					</article>
+					-->
+
+					<!-- padding 축약형 속성 -->
+					<article class="mt_l indent">
+						<h3 class="ml_mn"><i class="t_blue">padding</i> 축약형 속성</h3>
+						<p class="mt_s">
+							모든 padding 속성을 이용한 스타일을 한 줄에 설정할 수 있습니다.<br>
+							축약형(shorthand) 방식으로 사용할 때 값이 동일한 경우 4가지 방식으로 사용할 수 있습니다.
+						</p>
+						<div class="ol_lst indent mt_s">
+							<ol>
+								<li class="line_code font14 mt_ms">
+									<strong>4개의 값을 지정할 때 top, right, bottom, left 순(시계방향)으로 설정합니다.</strong>
+									<div class="uk_gist_code_box mt_s" data-tit="padding shorthand">
+											<textarea readonly="readonly">
+												div {
+													padding: 10px 20px 30px 40px;
+													/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+													padding-top: 10px;
+													padding-right: 20px;
+													padding-bottom: 30px;
+													padding-left: 40px;
+												}
+											</textarea>
+									</div>
+								</li>
+								<li class="line_code font14 mt_ml">
+									<strong>3개의 값을 지정할 때 top, [right/left], bottom 순으로 설정합니다.</strong>
+									<p class="mt_sm">좌/우의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
+									<div class="uk_gist_code_box mt_s" data-tit="padding shorthand">
+											<textarea readonly="readonly">
+												div {
+													padding: 25px 50px 75px;
+													/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+													padding-top: 25px;
+													padding-right: 50px;
+													padding-left: 50px;
+													padding-bottom: 75px;
+												}
+											</textarea>
+									</div>
+								</li>
+								<li class="line_code font14 mt_ml">
+									<strong>2개의 값을 지정할 때 [top/bottom], [right/left] 순으로 설정합니다.</strong>
+									<p class="mt_sm">상/하의 값이 같고, 좌/우의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
+									<p>이 때 좌/우의 값을 auto로 지정하면 가운데로 정렬이 가능합니다.</p>
+									<div class="uk_gist_code_box mt_s" data-tit="padding shorthand">
+											<textarea readonly="readonly">
+												div {
+													padding: 25px 50px;
+													/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+													padding-top: 25px;
+													padding-bottom: 25px;
+													padding-right: 50px;
+													padding-left: 50px;
+												}
+											</textarea>
+									</div>
+								</li>
+								<li class="line_code font14 mt_ml">
+									<strong>1개의 값을 지정하여 설정합니다.</strong>
+									<p class="mt_sm">상/우/하/좌의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
+									<div class="uk_gist_code_box mt_s" data-tit="padding shorthand">
+											<textarea readonly="readonly">
+												div {
+													padding: 25px;
+													/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+													padding-top: 25px;
+													padding-right: 25px;
+													padding-bottom: 25px;
+													padding-left: 25px;
+												}
+											</textarea>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</article>
+
+					<aside class="browser_support mt_l" data-tit="padding">
+						<ul>
+							<li class="ie">4+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">1.0</li>
+							<li class="firefox">1.0</li>
+							<li class="opera">3.5</li>
+							<li class="safari">1.0</li>
+						</ul>
+					</aside>
+				</section>
+
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">박스 모델 속성 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#box-model" target="_blank" class="fas" title="새창열림">W3C Box Model</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/css-box-3" target="_blank" class="fas" title="새창열림">Draft, CSS Box Model Module Level 3</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/css-ui-3/#box-sizing" target="_blank" class="fas" title="새창열림">CSS Basic User Interface Module Level 3</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model" target="_blank" class="fas" title="새창열림">MDN Box Model</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius" target="_blank" class="fas" title="새창열림">MDN border-radius</a></li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 초급 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/ui.html" target="_blank" class="fas" title="새창열기">W3C UI</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Basic_User_Interface" target="_blank" class="fas" title="새창열기">MDN User Interface</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1106,6 +1638,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="2.9. 박스 모델 속성 (part-1)">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // CSS side menu -->
 		</div>
@@ -1153,7 +1687,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

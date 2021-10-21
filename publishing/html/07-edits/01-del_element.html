@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -897,12 +900,70 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;del&gt;</code>(Deleted Text) 요소(<code>&lt;del&gt;</code>)는 문서에서 삭제된 텍스트의 범위를 나타냅니다.<br>
+						이 요소는 보통 (그럴 필요는 없지만)가운데 줄 텍스트로 렌더링 됩니다.<br>
+						<code>&lt;del&gt;</code> 요소는 텍스트 한가운데 라인(line)을 추가하여 문서에서 삭제된 텍스트를 표현할 때 사용합니다.<br>
+						또한, <code>&lt;ins&gt;</code> 요소는 텍스트 하단에 라인을 추가하여 문서에서 추가된 텍스트를 표현합니다.<br>
+						이와 같이 <code>&lt;del&gt;</code> 요소와 <code>&lt;ins&gt;</code> 요소는 문서에 대한 업데이트나 수정을 표현할 때 사용하며, 브라우저는 이를 일반 텍스트에 라인을 추가하는 것으로 표현할 것입니다.
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="del element CSS default">
+							<textarea readonly="readonly">
+								del {
+									text-decoration: line-through;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>7.1.1. del 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[cite] <span class="t_blue">&lt;del cite="URL"&gt;</span></h3>
+						<p class="mt_ms">
+							텍스트가 삭제된 이유에 대해서 알 수 있는 문서의 URL을 명시합니다.
+						</p>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[datetime] <span class="t_blue">&lt;del datetime="YYYY-MM-DDThh:mm:ssTZD"&gt;</span></h3>
+						<p class="mt_ms">
+							텍스트가 삭제된 날짜와 시간을 명시합니다.<br>
+							이 속성은 요소의 시간과 날짜를 나타내며 선택적으로 시간 정보를 갖는 유효한 날짜 문자열이어야 합니다.<br>
+							만일 값이 선택적으로 시간 정보를 갖는 날짜 문자열로 파싱될 수 없다면, 요소는 관련된 타임스탬프를 소유하지 않게 됩니다.
+						</p>
+					</article>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/07-edits/7.1.del_element.html">
+					<h2 class="ve_tit">del element 예제</h2>
+					<div  class="uk_editor indent min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="del">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">1.0</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">수정(edits) 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html52/edits.html#edits" target="_blank" class="fas" title="새창열기">W3C 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas" title="새창열기">MDN 문서</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1267,6 +1328,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="7.1. del(Deleted Text) element">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>
@@ -1314,7 +1377,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

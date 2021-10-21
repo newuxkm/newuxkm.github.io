@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -897,12 +900,311 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						사용자로부터 입력을 받을 수 있는 HTML 입력 폼(form)을 정의할 때 사용합니다.
+					</p>
+					<p class="mt_s">
+						HTML5에서는 <code>&lt;form&gt;</code> 요소에 autocomplete 속성과 novalidate 속성이 새롭게 추가되었고, accept 속성은 더 이상 지원되지 않도록 변경되었습니다.<br>
+						accept 속성은 HTML5에서 제거되고 더 이상 사용되서는 안됩니다. 대신에, <code>&lt;input&gt;</code> 요소의 accept 속성을 사용하세요.<br>
+						XHTML에서는 name 속성을 더 이상 지원하지 않으므로, name 속성 대신 전역 속성인 id 속성을 사용해야 합니다.
+					</p>
+					<div class="line_code mt_s">
+						<strong class="t_blue weight-600">CSS 기본값 :</strong>
+						<div class="uk_gist_code_box indent mt_s" data-tit="form element CSS default">
+							<textarea readonly="readonly">
+								form {
+									display: block;
+									margin-top: 0em;
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>9.1.1. form 속성</h2>
+
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[action] <span class="t_blue">&lt;form action="URL"&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;form&gt;</code> 요소의 action 속성은 폼 데이터(form data)를 서버로 전송할 때 해당 데이터가 도착할 URL을 명시합니다.<br>
+							이 값은 <code>&lt;button&gt;</code> 또는 <code>&lt;input&gt;</code> 요소의 formaction 속성으로 대체될 수 있습니다.<br>
+							HTML5에서는 더 이상 <code>&lt;form&gt;</code> 요소에 반드시 action 속성을 명시할 필요가 없도록 변경되었습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="form element [action] attribute">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php">
+									<label>이름 : <input type="text" name="st_name"></label>
+									<label>학번 : <input type="text" name="st_id"></label>
+									<label>학과 : <input type="text" name="department"><label>
+									<input type="submit" value="제출하기">
+								</form>
+							</textarea>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[method] <span class="t_blue">&lt;form method="get | post"&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;form&gt;</code> 요소의 method 속성은 폼 데이터(form data)가 서버로 전송될 때 사용되는 HTTP 메소드를 명시합니다.<br>
+							속성값으로는 GET과 POST 두 가지 중 하나를 선택할 수 있습니다.
+						</p>
+						<p class="mt_s">
+							GET 방식은 URL에 폼 데이터를 추가하여 서버로 전달하는 방식입니다.<br>
+							GET 방식의 HTTP 요청은 브라우저에 의해 캐시되어(cached) 저장됩니다.<br>
+							또한, GET 방식은 보통 쿼리 문자열(query string)에 포함되어 전송되므로, 길이의 제한이 있습니다.<br>
+							따라서 보안상 취약점이 존재하므로, 중요한 데이터는 POST 방식을 사용하여 요청하는 것이 좋습니다.
+						</p>
+						<p class="mt_s">
+							POST 방식은 폼 데이터를 별도로 첨부하여 서버로 전달하는 방식입니다.<br>
+							POST 방식의 HTTP 요청은 브라우저에 의해 캐시되지 않으므로, 브라우저 히스토리에도 남지 않습니다.<br>
+							또한, POST 방식의 HTTP 요청에 의한 데이터는 쿼리 문자열과는 별도로 전송됩니다.<br>
+							따라서 데이터의 길이에 대한 제한도 없으며, GET 방식보다 보안성이 높습니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li class="line_code font14">
+								<strong>get</strong>
+								<p>폼 데이터를 HTTP GET 메소드로 전송함. ex) URL?name=value&name=value&...</p>
+							</li>
+							<li class="line_code font14 mt_s">
+								<strong>post</strong>
+								<p>폼 데이터를 HTTP POST 메소드로 전송함. 폼 데이터가 폼의 바디에 포함되어 서버에 전송됨.</p>
+							</li>
+						</ol>
+						<div class="uk_gist_code_box mt_m" data-tit="form element [method] attribute">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" method="post">
+									<label>이름 : <input type="text" name="st_name"></label>
+									<label>학번 : <input type="text" name="st_id"></label>
+									<label>학과 : <input type="text" name="department"></label>
+									<input type="submit" value="제출하기">
+								</form>
+							</textarea>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[name] <span class="t_blue">&lt;form name="텍스트"&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;form&gt;</code> 요소의 name 속성은 해당 폼(form)의 이름을 명시합니다.<br>
+							name 속성은 서버로 제출된 폼 데이터(form data)를 참조하기 위해 사용되거나, 자바스크립트에서 요소를 참조하기 위해 사용됩니다.<br>
+							XHTML에서는 name 속성을 더 이상 지원하지 않으므로, name 속성 대신 전역 속성인 id 속성을 사용해야 합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="form element [name] attribute">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" name="loginform">
+									<label>이름 : <input type="text" name="st_name"></label>
+									<label>학번 : <input type="text" name="st_id"></label>
+									<label>학과 : <input type="text" name="department"></label>
+									<input type="button" onclick="submit()" value="제출하기">
+								</form>
+
+								<script>
+									function submit() {
+										document.forms["loginform"].submit();
+									}
+								</script>
+							</textarea>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[target] <span class="t_blue">&lt;form target="_self | _blank | _parent | _top | 프레임 이름"&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;form&gt;</code> 요소의 target 속성은 폼 데이터(form data)를 서버로 전송한 후 받는 응답이 열릴 위치를 명시합니다.<br>
+							HTML 4.01에서는 <code>&lt;form&gt;</code> 요소의 target 속성을 지원하지 않았지만, HTML5부터는 지원하도록 변경되었습니다.<br>
+							HTML5에서는 프레임(frame)과 프레임셋(frameset)을 더 이상 지원하지 않습니다.<br>
+							따라서 _parent, _top, 프레임 이름과 같은 속성값들은 iframe 요소와 함께 주로 사용됩니다.
+						</p>
+						<p class="mt_s">
+							이 값은 <code>&lt;button&gt;</code> 또는 <code>&lt;input&gt;</code> 요소의 formmethod 속성으로 대체 가능합니다.
+						</p>
+						<div class="ol_lst mt_ms">
+							<h4>가능한 값은 다음과 같습니다.</h4>
+							<ol class="indent">
+								<li class="line_code font14 mt_s">
+									<strong>_self</strong>
+									<p>기본값으로 생략 가능합니다. 서버로부터 받은 응답이 링크가 위치한 현재 프레임에서 출력됩니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong>_blank</strong>
+									<p>서버로부터 받은 응답이 새로운 윈도우나 탭(tab)에서 출력됩니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong>_parent</strong>
+									<p>서버로부터 받은 응답이 현재 프레임의 부모 프레임에서 출력됩니다. 만약 부모가 없을 경우 _self와 동일하게 여겨집니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong>_top</strong>
+									<p>서버로부터 받은 응답이 현재 윈도우 전체에서 출력됩니다.</p>
+									<p>HTML4에서는, 다른 모든 프레임을 취소하고 결과를 꽉 찬 본래의 윈도우에 로드합니다.</p>
+									<p>HTML5에서는, 결과를 최상위 브라우징 컨텍스트에 로드합니다. 만약 부모가 없다면, 이 옵션은 _self와 같이 행동합니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong>프레임이름</strong>
+									<p>서버로부터 받은 응답이 명시된 프레임에서 출력됩니다.</p>
+								</li>
+							</ol>
+						</div>
+						<div class="uk_gist_code_box mt_m" data-tit="form element [target] attribute">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" method="get" target="_blank">
+									<label>이름 : <input type="text" name="st_name"></label>
+									<label>학번 : <input type="text" name="st_id"></label>
+									<label>학과 : <input type="text" name="department"></label>
+									<input type="submit" value="제출하기">
+								</form>
+							</textarea>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[accept-charset] <span class="t_blue">&lt;form accept-charset="문자셋"&gt;</span></h3>
+						<p class="mt_ms">
+							서식 데이터(form data)를 서버로 전송 시 사용되는 하나 이상의 문자 인코딩 방식이 공백 문자(space)로 구분된 리스트입니다.<br>
+							<code>&lt;form&gt;</code> 요소의 accept-charset 속성은 폼 데이터(form data)를 서버로 전송 시 사용되는 문자 인코딩(character encoding) 방식을 명시합니다.<br>
+							accept-charset 속성의 기본값은 <code>&quot;UNKNOWN&quot;</code>으로 설정되며, 이 값은 <code>&lt;form&gt;</code> 요소가 포함되어 있는 HTML 문서의 문자 인코딩과 동일함을 나타냅니다.<br>
+							HTML 4.01에서 문자 인코딩 리스트는 공백 문자(space)나 콤마(,) 중 원하는 문자를 사용하여 각각의 인코딩 방식을 구분할 수 있었지만,
+							HTML5에서는 반드시 공백 문자만을 사용하여 구분하도록 변경되었습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="form element [accept-charset] attribute">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" accept-charset="UTF-8">
+									<label>이름 : <input type="text" name="st_name"></label>
+									<label>학번 : <input type="text" name="st_id"></label>
+									<label>학과 : <input type="text" name="department"><label>
+									<input type="submit">
+								</form>
+							</textarea>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[enctype] <span class="t_blue">&lt;form enctype="application<br class="dp_sm">/x-www-form-urlencoded | multipart/form-data | text/plain"&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;form&gt;</code> 요소의 enctype 속성은 폼 데이터(form data)가 서버로 전송될 때 해당 데이터가 인코딩되는 방법을 명시합니다.<br>
+							이 속성은 <code>&lt;form&gt;</code> 요소의 method 속성값이 <code>&quot;post&quot;</code>인 경우에만 사용할 수 있습니다.
+						</p>
+						<div class="ol_lst mt_ms">
+							<h4>가능한 값은 다음과 같습니다.</h4>
+							<ol class="indent">
+								<li class="line_code font14 mt_s">
+									<strong>application/x-www-form-urlencoded</strong>
+									<p>속성이 지정되지 않은 경우 기본값입니다. 모든 문자들은 서버로 전송 전에 인코딩됨을 명시합니다.</p>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong>multipart/form-data</strong>
+									<p>모든 문자를 인코딩하지 않음을 명시합니다. 이 방식은 <code>&lt;form&gt;</code> 요소가 파일이나 이미지를 서버로 전송 시 주로 사용합니다.</p>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong>text/plain (HTML5에서 새롭게 추가)</strong>
+									<p>공백 문자(space)는 "+" 기호로 변환하지만, 나머지 문자는 모두 인코딩되지 않음을 명시합니다.</p>
+								</li>
+							</ol>
+						</div>
+						<div class="uk_gist_code_box mt_m" data-tit="form element [enctype] attribute">
+							<textarea readonly="readonly">
+								<form action="/home/uploadfiles" method="post" enctype="multipart/form-data">
+									<label>파일명 : <input type="file" name="myfile"></label>
+									<button type="submit">제출하기</button>
+								</form>
+							</textarea>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[autocomplete] <i class="fab fa-html5"></i> <span class="t_blue">&lt;form autocomplete="on | off"&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;form&gt;</code> 요소의 autocomplete 속성은 <code>&lt;form&gt;</code> 요소에서 자동 완성 기능을 사용할 지 여부를 명시합니다.<br>
+							autocomplete 속성값을 on으로 명시하면, 브라우저는 사용자가 이전에 입력했던 값들을 기반으로 사용자가 입력한 값과 비슷한 값들을 드롭다운 옵션으로 보여줍니다.<br>
+							이 속성을 사용하면 <code>&lt;form&gt;</code> 요소에서는 자동 완성 기능을 사용하면서 특정 <code>&lt;input&gt;</code> 요소에서는 자동 완성 기능을 사용하지 않거나 그 반대로 설정하는 것도 가능합니다.
+						</p>
+						<p class="mt_s">
+							<code>&lt;form&gt;</code> 요소의 autocomplete 속성은 HTML5에서 새롭게 추가된 요소입니다.
+						</p>
+						<div class="ol_lst mt_ms">
+							<h4>가능한 값은 다음과 같습니다.</h4>
+							<ol class="indent">
+								<li class="line_code font14 mt_s">
+									<strong>on</strong>
+									<p>기본값으로, 브라우저는 사용자가 이전에 입력한 값을 기반으로 자동으로 값을 완성합니다.</p>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong>off</strong>
+									<p>브라우저가 자동으로 값을 완성하지 않으므로, 사용자는 매번 각 입력 필드에 값을 끝까지 입력해야 합니다.</p>
+								</li>
+							</ol>
+						</div>
+						<div class="uk_gist_code_box mt_m" data-tit="form element [autocomplete] attribute">
+							<textarea readonly="readonly">
+								<form action="/examples/media/action_target.php" autocomplete="off">
+									<label>이름 : <input type="text" name="st_name"></label>
+									<label>학번 : <input type="text" name="st_id"></label>
+									<label>학과 : <input type="text" name="department"></label>
+									<input type="submit" value="제출하기">
+								</form>
+							</textarea>
+						</div>
+					</article>
+
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[novalidate] <i class="fab fa-html5"></i> <span class="t_blue">&lt;form novalidate&gt;</span></h3>
+						<p class="mt_ms">
+							기본적으로 novalidate 속성은 boolean attribute(블리언 속성)입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.<br>
+							이 불리언 속성은 양식을 제출 시(폼 데이터가 서버로 전송 시) 해당 데이터의 유효성을 검사하지 않음을 명시합니다.
+						</p>
+						<p class="mt_s">
+							이 속성을 지정하지 않으면 양식 제출 시 양식의 유효성이 검사되며,<br>
+							이 기본 설정은 <code>&lt;button&gt;</code> 또는 <code>&lt;input&gt;</code> 요소의 formnovalidate속성으로 대체 가능합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="form element [novalidate] attribute">
+							<textarea readonly="readonly">
+								<form action="editor.cgi" method="post">
+									<p><label>Name: <input required name=fn></label></p>
+									<p><label>Essay: &lt;textarea required name=essay&gt;&lt;/textarea&gt;&lt;/label&gt;</p>
+									<p><input type=submit name=submit value="Submit essay"></p>
+									<p><input type=submit formnovalidate name=save value="Save essay"></p>
+									<p><input type=submit formnovalidate name=cancel value="Cancel"></p>
+								</form>
+							</textarea>
+						</div>
+					</article>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/09-forms/9.1.form_element_simple.html">
+					<h2 class="ve_tit">form element 예제1</h2>
+					<div  class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="html/09-forms/9.1.form_element.html">
+					<h2 class="ve_tit">form element 예제2</h2>
+					<div  class="uk_editor indent min_height_750" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="form">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">지원</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">폼(forms) 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html52/sec-forms.html#sec-forms" target="_blank" class="fas" title="새창열기">W3C 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas" title="새창열기">MDN 문서</a></li>
+						<li class="reference"><a href="https://cccaccessibility.org/web/web-developer-tutorials/explicit-and-implicit-form-labels" target="_blank" class="fas" title="새창열기">Explicit and Implicit Form Labels</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1267,6 +1569,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="9.1. form element">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>
@@ -1314,7 +1618,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

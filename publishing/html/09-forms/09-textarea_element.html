@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -897,12 +900,301 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<section class="mt_xxl">
+					<h2 class="sound_only">요소 설명</h2>
+					<p>
+						<code>&lt;textarea&gt;</code> 요소는 사용자가 여러 줄의 텍스트를 입력할 수 있는 텍스트 입력 영역을 정의할 때 사용합니다.<br>
+						텍스트 입력 영역에는 개수의 제한 없이 문자를 입력할 수 있으며, 입력된 문자는 고정폭 글꼴로 렌더링됩니다.<br>
+						텍스트 입력 영역의 크기는 <code>&lt;textarea&gt;</code> 요소의 cols 속성과 rows 속성으로 지정할 수 있으며,
+						CSS에서 height 속성과 width 속성을 사용하면 더욱 손쉽게 지정할 수 있습니다.
+					</p>
+					<p class="mt_s">
+						HTML5에서는 <code>&lt;textarea&gt;</code> 요소에 다음과 같은 속성들이 추가되었습니다.<br>
+						<code>autofocus</code>,
+						<code>dirname</code>,
+						<code>form</code>,
+						<code>maxlength</code>,
+						<code>placeholder</code>,
+						<code>required</code>,
+						<code>wrap</code>
+					</p>
+				</section>
+
+				<section class="txt_ex mt_xxl">
+					<h2>9.9.1. textarea 속성</h2>
+
+					<!-- cols -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">[cols] <span class="t_blue">&lt;textarea cols="숫자"&gt;</span></h3>
+						<p class="mt_ms">
+							텍스트 입력 영역 중 보이는 영역의 너비(width)를 명시합니다(기본값은 20).<br>
+							텍스트 입력 영역의 크기는 CSS의 height 속성과 width 속성을 사용해도 설정할 수 있습니다.
+						</p>
+						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.9.textarea_element_cols.html">
+							<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- rows -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[rows] <span class="t_blue">&lt;textarea rows="숫자"&gt;</span></h3>
+						<p class="mt_ms">
+							텍스트 입력 영역 중 보이는 영역의 라인수를 명시합니다(기본값은 2).<br>
+							텍스트 입력 영역의 크기는 CSS의 height 속성과 width 속성을 사용해도 설정할 수 있습니다.
+						</p>
+						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.9.textarea_element_rows.html">
+							<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- name -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[name] <span class="t_blue">&lt;textarea name="텍스트"&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;textarea&gt;</code> 요소의 이름을 명시합니다.<br>
+							name 속성은 폼(form)이 제출된 후 서버에서 폼 데이터(form data)를 참조하기 위해 사용되거나, 자바스크립트에서 요소를 참조하기 위해 사용됩니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="textarea element [name] attribute">
+							<textarea readonly="readonly">
+								&lt;textarea name=&quot;ukform&quot;&gt;&lt;/textarea&gt;
+							</textarea>
+						</div>
+					</article>
+
+					<!-- disabled -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[disabled] <span class="t_blue">&lt;textarea disabled&gt;</span></h3>
+						<p class="mt_ms">
+							해당 <code>&lt;textarea&gt;</code> 요소가 비활성화됨을 명시합니다.<br>
+							disabled 속성이 명시된 텍스트 입력 영역은 사용할 수 없으며, 사용자가 클릭할 수도 없습니다.<br>
+							또한, 폼 데이터가 제출될 때도 disabled 속성이 명시된 텍스트 입력 영역의 데이터는 제출되지 않습니다.
+						</p>
+						<p class="mt_s">
+							따라서 이 속성을 사용하면 특정 조건이 충족될 때까지 사용자가 텍스트 입력 영역을 클릭할 수 없도록 설정하고,
+							특정 조건이 충족되면 자바스크립트 등으로 disabled 속성값을 삭제하여 사용자가 텍스트 입력 영역을 다시 사용할 수 있도록 조절할 수 있습니다.
+						</p>
+						<p class="mt_s">
+							disabled 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
+						</p>
+						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.9.textarea_element_disabled.html">
+							<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- readonly -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[readonly] <span class="t_blue">&lt;textarea readonly&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;textarea&gt;</code> 요소의 텍스트 입력 영역이 읽기 전용임을 명시합니다.<br>
+							읽기 전용으로 설정된 텍스트 입력 영역은 사용자가 수정할 수는 없지만, 해당 내용을 하이라이트하거나 복사할 수는 있습니다.<br>
+							따라서 이 속성을 사용하면 특정 조건이 충족될 때까지 사용자가 텍스트 입력 영역을 클릭할 수 없도록 설정하고,
+							특정 조건이 충족되면 자바스크립트 등으로 readonly 속성값을 삭제하여 사용자가 텍스트 입력 영역을 수정할 수 있도록 조절할 수 있습니다.
+						</p>
+						<p class="mt_s">
+							disabled 속성이 명시된 텍스트 입력 영역의 값은 서버로 제출되지 않지만, readonly 속성이 명시된 텍스트 입력 영역의 값은 서버로 제출됩니다.
+						</p>
+						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.9.textarea_element_readonly.html">
+							<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- placeholder -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[placeholder] <i class="fab fa-html5"></i> <span class="t_blue">&lt;textarea placeholder="텍스트"&gt;</span></h3>
+						<p class="mt_ms">
+							placeholder 속성은 입력 필드에 사용자가 적절한 값을 입력할 수 있도록 도와주는 짧은 도움말을 명시합니다.<br>
+							이러한 도움말은 사용자가 입력할 수 있는 값에 대한 견본 값이나 입력 형식에 대한 간단한 설명 등이 사용되며,
+							사용자가 입력하기 전까지 입력 필드에 표시되다가 사용자가 입력을 시작하면 사라집니다.
+						</p>
+						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.9.textarea_element_placeholder.html">
+							<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<aside class="browser_support mt_m" data-tit="placeholder">
+							<ul>
+								<li class="ie">10+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">10.0</li>
+								<li class="firefox">4.0</li>
+								<li class="opera">11.0</li>
+								<li class="safari">5.0</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- autofocus -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[autofocus] <i class="fab fa-html5"></i> <span class="t_blue">&lt;textarea autofocus&gt;</span></h3>
+						<p class="mt_ms">
+							페이지가 로드될 때 자동으로 포커스가 <code>&lt;textarea&gt;</code> 요소로 이동됨을 명시합니다.
+						</p>
+						<p class="mt_s">
+							autofocus 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="textarea element [autofocus] attribute">
+							<textarea readonly="readonly">
+								<!-- html5 -->
+								&lt;textarea autofocus&gt;&lt;/textarea&gt;
+
+								<!-- XHTML -->
+								&lt;textarea autofocus=&quot;autofocus&quot;&gt;&lt;/textarea&gt;
+							</textarea>
+						</div>
+						<aside class="browser_support mt_m" data-tit="autofocus">
+							<ul>
+								<li class="ie">10+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">지원</li>
+								<li class="firefox">4.0</li>
+								<li class="opera">지원</li>
+								<li class="safari">지원</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- dirname -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[dirname] <i class="fab fa-html5"></i> <span class="t_blue">&lt;textarea name="이름" dirname="이름.dir"&gt;</span></h3>
+						<p class="mt_ms">
+							dirname 속성은 폼 데이터(form data)가 서버로 제출될 때 서버로 보낼 텍스트 입력 영역의 텍스트 방향성(text directionality)을
+							저장할 이름을 명시합니다.<br>
+							dirname 속성값은 언제나 <code>&lt;textarea&gt;</code> 요소의 name 속성값 뒤에 &quot;.dir&quot;를 추가한 값이 됩니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="textarea element [dirname] attribute">
+							<textarea readonly="readonly">
+								&lt;textarea dirname=&quot;intro.dir&quot;&gt;&lt;/textarea&gt;
+							</textarea>
+						</div>
+						<aside class="browser_support mt_m" data-tit="dirname">
+							<ul>
+								<li class="ie false">지원안함</li>
+								<li class="edge false">지원안함</li>
+								<li class="chrome">지원</li>
+								<li class="firefox false">지원안함</li>
+								<li class="opera">지원</li>
+								<li class="safari">지원</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- form -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[form] <i class="fab fa-html5"></i> <span class="t_blue">&lt;textarea form="form id"&gt;</span></h3>
+						<p class="mt_ms">
+							해당 <code>&lt;textarea&gt;</code> 요소가 포함될 하나 이상의 <code>&lt;form&gt;</code> 요소를 명시합니다.<br>
+							이 속성값은 같은 문서 내에 위치하는 <code>&lt;form&gt;</code> 요소의 id 값이어야만 합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="textarea element [form] attribute">
+							<textarea readonly="readonly">
+								&lt;textarea form=&quot;myForm&quot;&gt;&lt;/textarea&gt;
+							</textarea>
+						</div>
+						<aside class="browser_support mt_m" data-tit="form">
+							<ul>
+								<li class="ie false">지원안함</li>
+								<li class="edge false">지원안함</li>
+								<li class="chrome">10.0</li>
+								<li class="firefox">4.0</li>
+								<li class="opera">10.6</li>
+								<li class="safari">5.1</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- maxlength -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[maxlength] <i class="fab fa-html5"></i> <span class="t_blue">&lt;textarea maxlength="숫자"&gt;</span></h3>
+						<p class="mt_ms">
+							<code>&lt;textarea&gt;</code> 요소에서 허용되는 최대 문자수를 명시합니다.
+						</p>
+						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.9.textarea_element_maxlength.html">
+							<div class="uk_editor min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+						<aside class="browser_support mt_m" data-tit="maxlength">
+							<ul>
+								<li class="ie">10+</li>
+								<li class="edge">지원</li>
+								<li class="chrome">지원</li>
+								<li class="firefox">4.0</li>
+								<li class="opera">지원</li>
+								<li class="safari">지원</li>
+							</ul>
+						</aside>
+					</article>
+
+					<!-- required -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[required] <span class="t_blue">&lt;textarea required&gt;</span></h3>
+						<p class="mt_ms">
+							<code>required</code> 속성은 폼 데이터(form data)가 서버로 제출되기 전 텍스트 입력 영역이 반드시 채워져 있어야 함을 명시합니다.
+						</p>
+						<p class="mt_s">
+							<code>required</code> 속성은 불리언(boolean) 속성입니다.<br>
+							불리언 속성은 해당 속성을 명시하지 않으면 속성값이 자동으로 false 값을 가지게 되며, 명시하면 자동으로 true 값을 가지게 됩니다.
+						</p>
+						<div class="view_editor edit_code mt_s" data-target="html/09-forms/9.9.textarea_element_required.html">
+							<div class="uk_editor min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- wrap -->
+					<article class="indent_max txt_ex mt_xl">
+						<h3 class="ml_mn">[wrap] <i class="fab fa-html5"></i> <span class="t_blue">&lt;textarea wrap="soft | hard"&gt;</span></h3>
+						<p class="mt_ms">
+							폼 데이터(form data)가 서버로 제출될 때 입력된 텍스트의 줄바꿈(wrap) 방식을 명시합니다.
+						</p>
+						<div class="ol_lst indent mt_s">
+							<ol>
+								<li class="line_code font14">
+									<strong class="mb_sm">soft</strong>
+									<p>기본값으로, 폼 데이터가 서버로 제출될 때 입력된 텍스트를 줄바꿈하지 않음.</p>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong class="mb_sm">hard</strong>
+									<p>폼 데이터가 서버로 제출될 때 입력된 텍스트를 줄바꿈합니다. 단, hard 속성값을 사용할 경우에는 반드시 cols 속성이 명시되어 있어야 합니다.</p>
+								</li>
+							</ol>
+						</div>
+						<div class="uk_gist_code_box mt_m" data-tit="textarea element [wrap] attribute">
+							<textarea readonly="readonly">
+								&lt;textarea wrap=&quot;hard&quot;&gt;&lt;/textarea&gt;
+							</textarea>
+						</div>
+					</article>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="textarea">
+					<ul>
+						<li class="ie">지원</li>
+						<li class="edge">지원</li>
+						<li class="chrome">지원</li>
+						<li class="firefox">지원</li>
+						<li class="opera">지원</li>
+						<li class="safari">지원</li>
+					</ul>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">폼(forms) 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html52/sec-forms.html#sec-forms" target="_blank" class="fas" title="새창열기">W3C 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas" title="새창열기">MDN 문서</a></li>
+						<li class="reference"><a href="https://cccaccessibility.org/web/web-developer-tutorials/explicit-and-implicit-form-labels" target="_blank" class="fas" title="새창열기">Explicit and Implicit Form Labels</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1267,6 +1559,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="9.9. textarea element">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>
@@ -1314,7 +1608,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

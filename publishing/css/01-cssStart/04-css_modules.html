@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -895,12 +898,56 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						모듈과 표준화 과정(Modules and the standardization process)은<br>
+						2002년 8월부터 2011년 6월까지 CSS Level2가 권장(Recommendation)단계에 이르기까지 총 9년이 걸렸습니다.<br>
+						이는 몇몇 부차적인 기능들이 전체 명세(specification)의 진행을 더디게 만들었기 때문입니다.<br>
+						W3C의 CSS Working Group은 문제를 일으키는 몇몇 기능을 제외한 나머지 기능들의 표준화 작업을 보다 빠르게 진행하기 위하여
+						Beijing doctrine에 따라 CSS를 보다 작은 컴포넌트 단위로 나누었고, 이를 모듈(module)이라 부릅니다.<br>
+						현재 각각의 모듈은 서로 독립적으로 표준화 과정을 거치고 있습니다.<br>
+						이미 몇몇 모듈은 W3C Rocommendations에 이르렀으나, 나머지는 여진히 Working Drafts 단계에 머물러 있습니다.<br>
+						또한 새로운 요구사항(needs)이 발생할 때마다 계속해서 새로운 모듈이 추가되고 있습니다.
+					</p>
+					<p class="mt_s">
+						공식적으로 CSS 3 자체 표준은 존재하지 않습니다.<br>
+						각각의 모듈이 독립적으로 표준화 되고 있고, 표준 CSS는 모듈을 통해 CSS 2.1을 수정하여 상속(extends)하는 것으로 구성되어 있어 항상 같은 level number를 갖는 것은 아닙니다.<br>
+						특정 시점의 CSS 2.1과 완성된 모듈들로 구성된 CSS 표준 스냅샷을 정의할 수 있습니다. W3C는 주기적으로 이런 스냅샷을 발표하고 있습니다.(2007 / 2010)
+					</p>
+					<p class="mt_s">
+						아직까지 level 3보다 높은 level을 가진 모듈은 없지만 곧 생길 것입니다.<br>
+						Selector 4나 CSS border 4, Background 4와 같은 몇몇 모듈은 Working Draft가 공개된 적은 없지만 이미 Editor's Draft는 작성되어 있습니다.
+					</p>
+					<p class="mt_s">
+						몇 개의 모듈은 이미 상당히 안정적이고, CSSWG의 recommendation 3단계(Candidate Recommendation, Propesed Recommendation, Recommendation) 중 하나에 도달했습니다.<br>
+						이 모듈들은 별도의 과정 없이도 꽤 안정적으로 사용할 수 있습다. 하지만 몇몇 기능은 여전히 Candidate Recommendation 단계에 머물러 있습니다.
+					</p>
+					<p class="mt_s">
+						모듈들은 명세(spec)의 핵심이 되는 CSS 2.1을 수정, 상속하고 있습니다.
+					</p>
+				</blockquote>
+
+				<figure class="img_figure mt_l">
+					<img src="/_assets/images/css/cssStart/uxkm_CSS_Modules_and_Snapshots.svg" alt="모듈과 표준화 과정(Modules and the standardization process)">
+					<figcaption class="reference">
+						[모듈과 표준화 과정]
+						<!--
+						[이미지출처]
+						<a href="https://developer.mozilla.org/ko/docs/Archive/CSS3" target="_blank" title="새창열림">https://developer.mozilla.org/ko/docs/Archive/CSS3</a>
+						-->
+					</figcaption>
+				</figure>
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 시작 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/Style/CSS/learning" target="_blank" class="fas">W3C CSS 자습서</a></li>
+						<li class="reference"><a href="https://ko.wikipedia.org/wiki/%EC%A2%85%EC%86%8D%ED%98%95_%EC%8B%9C%ED%8A%B8" target="_blank" class="fas">CSS 위키백과</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html401/present/styles.html#h-14.2.2" target="_blank" class="fas">W3C Style 선언</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/2018/CR-css-cascade-4-20180828/" target="_blank" class="fas">CSS Cascading and Inheritance Level 4</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/CSS21/propidx.html" target="_blank" class="fas">CSS 2.1 명세의 속성 요약 테이블</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance" target="_blank" class="fas">MDN 캐스케이드와 상속</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1093,6 +1140,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="1.4. CSS 모듈과 표준화 과정">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // CSS side menu -->
 		</div>
@@ -1140,7 +1189,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>

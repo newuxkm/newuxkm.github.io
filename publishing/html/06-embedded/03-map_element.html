@@ -62,6 +62,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -848,6 +850,7 @@
 				<!-- // 사이트맵 -->
 			</div>
 		</div>
+		<span class="hd_progress">스크롤 진행상태</span>
 	</header>
 	<!-- // uk_header -->
 	
@@ -937,7 +940,7 @@
 
 				<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.3.map_element.html">
 					<h2 class="ve_tit">map element 예제</h2>
-					<div class="uk_editor indent min-height-400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="uk_editor indent min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 						<div class="code_wrap"><textarea></textarea></div>
 					</div>
 				</section>
@@ -956,7 +959,13 @@
 				<footer class="reference_box">
 					<strong class="tit">내장 컨텐츠<span>(Embedded content)</span> 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/html52/semantics-embedded-content.html#semantics-embedded-content" target="_blank" class="fas" title="새창열기">W3C 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/HTML/Element" target="_blank" class="fas" title="새창열기">MDN 문서</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/SVG" target="_blank" class="fas" title="새창열기">W3C SVG</a></li>
+						<li class="reference"><a href="https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html" target="_blank" class="fas" title="새창열기">W3C SVG Primer</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/SVG/Tutorial" target="_blank" class="fas" title="새창열기">MDN SVG Tutorial</a></li>
+						<li class="reference"><a href="http://tutorials.jenkov.com/svg/index.html" target="_blank" class="fas" title="새창열기">SVG Tutorial</a></li>
+						<li class="reference"><a href="https://inkscape.org/doc/" target="_blank" class="fas" title="새창열기">Inkscape's documentation page</a></li>
 					</ul>
 				</footer>
 			</main>
@@ -1321,6 +1330,8 @@
 					</ul>
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="6.3. map element">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // HTML side menu -->
 		</div>
@@ -1368,7 +1379,6 @@
 
 <!-- script - lib -->
 <script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 <script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
 
 <script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>
