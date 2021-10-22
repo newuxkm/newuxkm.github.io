@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -903,14 +919,440 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				
-				<footer class="reference_box">
-					<strong class="tit">CSS 고급 참조</strong>
-					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						<code>transition</code> CSS 속성은
+						<code>transition-property</code>,
+						<code>transition-duration</code>,
+						<code>transition-timing-function</code>,
+						<code>transition-delay</code>를 위한 단축 속성입니다.<br>
+						이 속성으로 엘리먼트의 두 가지 상태 사이에 변화를 줄 수 있습니다.<br>
+						<code>transition</code> 속성을 사용하여 정해진 시간 동안 요소의 속성값을 부드럽게 변화시킬 수 있습니다.
+					</p>
+					<p class="mt_s">
+						<code>transition</code>은 간단한 인스턴트 적인 동작을 구현하는 용도로 적합합니다.<br>
+						<code>transition</code>은 페이지가 로드되면서 자동으로 시작되지 않으며,
+						반드시 <code>click</code>, <code>hover</code>, <code>focus</code>등의 이벤트가 발생해야만 작동됩니다.
+					</p>
+				</blockquote>
+
+				<!-- transition-property 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">transition-property</i> 속성</h2>
+					<p class="mt_ms">
+						트랜지션을 적용해야 하는 CSS 속성의 이름 혹은 이름들을 명시합니다.<br>
+						<code>transition</code> 효과를 적용할 속성들을 나열, 2개 이상일 경우는 쉼표(,)로 구분합니다.<br>
+						CSS의 모든 속성에 적용(all)할 경우 생략 가능합니다.
+					</p>
+					<p class="mt_s">
+						<!--<code>transition-property : all 또는 width, height, transform등의 css 속성</code><br>-->
+						보통 숫자값을 갖는 속성(property)들은 <code>transition</code>을 통해 점진적인 효과를 낼 수 있습니다. (전부 그렇지는 않으며, 브라우저마다 차이가 있습니다.)<br>
+						<!--예 : <code>opacity, border-radius, margin, color, font-size, padding</code> 등등-->
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="transition-property">
+						<textarea readonly="readonly">
+							div {
+								transition-property: none | all | [property];
+							}
+						</textarea>
+					</div>
+					<ol class="ol_lst mt_ms indent">
+						<li><strong class="t_black weight-500">none</strong> : transition 효과를 지정하지 않습니다.</li>
+						<li><strong class="t_black weight-500">all</strong> : 모든 속성이 transition 효과를 얻습니다.</li>
+						<li>
+							<strong class="t_black weight-500">property</strong> : transition 효과를 얻게될 속성을 지정합니다.
+							<code>transform, width, height, opacity, border-radius, margin, color, font-size, padding</code> 등등
+						</li>
+					</ol>
+				</section>
+
+				<!-- transition-duration 속성 (필수 선언) -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">transition-duration</i> 속성 <span class="t_red">(필수 선언)</span></h2>
+					<p class="mt_ms">
+						transition 효과의 지속 시간을 명시합니다.<br>
+						트랜지션 동안 모든 속성에 적용하는 단일 지속 시간을 명시하거나, 다른 주기로 각 속성이 트랜지션하게 하는 여러 지속 시간을 명시할 수 있습니다.
+					</p>
+					<p class="mt_s">
+						밀리초(millisecond, ms) 또는 초(second, s)로 지속시간을 설정할 수 있습니다.<br>
+						1s는 1초이며, 0.1s는 숫자 0를 생략하고 .1s로 표기 가능합니다. (ms의 단위로 할 경우 1초 = 1000ms)<br>
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="transition-duration">
+						<textarea readonly="readonly">
+							div {
+								transition-duration : 1s | 1000ms;
+							}
+						</textarea>
+					</div>
+				</section>
+
+				<!-- transition-timing-function 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">transition-timing-function</i> 속성</h2>
+					<p class="mt_ms">
+						<code>transition</code> 구문의 세번째 자리에 오는 <code>transition-timing-functing</code>은 변화가 일어나는 속도를 설정한다.<br>
+						즉, 속성의 중간값을 계산하는 방법을 정의하는 함수를 명시합니다.
+					</p>
+					<p class="mt_s">
+						대부분의 타이밍 함수는 큐빅 베이지어(<code>cubic bezier</code>)를 정의하는 네 점에 의해 정의되므로 상응하는 함수의 그래프로 제공해서 명시할 수 있습니다.<br>
+						이징(<code>easing</code>: 시간에 따른 파라미터 값의 변화율을 명시하는 함수)을 선택할 수도 있습니다.<br>
+						변화의 시작과 끝 타이밍을 정의하며, 조금 더 정교한 또는 현실적인 움직임을 표현하기 위해 사용됩니다.<br>
+						기본값은 <code>ease</code>이며 기본값으로 사용할 경우 생략 가능합니다.<br>
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function">
+						<textarea readonly="readonly">
+							div {
+								transition-timing-function: ease | linear | ease-in | ease-out | ease-in-out | step(n) | cubic-bezier(n,n,n,n);
+							}
+						</textarea>
+					</div>
+
+					<!-- 1. ease -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">1. <i class="t_blue">ease</i></h3>
+						<p class="mt_s">초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease]">
+							<textarea readonly="readonly">
+								div {
+									transition-timing-function: ease;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 2. linear -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">2. <i class="t_blue">linear</i></h3>
+						<p class="mt_s">시작부터 종료까지 동일한 속도로 진행됩니다.</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [linear]">
+							<textarea readonly="readonly">
+								div {
+									transition-timing-function: linear;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 3. ease-in -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">3. <i class="t_blue">ease-in</i></h3>
+						<p class="mt_s">느리게 시작한 후 일정한 속도에 다다르면 그 상태로 등속 운동합니다.</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-in]">
+							<textarea readonly="readonly">
+								div {
+									transition-timing-function: ease-in;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 4. ease-out -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">4. <i class="t_blue">ease-out</i></h3>
+						<p class="mt_s">일정한 속도의 등속으로 시작해서 점점 느려지면서 멈춥니다.</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-out]">
+							<textarea readonly="readonly">
+								div {
+									transition-timing-function: ease-out;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 5. ease-in-out -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">5. <i class="t_blue">ease-in-out</i></h3>
+						<p class="mt_s"><code class="t_blue">ease</code>와 비슷합니다. 초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-in-out]">
+							<textarea readonly="readonly">
+								div {
+									transition-timing-function: ease-in-out;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 6. steps(n) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">6. <i class="t_blue">steps(n)</i></h3>
+						<p class="mt_s">
+							애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
+							<code>duration</code> 값과 연계해서 선언하여 일종의 Frame Rate(초당 프레임 수)를 설정하거나 혹은, 셀 애니메이션처럼 연계된 동작을 표현할 수도 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [steps(n)]">
+							<textarea readonly="readonly">
+								div {
+									/* step-start */
+									transition-timing-function: step-start;
+
+									/* step-end */
+									transition-timing-function: step-end;
+
+									/* steps */
+									transition-timing-function: steps(4, start)
+								}
+							</textarea>
+						</div>
+						<div class="ol_lst mt_ms">
+							<p>변화가 점진적으로 진행되지 않고, 주어진 설정과 간격에 따라 일시에 진행되는 <code>step-start</code>, <code>step-end</code>, <code>steps</code> 가 있습니다.</p>
+							<ol class="indent mt_s">
+								<li>
+									<code>step-start</code>: 는 모든 변화가 시작지점에 이루어집니다.
+								</li>
+								<li class="mt_s">
+									<code>step-end</code>: 는 모든 변화가 종료지점에 이루어집니다.<br>
+									(<code>transition-timing-function: 2s step-end;</code>로 설정하였을 경우, 마우스 오버 후 2초 뒤에 변화가 일어납니다.)
+								</li>
+								<li class="mt_s">
+									<code>steps</code>: 는 설정한 단계에 따라 간격을 두고 변화가 일어납니다.
+								</li>
+							</ol>
+						</div>
+					</article>
+
+					<!-- 7. cubic-bezier(n,n,n,n) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">7. <i class="t_blue">cubic-bezier(n,n,n,n)</i></h3>
+						<p class="mt_s">처음과 끝의 속도를 0과 1 사이의 수치를 이용하여 4단계로 지정할 수 있습니다. 베지어(Bezier)라는 곡선 운동을 정의합니다.</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [cubic-bezier(n,n,n,n)]">
+							<textarea readonly="readonly">
+								div {
+									transition-timing-function: cubic-bezier(n,n,n,n);
+								}
+							</textarea>
+						</div>
+						<div class="line_code mt_ms">
+							<p>
+								<code>cubic-bezier</code> 곡선에서 그래프의 가로축은 시간, 세로축은 변화의 진행 정도를 의미합니다.<br>
+								가로축과 세로축 모두 시작값은 0이며, 종료값은 1입니다.
+							</p>
+						</div>
+						<figure class="img_figure mt_ms">
+							<figcaption class="mt_0">[<code class="bg_none t_blue">cubic-bezier</code> 곡선 그래프]</figcaption>
+							<img src="/_assets/images/css/cssAdvanced/uxkm_transition_cubic-bezier.svg" alt="cubic-bezier 곡선 그래프1" class="mt_m">
+						</figure>
+						<!--<figure class="img_figure mt_s">
+							<figcaption class="mt_0">[cubic-bezier 곡선 그래프2]</figcaption>
+							<img src="/ukncs/images/css/img_transition_cubic-bezier2.png" alt="cubic-bezier 곡선 그래프2" class="mt_m">
+						</figure>-->
+					</article>
+				</section>
+
+				<!-- transition-delay 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">transition-delay</i> 속성</h2>
+					<p class="mt_ms">
+						속성이 변한 시점과 트랜지션이 실제로 시작하는 사이에 기다리는 시간을 정의합니다.(효과의 지연시간을 정의)<br>
+						3s(3초)로 설정하면 이벤트 발생 3초 후에 <code>transition</code>이 작동됩니다.<br>
+						지연시간이 필요 없으면 생략 가능합니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="transition-delay">
+							<textarea readonly="readonly">
+								div {
+									transition-delay: 1s | 1000ms;
+								}
+							</textarea>
+					</div>
+				</section>
+
+				<!-- transition 작성 방법 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">transition</i> 작성 방법</h2>
+					<p class="mt_ms">
+						<code>transition</code> 작성 방법으로는 다음과 같이 사용할 수 있습니다.<br>
+						아래 작성방법 중 <i class="t_blue">최대 단축형</i>과 <i class="t_blue">확장 단축형</i>이 주로 사용됩니다.
+					</p>
+
+					<!-- 1. 기본형 -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn">1. <i class="t_blue">기본형</i></h3>
+						<p class="mt_s">
+							<code>transition</code>의 속성을 분리해서 정의할 수 있습니다.<br>
+							code가 길어지는 단점이 있지만, 전체 속성(all) 대신 꼭 필요한 속성만 사용할 수 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition syntax [default]">
+							<textarea readonly="readonly">
+								div {
+									transition-property: transform, color, border;
+									transition-duration: .5s;
+									transition-timing-function: ease;
+									transition-delay: .2s;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 2. 최대 단축형 -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">2. <i class="t_blue">최대 단축형</i></h3>
+						<p class="mt_s">
+							변경할 속성이 한 개 또는 모든 css속성일 경우에 사용됩니다. (주로 property가 all일 경우에 많이 쓰입니다.)<br>
+							모든 css속성(property)에 적용하고, 기본 타이밍(ease)을 사용하고, 지연시간(delay)이 없을 경우<br>
+							<code>transition:.5s;</code> 이렇게 지속시간(duration)만 선언하여 사용 가능합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition syntax [Maximum shortened]">
+							<textarea readonly="readonly">
+								div {
+									transition: all .5s ease 2s;
+									/* transition: property(css 속성) duration(지속시간) timing delay(지연시간); */
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 3. 확장 단축형 -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">3. <i class="t_blue">확장 단축형</i></h3>
+						<p class="mt_s">
+							변경할 속성이 두 개 이상일 때 사용되며, 각 속성별로 독립적인 움직임을 줄 수 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition syntax [Expansion shortened]">
+							<textarea readonly="readonly">
+								div {
+									transition:
+										transform .5s ease .2s,
+										color .3s linear 1s;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 4. 대입형 -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">4. <i class="t_blue">대입형</i></h3>
+						<p class="mt_s">
+							<code>transition-property</code>에 나열된 순서대로 다른 <code>transition</code>의 속성이 대입 적용됩니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="transition syntax [Substitute type]">
+							<textarea readonly="readonly">
+								div {
+									transition-property: transform, color, border;
+									transition-duration: .5s, .3s, .25s;
+									transition-timing-function: ease, linear, linear;
+									transition-delay: .2s, 1s, 0s;
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 5. Steps 선언
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">5. <i class="t_blue">Steps 선언</i></h3>
+						<p class="mt_sm">
+							애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
+							duration 값과 연계해서 선언하여 일종의 Frame Rate(초당 프레임 수)를 설정하거나 혹은, 셀 애니메이션처럼 연계된 동작을 표현할 수도 있습니다.
+						</p>
+						<div class="line_code_box line_code_number mt_ms">
+							<ul>
+								<li>div {</li>
+								<li class="indent">transition: all 1s steps(10);</li>
+								<li>}</li>
+							</ul>
+						</div>
+					</article>
+					-->
+
+					<!-- 5. transition 작성 시 유의사항 -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn">5. <i class="t_blue">transition 작성 시 주의사항</i></h3>
+						<section class="tit_h4 indent mt_m">
+							<h4 class="ml_mn weight-bold">transition 속성에서 각 항목의 순서는 중요합니다.</h4>
+							<p class="mt_s">
+								시간으로 해석될 수 있는 값이 첫번째에 위치한다면 <code>transition-duration</code>으로 적용되고,
+								두번째에 위치한다면 <code>transition-delay</code>으로 적용됩니다.
+							</p>
+							<p>
+								속성값 목록이 알맞은 길이를 갖지 않는다면, 어떻게 처리될지 궁금하다면 아래 <span class="t_black">[속성값 목록이 다른 개수를 가진 경우]</span>를 참고하세요.<br>
+								<!--요컨대, -->실제 속성의 개수보다 많이 기술된 것은 무시됩니다.
+							</p>
+						</section>
+						<section class="tit_h4 indent mt_ml">
+							<h4 class="ml_mn weight-bold">속성값 목록이 다른 개수를 가진 경우</h4>
+							<p class="mt_s">어떤 속성의 값 목록이 다른 것보다 짧다면, 일치되도록 그 값을 반복합니다.</p>
+							<div class="uk_gist_code_box indent mt_s" data-tit="transition syntax">
+									<textarea readonly="readonly">
+										div {
+											transition-property: opacity, left, top, height;
+											transition-duration: 3s, 5s;
+										}
+										/* 위는 아래와 같이 처리합니다. */
+										div {
+											transition-property: opacity, left, top, height;
+											transition-duration: 3s, 5s, 3s, 5s;
+										}
+									</textarea>
+							</div>
+							<p class="mt_ms">어떤 속성의 값 목록이 <code>transition-property</code> 목록보다 길다면, 필요 없는 값을 잘라냅니다.</p>
+							<div class="uk_gist_code_box indent mt_s" data-tit="transition syntax">
+									<textarea readonly="readonly">
+										div {
+											transition-property: opacity, left;
+											transition-duration: 3s, 5s, 2s, 1s;
+										}
+										/* 위를 아래와 같이 해석합니다. */
+										div {
+											transition-property: opacity, left;
+											transition-duration: 3s, 5s;
+										}
+									</textarea>
+							</div>
+						</section>
+					</article>
+				</section>
+
+				<!-- transition 예제 -->
+				<section class="view_editor edit_code mt_xxl" data-target="css/step03/4.2.transition/4.2.transition.html">
+					<h2 class="ve_tit tit_h2">transition 예제</h2>
+					<div class="uk_editor indent mt_m min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<section class="indent mt_xxl ">
+					<h2 class="ml_mn"><i class="t_blue">transition</i> 테스트 및 <i class="t_blue">요약설명</i></h2>
+					<p class="mt_m">
+						위에 설명된 <i class="t_blue">transition의 속성</i>을 직접 테스트 할 수 있습니다.<br>
+						각 속성의 input값을 변경하여 마우스오버(hover) 또는 result버튼을 클릭하세요.<br>
+						<span class="reference mt_l">테스트기 출처 : <a href="http://921430km.com/_temp/transform/transition.php" target="_blank" title="새창열림">http://921430km.com/transition</a></span>
+					</p>
+
+					<div class="iframe_con kmtemp_resize_iframe mt_ml">
+						<iframe src="/_code_samples/kmtemp/transform/transition.html" width="100%" height="100%" scrolling="no"></iframe>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="transition">
+					<ul>
+						<li class="ie">10+</li>
+						<li class="edge">12.0</li>
+						<li class="chrome">26.0</li>
+						<li class="firefox">16.0</li>
+						<li class="opera">12.0</li>
+						<li class="safari">6.1</li>
 					</ul>
-				</footer>
+				</aside>
+				<aside class="browser_support mt_xxl" data-tit="Prefix transition">
+					<ul>
+						<li class="ie">10+</li>
+						<li class="edge">12.0</li>
+						<li class="chrome">4.0 -webkit-</li>
+						<li class="firefox">4.0 -moz-</li>
+						<li class="opera">10.5 -o-</li>
+						<li class="safari">3.1 -webkit-</li>
+					</ul>
+				</aside>
+
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">Transition 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/css-transitions-1/" target="_blank" class="fas" title="새창열림">W3C CSS Transitions</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/css-transitions/#transition-shorthand-property" target="_blank" class="fas" title="새창열림">W3C CSS Transitions</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/transition" target="_blank" class="fas" title="새창열림">MDN CSS Transitions</a></li>
+						<li class="reference"><a href="https://easings.net/" target="_blank" class="fas" title="새창열림">Easing Functions Cheat Sheet</a></li>
+						<li class="reference"><a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" class="fas" title="새창열림">cubic-bezier</a></li>
+					</ul>
+				</aside>
 			</main>
 			<!-- // Transition content (.content_area) -->
 

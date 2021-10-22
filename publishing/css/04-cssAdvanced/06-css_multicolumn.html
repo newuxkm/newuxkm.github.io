@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -903,14 +919,272 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				
-				<footer class="reference_box">
-					<strong class="tit">CSS 고급 참조</strong>
-					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+				<blockquote class="uk_note mt_l" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						CSS에서는 신문과 같이 여러 개의 칼럼(column)으로 구성되는 구조를 <code>column</code> 속성을 이용하여 손쉽게 만들 수 있습니다.<br>
+						다단(multi-column) 레이아웃 또는 다중 칼럼(multi-column) 레이아웃
+						다중 칼럼(multi-column)을 위해 제공되는 속성은 다음과 같습니다.<br>
+						<code>
+							columns<br>
+							column-count<br>
+							column-gap<br>
+							column-width<br>
+							column-span<br>
+							column-fill<br>
+							column-rule<br>
+							column-rule-style<br>
+							column-rule-width<br>
+							column-rule-color
+						</code>
+					</p>
+				</blockquote>
+
+				<!-- 4.6.1. column-count -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.1. <i class="t_blue">column-count</i></h2>
+					<p class="mt_s">
+						해당 요소를 몇 개의 칼럼(column)으로 나눌지를 설정합니다.<br>
+						블록 요소에 있어야 하는 열 수에 대한 정수 값을 사용합니다.<br>
+						깂이 auto인 경우 열 수는 <code>column-width</code>와 같은 다른 CSS 속성에 의해 결정됩니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [count]">
+						<textarea readonly="readonly">
+							div {
+								column-count: number | auto | initial | inherits;
+							}
+						</textarea>
+					</div>
+					<ol class="ol_lst mt_ms indent">
+						<li><code class="weight-500 t_blue bg_none">auto</code> : 초기값</li>
+						<li><code class="weight-500 t_blue bg_none">number</code> : 평가된 길이로 최적의 컬럼(column,열) 폭이 결정됩니다.</li>
+					</ol>
+
+					<section class="view_editor edit_code mt_l" data-target="css/step03/4.6.multi-column/4.6.multi-column-count.html">
+						<h3 class="ve_tit">multi-column count 예제</h3>
+						<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</section>
+				</section>
+
+				<!-- 4.6.2. column-gap -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.2. <i class="t_blue">column-gap</i></h2>
+					<p class="mt_s">
+						칼럼 사이의 간격을 설정합니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [gap]">
+						<textarea readonly="readonly">
+							div {
+								column-gap: length(px, em) | percentage(%) | normal | initial | inherit;
+							}
+						</textarea>
+					</div>
+
+					<section class="view_editor edit_code mt_l" data-target="css/step03/4.6.multi-column/4.6.multi-column-gap.html">
+						<h3 class="ve_tit">multi-column gap 예제</h3>
+						<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</section>
+				</section>
+
+				<!-- 4.6.3. column-width -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.3. <i class="t_blue">column-width</i></h2>
+					<p class="mt_s">
+						칼럼의 너비를 설정합니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [width]">
+						<textarea readonly="readonly">
+							div {
+								column-width: auto | length(px, em, vw) | initial | inherit;
+							}
+						</textarea>
+					</div>
+
+					<section class="view_editor edit_code mt_l" data-target="css/step03/4.6.multi-column/4.6.multi-column-width.html">
+						<h3 class="ve_tit">multi-column width 예제</h3>
+						<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</section>
+				</section>
+
+				<!-- 4.6.4. column-span -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.4. <i class="t_blue">column-span</i></h2>
+					<p class="mt_s">
+						해당 요소가 몇 개의 칼럼(column)을 병합해서 표현할지를 설정합니다.<br>
+						값을 all로 설정하면 요소가 나타나기 전에 모든 열에서 자동으로 균형을 맞춥니다. 이 요소는 새로운 블록 서식 컨텍스트를 설정합니다.<br>
+						둘 이상의 열에 걸쳐있는 요소를 스패닝 요소 라고합니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [span]">
+						<textarea readonly="readonly">
+							div {
+								column-span: none | all | initial | inherit;
+							}
+						</textarea>
+					</div>
+
+					<section class="view_editor edit_code mt_l" data-target="css/step03/4.6.multi-column/4.6.multi-column-span.html">
+						<h3 class="ve_tit">multi-column span 예제</h3>
+						<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</section>
+				</section>
+
+				<!-- 4.6.5. column-fill -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.5. <i class="t_blue">column-fill</i></h2>
+					<p class="mt_s">칼럼을 어떻게 채울지 설정합니다.</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [fill]">
+						<textarea readonly="readonly">
+							div {
+								column-fill: auto | balance | balance-all | initial | inherit;
+							}
+						</textarea>
+					</div>
+					<ol class="ol_lst mt_ms indent">
+						<li><code class="weight-500 t_blue bg_none">balance</code> : 콘텐츠 내용보다 높이가 길다면 균형을 이루어 각 열의 아래쪽 부분을 빈 공간으로 남겨 둡니다.</li>
+						<li><code class="weight-500 t_blue bg_none">auto</code> : 열 채우기를 <code>height</code>에 맞추어 자동으로 설정합니다. 이것은 다음 열로 이동하기 전에 각 열을 위에서 아래로 완전히 채우는 효과가 있습니다.</li>
+					</ol>
+
+					<section class="view_editor edit_code mt_l" data-target="css/step03/4.6.multi-column/4.6.multi-column-fill.html">
+						<h3 class="ve_tit">multi-column fill 예제</h3>
+						<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</section>
+				</section>
+
+				<!-- 4.6.6. column-rule-style -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.6. <i class="t_blue">column-rule-style</i></h2>
+					<p class="mt_s">칼럼 사이에 들어갈 라인의 스타일을 설정합니다.</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [column-rule-style]">
+						<textarea readonly="readonly">
+							div {
+								/* <'border-style'> values */
+								column-rule-style: none;
+								column-rule-style: hidden;
+								column-rule-style: dotted;
+								column-rule-style: dashed;
+								column-rule-style: solid;
+								column-rule-style: double;
+								column-rule-style: groove;
+								column-rule-style: ridge;
+								column-rule-style: inset;
+								column-rule-style: outset;
+
+								/* Global values */
+								column-rule-style: inherit;
+								column-rule-style: initial;
+								column-rule-style: unset;
+							}
+						</textarea>
+					</div>
+				</section>
+
+				<!-- 4.6.7. column-rule-color -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.7. <i class="t_blue">column-rule-color</i></h2>
+					<p class="mt_s">칼럼 사이에 들어갈 라인의 색상을 설정합니다.</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [column-rule-color]">
+						<textarea readonly="readonly">
+							div {
+								/* <color> values */
+								column-rule-color: red;
+								column-rule-color: rgb(192, 56, 78);
+								column-rule-color: transparent;
+								column-rule-color: hsla(0, 100%, 50%, 0.6);
+
+								/* Global values */
+								column-rule-color: inherit;
+								column-rule-color: initial;
+								column-rule-color: unset;
+							}
+						</textarea>
+					</div>
+				</section>
+
+				<!-- 4.6.8. column-rule -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.8. <i class="t_blue">column-rule</i></h2>
+					<p class="mt_s">모든 <code>columns</code> 속성을 이용한 스타일을 한 줄에 설정할 수 있습니다.</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [column-rule]">
+						<textarea readonly="readonly">
+							div {
+								column-rule: column-rule-width | column-rule-style | column-rule-color | initial | inherit;
+
+								column-rule: dotted;
+								column-rule: solid 8px;
+								column-rule: solid blue;
+								column-rule: thick inset blue;
+							}
+						</textarea>
+					</div>
+
+					<section class="view_editor edit_code mt_l" data-target="css/step03/4.6.multi-column/4.6.multi-column-rule.html">
+						<h3 class="ve_tit">multi-column rule 예제</h3>
+						<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</section>
+				</section>
+
+				<!-- 4.6.9. columns -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.6.9. <i class="t_blue">columns</i></h2>
+					<p class="mt_s">모든 <code>columns</code> 속성을 이용한 스타일을 한 줄에 설정할 수 있습니다.</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="multi-column [columns]">
+						<textarea readonly="readonly">
+							div {
+								columns: <'column-width'> || <'column-count'>;
+
+								/* Column width */
+								columns: 18em;
+
+								/* Column count */
+								columns: auto;
+								columns: 2;
+
+								/* Both column width and count */
+								columns: 2 auto;
+								columns: auto 12em;
+								columns: auto auto;
+							}
+						</textarea>
+					</div>
+
+					<section class="view_editor edit_code mt_l" data-target="css/step03/4.6.multi-column/4.6.multi-columns.html">
+						<h3 class="ve_tit">multi-column columns 예제</h3>
+						<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</section>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="multi-column layout">
+					<ul>
+						<li class="ie">10+</li>
+						<li class="edge">76 -ms-</li>
+						<li class="chrome">50+ -webkit-</li>
+						<li class="firefox">52+ -moz-</li>
+						<li class="opera">15+ -webkit-</li>
+						<li class="safari">9.0</li>
 					</ul>
-				</footer>
+				</aside>
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">그리드 레이아웃 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/css-multicol-1/" target="_blank" class="fas" title="새창열림">W3C CSS Multi-column Layout Module Level 1</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns/Using_multi-column_layouts" target="_blank" class="fas" title="새창열림">MDN multi-column layouts</a></li>
+						<li class="reference"><a href="https://caniuse.com/#feat=multicolumn" target="_blank" class="fas" title="새창열림">caniuse.com CSS3 Multiple column layout</a></li>
+					</ul>
+				</aside>
 			</main>
 			<!-- // 멀티 컬럼 레이아웃 content (.content_area) -->
 

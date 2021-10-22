@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -990,12 +1006,12 @@
 						<ol class="ol_lst mt_s indent">
 							<li>#맵이름 값 : 해시 문자(#)와 함께 사용할 <code>&lt;map&gt;</code> 요소의 name 속성값을 명시합니다.</li>
 						</ol>
-						<div class="uk_gist_code_box mt_ms" data-tit="img element [usemap] attribute" data-ex="img_area">
+						<div class="uk_gist_code_box mt_ms" data-tit="img element [usemap] attribute"><!-- data-ex="img_area" -->
 							<textarea readonly="readonly">
 								<img src="/examples/images/img_imagemap.jpg" alt="진실 혹은 거짓" usemap="#vending" style="width:320px; height:240px" />
 								<map name="vending">
-									<area>
-									<area>
+									<area shape="poly" coords="50,150,230,120,230,180,50,210" alt="진실" href="#">
+									<area shape="circle" coords="140,100,40" alt="거짓" href="#">
 								</map>
 							</textarea>
 						</div>

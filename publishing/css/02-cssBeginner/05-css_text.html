@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -957,11 +973,13 @@
 						같은 줄에서 인라인 요소의 크기에 따라 높낮이가 달라질 수 있고, 그 줄에 있는 line-height 설정에 따라서도 달라질 수 있습니다.<br>
 						대부분 부모 요소에 상대적으로 정렬합니다.
 					</p>
-					<div class="uk_gist_code_box mt_ms" data-tit="vertical-align" data-ex="align_vertical-align" data-text=": baseline | length | % | sub | super | top | text-top | middle | bottom | text-bottom | initial | inherit;">
+					<div class="uk_gist_code_box mt_ms" data-tit="vertical-align" data-ex="align_ver tical-align" data-text=": baseline | length | % | sub | super | top | text-top | middle | bottom | text-bottom | initial | inherit;">
 						<textarea readonly="readonly">
-							p {
-								vertical-align: ;
-							}
+							<style>
+								p {
+									vertical-align: baseline | length | % | sub | super | top | text-top | middle | bottom | text-bottom | initial | inherit;
+								}
+							</style>
 						</textarea>
 					</div>
 					<div class="ol_lst mt_m">
@@ -1098,11 +1116,13 @@
 						모든 속성이 기본값이라는 전제하에 줄 바꿈은 대부분의 non-CJK(CJK 이외의 문자)의 경우 '공백(띄어쓰기)'에서, CJK의 경우 '음절'에서 수행됩니다.<br>
 						값은 normal(기본값), break-all, keep-all 이 있습니다. (keep-all 의 경우 IE에서는 계속 지원하였으나 webkit에서는 15년 6월부터 지원하였습니다.)
 					</p>
-					<div class="uk_gist_code_box mt_ms" data-tit="word-break" data-ex="align_word-break" data-text=": normal | keep-all | break-all | break-word;">
+					<div class="uk_gist_code_box mt_ms" data-tit="word-break" data-ex="align_w ord-break" data-text=": normal | keep-all | break-all | break-word;">
 						<textarea readonly="readonly">
-							p {
-								word-break: ;
-							}
+							<style>
+								p {
+									word-break: normal | keep-all | break-all | break-word;
+								}
+							</style>
 						</textarea>
 					</div>
 					<div class="ol_lst indent mt_ms">

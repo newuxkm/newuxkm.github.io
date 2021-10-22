@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -911,14 +927,713 @@
 					</ul>
 				</nav>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				
-				<footer class="reference_box">
-					<strong class="tit">CSS 중급 참조</strong>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						<b class="t_blue">@media part1</b> 에서는 <code>@media</code>의 속성 중<br>
+						<span class="el_block indent t_black">
+							- 미디어 유형(Media types)<br>
+							- 미디어 기능(Media features)<br>
+							- 미디어 논리 연산자(Logical operators)<br>
+							- 미디어 쿼리(Media Query) 문법 <br>
+						</span>
+						에 대한 내용을 다루고 있습니다.
+					</p>
+					<hr class="dashed_line mt_m mb_m">
+					<p class="mt_m">
+						@media을 사용하여 미디어 별로 style을 지정하는 것을 Media Query라 합니다. 디바이스를 지정하는 것뿐만 아니라 디바이스의 크기나 비율까지 구분할 수 있습니다.
+					</p>
+					<p class="mt_s">
+						출력 장치의 여러 특징 가운데 일부를 참조하여 CSS 코드를 분기 처리함으로써 하나의 HTML 소스가 여러가지 뷰를 갖도록 구현할 수 있는 명세입니다.<br>
+						일반적으로 뷰포트 해상도에 따라 CSS 코드를 분기합니다.<br>
+						대표적으로 사용하는 규칙은 반응형 레이아웃을 작업할 때 사용되며, 문서를 인쇄할 때 사용되기도 합니다.
+					</p>
+					<p class="mt_s">
+						미디어 쿼리(Media Query)는 CSS2부터 사용되었으며, 미디어 타입을 개선한 CSS3에서 본격적으로 쓰이기 시작한 웹 기법입니다.<br>
+						미디어 쿼리는 반응형 웹의 핵심 기법이며, 화면의 폭이나 높이 등의 정보를 가지고 스타일을 개별적으로 줄 수 있습니다.
+					</p>
+					<p class="mt_s">
+						CSS2에서는 @media 규칙을 통해 서로 다른 매체 유형(media type)을 위한 맞춤식 스타일 시트(style sheet)를 지원합니다.<br>
+						예를 들면, HTML 문서가 스크린에 표현될 때와 프린트할 때 서로 다른 스타일을 적용할 수 있습니다.
+					</p>
+					<p class="mt_s">
+						CSS3에서는 @media 규칙을 더욱 발전시켜 매체 유형(media type)과 하나 이상의 표현식(expression)으로 구성된 미디어 쿼리(media query)를 사용할 수 있습니다.<br>
+						미디어 쿼리(media query)는 width, height, color 속성과 같은 미디어 관련 속성을 이용한 표현식을 통해 스타일이 적용되는 범위를 조절할 수 있습니다.<br>
+						미디어 쿼리를 사용하면 콘텐츠(content)를 별도로 변경하지 않아도 웹 페이지에 접속하고 있는 기기에 알맞은 형태로 스타일이 조정됩니다.
+					</p>
+				</blockquote>
+
+				<!-- 3.9.1. 미디어 유형(Media types) -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.9.1. 미디어 유형(Media types)</h2>
+					<p class="mt_ms">
+						CSS3의 매체 유형은 이전 CSS2에서 정의된 것을 그대로 사용하고 있습니다.<br>
+						<!--<code>all | print | screen | speech</code>-->
+					</p>
+					<p class="mt_s">
+						사용하지 않는 미디어 유형에는<br>
+						CSS2.1과 Media Queries 3 모듈에서 여러가지 추가 유형(tty, tv, projection, handheld, braille, embossed, aural)을 정의했으나
+						Media Queries 4에서 제거됐으므로 사용해선 안됩니다.<br>
+						aural은 유사한 유형인 speech로 대체됐습니다.<br>
+						미디어 유형은 선택사항입니다. 미디어 유형을 표시하지 않으면 미디어 쿼리는 기본값으로 모든 미디어 유형에 대한 것으로 해석됩니다.
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="Media types">
+						<textarea readonly="readonly">
+							@media [all | print | screen | speech] and (min-width: 700px) { … }
+						</textarea>
+					</div>
+
+					<!-- all -->
+					<article class="indent_max mt_m">
+						<h3 class="ml_mn t_blue">all</h3>
+						<p class="mt_s">
+							기본값. 모든 미디어 장치<code>(print | screen | speech)</code>에 사용 됩니다.<br>
+							미디어 타입이 생략되어 있어도 미디어 타입의 기본값은 all입니다.
+						</p>
+					</article>
+
+					<!-- print -->
+					<article class="indent_max mt_m">
+						<h3 class="ml_mn t_blue">print</h3>
+						<p class="mt_s">프린터에 사용됩니다.</p>
+					</article>
+
+					<!-- screen -->
+					<article class="indent_max mt_m">
+						<h3 class="ml_mn t_blue">screen</h3>
+						<p class="mt_s">컴퓨터나 태블릿, 스마트폰 등 스크린(screen)이 있는 매체에 사용됩니다.</p>
+					</article>
+
+					<!-- speech -->
+					<article class="indent_max mt_m">
+						<h3 class="ml_mn t_blue">speech</h3>
+						<p class="mt_s">웹 페이지를 읽어주는 화면 낭독기(스크린 리더)에 사용됩니다.</p>
+					</article>
+
+					<div class="uk_gist_code_box mt_ml" data-tit="Media types">
+						<textarea readonly="readonly">
+							/* 모든 유형의 장치이며 최소너비 700px 일 때 스타일을 적용 */
+							@media (min-width: 700px) {background-color: yellow;}
+							@media all and (min-width: 700px) { … }
+
+							/* 인쇄할 페이지 설정 */
+							@media print {
+								body {
+									font-size: 12pt;
+								}
+							}
+						</textarea>
+					</div>
+				</section>
+
+				<!-- 3.9.2. 미디어 기능(Media features) -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.9.2. 미디어 기능(Media features)</h2>
+					<p class="mt_ms">
+						미디어 유형을 지정한 뒤에 규칙을 적용할 미디어 기능을 선정할 수 있습니다.<br>
+						미디어 기능은 사용자 에이전트, 출력 장치 또는 환경 의 특정 특성을 설명 합니다.<br>
+						미디어 기능 표현식은 해당 존재 또는 값을 테스트하며 전적으로 선택 사항입니다. 각 미디어 기능 표현식은 괄호로 묶어야합니다.<br>
+						orientation 기능을 제외한 모든 기능 앞에는 min 또는 max 접두사를 사용할 수 있습니다.
+					</p>
+					<p class="mt_s">
+						<code>@media</code> 기능들을 적절히 활용하면 반응형 웹 사이트를 제작하는데 유용합니다.
+						<!--
+						<br>
+						<code>width | height | min-width | min-height | max-width | max-height</code><br>
+						<code>device-width | device-height | min-device-width | min-device-height | max-device-width | max-device-height</code><br>
+						<code>aspect-ratio (min- / max- 접두어 사용가능)</code><br>
+						<code>device-aspect-ratio (min- / max- 접두어 사용가능)</code><br>
+						<code>color (min- / max- 접두어 사용가능)</code><br>
+						<code>color-index (min- / max- 접두어 사용가능)</code><br>
+						<code>monochrome (min- / max- 접두어 사용가능)</code><br>
+						<code>resolution (min- / max- 접두어 사용가능)</code><br>
+						<code>scan | grid</code>
+						-->
+					</p>
+
+					<!-- 뷰포트 크기에 따라 미디어 쿼리 적용 -->
+					<article class="indent_max mt_l">
+						<h3 class="ml_mn t_blue">뷰포트 크기에 따라 미디어 쿼리 적용</h3>
+						<p class="mt_s">
+							미디어 쿼리를 사용하면 반응형 환경을 만들 수 있습니다.<br>
+							이 환경에서는 작은 화면과 큰 화면 및 그 사이의 모든 화면 크기에 특정 스타일이 적용됩니다.<br>
+							미디어 쿼리 구문에서는 기기 특성에 따라 적용될 수 있는 규칙 생성을 허용합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [query]">
+							<textarea readonly="readonly">
+								@media (query) {
+									/* CSS Rules used when query matches */
+								}
+							</textarea>
+						</div>
+						<p class="mt_ms">
+							쿼리할 수 있는 항목에는 여러 가지가 있지만,
+							반응형 웹 디자인에 가장 자주 사용되는 항목은 <code>min-width, max-width, min-height</code> 및 <code>max-height</code>입니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">min-width</span> : 쿼리에 정의된 값보다 큰 브라우저 너비에 적용되는 규칙.</li>
+							<li><span class="t_black">max-width</span> : 쿼리에 정의된 값보다 작은 브라우저 너비에 적용되는 규칙.</li>
+							<li><span class="t_black">min-height</span> : 쿼리에 정의된 값보다 큰 브라우저 높이에 적용되는 규칙.</li>
+							<li><span class="t_black">max-height</span> : 쿼리에 정의된 값보다 작은 브라우저 높이에 적용되는 규칙.</li>
+							<li><span class="t_black">orientation-portrait</span> : 높이가 너비보다 크거나 같은 브라우저에 적용되는 규칙.</li>
+							<li><span class="t_black">orientation-landscape</span> : 너비가 높이보다 큰 브라우저에 적용되는 규칙.</li>
+						</ol>
+					</article>
+
+					<!-- width, height -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">width</h3>
+						<p class="mt_s">
+							뷰포트의 너비, 높이.<br>
+							뷰포트의 크기는 HTML body 콘텐츠를 표시하는 영역으로 실제 스크린의 크기와는 다릅니다.<br>
+							반응형 웹 구현시 가장 일반적으로 사용하는 조건이 됩니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;length&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : visual and tactile media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [width, height]" data-ex="style_tag_remove">
+							<textarea readonly="readonly">
+								<style>
+								/* 모든 장치에서 최소 너비 20em 이상이면 적용 */
+								@media (min-width: 20em) { … }
+
+								/* 뷰포트 너비가 768px 이상 '그리고' 1024px 이하이면 실행 */
+								@media all and (min-width:768px) and (max-width:1024px) { … }
+
+								/* 뷰포트 너비가 768px 이거나 '또는' 1024px 이면 실행 */
+								@media all and (width:768px), (width:1024px) { … }
+
+								/* 뷰포트 너비가 768px 이상 '그리고' 1024px 이하가 '아니면' 실행 */
+								@media not all and (min-width:768px) and (max-width:1024px) { … }
+
+								/* 뷰포트 너비가 768px 이하 '또는' 뷰포트의 높이가 800px 이하이면 실행 */
+								@media all and (max-width:768px), (max-height:800px) { … }
+								</style>
+							</textarea>
+						</div>
+					</article>
+
+					<!-- height
+					<article class="indent_max mt_l">
+						<h3 class="ml_mn t_blue">height</h3>
+						<p class="mt_s">
+							뷰포트의 높이.<br>
+							뷰포트의 크기는 HTML body 콘텐츠를 표시하는 영역으로 실제 스크린의 크기와는 다릅니다.<br>
+							반응형 웹 구현시 가장 일반적으로 사용하는 조건이 됩니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;length&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : visual and tactile media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+					</article>
+					-->
+
+					<!-- device-width -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">device-width, device-height</h3>
+						<p class="mt_s">
+							스크린의 너비, 높이.<br>
+							스크린은 출력 장치가 픽셀을 표시할 수 있는 모든 영역으로 일반적으로 HTML body 콘텐츠를 표시하는 뷰포트 보다 큽니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;length&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : visual and tactile media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [device-width, device-height]">
+							<textarea readonly="readonly">
+								<!-- 장치 너비가 450px보다 작을 때 적용 -->
+								<link rel="stylesheet" media="screen and (max-device-width: 450px)" href="rwd.css">
+
+								<style>
+									/* 스크린 너비가 320px '그리고' 높이가 480px 이면 실행 */
+									@media all and (device-width:320px) and (device-height:480px) { … }
+
+									/* 스크린 너비가 최소 320px 이상 '그리고' 높이가 최소 480px 이상이면 실행 */
+									@media all and (min-device-width:320px) and (min-device-height:480px) { … }
+								</style>
+							</textarea>
+						</div>
+					</article>
+
+					<!-- device-height
+					<article class="indent_max mt_l">
+						<h3 class="ml_mn t_blue">device-height</h3>
+						<p class="mt_s">
+							스크린의 높이.<br>
+							스크린은 출력 장치가 픽셀을 표시할 수 있는 모든 영역으로 일반적으로 HTML body 콘텐츠를 표시하는 뷰포트 보다 큽니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;length&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : visual and tactile media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+					</article>
+					-->
+
+					<!-- aspect-ratio -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">aspect-ratio</h3>
+						<p class="mt_s">
+							화면 영역의 가로 세로 비율.<br>
+							slash('<b class="t_black">/</b>')를 사용하여 뷰포트의 너비와 높이에 대한 비율(양의 정수)을 [너비<b class="t_black">/</b>높이] 순으로 작성해야 합니다.<br>
+							min/max 접두사를 사용하면 너비 값의 최소/최대 비율을 정할 수 있습니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;ratio&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : bitmat media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [aspect-ratio]">
+							<textarea readonly="readonly">
+								/* 가로 화면 비가 1:1 이상일 때 적용. 즉, 화면이 직사각이거나 세로일 때만 적용 */
+								@media screen and (min-aspect-ratio: 1/1) { … }
+
+								/* 뷰포트 너비가 5, 높이가 4 비율이면 실행 */
+								@media all and (aspect-ratio:5/4) { … }
+
+								/* 뷰포트 너비가 5/4 비율 이상이면 실행 */
+								@media all and (min-aspect-ratio:5/4) { … }
+
+								/* 뷰포트 너비가 5/4 비율 이하면 실행 */
+								@media all and (max-aspect-ratio:5/4) { … }
+							</textarea>
+						</div>
+					</article>
+
+					<!-- devie-aspect-ratio -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">devie-aspect-ratio</h3>
+						<p class="mt_s">
+							스크린의 너비와 높이에 대한 비율. '너비/높이' 순으로 조건을 작성합니다.<br>
+							min/max 접두사를 사용하면 너비 값의 최소/최대 비율을 정할 수 있습니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;ratio&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : bitmat media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [devie-aspect-ratio]">
+							<textarea readonly="readonly">
+								/* 장치 가로 세로 비가 16:9일 때 적용 */
+								@media screen and (device-aspect-ratio: 16/9) { … }
+
+								/* 스크린 너비가 5, 높이가 4 비율이면 실행 */
+								@media all and (device-aspect-ratio:5/4) { … }
+
+								/* 스크린 너비가 5/4 비율 이상이면 실행 */
+								@media all and (min-device-aspect-ratio:5/4) { … }
+
+								/* 스크린 너비가 5/4 비율 이하면 실행 */
+								@media all and (max-device-aspect-ratio:5/4) { … }
+							</textarea>
+						</div>
+					</article>
+
+					<!-- orientation -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">orientation</h3>
+						<p class="mt_s">
+							뷰포트의 너비와 높이 비율을 이용하여 가로 모드인지 세로 모드인지를 판단합니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : portrait | landscape</li>
+							<li><span class="t_black">Applies to</span> : bitmap media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : no</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [orientation]">
+							<textarea readonly="readonly">
+								/* 세로 모드. 뷰포트의 높이가 너비에 비해 상대적으로 크면 실행 */
+								@media all and (orientation: portrait) { … }
+
+								/* 가로 모드. 뷰포트의 너비가 높이에 비해 상대적으로 크면 실행 */
+								@media all and (orientation: landscape) { … }
+							</textarea>
+						</div>
+					</article>
+
+					<!-- color -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">color</h3>
+						<p class="mt_s">
+							매체 장치의 색상 구성요소 당 비트 수 (장치가 색깔 장치가 아니면 값은 0)<br>
+							출력 장치의 색상에 대한 비트 수. 출력 장치가 컬러가 아닌 경우 0의 값에 대응합니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;integer&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : visual media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [color]">
+							<textarea readonly="readonly">
+								/* 출력 장치가 컬러를 지원하면 실행 */
+								@media all and (color) { … }
+
+								/* 출력 장치가 컬러가 아니면 실행 */
+								@media all and (color:0) { … }
+
+								/* 출력 장치가 4비트 이하 색상이면 실행 */
+								@media all and (min-color: 4) { … }
+
+								/* 출력 장치가 8비트 색상이면 실행 */
+								@media all and (color:8) { … }
+
+								/* 출력 장치가 8비트 이상 색상이면 실행 */
+								@media all and (min-color:8) { … }
+
+								/* 출력 장치가 8비트 이하 색상이면 실행 */
+								@media all and (max-color:8) { … }
+							</textarea>
+						</div>
+					</article>
+
+					<!-- color-index -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">color-index</h3>
+						<p class="mt_s">
+							출력 장치가 색상 색인 테이블을 사용하는 경우 표현할 수 있는 색의 수.<br>
+							출력 장치가 색상 색인 테이블을 사용하지 않으면 0의 값에 대응합니다. 현재 제대로 지원하는 브라우저가 없습니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;integer&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : visual media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [color-index]">
+							<textarea readonly="readonly">
+								<!-- 최소 256 색상을 지닌 모든 장치에 적용 -->
+								<link rel="stylesheet" media="all and (min-color-index: 256)" href="rwd.css">
+
+								<style>
+									/* 출력 장치가 색상 색인 테이블을 사용하면 실행 */
+									@media all and (color-index) { … }
+
+									/* 출력 장치가 색상 색인 테이블을 사용하지 않으면 실행 */
+									@media all and (color-index:0) { … }
+
+									/* 출력 장치가 256 색을 지원하면 실행 */
+									@media all and (color-index:256) { … }
+
+									/* 출력 장치가 256 이상 색을 지원하면 실행 */
+									@media all and (min-color-index:256) { … }
+
+									/* 출력 장치가 256 이하 색을 지원하면 실행 */
+									@media all and (max-color-index:256) { … }
+								</style>
+							</textarea>
+						</div>
+					</article>
+
+					<!-- monochrome -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">monochrome</h3>
+						<p class="mt_s">
+							출력 장치가 흑백인 경우 픽셀당 비트 수.<br>
+							출력 장치가 흑백이 아니라면 0의 값에 대응합니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;integer&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : visual media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [monochrome]">
+							<textarea readonly="readonly">
+								/* 출력 장치가 흑백이면 실행 */
+								@media all and (monochrome) { … }
+
+								/* 출력 장치가 흑백이 아니면 실행 */
+								@media all and (monochrome:0) { … }
+
+								/* 출력 장치가 흑백이고 2비트 이상이면 실행 */
+								@media all and (min-monochrome:2) { … }
+
+								/* 출력 장치가 흑백이고 2비트 이하이면 실행 */
+								@media all and (max-monochrome:2) { … }
+							</textarea>
+						</div>
+					</article>
+
+					<!-- resolution -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">resolution</h3>
+						<p class="mt_s">
+							출력 장치의 해상력에 대응합니다.
+							min/max 접두사는 사각형 아닌 픽셀(인쇄 장치)에도 대응하지만 접두사 없는 resolution 조건은 사각형 픽셀에만 대응합니다.
+							조건의 값으로 dpi(dots per inch)와 dpcm(dots per cintimeter) 단위를 사용할 수 있습니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li><span class="t_black">Value</span> : <code>&lt;resolution&gt;</code></li>
+							<li><span class="t_black">Applies to</span> : bitmap media types</li>
+							<li><span class="t_black">Accepts min/max prefixes</span> : yes</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="Media features [resolution]">
+							<textarea readonly="readonly">
+								/* 최소 300dpi 이상 해상도를 지닌 장치에 적용 */
+								@media screen and (min-resolution: 300dpi) { … }
+
+								/* 1인치당 96개의 사각형 화소를 제공하면 실행 */
+								@media all and (resolution:96dpi) { … }
+
+								/* 1인치당 96개 이상의 화소를 제공하면 실행 */
+								@media all and (min-resolution:96dpi) { … }
+
+								/* 1인치당 96개 이하의 화소를 제공하면 실행 */
+								@media all and (max-resolution:96dpi) { … }
+							</textarea>
+						</div>
+					</article>
+				</section>
+
+				<!-- 3.9.3. 미디어 논리 연산자(Logical operators) -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.9.3. 미디어 논리 연산자(Logical operators)</h2>
+					<p class="mt_ms">
+						<code>not, and, only</code>와 같은 논리 연산자를 사용해 조합하여 복잡한 쿼리를 만들 수 있습니다.<br>
+						여러 미디어 쿼리를 쉼표(,)로 구분해서 하나의 규칙으로 만들 수도 있습니다.
+					</p>
+
+					<!-- and 연산자 - 논리곱 연산자 -->
+					<article class="indent_max mt_l">
+						<h3 class="ml_mn t_blue">and 연산자 - 논리곱 연산자</h3>
+						<p class="mt_s">
+							여러 미디어 특징들을 하나로 결합합니다.<br>
+							새로운 미디어 특징들을 추가할 때마다 and 연산자를 사용합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media [Logical operators]">
+							<textarea readonly="readonly">
+								@media (min-width: 700px) and (orientation: portrait) { … }
+							</textarea>
+						</div>
+						<p class="mt_ms">
+							위 한줄 예제는 <i class="t_blue">[모든 유형의 장치, 최소 너비 700px 이상, 세로 모드]</i>의 조건에 적용되는 예제입니다.
+						</p>
+						<div class="view_editor edit_code mt_m" data-target="css/step02/3.9.media/3.9.3.media-and.html">
+							<div  class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- 콤마(,) 또는 or 연산자 - 논리합 연산자 -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">콤마(,) 또는 or 연산자 - 논리합 연산자</h3>
+						<p class="mt_s">
+							쉼표는 각각 개별 미디어 쿼리로 인식합니다.<br>
+							쉼표는 여러 미디어 쿼리를 단일 규칙으로 결합하는 데 사용됩니다.<br>
+							쉼표로 구분 된 목록의 각 쿼리는 다른 쿼리와 별도로 처리됩니다.<br>
+							따라서 목록의 쿼리 중 하나라도 true이면 전체 미디어 문이 true를 반환합니다. 즉, 목록은 논리 or연산자 처럼 동작합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media [OR operator]">
+							<textarea readonly="readonly">
+								@media (min-width: 700px), print and (orientation: landscape) { … }
+							</textarea>
+						</div>
+						<p class="mt_ms">
+							위 한줄 예제는 <i class="t_blue">[모든 유형의 장치, 최소 너비 700px 이상 or 프린트 장치 가로 방향]</i>의 조건에 적용되는 예제입니다.
+						</p>
+						<div class="view_editor edit_code mt_m" data-target="css/step02/3.9.media/3.9.3.media-or.html">
+							<div  class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- not 연산자 - 부정 논리 연산자 -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">not 연산자 - 부정 논리 연산자</h3>
+						<p class="mt_s">
+							not 연산자는 쿼리가 그렇지 않은 경우는 false를 반환하는 경우는 true 반환, 미디어 쿼리를 부정하는 데 사용됩니다.<br>
+							쉼표로 구분 된 쿼리 목록에 있으면 해당 쿼리가 적용되는 특정 쿼리만 무효화됩니다.<br>
+							not 연산자를 사용하는 경우 매체 유형도 지정 해야합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media [Negation logical operator]" data-ex="style_tag_remove">
+							<textarea readonly="readonly">
+								<style>
+								@media not all and (color) { … }
+								@media not (all and (color)) { … }
+								</style>
+							</textarea>
+						</div>
+						<p class="mt_ms">
+							<!--<code>@media not all and (color) { ... } = @media not (all and (color)) { … }</code><br>-->
+							위 예제는 <i class="t_blue">모든 색상 장치에서 이 스타일을 적용하지 않겠다는 조건</i>입니다.
+						</p>
+
+						<div class="uk_gist_code_box mt_m" data-tit="@media [Negation logical operator]" data-ex="style_tag_remove">
+							<textarea readonly="readonly">
+								<style>
+								@media not screen and (color), print and (color) { … }
+								</style>
+							</textarea>
+						</div>
+						<p class="mt_ms">
+							위 한줄 예제는 <i class="t_blue">모든 스크린 색상 장치에서 적용하지 않거나, 프린트 색상 장치에서 적용되는 조건</i>입니다.<br>
+							쉼표로 분리하여 사용할 때, 미디어 구문은 개별 미디어 쿼리로 인식하므로 not은 쉼표 이후에 영향을 미치지 않습니다.
+						</p>
+						<div class="view_editor edit_code mt_m" data-target="css/step02/3.9.media/3.9.3.media-not.html">
+							<div  class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- only 연산자 -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">only 연산자</h3>
+						<p class="mt_s">
+							only 연산자는 전체 쿼리와 일치하는 경우에만 스타일을 적용하는 데 사용합니다.<br>
+							미디어 쿼리를 지원하지 않는 브라우저(정확히는 legacy user agents)가 주어진 스타일을 적용하는 것을 방지합니다.<br>
+							not이나 only를 사용하려면 미디어 유형을 규정해야 합니다.<br>
+							미디어 쿼리는 대소문자 구별하지 않습니다.
+						</p>
+						<!--
+						미디어 쿼리를 인식하지 못하는 브라우저(정확히는 legacy user agents)에서 미디어 쿼리를 숨기기 위해 사용함
+						only 키워드는 미디어 쿼리 결과에 아무런 영향을 미치지 않습니다.
+						오래된 브라우저는 screen and (color)를 'screen'으로 번역 하게되어 남아있는 쿼리를 무시하게 됩니다.
+						그리하여 모든 스크린에 스타일을 적용하게 되는데, 알려지지 않은 미디어 타입 only를 지정함으로써 무시하게 됩니다.
+						-->
+						<div class="uk_gist_code_box mt_ms" data-tit="@media [only operator]">
+							<textarea readonly="readonly">
+								<link rel="stylesheet" media="only screen and (color)" href="rwd.css">
+							</textarea>
+						</div>
+					</article>
+				</section>
+
+				<!-- 3.9.4. 미디어 쿼리(Media Query) 문법 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.9.4. 미디어 쿼리(Media Query) 문법</h2>
+					<p class="mt_ms">
+						만약 웹 페이지에 접속하고 있는 기기의 매체 유형과 명시된 매체 유형이 일치하고, 모든 표현식이 참(true)이면, 미디어 쿼리는 참(true)을 반환합니다.<br>
+						이렇게 미디어 쿼리의 반환값이 참이면, 해당 블록 안에 명시된 CSS 스타일 코드가 실행됩니다.<br>
+						여기에 and, only, not 등과 같은 키워드를 사용하여 더욱 복잡한 조건을 명시할 수도 있습니다.<br>
+					</p>
+					<div class="uk_gist_code_box mt_ms" data-tit="@media query syntax">
+						<textarea readonly="readonly">
+							@media not|only media type and (media feature) { … }
+						</textarea>
+					</div>
+
+					<!-- CSS 코드 내부에서 분기하는 방법 -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">CSS 코드 내부에서 분기하는 방법</h3>
+						<p class="mt_s">
+							CSS 코드 내부에서 사용하는 미디어 쿼리의 기본적인 문법 예는 다음과 같습니다. 일반적으로 권장하고 널리 쓰이는 방식입니다.<br>
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media query syntax [css inside]">
+							<textarea readonly="readonly">
+								@media only all and (조건문) { 실행문 }
+							</textarea>
+						</div>
+						<div class="ol_lst mt_m indent">
+							<ol>
+								<li class="line_code font14">
+									<strong class="mb_sm">@media</strong>
+									<p>미디어 쿼리가 시작됨을 선언합니다. @media, only, all, and, (조건문) 사이에 포함되어 있는 공백은 필수적입니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong class="mb_sm">only</strong>
+									<p>only 키워드는 미디어 쿼리를 지원하는 사용자 에이전트만 미디어 쿼리 구문을 해석하라는 명령이며 생략 가능합니다.</p>
+									<p>생략했을 때 기본 값은 only로 처리 됩니다. 생략해도 무방하므로 이 키워드는 일반적으로 작성하지 않습니다.</p>
+									<p>이 자리에는 not 키워드를 사용할 수 있는데 뒤에 오는 모든 조건을 부정하는 연산을 합니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong class="mb_sm">all</strong>
+									<p>all 키워드는 미디어 쿼리를 해석해야 할 대상 미디어를 선언한 것입니다.</p>
+									<p>all 이면 모든 미디어가 이 구문을 해석해야 합니다.</p>
+									<p>all 키워드 대신 screen 또는 print와 같은 특정 미디어를 구체적으로 언급할 수도 있습니다.</p>
+									<p>all 키워드는 생략 가능하고 생략했을 때 기본 값은 all 으로 처리됩니다.</p>
+									<p>all, screen, print를 가장 많이 씁니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong class="mb_sm">and</strong>
+									<p>and 키워드는 논리적으로 'AND' 연산을 수행하여 앞과 뒤의 조건을 모두 만족해야 한다는 것을 의미합니다.</p>
+									<p>조건이 유일하거나 또는 only, all과 같은 선행 키워드가 생략되면 and 키워드는 사용하지 말아야 합니다.</p>
+									<p>and 대신 콤마 , 기호를 사용하면 'OR' 연산을 수행합니다.</p>
+									<p>'OR' 연산은 나열된 조건 중에서 하나만 참이어도 {실행문}을 해석합니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong class="mb_sm">(조건문)</strong>
+									<p>브라우저는 조건문이 참일때{실행문}을 처리하고 거짓일 때 무시합니다.</p>
+									<p>조건문은 두 가지 이상 등장할 수 있습니다.</p>
+									<p>둘 이상의 조건문은 and 키워드 또는 콤마(,) 기호로 연결해야 합니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong class="mb_sm">{실행문}</strong>
+									<p>일반적인 CSS 코드를 이 괄호 안에 작성합니다.</p>
+									<p>브라우저는 (조건문)이 참일때 실행문 안쪽에 있는 CSS 코드를 해석합니다.</p>
+								</li>
+							</ol>
+						</div>
+						<div class="uk_gist_code_box mt_m" data-tit="@media query syntax [css inside]" data-ex="style_tag_remove">
+							<textarea readonly="readonly">
+								<style>
+								/* 뷰포트 너비가 768px 이상 '그리고' 1024px 이하이면 실행 */
+								@media all and (min-width:768px) and (max-width:1024px) { … }
+
+								/* 뷰포트 너비가 768px 이거나 '또는' 1024px 이면 실행 */
+								@media all and (width:768px), (width:1024px) { … }
+
+								/* 뷰포트 너비가 768px 이상 '그리고' 1024px 이하가 '아니면' 실행 */
+								@media not all and (min-width:768px) and (max-width:1024px) { … }
+
+								/* 스크린 너비가 320px '그리고' 높이가 480px 이면 실행 */
+								@media all and (device-width:320px) and (device-height:480px) { … }
+
+								/* 스크린 너비가 최소 320px 이상 '그리고' 높이가 최소 480px 이상이면 실행 */
+								@media all and (min-device-width:320px) and (min-device-height:480px) { … }
+								</style>
+							</textarea>
+						</div>
+					</article>
+
+					<!-- CSS 코드 외부에서 분기하는 방법 -->
+					<article class="indent_max mt_xl">
+						<h3 class="ml_mn t_blue">CSS 코드 외부에서 분기하는 방법</h3>
+						<p class="mt_s">
+							조건문에 따라 별도의 외부 CSS 파일을 참조하여 분기하는 방법이며, 이 방식은 성능 최적화 측면에서 권장하지 않습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media query syntax [css outside]">
+							<textarea readonly="readonly">
+								<!--
+								데스크탑 브라우저 사용자가 언제든 조건을 변경(예를 들면 창 크기를 조절해서 해상도를 바꿈)할 수 있기 때문에
+								웹 브라우저는 조건에 관계 없이 A.css 파일과 B.css 파일을 항상 요청합니다.
+								HTTP 요청을 불필요하게 두 번 발생시켜 이 페이지를 처음 로딩하는 사용자에게는 성능 저하의 원인이 됩니다.
+								CSS 파일은 하나로 병합하고 CSS 코드 내부에서 조건 분기하는 방식을 권장합니다.
+								-->
+								<link rel="stylesheet" type="text/css" media="all and (조건A)" href="A.css">
+								<link rel="stylesheet" type="text/css" media="all and (조건B)" href="B.css">
+
+								<!-- 스크린 장치 최소 화면이 500px보다 크고 800px보다 작을 때 스타일 적용 -->
+								<link rel="stylesheet" media="screen and (min-width: 500px) and (max-width: 800px)" href="rwd.css">
+							</textarea>
+						</div>
+					</article>
+				</section>
+
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">@규칙(At-Rule) 참조</h2>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/css3-mediaqueries/" target="_blank" class="fas" title="새창열림">W3C Media Queries</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/mediaqueries-4/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level 4</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-3/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 3</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-4/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 4</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-5/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 5</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Media_queries" target="_blank" class="fas" title="새창열림">MDN 미디어 쿼리 사용하기</a></li>
+						<li class="reference"><a href="https://dev.opera.com/articles/an-introduction-to-meta-viewport-and-viewport/" target="_blank" class="fas" title="새창열림">메타 뷰포트 소개 @viewport</a></li>
+						<li class="reference"><a href="https://visual.ly/community/infographic/technology/adaptive-web-design-vs-responsive-web-design" target="_blank" class="fas" title="새창열림">AWD vs RWD</a></li>
+						<li class="reference"><a href="https://torquemag.io/2013/09/responsive-design-vs-adaptive-design/" target="_blank" class="fas" title="새창열림">반응형 디자인과 적응형 디자인</a></li>
+						<li class="reference"><a href="https://en.wikipedia.org/wiki/Adaptive_web_design" target="_blank" class="fas" title="새창열림">적응형 웹 디자인</a></li>
+						<li class="reference"><a href="https://www.techrepublic.com/blog/web-designer/what-is-the-difference-between-responsive-vs-adaptive-web-design/" target="_blank" class="fas" title="새창열림">RWD vs AWD 차이점</a></li>
+						<li class="reference"><a href="https://www.lukew.com/ff/entry.asp?933" target="_blank" class="fas" title="새창열림">Luke Wroblewski 모바일 퍼스트</a></li>
+						<li class="reference"><a href="https://tobyyun.tumblr.com/post/58232536556/rwd-3-%EB%AA%A8%EB%B0%94%EC%9D%BC-%ED%8D%BC%EC%8A%A4%ED%8A%B8%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%9A%B0%EC%84%A0%EC%A3%BC%EC%9D%98" target="_blank" class="fas" title="새창열림">Toby Yun 모바일 퍼스트</a></li>
+						<li class="reference"><a href="https://developers.google.com/web/fundamentals/design-and-ux/responsive" target="_blank" class="fas" title="새창열림">반응형 웹 디자인 기본사항</a></li>
+						<li class="reference"><a href="https://bradfrost.com/blog/post/responsive-nav-patterns/" target="_blank" class="fas" title="새창열림">responsive navigation patterns</a></li>
 					</ul>
-				</footer>
+				</aside>
 			</main>
 			<!-- // @media part-1 content (.content_area) -->
 

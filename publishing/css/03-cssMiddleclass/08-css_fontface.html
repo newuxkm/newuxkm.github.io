@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -900,14 +916,519 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				
-				<footer class="reference_box">
-					<strong class="tit">CSS 중급 참조</strong>
-					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+				<link rel="preconnect" href="https://fonts.gstatic.com">
+				<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap&subset=korean" rel="stylesheet">
+
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						웹이 발전함에 따라 사용자가 웹에서 정보를 얻는 과정의 경험(UX)을 개선하려는 노력이 행해지고 있습니다.<br>
+						그런 노력 중 하나인 웹 폰트는 로컬의 폰트 설치 상황에 상관없이 웹에서 항상 원하는 타이포그래피를 사용할 수 있게 하는 기술입니다.
+					</p>
+				</blockquote>
+				<p class="mt_l">
+					<code>@font-face</code> 규칙은 웹 폰트(web font)를 정의할 때 사용하는 규칙입니다.<br>
+					웹 폰트는 사용자가 폰트를 설치하지 않아도 디자이너가 원하는 타이포그래피를 웹 페이지에 구현할 수 있게 하는 기술입니다.<br>
+					우선 웹 폰트를 서버에 올려놓고, CSS 파일에 <code>@font-face</code> 규칙을 사용하여 웹 폰트를 정의하고 추가합니다.<br>
+					그러면 해당 웹 페이지에 접속하는 모든 웹 브라우저는 자동으로 서버에서 웹 폰트를 내려받아 해당 글꼴을 표시하게 됩니다.
+				</p>
+				<div class="mt_ms ol_lst indent">
+					<p class="weight-500 ml_mn t_black">CSS3에서 <code>@font-face</code> 규칙을 사용하려면 다음과 같이 지정을 해야 합니다.</p>
+					<ol class="mt_s">
+						<li>
+							<strong class="weight-500 t_black">font-family</strong>
+							: 사용할 웹 폰트의 이름을 지정합니다. 이 이름은 폰트 파일의 이름과 일치하지 않아도 상관없습니다. 하지만 비슷하게 설정하는 것이 유지 보수에 좋습니다.
+						</li>
+						<li>
+							<strong class="weight-500 t_black">src</strong>
+							: 폰트 파일의 경로와 폰트의 형식을 지정합니다. url에 폰트 파일의 경로를 설정하고, format에 폰트 파일의 형식을 설정합니다.
+						</li>
+					</ol>
+				</div>
+				<p class="mt_ml">
+					<code>@font-face</code> 규칙을 설정한 다음 웹 폰트가 필요한 선택자(selector)의 font-family 속성에서 사용할 웹 폰트의 이름을 호출해 사용합니다.<br>
+					만약 웹 폰트 로딩이 실패하면 다음에 선언된 폰트가 렌더링됩니다. 이 폰트를 폴백 폰트(fallback font)라 합니다.
+				</p>
+				<figure class="img_figure mt_m">
+					<img src="/_assets/images/css/cssMiddleclass/uxkm_webfont.svg" alt="[@font-face 규칙">
+					<figcaption>[@font-face 규칙]</figcaption>
+				</figure>
+
+				<!-- 3.8.1. 웹 글꼴의 형식 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.8.1. 웹 글꼴의 형식</h2>
+					<p class="mt_ms">
+						웹 글꼴의 형식에는 다양한 종류가 있으며, 현재 가장 많이 사용하는 웹 글꼴 형식은 다음과 같습니다.
+					</p>
+					<div class="ol_lst indent mt_ms">
+						<ol>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">트루 타입 글꼴(TrueType Fonts, TTF)</strong>
+								<p>TrueType은 1980 년대 후반 Apple과 Microsoft에서 개발 한 글꼴 표준입니다.</p>
+								<p>TrueType은 Mac OS 및 Microsoft Windows 운영 체제에서 가장 일반적인 글꼴 형식입니다.</p>
+								<p>이 글꼴은 맥(MAC)과 윈도우(Window) 운영체제에서 가장 오랫동안 사용되어 온 대표적인 글꼴입니다.</p>
+								<p>트루 타입 글꼴은 해당 글꼴이 다양한 글꼴 크기에서 어떻게 표현될지에 대한 수준 높은 제어를 할 수 있게 해줍니다.</p>
+								<p>OTF/TTF 형식은 쉽게 복제될 수 있어(불법으로) 대신 WOFF 형식이 만들어졌습니다.</p>
+								<p>IE에서 글꼴 형식은 "설치 가능"으로 설정된 경우에만 작동합니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">오픈 타입 글꼴(OpenType Fonts, OTF)</strong>
+								<p>OpenType은 확장 가능한 컴퓨터 글꼴 형식입니다. TrueType을 기반으로하며 Microsoft의 등록 상표입니다.</p>
+								<p>글꼴은 오늘날 주요 컴퓨터 플랫폼에서 일반적으로 사용됩니다.</p>
+								<p>오픈 타입 글꼴은 사용자가 자신의 컴퓨터에서 크기를 조절할 수 있는 글꼴 표준입니다.</p>
+								<p>이 글꼴은 트루 타입 글꼴의 뒤를 잇기 위해 Microsoft에서 개발하였으며, 현재는 거의 모든 컴퓨터에서 사용되고 있습니다.</p>
+								<p>오픈 타입 글꼴은 유니코드를 기반으로 다양한 스크립트를 지원하며, 한 번에 여러 스크립트를 함께 지원할 수 있다는 장점을 가지고 있습니다.</p>
+								<p>OTF/TTF 형식은 쉽게 복제될 수 있어(불법으로) 대신 WOFF 형식이 만들어졌습니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">웹 오픈 글꼴(The Web Open Font Format, WOFF)</strong>
+								<p>WOFF는 웹 페이지에서 사용하기위한 글꼴 형식입니다.</p>
+								<p>웹 오픈 글꼴은 웹 페이지에서 사용할 수 있는 글꼴 표준이며, 2009 년에 개발되었으며 현재 W3C에서 사용을 권장하고 있는 글꼴 표준입니다.</p>
+								<p>이 글꼴은 추가 메타데이터(metadata)를 넣어 압축한 트루 타입 또는 오픈 타입 글꼴입니다.</p>
+								<p>모질라와 다른 조직들이 결합하여 웹에서 사용할 목적으로 개발했습니다.</p>
+								<p>OTF/TTF 를 이용한 구조의 압축된 버전으로, 다른 글꼴 형식보다 빠르게 로드됩니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">웹 오픈 글꼴 2.0(The Web Open Font Format 2.0, WOFF 2.0)</strong>
+								<p>이 글꼴은 웹 오픈 글꼴 1.0 버전보다 더 나은 압축률을 제공하는 트루 타입 또는 오픈 타입 글꼴입니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">SVG 글꼴(SVG Fonts/Shapes)</strong>
+								<p>SVG/SVGZ (Scalable Vector Graphics (Font)</p>
+								<p>SVGZ는 SVG의 압축된 버전.</p>
+								<p>SVG 글꼴을 사용하면 텍스트를 표시 할 때 SVG를 글리프로 사용할 수 있습니다. SVG 1.1 사양은 SVG 문서 내에서 글꼴을 만들 수있는 글꼴 모듈을 정의합니다.</p>
+								<p>SVG 문서에 CSS를 적용 할 수도 있고 @font-face 규칙을 SVG 문서의 텍스트에 적용 할 수도 있습니다.</p>
+								<p>SVG 글꼴은 SVG 요소로 텍스트를 그릴 때 그 표본으로 사용되는 글꼴 표준입니다.</p>
+								<p>이 글꼴은 SVG 문서에 CSS를 적용할 수 있도록 해줄 뿐만 아니라, @font-face 규칙도 적용할 수 있게 해줍니다.</p>
+								<p>SVG 글꼴은 거의 항상 @font-face소스 목록의 맨 아래에 와야 합니다. 다른 것을 사용할 수 없으면 브라우저가 SVG 글꼴을 사용하지 못하게합니다.</p>
+								<p>크롬 브라우저는 4-37 까지만 지원하고 38+ 부터는 지원 안 함.</p>
+								<p>오페라 브라우저는 10-24 까지만 지원하고 25+ 부터는 지원 안 함.</p>
+								<p>디바이스 iOS Safari는 현재 3.2+ 부터 지원하고 있습니다.</p>
+								<p>현재 svg font를 지원하는 브라우저는 Safari와 iOS Safari만 유일합니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">임베디드 오픈 타입 글꼴(Embedded OpenType Fonts, EOT)</strong>
+								<p>임베디드 오픈 타입 글꼴은 Microsoft가 웹 페이지에서 사용하기 위해 개발한 내장형 글꼴로, 오픈 타입 글꼴입니다.</p>
+								<p>IE8 이하 버전은 @font-face를 사용할 때 .eot 파일만 인식합니다.</p>
+							</li>
+						</ol>
+					</div>
+
+					<aside class="browser_support mt_m" data-tit="TTF/OTF">
+						<ul>
+							<li class="ie">9+ 부분지원</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">4.0</li>
+							<li class="firefox">3.5</li>
+							<li class="opera">10.0</li>
+							<li class="safari">3.1</li>
+						</ul>
+					</aside>
+					<aside class="browser_support mt_ms" data-tit="WOFF">
+						<ul>
+							<li class="ie">9+</li>
+							<li class="edge">12.0</li>
+							<li class="chrome">5.0</li>
+							<li class="firefox">3.6</li>
+							<li class="opera">11.5</li>
+							<li class="safari">5.1</li>
+						</ul>
+					</aside>
+					<aside class="browser_support mt_ms" data-tit="WOFF2">
+						<ul>
+							<li class="ie false">지원안함</li>
+							<li class="edge">14.0</li>
+							<li class="chrome">36.0</li>
+							<li class="firefox">39.0</li>
+							<li class="opera">23.0</li>
+							<li class="safari">12.0</li>
+						</ul>
+					</aside>
+					<aside class="browser_support mt_ms" data-tit="SVG">
+						<ul>
+							<li class="ie false">지원안함</li>
+							<li class="edge false">지원안함</li>
+							<li class="chrome false">지원안함</li>
+							<li class="firefox false">지원안함</li>
+							<li class="opera false">지원안함</li>
+							<li class="safari">3.2</li>
+						</ul>
+					</aside>
+					<aside class="browser_support mt_ms" data-tit="EOT">
+						<ul>
+							<li class="ie">6~8</li>
+							<li class="edge">12.0</li>
+							<li class="chrome false">지원안함</li>
+							<li class="firefox false">지원안함</li>
+							<li class="opera false">지원안함</li>
+							<li class="safari false">지원안함</li>
+						</ul>
+					</aside>
+
+					<aside class="reference_box mt_m">
+						<h2 class="tit">font 형식 지원여부 참조</h2>
+						<ul class="link_lst">
+							<li class="reference"><a href="https://caniuse.com/#feat=ttf" target="_blank" class="fas" title="새창열림">ttf/otf canius</a></li>
+							<li class="reference"><a href="https://caniuse.com/#feat=woff" target="_blank" class="fas" title="새창열림">woff canius</a></li>
+							<li class="reference"><a href="https://caniuse.com/#feat=woff2" target="_blank" class="fas" title="새창열림">woff2 canius</a></li>
+							<li class="reference"><a href="https://caniuse.com/#feat=eot" target="_blank" class="fas" title="새창열림">eot canius</a></li>
+							<li class="reference"><a href="https://caniuse.com/#feat=svg-fonts" target="_blank" class="fas" title="새창열림">svg canius</a></li>
+						</ul>
+					</aside>
+					<aside class="reference_box mt_m">
+						<h2 class="tit">Webfont Generator</h2>
+						<ul class="link_lst">
+							<li class="reference"><a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" class="fas" title="새창열림">웹폰트 변환 툴</a></li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- 3.8.2. CSS3 @font-face 규칙 속성 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.8.2. CSS3 @font-face 규칙 속성</h2>
+					<div class="uk_gist_code_box mt_m" data-tit="@font-face">
+							<textarea readonly="readonly">
+								/* 아래 속성을 모두 적용 한 예제 */
+								@font-face {
+									font-family: 'MyWebFont';
+									src: url('webfont.eot'); /* IE9 Compat Modes */
+									src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+										 url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+										 url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+										 url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+										 url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+									font-weight: normal;
+									font-stretch : normal;
+									font-style : normal;
+									unicode-range: U+d3bf-d3c7, U+d3ca-d3cf, U+d3d1-d3eb, U+d3ee-d3ef, U+d3f1-d3f3, U+d3f5-d3fb, U+d3fd-d400, U+d402-d45b, U+d45d-d463;
+								}
+							</textarea>
+					</div>
+
+					<!-- font-family -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">font-family</h3>
+						<p class="mt_s">
+							필수적이며, 글꼴의 이름을 설정합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@font-face [font-family]">
+								<textarea readonly="readonly">
+									@font-face {
+										font-family: '적용할 폰트 이름 지정';
+									}
+								</textarea>
+						</div>
+					</article>
+
+					<!-- src -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">src</h3>
+						<p class="mt_s">
+							필수적이며, 글꼴 파일의 주소를 설정합니다.<br>
+							권장은 항상 글꼴 URL에 소문자를 사용해야 하며. 대문자로 사용할 경우 IE에서 예기치 않은 결과를 줄 수 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@font-face [src]">
+								<textarea readonly="readonly">
+									@font-face {
+										src: url('적용할 폰트 경로/폰트명') format('폰트 포멧');
+									}
+								</textarea>
+						</div>
+					</article>
+
+					<!-- font-weight -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">font-weight</h3>
+						<p class="mt_s">
+							선택적이며, 글꼴의 굵기를 설정합니다. 기본값은 "normal"입니다.<br>
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@font-face [font-weight]">
+								<textarea readonly="readonly">
+									@font-face {
+										font-weight: normal | bold | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+									}
+								</textarea>
+						</div>
+					</article>
+
+					<!-- font-stretch -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">font-stretch</h3>
+						<p class="mt_s">
+							선택적이며, 글꼴의 크기가 늘어나는 방법을 설정합니다. 기본값은 "normal"입니다.<br>
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@font-face [font-stretch]">
+								<textarea readonly="readonly">
+									@font-face {
+										font-stretch : normal | condensed | ultra-condensed | extra-condensed | semi-condensed | expanded | semi-expanded | extra-expanded | ultra-expanded;
+									}
+								</textarea>
+						</div>
+					</article>
+
+					<!-- font-style -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">font-style</h3>
+						<p class="mt_s">
+							선택적이며, 글꼴의 스타일을 설정합니다. 기본값은 "normal"입니다.<br>
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@font-face [font-style]">
+								<textarea readonly="readonly">
+									@font-face {
+										font-style : normal | italic | oblique;
+									}
+								</textarea>
+						</div>
+					</article>
+
+					<!-- unicode-range -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">unicode-range</h3>
+						<p class="mt_s">
+							선택적이며, 글꼴이 지원하는 유니코드 문자의 범위를 설정합니다. 기본값은 <code>U+0-10FFFF</code>입니다.<br>
+							유니코드로 지정한 글자에만 웹 폰트를 적용하는 속성입니다.<br>
+							예를 들어 영어, 그리스어 및 일본어에 대해 별도의 글꼴 리소스를 제공 할 수 있습니다.
+						</p>
+						<p class="mt_s">
+							영어 버전의 페이지를 보는 사용자의 경우 그리스어 및 일본어 글꼴의 글꼴 리소스를 다운로드할 필요가 없음으로 대역폭이 절약됩니다.<br>
+							모든 유니코드 문자 코드 또는 범위는 허용 가능한 unicode-range 값입니다. 유니 코드 포인트 앞에는 U+문자 코드를 구성하는 최대 6개의 문자가 옵니다.<br>
+							이 형식을 따르지 않는 점 또는 범위는 유효하지 않은 것으로 간주하며 속성이 무시됩니다.<br>
+							수많은 유니 코드 옵션이 있는데 기본 라틴어 (0020—007F)는 영어 사이트에서 가장 일반적인 범위 일 수 있지만
+							<span class="reference mt_l"><a href="https://unicode-table.com/en/" target="_blank" title="새창열림">unicode-table.com</a></span> 에서 사용 가능한 유니코드를 참조햐여 사용할 수 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@font-face [unicode-range]">
+								<textarea readonly="readonly">
+									@font-face {
+										unicode-range:
+											/* 영문 */
+											U+0020-U+0020, U+0041-U+005A, U+0061-U+007A,
+											/* 숫자 */
+											U+0030-U+0039, U+002E-U+002E,
+											/* 한글 */
+											U+0020-U+007E, U+1100-U+11F9, U+3000-U+303F, U+3131-U+318E, U+327F-U+327F, U+AC00-U+D7A3, U+FF01-U+FF60,
+											/* 라틴 */
+											U+0020-U+002F, U+0030-U+0039, U+003A-U+0040, U+0041-U+005A, U+005B-U+0060, U+0061-U+007A, U+007B-U+007E;
+									}
+
+									unicode-range: U+26;                /* 단일 문자(single codepoint) */
+									unicode-range: U+0-7F;
+									unicode-range: U+0025-00FF;         /* 문자 범위(codepoint range) */
+									unicode-range: U+4??;               /* wildcard range */
+									unicode-range: U+0025-00FF, U+4??;  /* multiple values */
+									/*
+									와일드 카드 범위는 유니코드 범위 중 복잡합니다.
+									각각 ?은 값이 일치하는 와일드 카드를 나타냅니다.
+									?로 시작 하는 문자 코드는 0을 의미하므로 최대 6개의 총 문자를 허용하는 유니코드에도 불구하고 최대 5개의 물음표 문자를 사용할 수 있습니다.
+									*/
+								</textarea>
+						</div>
+
+						<figure class="img_figure mt_m">
+							<figcaption class="mt_0 t_black font-16">[unicode-range 속성 적용 예]</figcaption>
+							<img src="/_assets/images/css/cssMiddleclass/uxkm_webfont_unicode-range.svg" alt="html 요소 설명" class="mt_m">
+							<p class="mt_m">
+								U+BC14는 글자 '바'에 해당하는 유니코드고, U+CC28는 글자 '차'에 해당하는 유니코드 입니다.<br>
+								전체 텍스트에서 unicode-range 속성에 유니코드로 등록된 글자인 '바'와 '차'에만 웹 폰트가 적용되었습니다.<br>
+								unicode-range 속성의 장점은 등록된 글자가 텍스트에 없으면 웹 폰트 다운로드를 요청하지 않는다는 것입니다.<br>
+								즉, 웹 폰트를 사용하지 않으면 불필요한 다운로드를 막을 수 있습니다.
+							</p>
+						</figure>
+						<blockquote class="uk_note mt_m" role="note">
+							<h4 class="sound_only">요약 설명</h4>
+							<p>
+								Google은 머신 러닝에 기반을 둔 최적화 기술을 통해 한글 문서에서 주제에 따라 사용되는 글자의 패턴을 발견했습니다.<br>
+								그 패턴에 따라 한글 폰트를 100여 가지의 그룹으로 나누고 unicode-range 속성을 사용합니다.<br>
+								이렇게 하면 사용자가 웹 페이지를 로딩할 때 폰트 전체를 다운로드하지 않고 웹 페이지에서 사용할 문자에 필요한 폰트만 선택적으로 다운로드합니다.<br>
+								크기가 큰 한글 폰트를 동적으로 분할 다운로드하는 방법으로 용량을 최적화할 수 있게 된 것입니다.
+							</p>
+						</blockquote>
+					</article>
+
+					<!-- font-display -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">font-display</h3>
+						<p class="mt_s">
+							CSS의 font-display 속성을 사용하면 외부 라이브러리를 사용하지 않아도 웹 폰트의 로딩 상태에 따른 동작을 설정할 수 있습니다.<br>
+							현재 IE는 지원하지 않습니다.<br>
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@font-face [font-display]">
+								<textarea readonly="readonly">
+									@font-face {
+										font-display : auto | block | swap | fallback | optional;
+									}
+								</textarea>
+						</div>
+						<div class="ol_lst indent mt_ms">
+							<ol>
+								<li class="line_code font14">
+									<strong class="mb_sm">auto</strong>
+									<p>브라우저의 기본 동작</p>
+								</li>
+								<li class="line_code font14 mt_ms">
+									<strong class="mb_sm">block</strong>
+									<p>FOIT 방식(Flash Of Invisible Text)와 동일하게 작동하는 옵션입니다.</p>
+									<p>웹 폰트가 로딩되지 않았을 때는 텍스트를 렌더링하지 않습니다(최대 3초).</p>
+									<p>웹 폰트 로딩이 완료되면 웹 폰트를 적용합니다.</p>
+									<figure class="img_figure mt_s">
+										<img src="/_assets/images/css/cssMiddleclass/uxkm_webfont_font-display-block.svg" alt="font-display : block 작동 방식">
+										<figcaption>[font-display : block 작동 방식]</figcaption>
+									</figure>
+								</li>
+								<li class="line_code font14 mt_ms">
+									<strong class="mb_sm">swap</strong>
+									<p>FOUT 방식(Flash Of Unstyled Text)와 동일하게 작동하는 옵션입니다.</p>
+									<p>우선 폴백 폰트로 글자를 렌더링하고, 웹 폰트 로딩이 완료되면 웹 폰트를 적용합니다.</p>
+									<p>웹 폰트 로딩 여부와 관계없이 항상 텍스트가 보입니다.</p>
+									<figure class="img_figure mt_s">
+										<img src="/_assets/images/css/cssMiddleclass/uxkm_webfont_font-display-swap.svg" alt="font-display : swap 작동 방식">
+										<figcaption>[font-display : swap 작동 방식]</figcaption>
+									</figure>
+								</li>
+								<li class="line_code font14 mt_ms">
+									<strong class="mb_sm">fallback</strong>
+									<p>fallback 옵션을 사용하면 우선 100ms 동안 텍스트가 보이지 않고, 그 후 폴백 폰트로 렌더링합니다.</p>
+									<p>특이한 점은 약 2초의 전환(swap) 시간이 있다는 점입니다. 이 시간 안에 로딩이 완료되면 웹 폰트로 전환합니다.</p>
+									<p>하지만 이 시간이 지나면 웹 폰트 다운로드가 완료되어도 웹 폰트로 전환하지 않고 폴백 폰트를 유지합니다.</p>
+									<p>전환 시간 이후에 다운로드된 웹 폰트는 웹 페이지에 적용되지는 않지만 캐시에는 저장됩니다.</p>
+									<p>그래서 추후에 사용자가 다시 방문했을 때 바로 웹 폰트가 적용된다는 장점이 있습니다.</p>
+								</li>
+								<li class="line_code font14 mt_ms">
+									<strong class="mb_sm">optional</strong>
+									<p>optional 옵션은 fallback 옵션과 비슷하지만 다르게 작동하는 옵션입다.</p>
+									<p>우선 100ms 동안 텍스트가 보이지 않고 그 후 폴백 폰트로 전환합니다.</p>
+									<p>웹 폰트를 다운로드하지만 브라우저가 네트워크 상태를 파악해 웹 폰트 전환 여부를 결정한다는 점이 이 옵션의 특이한 점입니다.</p>
+									<p>예를 들어 네트워크의 연결 상태가 안 좋으면 웹 폰트의 다운로드가 완료되어도 캐시에 저장만 하고 전환은 하지 않습니다.</p>
+									<figure class="img_figure mt_s">
+										<img src="/_assets/images/css/cssMiddleclass/uxkm_webfont_font-display-optional.svg" alt="font-display : optional 작동 방식">
+										<figcaption>[font-display : optional 작동 방식]</figcaption>
+									</figure>
+								</li>
+							</ol>
+						</div>
+						<aside class="browser_support mt_m" data-tit="font-display">
+							<ul>
+								<li class="ie false">지원안함</li>
+								<li class="edge false">지원안함</li>
+								<li class="chrome">72.0</li>
+								<li class="firefox">58.0</li>
+								<li class="opera">60.0</li>
+								<li class="safari">11.1</li>
+							</ul>
+						</aside>
+					</article>
+				</section>
+
+				<!-- 3.8.3. 웹 폰트 브라우저의 렌더링 차단 처리 방식 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.8.1. 웹 폰트 브라우저의 렌더링 차단 처리 방식</h2>
+					<p class="mt_ms">
+						렌더링 방식은 Internet Explorer 계열 브라우저의 처리 방식과 그 외 최근 브라우저의 처리 방식으로 나눌 수 있습니다.<br>
+						Internet Explorer 계열 브라우저는 FOUT 방식(Flash Of Unstyled Text)으로 렌더링 차단을 처리하고, 그 외의 브라우저는 FOIT 방식(Flash Of Invisible Text)으로 렌더링 차단을 처리합니다.
+					</p>
+					<p class="mt_s">
+						웹 폰트가 적용될 때는 텍스트의 번쩍임(flash of text)이 일어납니다.<br>
+						웹 폰트가 적용되지 않은 폴백 폰트 상태(unstyled)에서 폰트가 바뀌면서 텍스트 번쩍임이 일어나는 방식(FOUT 방식),<br>
+						또는 웹 폰트가 적용되지 않은 텍스트가 보이지 않는 상태(invisible)에서 폰트가 바뀌면서 텍스트 번쩍임이 일어나는 방식(FOIT 방식)로 처리 방법을 나누었다고 생각하면 됩니다.
+					</p>
+					<figure class="img_figure mt_ms webfont_foit_fout">
+						<div class="in_box">
+							<div class="box">
+								<img src="/_assets/images/css/cssMiddleclass/uxkm_webfont_foit_fout_1.svg" alt="FOIT 방식과 FOUT 방식 비교" class="img_part1">
+								<img src="/_assets/images/css/cssMiddleclass/uxkm_webfont_foit_fout_2.svg" alt="FOIT 방식과 FOUT 방식 비교" class="img_part2">
+							</div>
+						</div>
+						<figcaption>[FOIT 방식과 FOUT 방식 비교]</figcaption>
+					</figure>
+					<div class="ol_lst indent mt_m">
+						<ol>
+							<li class="line_code font14">
+								<strong class="mb_sm">FOUT 방식(Flash Of Unstyled Text)의 Internet Explorer 계열 브라우저</strong>
+								<p>Internet Explorer는 웹 폰트가 로딩될 때까지 우선 폴백 폰트로 텍스트를 렌더링합니다.</p>
+								<p>웹 폰트 로딩이 완료되면 텍스트를 웹 폰트로 전환합니다. 이 방식은 웹 폰트 로딩 여부에 관계없이 텍스트가 항상 보이는 장점이 있습니다.</p>
+								<p>하지만 글꼴의 자간, 높이 등 서식이 달라 웹 폰트 적용 전과 후에 레이아웃이 변경될 수 있습니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">FOIT 방식(Flash Of Invisible Text)의 브라우저</strong>
+								<p>Firefox와 Chrome 등의 브라우저는 웹 폰트가 로딩되기 전까지 해당 텍스트를 화면에 보여 주지 않습니다.</p>
+								<p>웹 폰트 로딩이 완료되면 텍스트를 웹 폰트로 전환합니다.</p>
+								<p>한 번에 웹 폰트를 보여줄 수 있다는 장점이 있지만, 웹 폰트의 로딩이 늦으면 Mitt Romney 기사의 사례처럼 빈 텍스트가 노출되는 문제점이 있습니다.</p>
+								<p>웹 폰트가 로딩되지 않은 상태로 3초가 지나면 폴백 폰트로 우선 렌더링해서 브라우저 자체적으로 웹 폰트의 로딩 시간이 과도하게 오래 걸리는 상황에 대비합니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">FOUT 방식(Flash Of Unstyled Text)을 사용한 최적화</strong>
+								<P>FOIT 방식(Flash Of Invisible Text)은 Mitt Romney 사례와 같이 텍스트가 보이지 않는 문제가 있기 때문에 UX 관점에서 좋지 않습니다.</p>
+								<P>그러므로 모든 브라우저에서 FOIT 방식이 아닌 FOUT 방식으로 작동하게 한다면 텍스트가 보이지 않는 문제를 해결할 수 있습니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">font-display 속성을 사용한 최적화</strong>
+								<p>텍스트가 항상 보이게 하려면 FOUT와 동일하게 작동하는 swap 옵션을 사용합니다.</p>
+								<p>fallback 옵션과 optional 옵션을 사용하면 100ms 동안 텍스트가 보이지 않지만 매우 짧은 시간이어서 이 옵션들도 최적화에 사용할 수 있습니다.</p>
+								<p>font-display 속성은 Internet Explorer 계열 브라우저를 제외한 브라우저가 지원합니다.</p>
+								<p>텍스트가 보이지 않는 문제가 발생하는 브라우저에서는 문제없이 최적화에 font-display 속성을 사용할 수 있습니다.</p>
+							</li>
+							<li class="line_code font14 mt_ms">
+								<strong class="mb_sm">각 브라우저 동작 방식</strong>
+								<p>크롬과 파이어폭스의 (+ 사파리) 경우는 FOIT 방식(Flash Of Invisible Text)입니다.</p>
+								<p>
+									- 일단 3초동안 웹폰트가 로드되기를 기다립니다.
+									- 그 동안은 빈 화면이 나타납니다.
+									- 만약 3초동안 오지 않으면 시스템 기본폰트를 보여줍니다.
+								</p>
+								<p class="mt_ms">IE와 EDGE는 FOUT 방식(Flash Of Unstyled Text)입니다. 일단 시스템폰트를 보여주고 웹폰트가 오면 대체합니다.</p>
+								<p>구형 사파리의 경우는 시간제한 없이 FOIT로 웹폰트를 기다렸다가, 60초가 넘으면 응답자체가 취소 되기 때문에 콘텐츠 자체를 볼 수 없는 원인이 되기도 하였습니다.</p>
+								<p>다행이도 최근에는 timeout을 적용하였습니다.</p>
+
+								<figure class="img_figure mt_s">
+									<img src="/_assets/images/css/cssMiddleclass/uxkm_webfont_suport.svg" alt="font-display : block 작동 방식">
+									<figcaption>[FOIT / FOUT 각 브라우저 동작 방식]</figcaption>
+								</figure>
+							</li>
+						</ol>
+					</div>
+				</section>
+
+				<section class="view_editor edit_code mt_xxl" data-target="css/step02/3.8.font-face/3.8.font-face.html">
+					<h2 class="ve_tit">font-face 예제</h2>
+					<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+						<div class="code_wrap"><textarea></textarea></div>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="@font-face">
+					<ul>
+						<li class="ie">9+</li>
+						<li class="edge">12.0</li>
+						<li class="chrome">4.0</li>
+						<li class="firefox">3.5</li>
+						<li class="opera">10.0</li>
+						<li class="safari">3.2</li>
 					</ul>
-				</footer>
+				</aside>
+
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">@규칙(At-Rule) 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/css-fonts-3/#font-face-rule" target="_blank" class="fas" title="새창열림">W3C CSS Fonts Module Level 3</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/WOFF/" target="_blank" class="fas" title="새창열림">W3C WOFF File Format 1.0</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/WOFF2/" target="_blank" class="fas" title="새창열림">W3C WOFF File Format 2.0</a></li>
+						<li class="reference"><a href="https://docs.microsoft.com/en-us/typography/opentype/spec/" target="_blank" class="fas" title="새창열림">MS OpenType® specification</a></li>
+						<li class="reference"><a href="https://www.w3.org/Submission/2008/SUBM-EOT-20080305/" target="_blank" class="fas" title="새창열림">W3C Embedded OpenType (EOT) File Format</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/SVG11/fonts.html" target="_blank" class="fas" title="새창열림">W3C SVG fonts</a></li>
+						<li class="reference"><a href="https://fonts.google.com/" target="_blank" class="fas" title="새창열림">Google Fonts</a></li>
+						<li class="reference"><a href="https://googlefonts.github.io/korean/" target="_blank" class="fas" title="새창열림">Google Fonts + 한국어 사이트</a></li>
+						<li class="reference"><a href="https://www.zachleat.com/web/comprehensive-webfonts/" target="_blank" class="fas" title="새창열림">A COMPREHENSIVE GUIDE TO FONT LOADING STRATEGIES</a></li>
+						<li class="reference"><a href="https://www.youtube.com/watch?v=WsFirqL4lBI" target="_blank" class="fas" title="새창열림">Fontastic web performance - Monica Dinculescu | JSHeroes 2018"(동영상)</a></li>
+						<li class="reference"><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=ko" target="_blank" class="fas" title="새창열림">웹 글꼴 최적화</a></li>
+						<li class="reference"><a href="http://indivdot.github.io/%EC%9B%B9/2016/04/02/webfont.html" target="_blank" class="fas" title="새창열림">웹폰트 경량화</a></li>
+						<li class="reference"><a href="https://www.44bits.io/ko/post/optimization_webfont_with_pyftsubnet" target="_blank" class="fas" title="새창열림">웹폰트 경량화 - 폰트툴즈의 pyftsubset을 사용한 폰트 서브셋 만들기</a></li>
+						<li class="reference"><a href="https://wit.nts-corp.com/2017/02/13/4258" target="_blank" class="fas" title="새창열림">웹폰트 사용하기 (웹폰트 101)</a></li>
+						<li class="reference"><a href="https://fontfaceobserver.com/" target="_blank" class="fas" title="새창열림">Font Face Observer 라이브러리</a></li>
+						<li class="reference"><a href="https://sangziii.github.io/fontStyleMatcher/" target="_blank" class="fas" title="새창열림">Font style matcher 앱</a></li>
+						<li class="reference"><a href="https://github.com/typekit/webfontloader" target="_blank" class="fas" title="새창열림">구글에서 만든 동적 폰트 loader라이브러리</a></li>
+					</ul>
+				</aside>
 			</main>
 			<!-- // @font-face content (.content_area) -->
 

@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -911,14 +927,779 @@
 					</ul>
 				</nav>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				
-				<footer class="reference_box">
-					<strong class="tit">CSS 중급 참조</strong>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						<b class="t_blue">@media part1</b> 에서는 <code>@media</code>의 속성 중<br>
+						<span class="el_block indent t_black">
+							- 미디어 쿼리(Media Query) 코드 템플릿<br>
+							- 반응형 웹과 적응형 웹<br>
+						</span>
+						에 대한 내용을 다루고 있습니다.
+					</p>
+					<hr class="dashed_line mt_m mb_m">
+					<p class="mt_s">
+						@media을 사용하여 미디어 별로 style을 지정하는 것을 Media Query라 합니다. 디바이스를 지정하는 것뿐만 아니라 디바이스의 크기나 비율까지 구분할 수 있습니다.
+					</p>
+					<p class="mt_s">
+						출력 장치의 여러 특징 가운데 일부를 참조하여 CSS 코드를 분기 처리함으로써 하나의 HTML 소스가 여러가지 뷰를 갖도록 구현할 수 있는 명세입니다.<br>
+						일반적으로 뷰포트 해상도에 따라 CSS 코드를 분기합니다.<br>
+						대표적으로 사용하는 규칙은 반응형 레이아웃을 작업할 때 사용되며, 문서를 인쇄할 때 사용되기도 합니다.
+					</p>
+					<p class="mt_s">
+						미디어 쿼리(Media Query)는 CSS2부터 사용되었으며, 미디어 타입을 개선한 CSS3에서 본격적으로 쓰이기 시작한 웹 기법입니다.<br>
+						미디어 쿼리는 반응형 웹의 핵심 기법이며, 화면의 폭이나 높이 등의 정보를 가지고 스타일을 개별적으로 줄 수 있습니다.
+					</p>
+					<p class="mt_s">
+						CSS2에서는 @media 규칙을 통해 서로 다른 매체 유형(media type)을 위한 맞춤식 스타일 시트(style sheet)를 지원합니다.<br>
+						예를 들면, HTML 문서가 스크린에 표현될 때와 프린트할 때 서로 다른 스타일을 적용할 수 있습니다.
+					</p>
+					<p class="mt_s">
+						CSS3에서는 @media 규칙을 더욱 발전시켜 매체 유형(media type)과 하나 이상의 표현식(expression)으로 구성된 미디어 쿼리(media query)를 사용할 수 있습니다.<br>
+						미디어 쿼리(media query)는 width, height, color 속성과 같은 미디어 관련 속성을 이용한 표현식을 통해 스타일이 적용되는 범위를 조절할 수 있습니다.<br>
+						미디어 쿼리를 사용하면 콘텐츠(content)를 별도로 변경하지 않아도 웹 페이지에 접속하고 있는 기기에 알맞은 형태로 스타일이 조정됩니다.
+					</p>
+				</blockquote>
+
+				<!-- 3.9.5. 미디어 쿼리(Media Query) 코드 템플릿 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.9.5. 미디어 쿼리(Media Query) 코드 템플릿</h2>
+					<p class="mt_ms">
+						아래 예시들은 모든 해상도를 커버하기 위한 미디어 쿼리 코드 템플릿입니다.<br>
+						기기별 대응 코드를 분류 했지만 Liquid(유동형) 레이아웃 기법을 사용하면 사실상 모든 해상도를 커버할 수 있습니다.<br>
+						프로젝트 환경 또는 디자인에 따라 적절하게 대응하여 사용해야 합니다.
+					</p>
+
+					<!-- 기본적인 미디어 쿼리 사용 -->
+					<article class="indent mt_l">
+						<h3 class="t_blue ml_mn">기본적인 미디어 쿼리 사용</h3>
+						<p class="mt_s">
+							뷰포트의 너비가 480px이거나 그 이하일 경우에는 배경색을 <span style="color:#fff; background:darkorange;">darkorange</span>로 표현해 줍니다.<br>
+							하지만 뷰포트의 너비가 그 초과일 경우에는 배경색을 <span style="color:#000; background:lightblue;">lightblue</span>로 바꿔서 표현해 줍니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+							<textarea readonly="readonly">
+								body { background-color: darkorange; }
+								@media screen and (min-width: 480px) {
+									body { background-color: lightblue; }
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- 브라우저, 프린터 용도 분기 -->
+					<article class="indent mt_xl">
+						<h3 class="t_blue ml_mn">브라우저, 프린터 용도 분기</h3>
+						<p class="mt_s">
+							다음 예제를 웹 브라우저에서 실행하면 배경색을 검정색으로, 텍스트의 색상은 흰색으로 표현합니다.<br>
+							하지만 웹 페이지를 프린트하게 되면 배경색을 흰색으로, 텍스트의 색상을 검정색으로 바꿔서 프린트합니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+							<textarea readonly="readonly">
+								@media screen {
+									body { background-color: black; color: white; }
+								}
+								@media print {
+									body { background-color: white; color: black; }
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- Device 별 사이즈 -->
+					<article class="indent mt_xl">
+						<h3 class="t_blue ml_mn">Device 별 사이즈</h3>
+						<p class="mt_s">
+							일반적으로 사용하는 device별 미디어 쿼리 사이즈 입니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+							<textarea readonly="readonly">
+								/* All Device */
+								@media screen {
+									/* 모든 해상도를 위한 공통 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. */
+								}
+
+								/* Mobile Device */
+								@media all and (max-width:768px) {
+									/*
+									768px 미만 해상도의 모바일 기기를 위한 코드를 작성한다.
+									모든 해상도에서 이 코드가 실행됨.
+									미디어 쿼리를 지원하지 않는 모바일 기기를 위해 미디어 쿼리 구문을 사용하지 않는다.
+									*/
+								}
+
+								/* Tablet Device */
+								@media all and (min-width:768px) {
+									/*
+									사용자 해상도가 768px 이상일 때 이 코드가 실행됨.
+									테블릿과 데스크톱의 공통 코드를 작성한다.
+									*/
+								}
+
+								/* Tablet & Desktop Device */
+								@media all and (min-width:768px) and (max-width:1024px) {
+									/*
+									사용자 해상도가 768px 이상이고 1024px 이하일 때 이 코드가 실행됨.
+									아이패드 또는 비교적 작은 해상도의 랩탑이나 데스크톱에 대응하는 코드를 작성한다.
+									*/
+								}
+
+								/* Desktop Device */
+								@media all and (min-width:1025px) {
+									/*
+									사용자 해상도가 1025px 이상일 때 이 코드가 실행됨.
+									1025px 이상의 랩탑 또는 데스크톱에 대응하는 코드를 작성한다.
+									*/
+								}
+							</textarea>
+						</div>
+					</article>
+
+					<!-- Mobile First 반응형 웹 -->
+					<article class="indent mt_xl">
+						<h3 class="t_blue ml_mn">Mobile First 반응형 웹</h3>
+						<p class="mt_s">
+							Mobile부터 시작 하여 Tablet, Desktop으로 변화하는 반응형 웹의 미디어 쿼리 템플릿 입니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+							<textarea readonly="readonly">
+								/* All Device */
+
+								/* Custom, iPhone Retina : 320px ~ */
+								@media only screen and (min-width : 320px) { … }
+
+								/* Extra Small Devices, Phones : 480px ~ */
+								@media only screen and (min-width : 480px) { … }
+
+								/* Small Devices, Tablets : 768px ~ */
+								@media only screen and (min-width : 768px) { … }
+
+								/* Medium Devices, Desktops : 992px ~ */
+								@media only screen and (min-width : 992px) { … }
+
+								/* Large Devices, Wide Screens : 1200px ~ */
+								@media only screen and (min-width : 1200px) { … }
+							</textarea>
+						</div>
+					</article>
+
+					<!-- Desktop First 반응형 웹 -->
+					<article class="indent mt_xl">
+						<h3 class="t_blue ml_mn">Desktop First 반응형 웹</h3>
+						<p class="mt_s">
+							Desktop부터 시작 하여 Tablet, Mobile으로 변화하는 반응형 웹의 미디어 쿼리 템플릿 입니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template]">
+							<textarea readonly="readonly">
+								/* All Device */
+
+								/* Large Devices, Wide Screens : ~ 1200px */
+								@media only screen and (max-width : 1200px) { … }
+
+								/* Medium Devices, Desktops : ~ 992px */
+								@media only screen and (max-width : 992px) { … }
+
+								/* Small Devices, Tablets : ~ 768px */
+								@media only screen and (max-width : 768px) { … }
+
+								/* Extra Small Devices, Phones : ~ 480px */
+								@media only screen and (max-width : 480px) { … }
+
+								/* Custom, iPhone Retina : ~ 320px */
+								@media only screen and (max-width : 320px) { … }
+							</textarea>
+						</div>
+					</article>
+
+					<!-- IOS 계열 CSS(@media) 반응형 웹 -->
+					<article class="indent mt_xl">
+						<h3 class="t_blue ml_mn">IOS 계열 CSS(@media)</h3>
+						<p class="mt_s">
+							Apple사의 여러 기기에 상세히 대응할 수 있는 @media 템플릿 입니다.
+						</p>
+
+						<!-- iPhone 4 and 4S -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPhone 4 and 4S</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone 4 and 4S]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Portrait */
+									@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+									/* Landscape */
+									@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- iPhone 5, 5S, 5C and 5SE -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPhone 5, 5S, 5C and 5SE</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone 4 and 4S]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Portrait */
+									@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+									/* Landscape */
+									@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- iPhone 6, 6S, 7 and 8 -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPhone 6, 6S, 7 and 8</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone 6, 6S, 7 and 8]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Portrait */
+									@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) { … }
+
+									/* Landscape */
+									@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- iPhone 6+, 7+ and 8+ -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPhone 6+, 7+ and 8+</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone 6+, 7+ and 8+]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) { … }
+
+									/* Portrait */
+									@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { … }
+
+									/* Landscape */
+									@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- iPhone X -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPhone X</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPhone X]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) { … }
+
+									/* Portrait */
+									@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) { … }
+
+									/* Landscape */
+									@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- iPad 1, 2, Mini and Air -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPad 1, 2, Mini and Air</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPad 1, 2, Mini and Air]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) { … }
+
+									/* Portrait */
+									@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) { … }
+
+									/* Landscape */
+									@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- iPad 3, 4 and Pro 9.7" -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPad 3, 4 and Pro 9.7"</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPad 3, 4 and Pro 9.7&quot;]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Portrait */
+									@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Landscape */
+									@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- iPad Pro 10.5" -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPad Pro 10.5"</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPad Pro 10.5&quot;]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 834px) and (max-device-width: 1112px)and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Portrait */
+									/* Declare the same value for min- and max-width to avoid colliding with desktops */
+									/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+									@media only screen and (min-device-width: 834px) and (max-device-width: 834px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Landscape */
+									/* Declare the same value for min- and max-width to avoid colliding with desktops */
+									/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+									@media only screen and (min-device-width: 1112px) and (max-device-width: 1112px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- iPad Pro 12.9" -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">iPad Pro 12.9"</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = iPad Pro 12.9&quot;]">
+								<textarea readonly="readonly">
+									/* Portrait and Landscape */
+									@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Portrait */
+									/* Declare the same value for min- and max-width to avoid colliding with desktops */
+									/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+									@media only screen   and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) { … }
+
+									/* Landscape */
+									/* Declare the same value for min- and max-width to avoid colliding with desktops */
+									/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+									@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) { … }
+								</textarea>
+							</div>
+						</article>
+
+						<!-- Apple Watch -->
+						<article class="indent mt_m">
+							<h4 class="ml_mn">Apple Watch</h4>
+							<div class="uk_gist_code_box mt_ms" data-tit="@media query [code template = Apple Watch]" data-ex="style_tag_remove">
+								<textarea readonly="readonly">
+									<style>
+									@media (max-device-width: 42mm) and (min-device-width: 38mm) { … }
+									</style>
+								</textarea>
+							</div>
+						</article>
+					</article>
+				</section>
+
+				<!-- 3.9.6. 반응형 웹과 적응형 웹 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">3.9.6. 반응형 웹과 적응형 웹</h2>
+					<p class="mt_ms">
+						일반적으로 반응형 웹 디자인은 viewport 너비(width 프로퍼티)를 기준으로 합니다.<br>
+						viewport의 width 프로퍼티를 이용하여 viewport 너비에 따라 반응하는 범위(breakpoint)를 지정할 수 있습니다.<br>
+						미디어 쿼리 사용시 가로폭의 경계치를 보통 스크린 경계치(screen breakpoints)라고 부릅니다.<br>
+						일반적으로 스마트폰, 태블릿, 데스크탑에 대해 최소한의 스크린 경계치를 고려해야 하며, 기기별로 주요 경계치와 세부 경계치를 보여주고 있습니다.<br>
+					</p>
+					<p class="mt_s">
+						참고로 대표적인 <span class="reference"><a href="https://mediaqueri.es/" target="_blank" title="새창열림">mediaquri.es</a></span> 에서는 320px(스마트폰), 768px(태블릿), 1024px(넷북), 1600px(데스크탑)로 경계치를 정하고 있습니다.<br>
+						반응형 웹과 적응형 웹 두 가지 방법 모두 근본적으로는 웹 사이트가 모바일 기기와 다양한 화면 크기에서 원활한 정보를 제공하여 더 나은 모바일 사용자 경험을 제공하기 위한 방법입니다.
+					</p>
+					<figure class="img_figure mt_m">
+						<img src="/_assets/images/css/cssMiddleclass/uxkm_media-query-breakpoints.svg" alt="viewport breakpoint">
+						<figcaption class="sound_only">[viewport breakpoint]</figcaption>
+					</figure>
+
+					<!-- 반응형 웹(Responsive Web) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">반응형 웹(Responsive Web)</h3>
+						<blockquote class="uk_note mt_m" role="note">
+							<h4 class="sound_only">요약 설명</h4>
+							<p>
+								'반응형 웹'은 미디어 쿼리를 사용하여 화면의 크기를 확인하고 유연한 이미지와 그리드로 화면 크기의 변화에 따라 그에 맞은 크기가 됩니다.<br>
+								모든 디바이스에 대한 정보를 가지고 있으며 사용 여부에 따라 다운로드되어 사용됩니다.<br>
+								하나의 템플릿만을 사용하며 사용자는 하나의 디바이스를 사용하고 있지만 모든 디바이스를 위한 페이지가 모두 로드 될때까지 기다려야 합니다.<br>
+								기존에 운영중인 사이트가 있다면 재구축을 해야 하고 사용이 가능한 모든 장치에 대한 사용자 정의를 해야 하기에 디자인하고 테스트하는 것이 어려울 수 있습니다.
+							</p>
+						</blockquote>
+						<p class="mt_m">
+							반응형 웹은 하나의 템플릿을 사용해 모든 기기에 대응할 수 있습니다.<br>
+							반응형 웹의 특징은 새로운 웹 빌드를 추가하기 쉬우며 사이트를 재 구축해야하고 디바이스에 따라 성능이 저하될 수 있습니다.
+						</p>
+						<div class="ol_lst mt_s indent">
+							<ol>
+								<li>미디어 쿼리를 사용해 기기 화면의 크기를 확인하고 유연한 이미지와 그리드를 활용해 화면 크기 변화에 따라 페이지의 크기 및 레이아웃을 조절하는 기술을 말합니다.</li>
+								<li>하나의 템플릿만을 사용해 다양한 사용자와 기기에 대응할 수 있어 개발이 간편하다는 장점을 가집니다.</li>
+								<li>다만, 사용자는 단 하나의 기기만으로 접속하지만 그 경우에도 모든 기기를 위한 CSS를 전부 다운로드 해야한다는 점에서 데이터를 낭비하고 로딩 시간을 늘리는 단점이 있습니다.</li>
+								<li>또, 기존에 이미 운영 중이었던 데스크톱용 사이트가 있었다면 사이트를 재구축해야만 한다는 점에서 불편할 수 있습니다.</li>
+							</ol>
+						</div>
+					</article>
+
+					<!-- 적응형 웹(Adaptive Web) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">적응형 웹(Adaptive Web)</h3>
+						<blockquote class="uk_note mt_m" role="note">
+							<h4 class="sound_only">요약 설명</h4>
+							<p>
+								'적응형 웹'은 서버나 클라이언트에서 웹에 접근한 디바이스를 체크하여 그 디바이스에 최적화된 마크업을 호출합니다.<br>
+								여기에서 최적화된 마크업은, 꼭 필요한 정보만을 노출시키며 디바이스에 최적화된 이미지를 사용하고 플래시를 사용하지 않고
+								자바스크립트를 이용하여 장치를 분석하고 그에 맞는 동작을 적용합니다.<br>
+								이렇게하여 보다 빠른 속도로 모바일에서 웹사이트를 이용할 수 있습니다.<br>
+								이렇게 적응형 웹의 특징으론 기존의 사이트를 재구축할 필요가 없고 다양한 디바이스에 최적의 성능을 가져올 수 있습니다.
+							</p>
+						</blockquote>
+						<p class="mt_m">
+							적응형 웹은 선별된 기기 유형에 따라 별도의 독립적인 템플릿이 요구됩니다.<br>
+							즉, 별도 페이지 제작이 필요합니다.<br>
+							적응형 웹이 반영된 예로 국내 대표적으로 NAVER, DAUM 같은 포털 사이트를 들 수 있는데 기존부터 서비스 되고 있는 사이트 변경 없이, 모바일 환경에 대응하기 위해 별도의 URL을 통해 서비스 합니다.<br>
+							모바일 환경에서 기존 사이트 주소로 접속할 경우, 이를 감지하여 모바일 전용 페이지로 리디렉션(redirection) 합니다.
+						</p>
+						<div class="ol_lst mt_s indent">
+							<ol>
+								<li>서버나 클라이언트에서 웹에 접근한 기기를 체크해 그 기기에 맞는 템플릿을 제공하는 개념입니다.</li>
+								<li>모바일의 경우 모바일용 템플릿을, 데스크톱의 경우 데스크톱용 템플릿을 제공하는 방식입니다. 따라서 기기별로 다른 템플릿을 제작해야 할 필요가 있습니다.</li>
+								<li>기존에 이미 데스크톱용 템플릿을 작성했다면, 바닥부터 재구축할 필요 없이 다른 기기용 템플릿만 따로 만들면 되어 편리합니다.</li>
+								<li>사용자의 기기에 맞는 템플릿 및 CSS만 다운로드 하므로 데이터 낭비가 적고 로딩 속도가 빠릅니다.</li>
+								<li>각 기기별로 별로의 템플릿을 작성해야 하므로 개발이 복잡해집니다.</li>
+							</ol>
+						</div>
+					</article>
+
+					<!-- 반응형 웹과 적응형 웹의 특징 비교 -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">반응형 웹과 적응형 웹의 특징 비교</h3>
+						<div class="ol_lst mt_ms">
+							<ol>
+								<li class="line_code font14">
+									<strong class="mb_sm">반응형 웹</strong>
+									<p>미디어 쿼리로 기기 감지합니다.</p>
+									<p>하나의 템플릿으로 충분합니다.</p>
+									<p>모든 콘텐츠 다운로드 필요합니다.</p>
+									<p>로드되는 속도가 느립니다.</p>
+									<p>기존 사이트 변경 및 재구축 필요합니다.</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong class="mb_sm">적응형 웹</strong>
+									<p>서버 또는 브라우저에서 기기 감지합니다.</p>
+									<p>기기마다 다른 템플릿 필요합니다.</p>
+									<p>기기에 맞는 콘텐츠만 다운로드 합니다.</p>
+									<p>로드되는 속도가 빠릅니다.</p>
+									<p>기존 사이트 변경 없이 구축 가능합니다.</p>
+								</li>
+							</ol>
+						</div>
+						<figure class="img_figure mt_m">
+							<img src="/_assets/images/css/cssMiddleclass/uxkm_media_awd-rwd.svg" alt="반응형 웹 VS 적응형 웹">
+							<figcaption>[반응형 웹 VS 적응형 웹]</figcaption>
+						</figure>
+					</article>
+
+					<!-- 모바일 퍼스트 디자인(Mobile First Design) -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">모바일 퍼스트 디자인(Mobile First Design)</h3>
+						<p class="mt_s">
+							모바일 퍼스트 디자인이란, 처음 웹 어플리케이션을 구축하는 단계에서부터 모바일 중심으로 구축하는 것을 의미합니다.
+							모바일을 먼저 구축한 후, 데스크톱이나 타 기기를 위해서는 그에 맞는 반응형/적응형 웹을 제공하는 방식입니다.
+						</p>
+						<div class="uk_gist_code_box mt_ms" data-tit="@media query [Mobile First Design]">
+							<textarea readonly="readonly">
+								/* Mobile style */
+
+								/* Custom, iPhone Retina : 320px ~ */
+								@media only screen and (min-width : 320px) { … }
+
+								/* Extra Small Devices, Phones : 480px ~ */
+								@media only screen and (min-width : 480px) { … }
+
+								/* Small Devices, Tablets : 768px ~ */
+								@media only screen and (min-width : 768px) { … }
+
+								/* Medium Devices, Desktops : 992px ~ */
+								@media only screen and (min-width : 992px) { … }
+
+								/* Large Devices, Wide Screens : 1200px ~ */
+								@media only screen and (min-width : 1200px) { … }
+							</textarea>
+						</div>
+						<p class="mt_s">
+							위 CSS 코드처럼 모바일을 기본으로 삼아 코드를 짠 후, 다른 기기에 맞는 CSS 코드를 추가하는 방식입니다.
+						</p>
+						<div class="ol_lst mt_ms">
+							<strong class="t_black font-16">왜 굳이 모바일 퍼스트 디자인인가?</strong>
+							<ol class="mt_sm indent">
+								<li>모바일 앱을 데스크톱으로 확장하는 것은 쉽지만, 데스크톱 앱을 모바일로 간추리는 것은 어렵습니다.</li>
+								<li>모바일은 특성상 데스크톱에 비해 제공할 수 있는 정보의 양이 훨씬 적습니다.</li>
+								<li>데스크톱 기준으로 빽빽하게 작성된 웹 페이지는 모바일로 옮기는 것은 기획부터 고려하여 작업해야 합니다.</li>
+								<li>반대로, 모바일 기준으로 느슨하게 작성된 웹 페이지는 데스크톱으로 충분히 쉽게 옮길 수 있습니다.</li>
+							</ol>
+						</div>
+						<p class="mt_ms">
+							최근 트렌드는 미니멀리즘 입니다.<br>
+							사용자는 미니멀한 것을 요구합니다.<br>
+							더더욱 모바일 퍼스트 디자인이 필요한 이유 입니다.<br>
+							이제는 더 이상 데스크톱 기준으로 코드를 짜고, 모바일을 위해 신음할 필요가 없습니다.<br>
+							처음부터 모바일 중심으로 짜고 데스크톱에 사후적으로 대응하면 됩니다.
+						</p>
+
+						<figure class="img_figure mt_m">
+							<img src="/_assets/images/css/cssMiddleclass/uxkm_media_rwd_mobile-first.svg" alt="모바일 우선주의(Mobile First)">
+							<figcaption class="t_black weight-500">[모바일 우선주의(Mobile First)]</figcaption>
+							<p class="mt_s">
+								모바일 사이트에 미디어 쿼리를 더 해서 데스크탑 화면에 맞게 보여주는 방식이 RWD의 'Mobile First' 입니다.<br>
+								이 방법은 2010년에 런던에서 열렸던 Over The Air란 행사에서 발표한 영국의 2인 기업
+								<span class="reference"><a href="https://www.slideshare.net/bryanrieger/rethinking-the-mobile-web-by-yiibu/" target="_blank" title="새창열림">yiibu의 발표 슬라이드</a></span>를 통해 알려지기 시작했습니다.<br>
+								yiibu는 오래된 구형 모바일 단말을 차별하지 않고 잘 보여지는 RWD를 구현 할 수 있는 방법이 있음을 이해하기 쉽게 제시하였습니다.<br>
+								슬라이드 전체가 잘 짜여진 흐름안에서 매끄럽게 스토리라인을 이어가고 있고, 우리가 이미 잘 알고 있는 One Web을 이야기 하고 있기 때문에 이 메시지는 무리없이 잘 전달 됩니다.<br>
+								이 발표 이후로 모바일 퍼스트는 RWD의 정석으로 받아들여지고 있습니다.<br>
+								현재 우리나라에서는 '모바일 우선주의(Mobile First)'보다는 '데스크탑 우선주의(Desktop First)'를 많이 사용되고 있습니다.<br>
+								해외사이트들은 '모바일 우선주의(Mobile First)' 방식으로 사용되고 있습니다.
+							</p>
+						</figure>
+						<figure class="img_figure mt_ms">
+							<img src="/_assets/images/css/cssMiddleclass/uxkm_media_rwd_desktop-first.svg" alt="데스크탑 우선주의(Desktop First)">
+							<figcaption class="t_black weight-500">[데스크탑 우선주의(Desktop First)]</figcaption>
+							<p class="mt_s">
+								모바일 퍼스트와는 반대로 데스크탑 화면에 맞추어진 사이트에 미디어쿼리를 더해 모바일 사이트를 만드는 방식입니다.<br>
+								우리나라에서 대부분의 사이트가 '데스크탑 우선주의(Desktop First)' 방식으로 사용되고 있습니다.
+							</p>
+						</figure>
+					</article>
+
+					<!-- 데스크탑 퍼스트가 모바일 퍼스트에 비해 가질 수 있는 장점과 단점 -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">데스크탑 퍼스트가 모바일 퍼스트에 비해 가질 수 있는 장점과 단점</h3>
+						<div class="ol_lst mt_ms">
+							<ol>
+								<li class="line_code font14">
+									<strong class="mb_sm">장점</strong>
+									<p>확실한 구버전 IE대응</p>
+									<p>익숙한 작업 순서 유지</p>
+									<p>리뉴얼 없는 모바일 대응 추가</p>
+								</li>
+								<li class="line_code font14 mt_sm">
+									<strong class="mb_sm">단점</strong>
+									<p>
+										<b class="t_blue">오버라이딩(속성 덮어쓰기)의 발생빈도가 높아짐</b><br>
+										RWD에서는 이미 클래스에 부여된 값을 미디어쿼리 안에서 다시 덮어쓰는 방법을 통해 해당 클래스가 가진 스타일을 재지정 하게 됩니다.<br>
+										일반적으로 모바일 화면이 데스크탑 화면보다 단조롭기 때문에 모바일 화면을 구성하기 위해 필요한 CSS코드가 더 짧습니다.<br>
+										더 짧게 코드를 작성하는 쪽을 기준으로 삼아야 오버라이딩이 적을텐데, 데스크탑 퍼스트 방식을 적용할 때는 CSS 코드가 길어지는 것을 감수해야 합니다.
+									</p>
+									<p>
+										<b class="t_blue">사이드 이펙트(수정시 의도하지 않게 발생하는 부작용)의 문제</b><br>
+										모바일 퍼스트 방식이라면 모바일의 수정사항은 데스크탑쪽에 영향을 미치게 되지만, 데스크탑의 수정은 모바일에 아무 영향을 미치지 않습니다.<br>
+										따라서 모바일쪽에서 수정이 발생하는 경우 데스크탑을 잘 확인하여야 실수로 원치않는 문제가 발생하지 않을 것입니다.<br>
+										데스크탑 퍼스트의 경우는 반대입니다. 데스크탑의 수정사항은 모바일에 영향을 미치게 되지만, 모바일의 수정사항은 데스크탑에 영향을 미치지 않습니다.
+									</p>
+								</li>
+							</ol>
+						</div>
+					</article>
+
+					<!-- 반응형 웹페이지에서 사용되는 대부분의 레이아웃의 5가지 패턴 요약 -->
+					<article class="indent mt_xl">
+						<h3 class="ml_mn t_blue">반응형 웹페이지에서 사용되는 대부분의 레이아웃의 5가지 패턴 요약</h3>
+						<div class="ol_lst mt_ms">
+							<p>
+								LukeW(루크 로블르스키 - 데스크탑 버전보다 모바일 버전을 먼저 디자인해야 한다는 모바일 우선주의 디자인의 창시자)가 제시한 5가지 레이아웃 패턴은 다음과 같습니다.
+							</p>
+							<ol class="indent mt_sm">
+								<li>
+									<strong class="t_black weight-500">Mostly Fluid(유동형)</strong> :
+									일반적인 화면에서는 유동형 그리드와 유동형 이미지를 사용하여 레이아웃을 그대로 유지합니다.
+									가장 작은 화면에서는 수직으로 컬럼을 세우는 구조를 가지며, 가장 많이 사용되는 패턴입니다.
+								</li>
+								<li>
+									<strong class="t_black weight-500">Column Drop(열 드롭)</strong> :
+									화면이 작아짐에 따라 부차적인 컬럼을 아래로 떨어트리는 방법을 쓰는 패턴입니다.
+									대부분의 컬럼폭은 화면 크기가 달라져도 변함이 별도 없다는 특징이 있습니다.
+								</li>
+								<li>
+									<strong class="t_black weight-500">Layout Shifter(레이아웃 시프터)</strong> :
+									다양한 디바이스에 따라 각기 다른 레이아웃을 보여주는 패턴입니다.
+									복잡하고 많은 작업이 필요하지만 혁신적인 디자인을 담을 수 있다는 장점이 있습니다.
+								</li>
+								<li>
+									<strong class="t_black weight-500">Tiny Tweaks(작은 변화)</strong> :
+									하나의 컬럼을 사용하는 패턴입니다.
+									변화의 폭이 크지 않다는 특징이 있으며, 주로 글 내용을 중시하는 블로그에서 많이 사용되는 패턴입니다.
+								</li>
+								<li>
+									<strong class="t_black weight-500">Off Canvas(캔버스 오프)</strong> :
+									큰 화면에서는 모든 컬럼들을 보여주고 작은 화면에서는 하나의 메인 컬럼만 보여주며 다른 부가적인 컬럼들을 화면 밖에 숨겨놓는 패턴입니다.
+									숨겨진 컬럼들은 필요할 때만 접근하도록 합니다.
+								</li>
+							</ol>
+						</div>
+						<div class="ol_lst mt_l">
+							<ol>
+								<!-- Mostly Fluid(유동형) -->
+								<li class="line_code tit_h4">
+									<h4 class="mb_s">Mostly Fluid(유동형)</h4>
+									<p>일반적인 화면에서는 유동형 그리드와 유동형 이미지를 사용하여 레이아웃을 그대로 유지합니다.</p>
+									<p>가장 작은 화면에서는 수직으로 컬럼을 세우는 구조를 가지며, 가장 많이 사용되는 패턴압니다.</p>
+									<p>유동형 패턴은 주로 유동형 격자(grid)로 구성됩니다.</p>
+									<p>대형 혹은 중간크기의 스크린에서 이 패턴은 보통 같은 크기로 간주되며, 단지 더 넓은 화면에서는 여백정도만 조정됩니다.</p>
+									<p>더 작은 스크린에서 이 패턴은 열(columns)들이 수직 방향으로 쌓이면서 컨텐츠가 재배치 됩니다.</p>
+									<p>이 패턴의 중요한 장점은 작은 화면과 큰 화면 사이에 단 하나의 중단점(breakpoints)만 있으면 된다는 것입니다.</p>
+
+									<article class="reference_box mt_s">
+										<p class="tit weight-500 t_blue">활용 사이트</p>
+										<ul class="link_lst">
+											<li class="reference"><a href="https://alistapart.com/" target="_blank" class="fas" title="새창열림">A List Apart</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/fss/" target="_blank" class="fas" title="새창열림">Five Simple Steps</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/pea/" target="_blank" class="fas" title="새창열림">Princess Elisabeth Antarctica</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/tre/" target="_blank" class="fas" title="새창열림">Trent Walton</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/sif/" target="_blank" class="fas" title="새창열림">Sifter</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/cho/" target="_blank" class="fas" title="새창열림">ChoiceResponse</a></li>
+										</ul>
+									</article>
+									<figure class="img_figure mt_ms">
+										<img src="/_assets/images/css/cssMiddleclass/uxkm_md-patterns1.svg" alt="유동형 Mostly fluid">
+										<figcaption>[유동형 Mostly fluid]</figcaption>
+									</figure>
+									<section class="view_editor edit_code mt_ms" data-target="css/step02/3.9.media/3.9.6.css3-media-rwd_mostly-fluid.html">
+										<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+											<div class="code_wrap"><textarea></textarea></div>
+										</div>
+									</section>
+								</li>
+
+								<!-- Column Drop(열 드롭) -->
+								<li class="line_code tit_h4 mt_l">
+									<h4 class="mb_s">Column Drop(열 드롭)</h4>
+									<p>화면이 작아짐에 따라 부차적인 컬럼을 아래로 떨어트리는 방법을 쓰는 패턴입니다.</p>
+									<p>대부분의 컬럼폭은 화면 크기가 달라져도 변함이 별도 없다는 특징이 있습니다.</p>
+									<p>전체 폭이 가득찬 다중 열 레이아웃을 위해서 화면이 각 열이 컨텐츠에 비해 너무 좁아지면 열들이 수직으로 떨어지며 하나씩 쌓이게 됩니다.</p>
+									<p>결국 모든 열이 수직으로 쌓이게 됩니다. 이 패턴에서 중단점(breakpoints)은 컨텐츠에 따라 선택할 수 있고 디자인에 따라 변할 수 있습니다.</p>
+
+									<article class="reference_box mt_s">
+										<p class="tit weight-500 t_blue">활용 사이트</p>
+										<ul class="link_lst">
+											<li class="reference"><a href="https://www.pinterest.co.kr/" target="_blank" class="fas" title="새창열림">pinterest</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/mod/" target="_blank" class="fas" title="새창열림">Modernizr</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/owl/" target="_blank" class="fas" title="새창열림">Owltastic</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/wee/" target="_blank" class="fas" title="새창열림">Wee Nudge</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/fds/" target="_blank" class="fas" title="새창열림">Festival de Saintes</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/ash/" target="_blank" class="fas" title="새창열림">Ash Personal Training</a></li>
+										</ul>
+									</article>
+									<figure class="img_figure mt_ms">
+										<img src="/_assets/images/css/cssMiddleclass/uxkm_md-patterns2.svg" alt="열 드롭 Column drop">
+										<figcaption>[열 드롭 Column drop]</figcaption>
+									</figure>
+									<section class="view_editor edit_code mt_ms" data-target="css/step02/3.9.media/3.9.6.css3-media-rwd_column-drop.html">
+										<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+											<div class="code_wrap"><textarea></textarea></div>
+										</div>
+									</section>
+								</li>
+
+								<!-- Layout Shifter(레이아웃 시프터) -->
+								<li class="line_code tit_h4 mt_l">
+									<h4 class="mb_s">Layout Shifter(레이아웃 시프터)</h4>
+									<p>다양한 디바이스에 따라 각기 다른 레이아웃을 보여주는 패턴입니다.</p>
+									<p>복잡하고 많은 작업이 필요하지만 혁신적인 디자인을 담을 수 있다는 장점이 있습니다.</p>
+									<p>레이아웃 시프터 패턴은 여러개의 중단점(breakpoints)를 두어 여러 스크린의 너비에 가장 민감하게 반응하는 패턴입니다.</p>
+									<p>이 패턴의 핵심은 열을 흘려보내고 떨어뜨리는 방식 대신에 컨텐츠를 이동시키는 방법입니다.</p>
+									<p>중단점(breakpoints)사이에 차이점이 매우 크기 때문에 레이아웃 유지가 어렵고 전체 레이아웃 뿐 아니라 요소안의 변화도 수반될 수 있습니다.</p>
+
+									<article class="reference_box mt_s">
+										<p class="tit weight-500 t_blue">활용 사이트</p>
+										<ul class="link_lst">
+											<li class="reference"><a href="http://www.anderssonwise.com/" target="_blank" class="fas" title="새창열림">Andersson-Wise Architects</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/fse/" target="_blank" class="fas" title="새창열림">Food Sense</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/pma/" target="_blank" class="fas" title="새창열림">Performance Marketing Awards</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/ffg/" target="_blank" class="fas" title="새창열림">Forefathers Group</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/bg/" target="_blank" class="fas" title="새창열림">The Boston Globe</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/awa/" target="_blank" class="fas" title="새창열림">Andersson-Wise Architects</a></li>
+										</ul>
+									</article>
+									<figure class="img_figure mt_ms">
+										<img src="/_assets/images/css/cssMiddleclass/uxkm_md-patterns3.svg" alt="레이아웃 시프터 Layout shifter">
+										<figcaption>[레이아웃 시프터 Layout shifter]</figcaption>
+									</figure>
+									<section class="view_editor edit_code mt_ms" data-target="css/step02/3.9.media/3.9.6.css3-media-rwd_layout-shifter.html">
+										<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+											<div class="code_wrap"><textarea></textarea></div>
+										</div>
+									</section>
+								</li>
+
+								<!-- Tiny Tweaks(작은 변화) -->
+								<li class="line_code tit_h4 mt_l">
+									<h4 class="mb_s">Tiny Tweaks(작은 변화)</h4>
+									<p>하나의 컬럼을 사용하는 패턴입니다.</p>
+									<p>변화의 폭이 크지 않다는 특징이 있으며, 주로 글 내용을 중시하는 블로그에서 많이 사용되는 패턴입니다.</p>
+									<p>작은 변화 패턴은 말 그대로 글꼴 크기나 이미지 크기를 조정하거나 매우 사소한 방법으로 컨텐츠를 이동시키는 등의 레이아웃의 작은 변화만 이루어집니다.</p>
+									<p>이 패턴은 일직선의 one page 웹사이트와 같은 단일 열 레이아웃에서 잘 작동힙니다.</p>
+
+									<article class="reference_box mt_s">
+										<p class="tit weight-500 t_blue">활용 사이트</p>
+										<ul class="link_lst">
+											<li class="reference"><a href="https://mediaqueri.es/ff/" target="_blank" class="fas" title="새창열림">Future Friendly</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/pa/" target="_blank" class="fas" title="새창열림">Path</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/neo/" target="_blank" class="fas" title="새창열림">Neovada</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/lyc/" target="_blank" class="fas" title="새창열림">Lycos</a></li>
+											<li class="reference"><a href="https://mediaqueri.es/dgf/" target="_blank" class="fas" title="새창열림">Design made in Germany</a></li>
+										</ul>
+									</article>
+									<figure class="img_figure mt_ms">
+										<img src="/_assets/images/css/cssMiddleclass/uxkm_md-patterns4.svg" alt="작은 변화 Tiny tweaks">
+										<figcaption>[작은 변화 Tiny tweaks]</figcaption>
+									</figure>
+									<section class="view_editor edit_code mt_ms" data-target="css/step02/3.9.media/3.9.6.css3-media-rwd_tiny-tweaks.html">
+										<div class="uk_editor min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+											<div class="code_wrap"><textarea></textarea></div>
+										</div>
+									</section>
+								</li>
+
+								<!-- Off Canvas(캔버스 오프) -->
+								<li class="line_code tit_h4 mt_l">
+									<h4 class="mb_s">Off Canvas(캔버스 오프)</h4>
+									<p>큰 화면에서는 모든 컬럼들을 보여주고 작은 화면에서는 하나의 메인 컬럼만 보여주며 다른 부가적인 컬럼들을 화면 밖에 숨겨놓는 패턴입니다.</p>
+									<p>숨겨진 컬럼들은 필요할 때만 접근하도록 합니다.</p>
+									<p>오프 캔버스 패턴은 수직으로 컨텐츠를 쌓기보다는 우선 자주 사용하는 컨텐츠만을 배치한 후 네비게이션이나 매뉴와 같은 요소를 충분히 큰 사이즈의 스크린에서만 보여주고 더 작은 스크린에서는 오직 클릭했을 경우에만 보여줍니다.</p>
+
+									<article class="reference_box mt_s">
+										<p class="tit weight-500 t_blue">활용 사이트</p>
+										<ul class="link_lst">
+											<li class="reference"><a href="https://www.html5rocks.com/en/tutorials/developertools/async-call-stack/" target="_blank" class="fas" title="새창열림">HTML5Rocks Articles</a></li>
+											<li class="reference"><a href="https://store.google.com/" target="_blank" class="fas" title="새창열림">Google Nexus</a></li>
+										</ul>
+									</article>
+									<figure class="img_figure mt_ms">
+										<img src="/_assets/images/css/cssMiddleclass/uxkm_md-patterns5.svg" alt="오프 캔버스 Off canvas">
+										<figcaption>[오프 캔버스 Off canvas]</figcaption>
+									</figure>
+								</li>
+							</ol>
+						</div>
+					</article>
+				</section>
+
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">@규칙(At-Rule) 참조</h2>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/css3-mediaqueries/" target="_blank" class="fas" title="새창열림">W3C Media Queries</a></li>
+						<li class="reference"><a href="https://www.w3.org/TR/mediaqueries-4/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level 4</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-3/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 3</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-4/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 4</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/mediaqueries-5/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level drafts 5</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Media_queries" target="_blank" class="fas" title="새창열림">MDN 미디어 쿼리 사용하기</a></li>
+						<li class="reference"><a href="https://dev.opera.com/articles/an-introduction-to-meta-viewport-and-viewport/" target="_blank" class="fas" title="새창열림">메타 뷰포트 소개 @viewport</a></li>
+						<li class="reference"><a href="https://visual.ly/community/infographic/technology/adaptive-web-design-vs-responsive-web-design" target="_blank" class="fas" title="새창열림">AWD vs RWD</a></li>
+						<li class="reference"><a href="https://torquemag.io/2013/09/responsive-design-vs-adaptive-design/" target="_blank" class="fas" title="새창열림">반응형 디자인과 적응형 디자인</a></li>
+						<li class="reference"><a href="https://en.wikipedia.org/wiki/Adaptive_web_design" target="_blank" class="fas" title="새창열림">적응형 웹 디자인</a></li>
+						<li class="reference"><a href="https://www.techrepublic.com/blog/web-designer/what-is-the-difference-between-responsive-vs-adaptive-web-design/" target="_blank" class="fas" title="새창열림">RWD vs AWD 차이점</a></li>
+						<li class="reference"><a href="https://www.lukew.com/ff/entry.asp?933" target="_blank" class="fas" title="새창열림">Luke Wroblewski 모바일 퍼스트</a></li>
+						<li class="reference"><a href="https://tobyyun.tumblr.com/post/58232536556/rwd-3-%EB%AA%A8%EB%B0%94%EC%9D%BC-%ED%8D%BC%EC%8A%A4%ED%8A%B8%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%9A%B0%EC%84%A0%EC%A3%BC%EC%9D%98" target="_blank" class="fas" title="새창열림">Toby Yun 모바일 퍼스트</a></li>
+						<li class="reference"><a href="https://developers.google.com/web/fundamentals/design-and-ux/responsive" target="_blank" class="fas" title="새창열림">반응형 웹 디자인 기본사항</a></li>
+						<li class="reference"><a href="https://bradfrost.com/blog/post/responsive-nav-patterns/" target="_blank" class="fas" title="새창열림">responsive navigation patterns</a></li>
 					</ul>
-				</footer>
+				</aside>
 			</main>
 			<!-- // @media part-2 content (.content_area) -->
 

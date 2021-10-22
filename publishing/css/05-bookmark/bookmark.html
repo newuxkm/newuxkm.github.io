@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -894,7 +910,141 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						CSS 기술 문서에 대한 진행별 상태<br>
+						FPWD(First Public Working Draft) : 첫번째 공식 초안 단계<br>
+						WD(Working Draft) : 초안<br>
+						CR(Candidate Recommendation) : 권고되는 표준 후보 스펙<br>
+						PR(Proposed Recommendation) : 표준에 제안된 상태<br>
+						REC(Recommendation) : 표준으로 채택된 상태<br>
+						SPSD(Superseded Recommendation ) : 표준이 업데이트되면서 대체된 권고안(표준안)
+					</p>
+				</blockquote>
+
+				<figure class="img_figure mt_l">
+					<figcaption class="mt_0 reference"><a href="https://w3c.github.io/w3process/#recs-and-notes" target="_blank" title="새창열림">[W3C Recommendations and Notes]</a></figcaption>
+					<img src="/_assets/images/css/bookmark/uxkm_w3c-process-recs-and-notes.svg" alt="W3C Recommendations and Notes" class="mt_m">
+				</figure>
+
+				<section class="txt_ex">
+					<h2 class="sound_only">참조 사이트 링크</h2>
+
+					<!-- W3C ALL STANDARDS AND DRAFTS -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">W3C ALL STANDARDS AND DRAFTS</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/TR/" target="_blank" title="새창열림">모든 표준 및 초안 명세서</a></p>
+					</article>
+
+					<!-- W3C HTML 및 CSS -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">W3C HTML 및 CSS</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/standards/webdesign/htmlcss" target="_blank" title="새창열림">HTML 및 CSS</a></p>
+					</article>
+
+					<!-- W3C CSS Specs -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">W3C CSS Specs</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/Style/CSS/current-work" target="_blank" title="새창열림">W3C CSS current work & how to participate</a></p>
+					</article>
+
+					<!-- W3C Cascading Style Sheets, level 1 -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">W3C Cascading Style Sheets, level 1</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/TR/CSS1/" target="_blank" title="새창열림">W3C Recommendation 17 Dec 1996, revised 11 Apr 2008 superseded on 13 September 2018</a></p>
+					</article>
+
+					<!-- W3C CSS 2.1 기술 표준 문서 -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">W3C CSS 2.1 기술 표준 문서</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/TR/CSS2/" target="_blank" title="새창열림">W3C Recommendation 07 June 2011, edited in place 12 April 2016 to point to new work</a></p>
+					</article>
+
+					<!-- W3C CSS Snapshot 2018 -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">W3C CSS Snapshot 2018</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/TR/CSS22/" target="_blank" title="새창열림">W3C Working Group Note, 22 January 2019</a></p>
+					</article>
+
+					<!-- W3C Selectors Level 3 -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">W3C Selectors Level 3</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/TR/selectors-3/" target="_blank" title="새창열림">W3C Recommendation 06 November 2018</a></p>
+					</article>
+
+					<!-- W3C Selectors Level 4 -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">W3C Selectors Level 4</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/TR/selectors-4/" target="_blank" title="새창열림">W3C Working Draft, 21 November 2018</a></p>
+					</article>
+
+					<!-- Cascading Style Sheets Spec Table (CSS) -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">Cascading Style Sheets Spec Table (CSS)</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/TR/CSS21/propidx.html" target="_blank" title="새창열림">CSS 2.1의 속성 요약 명세 테이블</a></p>
+					</article>
+
+					<!-- CSS Values and Units Module Level 3 -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">CSS Values and Units Module Level 3</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/TR/css3-values/" target="_blank" title="새창열림">W3C Candidate Recommendation, 6 June 2019</a></p>
+					</article>
+
+					<!-- CSS tips & tricks -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">CSS tips & tricks</h3>
+						<p class="reference indent mt_s"><a href="https://www.w3.org/Style/Examples/007/" target="_blank" title="새창열림">CSS tips & tricks Examples</a></p>
+					</article>
+
+					<!-- CSS Template Layout Module -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">CSS Template Layout Module</h3>
+						<p class="reference indent mt_s"><a href="https://drafts.csswg.org/css-template/" target="_blank" title="새창열림">Editor's Draft 1 March 2016</a></p>
+					</article>
+
+					<!-- csszengarden -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">csszengarden</h3>
+						<p class="reference indent mt_s"><a href="http://www.csszengarden.com/" target="_blank" title="새창열림">www.csszengarden.com</a></p>
+					</article>
+
+					<!-- css-tricks -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">css-tricks</h3>
+						<p class="reference indent mt_s"><a href="https://css-tricks.com/" target="_blank" title="새창열림">css-tricks.com</a></p>
+					</article>
+
+					<!-- CSS3 TEST -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">CSS3 TEST</h3>
+						<p class="reference indent mt_s"><a href="https://css3test.com/" target="_blank" title="새창열림">css3test.com</a></p>
+					</article>
+
+					<!-- CSS4 Selectors -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">CSS4 Selectors</h3>
+						<p class="reference indent mt_s"><a href="https://css4-selectors.com/selectors/" target="_blank" title="새창열림">css4-selectors.com</a></p>
+					</article>
+
+					<!-- CSS open Api -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">CSS open Api</h3>
+						<p class="reference indent mt_s"><a href="http://overapi.com/css" target="_blank" title="새창열림">OverAPI.com</a></p>
+					</article>
+
+					<!-- data-URI converter -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">data-URI converter</h3>
+						<p class="reference indent mt_s"><a href="https://websemantics.uk/tools/image-to-data-uri-converter/" target="_blank" title="새창열림">Image to data-URI converter</a></p>
+					</article>
+
+					<!-- HTML5기술지원센터 -->
+					<article class="indent_max txt_ex mt_l">
+						<h3 class="ml_mn">HTML5기술지원센터</h3>
+						<p class="reference indent mt_s"><a href="https://www.koreahtml5.kr/front/devSupport/usingExList.do" target="_blank" title="새창열림">koreahtml5</a></p>
+					</article>
+				</section>
 			</main>
 			<!-- //  content (.content_area) -->
 

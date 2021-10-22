@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -903,14 +919,459 @@
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				
-				<footer class="reference_box">
-					<strong class="tit">CSS 고급 참조</strong>
-					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+				<blockquote class="ani_note uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						CSS3에서는 <code>animation</code> 속성을 사용하여 요소의 현재 스타일을 다른 스타일로 천천히 변화시킬 수 있습니다.<br>
+						CSS2에서는 이러한 효과를 표현하기 위해서는 자바스크립트나 플래시 등의 외부 플러그인을 사용해야만 했습니다.<br>
+						하지만 CSS3에서는 이러한 애니메이션 효과를 손쉽게 적용할 수 있게 되었습니다.<br>
+						애니메이션을 만들기 위해서는 가장 먼저 키 프레임을 설정(<code>Key Frame</code>)해야 합니다.<br>
+						키 프레임(<code>Key Frame</code>)은 전환(화면 이동) 효과가 발생하는 시작점과 종료점입니다.<br>
+						가장 간단한 형태의 애니메이션은 시작 프레임과 종료 프레임이라는 2개의 키 프레임으로 만들어지지만,
+						좀 더 복잡한 애니메이션을 만들 경우에는 그 사이에 몇 개의 키 프레임을 더 추가하여 사용할 수 있습니다.<br>
+						CSS 전환(화면 이동) 효과인 <code>transition</code> 은 사실상 2개의 키 프레임만을 사용한다고 할 수 있고 이 점이 애니메이션과 구분되는 점입니다.
+					</p>
+				</blockquote>
+
+				<!-- 4.3.1. animation 속성 요약 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">4.3.1. animation 속성 <i class="t_blue">요약</i></h2>
+					<p class="mt_ms"><code>animation</code>의 모든 속성 대한 요약 입니다. 아래 속성 설명에 각 속성에 대한 자세한 설명이 있습니다.</p>
+					<ol class="ol_lst mt_ms indent">
+						<li><strong class="t_black weight-500">animation-name</strong> : 선언된 애니메이션(<code class="bg_none">@keyframes</code>) 이름 선언합니다.</li>
+						<li><strong class="t_black weight-500">animation-duration</strong> : ms 단위로 실행되는 시간을 지정합니다.</li>
+						<li><strong class="t_black weight-500">animation-timing-function</strong> : <code class="bg_none">linear, ease</code> 등의 시간에 따른 변화 가감속 속도를 지정합니다.</li>
+						<li><strong class="t_black weight-500">animation-iteration-count</strong> : 애니메이션의 반복 효과 횟수 지정합니다. (기본값은 1)</li>
+						<li><strong class="t_black weight-500">animation-direction</strong> : 애니메이션이 반복되는 동안 실행되는 순서를 지정합니다. (기본은 <code class="bg_none">normal</code>, 반대라면 <code class="bg_none">alternate</code>, 무한반복 <code class="bg_none">infinite</code>)</li>
+						<li><strong class="t_black weight-500">animation-delay</strong> : 애니메이션 실행 시작 전에 실행 지연(유예) 시간을 지정합니다.</li>
+						<li><strong class="t_black weight-500">animation-fill-mode</strong> : 애니메이션의 적용 후에 대상의 상태를 지정합니다. (<code class="bg_none">backward, forward, both, none</code>)</li>
+						<li><strong class="t_black weight-500">animation-play-state</strong> : 실행중인 애니메이션을 멈추거나 다시 재생할 수 있습니다.</li>
+					</ol>
+				</section>
+
+				<!-- 4.3.2. animation 속성 상세 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">4.3.2. animation 속성 <i class="t_blue">상세</i></h2>
+					<p class="mt_ms"><code>animation</code> CSS 속성은 다수의 스타일을 전환하는 애니메이션을 적용합니다.</p>
+
+					<ul class="ol_lst">
+						<!-- 1. animation-name 속성 (필수 선언) -->
+						<li class="tit_h3 mt_l">
+							<h3><i class="t_blue">animation-name</i> 속성 <i class="t_red">(필수 선언)</i></h3>
+							<p class="mt_ms">
+								애니메이션 효과의 이름을 설정합니다.<br>
+								해당 <code>@keyframes</code> 규칙에서 정의된 이름을 사용하고, 애니메이션 이름 속성에는 단 하나의 값만을 사용할 수 있습니다.<br>
+								이름 이외에 사용할 수 있는 값은 요소에서 애니메이션이 진행되는 것을 막는데 사용하는 none 뿐입니다.
+							</p>
+							<p class="mt_s">
+								효과의 이름은 다른 이름과 중복이 되지 않는다는 조건하에 자유롭게 지정할 수 있습니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-name">
+								<textarea readonly="readonly">
+									div {
+										animation-name: myName;
+									}
+									@keyframes myName {
+										0% { … }
+										100% { … }
+									}
+									/* 위의 myName은 예시이며 목적에 맞는 이름을 자유롭게 지정할 수 있습니다. */
+								</textarea>
+							</div>
+						</li>
+
+						<!-- 2. animation-duration 속성 (필수 선언) -->
+						<li class="tit_h3 mt_xl">
+							<h3><i class="t_blue">animation-duration</i> 속성 <i class="t_red">(필수 선언)</i></h3>
+							<p class="mt_ms">
+								애니메이션 효과를 재생할 시간을 설정합니다.<br>
+								<code>@keyframe Rule</code>에서 선언한 0%부터 100%까지의 움직임을 몇 초에 걸쳐 구현할지를 정합니다.<br>
+								<code>transition-duration</code> 속성과 기능적으로 동일합니다.<br>
+								<code>transition-duration</code> 속성과 마찬가지로 시간 값으로는 <code>ms</code> 또는 <code>s</code> 단위를 사용할 수 있으며 애니메이션의 진행을 막는 의미로 0을 사용할 수 있습니다.<br>
+								(시간 값으로 음수를 적용한 경우 이 값은 0으로 간주됩니다.)
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-duration">
+								<textarea readonly="readonly">
+									div {
+										animation-duration: 1s; /* 1s = 1000ms */
+									}
+								</textarea>
+							</div>
+						</li>
+
+						<!-- 3. animation-delay 속성 -->
+						<li class="tit_h3 mt_xl">
+							<h3><i class="t_blue">animation-delay</i> 속성</h3>
+							<p class="mt_ms">
+								애니메이션 효과가 나타나기까지의 지연 시간을 설정합니다.<br>
+								<code>transition-delay</code> 속성과 같은 역할을 담당하고 있습니다.<br>
+								<code>transition-delay</code> 속성에서도 <code>ms</code> 또는 <code>s</code> 단위의 시간 값을 사용하며, 이를 통해 애니메이션의 시작을 지연시킬 수 있습니다.<br>
+								여기서 0은 지연 시간 없이 시작한다는 의미이며, <code>transition-duration</code> 과 마찬가지로, 음수의 값을 사용하면 그 시간만큼 애니메이션을 건너뛰고 진행합니다.<br>
+								3s(3초)로 설정하면 이벤트 발생 후 3초 후에 <code>animation</code>이 작동됩니다.<br>
+								<i class="t_blue weight-500">※ 기본값은 0이며, 지연시간이 필요 없으면 생략 가능합니다.</i>
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-delay">
+								<textarea readonly="readonly">
+									div {
+										animation-delay: 1s; /* 1s = 1000ms */
+									}
+								</textarea>
+							</div>
+						</li>
+
+						<!-- 4. animation-iteration-count 속성 -->
+						<li class="tit_h3 mt_xl">
+							<h3><i class="t_blue">animation-iteration-count</i> 속성</h3>
+							<p class="mt_ms">
+								애니메이션 효과가 몇 번 반복될지를 설정합니다.<br>
+								숫자(양의 정수)와 <code>infinite</code>(무한 반복)만 선언 가능합니다. 만약 숫자 5를 선언하면 다섯번 반복 후 애니메이션이 정지됩니다.<br>
+								기본적으로 단 한번만 재생(원래대로 돌아가는 것까지 포함하면 두 번 재생)되는 <code>transition</code> 효과와 달리, 애니메이션은 재생 횟수에 제한이 없습니다.<br>
+								값에 0이나 음수를 사용하면 애니메이션은 재생되지 않습니다.<br>
+								<i class="t_blue weight-500">※ 기본값은 1이며, 기본값으로 사용할 경우 생략 가능합니다.</i>
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-iteration-count">
+								<textarea readonly="readonly">
+									div {
+										animation-iteration-count: count(숫자 또는 infinite);
+									}
+								</textarea>
+							</div>
+							<ol class="ol_lst_second indent mt_ms">
+								<li>숫자를 사용하면 해당 횟수만큼 애니메이션이 반복되고, 기본 설정 값은 1이며 애니메이션은 처음부터 끝까지 재생된 뒤 멈추게 됩니다.</li>
+								<li>infinite 값이 적용되면 애니메이션은 무한 반복되며, 다른 조건에 따라 이 값이 변경되지 않는 한 계속 반복됩니다.</li>
+							</ol>
+						</li>
+
+						<!-- 5. animation-direction 속성 -->
+						<li class="tit_h3 mt_xl">
+							<h3><i class="t_blue">animation-direction</i> 속성</h3>
+							<p class="mt_ms">
+								애니메이션의 진행 방향을 설정합니다.<br>
+								애니메이션의 반복(loop)이 최소 2회 이상일 경우, 한 사이클(0% 부터 100%)이 종료되고 나서 다음 반복 때는 어떤 방향으로 움직임을 이어 나갈지 정의합니다.<br>
+								애니메이션은 일반적으로 시작 키 프레임에서부터 마지막 키 프레임 순으로 순차적으로 재생(<code>transition</code>와 같이)되지만 역뱡향 또는 양방향으로 재생시킬 수도 있습니다.<br>
+								<i class="t_blue weight-500">※ 기본값은 normal이며, 기본값으로 사용할 경우 생략 가능합니다.</i>
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-direction">
+								<textarea readonly="readonly">
+									div {
+										animation-direction: normal | alternate | reverse | alternate-reverse;
+									}
+								</textarea>
+							</div>
+							<ol class="ol_lst_second indent mt_ms">
+								<li><strong class="t_black weight-500">normal</strong> : 기본값으로 한 사이클이 끝나도 같은 방향으로 움직입니다.</li>
+								<li><strong class="t_black weight-500">alternate</strong> : 한 사이클이 끝나면 역방향으로 움직입니다.</li>
+								<li><strong class="t_black weight-500">reverse</strong> : 처음부터 역방향으로 움직입니다.</li>
+								<li><strong class="t_black weight-500">alternate-reverse</strong> : 처음부터 역방향으로 움직이고, 한 사이클이 끝나면 정상 방향으로 움직입니다.(alternate의 반대)</li>
+							</ol>
+						</li>
+
+						<!-- 6. animation-fill-mode 속성 -->
+						<li class="tit_h3 mt_xl">
+							<h3><i class="t_blue">animation-fill-mode</i> 속성</h3>
+							<p class="mt_ms">
+								한 사이클의 애니메이션이 재생되기 전과 종료되고 난 후의 애니메이션 상태를 정의한다.<br>
+								애니메이션을 적용할 요소의 CSS 위치와 애니메이션 시작 위치가 다를 경우와
+								애니메이션이 한 번만 재생되는 경우,<br>
+								애니메이션이 재생 전 또는 종료 후 요소의 위치를 css기준으로 할지 <code>@keygrames</code> 기준으로 할지를 정의합니다.<br>
+								<i class="t_blue weight-500">※ 기본값은 none이며, 기본값으로 사용할 경우 생략 가능합니다.</i>
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-fill-mode">
+								<textarea readonly="readonly">
+									div {
+										animation-fill-mode: normal | forwards | backwards | both;
+									}
+								</textarea>
+							</div>
+							<ol class="ol_lst_second indent mt_ms">
+								<li class="line_code font14">
+									<strong class="t_black weight-500 mb_sm">normal</strong> : 기본값으로 한 사이클이 끝나도 같은 방향으로 움직입니다.
+									<p>대기(css 위치) > 시작(@keyframes 위치) > 종료(css 위치)</p>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong class="t_black weight-500 mb_sm">forwards</strong> : 애니메이션 시작 전까지는 요소의 원래 위치에서 대기. 그리고 요소가 애니메이션 끝나는 위치에서 멈춥니다.
+									<p>대기(css 위치) > 시작(@keyframes 위치) > 종료(그대로 유지)</p>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong class="t_black weight-500 mb_sm">backwards</strong> : 페이지가 로딩되면 곧장 애니메이션 시작 위치로 이동, 끝나면 원래 위치로 돌아갑니다.
+									<p>대기(@keyframes 위치) > 시작(@keyframes 위치) > 종료(css 위치)</p>
+								</li>
+								<li class="line_code font14 mt_s">
+									<strong class="t_black weight-500 mb_sm">both</strong> : 위 둘 효과를 모두 적용합니다.
+									<p>대기(@keyframes 위치) > 시작(@keyframes 위치) > 종료(그대로 유지)</p>
+								</li>
+							</ol>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-fill-mode">
+								<textarea readonly="readonly">
+									div {
+										left: 50px; //대기(css 위치)
+										animation-name: myName;
+										animation-duration: 1s;
+										animation-fill-mode: normal;
+									}
+									@keyframes myName {
+										0% { left: 0%; } //시작(@keyframes 위치)
+										100% { left: 100%; }
+									}
+								</textarea>
+							</div>
+						</li>
+
+						<!-- 7. animation-play-state 속성 -->
+						<li class="tit_h3 mt_xl">
+							<h3><i class="t_blue">animation-play-state</i> 속성</h3>
+							<p class="mt_ms">
+								애니메이션 효과의 재생 상태를 설정합니다. 초기화가 아닌 정지, 재생을 할 수 있으며 필요한 상황에만 사용합니다.<br>
+								<code>animation-play-state</code>는 스스로 작동되지 않으며, 마우스 오버(hover) 또는 <code>javascript click</code> 등의 이벤트가 있어야만 작동됩니다.<br>
+								애니메이션의 진행상황을 설정할 수 있는 <code>animation-play-state</code> 속성은 축약형 문법에 포함될 수 없으며, 문법은 다음과 같이 사용합니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-play-state">
+								<textarea readonly="readonly">
+									div {
+										animation-play-state: paused | running | initial | inherit;
+									}
+								</textarea>
+							</div>
+							<ol class="ol_lst_second indent mt_ms">
+								<li><strong class="t_black weight-500">paused</strong> : 애니메이션의 움직임을 정지시킵니다.</li>
+								<li><strong class="t_black weight-500">running</strong> : 정지된 애니메이션을 재생시킵니다.</li>
+							</ol>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation-play-state">
+								<textarea readonly="readonly">
+									div { animation: myName 2.5s ease; }
+									div.paused { animation-play-state: paused; }
+									div.running { animation-play-state: running; }
+
+									@keyframes myName {
+										0% { left: 0%; }
+										100% { left: 100%; }
+									}
+								</textarea>
+							</div>
+						</li>
 					</ul>
-				</footer>
+				</section>
+
+				<!-- 4.3.3. @keyframes 규칙 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">4.3.3. <i class="t_blue">@keyframes 규칙</i></h2>
+					<blockquote class="uk_note mt_ml" role="note">
+						<h3 class="sound_only">요약 설명</h3>
+						<p>
+							CSS3에서 애니메이션 효과를 사용하기 위해서는 우선 애니메이션에 대한 키 프레임(<code>keyframe</code>)을 정의해야 합니다.<br>
+							키 프레임(<code>keyframe</code>)에는 특정한 시간에 해당 요소가 가져야 할 CSS 스타일을 명시합니다.<br>
+							<code>@keyframes</code> 규칙 안에 이렇게 CSS 스타일을 설정해 놓으면, 해당 요소의 스타일은 특정 시간까지 현재 스타일에서 설정해 놓은 새로운 스타일로 천천히 변화할 것입니다.<br>
+							애니메이션 효과가 동작하기 위해서는 먼저 <code>animation-name</code> 속성을 이용하여 요소와 키 프레임을 연결해 주어야 합니다.
+						</p>
+						<p class="mt_s">
+							2개의 주축이 되는 키프레임 사이에 위치한 중간 프레임의 움직임을 자동으로 처리하는 선형 보간(Linear Interpolation) 방식 애니메이션입니다.<br>
+							키프레임을 더 많이 만들수록 더 디테일한 움직임을 표현할 수 있습니다.
+						</p>
+					</blockquote>
+					<p class="mt_ms">
+						키프레임 단계를 세분화할 수 있으며, 각 키프레임 중 css의 속성이 정확히 겹치는 키프레임이 있다면 콤마(,)로 이어서 선언할 수 있습니다.<br>
+						각 키프레임의 시점을 <code class="bg_none">%</code>대신 <code class="bg_none">from</code>, <code class="bg_none">to</code>로도 선언할 수 있지만, <code class="bg_none">%</code>로 사용할 것을 권장합니다.
+					</p>
+
+					<!-- 각 프레임마다 색상지정 -->
+					<div class="indent mt_xl">
+						<h3 class="ml_mn">각 프레임마다 css지정</h3>
+						<div class="uk_gist_code_box mt_ms" data-tit="animation [@keyframes rule]">
+							<textarea readonly="readonly">
+								@-webkit-keyframes myName {
+									0% { background-color: pink; }
+									25% { background-color: brown; }
+									50% { background-color: red; }
+									75% { background-color: brown; }
+									100% { background-color: pink; }
+								}
+								@keyframes myName {
+									0% { background-color: pink; }
+									25% { background-color: brown; }
+									50% { background-color: red; }
+									75% { background-color: brown; }
+									100% { background-color: pink; }
+								}
+							</textarea>
+						</div>
+					</div>
+
+					<!-- css의 속성이 겹치는 경우 콤마로 구분하여 그룹화 -->
+					<div class="indent mt_xl">
+						<h3 class="ml_mn">css의 속성이 겹치는 경우 콤마로 구분하여 그룹화</h3>
+						<div class="uk_gist_code_box mt_ms" data-tit="animation [@keyframes rule]">
+							<textarea readonly="readonly">
+								@-webkit-keyframes myName {
+									0%, 100% { background-color: pink; }
+									25%, 75% { background-color: brown; }
+									50% { background-color: red; }
+								}
+								@keyframes myName {
+									0%, 100% { background-color: pink; }
+									25%, 75% { background-color: brown; }
+									50% { background-color: red; }
+								}
+							</textarea>
+						</div>
+					</div>
+				</section>
+
+				<!-- 4.3.4. animation 작성 방법 -->
+				<section class="txt_ex indent mt_xxl">
+					<h2 class="ml_mn">4.3.4. animation <i class="t_blue">작성 방법</i></h2>
+					<p class="mt_ms">
+						모든 <code>animation</code> 속성을 한줄로 축약하거나 각 속성별로 따로 선언할 수 있습니다.<br>
+						축약현 선언에서 <code>animation-delay</code>를 선언하려면 반드시 <code>animation-duration</code> 뒤에 선언해야합니다.
+					</p>
+					<!-- animation 속성을 축약하여 선언할 경우 아래와 같은 순서대로 나열하는 형태를 사용합니다. -->
+
+					<ul class="ol_lst">
+						<!-- 1. 속성별 선언 -->
+						<li class="tit_h3 mt_l">
+							<h3>속성별 선언</h3>
+							<p class="mt_ms">
+								속성별로 선언할 경우 선언 순서는 중요하지 않습니다.<br>
+								다만, 공동작업이나 추후 관리를 위해 축약형 선언의 순서에 맞춰 선언하는 것을 추천합니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation syntax [Declaration by attribute]">
+								<textarea readonly="readonly">
+									div {
+										animation-name: myName;
+										animation-duration: .5s;
+										animation-timing-function: ease-in;
+										animation-delay: 2s;
+										animation-iteration-count: 5;
+										animation-direction: alternate;
+									}
+								</textarea>
+							</div>
+						</li>
+
+						<!-- 2. 축약형 선언 -->
+						<li class="tit_h3 mt_xl">
+							<h3>축약형 선언</h3>
+							<p class="mt_ms">
+								주로 쓰이는 방법입니다.<br>
+								대부분 하나의 객체당 하나의 <code>@keyframes</code>에 대한 <code>animation</code>을 적용하므로 이 경우 코드절약을 위해 한줄로 사용하는 것이 좋습니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms"
+									 data-tit="animation syntax [Abbreviated declaration]"
+									 data-ex="animation-abbreviated-declaration"
+									 data-ex-text1="
+									 : <span class='t_red'>myName</span>
+									 <span class='t_darkblue'>.5s</span>
+									 <span class='t_green'>2s</span>
+									 <span class='t_orange'>ease-in</span>
+									 <span class='t_purple'>infinite</span>
+									 <span class='t_skyblue'>alternate</span>
+									 <span class='t_navy'>both</span>;"
+									 data-ex-text2="
+									 : <span class='t_red'>name</span>
+									 <span class='t_darkblue'>duration</span>
+									 <span class='t_green'>delay</span>
+									 <span class='t_orange'>timing-function</span>
+									 <span class='t_purple'>iteration-count</span>
+									 <span class='t_skyblue'>direction</span>
+									 <span class='t_navy'>fill-mode</span>;"
+							>
+								<textarea readonly="readonly">
+									div {
+										animation: ;
+									}
+									/* 위의 작성 순서는 아내와 같습니다. */
+									div {
+										animation: ;
+									}
+								</textarea>
+							</div>
+						</li>
+
+						<!-- 3. 복수 선언 -->
+						<li class="tit_h3 mt_xl">
+							<h3>복수 선언</h3>
+							<p class="mt_ms">
+								콤마(,)로 구분하여 두 개 이상의 <code>@keyframes Rule</code>로 정의 된 애니메이션을 한번에 선언할 수 있습니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation syntax [Multiple declaration]">
+								<textarea readonly="readonly">
+									div {
+										animation-name:
+											myName1 .5s 1s ease,
+											myName2 1s 2s ease-in-out both;
+									}
+								</textarea>
+							</div>
+						</li>
+
+						<!-- 4. Steps 선언 -->
+						<li class="tit_h3 mt_xl">
+							<h3>Steps 선언</h3>
+							<p class="mt_ms">
+								애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
+								<code>duration</code> 값과 연계해서 선언하여 일종의 Frame Rate(초당 프레임 수)를 설정하거나 혹은, 셀 애니메이션처럼 연계된 동작을 표현할 수도 있습니다.<br>
+								<code>steps(스텝 수)</code>로 선언합니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="animation syntax [Steps]">
+								<textarea readonly="readonly">
+									div {
+										animation-name: myName 60s steps(60) linear infinite;
+									}
+								</textarea>
+							</div>
+						</li>
+					</ul>
+
+					<div class="view_editor edit_code mt_xl" data-target="css/step03/4.3.animation/4.3.animation.html">
+						<h3 class="ve_tit">animation 작성 예제</h3>
+						<div class="uk_editor indent mt_m min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 테스트 및 요약설명 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn"><i class="t_blue">animation</i> 테스트 및 <i class="t_blue">요약설명</i></h2>
+					<p class="mt_m">
+						위에 설명된 <i class="t_blue">animation의 속성</i>을 직접 테스트 할 수 있습니다.<br>
+						각 속성의 input값을 변경하여 마우스오버(hover) 또는 result버튼을 클릭하세요.<br>
+						<span class="reference mt_l">테스트기 출처 : <a href="http://921430km.com/_temp/transform/animation.php" target="_blank" title="새창열림">http://921430km.com/animation</a></span>
+					</p>
+
+					<div class="iframe_con kmtemp_resize_iframe mt_ml">
+						<iframe src="/_code_samples/kmtemp/transform/animation.html" width="100%" height="100%" scrolling="no"></iframe>
+					</div>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="animation">
+					<ul>
+						<li class="ie">10+</li>
+						<li class="edge">12.0</li>
+						<li class="chrome">43.0</li>
+						<li class="firefox">16.0</li>
+						<li class="opera">30.1</li>
+						<li class="safari">9.0</li>
+					</ul>
+				</aside>
+				<aside class="browser_support mt_xxl" data-tit="Prefix animation">
+					<ul>
+						<li class="ie">10+</li>
+						<li class="edge">12.0</li>
+						<li class="chrome">4.0 -webkit-</li>
+						<li class="firefox">5.0 -moz-</li>
+						<li class="opera">12.5 -o-</li>
+						<li class="safari">4.0 -webkit-</li>
+					</ul>
+				</aside>
+
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">Animation 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/TR/css-animations-1/" target="_blank" class="fas" title="새창열림">W3C CSS Animations Level 1 W3C Working Draft, 11 October 2018</a></li>
+						<li class="reference"><a href="https://drafts.csswg.org/css-animations/#animation" target="_blank" class="fas" title="새창열림">W3C CSS Animations Level 1 Editor’s Draft, 30 September 2019</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/animation" target="_blank" class="fas" title="새창열림">MDN CSS animation</a></li>
+					</ul>
+				</aside>
 			</main>
 			<!-- // Animation content (.content_area) -->
 

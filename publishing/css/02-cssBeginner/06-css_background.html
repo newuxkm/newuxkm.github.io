@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -1000,11 +1016,13 @@
 						반복 출력을 멈추고 싶은 경우, background-repeat 프로퍼티값에 no-repeat를 설정합니다.<br>
 						background-image에 복수개의 이미지를 설정할 경우, 먼저 설정된 이미지가 전면에 출력됩니다.
 					</p>
-					<div class="uk_gist_code_box mt_ms" data-tit="background-repeat" data-ex="background-repeat" data-text=": repeat | repeat-x | repeat-y | no-repeat | inherit;">
+					<div class="uk_gist_code_box mt_ms" data-tit="background-repeat" data-ex="backg round-repeat" data-text=": repeat | repeat-x | repeat-y | no-repeat | inherit;">
 						<textarea readonly="readonly">
-							p {
-								background-repeat: ;
-							}
+							<style>
+								p {
+									background-repeat: repeat | repeat-x | repeat-y | no-repeat | inherit;
+								}
+							</style>
 						</textarea>
 					</div>
 					<div class="ol_lst indent mt_ms">

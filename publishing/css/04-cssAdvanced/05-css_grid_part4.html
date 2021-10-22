@@ -2,6 +2,22 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript">
+    WebFontConfig = {
+      custom: {
+        families: ['Noto Sans KR', 'Roboto', 'Open Sans', 'Nanum Gothic'],
+      }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+	</script>
 	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -923,14 +939,666 @@
 					</ul>
 				</nav>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				
-				<footer class="reference_box">
-					<strong class="tit">CSS 고급 참조</strong>
-					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+				<!-- 자식 속성(properties for the children - grid items) -->
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">4.5.6. 자식 속성(properties for the children - grid items)</h2>
+					<blockquote class="uk_note mt_l" role="note">
+						<h3 class="sound_only">요약 설명</h3>
+						<p>
+							정의된 컨테이너의 자식 요소들은 자동으로 <code>grid items</code>(아이템)로 정의됩니다.<br>
+							그리드 컨테이너의 자식을 그리드 아이템 이라고 합니다.<br>
+							<code>grid item</code>을 위한 속성들은 다음과 같습니다.<br>
+							<code>grid-row-start</code>, <code>grid-row-end</code>, <code>grid-column-start</code>, <code>grid-column-end</code> 속성은
+							그리드 아이템(item)을 배치하기 위해 그리드 선(line)의 '시작 위치'와 '끝 위치'를 지정합니다.<br>
+							'숫자'를 지정하거나, '선 이름'을 지정하거나, span 키워드를 사용합니다.<br>
+							<code>grid-row-start</code>, <code>grid-row-end</code>, <code>grid-column-start</code>, <code>grid-column-end</code> 속성으로 사용하지만,
+							축약형(shorthands) 방식으로도 사용 가능합니다. <code>grid-row</code>, <code>grid-column</code>, <code>grid-area</code>
+						</p>
+						<p class="mt_s">
+							<code>float</code>, <code>display: inline-block</code>, <code>display: table-cell</code>, <code>vertical-align</code>및 <code>column-*</code>속성은 그리드 항목에 영향을주지 않습니다.
+						</p>
+					</blockquote>
+
+					<!-- 4.5.6.1. grid 아이템 -->
+					<article class="mt_xl indent">
+						<h3 class="ml_mn">4.5.6.1. grid 컨테이너</h3>
+						<blockquote class="uk_note mt_m" role="note">
+							<h4 class="sound_only">요약 설명</h4>
+							<p>
+								가벼운 의미로 그리드 아이템은 그리드 컨테이너 내부에 표시되는 플로우 콘텐츠 입니다.<br>
+								그리드 컨테이너가 포함하는 자식 콘텐츠는 모두 그리드 아이템이 되며, 요소가 아닌 텍스트일 경우 암시적으로 그리드 아이템이 생성됩니다.
+							</p>
+						</blockquote>
+						<p class="mt_ms">
+							그리드 컨테이너 내부에 포함한 자식요소는 그리드 아이템으로 설정됩니다. (자식 요소가 아니면 그리드 아이템이 아닙니다.)<br>
+							그리드 아이템에 설정된 <code>float</code> 속성은 적용되지 않습니다. 텍스트 콘텐츠를 컨테이너 포함하는 경우에는 암시적으로 그리드 아이템이 됩니다.<br>
+							그리드 아이템 사이 공백이 사라집니다. 요소가 아닌 텍스트가 자식으로 포함된 경우, 암시적인 그리드 아이템이 됩니다.<br>
+							하지만 암시적으로 생성된 그리드 아이템은 스타일 규칙을 설정할 수 없습니다. 다만 상속 가능한 스타일은 적용됩니다.<br>
+							그리드 아이템에 설정된 <code>display</code> 속성은 모두 무시됩니다.
+						</p>
+
+						<div class="view_editor edit_code mt_ml" data-target="css/step03/4.5.grid/4.5.5.2.grid-item.html">
+							<h4 class="ve_tit font-16">grid-item 예제</h4>
+							<div class="uk_editor indent min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</div>
+					</article>
+
+					<!-- 4.5.6.2. grid 라인(line) 기반 아이템 배치 -->
+					<article class="mt_xl indent">
+						<h3 class="ml_mn">4.5.6.2. grid 라인(line) 기반 아이템 배치</h3>
+						<p class="mt_ms">
+							그리드 라인을 기반으로 하여 아이템을 배치(레이아웃) 할 수 있습니다.
+						</p>
+						<figure class="img_figure mt_m">
+							<img src="/_assets/images/css/grid/uxkm_grid-line-rowcolumn.svg" alt="그리드 라인을 기반으로 하여 아이템을 배치">
+							<figcaption class="sound_only">[그리드 라인을 기반으로 하여 아이템을 배치]</figcaption>
+						</figure>
+						<ol class="ol_lst mt_ms indent">
+							<li><code class="weight-500 t_blue bg_none">&lt;line&gt;</code> : &quot;그리드라인 번호&quot; 또는 &quot;그리드라인을 참조하는 이름&quot;</li>
+							<li><code class="weight-500 t_blue bg_none">span &lt;number&gt;</code> : 상대적으로 범위에 추가 설정하는 기준이 되는 그리드라인 개수</li>
+							<li><code class="weight-500 t_blue bg_none">span &lt;name&gt;</code> : 상대적으로 범위에 추가 설정하는 기준이 되는 그리드라인 참조 이름</li>
+							<li><code class="weight-500 t_blue bg_none">auto</code> : 자동 배치, 자동 span, 기본 span 1</li>
+						</ol>
+
+						<!-- grid-column-start / grid-column-end / grid-row-start / grid-row-end -->
+						<section class="mt_ml indent">
+							<h4 class="ml_mn t_blue">grid-column-start / grid-column-end / grid-row-start / grid-row-end</h4>
+							<p class="mt_s">
+								그리드 아이템(item)의 열 시작 위치 지정 / 열 끝 위치 지정 / 행 시작 위치 지정 / 행 끝 위치 지정합니다.
+							</p>
+							<div class="uk_gist_code_box mt_m" data-tit="grid column/row [start/end]">
+								<textarea readonly="readonly">
+									.item {
+										grid-column-start: [number] | [name] | span [number] | span [name] | auto;
+										grid-column-end: [number] | [name] | span [number] | span [name] | auto;
+										grid-row-start: [number] | [name] | span [number] | span [name] | auto;
+										grid-row-end: [number] | [name] | span [number] | span [name] | auto;
+									}
+								</textarea>
+							</div>
+
+							<p class="mt_m">
+								<code>span</code>을 사용해 상대적으로 영역을 설정할 수 있습니다. 그리드 아이템의 기본 <code>span</code> 값은 1입니다.<br>
+								<code>grid-row-end</code> 또는 <code>grid-column-end</code> 설정이 없을 경우, 아이템은 기본적으로 1개의 셀(cell) 만큼 영역으로 사용합니다.<br>
+								만약 아이템 배치가 겹쳐지는 상황이 발생하면 <code>z-index</code> 속성 값이 높은 쪽이 위에 배치됩니다.
+							</p>
+							<figure class="img_figure mt_m">
+								<figcaption class="mt_0">[<code class="bg_none t_444">span</code>을 사용해 상대적으로 영역을 설정]</figcaption>
+								<img src="/_assets/images/css/grid/uxkm_grid-line-span.svg" alt="span을 사용해 상대적으로 영역을 설정" class="mt_m">
+							</figure>
+
+							<h5 class="mt_ml">아이템 요소의 배치를 그리드 라인 번호 또는 참조 이름을 사용하여 설정</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid column/row [start/end]">
+								<textarea readonly="readonly">
+									.item-a {
+										grid-column-start: 2;       // line2와 동일
+										grid-column-end: five;
+										grid-row-start: row1-start;
+										grid-row-end: 3;            // third-line과 동일
+									}
+								</textarea>
+							</div>
+							<figure class="img_figure indent mt_m">
+								<img src="/_assets/images/css/grid/uxkm_grid-column-row-start-end-01.svg" alt="아이템 요소의 배치를 그리드 라인 번호 또는 참조 이름을 사용하여 설정">
+							</figure>
+
+							<h5 class="mt_ml">아이템 요소에 span 설정(상대적 범위 추가)을 사용한 레이아웃</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid column/row [start/end]">
+								<textarea readonly="readonly">
+									.item-b {
+										grid-column-start: 1; // first와 동일
+										grid-column-end: span col4-start;
+										grid-row-start: 2; // row1-end와 동일
+										grid-row-end: span 2;
+									}
+								</textarea>
+							</div>
+							<figure class="img_figure indent mt_m">
+								<img src="/_assets/images/css/grid/uxkm_grid-column-row-start-end-02.svg" alt="아이템 요소에 span 설정(상대적 범위 추가)을 사용한 레이아웃">
+							</figure>
+
+							<aside class="browser_support mt_l" data-tit="grid-[column/row]-[start/end]">
+								<ul>
+									<li class="ie false">지원안함</li>
+									<li class="edge">16.0</li>
+									<li class="chrome">57.0</li>
+									<li class="firefox">52.0</li>
+									<li class="opera">44.0</li>
+									<li class="safari">10.1</li>
+								</ul>
+							</aside>
+						</section>
+
+						<!-- grid-column / grid-row -->
+						<section class="mt_ml indent">
+							<h4 class="ml_mn t_blue">grid-column / grid-row</h4>
+							<p class="mt_s">
+								그리드 아이템 행/열, 시작/끝 배치 설정을 속기형으로 설정할 수 있습니다.<br>
+								<code>grid-column-start + grid-column-end</code> 및 <code>grid-row-start + grid-row-end</code>의 단축 속성(행 시작/끝 위치) / (열 시작/끝 위치)<br>
+								속기형 속성 값으로 시작점만 설정하고 끝점(<code>&lt;end-line&gt;</code>)을 설정하지 않으면 1개 셀(cell)만큼 사용 됩니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="grid [grid-column/grid-row]">
+								<textarea readonly="readonly">
+									.item {
+										grid-column: <start-line> / <end-line> | <start-line> / span <value>;
+										grid-row: <start-line> / <end-line> | <start-line> / span <value>;
+									}
+								</textarea>
+							</div>
+							<ol class="ol_lst mt_ms indent">
+								<li><code class="weight-500 t_blue bg_none">&lt;start-line&gt;</code> : 그리드라인 시작점 (번호 또는 참조 이름)</li>
+								<li><code class="weight-500 t_blue bg_none">&lt;end-line&gt;</code> : 그리드라인 끝점 (번호 또는 참조 이름)</li>
+								<li><code class="weight-500 t_blue bg_none">span &lt;value&gt;</code> : 상대적으로 범위에 추가 설정하는 기준이 되는 그리드라인 개수 또는 참조 이름</li>
+							</ol>
+
+							<h5 class="mt_ml">아이템 요소 배치에 속기형 속성을 사용</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [grid-column/grid-row]">
+								<textarea readonly="readonly">
+									.item-c {
+										grid-column: 3 / span 2;  // line2 / five와 동일
+										grid-row: third-line / 4; // third-line / last-line과 동일
+									}
+								</textarea>
+							</div>
+							<figure class="img_figure indent mt_m">
+								<img src="/_assets/images/css/grid/uxkm_grid-column-row-start-end-03.svg" alt="아이템 요소 배치에 속기형 속성을 사용">
+							</figure>
+
+							<aside class="browser_support mt_l" data-tit="grid-column/row">
+								<ul>
+									<li class="ie false">지원안함</li>
+									<li class="edge">16.0</li>
+									<li class="chrome">57.0</li>
+									<li class="firefox">52.0</li>
+									<li class="opera">44.0</li>
+									<li class="safari">10.1</li>
+								</ul>
+							</aside>
+						</section>
+
+						<section class="view_editor edit_code mt_l" data-target="css/step03/4.5.grid/4.5.6.2.grid-line.html">
+							<h4 class="ve_tit font-16">grid 라인(line) 기반 아이템 배치 예제</h4>
+							<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+								<div class="code_wrap"><textarea></textarea></div>
+							</div>
+						</section>
+					</article>
+
+					<!-- 4.5.6.3. grid 영역(area) 기반 아이템 배치 -->
+					<article class="mt_xl indent">
+						<h3 class="ml_mn">4.5.6.3. grid 영역(area) 기반 아이템 배치</h3>
+
+						<!-- grid-area -->
+						<section class="mt_m indent">
+							<h4 class="ml_mn t_blue">grid-area</h4>
+							<p class="mt_s">
+								<code>grid-column-start</code>, <code>grid-column-end</code>, <code>grid-row-start</code>, <code>grid-row-end</code>의 단축 속성입니다.<br>
+								혹은 <code>grid-template-areas</code>가 참조할 영역(area) 이름을 설정할 수도 있습니다.<br>
+								영역 이름을 설정할 경우 <code>grid-row</code>와 <code>grid-column</code> 개념은 무시됩니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="grid [grid-area]">
+								<textarea readonly="readonly">
+									.item {
+										grid-area: <name> | <row-start> / <column-start> / <row-end> / <column-end>;
+										grid-area: 영역이름;
+									}
+								</textarea>
+							</div>
+							<ol class="ol_lst mt_ms indent">
+								<li><code class="weight-500 t_blue bg_none">&lt;name&gt;</code> : <code>grid-template-areas</code>에 등록된 참조 이름</li>
+								<li><code class="weight-500 t_blue bg_none">&lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</code> : 그리드라인 번호 또는 참조 이름</li>
+							</ol>
+
+							<h5 class="mt_ml">아래 코드의 아이템(.item)은 모두 같은 의미입니다.</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [grid-area]">
+								<textarea readonly="readonly">
+									.item {
+										grid-row: 2 / 3;
+										grid-column: span 2 / -1;
+									}
+
+									.item {
+										/* '시작 / 시작 / 끝 / 끝'임에 주의해야합니다. */
+										grid-area: 2 / span 2 / 3 / -1;
+									}
+								</textarea>
+							</div>
+
+							<h5 class="mt_ml">다음과 같이 영역 이름을 지정해 grid-template-areas에서 참조할 수 있습니다.</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [grid-area]">
+								<textarea readonly="readonly">
+									<style>
+										.container {
+											display: grid;
+											grid-template-rows: repeat(4, 90px);
+											grid-template-columns: repeat(3, 1fr);
+											grid-template-areas:
+												"header header header"
+												"main main aside"
+												"main main ."
+												"footer footer footer";
+										}
+										header.item { grid-area: header; }
+										main.item { grid-area: main; }
+										aside.item { grid-area: aside; }
+										footer.item { grid-area: footer; }
+									</style>
+
+									<div class="container">
+										<header class="item">HEADER</header>
+										<main class="item">MAIN</main>
+										<aside class="item">ASIDE</aside>
+										<footer class="item">FOOTER</footer>
+									</div>
+								</textarea>
+							</div>
+
+							<h5 class="mt_ml">grid-area 속성 값으로 grid-template-areas에 사용된 참조 이름을 사용</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [grid-area]">
+								<textarea readonly="readonly">
+									.item-d {
+										grid-area: header;
+									}
+									/* grid-row-start / grid-column-start / grid-row-end / grid-column-end 순으로 속성 값을 설정 */
+
+									.item-d {
+										grid-area: 1 / col4-start / last-line / 6;
+									}
+									/* row1-start / col4-start / last-line / end 와 동일 */
+								</textarea>
+							</div>
+							<figure class="img_figure indent mt_m">
+								<img src="/_assets/images/css/grid/uxkm_grid-area.svg" alt="grid-area 속성 값으로 grid-template-areas에 사용된 참조 이름을 사용">
+							</figure>
+
+							<aside class="browser_support mt_l" data-tit="grid-area">
+								<ul>
+									<li class="ie false">지원안함</li>
+									<li class="edge">16.0</li>
+									<li class="chrome">57.0</li>
+									<li class="firefox">52.0</li>
+									<li class="opera">44.0</li>
+									<li class="safari">10.1</li>
+								</ul>
+							</aside>
+						</section>
+					</article>
+
+					<!-- 4.5.6.4. grid 아이템(item) 순서 정렬 -->
+					<article class="mt_xl indent">
+						<h3 class="ml_mn">4.5.6.4. grid 아이템(item) 순서 정렬</h3>
+
+						<!-- order -->
+						<section class="mt_m indent">
+							<h4 class="ml_mn t_blue">order</h4>
+							<p class="mt_s">
+								플렉스 또는 그리드 컨테이너 안에서 현재 요소의 배치 순서를 지정합니다.<br>
+								단, 순서를 변경해도 접근성에 문제가 발생하지 않는 경우에만 사용해야 합니다.<br>
+							</p>
+							<p class="mt_s">
+								기본값은 0이며, 숫자가 작을수록 앞쪽에 클수록 뒤쪽에 배치되고, 같은 값일 경우 소스 코드의 순서대로 정렬됩니다.<br>
+								만약 item 요소 중 단 한 개의 요소에 <code>order: 1</code>을 지정한다면 기본값인 0보다 크기에 맨 끝에 위치하게 됩니다.<br>
+								첫 번째 item 요소를 제외한 나머지 요소 중 하나를 첫 번째에 위치시킬 경우 <code>-1</code>을 지정해야 합니다.
+							</p>
+							<div class="uk_gist_code_box mt_ms" data-tit="grid [order]">
+								<textarea readonly="readonly">
+									.item:nth-child(n) {
+										order: <Number> or -<Number>;
+									}
+								</textarea>
+							</div>
+
+							<h5 class="mt_ml">order 속성을 사용하여 배치 순서를 지정</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [order]">
+								<textarea readonly="readonly">
+									.container {
+										display: grid;
+										grid-template-columns: repeat(3, 1fr);
+										grid-template-rows: repeat(2, minmax(50px, auto));
+									}
+
+									/* 그리드 아이템 순서 설정 (자동 배치 내) */
+									.item1 { order: 2; }
+									.item2 { order: 3; }
+									.item3 { order: 1; }
+								</textarea>
+							</div>
+							<figure class="img_figure indent mt_m">
+								<img src="/_assets/images/css/grid/uxkm_grid-order.svg" alt="order 속성을 사용하여 배치 순서를 지정">
+							</figure>
+
+							<div class="view_editor edit_code mt_ml" data-target="css/step03/4.5.grid/4.5.6.4.grid-order.html">
+								<h5 class="ve_tit">order 예제</h5>
+								<div class="uk_editor indent min_height_350" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
+								</div>
+							</div>
+
+							<aside class="browser_support mt_l" data-tit="order">
+								<ul>
+									<li class="ie">11+</li>
+									<li class="edge">11.0</li>
+									<li class="chrome">29.0</li>
+									<li class="firefox">28.0</li>
+									<li class="opera">17.0</li>
+									<li class="safari">9.0</li>
+								</ul>
+							</aside>
+						</section>
+
+						<!-- z-index -->
+						<section class="mt_m indent">
+							<h4 class="ml_mn t_blue">z-index</h4>
+							<p class="mt_s">
+								그리드 아이템의 쌓이는 순서를 지정할 수 있습니다.
+							</p>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [z-index]">
+								<textarea readonly="readonly">
+									.item1 {
+										grid-area: 1 / 1 / 2 / 3;
+									}
+
+									.item2 {
+										grid-area: 1 / 2 / 3 / 3;
+										z-index: 1;
+									}
+
+									.item3 {
+										grid-area: 2 / 2 / 3 / 4;
+									}
+								</textarea>
+							</div>
+							<figure class="img_figure indent mt_m">
+								<img src="/_assets/images/css/grid/uxkm_grid-z-index.svg" alt="그리드 아이템의 쌓이는 순서를 지정">
+							</figure>
+
+							<div class="view_editor edit_code mt_ml" data-target="css/step03/4.5.grid/4.5.6.4.grid-z-index.html">
+								<h5 class="ve_tit">z-index 예제</h5>
+								<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+									<div class="code_wrap"><textarea></textarea></div>
+								</div>
+							</div>
+						</section>
+					</article>
+
+					<!-- 4.5.6.5. grid 개별 아이템(self) 정렬 -->
+					<article class="mt_xl indent">
+						<h3 class="ml_mn">4.5.6.5. grid 개별 아이템(self) 정렬</h3>
+
+						<!-- align-self -->
+						<section class="mt_m indent">
+							<h4 class="ml_mn t_blue">align-self</h4>
+							<p class="mt_ms">
+								단일 그리드 아이템을 수직(열 축) 정렬합니다.<br>
+								열 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (열 축에 따라 정렬하는 <code>justify-self</code> 속성과는 반대)
+							</p>
+							<!--
+							<div class="uk_gist_code_box mt_ms" data-tit="grid [align-self]">
+								<textarea readonly="readonly">
+									.item {
+										align-self: start | center | end | stretch;
+									}
+								</textarea>
+							</div>
+							-->
+							<figure class="img_figure mt_m">
+								<figcaption class="mt_0"><code class="bg_none t_444">.item { align-self: <i class="t_blue">start</i> | <i class="t_blue">center</i> | <i class="t_blue">end</i> | <i class="t_blue">stretch</i>; }</code></figcaption>
+								<img src="/_assets/images/css/grid/uxkm_grid-align-self-all.svg" alt="item-a {align-self: start | center | end | stretch;}" class="mt_s">
+							</figure>
+							<ol class="ol_lst mt_ml indent">
+								<!-- start -->
+								<li>
+									<p>
+										<code class="weight-500 t_blue bg_noone">start</code>
+										: 그리드 아이템 영역 열 축 시작점(위쪽)에 콘텐츠를 정렬
+									</p>
+									<figure class="img_figure mt_s">
+										<figcaption class="mt_0"><code class="bg_none t_444">.item-a { align-self: <i class="t_blue">start</i>; }</code></figcaption>
+										<img src="/_assets/images/css/grid/uxkm_grid-align-self-start.svg" alt="item-a {align-self: start;}" class="mt_s">
+									</figure>
+								</li>
+
+								<!-- center -->
+								<li class="mt_m">
+									<p>
+										<code class="weight-500 t_blue bg_noone">center</code>
+										: 그리드 아이템 영역 열 축 중앙에 콘텐츠를 정렬(수직 가운데 정렬)
+									</p>
+									<figure class="img_figure mt_s">
+										<figcaption class="mt_0"><code class="bg_none t_444">.item-a { align-self: <i class="t_blue">center</i>; }</code></figcaption>
+										<img src="/_assets/images/css/grid/uxkm_grid-align-self-center.svg" alt="item-a {align-self: center;}" class="mt_s">
+									</figure>
+								</li>
+
+								<!-- end -->
+								<li class="mt_m">
+									<p>
+										<code class="weight-500 t_blue bg_noone">end</code>
+										: 그리드 아이템 영역 행 축 끝점(아래쪽)에 콘텐츠를 정렬
+									</p>
+									<figure class="img_figure mt_s">
+										<figcaption class="mt_0"><code class="bg_none t_444">.item-a { align-self: <i class="t_blue">end</i>; }</code></figcaption>
+										<img src="/_assets/images/css/grid/uxkm_grid-align-self-end.svg" alt="item-a {align-self: end;}" class="mt_s">
+									</figure>
+								</li>
+
+								<!-- stretch -->
+								<li class="mt_m">
+									<p>
+										<code class="weight-500 t_blue bg_noone">stretch</code>
+										: 그리드 아이템 영역을 열 축에 가득 채움(열 축을 채우기 위해 그리드 아이템을 늘림)
+									</p>
+									<figure class="img_figure mt_s">
+										<figcaption class="mt_0"><code class="bg_none t_444">.item-a { align-self: <i class="t_blue">stretch</i>; }</code></figcaption>
+										<img src="/_assets/images/css/grid/uxkm_grid-align-self-stretch.svg" alt="item-a {align-self: stretch;}" class="mt_s">
+									</figure>
+								</li>
+							</ol>
+							<aside class="browser_support mt_ml" data-tit="align-self">
+								<ul>
+									<li class="ie">10+ -ms-</li>
+									<li class="edge">16.0</li>
+									<li class="chrome">57.0</li>
+									<li class="firefox">52.0</li>
+									<li class="opera">44.0</li>
+									<li class="safari">10.1</li>
+								</ul>
+							</aside>
+						</section>
+
+						<!-- justify-self -->
+						<section class="mt_l indent">
+							<h4 class="ml_mn t_blue">justify-self</h4>
+							<p class="mt_ms">
+								단일 그리드 아이템을 수평(행 축) 정렬합니다.<br>
+								행 축을 따라 그리드 아이템 내부 콘텐츠를 정렬합니다. (열 축에 따라 정렬하는 <code>align-self</code> 속성과는 반대)<br>
+								모든 항목에 대한 정렬을 설정하려면 <code>justify-items</code> 속성을 통해 컨테이너에서 설정합니다.
+							</p>
+							<!--
+							<div class="uk_gist_code_box mt_ms" data-tit="grid [justify-self]">
+								<textarea readonly="readonly">
+									.item {
+										justify-self: start | center | end | stretch;
+									}
+								</textarea>
+							</div>
+							-->
+							<figure class="img_figure mt_m">
+								<figcaption class="mt_0"><code class="bg_none t_444">.item { justify-self: <i class="t_blue">start</i> | <i class="t_blue">center</i> | <i class="t_blue">end</i> | <i class="t_blue">stretch</i>; }</code></figcaption>
+								<img src="/_assets/images/css/grid/uxkm_grid-justify-self-all.svg" alt="item-a {justify-self: start | center | end | stretch;}" class="mt_s">
+							</figure>
+							<ol class="ol_lst mt_ml indent">
+								<!-- start -->
+								<li>
+									<p>
+										<code class="weight-500 t_blue bg_noone">start</code>
+										: 그리드 아이템 영역 행 축 시작점시작점(왼쪽)에 콘텐츠를 정렬
+									</p>
+									<figure class="img_figure mt_s">
+										<figcaption class="mt_0"><code class="bg_none t_444">.item-a { justify-self: <i class="t_blue">start</i>; }</code></figcaption>
+										<img src="/_assets/images/css/grid/uxkm_grid-justify-self-start.svg" alt="item-a {justify-self: start;}" class="mt_s">
+									</figure>
+								</li>
+
+								<!-- center -->
+								<li class="mt_m">
+									<p>
+										<code class="weight-500 t_blue bg_noone">center</code>
+										: 그리드 아이템 영역 행 축 중앙에 콘텐츠를 정렬(수평 가운데 정렬)
+									</p>
+									<figure class="img_figure mt_s">
+										<figcaption class="mt_0"><code class="bg_none t_444">.item-a { justify-self: <i class="t_blue">center</i>; }</code></figcaption>
+										<img src="/_assets/images/css/grid/uxkm_grid-justify-self-center.svg" alt="item-a {justify-self: center;}" class="mt_s">
+									</figure>
+								</li>
+
+								<!-- end -->
+								<li class="mt_m">
+									<p>
+										<code class="weight-500 t_blue bg_noone">end</code>
+										: 그리드 아이템 영역 행 축 끝점(오른쪽)에 콘텐츠를 정렬
+									</p>
+									<figure class="img_figure mt_s">
+										<figcaption class="mt_0"><code class="bg_none t_444">.item-a { justify-self: <i class="t_blue">end</i>; }</code></figcaption>
+										<img src="/_assets/images/css/grid/uxkm_grid-justify-self-end.svg" alt="item-a {justify-self: end;}" class="mt_s">
+									</figure>
+								</li>
+
+								<!-- stretch -->
+								<li class="mt_m">
+									<p>
+										<code class="weight-500 t_blue bg_noone">stretch</code>
+										: 그리드 아이템 영역을 행 축에 가득 채움(행 축을 채우기 위해 그리드 아이템을 늘림)
+									</p>
+									<figure class="img_figure mt_s">
+										<figcaption class="mt_0"><code class="bg_none t_444">.item-a { justify-self: <i class="t_blue">stretch</i>; }</code></figcaption>
+										<img src="/_assets/images/css/grid/uxkm_grid-justify-self-stretch.svg" alt="item-a {justify-self: stretch;}" class="mt_s">
+									</figure>
+								</li>
+							</ol>
+							<aside class="browser_support mt_ml" data-tit="justify-self">
+								<ul>
+									<li class="ie false">지원안함</li>
+									<li class="edge">16.0</li>
+									<li class="chrome">57.0</li>
+									<li class="firefox">45.0</li>
+									<li class="opera">44.0</li>
+									<li class="safari">10.1</li>
+								</ul>
+							</aside>
+						</section>
+
+						<!-- place-self -->
+						<section class="mt_l indent">
+							<h4 class="ml_mn t_blue">place-self</h4>
+							<p class="mt_ms">
+								<code>&lt;align-self&gt;</code> / <code>&lt;justify-self&gt;</code>의 단축 속성입니다.<br>
+							</p>
+							<ol class="ol_lst mt_s indent">
+								<li><code class="weight-500 t_blue bg_none">auto</code> : 레이아웃 모드의 "기본" 정렬입니다.</li>
+								<li><code class="weight-500 t_blue bg_none">&lt;align-self&gt; / &lt;justify-self&gt;</code> : 적용 시 첫 번째 값이 <code>align-self</code>고 두 번째 값이 <code>justify-self</code>입니다. 두 번째 값을 생략하면 첫 번째 값이 두 속성에 모두 할당됩니다.</li>
+							</ol>
+
+							<h5 class="mt_ml">키워드 값(Keyword values)</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-self : Keyword values]">
+								<textarea readonly="readonly">
+									.item {
+										place-self: auto center;
+										place-self: normal start;
+									}
+								</textarea>
+							</div>
+
+							<h5 class="mt_ml">위치 정렬(positional alignment)</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-self : positional alignment]">
+								<textarea readonly="readonly">
+									.item {
+										place-self: center normal;
+										place-self: start auto;
+										place-self: end normal;
+										place-self: self-start auto;
+										place-self: self-end normal;
+										place-self: flex-start auto;
+										place-self: flex-end normal;
+										place-self: left auto;
+										place-self: right normal;
+									}
+								</textarea>
+							</div>
+
+							<h5 class="mt_ml">기준선 정렬(baseline alignment)</h5>
+							<div class="uk_gist_code_box indent mt_ms" data-tit="grid [place-self : baseline alignment]">
+								<textarea readonly="readonly">
+									.item {
+										place-self: baseline normal;
+										place-self: first baseline auto;
+										place-self: last baseline normal;
+										place-self: stretch auto;
+									}
+								</textarea>
+							</div>
+
+							<figure class="img_figure mt_ml">
+								<figcaption class="mt_0"><code class="bg_none t_444">.item-a { place-self: <i class="t_blue">center</i>; }</code></figcaption>
+								<img src="/_assets/images/css/grid/uxkm_grid-place-self-center.svg" alt="item-a {place-self: center;}" class="mt_s">
+							</figure>
+
+							<figure class="img_figure mt_m">
+								<figcaption class="mt_0"><code class="bg_none t_444">.item-a { place-self: <i class="t_blue">center stretch</i>; }</code></figcaption>
+								<img src="/_assets/images/css/grid/uxkm_grid-place-self-center-stretch.svg" alt="item-a {place-self: center;}" class="mt_s">
+							</figure>
+
+							<aside class="browser_support mt_ml" data-tit="place-self">
+								<ul>
+									<li class="ie false">지원안함</li>
+									<li class="edge false">지원안함</li>
+									<li class="chrome">59.0</li>
+									<li class="firefox">45.0</li>
+									<li class="opera">46.0</li>
+									<li class="safari false">지원안함</li>
+								</ul>
+							</aside>
+						</section>
+					</article>
+				</section>
+
+				<aside class="browser_support mt_xxl" data-tit="grid">
+					<ul>
+						<li class="ie">10+ -ms-</li>
+						<li class="edge">16.0</li>
+						<li class="chrome">57.0</li>
+						<li class="firefox">52.0</li>
+						<li class="opera">44.0</li>
+						<li class="safari">10.1</li>
 					</ul>
-				</footer>
+				</aside>
+				<aside class="reference_box mt_xxl">
+					<h2 class="tit">그리드 레이아웃 참조</h2>
+					<ul class="link_lst">
+						<li class="reference"><a href="https://www.w3.org/tr/css-grid-1/" target="_blank" class="fas" title="새창열림">w3c css grid layout module level 1</a></li>
+						<li class="reference"><a href="https://www.w3.org/tr/css-grid-2" target="_blank" class="fas" title="새창열림">w3c css grid layout module level 2</a></li>
+						<li class="reference"><a href="https://www.w3.org/tr/css-align-3/" target="_blank" class="fas" title="새창열림">w3c css grid layout module level 2</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-us/docs/web/css/css_grid_layout" target="_blank" class="fas" title="새창열림">mdn css grid layout</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/web/css/css_grid_layout/relationship_of_grid_layout" target="_blank" class="fas" title="새창열림">mdn relationship_of_grid_layout</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-us/docs/web/css/css_grid_layout/box_alignment_in_css_grid_layout" target="_blank" class="fas" title="새창열림">mdn box alignment in css grid layout</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-us/docs/web/css/css_box_alignment" target="_blank" class="fas" title="새창열림">mdn css box alignment</a></li>
+						<li class="reference"><a href="https://developer.mozilla.org/en-us/docs/tools/page_inspector/how_to/examine_grid_layouts" target="_blank" class="fas" title="새창열림">mdn css grid inspector: examine grid layouts</a></li>
+						<li class="reference"><a href="https://grid.layoutit.com/" target="_blank" class="fas" title="새창열림">css grid 제작 온라인 도구 | layoutit.com</a></li>
+						<li class="reference"><a href="https://gridbyexample.com/examples/" target="_blank" class="fas" title="새창열림">css grid layout example</a></li>
+						<li class="reference"><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" class="fas" title="새창열림">guide to grid</a></li>
+						<li class="reference"><a href="http://cssgridgarden.com/#ko" target="_blank" class="fas" title="새창열림">css grid garden</a></li>
+						<li class="reference"><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators/" target="_blank" class="fas" title="새창열림">창시자가 말하는 css 그리드 이야기</a></li>
+						<li class="reference"><a href="https://speakerdeck.com/malarkey/art-directing-for-the-web-five-minutes-with-css-template-areas" target="_blank" class="fas" title="새창열림">웹 디자인 방법에 관한 andy clarke의 발표 슬라이드</a></li>
+						<li class="reference"><a href="https://uid.gitbook.io/css-grid/" target="_blank" class="fas" title="새창열림">css grid layout guidebook by 야무(yamoo9)</a></li>
+						<li class="reference"><a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/dev-guides/hh673533(v=vs.85)?redirectedfrom=msdn" target="_blank" class="fas" title="새창열림">microsoft's documentation grid layout</a></li>
+						<li class="reference"><a href="https://css-tricks.com/css-grid-in-ie-css-grid-and-the-new-autoprefixer/" target="_blank" class="fas" title="새창열림">css grid in ie: css grid and the new autoprefixer</a></li>
+						<li class="reference"><a href="https://css-tricks.com/css-grid-in-ie-debunking-common-ie-grid-misconceptions/" target="_blank" class="fas" title="새창열림">css grid in ie: debunking common ie grid misconceptions</a></li>
+						<li class="reference"><a href="https://rachelandrew.co.uk/css/cheatsheets/box-alignment" target="_blank" class="fas" title="새창열림">box 정렬 치트시트 | rachelandrew.co.uk</a></li>
+						<li class="reference"><a href="https://caniuse.com/#feat=css-grid" target="_blank" class="fas" title="새창열림">supported by all major browsers</a></li>
+					</ul>
+				</aside>
 			</main>
 			<!-- // 그리드 레이아웃 자식 속성 content (.content_area) -->
 

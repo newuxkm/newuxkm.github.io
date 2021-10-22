@@ -6,6 +6,7 @@ const _side_menu_area = $('.side_menu_area');
 const _side_toggle = _side_menu_area.find('.side_menu_toggle');
 const _side_menu = $('.side_menu');
 const _side_menu_d3 = _side_menu.find('.depth3 > li');
+const kmtemp_resize_iframe = 'kmtemp_resize_iframe';
 
 const loading_scroll_top = 'loading_scroll_top';
 let loading_sct = null;
@@ -86,6 +87,7 @@ $(window).on('load', function(){
     sessionStorage.setItem(loading_scroll_top, $(window).scrollTop());
   });
 
+  // uk_gist_code_box 에러 발생시 다시 실행
   $('.uk_gist_code_box').each(function(i, e){
     if( !$(e).find('.uk_gist_content').is(':visible') ){
       console.log( 'uk_gist_code error !!!!!!!!!!' );
@@ -96,6 +98,9 @@ $(window).on('load', function(){
       });
     }
   });
+
+  // km_temp 컨텐츠 iframe resize
+  uk_kmTemp_resize();
 });
 
 
@@ -153,6 +158,9 @@ $(window).on('resize', function(){
      _side_menu_d3.removeClass(tg_on);
    }
  }
+
+  // km_temp 컨텐츠 iframe resize
+  uk_kmTemp_resize();
 }).trigger('resize');
 
 
