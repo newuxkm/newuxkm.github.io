@@ -13,6 +13,20 @@
 .device.sub_page.sub_black {background:#000;}
 
 .uk_container {position:relative; margin-top:$hdHeight; background:#fff;}
+.go_top {
+	$size:50px;
+	position:sticky; bottom:0; z-index:6;
+	height:0; //margin-top:-$size; //padding-bottom:$size;
+	text-align:right;
+	button {
+		opacity:0;
+		display:inline-block; transform:translate(0, -75px);
+		width:$size; height:$size;
+		font-size:14px; color:#fff; letter-spacing:-0.5px; text-indent:-0.5px;
+		background:rgba(#000, .4);
+		border-radius:100%; //margin-top:-$size;
+	}
+}
 .uk_footer {background:#000;}
 @media(max-width:$screen-sm-max){
 	.uk_container {margin-top:$hdHeightMb;}

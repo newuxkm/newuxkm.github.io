@@ -101,6 +101,13 @@ $(window).on('load', function(){
 
   // km_temp 컨텐츠 iframe resize
   uk_kmTemp_resize();
+
+
+  $('.go_top button').css('opacity',1);
+  $('.go_top button').on('click', function(){
+    _htmlBody.stop().animate({scrollTop:0}, 800);
+    return false;
+  });
 });
 
 
