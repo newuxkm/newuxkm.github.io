@@ -11,12 +11,538 @@
 	Info: true,
 	note: true,
 	sideMenu: true,
-	reference: true
+	reference: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			<b class="t_blue">CSS3 모듈 part2</b> 에서는 CSS3 모듈의 속성 중<br>
+			<code>
+				- CSS basic user interface module Level 3<br>
+				- CSS3 gradiant<br>
+				- calc()<br>
+			</code>
+			에 대한 내용을 다루고 있습니다.
+		</p>
+		<p class="mt_m">
+			<b class="t_blue">CSS3</b>는 새롭게 정의된 기능과 함께 이전 버전의 CSS 기능까지도 함께 포함하고 있는 모듈(module)이라는 것으로 구성됩니다.<br>
+			CSS 초급에서 정의된 속성들 외에 CSS 모듈 레벨 3에 정의된 속성들에 대해 간략하게 설명합니다.<br>
+			브라우저별로 지원 안 되는 부분이 많습니다.
+		</p>
+	</blockquote>
+
+	<!-- 3.6.4. CSS basic user interface module Level 3 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">3.6.4. CSS basic user interface module Level 3</h2>
+
+		<!-- outline-offset 속성 -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn"><i class="t_blue">outline-offset</i> 속성</h3>
+			<p class="mt_s">
+				요소의 가장자리 또는 경계의 간격을 설정합니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="outline-offset">
+				<textarea readonly="readonly">
+					div {
+						/* <length> values */
+						outline-offset: 3px;
+						outline-offset: 0.2em;
+
+						/* Global values */
+						outline-offset: inherit;
+						outline-offset: initial;
+						outline-offset: unset;
+					}
+				</textarea>
+			</div>
+
+			<div class="view_editor edit_code mt_ml" data-target="css/step02/3.6.css3-module/3.6.4.css3-outline-offset.html">
+				<h4 class="ve_tit">outline-offset 예제</h4>
+				<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+
+			<aside class="browser_support mt_m" data-tit="outline-offset">
+				<ul>
+					<li class="ie false">지원안함</li>
+					<li class="edge">15.0</li>
+					<li class="chrome">1.0</li>
+					<li class="firefox">1.5</li>
+					<li class="opera">9.5</li>
+					<li class="safari">1.2</li>
+				</ul>
+			</aside>
+		</article>
+	</section>
+
+	<!-- 3.6.5. CSS3 gradient -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">3.6.5. CSS3 gradiant</h2>
+
+		<blockquote class="uk_note css_gradiant_note mt_l" role="note">
+			<h3 class="sound_only">요약 설명</h3>
+			<p>
+				그래디언트(gradient)란 둘 이상의 색 사이의 색상 표현을 부드럽게 전환해주는 효과를 의미합니다.<br>
+				CSS3 이전에는 그래디언트 효과를 나타내기 위해서 별도의 여러 이미지 파일을 사용해야만 했습니다.<br>
+				하지만 CSS3에서는 웹 브라우저가 간단히 그래디언트 효과를 나타낼 수 있게 해줍니다.
+			</p>
+			<p class="mt_s">
+				CSS3에서 제공하는 그래디언트는 다음과 같이 두 가지 형태가 있습니다.<br>
+				선형 그래디언트(linear gradients)<br>
+				원형 그래디언트(radial gradients)
+			</p>
+		</blockquote>
+
+		<!-- 선형 그래디언트(linear gradients) -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn"><i class="t_blue">선형 그래디언트</i>(linear gradients) <i class="fab fa-css3-alt"></i></h3>
+			<p class="mt_ms">
+				<mark>CSS Module Level 3</mark><br>
+				선형 그래디언트(linear gradient)는 적용된 HTML 요소에 선형으로 그래디언트(gradient) 효과를 적용시켜 즙니다.<br>
+				선형 그래디언트를 만들기 위해서는 최소한 두 개 이상의 색상 지정점이 필요합니다.<br>
+				색상 지정점에는 그래디언트 효과로 그 사이의 색상 표현을 부드럽게 전환해주고 싶은 색상을 명시합니다.<br>
+				가장 먼저 정의된 색상 지정점이 시작점이 되며, 그 후로는 마지막 지정점까지 차례대로 그래디언트 효과가 적용됩니다.<br>
+				가장 먼저 나오는 <code>background</code> 속성은 <code>linear-gradient</code> 속성을 지원하지 않는 모든 브라우저를 위한 것입니다.<br>
+				맨 마지막에 나오는 <code>background</code> 속성은 CSS 표준 문법으로 작성된 코드입니다.<br>
+				이러한 CSS 표준 문법 코드는 벤더 프리픽스(vendor prefix)로 작성된 코드가 모두 나오고 난 후에 나와야만, 벤더 프리픽스가 포함된 코드가 정상적으로 동작할 수 있습니다.<br>
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="linear gradients">
+				<textarea readonly="readonly">
+					/* 위 설명글 배경에 적용 된 gradient 코드 */
+					div {
+						background: #1e73ff;
+						background: -webkit-linear-gradient(left, #1e73ff, green);
+						background: -moz-linear-gradient(left, #1e73ff, green);
+						background: -o-linear-gradient(left, #1e73ff, green);
+						background: linear-gradient(left, #1e73ff, green);
+					}
+				</textarea>
+			</div>
+
+			<figure class="img_figure mt_m">
+				<img src="{{ path.img_cssMiddleclass }}/uxkm_linear-gradient.svg" alt="선형 그레이디언트의 구성">
+				<figcaption>[선형 그레이디언트의 구성]</figcaption>
+			</figure>
+
+			<div class="ol_lst indent mt_m">
+				<ol>
+					<li class="line_code font14">
+						<strong class="mb_sm">선형 그래디언트의 진행 방향 설정</strong>
+						<p>
+							선형 그래디언트 효과가 진행될 방향을 설정할 수 있습니다.<br>
+							선형 그래디언트(linear gradient) 효과의 기본 진행 방향은 위쪽에서 아래쪽으로 진행됩니다.
+						</p>
+						<div class="uk_gist_code_box mt_2" data-tit="linear gradients">
+							<textarea readonly="readonly">
+								/* 기본. 위에서 아래로 진행(↓) */
+								div {
+									background: green;
+									background: -webkit-linear-gradient(red, blue);
+									background: -moz-linear-gradient(red, blue);
+									background: -o-linear-gradient(red, blue);
+									background: linear-gradient(red, blue);
+								}
+							</textarea>
+						</div>
+
+						<p class="mt_ms">
+							그래디언트의 진행 방향은 top, right, bottom, left 뿐만 아니라 대각선으로도 설정할 수 있습니다.
+						</p>
+						<div class="uk_gist_code_box mt_2" data-tit="linear gradients">
+							<textarea readonly="readonly">
+								/* 오른쪽에서 왼쪽으로 진행(←) */
+								div {
+									background: green;
+									background: -webkit-linear-gradient(right, red, blue);
+									background: -moz-linear-gradient(right, red, blue);
+									background: -o-linear-gradient(right, red, blue);
+									background: linear-gradient(right, red, blue);
+								}
+
+								/* 오른쪽 아래에서 왼쪽 위로 진행(↖) */
+								div {
+									background: green;
+									background: -webkit-linear-gradient(right bottom, red, blue);
+									background: -moz-linear-gradient(right bottom, red, blue);
+									background: -o-linear-gradient(right bottom, red, blue);
+									background: linear-gradient(right bottom, red, blue);
+								}
+							</textarea>
+						</div>
+
+						<p class="mt_ms">
+							선형 그래디언트 효과의 진행 방향을 각도로 명시하여 설정할 수도 있습니다.<br>
+							각도가 양수일 때는 기준 각도를 중심으로 시계방향으로 회전하며, 음수일 때는 반시계방향으로 회전합니다.<br>
+							기준 각도인 0도(12시 방향)는 시계 중심에서 위쪽<code>(↑)</code>으로의 진행을 의미합니다.<br>
+							<span class="t_black">ex) <code>45deg(↗)</code>, <code>135deg(↘)</code>, <code>225deg(↙)</code>, <code>315deg(↖)</code></span>
+						</p>
+						<div class="uk_gist_code_box mt_2" data-tit="linear gradients">
+							<textarea readonly="readonly">
+								/* 45도를 기준으로 진행(↗) */
+								div {
+									background: green;
+									background: -webkit-linear-gradient(45deg, red, blue);
+									background: -moz-linear-gradient(45deg, red, blue);
+									background: -o-linear-gradient(45deg, red, blue);
+									background: linear-gradient(45deg, red, blue);
+								}
+							</textarea>
+						</div>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">선형 그래디언트의 투명도 설정</strong>
+						<p>CSS3에서는 그래디언트의 투명도를 지원하며, 지정된 색상이 서서히 사라지는 효과를 사용할 수 있습니다.</p>
+						<p>그래디언트에 투명도를 추가할 때에는 RGBA 색상값을 사용하면 됩니다.</p>
+						<p>RGBA 색상값의 알파 채널 값은 완전한 투명 상태인 0.0부터 투명도가 전혀 없는 1.0 사이의 값을 가집니다.</p>
+						<div class="uk_gist_code_box mt_2" data-tit="linear gradients">
+							<textarea readonly="readonly">
+								/* 45도(↗)를 기준으로, 빨강색으로 시작하여 50%만큼 투명한 파랑색으로 진행됩니다. */
+								div {
+									background: green;
+									background: -webkit-linear-gradient(45deg, rgba(255,0,0,1), rgba(0,0,255,0.5));
+									background: -moz-linear-gradient(45deg, rgba(255,0,0,1), rgba(0,0,255,0.5));
+									background: -o-linear-gradient(45deg, rgba(255,0,0,1), rgba(0,0,255,0.5));
+									background: linear-gradient(45deg, rgba(255,0,0,1), rgba(0,0,255,0.5));
+								}
+							</textarea>
+						</div>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">반복 그래디언트(Repeating Gradients)</strong>
+						<p>repeating-linear-gradient() 메소드는 선형 그래디언트 효과가 계속 반복되도록 설정합니다.</p>
+						<div class="uk_gist_code_box mt_2" data-tit="linear gradients">
+							<textarea readonly="readonly">
+								div {
+									background: green;
+									background: -webkit-repeating-linear-gradient(150deg, red, white 10%, blue 20%);
+									background: -moz-repeating-linear-gradient(150deg, red, white 10%, blue 20%);
+									background: -o-repeating-linear-gradient(150deg, red, white 10%, blue 20%);
+									background: repeating-linear-gradient(150deg, red, white 10%, blue 20%);
+								}
+							</textarea>
+						</div>
+					</li>
+				</ol>
+			</div>
+
+			<div class="view_editor edit_code mt_l" data-target="css/step02/3.6.css3-module/3.6.5.css3-linear-gradients-css.html">
+				<h4 class="ve_tit">선형 그래디언트(linear gradients) 예제</h4>
+				<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</div>
+		</article>
+
+		<!-- 원형 그래디언트(radial gradients) -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn"><i class="t_blue">원형 그래디언트</i>(radial gradients) <i class="fab fa-css3-alt"></i></h3>
+			<p class="mt_ms">
+				<mark>CSS Module Level 3</mark><br>
+				원형 그래디언트(radial gradient)는 적용된 HTML 요소에 원형으로 그래디언트(gradient) 효과를 적용시켜 줍니다.<br>
+				원형 그래디언트를 만들기 위해서는 최소한 두 개 이상의 색상 지정점이 필요합니다.<br>
+				<code>background: radial-gradient(모양 크기 at 중심점, 색상지정점1, 색상지정점2, ...);</code><br>
+				원형 그래디언트는 기본적으로 모양은 ellipse(타원), 크기는 farthest-corner, 중심좌표는 center로 설정됩니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="radial gradients">
+				<textarea readonly="readonly">
+					div {
+						background: red;
+						background: -webkit-radial-gradient(red, orange, yellow, green, blue, indigo, purple);
+						background: -moz-radial-gradient(red, orange, yellow, green, blue, indigo, purple);
+						background: -o-radial-gradient(red, orange, yellow, green, blue, indigo, purple);
+						background: radial-gradient(red, orange, yellow, green, blue, indigo, purple);
+					}
+				</textarea>
+			</div>
+
+			<div class="ol_lst indent mt_m">
+				<ol>
+					<li class="line_code font14">
+						<strong class="mb_sm">색상 지정점 사이의 간격 조절</strong>
+						<p>원형 그래디언트에서 색상 지정점 사이의 간격을 조절할 수 있습니다.</p>
+						<div class="uk_gist_code_box mt_2" data-tit="radial gradients">
+							<textarea readonly="readonly">
+								div {
+									background: red;
+									background: -webkit-radial-gradient(red 5%, yellow 20%, orange 50%);
+									background: -moz-radial-gradient(red 5%, yellow 20%, orange 50%);
+									background: -o-radial-gradient(red 5%, yellow 20%, orange 50%);
+									background: radial-gradient(red 5%, yellow 20%, orange 50%);
+								}
+							</textarea>
+						</div>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">원형 그래디언트의 모양 설정</strong>
+						<p>원형 그래디언트의 모양을 타원이 아닌 원으로도 설정할 수 있습니다.</p>
+						<div class="uk_gist_code_box mt_2" data-tit="radial gradients">
+							<textarea readonly="readonly">
+								div {
+									background: red;
+									background: -webkit-radial-gradient(circle, red, yellow, orange);
+									background: -moz-radial-gradient(circle, red, yellow, orange);
+									background: -o-radial-gradient(circle, red, yellow, orange);
+									background: radial-gradient(circle, red, yellow, orange);
+								}
+							</textarea>
+						</div>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">원형 그래디언트의 크기 설정</strong>
+						<p>CSS를 이용하면 원형 그래디언트의 크기를 설정할 수 있다. 이때 크기를 나타내기 위해 사용할 수 있는 매개변수는 다음과 같습니다.</p>
+
+						<ol class="mt_s">
+							<li class="line_code indent">
+								<span class="ml_mn t_black">3.1. closest-side</span>
+								<p>원형 그래디언트의 크기가 가장 가까운 면에 닿을 만큼의 크기로 설정됩니다.</p>
+							</li>
+							<li class="line_code indent mt_s">
+								<span class="ml_mn t_black">3.2. farthest-side</span>
+								<p>원형 그래디언트의 크기가 가장 먼 면에 닿을 만큼의 크기로 설정됩니다. 따라서 가까운 면에서는 그래디언트의 일부분이 화면을 넘을 것입이다.</p>
+							</li>
+							<li class="line_code indent mt_s">
+								<span class="ml_mn t_black">3.3. closest-corner</span>
+								<p>원형 그래디언트의 크기가 가장 가까운 모서리에 닿을 만큼의 크기로 설정됩니다.</p>
+							</li>
+							<li class="line_code indent mt_s">
+								<span class="ml_mn t_black">3.4. farthest-corner</span>
+								<p>원형 그래디언트의 크기가 가장 먼 모서리에 닿을 만큼의 크기로 설정됩니다. 이 크기가 기본 설정이며, 가까운 모서리에서는 그래디언트의 일부분이 화면을 넘을 것입이다.</p>
+							</li>
+						</ol>
+						<div class="uk_gist_code_box mt_ms" data-tit="radial gradients">
+							<textarea readonly="readonly">
+								.box1 { background: radial-gradient(closest-side at 35% 35%, red, yellow, orange); }
+								.box2 { background: radial-gradient(farthest-side at 35% 35%, red, yellow, orange); }
+								.box3 { background: radial-gradient(closest-corner at 35% 35%, red, yellow, orange); }
+								.box4 { background: radial-gradient(farthest-corner at 35% 35%, red, yellow, orange); }
+							</textarea>
+						</div>
+					</li>
+					<li class="line_code font14 mt_ms">
+						<strong class="mb_sm">반복 그래디언트(Repeating Gradients)</strong>
+						<p><code>repeating-radial-gradient()</code> 메소드는 원형 그래디언트 효과가 계속 반복되도록 설정합니다.</p>
+						<div class="uk_gist_code_box mt_2" data-tit="radial gradients">
+							<textarea readonly="readonly">
+								div {
+									background: red;
+									background: -webkit-repeating-radial-gradient(red, white 10%, blue 20%);
+									background: -moz-repeating-radial-gradient(red, white 10%, blue 20%);
+									background: -o-repeating-radial-gradient(red, white 10%, blue 20%);
+									background: repeating-radial-gradient(red, white 10%, blue 20%);
+								}
+							</textarea>
+						</div>
+					</li>
+				</ol>
+			</div>
+		</article>
+
+		<article class="view_editor edit_code mt_xl" data-target="css/step02/3.6.css3-module/3.6.5.css3-linear-gradients.html">
+			<h3 class="ve_tit">CSS3 그래디언트 예제</h3>
+			<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<aside class="browser_support mt_xl" data-tit="gradient">
+			<ul>
+				<li class="ie">10+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">26.0</li>
+				<li class="firefox">16.0</li>
+				<li class="opera">12.1</li>
+				<li class="safari">6.1</li>
+			</ul>
+		</aside>
+
+		<aside class="reference_box mt_xl">
+			<h3 class="tit">gradients 참조</h3>
+			<ul class="link_lst">
+				<li class="reference"><a href="https://drafts.csswg.org/css-images-3/#gradients" target="_blank" class="fas" title="새창열림">W3C CSS Images Module Level 3</a></li>
+				<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/gradient" target="_blank" class="fas" title="새창열림">MDN gradient</a></li>
+				<li class="reference"><a href="https://www.colorzilla.com/gradient-editor/" target="_blank" class="fas" title="새창열림">gradient-editor</a></li>
+				<li class="reference"><a href="http://www.css3generator.com/" target="_blank" class="fas" title="새창열림">css3generator.com</a></li>
+				<li class="reference"><a href="https://www.cssmatic.com/box-shadow" target="_blank" class="fas" title="새창열림">cssmatic.com</a></li>
+			</ul>
+		</aside>
+	</section>
+
+	<!-- 3.6.6. calc() -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">3.6.6. calc()</h2>
+		<p class="mt_m">
+			<mark>CSS Values and Units Module Level 3</mark><br>
+			calc() CSS 함수를 사용하면 CSS 속성의 값으로 계산식을 지정할 수 있습니다.<br>
+			<code>&lt;length&gt;</code>, <code>&lt;frequency&gt;</code>, <code>&lt;angle&gt;</code>, <code>&lt;time&gt;</code>, <code>&lt;percentage&gt;</code>, <code>&lt;number&gt;</code>,
+			또는 <code>&lt;integer&gt;</code>를 받는 속성의 값으로 사용할 수 있습니다.<br>
+			<code>calc()</code> 함수는 매개변수로 표현식 하나를 받고, 표현식의 결과가 최종 값이 됩니다. 표현식은 단순 계산식은 무엇이든 가능하며, 표준 연산자 우선순위를 따릅니다.<br>
+			피연산자로는 <code>&lt;length&gt;</code> 구문의 아무 값이나 사용할 수 있고, 원한다면 서로 다른 단위끼리도 계산할 수 있습니다. 괄호를 사용해서 연산 순서를 바꿀 수도 있습니다.
+		</p>
+
+		<div class="ol_lst indent mt_s">
+			<ol>
+				<li class="line_code font14"><strong>+ 덧셈.</strong></li>
+				<li class="line_code font14 mt_sm"><strong>- 뺄셈.</strong></li>
+				<li class="line_code font14 mt_sm">
+					<strong class="mb_sm">* 곱셈.</strong>
+					<p>하나 이상의 피연산자가 <code>&lt;number&gt;</code>여야 합니다.</p>
+				</li>
+				<li class="line_code font14 mt_sm">
+					<strong class="mb_sm">/ 나눗셈.</strong>
+					<p>른쪽 피연산자는 <code>&lt;number&gt;</code>여야 합니다.</p>
+					<p>피연산자로는 <code>&lt;length&gt;</code> 구문의 아무 값이나 사용할 수 있고, 원한다면 서로 다른 단위끼리도 계산할 수 있습니다.</p>
+					<p>괄호를 사용해서 연산 순서를 바꿀 수도 있습니다.</p>
+				</li>
+			</ol>
+		</div>
+
+		<div class="ol_lst indent mt_m">
+			<p class="font-16 weight-500 ml_mn t_black">calc() 계산순서</p>
+			<ol class="mt_s">
+				<li>왼쪽에서 오른쪽으로 계산합니다.</li>
+				<li>사칙연산과 마찬가지로 곱하기, 나누기가 제일 먼저 연산되며 덧셈과 뺄셈은 나중에 합니다.</li>
+				<li>괄호가 있으면 괄호 안 부터 계산합니다.</li>
+			</ol>
+		</div>
+
+		<div class="ol_lst indent mt_m">
+			<p class="font-16 weight-500 ml_mn t_black">calc() CSS 함수를 사용시 참고사항은 아래와 같습니다.</p>
+			<ol class="mt_s">
+				<li>0으로 나누면 HTML 구문분석기에서 오류가 발생합니다.</li>
+				<li>
+					calc(100% - 20px)과 같이  더하기(+), 빼기(-) 연산자의 경우 앞뒤 공백이 반드시 들어가야 하나 곱하기(x), 나누기(/)는 공백이 필요하지 않습니다.<br>
+					하지만 일관성을 유지하기 위해 공백을 사용하는 것을 권장합니다.
+				</li>
+				<li>
+					calc(50% -8px)은 백분율 값과 음수 길로 해석하여 유효하지 않지만, calc(50% - 8px)은 백분율과 길이의 뺄셈으로 해석합니다.<br>
+					마찬가지로, calc(8px + -50%)는 길이와 음의 백분율간의 덧셈으로 처리합니다.
+				</li>
+				<li>표의 행, 열, 행/열 그룹, 자동이나 고정 레이아웃 칸에서 백분율을 포함한 수학식을 너비나 높이로 사용하면 auto 키워드를 사용한 것과 동일하게 처리합니다.</li>
+				<li>calc() 함수를 중첩해서 사용하면 내부의 calc()는 단순한 괄호로 간주합니다.</li>
+			</ol>
+		</div>
+		<!--
+			계산 순서
+			- 왼쪽에서 오른쪽으로 계산합니다.
+			- 곱셈과 나눗셈을 먼저 하고, 덧셈과 뺄셈은 나중에 합니다.
+			- 괄호가 있으면 괄호 안 부터 계산합니다.
+
+			calc()함수 사용시 유의사항
+			- 모든 계산은 왼쪽에서 오른쪽으로 진행됨.
+			- 사칙연산과 마찬가지로 곱하기, 나누기가 제일 먼저 연산됨.
+			- calc()함수는 현재 오페라 브라우저와 IE9 미만의 브라우저에서는 지원되지 않으며 호환성을 위해 -moz, -webkit 과 같은 vendor-prefix를 먼저 작성해야 함.
+			- 예를 들어 calc(50% - 10px) 과 같이 연산시 다른 단위값들을 사용할 수 있으며
+			- calc(100% - 20px)과 같이  더하기(+), 빼기(-) 연산자의 경우 앞뒤 공백이 반드시 들어가야 하나 곱하기(x), 나누기(/)는 공백이 필요하지 않습니다.
+		-->
+
+		<!--
+		<article class="view_editor ex_code mt_l" data-target="css/step02/3.6.css3-module/3.6.6.css3-calc-css.html">
+			<div class="uk_editor" data-result="false" data-mode="htmlmixed" data-theme="default" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+		-->
+		<div class="uk_gist_code_box mt_m" data-tit="calc()">
+			<textarea readonly="readonly">
+				/* 전체 너비에서 100px만큼만 작은 크기를 구할 때 */
+				.box1 {
+					width: calc(100% - 100px);
+				}
+
+				/* 전체 너비에서 중간에 60px 만 띄우고 싶을 경우 */
+				.box1, .box2 {
+					float: left;
+					width: calc(50% - 30px);
+				}
+				.box2 { margin-left: 60px;}
+
+				/* 각 요소 사이에 글꼴의 4배(4em) 만큼 간격을 두고 싶을때 */
+				.box1, .box2 {
+					width: calc(50% - 2em);
+				}
+
+				/* 두 요소를 2px의 테두리로 둘러싸고 싶을때 */
+				.box1, .box2 {
+					width: calc(50% - 2em - 4px);
+					border: 2px solid #000;
+				}
+
+				/* 복잡한 연산공식을 사용해야 하는 경우 */
+				.box1, .box2 {
+					width: calc((50% + 2em)/2 + 14px);
+				}
+			</textarea>
+		</div>
+
+		<article class="view_editor edit_code mt_l" data-target="css/step02/3.6.css3-module/3.6.6.css3-calc.html">
+			<h3 class="ve_tit">calc() 예제1</h3>
+			<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<article class="view_editor edit_code mt_l" data-target="css/step02/3.6.css3-module/3.6.6.css3-calc2.html">
+			<h3 class="ve_tit">calc() 예제2</h3>
+			<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+				<div class="code_wrap"><textarea></textarea></div>
+			</div>
+		</article>
+
+		<aside class="browser_support mt_l" data-tit="calc()">
+			<ul>
+				<li class="ie">9+</li>
+				<li class="edge">12.0</li>
+				<li class="chrome">26.0</li>
+				<li class="firefox">16.0</li>
+				<li class="opera">15.0</li>
+				<li class="safari">7.0</li>
+			</ul>
+		</aside>
+
+		<aside class="reference_box mt_l">
+			<h3 class="tit">calc() 참조</h3>
+			<ul class="link_lst">
+				<li class="reference"><a href="https://www.w3.org/TR/css3-values/#calc" target="_blank" class="fas" title="새창열림">W3C CSS Values and Units Module Level 3</a></li>
+				<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/calc" target="_blank" class="fas" title="새창열림">MDN calc()</a></li>
+				<li class="reference"><a href="https://www.sitepoint.com/css3-calc-function/" target="_blank" class="fas" title="새창열림">sitepoint css3-calc-function</a></li>
+				<li class="reference"><a href="https://www.hongkiat.com/blog/css3-calc-function/" target="_blank" class="fas" title="새창열림">hongkiat.com css3-calc-function</a></li>
+				<li class="reference"><a href="https://meiert.com/en/indices/css-properties/" target="_blank" class="fas" title="새창열림">css-properties</a></li>
+			</ul>
+		</aside>
+	</section>
+
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">CSS3 모듈 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/css-values-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-values-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-text-decor-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-text-decor-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-fonts-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-fonts-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-text-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-text-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-images-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-images-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-lists-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-lists-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-tables-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-tables-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-syntax-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-syntax-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-display-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-display-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-sizing-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-sizing-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-break-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-break-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-cascade-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-cascade-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-overflow-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-overflow-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-ui-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-ui-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-color-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-color-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-counter-styles-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-counter-styles-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-content-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-content-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-backgrounds-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-backgrounds-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-position-3/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/css-position-3/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/" target="_blank" class="fas" title="새창열림">https://www.w3.org/TR/</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-values-3/" target="_blank" class="fas" title="새창열림">CSS Values and Units Module Level 3</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Archive/CSS3" target="_blank" class="fas" title="새창열림">MDN CSS modules</a></li>
+		</ul>
+	</aside>
+{%- endblock %}

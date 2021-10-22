@@ -11,12 +11,230 @@
 	Info: true,
 	note: true,
 	sideMenu: true,
-	reference: true
+	reference: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			CSS 에 속성을 선언하는데에는 암묵적·묵시적인 선언 순서가 있습니다.<br>
+			다시 말해, 속성과 값을 선언하는데 정확한 순서는 없지만 일반적인 규칙(컨벤션)이 있습니다.
+		</p>
+		<p class="mt_s">
+			규칙(컨벤션)이라 함은 관례, 관습의 의미하는데 프로그래밍적으로는 암묵적·묵시적인 개발자 서로 간의 약속과 같은 것을 말합니다.<br>
+			자바스크립트에 작성함에 있어서도 생성자 함수를 사용하는데 대문자로 사용한다거나 jQuery 작성함에 있어서도 코드의 가독성을 측면에서 코드 작성시 지킬 것을 권장하는 것들이 있습니다.
+			그리고 html 마크업을 함에 있어서도 부모와 자식,자손 간의 노드를 들여쓰기를 구분하는 것도 규칙(컨벤션)의 일종입니다.
+		</p>
+		<p class="mt_s">
+			네이버 같은 경우는 마크업을 함에 있어서 본인 업무의 규칙(컨벤션)이 있어서 들여쓰기를 하지 않습니다.<br>
+			그곳 업무 영역만의 약속인 것입니다. 그리고 본인이 진행하는 프로젝트에서도 작업자들간에 협업을 위해 미팅 후에 컨벤션(Coding Guide)을 정해놓고 프로젝트를 시작하는 것이 좋습니다.<br>
+			이런 식으로 사용되는 컨벤션은 각 언어마다 존재하며 이 관례·관습를 지켜주면 코드의 가독성은 물론 작업자 서로 간의 업무 효율 또한 향상시킬 수 있습니다.
+		</p>
+		<p class="mt_s">
+			가독성 측면에서 위의 속성들을 큰 흐림에서 작은 흐름으로 작성하실 권장하고 있습니다.<br>
+			큰 흐름에는 여러가지가 있을 수 있지만 CSS 는 시각적인 표현에 해당하므로 가장 중요한 것이 보이게 하느냐 숨기느냐에 대한 것입니다.<br>
+			그래서 선언해야될 속성중에 display가 있다면 처음에 display 속성을 먼저 정의하고 순차적으로 일반적으로 배치(레이아웃)에 필요한 속성 순으로 작성하게 됩니다.<br>
+			그 다음 다자인의 세부적인 제어들을 위한 속성값(보통 레이아웃과 조금 거리가 먼 속성)들의 흐름으로 작성하는 것이 일반적입니다.
+		</p>
+		<p class="mt_s">
+			사실 위의 순서를 무조건 지키는 것은 아니고 약간의 순서가 바뀌어도 크게 상관은 없습니다.<br>
+			다만 유지보수를 하는 작업자 입장은 물론 협업을 하는 작업자 간에도 위 속성들이 큰 틀 안에서 대략적으로 지켜진다면 빠르게 어느 곳에 어떤 CSS 속성값이 정의되어 있는지 예측할 수 있을 것입니다.<br>
+			이러한 이유 때문에라도 속성의 순서를 지키게되면 코드의 가독성을 높일 수 있습니다.
+		</p>
+	</blockquote>
+	<p class="mt_ms">
+		CSS 속성을 선언하는데 있어서 순서는 정해진 규칙은 없지만, CSS의 가독성과 프로젝트의 협업을 하기 위해서도 팀 또는 개인만의 규칙을 지키면서 선언하는 습관이 중요합니다.<br>
+		대표적으로 CSS 속성 선언 순서에 대한 일반적인 사례를 들어보겠습니다.
+	</p>
+
+	<!-- 해당 문서에서 사용되는 CSS 속성 선언 순서 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">해당 문서에서 사용되는 CSS 속성 선언 순서</h2>
+		<div class="ol_lst mt_ms">
+			<ol>
+				<!--
+				<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
+				<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
+				<li><strong class="weight-500 t_black">display</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">position</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">top</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">right</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">bottom</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">left</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">float</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">clear</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">width</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">height</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">margin</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">padding</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">border</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">border-radius</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">box-shadow</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">background</strong> - Background 속성</li>
+				<li><strong class="weight-500 t_black">color</strong> - Color 속성</li>
+				<li><strong class="weight-500 t_black">font</strong> - Font 속성</li>
+				<li><strong class="weight-500 t_black">text-align</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">vertical-align</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">letter-spacing</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-spacing</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-break</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-wrap</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">white-space</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-indent</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-decoration</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-transform</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-overflow</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-shadow</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">outline</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">cursor</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">opacity</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">etc</strong> - 위에 언급되지 않은 기타 나머지 속성들</li>
+				-->
+				<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
+				<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
+				<li><strong class="weight-500 t_black">display</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">position</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">top</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">right</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">bottom</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">left</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">float</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">clear</strong> - 위치 속성(Visual formatting model)</li>
+				<li><strong class="weight-500 t_black">width</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">height</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">margin</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">padding</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">border</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">border-radius</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">box-shadow</strong> - 박스 모델 속성(Box Model)</li>
+				<li><strong class="weight-500 t_black">background</strong> - Background 속성</li>
+				<li><strong class="weight-500 t_black">font</strong> - Font 속성</li>
+				<li><strong class="weight-500 t_black">text-align</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">vertical-align</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">letter-spacing</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-spacing</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-break</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">word-wrap</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">white-space</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-indent</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-decoration</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-transform</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-overflow</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">text-shadow</strong> - Text 속성</li>
+				<li><strong class="weight-500 t_black">color</strong> - Color 속성</li>
+				<li><strong class="weight-500 t_black">outline</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">cursor</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">opacity</strong> - 사용자 인터페이스 속성(User interface)</li>
+				<li><strong class="weight-500 t_black">etc</strong> - 위에 언급되지 않은 기타 나머지 속성들</li>
+			</ol>
+		</div>
+	</section>
+
+	<!-- Naver Site CSS 속성 선언 순서 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_green">Naver</i> Site CSS 속성 선언 순서</h2>
+		<div class="ol_lst mt_ms">
+			<ol>
+				<li><strong class="weight-500 t_black">display</strong> - 표시(관련속성:visibility)</li>
+				<li><strong class="weight-500 t_black">overflow</strong> - 넘침</li>
+				<li><strong class="weight-500 t_black">float</strong> - 흐름(관련속성:clear)</li>
+				<li><strong class="weight-500 t_black">position</strong> - 위치(관련속성:top,right,bottom,left,z-index)</li>
+				<li><strong class="weight-500 t_black">width & height</strong> - 크기</li>
+				<li><strong class="weight-500 t_black">margin & padding(그룹)</strong> - 간격</li>
+				<li><strong class="weight-500 t_black">border(그룹)</strong> - 테두리</li>
+				<li><strong class="weight-500 t_black">background(그룹)</strong> - 배경</li>
+				<li><strong class="weight-500 t_black">font(그룹)</strong> - 폰트(관련속성:colr,letter-spacing,text-align,text-decoration,text-indent,vertical-align,white-space 등)</li>
+				<li><strong class="weight-500 t_black">animation</strong> - 동작(관련속성:animation,transform,transition,marquee 등)</li>
+				<li><strong class="weight-500 t_black">기타</strong> - 위에 언급되지 않은 나머지 속성들로 폰트의 관련 속성 이후에 선언하며, 기타 속성 내의 선언 순서는 무관함.</li>
+			</ol>
+		</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="Naver [CSS attr rule]">
+			<textarea readonly="readonly">
+				display: block;                                  /* 표시 */
+				visibility: hidden;                              /* 표시 */
+				overflow: hidden;                                /* 넘침 */
+				float: left;                                     /* 흐름 */
+				clear: both;                                     /* float해제 */
+				position: absolute;                              /* 위치 */
+				top: 0;                                          /* 상단 */
+				right: 0;                                        /* 우측 */
+				bottom: 0;                                       /* 하단 */
+				left: 0;                                         /* 좌측 */
+				z-index: 1;                                      /* 정렬 */
+				width: 200px;                                    /* 가로사이즈 */
+				height: 200px;                                   /* 세로사이즈 */
+				margin: 0;                                       /* 바깥 여백 */
+				padding: 0;                                      /* 안쪽 여백 */
+				border: none;                                    /* 테두리 */
+				background: #000 url('../a.png') no-repeat 0 0;  /* 색상, 이미지경로, 반복여부, x좌표, y좌표 이미지고정*/
+				font: italic small-caps bold 12px/1.5 'Gulim';   /* 기울임꼴, 소문자, 굵기 폰트사이즈/행간간격, 폰트서체 */
+				color: #000;                                     /* 폰트색상 */
+				text-decoration: none;                           /* 텍스트에 라인표시 효과 */
+				text-indent: -999px;                             /* 들여쓰기 */
+			</textarea>
+		</div>
+	</section>
+
+	<!-- Daum Site CSS 속성 선언 순서 -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn"><i class="t_blue">Daum</i> Site CSS 속성 선언 순서</h2>
+		<div class="ol_lst mt_ms">
+			<ol>
+				<li><strong class="weight-500 t_black">display</strong> - 표시</li>
+				<li><strong class="weight-500 t_black">overflow</strong> - 넘침</li>
+				<li><strong class="weight-500 t_black">float</strong> - 흐름</li>
+				<li><strong class="weight-500 t_black">position</strong> - 위치</li>
+				<li><strong class="weight-500 t_black">z-index</strong> - 정렬</li>
+				<li><strong class="weight-500 t_black">width & height</strong> - 크기</li>
+				<li><strong class="weight-500 t_black">margin & padding</strong> - 간격</li>
+				<li><strong class="weight-500 t_black">border</strong> - 보더</li>
+				<li><strong class="weight-500 t_black">font</strong> - 폰트(축약형 사용시)</li>
+				<li><strong class="weight-500 t_black">font-style</strong> - 폰트스타일(font-style: bold; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-variant</strong> - 폰트 소문자, 대문자(font-variant: small-caps; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-weight</strong> - 폰트굵기(font-weight: bold; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-size</strong> - 폰트 사이즈(font-size: 14px; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">line-height</strong> - 폰트 행간높이(line-height: 1.5; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">font-family</strong> - 폰트(font-family:'굴림', Gulim, sans-serif; 축약형 비사용시)</li>
+				<li><strong class="weight-500 t_black">background</strong> - 배경</li>
+				<li><strong class="weight-500 t_black">etc(기타)</strong> - color, text-decoration, text-indent, clear...</li>
+			</ol>
+		</div>
+		<div class="uk_gist_code_box mt_ms" data-tit="Daum [CSS attr rule]">
+			<textarea readonly="readonly">
+				display: block;                                       /* 표시 */
+				overflow: hidden;                                     /* 넘침 */
+				float: left;                                          /* 흐름 */
+				position: absolute;                                   /* 위치 */
+				top: 0;                                               /* 상단 */
+				right: 0;                                             /* 우측 */
+				bottom: 0;                                            /* 하단 */
+				left: 0;                                              /* 좌측 */
+				z-index: 1;                                           /* 정렬 */
+				width: 200px;                                         /* 가로사이즈 */
+				height: 200px;                                        /* 세로사이즈 */
+				margin: 0;                                            /* 바깥 여백 */
+				padding: 0;                                           /* 안쪽 여백 */
+				border: none;                                         /* 테두리 */
+				font: italic small-caps bold 12px/1.5 'Gulim';        /* 기울임꼴, 소문자, 굵기 폰트사이즈/행간간격, 폰트서체 */
+				background: #000 url('../a.png') no-repeat 0 0 fixed; /* 색상, 이미지경로, 반복여부, x좌표, y좌표 이미지고정*/
+				color: #000;                                          /* 폰트색상 */
+				text-decoration: none;                                /* 텍스트에 라인표시 효과 */
+				text-indent: -999px;                                  /* 들여쓰기 */
+				clear: both;                                          /* float해제 */
+			</textarea>
+		</div>
+	</section>
+
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">CSS 속성 선언순서 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://nuli.navercorp.com/sharing/fe/coding" target="_blank" class="fas" title="새창열림">NHN Coding Convention</a></li>
+			<li class="reference"><a href="http://darum.daum.net/convention/css/css_convention" target="_blank" class="fas" title="새창열림">Web Standards Darum</a></li>
+		</ul>
+	</aside>
+{%- endblock %}

@@ -11,12 +11,113 @@
 	Info: true,
 	note: true,
 	sideMenu: true,
-	reference: true
+	reference: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			CSS3 표준으로 확정되기 이전 또는 브라우저 개발사가 실험적으로 제공하는 기능을 사용하기 위해서는 벤더 프리픽스(Vendor Prefix)를 사용하여야 합니다.<br>
+			벤더 프리픽스(vendor prefix)란 주요 웹 브라우저 공급자가 새로운 실험적인 기능을 제공할 때 이전 버전의 웹 브라우저에 그 사실을 알려주기 위해 사용하는 접두사(prefix)를 의미합니다.<br>
+			즉 아직 CSS 권고안에 포함되지 못한 기능이나, CSS 권고안에는 포함되어 있지만 아직 완벽하게 제정된 상태가 아닌 기능을 사용하고자 할 때 벤더 프리픽스를 사용하게 됩니다.<br>
+			그렇게 하면 해당 기능이 포함되어 있지 않은 이전 버전의 웹 브라우저에서도 그 기능을 사용할 수 있게 됩니다.
+		</p>
+		<p class="mt_ms">
+			W3C 사이트를 참조할 때는 어느 단계의 사양인지를 확인할 필요가 있습니다.<br>
+			권고 전 사양을 웹 브라우저가 도입하는 경우도 있으며, 웹 브라우저의 기능을 참고하여 사양이 정해지는 경우도 있습니다.<br>
+			W3C의 사양이 결정될 때까지<br>
+			W3C에서 책정되는 사양은 아래와 같은 단계를 거쳐 결정됩니다.
+		</p>
+		<p class="mt_ms">
+			Editor's Draft(편집자 초안)<br>
+			Working Draft[WD] (초안)<br>
+			Last Call Working Draftg[LC] (최종 초안)<br>
+			Candidate Recommendation[CR] (권고 후보)<br>
+			Proposed Recommendation[PR] (권고안)<br>
+			Recommendation[RED] (권고)
+		</p>
+		<p class="mt_ms">
+			권고 전 CSS3의 사양을 웹 브라우저 제조업체가 지원하는 경우는 셀렉터 앞에 웹 브라우저별로 서로 다른 접두사(프리픽스, Prefix)를 붙일 것을 권장하고 있습니다.<br>
+			이를 '벤더 프리픽스'라고 합니다.<br>
+			권고 후보 단계에 이르면 벤더 프리픽스는 삭제할 것을 권장하고 있습니다.
+		</p>
+		<!--
+		<p class="mt_ms">
+			-webkit- /*Safari, Chrome, Android, iOs, Webkit 엔진을 이용하는 브라우저*/<br>
+			-moz- /*Firefox, 모질라 브라우저 엔진을 사용하는 브라우저*/<br>
+			-ms- /*Internet Explorer 및 Microsoft Edge*/<br>
+			-o- /*Opera*/
+		</p>
+		-->
+	</blockquote>
+
+	<!-- 벤더 프리픽스(vendor prefix) -->
+	<section class="txt_ex indent mt_xxl">
+		<h2 class="ml_mn">벤더 프리픽스(vendor prefix)</h2>
+
+		<aside class="browser_support vendor mt_m" data-tit="(vendor prefix)">
+			<ul>
+				<li class="ie">-ms-</li>
+				<li class="edge">-ms-</li>
+				<li class="chrome">-webkit-</li>
+				<li class="firefox">-moz-</li>
+				<li class="opera">-o-</li>
+				<li class="safari">-webkit-</li>
+			</ul>
+		</aside>
+		<p class="mt_s">
+			크롬과 사파리는 같은 웹킷 계열 브라우저이므로 같은 벤더 프리픽스를 사용합니다.
+		</p>
+
+		<div class="ol_lst indent mt_ms">
+			<ol>
+				<li class="line_code font14">
+					<strong class="mb_sm">사용 방법</strong>
+					<p>브라우저 접두어를 앞쪽에 쓰고, 맨 마지막에 표준 속성(비 접두어 버전)을 선언합니다.</p>
+					<p>접두어 버전을 사용하는 브라우저는 그것을 이용할 것이고, 이해하지 못하는 브라우저는 그 속성을 무시합니다. 표준을 지원하는 브라우저는 맨 마지막에 있는 속성을 실행합니다.</p>
+				</li>
+				<li class="line_code font14 mt_ms">
+					<strong>사용 예제</strong>
+					<div class="uk_gist_code_box mt_sm" data-tit="vendor prefix">
+						<textarea readonly="readonly">
+							div {
+								background: red;                                  /* gradient 속성을 지원하지 않는 모든 브라우저를 위한 코드 */
+								background: -webkit-linear-gradient(red, yellow); /* 크롬과 사파리 4.0 이상을 위한 코드 */
+								background: -moz-linear-gradient(red, yellow);    /* 파이어폭스 3.6 이상을 위한 코드 */
+								background: -ms-linear-gradient(red, yellow);     /* 익스플로러 10.0 이상을 위한 코드 */
+								background: -o-linear-gradient(red, yellow);      /* 오페라 10.0 이상을 위한 코드 */
+								background: linear-gradient(red, yellow);         /* CSS 표준 문법 코드 */
+							}
+						</textarea>
+					</div>
+					<p class="mt_ms">위의 예제에서 가장 먼저 나오는 <code>background</code> 속성은 gradient 속성을 지원하지 않는 모든 브라우저를 위한 것입니다.</p>
+					<p>또한, 맨 마지막에 나오는 <code>background</code> 속성은 CSS 표준 문법으로 작성된 코드입니다.</p>
+					<p>CSS 표준 문법 코드는 <mark>벤더 프리픽스(vendor prefix)</mark>로 작성된 코드가 모두 나오고 난 후에 나와야만, 벤더 프리픽스가 포함된 코드가 정상적으로 동작할 수 있습니다.</p>
+					<p>이러한 벤더 프리픽스는 실험적인 해당 기능들이 CSS 표준 권고안에 포함되거나, 완벽하게 제정된 상태가 되면 더는 사용할 필요가 없어집니다.</p>
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">CSS 접두어(Vendor Prefix) 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/CSS21/syndata.html#vendor-keywords" target="_blank" class="fas" title="새창열림">W3C Vendor-specific extensions</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix" target="_blank" class="fas" title="새창열림">MDN Vendor_Prefix</a></li>
+			<li class="reference"><a href="https://www.w3schools.com/cssref/css3_browsersupport.asp" target="_blank" class="fas" title="새창열림">w3schools CSS3 Browser Support</a></li>
+			<li class="reference"><a href="https://caniuse.com/" target="_blank" class="fas" title="새창열림">CSS 스펙 사용여부 체크(https://caniuse.com/)</a></li>
+			<li class="reference"><a href="https://gs.statcounter.com/" target="_blank" class="fas" title="새창열림">브라우저별 사용 통계</a></li>
+			<li class="reference"><a href="https://css3test.com/" target="_blank" class="fas" title="새창열림">CSS 브라우저 지원 테스트</a></li>
+			<li class="reference"><a href="http://leaverou.github.io/prefixfree/" target="_blank" class="fas" title="새창열림">Prefix Free 라이브러리</a></li>
+			<li class="reference"><a href="https://www.lifewire.com/css-vendor-prefixes-3466867" target="_blank" class="fas" title="새창열림">Prefix https://www.lifewire.com/</a></li>
+			<li class="reference"><a href="https://peter.sh/experiments/vendor-prefixed-css-property-overview/" target="_blank" class="fas" title="새창열림">Prefix https://peter.sh/</a></li>
+			<li class="reference"><a href="https://www.quirksmode.org/blog/archives/2010/03/css_vendor_pref.html" target="_blank" class="fas" title="새창열림">Prefix https://www.quirksmode.org</a></li>
+			<li class="reference"><a href="http://web.simmons.edu/~grovesd/comm244/notes/week6/css3-compatibility" target="_blank" class="fas" title="새창열림">Prefix http://web.simmons.edu</a></li>
+		</ul>
+	</aside>
+{%- endblock %}

@@ -11,12 +11,626 @@
 	Info: true,
 	note: true,
 	sideMenu: true,
-	reference: true
+	reference: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			웹 페이지 컨텐츠를 쉽게 행과 열로 나눌 수있는 새롭고 강력한 <mark>css 레이아웃 시스템</mark>입니다.<br>
+			<code>css grid</code>(그리드)는 2차원(행과 열)의 레이아웃 시스템을 제공합니다.<br>
+			<code>flexible box</code>도 훌륭하지만 비교적 단순한 1차원 레이아웃을 위하며, 좀 더 복잡한 레이아웃을 위해 우리는 <code>css grid</code>를 사용할 수 있습니다.
+		</p>
+		<p class="mt_s">
+			<code>grid</code>는 <code>flex</code>와 같이 <code>grid container</code>(컨테이너)와 <code>grid item</code>(아이템)이라는 두 가지 개념으로 구분되어 있습니다.<br>
+			<code>container</code>는 <code>items</code>를 감싸는 부모 요소이며, 그 안에서 각 <code>item</code>을 배치할 수 있습니다.
+		</p>
+		<p class="mt_s">
+			2017년 10월 17일 microsoft edge 브라우저는 <code>css grid</code> 구현을 출시 했습니다.<br>
+			<code>css grid</code> 레이아웃 모듈은 표준 입후보(cr) 상태이지만, 브라우저 대부분이 완벽하게 지원하고 있습니다.<br>
+			다만 ie 10 이상 부분 지원하고 있어 ie 10, 11을 프로젝트에서 고려해야 하는 상황일 경우, ie에서 <code>css grid</code>를 활용하는 방법을 사용해야 크로스 브라우징 할 수 있습니다.
+		</p>
+		<p class="mt_s">
+			<mark>grid 레이아웃</mark>과 <mark>flexible box(flexbox)</mark> 레이아웃의 기본 차이점이라면,<br>
+			플랙스박스는 한 줄로 된 행 혹은 열 방향의 레이아웃과 같이 일차원의 레이아웃을 염두에 두고 설계되었다는 점입니다.(1차원)<br>
+			하지만, 그리드는 행과 열 모두를 염두에 둔 2차원적 레이아웃을 고려해서 설계되었습니다.<br>
+			1차원 대비 2차원의 차이점 외에도, 레이아웃을 할 때 플랙스박스와 그리드 중에서 어떤 것을 써야 할지를 결정하는 또 다른 요인이 있습니다.
+		</p>
+		<p class="mt_s">
+			플랙스박스는 좀 더 콘텐츠에 초점이 맞춰져 있습니다. 플랙스박스의 이상적인 사용 사례는 여러 아이템을 컨테이너에 고르게 배치하려는 경우입니다.<br>
+			여기서 콘텐츠의 크기가 각 아이템이 차지하는 공간을 결정합니다.<br>
+			아이템이 새로운 줄로 줄 바꿈 되면, 아이템의 크기와 해당 줄의 사용 가능한 공간에 따라 간격이 조정됩니다.
+		</p>
+		<p class="mt_s">
+			그리드는 레이아웃을 먼저 고려하게 됩니다.(2차원)<br>
+			css 그리드 레이아웃을 사용할 때는 우선 레이아웃을 작성한 다음 그 위에 아이템을 배치하거나,<br>
+			자동 배치 규칙을 통해 견고하게 짜인 그리드 위에 놓인 그리드 셀에 아이템을 배치하게 됩니다.<br>
+			콘텐츠의 크기에 따라 조절되는 트랙을 만들 수도 있지만, 이렇게 하면 전체 트랙을 변경하게 됩니다.
+		</p>
+		<p class="mt_s">
+			파이어폭스 개발자 도구에 있는 grid inspector(요소검사)를 사용하여 레이아웃을 보면 아이템이 그리드 라인에 어떻게 배치되어 있는지 이해하기 쉽게 되어 있습니다.
+		</p>
+	</blockquote>
+
+	<!-- 그리드 요약설명 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">그리드 요약설명</h2>
+		<ol class="ol_lst mt_ms">
+			<li><code class="t_blue weight-700 bg_none">grid container</code> : 전체 grid layout을 감싸는 역할을 수행합니다. <code>display: grid | inline-grid;</code> 속성을 통해 지정할 수 있습니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid item</code> : <code>grid container</code>에 속해있는 하위 dom 요소를 뜻합니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid track</code> : <code>grid layout</code>에 존재하는 행 또는 열을 의미합니다. <code>grid track</code>의 개수는 명시적으로 지정할 수도, 암묵적으로 늘어나게 할 수도 있습니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid line</code> : <code>grid track</code>을 구분하는 선을 의미합니다. 선의 번호는 위에서 아래로(↓), 왼쪽에서 오른쪽으로(→) 메겨집니다. 그리드 라인의 번호는 1부터 시작된다는 점을 주의해야합니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid cell</code> : 그리드 레이아웃에서 가장 작은 단위 요소이며, 테이블의 셀과 유사합니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid area</code> : 다수의 <code>grid cell</code>로 이루어진 영역을 뜻합니다. <code>grid area</code>는 항상 사각형의 모양을 가져야합니다. (ㄴ자, ㄱ자 형태 불가능)</li>
+		</ol>
+		<figure class="img_figure mt_m">
+			<figcaption class="mt_0 weight-600"><code class="bg_none t_444">display: <i class="t_blue">grid</i>;</code></figcaption>
+			<img src="{{ path.img_grid }}/uxkm_grid.svg" alt="display: grid" class="mt_m"><br>
+			<!--<img src="{{ path.img_grid }}-concepts.svg" alt="display: grid" class="mt_m max-w650">-->
+		</figure>
+
+		<!-- CSS3 Grid 모듈 속성을 컨테이너, 아이템 별로 정리 -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn">CSS3 Grid 모듈 속성을 컨테이너, 아이템 별로 정리</h3>
+			<ol class="ol_lst mt_ms">
+				<li class="line_code tit_h4">
+					<h4>그리드 컨테이너(grid container)</h4>
+					<p><code>display</code></p>
+					<p><code>grid-template-rows</code></p>
+					<p><code>grid-template-columns</code></p>
+					<p><code>grid-template-areas</code></p>
+					<p><code>grid-template</code></p>
+					<p><code>row-gap</code></p>
+					<p><code>column-gap</code></p>
+					<p><code>gap</code></p>
+					<p><code>justify-items</code></p>
+					<p><code>align-items</code></p>
+					<p><code>justify-content</code></p>
+					<p><code>align-content</code></p>
+					<p><code>grid-auto-rows</code></p>
+					<p><code>grid-auto-columns</code></p>
+					<p><code>grid-auto-flow</code></p>
+					<p><code>grid</code></p>
+				</li>
+				<li class="line_code tit_h4 mt_m">
+					<h4>그리드 아이템(grid item)</h4>
+					<p><code>grid-row-start</code></p>
+					<p><code>grid-row-end</code></p>
+					<p><code>grid-column-start</code></p>
+					<p><code>grid-column-end</code></p>
+					<p><code>grid-row</code></p>
+					<p><code>grid-column</code></p>
+					<p><code>grid-area</code></p>
+					<p><code>justify-self</code></p>
+					<p><code>align-self</code></p>
+				</li>
+			</ol>
+		</article>
+
+		<!-- 플랙스박스 와 그리드의 차이점 -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn">플랙스박스(flexible box) 와 그리드(grid)의 차이점</h3>
+			<ol class="ol_lst mt_ms">
+				<li><strong class="weight-500 t_black">플랙스박스</strong> : 레이아웃을 조정할 때 오직 가로 행 혹은 세로 열 만 고려하여 작업할 때 사용합니다.</li>
+				<li><strong class="weight-500 t_black">그리드</strong> : 레아아웃을 조정할 때 가로 행과 세로 열 모두를 염두에 두고 작업할 때 사용합니다.</li>
+			</ol>
+
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0 weight-600"><code class="bg_none t_444">[ <i class="t_blue">grid</i> vs <i class="t_blue">flex</i> ]</code></figcaption>
+				<!--<img src="{{ path.img_grid }}_vs_flex.png" alt="grid vs flex" class="mt_m max-w700"><br>-->
+				<!--<img src="{{ path.img_grid }}/grid_vs_flex2.jpg" alt="grid vs flex" class="mt_m"><br>-->
+				<img src="{{ path.img_grid }}/uxkm_grid_vs_flex.svg" alt="grid vs flex" class="mt_m">
+			</figure>
+		</article>
+	</section>
+
+	<!-- 4.5.1. grid에서 사용되는 주요 용어 정리 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">4.5.1. grid에서 사용되는 주요 용어 정리</h2>
+		<p class="mt_ms">그리드에서 사용하는 주요 용어에 대해서 설명합니다.</p>
+		<!--
+		<ol class="ol_lst indent mt_s">
+			<li><code class="t_blue weight-700 bg_none">grid</code> : 그리드 컨테이너 요소이며, 자식요소를 그리드 아이템으로 설정합니다</li>
+			<li><code class="t_blue weight-700 bg_none">grid line</code> : 그리드를 구성하는 수직/수평 선이며, 라인 넘버를 토대로 아이템을 배치합니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid track</code> : 그리드 라인 사이의 행 또는 열을 의미합니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid cell</code> : 4개의 그리드 라인(사각형)으로 그리드 레이아웃에서 가장 작은 단위이며, '유닛'이라고도 불립니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid area</code> : 그리드 셀이 묶인 영역입니다. 고유한 식별자를 토대로 아이템 배치합니다.</li>
+			<li><code class="t_blue weight-700 bg_none">grid gutters</code> : 컬럼/로우 사이 간격입니다.</li>
+		</ol>
+		-->
+
+		<!-- grid -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">grid</h3>
+			<p class="mt_ms">
+				HTML 요소에 display 속성 값으로 grid를 설정하면 그리드 컨테이너(container)가 됩니다.<br>
+				그리드 컨테이너(container)는 행(rows)과 열(columns)을 가지며, 그리드 아이템(items)을 배치할 수 있습니다.<br>
+				그리드 컨테이너 요소이며, 자식요소를 그리드 아이템으로 설정합니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0 weight-600"><code class="bg_none t_444">[ grid ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_grid-terms.svg" alt="grid" class="mt_m">
+			</figure>
+		</article>
+
+		<!-- line -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">line</h3>
+			<p class="mt_ms">
+				선(line)은 일반적으로 거터(gutter)라고 하는 트랙과 트랙 사이의 간격을 의미합니다.<br>
+				즉, 그리드의 행/열을 그리는 선을 말하며, 각 선은 라인 넘버를 갖습니다. 그리드 아이템을 배치하는 기준으로 사용됩니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0 weight-600"><code class="bg_none t_444">[ line ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_line-terms.svg" alt="line" class="mt_m">
+				<!--<img src="/ukncs/images/css/img_grid_line.png" alt="line" class="mt_m max-w750">-->
+			</figure>
+		</article>
+
+		<!-- track -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">track</h3>
+			<p class="mt_ms">
+				트랙(track)은 하나의 행(row) 혹은 열(column)을 의미합니다.<br>
+				즉, 그리드 트랙은 그리드 라인 사이의 행 또는 열 공간을 말합니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0 weight-600"><code class="bg_none t_444">[ track ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_track-terms.svg" alt="track" class="mt_m">
+				<!--<img src="/ukncs/images/css/img_grid_track.png" alt="track" class="mt_m max-w750">-->
+			</figure>
+		</article>
+
+		<!-- cell -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">cell</h3>
+			<p class="mt_ms">
+				셀(cell)은 아이템(item)이 배치되는 최소 단위의 영역(area)입니다.<br>
+				즉, 그리드 셀은 4개의 그리드 라인이 묶여 그려지는 가장 작은 단위(유닛) 입니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0 weight-600"><code class="bg_none t_444">[ cell ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_cell-terms.svg" alt="cell" class="mt_m">
+				<!--<img src="/ukncs/images/css/img_grid_cell.png" alt="cell" class="mt_m max-w400">-->
+			</figure>
+		</article>
+
+		<!-- area -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">area</h3>
+			<p class="mt_ms">
+				영역(area)은 아이템이 배치되는, 하나 이상의 셀(cell)로 이루어진 영역입니다.<br>
+				즉, 그리드 에어리어는 그리드 유닛이 묶인 영역으로 고유한 식별자를 가지며, 식별자를 통해 요소를 배치할 수 있습니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0 weight-600"><code class="bg_none t_444">[ area ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_area-terms.svg" alt="cell" class="mt_m">
+				<!--<img src="/ukncs/images/css/img_grid_area.png" alt="cell" class="mt_m max-w400">-->
+			</figure>
+		</article>
+
+		<!-- gutters -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">gutters</h3>
+			<p class="mt_ms">
+				그리드 거터는 행 또는 열 사이 간격(gap)을 말합니다.<br>
+				<code>gap</code>(row, column 동시 선언), <code>row-gap</code>, <code>column-gap</code> 속성으로 제어합니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0 weight-600"><code class="bg_none t_444">[ gutters ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_gutters-terms.svg" alt="gutters" class="mt_m">
+			</figure>
+		</article>
+	</section>
+
+	<!-- 4.5.2. grid functions -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">4.5.2. grid functions</h2>
+		<p class="mt_ms">그리드에서 사용하는 주요 용어에 대해서 설명합니다.</p>
+
+		<!-- repeat -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn t_blue">repeat</h3>
+			<p class="mt_ms">
+				<code>repeat()</code> 함수의 첫번째 인자는 반복 횟수를 설정합니다.<br>
+				<code>repeat()</code> 함수는 행/열(Track)의 크기 정의를 반복히며, '반복되는 횟수'와 '행/열의 크기 정의'를 인수로 사용합니다.<br>
+				grid-template-rows와 grid-template-columns에서 사용합니다.<br>
+				<code>repeat()</code> 함수 또는 표기법(notation)을 사용하면 반복되는 값을 손쉽게 설정할 수 있습니다.<br>
+				상수 대신 변수 값으로 자동 채움(auto-fill)을 설정하면 컨테이너 영역을 자동으로 반복하여 채웁니다.<br>
+				반면 자동 맞춤(auto-fit)으로 설정하면 그리드 컨테이너 내부에 빈 트랙이 존재할 경우 그 공간을 나눠 맞춥니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-grid-1/#fr-unit" target="_blank" title="새창열림">W3C Flexible Lengths: the fr unit 참조</a></p>
+			<p class="mt_m">
+				각 코드 블록 내 컨테이너(.container)들은 모두 같은 의미이며, <code>repeat</code>함수를 활용하여 사용하는 방법을 보여주는 예시입니다.<br>
+				<code>repeat</code>함수를 활용하여 작업하면 코드가 간결해집니다.
+			</p>
+
+			<section class="indent mt_l">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat()]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							/* repeat() 함수 사용법 */
+							grid-template-rows: repeat(2, 1fr);        /* 1fr 1fr */
+							grid-template-columns: repeat(3, 1fr 2fr); /* 1fr 2fr 1fr 2fr 1fr 2fr */
+						}
+					</textarea>
+				</div>
+			</section>
+
+			<section class="indent mt_l">
+				<h4 class="ml_mn">9컬럼 그리드 코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat() - columns 9]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+							/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */
+							grid-template-columns: repeat(9, 100px);
+						}
+
+						.container {
+							display: grid;
+							grid-template-rows: [row-start] 200px [row-end row-start] 200px [row-end];
+							grid-template-columns: [col-start] 100px [col-end col-start] 100px [col-end col-start] 100px [col-end];
+
+							/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */
+							grid-template-rows: repeat(2, [row-start] 200px [row-end]);
+							grid-template-columns: repeat(3, [col-start] 100px [col-end]);
+
+							/* 위 처럼 row, column에 각각 repeat함수가 있을 경우 아래처럼 한 줄로 축약 가능합니다. */
+							grid-template: repeat(2, [row-start] 200px [row-end]) / repeat(3, [col-start] 100px [col-end]);
+						}
+					</textarea>
+				</div>
+			</section>
+
+			<section class="indent mt_l">
+				<h4 class="ml_mn">12컬럼 그리드 코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [repeat() - columns 12]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr;
+							/* 위 코드에 repeat함수를 사용하면 아래와 같습니다. */
+							grid-template-columns: repeat(6, 1fr 2fr);
+						}
+					</textarea>
+				</div>
+			</section>
+
+			<figure class="img_figure mt_l">
+				<figcaption class="mt_0"><code class="bg_none t_444">[ repeat function ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_repeat-function.svg" alt="repeat function" class="mt_m">
+			</figure>
+		</article>
+
+		<!-- minmax -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">minmax</h3>
+			<p class="mt_ms">
+				<code>minmax()</code> 함수는 행/열(Track)의 '최소/최대 크기'를 정의합니다.<br>
+				<code>minmax()</code> 함수를 사용하면 최솟값, 최댓값 범위 내에서 값을 유연하게 처리합니다.<br>
+				첫 번째 인수는 '최솟값'이고 두 번째 인수는 '최댓값'입니다.<br>
+				<code>grid-template-rows</code>, <code>grid-template-columns</code>, <code>grid-auto-rows</code>, <code>grid-auto-columns</code>에서 사용합니다.
+			</p>
+
+			<section class="indent mt_l">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [minmax()]">
+					<textarea readonly="readonly">
+						/* 일반 요소에 min-width와 max-width 속성을 동시 지정하는 것과 유사합니다. */
+						.container {
+							display: grid;
+							grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr);
+						}
+
+						/*
+						minmax()를 통해 암시적 행/열(Track) 크기를 좀 더 유연하게 사용할 수 있습니다.
+						다음 예제는 암시적 '행/열'의 크기를 최소 '200px/300px'으로 지정하지만 auto를 통해 그리드 아이템의 크기에 따라 확장될 수 있습니다.
+						*/
+						.container {
+							display: grid;
+							grid-auto-rows: minmax(200px, auto);
+							grid-auto-columns: minmax(300px, auto);
+						}
+
+						.container {
+							display: grid;
+							/* minmax() 함수 사용법 */
+							grid-template-rows: repeat(2, minmax(20px, auto));
+							grid-template-columns: minmax(30px, auto) repeat(3, 1fr);
+						}
+					</textarea>
+				</div>
+			</section>
+
+			<figure class="img_figure mt_l">
+				<figcaption class="mt_0"><code class="bg_none t_444">[ minmax function ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_minmax-function.svg" alt="minmax function" class="mt_m">
+			</figure>
+		</article>
+
+		<!-- fit-content -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">fit-content</h3>
+			<p class="mt_ms">
+				<code>fit-content()</code> 함수는 행/열(Track)의 크기를 그리드 아이템(Item)이 포함하는 내용(Contents) 크기에 맞춥니다.<br>
+				&apos;내용의 최대 크기&apos;를 인수로 사용합니다.<br>
+				<code>minmax(auto, max-content)</code>와 유사합니다.<br>
+				<code>fit-content( [ &lt;length&gt; | &lt;percentage&gt; ] )</code>
+			</p>
+
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid functions [fit-content()]">
+					<textarea readonly="readonly">
+						<style>
+							/*
+								// <length> values
+								fit-content(200px)
+								fit-content(5cm)
+								fit-content(30vw)
+								fit-content(100ch)
+								&nbsp;
+								// <percentage> value
+								fit-content(40%)
+							*/
+
+							.container {
+								display: grid;
+								grid-template-columns: fit-content(300px) fit-content(300px) 1fr;
+								grid-gap: 5px;
+							}
+						</style>
+
+						<div id="container">
+							<div>내용만큼만 적용되는 셀의 크기</div>
+							<div>
+								많은 텍스트가 있는 경우 fit-content로 정의한
+								크기가 셀의 최대 크기가 됩니다.
+								fit-content(300px)
+							</div>
+							<div>유연한 셀입니다.</div>
+						</div>
+					</textarea>
+				</div>
+			</section>
+
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0 sound_only"><code class="bg_none t_444">[ grid-template-columns: fit-content(300px) fit-content(300px) 1fr; ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_fit-content-function.svg" alt="grid-template-columns: fit-content(300px) fit-content(300px) 1fr;">
+			</figure>
+		</article>
+	</section>
+
+	<!-- 4.5.3. grid units -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">4.5.3. grid units</h2>
+		<p class="mt_ms">그리드에서 사용하는 주요 단위들에 대해서 설명합니다.</p>
+
+		<!-- fr -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn t_blue">fr</h3>
+			<p class="mt_ms">
+				<code>fr(fractional unit)</code>은 사용 가능한 공간에 대한 비율을 의미합니다.<br>
+				그리드 트랙 사이즈로 사용 되는 <code>fr</code> 단위는 유연한 단위로 그리드 컨테이너의 여유 공간을 비율로 나눠 설정합니다.<br>
+				퍼센트(%) 단위와 유사해 보일 수 있으나, 퍼센트 값과 다르게 길이가 아닙니다.<br>
+				그래서 <code>calc()</code> 함수에서 다른 값과 함께 처리할 수 없습니다.
+			</p>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [fr]">
+					<textarea readonly="readonly">
+						/*
+							그리드 컨테이너의 3번째 컬럼에 100px, 4번째 컬럼에 25%를 사용하고
+							남은 공간을 1번째 컬럼에 ‘1/3’, 2번째 컬럼에 ‘2/3’ 만큼 사용합니다.
+						*/
+						.container {
+							display: grid;
+							grid-template-columns: 1fr 2fr 100px 25%;
+						}
+					</textarea>
+				</div>
+			</section>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[ <code class="bg_none t_444"><i class="t_blue">fr(fractional unit)</i></code> 사용 예시 ]</figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_fr-units.svg" alt="fr(fractional unit) 사용 예시" class="mt_m">
+			</figure>
+		</article>
+
+		<!-- min-content -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">min-content</h3>
+			<p class="mt_ms">
+				그리드 아이템이 포함하는 내용(Contents)의 최소 크기를 의미합니다.<br>
+				콘텐츠에 한글을 사용할 경우 단어가 묶여있어 아이템의 영역을 벗어날 때는 <code>word-break: keep-all;</code>을 선언하여 단어를 쪼개 줄바꿈 할 수 있게 설정하면 정상적으로 작동합니다.
+			</p>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [min-content]">
+					<textarea readonly="readonly">
+						<style>
+							.container {
+								display: grid;
+								grid-template-columns: min-content 1fr;
+							}
+						</style>
+
+						<!-- 한글을 사용하는 경우 word-break: keep-all;를 설정하면 정상적으로 동작합니다. -->
+						<div class="container">
+							<div class="item">내용의 최소 크기</div>
+							<!-- ··· -->
+						</div>
+					</textarea>
+				</div>
+			</section>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0">[ 한글을 사용하는 경우 <code class="bg_none t_blue">word-break: keep-all;</code>를 설정 ]</figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_min-content.svg" alt="한글을 사용하는 경우 word-break: keep-all;를 설정" class="mt_m">
+			</figure>
+		</article>
+
+		<!-- max-content -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">max-content</h3>
+			<p class="mt_ms">
+				그리드 아이템이 포함하는 내용(Contents)의 최대 크기를 의미합니다.
+			</p>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [max-content]">
+					<textarea readonly="readonly">
+					.container {
+						display: grid;
+						grid-template-columns: max-content 1fr;
+					}
+
+					/*
+						그리드 함수들과 같이 더 유용하게 활용할 수 있습니다.
+						다음 예제는 총 3컬럼 그리드를 생성하며 각 열(Track)은 최대 1fr 크기를 가지지만,
+						max-content를 통해 포함된 그리드 아이템의 내용보다 작아질 수 없습니다.
+					*/
+					.container {
+						display: grid;
+						grid-template-columns: repeat(3, minmax(max-content, 1fr));
+					}
+					</textarea>
+				</div>
+			</section>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0"><code class="bg_none t_444">[ min-content / max-content ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_minmax-content.svg" alt="min-content / max-content" class="mt_m">
+			</figure>
+		</article>
+
+		<!-- auto-fill, auto-fit -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">auto-fill, auto-fit</h3>
+			<p class="mt_ms">
+				아이템의 갯수를 알 수 없을 때 <code>auto-fit</code>, <code>auto-fill</code>을 사용합니다.<br>
+				즉, 트랙에 값을 정확히 알 수 없을 때 해당 값들을 넣어주면 됩니다.<br>
+				행/열(Track)의 개수를 그리드 컨테이너(Container) 및 행/열 크기에 맞게 자동으로(암시적) 조정합니다.<br>
+				<code>repeat()</code> 함수와 같이 사용하며, 행/열과 아이템(Item) 개수가 명확할 필요가 없거나 명확하지 않은 경우 유용합니다.(반응형 그리드)<br>
+				<code>auto-fill</code>과 <code>auto-fit</code>은 간단한 차이점을 제외하면 동일하게 동작합니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0"><code class="bg_none t_444">[ auto-fill & auto-fit ]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_auto-fill-fit.svg" alt="auto-fill과 auto-fit" class="mt_m">
+			</figure>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">코드 예제</h4>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [auto-fill, auto-fit]">
+					<textarea readonly="readonly">
+						/*
+							다음 4컬럼 그리드 예제에서 컨테이너의 크기가 아이템들을 수용하기 충분하지 않은 경우 아이템은 넘치기 시작합니다.
+							(아이템의 최소 크기가 100px입니다.)
+						*/
+							.container {
+							display: grid;
+							grid-template-columns: repeat(4, minmax(100px, 1fr));
+						}
+
+						/*
+							만약 4컬럼 그리드를 고집할 필요가 없다면,
+							다음과 같이 '반복횟수'(repeat() 함수의 첫 번째 인수)를 auto-fill이나 auto-fit으로 수정할 수 있습니다.
+							이는 컨테이너의 크기가 아이템들을 수용하기 충분하지 않을 경우
+							아이템을 자동으로 줄 바꿈 처리하며, 그에 맞게 암시적 행/열도 자동으로 수정합니다.
+						*/
+						.container {
+							display: grid;
+							grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+						}
+					</textarea>
+				</div>
+				<figure class="img_figure mt_ml">
+					<figcaption class="mt_0">[ <code class="bg_none t_444">auto-fill</code> 유/무의 차이 ]</figcaption>
+					<img src="{{ path.img_grid }}/uxkm_grid_auto-fill_vs_x.svg" alt="auto-fill 유/무의 차이" class="mt_m">
+				</figure>
+			</section>
+		</article>
+
+		<!-- auto-fill과 auto-fit의 차이 -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">auto-fill과 auto-fit의 차이</h3>
+			<p class="mt_ms">
+				<code>auto-fill</code>과 <code>auto-fit</code>은 차이점은 그리드 컨테이너가 하나의 행/열(Track)에 모든 아이템을 수용하고 남는 공간이 있을 때 발생합니다.<br>
+				<code>auto-fill</code>은 남는 공간(빈 트랙)을 그대로 유지하고, <code>auto-fit</code>은 남는 공간을 축소합니다.
+			</p>
+			<section class="indent mt_m">
+				<h4 class="ml_mn">자동 채우기(auto-fill)</h4>
+				<p class="mt_s">
+					채움(fill)은 반복 횟수 주어질 경우, 크기 또는 최소, 최대 크기 만큼 계산하여 처리하지만 정해진 수 이상은 처리하지 않습니다.
+				</p>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [auto-fill]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-columns: repeat(auto-fill, 1fr 2fr);
+						}
+					</textarea>
+				</div>
+			</section>
+			<section class="indent mt_ml">
+				<h4 class="ml_mn">자동 채우기(auto-fit)</h4>
+				<p class="mt_s">
+					맞춤(fit)은 채움과 유사하게 작동하지만, 그리드 내부에 빈 트랙이 존재할 경우 반복 횟수만큼 반복된 트랙을 빈 트랙 공간을 나눠 핏팅(fitting)합니다.
+				</p>
+				<div class="uk_gist_code_box mt_ms" data-tit="grid units [auto-fit]">
+					<textarea readonly="readonly">
+						.container {
+							display: grid;
+							grid-template-rows: repeat(auto-fit, minmax(80px, auto));
+						}
+					</textarea>
+				</div>
+			</section>
+			<figure class="img_figure mt_ml">
+				<figcaption class="mt_0"><code class="bg_none t_444">[ auto-fill</code>과 <code class="bg_none t_444">auto-fit</code>의 차이 <code class="bg_none t_444">]</code></figcaption>
+				<img src="{{ path.img_grid }}/uxkm_grid_auto-fill-vs-fill.svg" alt="auto-fill과 auto-fit 비교" class="mt_m">
+			</figure>
+		</article>
+	</section>
+
+	<aside class="browser_support mt_xxl" data-tit="grid">
+		<ul>
+			<li class="ie">10+ -ms-</li>
+			<li class="edge">16.0</li>
+			<li class="chrome">57.0</li>
+			<li class="firefox">52.0</li>
+			<li class="opera">44.0</li>
+			<li class="safari">10.1</li>
+		</ul>
+	</aside>
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">그리드 레이아웃 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/css-grid-1/" target="_blank" class="fas" title="새창열림">W3C CSS Grid Layout Module Level 1</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-grid-2" target="_blank" class="fas" title="새창열림">W3C CSS Grid Layout Module Level 2</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-align-3/" target="_blank" class="fas" title="새창열림">W3C CSS Grid Layout Module Level 2</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank" class="fas" title="새창열림">MDN CSS Grid Layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_grid_layout" target="_blank" class="fas" title="새창열림">MDN Relationship_of_grid_layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout" target="_blank" class="fas" title="새창열림">MDN Box alignment in CSS Grid Layout</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment" target="_blank" class="fas" title="새창열림">MDN CSS Box Alignment</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/en-US/docs/Tools/Page_Inspector/How_to/Examine_grid_layouts" target="_blank" class="fas" title="새창열림">MDN CSS Grid Inspector: Examine grid layouts</a></li>
+			<li class="reference"><a href="https://grid.layoutit.com/" target="_blank" class="fas" title="새창열림">CSS Grid 제작 온라인 도구 | layoutit.com</a></li>
+			<li class="reference"><a href="https://gridbyexample.com/examples/" target="_blank" class="fas" title="새창열림">CSS Grid Layout Example</a></li>
+			<li class="reference"><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" class="fas" title="새창열림">Guide to Grid</a></li>
+			<li class="reference"><a href="http://cssgridgarden.com/#ko" target="_blank" class="fas" title="새창열림">CSS Grid Garden</a></li>
+			<li class="reference"><a href="https://alistapart.com/article/the-story-of-css-grid-from-its-creators/" target="_blank" class="fas" title="새창열림">창시자가 말하는 CSS 그리드 이야기</a></li>
+			<li class="reference"><a href="https://speakerdeck.com/malarkey/art-directing-for-the-web-five-minutes-with-css-template-areas" target="_blank" class="fas" title="새창열림">웹 디자인 방법에 관한 Andy Clarke의 발표 슬라이드</a></li>
+			<li class="reference"><a href="https://uid.gitbook.io/css-grid/" target="_blank" class="fas" title="새창열림">CSS Grid Layout Guidebook by 야무(yamoo9)</a></li>
+			<li class="reference"><a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/dev-guides/hh673533(v=vs.85)?redirectedfrom=MSDN" target="_blank" class="fas" title="새창열림">Microsoft's documentation Grid layout</a></li>
+			<li class="reference"><a href="https://css-tricks.com/css-grid-in-ie-css-grid-and-the-new-autoprefixer/" target="_blank" class="fas" title="새창열림">CSS Grid in IE: CSS Grid and the New Autoprefixer</a></li>
+			<li class="reference"><a href="https://css-tricks.com/css-grid-in-ie-debunking-common-ie-grid-misconceptions/" target="_blank" class="fas" title="새창열림">CSS Grid in IE: Debunking Common IE Grid Misconceptions</a></li>
+			<li class="reference"><a href="https://rachelandrew.co.uk/css/cheatsheets/box-alignment" target="_blank" class="fas" title="새창열림">Box 정렬 치트시트 | rachelandrew.co.uk</a></li>
+			<li class="reference"><a href="https://caniuse.com/#feat=css-grid" target="_blank" class="fas" title="새창열림">supported by all major browsers</a></li>
+		</ul>
+	</aside>
+{%- endblock %}

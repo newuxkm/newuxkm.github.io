@@ -671,7 +671,7 @@ function uk_gist_skin_code(){
 
       // 오류대처 ------------------------------------------------------------------------------------------------------
 
-      //sub element 오류 대처
+      //sub element 오류 대처 [반드시 필요]
       if( $(e).find(hljsSelectorClass).is(':visible') && $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'sub' ){
         $(e).find(hljsSelectorClass).each(function(j, k){
           if( $(k).text() === '.sub' ){
@@ -681,6 +681,7 @@ function uk_gist_skin_code(){
       }
 
       //img element > area 오류 대처
+      /*
       if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'img_area' ){
         let index;
         $(e).find('.'+uk_gist_code_line).each(function(j, k){
@@ -715,18 +716,19 @@ function uk_gist_skin_code(){
           }
         });
       }
+      */
 
-      //css 선택자 level 1, 2 오류 대처
+      //css 선택자 level 1, 2 오류 대처 [반드시 필요]
       if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'attribute_selector' ){
         $(e).find('.'+uk_gist_code_line+':first .hljs-selector-tag').remove();
       }
 
       //text 속성 > vertical-align 속성 sub 오류 대처
-      value_error( 'align_vertical-align' );
+      /*value_error( 'align_vertical-align' );*/
       //text 속성 > word-break 속성 break-word 오류 대처
-      value_error( 'align_word-break' );
+      /*value_error( 'align_word-break' );*/
       //background 속성 > background-repeat 속성 오류 대처
-      value_error( 'background-repeat' );
+      /*value_error( 'background-repeat' );*/
       //background 속성 > background-position 속성 오류 대처
       //value_error( 'background-position' );
       function value_error( target ){
@@ -753,19 +755,18 @@ function uk_gist_skin_code(){
           $(k).parent().text('')
           .prepend('<span>'+ code_tab_size +'</span>')
           .append(txt_clone).append(ex_text);
-
         });
       }
 
       //@media part-1 style 오류 대처(style 태그 제거)
-      if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'style_tag_remove' ){
+      /*if( $(e).parents('.'+uk_gist_code_box).attr('data-ex') === 'style_tag_remove' ){
         //$('[data-ex="style_tag_remove"]').each(function(){});
         $(e).find('.'+uk_gist_code_line).first().remove();
         $(e).find('.css').first().remove();
         $(e).find('.'+uk_gist_code_line).last().remove();
         $(e).find('.css').last().remove();
         $(e).parents('.'+uk_gist_code_box).find('.line_number > li').slice(0, 2).remove();
-      }
+      }*/
 
       //uk_gist_code_wrap each end -------------------------------------------------------------------------------------
     });
@@ -824,6 +825,32 @@ function pc_mb_class(win_w){
 		// 	sroll_state = false;
 		// }
 	}
+}
+
+// kmTemp 컨텐츠 height 값 적용
+function uk_kmTemp_resize(){
+  const kmtemp_resize_iframe = 'kmtemp_resize_iframe';
+  if( $('.'+kmtemp_resize_iframe).is(':visible') ){
+    $('.'+kmtemp_resize_iframe).each(function(i, e) {
+      var target = $(e).find('iframe');
+      var the_height;
+      the_height = target.contents().find('body').height();
+      $(e).css({'height': the_height});
+      $(e).addClass('resize_ok');
+
+      // if( the_height === null ){
+      //   var th_interval = setInterval(function(){
+      //     if( the_height === null ){
+      //       the_height = target.contents().find('body').height();
+      //       $(e).css({'height': the_height});
+      //     }
+      //     else {
+      //       clearInterval(th_interval);
+      //     }
+      //   }, 100);
+      // }
+    });
+  }
 }
 
 

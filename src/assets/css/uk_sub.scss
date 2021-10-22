@@ -1745,11 +1745,199 @@ $line-height-mb:22px;
 	}
 }
 
+// CSS3 Module part-2 [3.6.5. CSS3 gradient]
+.css_gradiant_note {
+	color:#fff;
+	border:0;
+	background: #1e73ff;
+	background: -webkit-linear-gradient(to right, #1e73ff, green);
+	background: -moz-linear-gradient(to right, #1e73ff, green);
+	background: -o-linear-gradient(to right, #1e73ff, green);
+	background: linear-gradient(to right, #1e73ff, green);
+}
+
+// @font-face
+.css_fontface {
+	h1, h2, h3, h4 {
+		font-family: 'Yeon Sung', cursive;
+		// font-family: 'Poor Story', cursive;
+		// font-family: 'Gamja Flower', cursive;
+		// font-family: 'Jua', sans-serif;
+	}
+}
+
+// transform - 2D
+.scale_hover {
+	$width:150px;
+	position:relative;
+	width:$width; height:100px; margin:8px 0 5px;
+	&:after {
+		position:absolute; left:$width + 10px; top:0;
+		font-size:14px; color:$blue; word-break:keep-all; white-space:pre;
+		content:"◀ 마우스를 올려보세요.";
+		opacity:.8;
+	}
+	i {
+		display:block; position:relative; overflow:hidden;
+		width:$width; height:100px;
+	}
+	img {
+		position:absolute; left:50%; top:50%; transform:translate(-50%, -50%);
+		width:130%; height:auto;
+		transition:all .4s;
+	}
+	&:hover img {transform:translate(-50%, -50%) scale(1.2, 1.2);}
+}
+
+// 플렉서블 레이아웃 부모 속성
+@mixin flex_direction($name, $left1, $top1, $left2, $top2){
+	@keyframes #{$name} {
+		0% {left:$left1; top:$top1;}
+		10% {left:$left2; top:$top2;}
+		50% {left:$left2; top:$top2;}
+		60% {left:$left1; top:$top1;}
+		100% {left:$left1; top:$top1;}
+	}
+	animation:$name 6s infinite ease-in-out;
+}
+@mixin flex_direction_tit($name, $color1, $bg1, $color2, $bg2){
+	@keyframes #{$name} {
+		0% {color:$color1; background-color:$bg1;}
+		10% {color:$color2; background-color:$bg2;}
+		50% {color:$color2; background-color:$bg2;}
+		60% {color:$color1; background-color:$bg1;}
+		100% {color:$color1; background-color:$bg1;}
+	}
+	animation:$name 6s infinite ease-in-out;
+}
+.flex_direction_compare {
+	@include clear;
+	dl {
+		@include lft; width:50%;
+		&:first-child {padding-right:10px;}
+		&:last-child {padding-left:10px;}
+	}
+	dt {
+		@include font-code; font-size:18px;
+		code {padding:0 5px; font-size:18px;}
+		.s1 {@include flex_direction_tit(flex_direction_tit1_1, #111, #eee, #fff, $blue)}
+		.s2 {@include flex_direction_tit(flex_direction_tit1_2, #fff, $blue, #111, #eee)}
+	}
+	dd {
+		margin-top:10px; padding:10px;
+		border:4px solid #eee;
+		div {position:relative; height:156px;}
+
+		p {
+			position:absolute;
+			width:36px; height:36px; line-height:36px;
+			text-align:center; @include font-en; font-size:18px; color:#fff;
+
+			&:nth-child(1) {background:$blue;}
+			&:nth-child(2) {background:$green;}
+			&:nth-child(3) {background:$red;}
+			&:nth-child(4) {background:$orange;}
+		}
+	}
+	.row_column {
+		dd {
+			p:nth-child(1) {position:static;}
+			p:nth-child(2) {@include flex_direction(flex_direction1_1, 0, 40px, 40px, 0);}
+			p:nth-child(3) {@include flex_direction(flex_direction1_2, 0, 80px, 80px, 0);}
+			p:nth-child(4) {@include flex_direction(flex_direction1_3, 0, 120px, 120px, 0);}
+		}
+	}
+	.column_reverse {
+		dd {
+			p:nth-child(1) {@include flex_direction(flex_direction2_1, 0, 120px, 0, 0);}
+			p:nth-child(2) {@include flex_direction(flex_direction2_2, 0, 80px, 0, 40px);}
+			p:nth-child(3) {@include flex_direction(flex_direction2_3, 0, 40px, 0, 80px);}
+			p:nth-child(4) {@include flex_direction(flex_direction2_4, 0, 0, 0, 120px);}
+		}
+	}
+}
+@media(max-width:$screen-lg-max){
+	.flex_direction_compare {
+		dt {
+			font-size:16px;
+			code {padding:0 5px; font-size:16px;}
+		}
+	}
+}
+@media(max-width:$screen-sm-max){
+	.flex_direction_compare {
+		dl {
+			float:none; width:auto;
+			&:first-child {padding-right:0;}
+			&:last-child {margin-top:15px; padding-left:0;}
+		}
+		dt {
+			font-size:15px;
+			code {font-size:15px;}
+		}
+	}
+}
+
+// 그리드 레이아웃 가이드, 데모
+.grid_info_mv {
+	position:relative;
+	padding-top:56%;
+
+	iframe {position:absolute; left:0; top:0; width:100%; height:100%;}
+}
+.grid_flex {
+	.vs_table {
+		display:flex;
+		justify-content:space-between;
+	}
+	.in_table {
+		position:relative;
+		width:calc(50% - 10px);
+		border:4px solid #eee;
+		h5 {
+			position:absolute; left:50%; top:-20px;
+			width:60px; height:26px; line-height:26px; margin-left:-30px;
+			text-align:center;
+			font-size:20px; color:#fff;
+			background:$blue; border-radius:3px;
+			code {color:#fff;}
+		}
+		dl {
+			padding:10px 15px;
+			border-top:1px dashed #ddd;
+			dt {color:#333; font-weight:600;}
+			&.h_line {
+				$width:120px;
+				display:flex;
+				dt {width:$width;}
+				dd {width:calc(100% - #{$width});}
+			}
+		}
+		h5 + dl {border-top:0;}
+		.con_none {padding:10px 15px;}
+	}
+	.img_figure {
+		border:0; padding:0 15px 20px;
+		text-align:left;
+	}
+}
+@media(max-width:$screen-max-max){
+	.grid_flex {
+		.vs_table {
+			display:block;
+		}
+		.in_table {
+			width:100%;
+			&:last-child {margin-top:25px;}
+		}
+	}
+}
 
 
 // iframe_con (km temp) ------------------------------------------------------------------------------------------------
 .iframe_con {
 	position:relative;
+	min-height:250px;
 	background:#f3f3f3;
 	&:before {
 		position:absolute; left:50%; top:100px;

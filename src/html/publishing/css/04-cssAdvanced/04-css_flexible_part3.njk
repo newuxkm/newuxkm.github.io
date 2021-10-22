@@ -11,12 +11,706 @@
 	Info: true,
 	note: true,
 	sideMenu: true,
-	reference: true
+	reference: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<!-- 4.4.2. 자식 속성 -->
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">4.4.2. 자식 속성(Properties for the Parent - Flexbox Container)</h2>
+		<p class="mt_ms">
+			flex container의 자식 엘리먼트 입니다.<br>
+			float, clear, vertical-align 속성은 flex item에 영향을 주지 않습니다.
+		</p>
+		<figure class="img_figure mt_m">
+			<figcaption class="mt_0">[Flexbox Items]</figcaption>
+			<img src="{{ path.img_flex }}/uxkm_flex-items.svg" alt="Flexbox Container" class="mt_m">
+		</figure>
+
+		<!-- flex-grow -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">flex-grow</h3>
+			<p class="mt_ms">
+				flex-grow CSS property 는 <code>flex-item</code> 요소가, <code>flex-container</code> 요소 내부에서 할당 가능한 공간의 정도를 선언합니다.<br>
+				만약 형제 요소로 렌더링 된 모든 <code>flex-item</code> 요소들이 동일한 <code>flex-grow</code> 값을 갖는다면,
+				<code>flex-container</code> 내부에서 동일한 공간을 할당받습니다.<br>
+				하지만 <code>flex-grow</code> 값으로 다른 소수값을 지정한다면, 그에 따라 다른 공간값을 나누어 할당받게 됩니다.
+			</p>
+			<p class="mt_s">
+				보통 <code>flex-grow</code>를 사용할때는, <code>flex-shrink</code>, <code>flex-basis</code> 속성을 함께 사용합니다.<br>
+				그리고 일반적으로는 모든 값이 설정되었음을 보장하기 위하여 <code>flex</code> 속성을 이용해 축약형으로 사용합니다.
+			</p>
+			<p class="mt_s">
+				<code>flex item</code>의 너비에 대한 확대 인자(flex grow factor)를 지정하며, 기본값은 0, 적용 가능한 값은 양수 입니다.<br>
+				값에 음수를 사용하면 적용되지 않습니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex-grow]">
+				<textarea readonly="readonly">
+					.item {
+						flex-grow: <number>(양수); // default 0
+					}
+
+					/* <number> values */
+					flex-grow: 3;
+					flex-grow: 0.6;
+				</textarea>
+			</div>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[<code class="bg_none t_blue">flex-grow</code>를 시각적으로 설명하는 다이어그램]</figcaption>
+				<img src="{{ path.img_flex }}/uxkm_flex-grow.svg" alt="flex-grow를 시각적으로 설명하는 다이어그램" class="mt_m">
+			</figure>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">
+					[모든
+					<code class="bg_none t_444">flex item</code>이 동일한
+					<code class="bg_none t_blue">flex-grow</code> 속성값을 가지면 모든
+					<code class="bg_none t_444">flex item</code>은 동일한 너비를 갖습니다.]
+				</figcaption>
+				<img src="{{ path.img_flex }}/uxkm_flexbox-flex-grow-1.svg" alt="flex-grow를 시각적으로 설명하는 다이어그램" class=" mt_s"><br>
+
+				<figcaption class="mt_l">
+					[두번째
+					<code class="bg_none t_444">flex item</code>의
+					<code class="bg_none t_blue">flex-grow</code> 속성값을 3으로 지정하면 다른
+					<code class="bg_none t_444">flex item</code>보다 더 넓은 너비를 갖습니다.]
+				</figcaption>
+				<img src="{{ path.img_flex }}/uxkm_flexbox-flex-grow-2.svg" alt="flex-grow를 시각적으로 설명하는 다이어그램" class="mt_s">
+			</figure>
+			<section class="view_editor edit_code mt_m" data-target="/css/step03/4.4.flexible/4.4.2.flexible-flex-grow.html">
+				<h4 class="ve_tit">flex-grow 예제</h4>
+				<div class="uk_editor indent min_height_650" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+			<aside class="browser_support mt_ml" data-tit="flex-grow">
+				<ul>
+					<li class="ie">10+ -ms-</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">29.0 / 28 - webkit-</li>
+					<li class="firefox">20.0</li>
+					<li class="opera">12.1</li>
+					<li class="safari">9.0 / 8 -webkit-</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- flex-shrink -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">flex-shrink</h3>
+			<p class="mt_ms">
+				<code>flex item</code>의 너비에 대한 축소 인자(flex shrink factor)를 지정합니다.<br>
+				<code>flex-item</code> 요소의 크기가 <code>flex-container</code> 요소의 크기보다 클 때 사용하며,
+				설정된 숫자 값에 따라 <code>flex-container</code> 요소 내부에서 <code>flex-item</code> 요소의 크기가 축소됩니다.
+			</p>
+			<p class="mt_s">
+				기본값은 1, 적용 가능한 값은 양수입니다. 0을 지정하면 축소가 해제되어 원래의 너비를 유지합니다.<br>
+				참고로 <code>flex-basis</code> 값이 설정되었다면 기존의 <code>width</code> 또는 <code>height</code> 속성 보다 우선 적용됩니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#flex-shrink-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#flex-shrink-property</a></p>
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [flex-shrink]">
+				<textarea readonly="readonly">
+					.item {
+						flex-shrink: <number>(양의 정수값); // default 1
+					}
+					/* <number> values */
+					flex-shrink: 2;
+					flex-shrink: 0.6;
+				</textarea>
+			</div>
+
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">
+					[기본은
+					<code class="bg_none t_444">flex container</code>의 너비에 마춰 축소 /
+					특정 <code class="bg_none t_444">flex item</code>만 해제(<code class="bg_none t_blue">flex-shrink: 0;</code>)하면 원래 너비 유지]
+				</figcaption>
+				<img src="{{ path.img_flex }}/uxkm_flexbox-flex-shrink.svg" alt="기본은 flex container의 너비에 마춰 축소 / 특정 flex item만 해제(flex-shrink: 0;)하면 원래 너비 유지" class=" mt_s">
+			</figure>
+
+			<p class="mt_m">
+				감소 너비(flex-shrink)는 요소의 너비에 영향을 받기 때문에 계산이 까다롭습니다.<br>
+				영향을 받는 요소의 너비는 <code>width</code>, <code>height</code>, <code>flex-basis</code> 등으로 너비가 지정된 경우를 의미합니다.<br>
+				<code>flex container</code>의 너비가 줄어 <code>flex Items</code>의 너비에 영향을 미칠 경우,
+				영향을 미치기 시작한 지점부터 줄어든 거리 만큼 감소 너비 비율에 맞게 <code>flex Item</code>의 너비가 줄어듭니다.
+			</p>
+			<p class="mt_ms">
+				예를 들어 <code>flex container</code>의 너비가 줄어 <code>flex Item</code>의 너비에 영향을 미치기 시작한 지점부터 실제 줄어든 거리가 90px일 때,<br>
+				요소 너비가 같은 <code>flex Item</code>이 2개이고 <code>flex-shrink</code>가 각각 2와 1이라면,<br>
+				감소 너비는 2:1 비율이며,<br>
+				첫 번째 <code>flex Item</code>은 90px의 2/3인 60px 만큼 너비가 감소하고,<br>
+				두 번째 <code>flex Item</code>은 90px의 1/3인 30px 만큼 너비가 감소합니다.
+			</p>
+			<p class="mt_ms">
+				다른 예시로 <code>flex container</code>의 너비가 줄어 <code>flex Item</code>의 너비에 영향을 미치기 시작한 지점부터 실제 줄어든 거리가 90px일 때,<br>
+				요소 너비가 다른 <code>flex Item</code>이 2개이고 요소 너비는 각각 200px과 100px이고,<br>
+				<code>flex-shrink</code>가 각각 2와 1이라면,<br>
+				200 x 2 = 400과 100 x 1 = 100 즉 감소 너비는 4:1 비율이며,<br>
+				첫 번째 <code>flex Item</code>은 90px의 4/5인 72px 만큼 너비가 감소하고,<br>
+				두 번째 <code>flex Item</code>은 90px의 1/5인 18px 만큼 너비가 감소합니다.
+			</p>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0"><code class="bg_none t_444">[ flex-shrink ]</code></figcaption>
+				<img src="{{ path.img_flex }}/uxkm_flex-shrink_pc.svg" alt="flex-shrink" class="mt_s dp_md_pc mg_center">
+				<img src="{{ path.img_flex }}/uxkm_flex-shrink_md.svg" alt="flex-shrink" class="mt_s dp_md mg_center">
+			</figure>
+
+			<section class="view_editor edit_code mt_m" data-target="/css/step03/4.4.flexible/4.4.2.flexible-flex-shrink.html">
+				<h4 class="ve_tit">flex-shrink 예제</h4>
+				<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+			<aside class="browser_support mt_ml" data-tit="flex-shrink">
+				<ul>
+					<li class="ie">10+ -ms-</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">29.0</li>
+					<li class="firefox">20.0</li>
+					<li class="opera">12.1</li>
+					<li class="safari">9.0</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- flex-basis -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">flex-basis</h3>
+			<p class="mt_ms">
+				flex-basis CSS 속성은 플렉스 아이템의 초기 크기를 지정합니다. <code>box-sizing</code>을 따로 지정하지 않는다면 콘텐츠 박스의 크기를 변경합니다.<br>
+				auto 값을 가지지 않은 <code>flex-basis</code>와 <code>width(flex-direction: column인 경우 height)</code> 값을 동시에 적용한 경우 <code>flex-basis</code>가 우선합니다.<br>
+				<code>flex item</code>의 너비 기본값을 px, % 등의 단위로 지정하며, 기본값은 auto입니다.<br>
+				<code>flex-basis</code> 속성값은 <code>content 키워드</code>를 사용하거나, <code>&lt;width&gt;</code>를 나타내는 단위를 사용합니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#flex-shrink-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#flex-shrink-property</a></p>
+
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [flex-basis]">
+				<textarea readonly="readonly">
+					.item {
+						flex-basis: <length> | auto; // default auto
+					}
+
+					/* <'width'> 지정 */
+					flex-basis: 10em;
+					flex-basis: 3px;
+					flex-basis: auto;
+
+					/* 원본 크기 키워드 */
+					flex-basis: fill;
+					flex-basis: max-content;
+					flex-basis: min-content;
+					flex-basis: fit-content;
+
+					/* 플렉스 아이템 내용 크기에 따라 조절 */
+					flex-basis: content;
+				</textarea>
+			</div>
+			<ol class="ol_lst indent mt_m">
+				<li class="line_code tit_h4">
+					<h4>&lt;width&gt;</h4>
+					<p>&lt;length&gt;, 플렉스 컨테이너의 크기에 상대적인 &lt;percentage&gt;, auto 키워드 중 하나. 음수 값은 유효하지 않습니다.</p>
+				</li>
+				<li class="line_code tit_h4 mt_m">
+					<h4>content</h4>
+					<p>플렉스 아이템의 콘텐츠 크기에 따라 자동으로 크기가 변합니다.</p>
+					<p><code>content 키워드</code>는 Flexible Box Layout의 첫 배포에 포함되지 않아, 일부 오래 된 브라우져는 지원하지 않을 수 있습니다.</p>
+					<p><code>flex-basis</code>와 주 크기<code>(width, height)</code> 속성을 동시에 auto로 설정하면 동일한 효과를 볼 수 있습니다.</p>
+					<p>원래 <code>flex-basis: auto</code>의 뜻은 자신의 <code>width</code> 또는 <code>height</code> 속성의 값을 사용하라는 것이었습니다.</p>
+					<p>그 후 <code>flex-basis: auto</code>는 자동 크기 조절로 바뀌고, 기존의 auto는 <code>main-size</code>로 바뀌었습니다. <span class="reference mt_s"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1032922" target="_blank" title="새창열림">bug 1032922</a></span>에서 구현 기록을 볼 수 있습니다.</p>
+					<p>
+						그러나 위의 변경점은 <span class="reference mt_s"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1093316" target="_blank" title="새창열림">bug 1093316</a></span>에서 되돌려져 auto 가 다시 <code>width / height</code> 속성을 가리키게 됐고,
+						대신 새로운 <code>content 키워드</code>가 자동 크기 조절을 맡게 됐습니다. (<span class="reference mt_s"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1105111" target="_blank" title="새창열림">bug 1105111</a></span>에서 볼 수 있습니다.)
+					</p>
+				</li>
+			</ol>
+
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[<code class="bg_none t_blue">flex-basis</code>를 적용한 <code class="bg_none t_444">flex item</code>의 너비]</figcaption>
+				<img src="{{ path.img_flex }}/uxkm_flexbox-flex-basis.svg" alt="flex-basis를 적용한 flex item의 너비" class=" mt_m"><br>
+				<img src="{{ path.img_flex }}/uxkm_flex-basis_pc.svg" alt="flex-basis를 적용한 flex item의 너비" class="mt_xl dp_md_pc mg_center">
+				<img src="{{ path.img_flex }}/uxkm_flex-basis_md.svg" alt="flex-basis를 적용한 flex item의 너비" class="mt_xl dp_md mg_center">
+			</figure>
+			<!--
+			<section class="view_editor edit_code mt_m" data-target="/css/step03/4.4.flexible/4.4.2.flexible-flex-basis.html">
+				<div class="uk_editor" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+			-->
+			<!--<p class="mt_m t_blue">※ flex-basis 예제 준비</p>-->
+			<aside class="browser_support mt_ml" data-tit="flex-basis">
+				<ul>
+					<li class="ie">11+</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">29.0</li>
+					<li class="firefox">22.0</li>
+					<li class="opera">12.1</li>
+					<li class="safari">9.0</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- flex -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">flex</h3>
+			<p class="mt_ms">
+				<mark>W3C에서는 이 속성을 사용하는 것 보다 개별적으로 기술하는 것을 추천하고 있습니다.</mark>
+			</p>
+			<p class="mt_s">
+				<code>flex item</code>의 너비(증가, 감소, 기본)를 설정하는 단축 속성입니다.<br>
+				<code>flex item</code>이 <code>flex container</code>가 차지하는 공간에 크기를 맞춰 크기를 키우거나 줄이는 설정을 할 수 있습니다.<br>
+				<code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code>의 축약(shorthand) 속성입니다. 기본값은 각각 <code>0, 1, auto</code>입니다.<br>
+				대부분의 경우, flex의 값에는 <code>auto</code>, <code>initial</code>, <code>none</code>이나 단위 없는 양수를 사용해야 합니다.<br>
+				<!--기본적으로 flex item은 콘텐츠의 최소 너비 미만으로 줄어들지 않습니다. min-width나 min-height 값을 지정해 바꿀 수 있습니다.-->
+			</p>
+			<p class="mt_s">
+				<code>flex-grow</code>를 제외한 개별 속성은 생략할 수 있습니다.<br>
+				만약 <code>flex: 1;</code>로 작성하면 <code>flex-grow: 1;</code>과 같습니다.<br>
+				그러면 나머지 속성은 생략했으니 기본값이 적용되어 <code>flex-shrink: 1;, flex-basis: auto;</code>가 됩니다.<br>
+				즉, <code>flex: 1;</code> 혹은 <code>flex: 1 1;</code>은 <code>flex: 1 1 auto;</code>와 같다고 볼 수 있지만 그렇지 않습니다.
+			</p>
+			<p class="mt_s">
+				<code>flex-basis</code>의 기본값은 <code>auto</code>이지만, 단축 속성인 <code>flex</code>에서 그 값을 생략할 경우 0이 적용됩니다.<br>
+				다시 정리하면 <code>flex: 1;</code> 혹은 <code>flex: 1 1;</code>은 <code>flex: 1 1 0;</code>과 같습니다.<br>
+				이 부분을 기억하지 않으면 엉뚱한 결과가 나올 수 있으니 주의가 필요합니다.
+			</p>
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [flex]">
+				<textarea readonly="readonly">
+					.item {
+						flex: none | auto | [ <flex-grow> <flex-shrink>? || <flex-basis> ];
+					}
+
+					.item {
+						flex: 1 1 20px; // 증가너비 감소너비 기본너비
+						flex: 1 1; // 증가너비 감소너비
+						flex: 1 20px; // 증가너비 기본너비 (단위를 사용하면 flex-basis가 적용됩니다.)
+					}
+				</textarea>
+			</div>
+			<div class="ol_lst indent mt_m">
+				<ol>
+					<li class="tit_h4 line_code">
+						<h4>initial</h4>
+						<p>0아이템 크기가 각각의 <code>width</code>와 <code>height</code> 속성에 따라 정해집니다.</p>
+						<p>0플렉스 컨테이너의 크기를 넘지 않기 위해 최소 크기로 줄어들 수는 있지만, 남은 공간을 채우려 늘어나지는 않습니다.</p>
+						<p>0<code>flex: 0 1 auto;</code>와 동일합니다.</p>
+					</li>
+					<li class="tit_h4 line_code mt_m">
+						<h4>auto</h4>
+						<p>0아이템 크기가 각각의 <code>width</code>와 <code>height</code> 속성에 따라 정해집니다.</p>
+						<p>0플렉스 컨테이너의 크기를 넘지 않기 위해 최소 크기로 줄어들 수 있으며, 남은 공간을 채우기 위해 늘어날 수도 있습니다.</p>
+						<p>0<code>flex: 1 1 auto;</code>와 동일합니다.</p>
+					</li>
+					<li class="tit_h4 line_code mt_m">
+						<h4>none</h4>
+						<p>0아이템 크기가 각각의 <code>width</code>와 <code>height</code>code> 속성에 따라 정해지며, 컨테이너의 크기에 관계 없이 변하지 않습니다.</p>
+						<p>0<code>flex: 0 0 auto;</code>와 동일합니다.</p>
+					</li>
+					<li class="tit_h4 line_code mt_m">
+						<h4>&lt;flex-grow&gt;</h4>
+						<p>0플렉스 아이템의 <code>flex-grow</code>를 지정합니다. 음수 값은 유효하지 않습니다.</p>
+						<p>0생략 시 기본값은 0입니다.</p>
+					</li>
+					<li class="tit_h4 line_code mt_m">
+						<h4>&lt;flex-shrink&gt;</h4>
+						<p>0플렉스 아이템의 <code>flex-shrink</code>를 지정합니다. 음수 값은 유효하지 않습니다.</p>
+						<p>0생략 시 기본값은 1입니다.</p>
+					</li>
+					<li class="tit_h4 line_code mt_m">
+						<h4>&lt;flex-basis&gt;</h4>
+						<p>0플렉스 아이템의 <code>flex-basis</code>를 지정합니다.</p>
+						<p>00을 지정하려면 <code>&lt;flex-grow&gt;</code> 또는 <code>&lt;flex-shrink&gt;</code>로 읽히지 않도록 단위를 붙여야 합니다.</p>
+						<p>0생략 시 기본값은 <code>auto</code>입니다.</p>
+					</li>
+				</ol>
+			</div>
+
+			<p class="mt_ml">
+				flex 속성은 한 개에서 세 개의 값을 사용해 지정할 수 있습니다.<br>
+				한 개 또는 두 개의 단위 없는 숫자 값을 사용할 때, <code>&lt;flex-basis&gt;</code>의 값은 <code>auto</code>가 아니라 0이 됩니다.
+			</p>
+			<div class="ol_lst indent mt_m">
+				<ol>
+					<li class="tit_h4 line_code">
+						<h4>값이 한 개일 때</h4>
+						<!--
+						<p><code>&lt;number&gt;</code>를 지정하면 <code>&lt;flex-grow&gt;</code>입니다.</p>
+						<div class="line_code_box line_code_number mt_2">
+							<ul>
+								<li>flex: 2;</li>
+							</ul>
+						</div>
+						<p><code>&lt;length&gt;</code> 또는 <code>&lt;percentage&gt;</code>를 지정하면 <code>&lt;flex-basis&gt;</code>입니다.</p>
+						<div class="line_code_box line_code_number mt_2">
+							<ul>
+								<li>flex: 10em;</li>
+								<li>flex: 30%;</li>
+							</ul>
+						</div>
+						<p><code>none, auto, initial</code> 중 하나를 지정할 수 있습니다.</p>
+						-->
+						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex]">
+							<textarea readonly="readonly">
+								/* <number>를 지정하면 <flex-grow>입니다. */
+								flex: 2;
+
+								/* <length> 또는 <percentage>를 지정하면 <flex-basis>입니다. */
+								flex: 10em;
+								flex: 30%;
+
+								/* none, auto, initial 중 하나를 지정할 수 있습니다. */
+								flex: none | auto | initial;
+							</textarea>
+						</div>
+					</li>
+					<li class="tit_h4 line_code mt_m">
+						<h4>값이 두 개일때, 첫 번째 값은 &lt;number&gt;여야 하며 &lt;flex-grow&gt;가 됩니다.</h4>
+						<!--
+						<p><code>&lt;number&gt;</code>를 지정하면 <code>&lt;flex-shrink&gt;</code>입니다.</p>
+						<div class="line_code_box line_code_number mt_2">
+							<ul>
+								<li>flex: 1 30px;</li>
+							</ul>
+						</div>
+						<p><code>&lt;length&gt;</code>, <code>&lt;percentage&gt;</code>, 또는 <code>auto</code>를 지정하면 <code>&lt;flex-basis&gt;</code>입니다.</p>
+						<div class="line_code_box line_code_number mt_2">
+							<ul>
+								<li>flex: 2 2;</li>
+							</ul>
+						</div>
+						-->
+						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex]">
+							<textarea readonly="readonly">
+								/* <number>를 지정하면 <flex-shrink>입니다. */
+								flex: 1 30px;
+
+								/* <length>, <percentage>, 또는 auto를 지정하면 <flex-basis>입니다. */
+								flex: 2 2;
+							</textarea>
+						</div>
+					</li>
+					<li class="tit_h4 line_code mt_m">
+						<h4>값이 세 개일 때</h4>
+						<!--
+						<p><code>&lt;flex-grow&gt;</code>에 <code>&lt;number&gt;</code>를 선언합니다.</p>
+						<p><code>&lt;flex-shrink&gt;</code>에 <code>&lt;number&gt;</code>를 선언합니다.</p>
+						<p><code>&lt;flex-basis&gt;</code>에 <code>&lt;length&gt;</code>, <code>&lt;percentage&gt;</code>, 또는 <code>auto</code>를 선언합니다.</p>
+						<div class="line_code_box line_code_number mt_2">
+							<ul>
+								<li>flex: 2 2 10%;</li>
+							</ul>
+						</div>
+						-->
+						<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [flex]">
+							<textarea readonly="readonly">
+								/*
+								flex-grow에 number를 선언합니다.
+								flex-shrink에 number를 선언합니다.
+								flex-basis에 length, percentage, 또는 auto를 선언합니다.
+								*/
+								flex: 2 2 10%;
+							</textarea>
+						</div>
+					</li>
+				</ol>
+			</div>
+
+			<section class="view_editor edit_code mt_m" data-target="/css/step03/4.4.flexible/4.4.2.flexible-flex-flex.html">
+				<h4 class="ve_tit">flex 예제</h4>
+				<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+			<aside class="browser_support mt_ml" data-tit="flex">
+				<ul>
+					<li class="ie">10+ -ms-</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">29.0</li>
+					<li class="firefox">11.0</li>
+					<li class="opera">12.1</li>
+					<li class="safari">9.0</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- align-self -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">align-self</h3>
+			<p class="mt_ms">
+				<code>align-self</code>는
+				부모 속성인 <code>align-items</code>보다 우선적으로 개별 <code>flex item</code>을 정렬합니다.<br>
+				기본값은 <code>auto</code>입니다.
+			</p>
+			<p class="mt_s t_888">
+				※ <code class=" t_888">align-items</code> :
+				<code class=" t_888">flex container</code>속성으로 <code class=" t_888">flex item</code>을 <code class=" t_888">flex container</code>의
+				수직 방향(cross axis)으로 정렬
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#propdef-align-self" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#propdef-align-self</a></p>
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [align-self]">
+				<textarea readonly="readonly">
+					.item {
+						align-self: auto | flex-start | flex-end | center | baseline | stretch;
+					}
+				</textarea>
+			</div>
+
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[<code class="bg_none t_blue">align-self</code>를 시각적으로 설명하는 다이어그램]</figcaption>
+				<img src="{{ path.img_flex }}/uxkm_flex-align-self.svg" alt="align-self를 시각적으로 설명하는 다이어그램" class="mt_s">
+			</figure>
+			<!--
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[아래 예시에 3번째, 4번째 flex item은 align-self 속성값이 우선 적용되어 정렬됩니다.]</figcaption>
+				<img src="{{ path.img_flex }}-align-self.jpg" alt="아래 예시에 3번째, 4번째 flex item은 align-self 속성값이 우선 적용되어 정렬됩니다." class=" mt_s max-w600">
+			</figure>
+			-->
+
+			<section class="view_editor edit_code mt_m" data-target="/css/step03/4.4.flexible/4.4.2.flexible-align-self.html">
+				<h4 class="ve_tit">align-self 예제</h4>
+				<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+			<aside class="browser_support mt_ml" data-tit="align-self">
+				<ul>
+					<li class="ie">11+</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">21.0</li>
+					<li class="firefox">20.0</li>
+					<li class="opera">12.1</li>
+					<li class="safari">6.1</li>
+				</ul>
+			</aside>
+			<aside class="browser_support mt_ms" data-tit="align-self : start | end | baseline">
+				<ul>
+					<li class="ie false">지원안함</li>
+					<li class="edge false">지원안함</li>
+					<li class="chrome">57.0</li>
+					<li class="firefox">45.0</li>
+					<li class="opera">44.0</li>
+					<li class="safari false">지원안함</li>
+				</ul>
+			</aside>
+			<aside class="browser_support mt_ms" data-tit="align-self : stretch">
+				<ul>
+					<li class="ie false">지원안함</li>
+					<li class="edge false">지원안함</li>
+					<li class="chrome">57.0</li>
+					<li class="firefox">52.0</li>
+					<li class="opera">44.0</li>
+					<li class="safari false">지원안함</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- order -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">order</h3>
+			<p class="mt_ms">
+				<code>flex item</code>의 배치 순서를 지정합니다.<br>
+				HTML 코드를 변경하지 <code>flex item</code>에 <code>order</code> 속성값을 지정하는 방식으로 <code>flex item</code>을 간단히 재배치할 수 있다.<br>
+				기본 배치 순서는 <code>flex container</code>에 추가된 순서이며, 기본값은 0입니다.
+			</p>
+			<p class="mt_s">
+				단, 순서를 변경해도 접근성에 문제가 발생하지 않는 경우에만 사용해야 합니다.<br>
+				<code>order</code> 속성을 사용하면 실제 DOM 순서와 화면에 보여지는 콘텐츠의 순서가 서로 연결되지 않습니다.<br>
+				때문에 시각적 순서(CSS)가 중요하더라도 스크린 리더 사용자는 제대로 된 읽기 순서를 알 수 없습니다.<br>
+				이는 낮은 시각으로 스크린 리더 등 보조 기술을 사용해 이동하는 사용자의 경험에 부정적인 영향을 줄 수 있습니다.
+			</p>
+			<p class="reference mt_s"><a href="https://www.w3.org/TR/css-flexbox-1/#order-property" target="_blank" title="새창열림">w3.org/TR/css-flexbox-1/#order-property</a></p>
+			<div class="uk_gist_code_box mt_m" data-tit="Flex properties [order]">
+				<textarea readonly="readonly">
+					.item {
+						order: <integer>(정수값); // default is 0
+					}
+				</textarea>
+			</div>
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">
+					[<code class="bg_none t_blue">order</code>를 적용하여 <code class="bg_none t_444">flex item</code>의 배치 순서를 지정]
+				</figcaption>
+				<img src="{{ path.img_flex }}/uxkm_flex-order.svg" alt="flex item의 배치 순서를 지정" class=" mt_s">
+			</figure>
+			<!--
+			<figure class="img_figure mt_m">
+				<figcaption class="mt_0">[아래 예시에 3번째, 4번째 flex item은 align-self 속성값이 우선 적용되어 정렬됩니다.]</figcaption>
+				<img src="{{ path.img_flex }}-order.jpg" alt="아래 예시에 3번째, 4번째 flex item은 align-self 속성값이 우선 적용되어 정렬됩니다." class=" mt_s max-w600">
+			</figure>
+			-->
+			<section class="view_editor edit_code mt_m" data-target="/css/step03/4.4.flexible/4.4.2.flexible-order.html">
+				<h4 class="ve_tit">order 예제</h4>
+				<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+			<aside class="browser_support mt_ml" data-tit="order">
+				<ul>
+					<li class="ie">10+ -ms-</li>
+					<li class="edge">12.0</li>
+					<li class="chrome">29.0 / 21 -webkit-</li>
+					<li class="firefox">20.0</li>
+					<li class="opera">12.1</li>
+					<li class="safari">9.0 / 6.1 - webkit-</li>
+				</ul>
+			</aside>
+		</article>
+
+		<!-- order -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">grow, shrink 숫자가 증가, 감소에 따라 계산방법</h3>
+			<p class="mt_ms">
+				플렉스 컨테이너 요소에 설정된 주축의 방향은 <code>row</code> 입니다.<br>
+				즉, 왼쪽 ⇒ 오른쪽 방향입니다. 아이템의 배치는 수평으로 나란히 배치가 됩니다.<br>
+				아이템에 설정된 <code>flex-basis</code> 값은 너비(width)를 말하게 됩니다.<br>
+				만약 <code>column</code> 이 설정되면 basis 는 높이(height)를 말하게 됩니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [grow, shrink : calculation method]">
+				<textarea readonly="readonly">
+					.flex-container {
+						display: flex;
+						flex-flow: row wrap;
+					}
+					.flex-item {
+						flex: 1 0 50px;
+					}
+				</textarea>
+			</div>
+			<p class="mt_ms">
+				플렉스 아이템 요소에 설정된 위의 코드를 보면 다음과 같습니다.<br>
+				아이템의 <code>shrink</code> 값이 0 이므로 주축 방향으로 <code>basis</code> 값인 50px 보다 축소되지 않습니다.<br>
+				즉, 최소 50px의 너비(width) 설정입니다. 반면 <code>grow</code> 값은 1 이므로 50px 이상 확장될 수 있습니다.
+			</p>
+			<p class="mt_s">
+				현재 부모 컨테이너 요소에 별도로 width 너비 값이 설정되지 않았다면 브라우저 창 크기(너비)에 따라 유연한 값을 가집니다.<br>
+				즉, 창 너비가 고정되지 않은 것입니다.
+			</p>
+			<p class="mt_s">
+				이이템이 7개 있다고 가정해 봅니다.<br>
+				아이템의 너비가 50px 이상 확장 되려면 부모의 너비가 아이템 7개의 너비 합(350px) 보다 커야 합니다.<br>
+				그래야 아이템이 확장될 공간이 생길 것이기 때문입니다.<br>
+				<code>grow</code> 값은 확장될 공간이 없으면 확장될 수 없습니다.
+			</p>
+			<p class="mt_s">
+				만약 부모 컨테이너의 너비 값이 500px이 된다고 하면 남은 공간은 500 - 350 = 150px 이 됩니다.<br>
+				그럼 각 아이템은 150 / 7 = 21.4285px 만큼 공간을 나눠 가지게 됩니다.<br>
+				즉, 각 아이템은 50 + 21.4285 = 71.4285px 값의 너비로 확장(grow) 됩니다.
+			</p>
+
+			<p class="mt_ml">
+				다른 예시를 들어보도록 하겠습니다.<br>
+				아이템 중 3번째 자식 요소인 아이템(3)에 설정된 코드는 아래와 같습니다.
+			</p>
+			<div class="uk_gist_code_box mt_ms" data-tit="Flex properties [grow, shrink : calculation method]">
+				<textarea readonly="readonly">
+					.flex-item:nth-child(3) {
+						flex: 2 0 20px;
+					}
+				</textarea>
+			</div>
+			<p class="mt_s">
+				여기서 포인트는 grow 값이 1이 아닌, 2로 설정된 부분입니다.<br>
+				위 값은 부모 컨테이너 요소의 남은 너비 공간을 나눠 확장할 때 다른 박스보다 2만큼 더 큰 비율로 나눠진 값으로 확장하라는 것입니다.<br>
+				쉽게 말해 각 아이템 박스가 나눠 가질 공간의 비율은 다음과 같습니다.
+			</p>
+			<p class="mt_s">
+				<code>1 : 1 : 2 : 1 : 1 : 1 : 1</code>
+			</p>
+			<p class="mt_s">
+				예를 들어 남은 공간이 70px 이라고 한다면 아이템(3) 요소의 너비는 2/8 = 25% 만큼 확장(17.5px) 하고,<br>
+				다른 아이템들은 1/8 = 12.5% 만큼(8.75px) 너비 값을 확장하게 됩니다.
+			</p>
+			<p class="mt_s">
+				<code>((70 * 1/8) * 6) + ((70 * 2/8) * 1) = 70</code>
+			</p>
+			<p class="mt_s">
+				만약 부모 컨테이너의 너비 값이 500px이 된다고 하면 남은 공간은 500 - 350 = 150px 이 됩니다.
+			</p>
+			<p class="mt_s">
+				아이템(3)은 남은 공간 중 25% 를 가지니까 150 * 2/8 = 37.5px 만큼 확장 되고,<br>
+				다른 아이템은 남은 공간 중 12.5% 를 나눠 가질테니 150 * 1/8 = 18.75px 만큼 공간을 나눠 확장됩니다.
+			</p>
+			<p class="mt_s">
+				<code>shrink</code> 는 축소이니, grow 설정의 반대로 생각하면 됩니다.<br>
+				부모 컨테이너 너비 값이 아이템 너비의 합보다 작을 경우, 축소가 반영됩니다.<br>
+				이번에는 부모 컨테이너 너비 - 아이템 너비의 합 = 축소해야 할 공간 이 될 것이고,<br>
+				이 또한 <code>shrink</code> 설정 값의 비율에 따라 축소해야 할 공간이 브라우저에 의해 계산 처리 반영될 겁니다.
+			</p>
+		</article>
+	</section>
+
+	<!-- 4.4.3. Flexbox Demo -->
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">4.4.3. Flexbox Demo</h2>
+		<p class="mt_ms">
+			flex의 속성을 이용한 다양한 예제 입니다.<br>
+			예제의 코드 확인 후 결과 화면을 '<i class="t_blue">브라우저 전체 화면</i>' 또는 '<i class="t_blue">모니터 전체 화면</i>'으로 확인하면 결과물에 대한 이해가 조금 더 용이해집니다.
+		</p>
+
+		<!-- 수직 및 수평 가운데 정렬(Vertical and Horizontal Centering) -->
+		<article class="indent mt_l">
+			<h3 class="ml_mn t_blue">수직 및 수평 가운데 정렬(Vertical and Horizontal Centering)</h3>
+			<section class="view_editor edit_code mt_ms" data-target="/css/step03/4.4.flexible/4.4.3.flexible-demo-vertical-and-horizontal-centering.html">
+				<div class="uk_editor min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+		</article>
+
+		<!-- flex-direction, justify-content, align-items Demo -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">flex-direction, justify-content, align-items Demo</h3>
+			<section class="view_editor edit_code mt_ms" data-target="/css/step03/4.4.flexible/4.4.3.flexible-demo.html">
+				<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+		</article>
+
+		<!-- Multi-Column Layout -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">Multi-Column Layout</h3>
+			<section class="view_editor edit_code mt_ms" data-target="/css/step03/4.4.flexible/4.4.3.flexible-demo-multi-column-layout.html">
+				<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+		</article>
+
+		<!-- 네이비게션 -->
+		<article class="indent mt_xl">
+			<h3 class="ml_mn t_blue">네이비게션</h3>
+			<section class="view_editor edit_code mt_ms" data-target="/css/step03/4.4.flexible/4.4.3.flexible-demo-navigation.html">
+				<div class="uk_editor min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+					<div class="code_wrap"><textarea></textarea></div>
+				</div>
+			</section>
+		</article>
+	</section>
+
+	<aside class="reference_box mt_xxl">
+		<h2 class="tit">플렉서블 박스 레이아웃 참조</h2>
+		<ul class="link_lst">
+			<li class="reference"><a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank" class="fas" title="새창열림">W3C CSS Flexible Box Layout Module Level 1</a></li>
+			<li class="reference"><a href="https://drafts.csswg.org/css-align/" target="_blank" class="fas" title="새창열림">W3C CSS Box Alignment Module Level 3</a></li>
+			<li class="reference"><a href="https://www.w3.org/TR/css-writing-modes-3/#writing-mode" target="_blank" class="fas" title="새창열림">W3C CSS Writing Modes Level 3</a></li>
+			<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank" class="fas" title="새창열림">MDN CSS Flexible Box</a></li>
+			<li class="reference"><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" class="fas" title="새창열림">A Complete Guide to Flexbox (CSS-Tricks)</a></li>
+			<li class="reference"><a href="https://www.tutorialspoint.com/flexbox/" target="_blank" class="fas" title="새창열림">Flexbox Tutorial for Beginners (Tutorials Point)</a></li>
+			<li class="reference"><a href="https://webdesign.tutsplus.com/tutorials/a-comprehensive-guide-to-flexbox-alignment--cms-30183" target="_blank" class="fas" title="새창열림">A Guide to Flexbox Alignment (Web Design Tuts)</a></li>
+			<li class="reference"><a href="http://yoksel.github.io/flex-cheatsheet/" target="_blank" class="fas" title="새창열림">flex-cheatsheet</a></li>
+			<li class="reference"><a href="https://jonneal.dev/flexibility/" target="_blank" class="fas" title="새창열림">flex-cheatsheet</a></li>
+			<li class="reference"><a href="https://www.freecodecamp.org/news/flexbox-the-ultimate-css-flex-cheatsheet/" target="_blank" class="fas" title="새창열림">CSS Flex Cheatsheet (freeCodeCamp)</a></li>
+			<li class="reference"><a href="https://dev.opera.com/articles/flexbox-basics/" target="_blank" class="fas" title="새창열림">Flexbox at Opera</a></li>
+			<li class="reference"><a href="https://bocoup.com/blog/dive-into-flexbox" target="_blank" class="fas" title="새창열림">Diving into Flexbox by Bocoup</a></li>
+			<li class="reference"><a href="https://css-tricks.com/using-flexbox/" target="_blank" class="fas" title="새창열림">Mixing syntaxes for best browser support on CSS-Tricks</a></li>
+			<li class="reference"><a href="https://www.alsacreations.com/tuto/lire/1493-css3-flexbox-layout-module.html" target="_blank" class="fas" title="새창열림">Flexbox by Raphael Goetter (FR)</a></li>
+			<li class="reference"><a href="https://bennettfeely.com/flexplorer/" target="_blank" class="fas" title="새창열림">Flexplorer by Bennett Feely</a></li>
+			<li class="reference"><a href="https://css-tricks.com/using-flexbox/" target="_blank" class="fas" title="새창열림">flexbox 구버전과 신버전 브라우저 지원을 위한 최고의 방법</a></li>
+			<li class="reference"><a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/dev-guides/hh673531(v=vs.85)?redirectedfrom=MSDN" target="_blank" class="fas" title="새창열림">IE flexbox 참고 자료</a></li>
+		</ul>
+	</aside>
+{%- endblock %}

@@ -106,12 +106,12 @@
 			<ol class="ol_lst mt_s indent">
 				<li>#맵이름 값 : 해시 문자(#)와 함께 사용할 <code>&lt;map&gt;</code> 요소의 name 속성값을 명시합니다.</li>
 			</ol>
-			<div class="uk_gist_code_box mt_ms" data-tit="img element [usemap] attribute" data-ex="img_area">
+			<div class="uk_gist_code_box mt_ms" data-tit="img element [usemap] attribute"><!-- data-ex="img_area" -->
 				<textarea readonly="readonly">
 					<img src="/examples/images/img_imagemap.jpg" alt="진실 혹은 거짓" usemap="#vending" style="width:320px; height:240px" />
 					<map name="vending">
-						<area>
-						<area>
+						<area shape="poly" coords="50,150,230,120,230,180,50,210" alt="진실" href="#">
+						<area shape="circle" coords="140,100,40" alt="거짓" href="#">
 					</map>
 				</textarea>
 			</div>
