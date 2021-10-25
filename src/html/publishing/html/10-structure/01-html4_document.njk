@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content -%}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			문서의 구조, 즉 <code>&lt;body&gt;</code>와 <code>&lt;/body&gt;</code> 사이에 있는 것의 의미론적 구조는 페이지 내용을 사용자에게 전달하는 데 중요한 토대가 됩니다.<br>
 			HTML4에선 일종의 섹션과 그 하위 섹션으로 구분하는 개념을 써서 문서의 구조를 표현합니다.<br>
@@ -43,16 +43,12 @@
 		<div class="uk_editor indent min_height_500" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
-
-		<div class="mt_s indent">
-			<h3 class="sound_only">설명</h3>
-			<div class="line_code">
-				위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
-				<p class="mt_sm t_green">
-					<span>1. HTML</span><br>
-					<span class="indent">1.1 HTML 이란?</span>
-				</p>
-			</div>
+		<div class="mt_s indent line_code">
+			위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+			<p class="mt_sm t_green">
+				<span>1. HTML</span><br>
+				<span class="indent">1.1 HTML 이란?</span>
+			</p>
 		</div>
 	</section>
 
@@ -61,19 +57,15 @@
 		<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
-
-		<div class="mt_s indent">
-			<h3 class="sound_only">설명</h3>
-			<div class="line_code">
-				위와 같이 새로운 섹션을 정의할 때 <code>&lt;div&gt;</code> 요소가 꼭 필요한 것은 아닙니다. 단순히 HTML 제목 요소만 있으면 새로운 섹션이 시작됨을 자동으로 암시해 줍니다.<br>
-				위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
-				<p class="mt_sm t_green">
-					<span>1. HTML</span><br>
-					<span class="indent">1.1 HTML 이란?</span><br>
-					<span class="indent">1.2 HTML 기본구조</span><br>
-					<span>2. CSS</span>
-				</p>
-			</div>
+		<div class="mt_s indent line_code">
+			위와 같이 새로운 섹션을 정의할 때 <code>&lt;div&gt;</code> 요소가 꼭 필요한 것은 아닙니다. 단순히 HTML 제목 요소만 있으면 새로운 섹션이 시작됨을 자동으로 암시해 줍니다.<br>
+			위의 구조는 다음과 같은 문서 아웃라인을 가지게 됩니다.<br>
+			<p class="mt_sm t_green">
+				<span>1. HTML</span><br>
+				<span class="indent">1.1 HTML 이란?</span><br>
+				<span class="indent">1.2 HTML 기본구조</span><br>
+				<span>2. CSS</span>
+			</p>
 		</div>
 	</section>
 {%- endblock %}

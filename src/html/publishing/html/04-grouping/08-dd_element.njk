@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			정의 목록 요소(<code>&lt;dl&gt;</code>)에서 용어의 정의를 나타냅니다.<br>
 			이것은 정의 목록 요소의 자식 요소로서만 등장할 수 있으며, <code>&lt;dt&gt;</code>뒤에 요소가 따라와야 합니다.<br>
@@ -30,7 +30,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl" data-target="html/04-grouping/4.8.dt_element/4.8.dd_element.html">
-		<h2 class="ve_tit">기본 문법</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 기본 문법</h2>
 		<div class="uk_gist_code_box indent mt_ms" data-tit="dd element">
 			<textarea readonly="readonly">
 				<dl>

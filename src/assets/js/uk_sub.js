@@ -2,14 +2,19 @@
 // selector ------------------------------------------------------------------------------------------------------------
 const _top_link = $('.top_link');
 const _sub_content = $('.sub_content');
+const _content_area = _sub_content.find('> .content_area');
 const _side_menu_area = $('.side_menu_area');
 const _side_toggle = _side_menu_area.find('.side_menu_toggle');
 const _side_menu = $('.side_menu');
 const _side_menu_d3 = _side_menu.find('.depth3 > li');
 const kmtemp_resize_iframe = 'kmtemp_resize_iframe';
+const _content_bottom_btn = $('.content_bottom_btn');
+const _go_top_btn = _content_bottom_btn.find('.go_top_btn');
+const _con_lst_btn = _content_bottom_btn.find('.con_lst_btn');
 
 const loading_scroll_top = 'loading_scroll_top';
 let loading_sct = null;
+const go_top_size = 200;
 
 
 // document ready ------------------------------------------------------------------------------------------------------
@@ -18,7 +23,7 @@ $(document).ready(function(){
   ukEditor_txtarea();
   uk_editor();
   uk_gist_skin_code();
-  //focus_controll();
+  focus_controll();
 
   // side menu toggle
   const sideToggle = 'sideToggle';
@@ -102,12 +107,74 @@ $(window).on('load', function(){
   // km_temp 컨텐츠 iframe resize
   uk_kmTemp_resize();
 
-
-  $('.go_top button').css('opacity',1);
-  $('.go_top button').on('click', function(){
-    _htmlBody.stop().animate({scrollTop:0}, 800);
+  // go top
+  $(window).scrollTop() > go_top_size ? _go_top_btn.css('opacity',1) : false;
+  _go_top_btn.on('click', function(){
+    _htmlBody.stop().animate({scrollTop:0}, 800, 'easeInOutCubic');
     return false;
   });
+
+
+
+  // content list 생성 및 클릭 시 이동
+  const content_section = _content_area.children('section, article');
+  if( !_body.is('.content_lst_none') ){
+    _content_bottom_btn.addClass('list_show');
+
+    const data_title_num = 'data-title-num';
+    const content_list = 'content_list';
+    _content_bottom_btn.append('<nav class="'+content_list+'"><ul class="cl_d1"></ul></nav>');
+    const _content_list = $('.'+content_list+' ul');
+
+    // h2 생성
+    content_section.each(function(i, e){
+      const h2_target = $(e).find('>h2');
+      const h2_txt = h2_target.text().replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      const tit_number = 'title_'+(i+1);
+      h2_target.attr(data_title_num, tit_number);
+      _content_list.append('<li><a href="#" '+data_title_num+'="'+tit_number+'">'+h2_txt+'</a></li>');
+
+      // h3 생성
+      const data_conlist = $(e).attr('data-conlist');
+      if( $(e).find('h3').is(':visible') && data_conlist !== 'false' ){
+        _content_list.find('> li').eq(i).append('<ul class="cl_d2"></ul>');
+        $(e).find('h3').each(function(j, k){
+          const h3_target = $(k);
+          let h3_text_append;
+
+          if( h3_target.html().split('<')[0] !== '' ) h3_text_append = h3_target.html().split('<')[0];
+          else h3_text_append = h3_target.text();
+
+          const h3_txt = h3_text_append.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+          const tit_number = 'title_'+(i+1)+'_'+(j+1);
+          h3_target.attr(data_title_num, tit_number);
+          _content_list.find('> li').eq(i).find('.cl_d2').append('<li><a href="#" '+data_title_num+'="'+tit_number+'">'+h3_txt+'</a></li>');
+
+          // h4 생성
+          _content_list.find('> li').eq(i).find('.cl_d2 > li').eq(j).append('<ul class="cl_d3"></ul>');
+          if( $(k).attr('data-conlist-h4') === 'true' ){
+            $(k).nextAll().find('h4').each(function(a, b){
+
+              const h4_target = $(b);
+              let h4_text_append;
+
+              if( h4_target.text().split(':')[0] !== '' ) h4_text_append = h4_target.text().split(':')[0];
+              else h4_text_append = h4_target.text();
+
+              const h4_txt = h4_text_append.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+              const tit_number = 'title_'+(i+1)+'_'+(j+1)+'_'+(a+1);
+              h4_target.attr(data_title_num, tit_number);
+              _content_list.find('> li').eq(i).find('.cl_d2 > li').eq(j).find('.cl_d3').append('<li><a href="#" '+data_title_num+'="'+tit_number+'">'+h4_txt+'</a></li>');
+
+              console.log(h4_txt);
+            });
+          }
+        });
+      }
+    });
+
+    _con_lst_btn.on('click', function(){});
+  }
 });
 
 
@@ -144,6 +211,9 @@ $(window).on('scroll', function(){
   let sub_top_offset = _sub_content.offset().top + Number(_sub_content.css('padding-top').replace('px','')) + $('#content_title').height()/2;
   sub_top_offset -= _ukHeader.height();
   sct > sub_top_offset ? _side_menu_area.addClass('title_show') : _side_menu_area.removeClass('title_show') ;
+
+  // go top 버튼 노출
+  sct > go_top_size ? _go_top_btn.css('opacity',1) : _go_top_btn.css('opacity',0);
 }).trigger('scroll');
 
 

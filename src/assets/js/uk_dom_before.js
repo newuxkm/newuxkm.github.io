@@ -33,6 +33,14 @@ setTimeout(function(){
   let hd_proW = (sct/docHeight)*100;
   $('.hd_progress').css('width', hd_proW+'%');
 
+  // uk_gist_code_box 적용 전 세로값 유지 ------------------------------------------------------------------------------
+  uk_gist_code_layout();
+
+  // content list 한개 이상일 때 con_lst_btn 버튼 노출 -----------------------------------------------------------------
+  const content_section = $('.content_area').children('section, article');
+  if( !$('body').is('.content_lst_none') ) $('.content_bottom_btn').addClass('list_show');
+
+
   // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우) -----------------------------------------
   // let top_link_offset = $('.top_link').find('ul').offset().top - 1;
   // if( top_link_offset !== undefined || top_link_offset !== 'undefined' ){
@@ -46,10 +54,8 @@ setTimeout(function(){
   //   sub_top_offset -= $('.uk_header').height();
   //   sct > sub_top_offset ? $('.side_menu_area').addClass('title_show') : $('.side_menu_area').removeClass('title_show') ;
   // }
-
-  // uk_gist_code_box 적용 전 세로값 유지 ------------------------------------------------------------------------------
-  uk_gist_code_layout();
 });
+
 
 function uk_gist_code_layout(){
   const uk_gist_code_box = 'uk_gist_code_box';

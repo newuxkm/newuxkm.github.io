@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content -%}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;legend&gt;</code> 요소는 <code>&lt;fieldset&gt;</code> 요소의 캡션(caption)을 정의할 때 사용합니다.<br>
 			HTML5에서는 <code>&lt;legend&gt;</code> 요소의 align 속성을 더 이상 지원하지 않습니다.
@@ -41,7 +41,7 @@
 	</section>
 
 	<section class="view_editor edit_code mt_xxl" data-target="html/09-forms/9.14.legend_element.html">
-		<h2 class="ve_tit">legend element 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 예제</h2>
 		<div class="uk_editor indent min_height_600" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>

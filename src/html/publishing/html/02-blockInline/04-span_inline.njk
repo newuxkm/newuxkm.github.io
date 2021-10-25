@@ -11,7 +11,8 @@
 	Info: true,
 	note: true,
 	sideMenu: true,
-	reference: false
+	reference: false,
+	contentList: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
@@ -20,7 +21,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;span&gt;</code>요소는 텍스트(text)의 특정 부분을 묶는 데 자주 사용되는 인라인(inline) 요소입니다.<br>
 			<code>&lt;span&gt;</code>요소는 주로 텍스트의 특정 부분에 따로 스타일을 적용하기 위해 사용됩니다.

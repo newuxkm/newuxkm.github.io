@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;pre&gt;</code> 요소는 미리 서식이 지정된 텍스트를 나타냅니다(mark-up).<br>
 			이 요소 내의 텍스트는 대게 파일에 쓰여졌던 그대로 (요소 밖 텍스트와는) 비례하지 않는 글꼴로 표시됩니다.<br>
@@ -32,7 +32,7 @@
 	</section>
 
 	<section class="view_editor edit_code mt_xxl" data-target="html/04-grouping/4.12.pre_element/4.12.pre_element.html">
-		<h2 class="ve_tit">pre element 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 예제</h2>
 		<div class="uk_editor indent min_height_650" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>

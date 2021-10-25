@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="ol_lst font14 mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;wbr&gt;</code> 요소(Word Break Opportunity)는 단어 중간에서 행바꿈 될 수 있는(line-break) 위치를 정의할 때 사용합니다.<br>
 			길이가 굉장히 긴 단어의 경우 브라우저가 해당 단어를 잘못된 위치에서 행바꿈 하지 않도록 <code>&lt;wbr&gt;</code> 요소를 사용하여 행바꿈 될 수 있는 위치를 직접 명시할 수 있습니다.
@@ -32,7 +32,7 @@
 	</section>
 
 	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.23.wbr_element.html">
-		<h2 class="ve_tit">wbr element 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 예제</h2>
 		<div class="uk_editor indent min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>

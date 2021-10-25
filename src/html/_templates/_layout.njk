@@ -57,7 +57,7 @@
 <!DOCTYPE html>
 <html lang="ko" class="{{ html_class }} ">
 {% include( path.include + "/_head.njk" ) %}
-<body class="{{ pageLayout.mainClass }}">
+<body class="{{ pageLayout.mainClass }} {%- if pageLayout.contentList === false %} content_lst_none {%- endif %}">
 <div class="uk_wrap" {%- if pageData.mainPage !== true %} data-active="{{ d1 }}/{{ d2 }}" {%- endif %}>
 	{%- macro include(fileName) -%}
 	{%- include fileName ignore missing -%}
@@ -137,7 +137,7 @@
 					{%- if pageNumber.depth4 %}
 					<h1 id="content_title" {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 | replace('element', '<span class="t_bbb">element</span>') }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- else %}
-					<h1 data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }} <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- endif %}
 					<time class="last_update" datetime="{{ pageData.last_update }}">{{ pageData.last_update }}</time>
 				</header>
@@ -192,7 +192,10 @@
 		</div>
 		<!-- // sub main content (.sub_content) -->
 
-		<div class="go_top inner"><button type="button"><i>맨위로</i></button></div>
+		<div class="content_bottom_btn inner">
+			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
+		</div>
 	</div>
 	{#- // sub content area ------------------------------------------------------------------------------------------- #}
 	{%- endif %}

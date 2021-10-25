@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			HTML Table Column 요소(<code>&lt;col&gt;</code>)는 표 내부의 열을 정의하며 모든 공통 셀들의 공통 시멘틱을 정의하기 위해 사용됩니다.<br>
 			반드시 <code>&lt;colgroup&gt;</code> 요소의 자식 요소로 존재해야 합니다.<br>
@@ -29,7 +29,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl" data-target="html/08-table/8.4.colgroup_element.html">
-		<h2 class="ve_tit">col element 코드 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 코드 예제</h2>
 		<div class="uk_gist_code_box indent mt_ms" data-tit="col element">
 			<textarea readonly="readonly">
 				<table>

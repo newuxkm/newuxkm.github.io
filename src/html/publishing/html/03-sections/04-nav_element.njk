@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="ol_lst mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;nav&gt;</code> 요소는 현재 페이지 안, 또는 다른 페이지로 가는 링크를 보여주는 페이지의 한 구조를 말합니다. 주로 태그 안에 메뉴, 목차, 색인 등이 들어갑니다.
 		</p>
@@ -33,7 +33,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl" data-target="html/03-sections/3.4.nav_element.html">
-		<h2 class="ve_tit">기본 문법</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 기본 문법</h2>
 		<div class="uk_gist_code_box indent mt_ms" data-tit="nav element">
 			<textarea readonly="readonly">
 				<nav>

@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;hgroup&gt;</code> 요소 (HTML 제목 그룹 요소)는 제목의 구조를 나타냅니다.<br>
 			자신이 속한 암시적이거나 명백한 구조의 주제로서 문서의 개요 안에 있는 하나의 제목을 말합니다.<br>
@@ -29,7 +29,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl" data-target="html/03-sections/3.8.hgroup_element.html">
-		<h2 class="ve_tit">기본 문법</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 기본 문법</h2>
 		<div class="uk_gist_code_box indent mt_ms" data-tit="hgroup element">
 			<textarea readonly="readonly">
 				<header>

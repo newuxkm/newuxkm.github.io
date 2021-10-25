@@ -11,7 +11,8 @@
 	Info: true,
 	note: true,
 	sideMenu: true,
-	reference: false
+	reference: false,
+	contentList: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
@@ -38,7 +39,7 @@
 	</blockquote>
 
 	<section class="ol_lst mt_l">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>display</code> 속성값이 인라인(inline)인 요소는 새로운 라인(line)에서 시작하지 않습니다.
 			또한, 요소의 너비(width)도 해당 라인 전체가 아닌 해당 HTML 요소의 내용(content)만큼만 차지합니다. 그리고 인라인 요소 안에 블록 요소가 들어 올 수 없습니다.
@@ -54,7 +55,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl" data-target="html/02-blockInline/2.3.inline_element.html">
-		<h2 class="ve_tit">inline 요소의 기본 구조</h2>
+		<h2 class="ve_tit">{{ pageData.title }}의 기본 구조</h2>
 		<div class="uk_gist_code_box indent mt_ms" data-tit="Inline elements">
 				<textarea readonly="readonly">
 					<p>

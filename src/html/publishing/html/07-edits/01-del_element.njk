@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;del&gt;</code>(Deleted Text) 요소(<code>&lt;del&gt;</code>)는 문서에서 삭제된 텍스트의 범위를 나타냅니다.<br>
 			이 요소는 보통 (그럴 필요는 없지만)가운데 줄 텍스트로 렌더링 됩니다.<br>
@@ -61,7 +61,7 @@
 	</section>
 
 	<section class="view_editor edit_code mt_xxl" data-target="html/07-edits/7.1.del_element.html">
-		<h2 class="ve_tit">del element 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 예제</h2>
 		<div  class="uk_editor indent min_height_400" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>

@@ -1347,12 +1347,12 @@ $edt_btn_left:6px;
 						border-radius:4px;
 					}
 				}
-				&.chrome:after {background-image:url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/chrome-android_18-36/chrome-android_18-36_32x32.png');}
-				&.firefox:after {background-image:url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/firefox_57-70/firefox_57-70_32x32.png');}
-				&.ie:after {background-image:url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/internet-explorer_9-11/internet-explorer_9-11_32x32.png');}
-				&.edge:after {background-image:url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/edge/edge_32x32.png');}
-				&.opera:after {background-image:url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/opera_15-32/opera_15-32_32x32.png');}
-				&.safari:after {background-image:url('https://cdnjs.cloudflare.com/ajax/libs/browser-logos/58.1.3/archive/safari_1-7/safari_1-7_32x32.png');}
+				&.chrome:after {background-image:url('#{$bg-browser}/chrome-android_18-36_32x32.png');}
+				&.firefox:after {background-image:url('#{$bg-browser}/firefox_57-70_32x32.png');}
+				&.ie:after {background-image:url('#{$bg-browser}/internet-explorer_9-11_32x32.png');}
+				&.edge:after {background-image:url('#{$bg-browser}/edge_32x32.png');}
+				&.opera:after {background-image:url('#{$bg-browser}/opera_15-32_32x32.png');}
+				&.safari:after {background-image:url('#{$bg-browser}/safari_1-7_32x32.png');}
 
 				&.desktop i {display:none;}
 				i {

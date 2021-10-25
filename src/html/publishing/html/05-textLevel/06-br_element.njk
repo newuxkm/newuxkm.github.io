@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;br&gt;</code> 요소는 텍스트 내의 줄바꿈(line-break)을 정의할 때 사용합니다.<br>
 			HTML 소스 코드 내에서는 엔터(Enter)를 사용하여 줄바꿈을 실시하여도 브라우저 화면에 실제로 적용되지는 않습니다.<br>
@@ -53,7 +53,7 @@
 	</section>
 
 	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.6.br_element.html">
-		<h2 class="ve_tit">br element 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 예제</h2>
 		<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>

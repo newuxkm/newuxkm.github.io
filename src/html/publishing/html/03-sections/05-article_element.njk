@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only"></h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;article&gt; HTML &lt;article&gt;</code> 요소는 문서, 페이지, 애플리케이션,
 			또는 사이트 안에 독립적으로 구분되거나 재사용 가능한 영역(예: 신디케이션)을 구성할 수 있습니다.<br>
@@ -29,7 +29,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl">
-		<h2 class="ve_tit">기본 문법</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 기본 문법</h2>
 		<div class="uk_gist_code_box indent mt_ms" data-tit="article element">
 				<textarea readonly="readonly">
 					<article>

@@ -11,7 +11,8 @@
 	Info: true,
 	note: true,
 	sideMenu: true,
-	reference: false
+	reference: false,
+	contentList: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
@@ -20,7 +21,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;div&gt;</code>요소는 다른 HTML 요소들을 하나로 묶는 데 자주 사용되는 대표적인 블록(block) 요소입니다.<br>
 			<code>&lt;div&gt;</code>요소는 주로 여러 요소들의 스타일을 한 번에 적용하기 위해 사용됩니다.

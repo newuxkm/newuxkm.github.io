@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;s&gt;</code> 요소는 텍스트를 가로지르는 라인(line)을 추가하여 더 이상 정확하지 않거나 관련이 없는 텍스트를 표현할 때 사용합니다.<br>
 			<code>&lt;s&gt;</code> 요소를 사용하여 문서에서 대체되거나 삭제된 텍스트를 표현해서는 안 되며, 해당 텍스트는 <code>&lt;del&gt;</code> 요소를 사용해서 표현해야만 합니다.<br>
@@ -40,7 +40,7 @@
 	</section>
 
 	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.8.s_element.html">
-		<h2 class="ve_tit">s element 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 예제</h2>
 		<div class="uk_editor indent" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>

@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="ol_lst font14 mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;data&gt;</code> 요소는 특정 콘텐츠에 기계가 읽을 수 있는(machine-readable) 형태의 값(value)을 덧붙여 나타낼 때 사용합니다.<br>
 			<code>&lt;data&gt;</code> 요소는 데이터 처리를 위해 기계가 읽을 수 있는 형태의 값과 브라우저에 표시되어 사람이 읽을 수 있는 형태의 값을 모두 제공합니다.<br>
@@ -38,7 +38,7 @@
 	</section>
 
 	<section class="view_editor edit_code mt_xxl" data-target="html/05-textLevel/5.17.data_element.html">
-		<h2 class="ve_tit">data element 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 예제</h2>
 		<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>

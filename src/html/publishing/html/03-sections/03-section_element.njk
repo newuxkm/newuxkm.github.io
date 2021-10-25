@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;section&gt;</code>는 문서의 일반적인 구조를 나타냅니다.<br>
 			즉, (전형적으로 제목을 가지고 있는)콘텐츠의 주제 그룹을 말합니다.<br>
@@ -30,7 +30,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl">
-		<h2 class="ve_tit">기본 문법</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 기본 문법</h2>
 
 		<div class="uk_gist_code_box indent mt_ms" data-tit="section element">
 			<textarea readonly="readonly">

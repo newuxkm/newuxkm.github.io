@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			<code>&lt;header&gt;</code> 요소는 소개나 탐색을 돕는 그룹을 나타냅니다.<br>
 			일부 제목 요소들을 포함할 수도 있지만, 로고나 그룹의 제목, 탐색 폼과 같은 것들이 포함될 수도 있습니다.
@@ -28,7 +28,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl">
-		<h2 class="ve_tit">예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 예제</h2>
 
 		<div class="uk_gist_code_box indent mt_ms" data-tit="header element">
 			<textarea readonly="readonly">

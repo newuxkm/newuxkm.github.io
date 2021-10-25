@@ -20,7 +20,7 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
 	<section class="mt_xxl">
-		<h2 class="sound_only">요소 설명</h2>
+		<h2 class="sound_only">{{ pageData.title }} 설명</h2>
 		<p>
 			멀티미디어, 중첩된 브라우저 컨텍스트(프레임), 플러그인 등을 삽입합니다.<br>
 			<code>&lt;object&gt;</code> 요소는 외부 리소스의 종류에 따라 문서 내에서 처리하는 방식을 변경할 수 있는 임베디드 객체(embedded object)를 정의할 때 사용합니다.<br>
@@ -105,7 +105,7 @@
 	</section>
 
 	<section class="view_editor ex_code mt_xxl" data-target="html/06-embedded/6.12.object_element.html">
-		<h2 class="ve_tit">object element 코드 예제</h2>
+		<h2 class="ve_tit">{{ pageData.title }} 코드 예제</h2>
 		<div class="uk_gist_code_box indent mt_ms" data-tit="object element">
 			<textarea readonly="readonly">
 				<object type="application/pdf" data="https://interactive-examples.mdn.mozilla.net/media/examples/In-CC0.pdf" width="250" height="200">
