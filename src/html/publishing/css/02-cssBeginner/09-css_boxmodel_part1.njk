@@ -37,11 +37,11 @@
 
 	<figure class="img_figure mt_l">
 		<img src="{{ path.img_cssBeginner }}/uxkm_boxmodel.svg" alt="박스 모델 다이어그램">
-		<!--
+		{#-
 		<img src="/ukncs/images/css/boxdim.png" alt="박스 모델 다이어그램">
 		<img src="/ukncs/images/css/img_css_boxsize.png" alt="박스 모델 예시">
 		<img src="/ukncs/images/css/img_box-model-detail.png" alt="박스 모델 상세">
-		-->
+		#}
 		<figcaption>
 			<strong class="t_black">[박스 모델 다이어그램]</strong><!--[이미지 참조:W3C 박스 모델]-->
 			<ul>
@@ -101,16 +101,16 @@
 			CSS에서 크기 조절을 위해 사용할 수 있는 속성은 다음과 같습니다.
 		</p>
 		<div class="uk_gist_code_box mt_ms" data-tit="width, height">
-				<textarea readonly="readonly">
-					div {
-						width: <length> | <percentage>;
-						height: <length> | <percentage>;
-						max-width: <length> | <percentage>;
-						max-height: <length> | <percentage>;
-						min-width: <length> | <percentage>;
-						min-height: <length> | <percentage>;
-					}
-				</textarea>
+			<textarea readonly="readonly">
+				div {
+					width: <length> | <percentage>;
+					height: <length> | <percentage>;
+					max-width: <length> | <percentage>;
+					max-height: <length> | <percentage>;
+					min-width: <length> | <percentage>;
+					min-height: <length> | <percentage>;
+				}
+			</textarea>
 		</div>
 
 		<!-- width 속성 -->
@@ -218,11 +218,11 @@
 			모든 margin 속성을 이용한 스타일을 한 줄에 설정할 수 있습니다.
 		</p>
 		<div class="uk_gist_code_box mt_ms" data-tit="margin">
-				<textarea readonly="readonly">
-					div {
-						margin: margin-width | inherit;
-					}
-				</textarea>
+			<textarea readonly="readonly">
+				div {
+					margin: margin-width | inherit;
+				}
+			</textarea>
 		</div>
 		<figure class="img_figure mt_m">
 			<img src="{{ path.img_cssBeginner }}/uxkm_boxmodel_margin.svg" alt="margin boxmodel">
@@ -236,52 +236,50 @@
 				margin을 각각 방향별로 설정할 수 있습니다.
 			</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="margin">
-					<textarea readonly="readonly">
-						div {
-							margin-top: 10px;    /* 윗쪽의 마진(margin) 값을 설정합니다. */
-							margin-right: 10px;  /* 오른쪽의 마진(margin) 값을 설정합니다. */
-							margin-bottom: 10px; /* 아래쪽의 마진(margin) 값을 설정합니다. */
-							margin-left: 10px;   /* 왼쪽의 마진(margin) 값을 설정합니다. */
-						}
-					</textarea>
+				<textarea readonly="readonly">
+					div {
+						margin-top: 10px;    /* 윗쪽의 마진(margin) 값을 설정합니다. */
+						margin-right: 10px;  /* 오른쪽의 마진(margin) 값을 설정합니다. */
+						margin-bottom: 10px; /* 아래쪽의 마진(margin) 값을 설정합니다. */
+						margin-left: 10px;   /* 왼쪽의 마진(margin) 값을 설정합니다. */
+					}
+				</textarea>
 			</div>
 		</article>
 
-		<!-- margin-top 속성
+		{#-
+		<!-- margin-top 속성 -->
 		<article class="mt_l indent">
 			<h3 class="ml_mn"><i class="t_blue">margin-top</i> 속성</h3>
 			<p class="mt_s">
 				윗쪽의 마진(margin) 값을 설정함.
 			</p>
 		</article>
-		-->
 
-		<!-- margin-right 속성
+		<!-- margin-right 속성 -->
 		<article class="mt_l indent">
 			<h3 class="ml_mn"><i class="t_blue">margin-right</i> 속성</h3>
 			<p class="mt_s">
 				오른쪽의 마진(margin) 값을 설정함.
 			</p>
 		</article>
-		-->
 
-		<!-- margin-bottom 속성
+		<!-- margin-bottom 속성 -->
 		<article class="mt_l indent">
 			<h3 class="ml_mn"><i class="t_blue">margin-bottom</i> 속성</h3>
 			<p class="mt_s">
 				아래쪽의 마진(margin) 값을 설정함.
 			</p>
 		</article>
-		-->
 
-		<!-- margin-left 속성
+		<!-- margin-left 속성 -->
 		<article class="mt_l indent">
 			<h3 class="ml_mn"><i class="t_blue">margin-left</i> 속성</h3>
 			<p class="mt_s">
 				왼쪽의 마진(margin) 값을 설정함.
 			</p>
 		</article>
-		-->
+		#}
 
 		<!-- margin 축약형 속성 -->
 		<article class="mt_l indent">
@@ -298,32 +296,32 @@
 					<li class="line_code font14 mt_ms">
 						<strong>4개의 값을 지정할 때 top, right, bottom, left 순(시계방향)으로 설정합니다.</strong>
 						<div class="uk_gist_code_box mt_s" data-tit="margin shorthand">
-								<textarea readonly="readonly">
-									div {
-										margin: 10px 20px 30px 40px;
-										/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
-										margin-top: 10px;
-										margin-right: 20px;
-										margin-bottom: 30px;
-										margin-left: 40px;
-									}
-								</textarea>
+							<textarea readonly="readonly">
+								div {
+									margin: 10px 20px 30px 40px;
+									/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+									margin-top: 10px;
+									margin-right: 20px;
+									margin-bottom: 30px;
+									margin-left: 40px;
+								}
+							</textarea>
 						</div>
 					</li>
 					<li class="line_code font14 mt_ml">
 						<strong>3개의 값을 지정할 때 top, [right/left], bottom 순으로 설정합니다.</strong>
 						<p class="mt_sm">좌/우의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
 						<div class="uk_gist_code_box mt_s" data-tit="margin shorthand">
-								<textarea readonly="readonly">
-									div {
-										margin: 25px 50px 75px;
-										/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
-										margin-top: 25px;
-										margin-right: 50px;
-										margin-left: 50px;
-										margin-bottom: 75px
-									}
-								</textarea>
+							<textarea readonly="readonly">
+								div {
+									margin: 25px 50px 75px;
+									/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+									margin-top: 25px;
+									margin-right: 50px;
+									margin-left: 50px;
+									margin-bottom: 75px
+								}
+							</textarea>
 						</div>
 					</li>
 					<li class="line_code font14 mt_ml">
@@ -331,32 +329,32 @@
 						<p class="mt_sm">상/하의 값이 같고, 좌/우의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
 						<p>이 때 좌/우의 값을 auto로 지정하면 가운데로 정렬이 가능합니다.</p>
 						<div class="uk_gist_code_box mt_s" data-tit="margin shorthand">
-								<textarea readonly="readonly">
-									div {
-										margin: 25px 50px;
-										/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
-										margin-top: 25px;
-										margin-bottom: 25px;
-										margin-right: 50px;
-										margin-left: 50px;
-									}
-								</textarea>
+							<textarea readonly="readonly">
+								div {
+									margin: 25px 50px;
+									/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+									margin-top: 25px;
+									margin-bottom: 25px;
+									margin-right: 50px;
+									margin-left: 50px;
+								}
+							</textarea>
 						</div>
 					</li>
 					<li class="line_code font14 mt_ml">
 						<strong>1개의 값을 지정하여 설정합니다.</strong>
 						<p class="mt_sm">상/우/하/좌의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
 						<div class="uk_gist_code_box mt_s" data-tit="margin shorthand">
-								<textarea readonly="readonly">
-									div {
-										margin: 25px;
-										/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
-										margin-top: 25px;
-										margin-right: 25px;
-										margin-bottom: 25px;
-										margin-left: 25px;
-									}
-								</textarea>
+							<textarea readonly="readonly">
+								div {
+									margin: 25px;
+									/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+									margin-top: 25px;
+									margin-right: 25px;
+									margin-bottom: 25px;
+									margin-left: 25px;
+								}
+							</textarea>
 						</div>
 					</li>
 				</ol>
@@ -384,11 +382,11 @@
 			CSS를 사용하면 패딩 영역의 크기를 방향별로 따로 설정할 수 있습니다.
 		</p>
 		<div class="uk_gist_code_box mt_ms" data-tit="padding">
-				<textarea readonly="readonly">
-					div {
-						padding: padding-width | inherit;
-					}
-				</textarea>
+			<textarea readonly="readonly">
+				div {
+					padding: padding-width | inherit;
+				}
+			</textarea>
 		</div>
 		<figure class="img_figure mt_m">
 			<img src="{{ path.img_cssBeginner }}/uxkm_boxmodel_padding.svg" alt="padding boxmodel">
@@ -402,52 +400,50 @@
 				padding을 각각 방향별로 설정할 수 있습니다.
 			</p>
 			<div class="uk_gist_code_box mt_ms" data-tit="margin">
-					<textarea readonly="readonly">
-						div {
-							padding-top: 10px;    /* 윗쪽의 패딩(padding) 값을 설정합니다. */
-							padding-right: 10px;  /* 오른쪽의 패딩(padding) 값을 설정합니다. */
-							padding-bottom: 10px; /* 아래쪽의 패딩(padding) 값을 설정합니다. */
-							padding-left: 10px;   /* 왼쪽의 패딩(padding) 값을 설정합니다. */
-						}
-					</textarea>
+				<textarea readonly="readonly">
+					div {
+						padding-top: 10px;    /* 윗쪽의 패딩(padding) 값을 설정합니다. */
+						padding-right: 10px;  /* 오른쪽의 패딩(padding) 값을 설정합니다. */
+						padding-bottom: 10px; /* 아래쪽의 패딩(padding) 값을 설정합니다. */
+						padding-left: 10px;   /* 왼쪽의 패딩(padding) 값을 설정합니다. */
+					}
+				</textarea>
 			</div>
 		</article>
 
-		<!-- padding-top 속성
+		{#-
+		<!-- padding-top 속성 -->
 		<article class="mt_l indent">
 			<h3 class="ml_mn"><i class="t_blue">padding-top</i> 속성</h3>
 			<p class="mt_s">
 				윗쪽의 패딩(padding) 값을 설정함.
 			</p>
 		</article>
-		-->
 
-		<!-- padding-right 속성
+		<!-- padding-right 속성 -->
 		<article class="mt_l indent">
 			<h3 class="ml_mn"><i class="t_blue">padding-right</i> 속성</h3>
 			<p class="mt_s">
 				오른쪽의 패딩(padding) 값을 설정함.
 			</p>
 		</article>
-		-->
 
-		<!-- padding-bottom 속성
+		<!-- padding-bottom 속성 -->
 		<article class="mt_l indent">
 			<h3 class="ml_mn"><i class="t_blue">padding-bottom</i> 속성</h3>
 			<p class="mt_s">
 				아래쪽의 패딩(padding) 값을 설정함.
 			</p>
 		</article>
-		-->
 
-		<!-- padding-left 속성
+		<!-- padding-left 속성 -->
 		<article class="mt_l indent">
 			<h3 class="ml_mn"><i class="t_blue">padding-left</i> 속성</h3>
 			<p class="mt_s">
 				왼쪽의 패딩(padding) 값을 설정함.
 			</p>
 		</article>
-		-->
+		#}
 
 		<!-- padding 축약형 속성 -->
 		<article class="mt_l indent">
@@ -461,32 +457,32 @@
 					<li class="line_code font14 mt_ms">
 						<strong>4개의 값을 지정할 때 top, right, bottom, left 순(시계방향)으로 설정합니다.</strong>
 						<div class="uk_gist_code_box mt_s" data-tit="padding shorthand">
-								<textarea readonly="readonly">
-									div {
-										padding: 10px 20px 30px 40px;
-										/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
-										padding-top: 10px;
-										padding-right: 20px;
-										padding-bottom: 30px;
-										padding-left: 40px;
-									}
-								</textarea>
+							<textarea readonly="readonly">
+								div {
+									padding: 10px 20px 30px 40px;
+									/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+									padding-top: 10px;
+									padding-right: 20px;
+									padding-bottom: 30px;
+									padding-left: 40px;
+								}
+							</textarea>
 						</div>
 					</li>
 					<li class="line_code font14 mt_ml">
 						<strong>3개의 값을 지정할 때 top, [right/left], bottom 순으로 설정합니다.</strong>
 						<p class="mt_sm">좌/우의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
 						<div class="uk_gist_code_box mt_s" data-tit="padding shorthand">
-								<textarea readonly="readonly">
-									div {
-										padding: 25px 50px 75px;
-										/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
-										padding-top: 25px;
-										padding-right: 50px;
-										padding-left: 50px;
-										padding-bottom: 75px;
-									}
-								</textarea>
+							<textarea readonly="readonly">
+								div {
+									padding: 25px 50px 75px;
+									/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+									padding-top: 25px;
+									padding-right: 50px;
+									padding-left: 50px;
+									padding-bottom: 75px;
+								}
+							</textarea>
 						</div>
 					</li>
 					<li class="line_code font14 mt_ml">
@@ -494,32 +490,32 @@
 						<p class="mt_sm">상/하의 값이 같고, 좌/우의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
 						<p>이 때 좌/우의 값을 auto로 지정하면 가운데로 정렬이 가능합니다.</p>
 						<div class="uk_gist_code_box mt_s" data-tit="padding shorthand">
-								<textarea readonly="readonly">
-									div {
-										padding: 25px 50px;
-										/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
-										padding-top: 25px;
-										padding-bottom: 25px;
-										padding-right: 50px;
-										padding-left: 50px;
-									}
-								</textarea>
+							<textarea readonly="readonly">
+								div {
+									padding: 25px 50px;
+									/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+									padding-top: 25px;
+									padding-bottom: 25px;
+									padding-right: 50px;
+									padding-left: 50px;
+								}
+							</textarea>
 						</div>
 					</li>
 					<li class="line_code font14 mt_ml">
 						<strong>1개의 값을 지정하여 설정합니다.</strong>
 						<p class="mt_sm">상/우/하/좌의 값이 같으면 하나로 명시하여 지정이 가능합니다.</p>
 						<div class="uk_gist_code_box mt_s" data-tit="padding shorthand">
-								<textarea readonly="readonly">
-									div {
-										padding: 25px;
-										/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
-										padding-top: 25px;
-										padding-right: 25px;
-										padding-bottom: 25px;
-										padding-left: 25px;
-									}
-								</textarea>
+							<textarea readonly="readonly">
+								div {
+									padding: 25px;
+									/* 위의 예제는 아래 4줄의 코드와 같은 의미를 가지고 있습니다. */
+									padding-top: 25px;
+									padding-right: 25px;
+									padding-bottom: 25px;
+									padding-left: 25px;
+								}
+							</textarea>
 						</div>
 					</li>
 				</ol>
@@ -539,7 +535,7 @@
 	</section>
 
 	<aside class="reference_box mt_xxl">
-		<h2 class="tit">박스 모델 속성 참조</h2>
+		<strong class="tit">박스 모델 속성 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#box-model" target="_blank" class="fas" title="새창열림">W3C Box Model</a></li>
 			<li class="reference"><a href="https://drafts.csswg.org/css-box-3" target="_blank" class="fas" title="새창열림">Draft, CSS Box Model Module Level 3</a></li>

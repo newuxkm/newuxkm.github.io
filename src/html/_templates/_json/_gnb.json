@@ -684,7 +684,7 @@
                   ]
                 },
                 {
-                  "d4_name": "CSS 속성 선언순서",
+                  "d4_name": "CSS 속성 선언 순서",
                   "d4_link": "/10-css_attr_rule"
                 }
               ]
@@ -724,12 +724,16 @@
                       "part_link": "/04-css_flexible_part1"
                     },
                     {
-                      "part_name": "부모 속성",
+                      "part_name": "부모 속성 part_1",
                       "part_link": "/04-css_flexible_part2"
                     },
                     {
-                      "part_name": "자식 속성 및 데모",
+                      "part_name": "부모 속성 part_2",
                       "part_link": "/04-css_flexible_part3"
+                    },
+                    {
+                      "part_name": "자식 속성 및 데모",
+                      "part_link": "/04-css_flexible_part4"
                     }
                   ]
                 },
@@ -746,16 +750,20 @@
                       "part_link": "/05-css_grid_part2"
                     },
                     {
-                      "part_name": "부모 속성",
+                      "part_name": "부모 속성 part_1",
                       "part_link": "/05-css_grid_part3"
                     },
                     {
-                      "part_name": "자식 속성",
+                      "part_name": "부모 속성 part_2",
                       "part_link": "/05-css_grid_part4"
                     },
                     {
-                      "part_name": "가이드, 데모",
+                      "part_name": "자식 속성",
                       "part_link": "/05-css_grid_part5"
+                    },
+                    {
+                      "part_name": "가이드, 데모",
+                      "part_link": "/05-css_grid_part6"
                     }
                   ]
                 },

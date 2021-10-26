@@ -21,11 +21,11 @@
 {% block content -%}
 	<blockquote class="uk_note mt_xxl" role="note">
 		<strong class="sound_only">요약 설명</strong>
-		<!--
+		{#-
 		<p>
 			<b class="t_blue">Transform part1</b> 에서는 <code>[2D transform]</code>에 대한 내용을 다루고 있습니다.
 		</p>
-		-->
+		#}
 		<p><!-- class="mt_m" -->
 			CSS의 transform 속성을 사용함으로써, CSS의 시각적 서식 모델(visual formatting model)의 좌표 공간을 변형시킬 수 있습니다.<br>
 			해당 속성에 지정된 값에 따라 엘리먼트(element)에 이동(translate), 회전(rotate), 크기변경(scale), 기울임(skew)등의 효과를 줄 수 있습니다.<br>
@@ -62,7 +62,7 @@
 			</li>
 		</ol>
 	</div>
-	<!--<p class="mt_ml indent"><i class="t_black weight-500">기본문법</i> : <code>&lt;transform-function&gt; [&lt;transform-function&gt;]* | none</code></p>-->
+	{#-<p class="mt_ml indent"><i class="t_black weight-500">기본문법</i> : <code>&lt;transform-function&gt; [&lt;transform-function&gt;]* | none</code></p>#}
 	<div class="uk_gist_code_box indent_max mt_m" data-tit="transform 2D">
 		<textarea readonly="readonly">
 			div {
@@ -97,7 +97,7 @@
 	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn">4.1.1. 2D Transform</h2>
 		<blockquote class="uk_note mt_ml" role="note">
-			<h3 class="sound_only">요약 설명</h3>
+			<strong class="sound_only">요약 설명</strong>
 			<p>
 				transform(변형)은 CSS3에 추가된 기능 중 하나로 2D의 변형을 말합니다.<br>
 				변형이라는 것은 쉽게 말해서 특정 요소를 여러 가지 방법으로 모양을 바꾸는 것을 의미합니다.<br>
@@ -139,7 +139,7 @@
 
 		<!-- transform 속성 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn"><i class="t_blue">transform</i> 속성</h3>
+			<h3 class="ml_mn" data-conlist-h4="true"><i class="t_blue">transform</i> 속성</h3>
 			<div class="ol_lst mt_m">
 				<ol>
 					<!-- scale() 함수(function) -->
@@ -511,7 +511,7 @@
 	</aside>
 
 	<aside class="reference_box mt_xxl">
-		<h2 class="tit">Transform 참조</h2>
+		<strong class="tit">Transform 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/TR/css-transforms-1/" target="_blank" class="fas" title="새창열림">W3c CSS Transforms Module Level 1</a></li>
 			<li class="reference"><a href="https://drafts.csswg.org/css-transforms-2/" target="_blank" class="fas" title="새창열림">W3C CSS Transforms Module Level 2</a></li>

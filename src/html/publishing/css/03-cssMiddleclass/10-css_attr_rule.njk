@@ -1,7 +1,7 @@
 {% set pageNumber = { depth1: 1, depth2: 2, depth3: 3, depth4: 10 } %}
 {% set pageData = {
-	title: "CSS 속성 선언순서",
-	description: "CSS 속성 선언순서 입니다.",
+	title: "CSS 속성 선언 순서",
+	description: "CSS 속성 선언 순서 입니다.",
 	keyword: "",
 	last_update: "0000-00-00"
 } %}
@@ -54,10 +54,10 @@
 
 	<!-- 해당 문서에서 사용되는 CSS 속성 선언 순서 -->
 	<section class="txt_ex indent mt_xxl">
-		<h2 class="ml_mn">해당 문서에서 사용되는 CSS 속성 선언 순서</h2>
+		<h2 class="ml_mn">해당 문서에서 사용되는 {{ pageData.title }}</h2>
 		<div class="ol_lst mt_ms">
 			<ol>
-				<!--
+				{#-
 				<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
 				<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
 				<li><strong class="weight-500 t_black">display</strong> - 위치 속성(Visual formatting model)</li>
@@ -94,7 +94,7 @@
 				<li><strong class="weight-500 t_black">cursor</strong> - 사용자 인터페이스 속성(User interface)</li>
 				<li><strong class="weight-500 t_black">opacity</strong> - 사용자 인터페이스 속성(User interface)</li>
 				<li><strong class="weight-500 t_black">etc</strong> - 위에 언급되지 않은 기타 나머지 속성들</li>
-				-->
+				#}
 				<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
 				<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
 				<li><strong class="weight-500 t_black">display</strong> - 위치 속성(Visual formatting model)</li>
@@ -137,7 +137,7 @@
 
 	<!-- Naver Site CSS 속성 선언 순서 -->
 	<section class="txt_ex indent mt_xxl">
-		<h2 class="ml_mn"><i class="t_green">Naver</i> Site CSS 속성 선언 순서</h2>
+		<h2 class="ml_mn"><i class="t_green">Naver</i> Site {{ pageData.title }}</h2>
 		<div class="ol_lst mt_ms">
 			<ol>
 				<li><strong class="weight-500 t_black">display</strong> - 표시(관련속성:visibility)</li>
@@ -182,7 +182,7 @@
 
 	<!-- Daum Site CSS 속성 선언 순서 -->
 	<section class="txt_ex indent mt_xxl">
-		<h2 class="ml_mn"><i class="t_blue">Daum</i> Site CSS 속성 선언 순서</h2>
+		<h2 class="ml_mn"><i class="t_blue">Daum</i> Site {{ pageData.title }}</h2>
 		<div class="ol_lst mt_ms">
 			<ol>
 				<li><strong class="weight-500 t_black">display</strong> - 표시</li>
@@ -231,7 +231,7 @@
 	</section>
 
 	<aside class="reference_box mt_xxl">
-		<h2 class="tit">CSS 속성 선언순서 참조</h2>
+		<strong class="tit">CSS 속성 선언순서 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://nuli.navercorp.com/sharing/fe/coding" target="_blank" class="fas" title="새창열림">NHN Coding Convention</a></li>
 			<li class="reference"><a href="http://darum.daum.net/convention/css/css_convention" target="_blank" class="fas" title="새창열림">Web Standards Darum</a></li>

@@ -37,9 +37,12 @@ setTimeout(function(){
   uk_gist_code_layout();
 
   // content list 한개 이상일 때 con_lst_btn 버튼 노출 -----------------------------------------------------------------
-  const content_section = $('.content_area').children('section, article');
   if( !$('body').is('.content_lst_none') ) $('.content_bottom_btn').addClass('list_show');
 
+  // 서브 텝메뉴가 5개 이상이경우 클래스 부여 (part menu)
+  if( $('.tab_menu li').length > 5 ){
+    $('.tab_menu').addClass('two_line_tab');
+  }
 
   // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우) -----------------------------------------
   // let top_link_offset = $('.top_link').find('ul').offset().top - 1;

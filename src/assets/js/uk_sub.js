@@ -11,6 +11,7 @@ const kmtemp_resize_iframe = 'kmtemp_resize_iframe';
 const _content_bottom_btn = $('.content_bottom_btn');
 const _go_top_btn = _content_bottom_btn.find('.go_top_btn');
 const _con_lst_btn = _content_bottom_btn.find('.con_lst_btn');
+const tab_menu = 'tab_menu';
 
 const loading_scroll_top = 'loading_scroll_top';
 let loading_sct = null;
@@ -114,7 +115,10 @@ $(window).on('load', function(){
     return false;
   });
 
-
+  // 서브 텝메뉴가 5개 이상이경우 클래스 부여 (part menu)
+  if( $('.'+tab_menu+' li').length > 5 ){
+    $('.'+tab_menu).addClass('two_line_tab');
+  }
 
   // content list 생성 및 클릭 시 이동
   const content_section = _content_area.children('section, article');
@@ -125,6 +129,7 @@ $(window).on('load', function(){
     const content_list = 'content_list';
     _content_bottom_btn.append('<nav class="'+content_list+'"><ul class="cl_d1"></ul></nav>');
     const _content_list = $('.'+content_list+' ul');
+    _content_list.before('<a href="#">'+ $('#content_title').text().replace('- by. UXKM','')+ '</a>');
 
     // h2 생성
     content_section.each(function(i, e){
@@ -173,7 +178,10 @@ $(window).on('load', function(){
       }
     });
 
+    // 리스트 토글
     _con_lst_btn.on('click', function(){});
+    
+    // 컨텐츠 이동
   }
 });
 

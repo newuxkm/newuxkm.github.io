@@ -21,11 +21,11 @@
 {% block content -%}
 	<blockquote class="uk_note mt_xxl" role="note">
 		<strong class="sound_only">요약 설명</strong>
-		<!--
+		{#-
 		<p>
 			<b class="t_blue">Transform part1</b> 에서는 <code>[3D transform]</code>에 대한 내용을 다루고 있습니다.
 		</p>
-		-->
+		#}
 		<p><!-- class="mt_m" -->
 			CSS의 transform 속성을 사용함으로써, CSS의 시각적 서식 모델(visual formatting model)의 좌표 공간을 변형시킬 수 있습니다.<br>
 			해당 속성에 지정된 값에 따라 엘리먼트(element)에 이동(translate), 회전(rotate), 크기변경(scale), 기울임(skew)등의 효과를 줄 수 있습니다.<br>
@@ -41,7 +41,7 @@
 	<section class="txt_ex indent mt_xxl">
 		<h2 class="ml_mn">4.1.3. 3D Transform</h2>
 		<blockquote class="uk_note mt_ml" role="note">
-			<h3 class="sound_only">요약 설명</h3>
+			<strong class="sound_only">요약 설명</strong>
 			<p>
 				CSS 3D transform 은 평면에서의 여러 개 CSS 속성을 조합하고
 				3D 공간에서의 회전, 확대, 이동, 비틀기를 포함하고 원근감, 관찰자의 위치을 부여해 3D 공간을 만들어 낼 수 있습니다.<br>
@@ -106,7 +106,7 @@
 
 		<!-- transform 속성 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn"><i class="t_blue">transform 3D</i> 속성</h3>
+			<h3 class="ml_mn" data-conlist-h4="true"><i class="t_blue">transform 3D</i> 속성</h3>
 			<p class="mt_ms t_666 font-16">
 				CSS3 2D transform에서 설명한 부분은 제외합니다.<br>
 				<span class="el_block mt_sm"><code>transform : none | &lt;transform-function&gt; [ &lt;transform-function&gt; ]*</code></span>
@@ -564,7 +564,7 @@
 	</aside>
 
 	<aside class="reference_box mt_xxl">
-		<h2 class="tit">Transform 참조</h2>
+		<strong class="tit">Transform 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/TR/css-transforms-1/" target="_blank" class="fas" title="새창열림">W3c CSS Transforms Module Level 1</a></li>
 			<li class="reference"><a href="https://drafts.csswg.org/css-transforms-2/" target="_blank" class="fas" title="새창열림">W3C CSS Transforms Module Level 2</a></li>

@@ -1,6 +1,6 @@
 {% set pageNumber = { depth1: 1, depth2: 2, depth3: 4, depth4: 5, part: 3 } %}
 {% set pageData = {
-	title: "그리드 레이아웃 - 부모 속성",
+	title: "그리드 레이아웃 - 부모 속성 part 1",
 	description: "그리드 레이아웃 - 부모 속성 입니다.",
 	keyword: "",
 	last_update: "0000-00-00"
@@ -19,13 +19,27 @@
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<b class="t_blue">{{ pageData.title }}</b> 에서는<br>
+		<span class="el_block indent t_black">
+			- <code>grid</code> 컨테이너<br>
+			- <code>grid</code> 템플릿 행/열<br>
+			- <code>grid</code> 템플릿 영역<br>
+			- <code>grid</code> 템플릿 속기형<br>
+			- <code>grid</code> 트랙 크기 자동 설정<br>
+			- <code>grid</code> 자동 흐름 설정<br>
+		</span>
+		에 대한 내용을 다루고 있습니다.
+	</blockquote>
+
 	<!-- 4.5.5. 부모 속성(properties for the parent - grid container) -->
 	<section class="mt_xxl indent">
 		<h2 class="ml_mn">4.5.5. 부모 속성(properties for the parent - grid container)</h2>
 
 		<!-- 4.5.5.1. grid 컨테이너 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.1. grid 컨테이너</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.1. grid 컨테이너</h3>
 			<p class="mt_ms">
 				그리드 컨테이너는 <code>display</code> 속성을 사용해 설정할 수 있습니다.<br>
 				설정 값에 따라 블록(block) 그리드와 인라인(inline) 그리드로 설정됩니다. 그리드 컨테이너 요소를 블록 또는 인라인 요소처럼 처리합니다.
@@ -69,7 +83,7 @@
 
 		<!-- 4.5.5.2. grid 템플릿 행/열 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.2. grid 템플릿 행/열</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.2. grid 템플릿 행/열</h3>
 			<p class="mt_ms">
 				공백으로 구분된 값 리스트를 해석하여 그리드 행(row), 열(column)을 설정합니다.<br>
 				각 값은 트랙 크기를 말합니다.
@@ -410,7 +424,7 @@
 
 		<!-- 4.5.5.3. grid 템플릿 영역 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.3. grid 템플릿 영역</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.3. grid 템플릿 영역</h3>
 			<p class="mt_ms">
 				<code>grid-area</code> 속성으로 설정된 그리드 영역의 이름을 참조하여, 그리드 템플릿 영역을 설정할 수 있습니다.<br>
 				그리드 영역 이름을 반복하면 그리드 셀을 병합(merge, span) 합니다. 그리고 마침표(.)는 비어있는 그리드 셀을 말합니다.
@@ -482,7 +496,7 @@
 
 		<!-- 4.5.5.4. grid 템플릿 속기형 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.4. grid 템플릿 속기형</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.4. grid 템플릿 속기형</h3>
 			<p class="mt_ms">그리드 템플릿 행 / 열 / 영역 이름 설정을 속기형(shorthand)으로 설정 가능합니다.</p>
 
 			<!-- grid-template -->
@@ -598,14 +612,14 @@
 
 		<!-- 4.5.5.5. grid 트랙 크기 자동 설정 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.5. grid 트랙 크기 자동 설정</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.5. grid 트랙 크기 자동 설정</h3>
 
-			<h4 class="mt_m">그리드 행/열 트랙 크기 자동 설정</h4>
+			<strong class="el_block font-16 t_black mt_m">그리드 행/열 트랙 크기 자동 설정</strong>
 			<p class="mt_s indent">
 				암시적인 그리드 행/열 트랙 크기를 자동으로 설정합니다.
 			</p>
 
-			<h4 class="mt_m">암시적인 그리드 트랙이란?</h4>
+			<strong class="el_block font-16 t_black mt_m">암시적인 그리드 트랙이란?</strong>
 			<p class="mt_s indent">
 				사용자가 설정하지 않은 임의의 트랙으로 사용자가 명시적으로 <code>grid-template-rows / grid-template-columns</code> 속성을 설정하지 않은 나머지 그리드 트랙을 가리킵니다.
 			</p>
@@ -720,7 +734,7 @@
 
 		<!-- 4.5.5.6. grid 자동 흐름 설정 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.6. grid 자동 흐름 설정</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.6. grid 자동 흐름 설정</h3>
 			<p class="mt_ms">
 				그리드에 명시적으로 배치(레이아웃) 되지 않은 아이템이 있을 경우, 자동 배치 알고리즘이 실행되어 자동으로 배치 되도록 설정할 수 있습니다.<br>
 				속성 값에 따라 자동 배치 알고리즘 작동 방식이 달라집니다.
@@ -780,11 +794,12 @@
 			</aside>
 		</article>
 
+		{#-
 		<!-- 4.5.5.7. grid 속기형 속성 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.7. grid 속기형 속성</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.7. grid 속기형 속성</h3>
 			<blockquote class="uk_note mt_m" role="note">
-				<h4 class="sound_only">요약 설명</h4>
+				<strong class="sound_only">요약 설명</strong>
 				<p>
 					하나의 속성에 다음 속성들을 모두 일괄 설정할 수 있는 grid 속기형 속성입니다.<br>
 					<code>grid-template-rows</code><br>
@@ -960,7 +975,7 @@
 
 		<!-- 4.5.5.8. grid 거터 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.8. grid 거터</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.8. grid 거터</h3>
 			<p class="mt_ms">
 				그리드 라인(행/열) 사이 간격(gap)을 조정합니다.<br>
 				그리드 거터 속성의 이름 앞에 붙어 있던 <code>grid-</code> 는 모두 제외 되었습니다. 이전에 사용되던 이름은 <code>grid-row-gap</code>, <code>grid-column-gap</code>, <code>gap</code> 입니다.<br>
@@ -1077,7 +1092,7 @@
 
 		<!-- 4.5.5.9. grid 콘텐츠(content) 정렬 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.9. grid 콘텐츠(content) 정렬</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.9. grid 콘텐츠(content) 정렬</h3>
 
 			<!-- align-content -->
 			<section class="mt_m indent">
@@ -1371,7 +1386,7 @@
 
 		<!-- 4.5.5.10. grid 아이템(items) 정렬 -->
 		<article class="indent mt_xl">
-			<h3 class="ml_mn">4.5.5.10. grid 아이템(items) 정렬</h3>
+			<h3 class="ml_mn" data-conlist-h4="true">4.5.5.10. grid 아이템(items) 정렬</h3>
 
 			<!-- align-items -->
 			<section class="mt_m indent">
@@ -1589,6 +1604,7 @@
 				</aside>
 			</section>
 		</article>
+		#}
 	</section>
 
 	<aside class="browser_support mt_xxl" data-tit="grid">
@@ -1602,7 +1618,7 @@
 		</ul>
 	</aside>
 	<aside class="reference_box mt_xxl">
-		<h2 class="tit">그리드 레이아웃 참조</h2>
+		<strong class="tit">그리드 레이아웃 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/tr/css-grid-1/" target="_blank" class="fas" title="새창열림">w3c css grid layout module level 1</a></li>
 			<li class="reference"><a href="https://www.w3.org/tr/css-grid-2" target="_blank" class="fas" title="새창열림">w3c css grid layout module level 2</a></li>
