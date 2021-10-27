@@ -8,14 +8,64 @@ const _side_toggle = _side_menu_area.find('.side_menu_toggle');
 const _side_menu = $('.side_menu');
 const _side_menu_d3 = _side_menu.find('.depth3 > li');
 const kmtemp_resize_iframe = 'kmtemp_resize_iframe';
-const _content_bottom_btn = $('.content_bottom_btn');
-const _go_top_btn = _content_bottom_btn.find('.go_top_btn');
-const _con_lst_btn = _content_bottom_btn.find('.con_lst_btn');
+const _content_title = $('#content_title');
 const tab_menu = 'tab_menu';
 
+const _content_bottom = $('.content_bottom');
+const _go_top_btn = _content_bottom.find('.go_top_btn');
+const _con_lst_btn = _content_bottom.find('.con_lst_btn');
+const content_list = 'content_list';
+const content_list_close = 'content_list_close';
+const list_title = 'list_title';
+const list_active = 'list_active';
+const data_title_num = 'data-title-num';
+let content_list_empty = 50;
+const cl_d1 = 'cl_d1';
+const cl_d2 = 'cl_d2';
+const cl_d3 = 'cl_d3';
+const list_moving = 'list_moving';
+let con_tit_offsetTop = 0;
+let list_offset_top = [];
+
 const loading_scroll_top = 'loading_scroll_top';
-let loading_sct = null;
 const go_top_size = 200;
+let loading_sct = null;
+
+
+function content_list_offset(){
+  //const minus_height = _ukHeader.height() + Number(_sub_content.css('padding-top').split('px')[0]);
+  if( $(window).width() < 993 + 17 ) content_list_empty = 40;
+
+  const minus_height = _ukHeader.height() + content_list_empty;
+  list_offset_top = [];
+  _content_area.find('['+data_title_num+']').each(function(i, e){
+    let offset_top = $(e).offset().top - minus_height;
+    if( $(e).is('.sound_only') ) offset_top = $(e).parent().offset().top - minus_height
+    list_offset_top.push( offset_top );
+  });
+  con_tit_offsetTop = _content_title.offset().top - minus_height;
+  if( $(window).width() < 993 + 17 ) con_tit_offsetTop = _sub_content.offset().top - minus_height + 20;
+  // 모바일까지 해야해 ★★★★★★★★★★★★★★★★★★★★★★★★
+}
+function content_list_active(sct){
+  // 주석 달것 ★★★★★★★★★★★★★★★★★★★★★★★★
+  _content_area.find('['+data_title_num+']').each(function(i, e){
+    if( !_content_area.is('.'+list_moving) ){
+      if( sct >= list_offset_top[i] ){
+        $('.'+content_list).find('[data-title-num]').removeClass('active').eq(i).addClass('active');
+        $('.'+list_title+' a').removeClass('active');
+      }
+      //if( sct >= con_tit_offsetTop || sct < list_offset_top[0] ){
+      if( sct >= con_tit_offsetTop && sct < list_offset_top[0] ){
+        $('.'+content_list).find('[data-title-num]').removeClass('active');
+        $('.'+list_title+' a').addClass('active');
+      }
+      if( sct < con_tit_offsetTop ){
+        $('.'+list_title+' a').removeClass('active');
+      }
+    }
+  });
+}
 
 
 // document ready ------------------------------------------------------------------------------------------------------
@@ -123,65 +173,103 @@ $(window).on('load', function(){
   // content list 생성 및 클릭 시 이동
   const content_section = _content_area.children('section, article');
   if( !_body.is('.content_lst_none') ){
-    _content_bottom_btn.addClass('list_show');
+    _content_bottom.addClass('list_show');
+    const prefix_tit = 'title_';
 
-    const data_title_num = 'data-title-num';
-    const content_list = 'content_list';
-    _content_bottom_btn.append('<nav class="'+content_list+'"><ul class="cl_d1"></ul></nav>');
+    _content_bottom.append('<nav class="'+content_list+'"><ul class="'+cl_d1+'"></ul></nav>');
     const _content_list = $('.'+content_list+' ul');
-    _content_list.before('<a href="#">'+ $('#content_title').text().replace('- by. UXKM','')+ '</a>');
+    const h1_txt = _content_title.html().split('<em')[0];
+    const h1_num = _content_title.attr('data-number');
+    $('.'+content_list).append('<button type="button" class="'+content_list_close+'"><i>목차 닫기</i></button>');
+    _content_list.before('<strong class="'+list_title+'"><a href="#">'+ h1_num+h1_txt +'</a></strong>');
+    $('.'+list_title).find('span').removeAttr('class');
 
-    // h2 생성
+    // h2 생성 ---------------------------------------------------------------------------------------------------------
     content_section.each(function(i, e){
       const h2_target = $(e).find('>h2');
       const h2_txt = h2_target.text().replace(/</g,"&lt;").replace(/>/g,"&gt;");
-      const tit_number = 'title_'+(i+1);
+      const tit_number = prefix_tit+(i+1);
       h2_target.attr(data_title_num, tit_number);
       _content_list.append('<li><a href="#" '+data_title_num+'="'+tit_number+'">'+h2_txt+'</a></li>');
 
-      // h3 생성
-      const data_conlist = $(e).attr('data-conlist');
-      if( $(e).find('h3').is(':visible') && data_conlist !== 'false' ){
-        _content_list.find('> li').eq(i).append('<ul class="cl_d2"></ul>');
+      // h3 생성 -------------------------------------------------------------------------------------------------------
+      if( $(e).find('h3').is(':visible') && $(e).attr('data-conlist') !== 'false' ){
+        _content_list.find('> li').eq(i).append('<ul class="'+cl_d2+'"></ul>');
         $(e).find('h3').each(function(j, k){
           const h3_target = $(k);
-          let h3_text_append;
+          let h3_text_custom;
 
-          if( h3_target.html().split('<')[0] !== '' ) h3_text_append = h3_target.html().split('<')[0];
-          else h3_text_append = h3_target.text();
+          if( h3_target.html().split('<')[0] !== '' ) h3_text_custom = h3_target.html().split('<')[0];
+          else h3_text_custom = h3_target.text();
 
-          const h3_txt = h3_text_append.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-          const tit_number = 'title_'+(i+1)+'_'+(j+1);
+          const h3_txt = h3_text_custom.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+          const tit_number = prefix_tit+(i+1)+'_'+(j+1);
           h3_target.attr(data_title_num, tit_number);
-          _content_list.find('> li').eq(i).find('.cl_d2').append('<li><a href="#" '+data_title_num+'="'+tit_number+'">'+h3_txt+'</a></li>');
+          _content_list.find('> li').eq(i).find('.'+cl_d2).append('<li><a href="#" '+data_title_num+'="'+tit_number+'">'+h3_txt+'</a></li>');
 
-          // h4 생성
-          _content_list.find('> li').eq(i).find('.cl_d2 > li').eq(j).append('<ul class="cl_d3"></ul>');
+          // h4 생성 ---------------------------------------------------------------------------------------------------
           if( $(k).attr('data-conlist-h4') === 'true' ){
+            _content_list.find('> li').eq(i).find('.'+cl_d2+' > li').eq(j).append('<ul class="'+cl_d3+'"></ul>');
             $(k).nextAll().find('h4').each(function(a, b){
-
               const h4_target = $(b);
-              let h4_text_append;
+              let h4_text_custom;
 
-              if( h4_target.text().split(':')[0] !== '' ) h4_text_append = h4_target.text().split(':')[0];
-              else h4_text_append = h4_target.text();
+              if( h4_target.text().split(':')[0] !== '' ) h4_text_custom = h4_target.text().split(':')[0];
+              else h4_text_custom = h4_target.text();
 
-              const h4_txt = h4_text_append.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-              const tit_number = 'title_'+(i+1)+'_'+(j+1)+'_'+(a+1);
+              const h4_txt = h4_text_custom.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+              const tit_number = prefix_tit+(i+1)+'_'+(j+1)+'_'+(a+1);
               h4_target.attr(data_title_num, tit_number);
-              _content_list.find('> li').eq(i).find('.cl_d2 > li').eq(j).find('.cl_d3').append('<li><a href="#" '+data_title_num+'="'+tit_number+'">'+h4_txt+'</a></li>');
-
-              console.log(h4_txt);
+              _content_list.find('> li').eq(i).find('.'+cl_d2+' > li').eq(j).find('.'+cl_d3).append('<li><a href="#" '+data_title_num+'="'+tit_number+'">'+h4_txt+'</a></li>');
             });
           }
         });
       }
     });
 
-    // 리스트 토글
-    _con_lst_btn.on('click', function(){});
+    // 리스트 열기
+    _con_lst_btn.on('click', function(){
+      _content_bottom.addClass(list_active);
+      return false;
+    });
+
+    // 리스트 닫기
+    $('.'+content_list_close).on('click', function(){
+      _content_bottom.removeClass(list_active);
+      return false;
+    });
     
     // 컨텐츠 이동
+    const sct = $(window).scrollTop();
+    const list_moving_speed = 400;
+    const list_moving_effect = 'easeInOutCubic';
+    content_list_offset();
+    content_list_active(sct);
+    $('.'+content_list+' .'+cl_d1).find('a').each(function(i, e){
+      $(e).on('click', function(){
+        _content_area.addClass(list_moving);
+        _htmlBody.stop().animate({scrollTop:list_offset_top[i]}, list_moving_speed, list_moving_effect);
+        $('.'+content_list+' .'+cl_d1).find('a').removeClass('active');
+        $('.'+list_title+' a').removeClass('active');
+        $(e).addClass('active');
+        setTimeout(function(){
+          _content_area.removeClass(list_moving);
+          $(window).trigger('scroll');
+        }, list_moving_speed + 100);
+        return false;
+      });
+    });
+    $('.'+list_title+' a').on('click', function(){
+      _content_area.addClass(list_moving);
+      _htmlBody.stop().animate({scrollTop:con_tit_offsetTop}, list_moving_speed, list_moving_effect);
+      $('.'+content_list+' .'+cl_d1).find('a').removeClass('active');
+      $('.'+list_title+' a').addClass('active');
+      setTimeout(function(){
+        _content_area.removeClass(list_moving);
+        $(window).trigger('scroll');
+      }, list_moving_speed + 100);
+      return false;
+    });
   }
 });
 
@@ -208,6 +296,7 @@ let top_link_offset = _top_link.find('ul').offset().top - 1;
 $(window).on('scroll', function(){
   let sct = $(window).scrollTop();
   hd_common(sct);
+  content_list_active(sct);
 
   // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우) (<head>에도 추가)
   sct > top_link_offset - _ukHeader.height() ?  _top_link.addClass('fixed') : _top_link.removeClass('fixed');
@@ -230,6 +319,7 @@ $(window).on('resize', function(){
   let win_w = $(window).width();
   let win_h = $(window).height();
   pc_mb_class(win_w);
+  content_list_offset();
   hd_layer_open_resize(win_w);
 
  if( win_w > md_size ){

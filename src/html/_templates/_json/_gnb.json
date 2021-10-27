@@ -545,7 +545,17 @@
               "depth4": [
                 {
                   "d4_name": "CSS 단위",
-                  "d4_link": "/01-css_units"
+                  "d4_link": "/01-css_units",
+                  "part": [
+                    {
+                      "part_name": "part-1",
+                      "part_link": "/01-css_units_part1"
+                    },
+                    {
+                      "part_name": "part-2",
+                      "part_link": "/01-css_units_part2"
+                    }
+                  ]
                 },
                 {
                   "d4_name": "CSS 선택자 level 1, 2",
