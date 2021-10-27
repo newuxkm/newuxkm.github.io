@@ -544,8 +544,13 @@
 														<li class="item">
 															<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 															<ul class="depth4">
-																<li>
-																	<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+																<li class="part_visible">
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+																	</p>
 																</li>
 																<li class="part_visible">
 																	<p>
@@ -638,7 +643,7 @@
 																	</p>
 																</li>
 																<li>
-																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 																</li>
 															</ul>
 														</li>
@@ -664,10 +669,13 @@
 																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 																	</p>
 																</li>
 																<li class="part_visible">
@@ -678,13 +686,16 @@
 																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 																	</p>
 																</li>
 																<li>
@@ -1499,7 +1510,7 @@
 
 					<!-- 반응형 웹페이지에서 사용되는 대부분의 레이아웃의 5가지 패턴 요약 -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn t_blue">반응형 웹페이지에서 사용되는 대부분의 레이아웃의 5가지 패턴 요약</h3>
+						<h3 class="ml_mn t_blue" data-conlist-h4="true">반응형 웹페이지에서 사용되는 대부분의 레이아웃의 5가지 패턴 요약</h3>
 						<div class="ol_lst mt_ms">
 							<p>
 								LukeW(루크 로블르스키 - 데스크탑 버전보다 모바일 버전을 먼저 디자인해야 한다는 모바일 우선주의 디자인의 창시자)가 제시한 5가지 레이아웃 패턴은 다음과 같습니다.
@@ -1544,7 +1555,7 @@
 									<p>더 작은 스크린에서 이 패턴은 열(columns)들이 수직 방향으로 쌓이면서 컨텐츠가 재배치 됩니다.</p>
 									<p>이 패턴의 중요한 장점은 작은 화면과 큰 화면 사이에 단 하나의 중단점(breakpoints)만 있으면 된다는 것입니다.</p>
 
-									<article class="reference_box mt_s">
+									<div class="reference_box mt_s">
 										<p class="tit weight-500 t_blue">활용 사이트</p>
 										<ul class="link_lst">
 											<li class="reference"><a href="https://alistapart.com/" target="_blank" class="fas" title="새창열림">A List Apart</a></li>
@@ -1554,7 +1565,7 @@
 											<li class="reference"><a href="https://mediaqueri.es/sif/" target="_blank" class="fas" title="새창열림">Sifter</a></li>
 											<li class="reference"><a href="https://mediaqueri.es/cho/" target="_blank" class="fas" title="새창열림">ChoiceResponse</a></li>
 										</ul>
-									</article>
+									</div>
 									<figure class="img_figure mt_ms">
 										<img src="/_assets/images/css/cssMiddleclass/uxkm_md-patterns1.svg" alt="유동형 Mostly fluid">
 										<figcaption>[유동형 Mostly fluid]</figcaption>
@@ -1681,7 +1692,7 @@
 				</section>
 
 				<aside class="reference_box mt_xxl">
-					<h2 class="tit">@규칙(At-Rule) 참조</h2>
+					<strong class="tit">@규칙(At-Rule) 참조</strong>
 					<ul class="link_lst">
 						<li class="reference"><a href="https://www.w3.org/TR/css3-mediaqueries/" target="_blank" class="fas" title="새창열림">W3C Media Queries</a></li>
 						<li class="reference"><a href="https://www.w3.org/TR/mediaqueries-4/" target="_blank" class="fas" title="새창열림">W3C Media Queries Level 4</a></li>
@@ -1736,8 +1747,13 @@
 						<li>
 							<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 							<ul class="depth4">
-								<li>
-									<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+								<li class="part_visible">
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+									</p>
 								</li>
 								<li class="part_visible">
 									<p>
@@ -1830,7 +1846,7 @@
 									</p>
 								</li>
 								<li>
-									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 								</li>
 							</ul>
 						</li>
@@ -1856,10 +1872,13 @@
 										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 									</p>
 								</li>
 								<li class="part_visible">
@@ -1870,13 +1889,16 @@
 										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 									</p>
 								</li>
 								<li>
@@ -1896,6 +1918,11 @@
 			<!-- // CSS side menu -->
 		</div>
 		<!-- // sub main content (.sub_content) -->
+
+		<div class="content_bottom inner">
+			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
+		</div>
 	</div>
 	<!-- // uk_container -->
 

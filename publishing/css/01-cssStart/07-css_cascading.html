@@ -544,8 +544,13 @@
 														<li class="item">
 															<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 															<ul class="depth4">
-																<li>
-																	<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+																<li class="part_visible">
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+																	</p>
 																</li>
 																<li class="part_visible">
 																	<p>
@@ -638,7 +643,7 @@
 																	</p>
 																</li>
 																<li>
-																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 																</li>
 															</ul>
 														</li>
@@ -664,10 +669,13 @@
 																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 																	</p>
 																</li>
 																<li class="part_visible">
@@ -678,13 +686,16 @@
 																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 																	</p>
 																</li>
 																<li>
@@ -929,16 +940,16 @@
 
 					<div class="ol_lst indent mt_s">
 						<ol>
-							<li class="line_code font14">
-								<strong>inherit(상속) 키워드</strong>
+							<li class="line_code tit_h3 mt_m">
+								<h3>inherit(상속) 키워드</h3>
 								<p>모든 요소의 속성이 상속된 값으로 변경되도록 지정합니다.</p>
 								<p><code>inherit</code> 키워드는 속성이 부모 요소에서 값을 상속하도록 지정합니다.</p>
 								<p><code>inherit</code> 키워드는 모든 CSS 속성 및 모든 HTML 요소에 사용할 수 있습니다.</p>
 								<p><code>inherit</code> 키워드는 Internet Explorer(이하 IE) 7 및 이전 버전에서 지원되지 않습니다. IE 8에는 !DOCTYPE이 필요합니다.</p>
 								<p>IE 8+부터 지원합니다.</p>
 							</li>
-							<li class="line_code font14 mt_s">
-								<strong>initial(초기) 키워드</strong>
+							<li class="line_code tit_h3 mt_l">
+								<h3>initial(초기) 키워드</h3>
 								<p>모든 요소의 속성을 초기값으로 변경하도록 지정합니다.</p>
 								<p><code>initial</code> 키워드는 CSS 속성을 기본값으로 설정하는데 사용됩니다.</p>
 								<p><code>initial</code> 키워드는 모든 CSS 속성 및 모든 HTML 요소에 사용할 수 있습니다.</p>
@@ -950,18 +961,18 @@
 									<code>min-width</code> 속성의 경우 <code>initial</code> 대신 <code>inherit</code>를 사용해야 합니다.
 								</p>
 							</li>
-							<li class="line_code font14 mt_s">
-								<strong>unset 키워드</strong>
+							<li class="line_code tit_h3 mt_l">
+								<h3>unset 키워드</h3>
 								<p>요소 또는 요소의 부모에 적용된 모든 속성을 상속 가능한 경우 부모 속성이 가진 값으로 변경하거나 그렇지 않은 경우 초기값으로 변경합니다.</p>
 								<p>다시 말해 모든 요소의 속성이 기본적으로 상속되는 경우 상속된 값으로 변경되거나 그렇지 않은 경우 초기값으로 변경되도록 지정합니다.</p>
 							</li>
-							<li class="line_code font14 mt_s">
-								<strong>revert 키워드</strong>
+							<li class="line_code tit_h3 mt_l">
+								<h3>revert 키워드</h3>
 								<p>선언이 속하는 스타일 시트 원점에 따라 동작을 지정합니다.</p>
 								<p>현재 safari 9.1+에서만 동작합니다.</p>
 							</li>
-							<li class="line_code font14 mt_s">
-								<strong>all 속성</strong>
+							<li class="line_code tit_h3 mt_l">
+								<h3>all 속성</h3>
 								<p>all 속성 사용하면 모든 속성을 초기, 상속, 되돌림 또는 설정 해제 상태로 한 번에 재설정 할 수 있습니다.</p>
 								<p>IE, Edge에서는 지원되지 않습니다.</p>
 								<div class="uk_gist_code_box mt_2" data-tit="@import style CSS">
@@ -1088,8 +1099,13 @@
 						<li>
 							<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 							<ul class="depth4">
-								<li>
-									<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+								<li class="part_visible">
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+									</p>
 								</li>
 								<li class="part_visible">
 									<p>
@@ -1182,7 +1198,7 @@
 									</p>
 								</li>
 								<li>
-									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 								</li>
 							</ul>
 						</li>
@@ -1208,10 +1224,13 @@
 										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 									</p>
 								</li>
 								<li class="part_visible">
@@ -1222,13 +1241,16 @@
 										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 									</p>
 								</li>
 								<li>
@@ -1248,6 +1270,11 @@
 			<!-- // CSS side menu -->
 		</div>
 		<!-- // sub main content (.sub_content) -->
+
+		<div class="content_bottom inner">
+			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
+		</div>
 	</div>
 	<!-- // uk_container -->
 

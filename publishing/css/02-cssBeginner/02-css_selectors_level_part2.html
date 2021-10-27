@@ -544,8 +544,13 @@
 														<li class="item active">
 															<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 															<ul class="depth4">
-																<li>
-																	<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+																<li class="part_visible">
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+																	</p>
 																</li>
 																<li class="active part_visible">
 																	<p>
@@ -638,7 +643,7 @@
 																	</p>
 																</li>
 																<li>
-																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 																</li>
 															</ul>
 														</li>
@@ -664,10 +669,13 @@
 																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 																	</p>
 																</li>
 																<li class="part_visible">
@@ -678,13 +686,16 @@
 																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 																	</p>
 																</li>
 																<li>
@@ -931,9 +942,12 @@
 					<strong class="sound_only">요약 설명</strong>
 					<p>
 						<b class="t_blue">CSS 선택자 level 1, 2 part-2</b> 에서는<br>
-						<span class="t_black">조합 선택자(Combinators)</span>,<br>
-						<span class="t_black">속성 선택자(Attribute Selector)</span>,<br>
-						<span class="t_black">의사(가상) 클래스(Pseudo-classes)</span>에 대한 내용을 다루고 있습니다.
+						<span class="indent t_black el_block">
+							- 조합 선택자(Combinators)<br>
+							- 속성 선택자(Attribute Selector)<br>
+							- 의사(가상) 클래스(Pseudo-classes)<br>
+						</span>
+						에 대한 내용을 다루고 있습니다.
 					</p>
 					<p class="mt_ms">
 						선택자는 보통 스타일링하고 싶은 HTML 요소나 부여한 ID 혹은 class가 위치합니다.<br>
@@ -1146,7 +1160,7 @@
 
 					<!-- 2.2.6.1. 링크 셀렉터(Link pseudo-classes), 동적 셀렉터(User action pseudo-classes) -->
 					<article class="indent mt_l">
-						<h3 class="ml_mn t_blue">2.2.6.1. 링크 셀렉터(Link pseudo-classes), 동적 셀렉터(User action pseudo-classes)</h3>
+						<h3 class="ml_mn t_blue" data-conlist-h4="true">2.2.6.1. 링크 셀렉터(Link pseudo-classes), 동적 셀렉터(User action pseudo-classes)</h3>
 						<p class="mt_ms">
 							선택자 뒤에 :가상이벤트를 붙이면 특정 이벤트마다 적용 할 스타일을 설정 할 수 있으며, 이를 가상 (추상)클래스라 합니다.<br>
 							CSS Level 1 선택자 - <code>E:link</code> / <code>E:visited</code><br>
@@ -1165,48 +1179,47 @@
 									a:focus { … }
 								</textarea>
 						</div>
-						<div class="mt_l">
-							<strong class="font-16 t_blue mt_m">:link</strong>
+						<article class="mt_l">
+							<h4 class="font-16 t_blue mt_m">:link</h4>
 							<p class="indent mt_s">
 								아직 방문하지 않은 요소를 나타냅니다.<br>
 								링크의 기본 상태이며, 사용자가 아직 한 번도 이 링크를 통해 연결된 페이지를 방문하지 않은 상태입니다.
 							</p>
-						</div>
-						<div class="mt_l">
-							<strong class="font-16 t_blue mt_m">:visited</strong>
+						</article>
+						<article class="mt_l">
+							<h4 class="font-16 t_blue mt_m">:visited</h4>
 							<p class="indent mt_s">
 								방문한 링크일 때<br>
 								사용자가 한 번이라도 이 링크를 통해 연결된 페이지를 방문한 상태입니다.
 							</p>
-						</div>
-						<div class="mt_l">
-							<strong class="font-16 t_blue mt_m">:active</strong>
+						</article>
+						<article class="mt_l">
+							<h4 class="font-16 t_blue mt_m">:active</h4>
 							<p class="indent mt_s">
 								클릭된 상태일 때<br>
 								사용자가 마우스로 링크를 클릭하고 있는 상태입니다.
 							</p>
-						</div>
-						<div class="mt_l">
-							<strong class="font-16 t_blue mt_m">:hover</strong>
+						</article>
+						<article class="mt_l">
+							<h4 class="font-16 t_blue mt_m">:hover</h4>
 							<p class="indent mt_s">
 								마우스가 올라와 있을 때<br>
 								사용자의 마우스 커서가 링크 위에 올라가 있는 상태입니다.
 							</p>
-						</div>
-						<div class="mt_l">
-							<strong class="font-16 t_blue mt_m">:focus</strong>
+						</article>
+						<article class="mt_l">
+							<h4 class="font-16 t_blue mt_m">:focus</h4>
 							<p class="indent mt_s">
 								포커스가 들어와 있을 때<br>
 								키보드나 마우스의 이벤트(event) 또는 다른 형태로 해당 요소가 포커스(focus)를 가지고 있는 상태입니다.
 							</p>
-						</div>
-
-						<div class="view_editor edit_code mt_l" data-target="css/step01/2.2.selector/2.2.6.1.link-pseudo-class.html">
+						</article>
+						<article class="view_editor edit_code mt_l" data-target="css/step01/2.2.selector/2.2.6.1.link-pseudo-class.html">
 							<h4 class="ve_tit">링크 셀렉터, 동적 셀렉터 예제</h4>
 							<div class="uk_editor indent min_height_450" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 								<div class="code_wrap"><textarea></textarea></div>
 							</div>
-						</div>
+						</article>
 						<aside class="browser_support mt_m" data-tit="Link, User action">
 							<ul>
 								<li class="ie">지원</li>
@@ -1294,14 +1307,14 @@
 					</article>
 				</section>
 
-				<section class="reference_box mt_xxl">
-					<h2 class="tit">CSS 선택자 level 1,2 참조</h2>
+				<aside class="reference_box mt_xxl">
+					<strong class="tit">CSS 선택자 level 1,2 참조</strong>
 					<ul class="link_lst">
 						<li class="reference"><a href="https://www.w3.org/TR/selectors/#selectors" target="_blank" class="fas" title="새창열림">W3C Selectors Level</a></li>
 						<li class="reference"><a href="https://developer.mozilla.org/ko/docs/Web/CSS/CSS_%EC%84%A0%ED%83%9D%EC%9E%90" target="_blank" class="fas" title="새창열림">4 MDN CSS 선택자</a></li>
 						<li class="reference"><a href="https://www.w3.org/TR/selectors-3/#specificity" target="_blank" class="fas" title="새창열림">CSS 우선순위</a></li>
 					</ul>
-				</section>
+				</aside>
 				
 				<footer class="reference_box">
 					<strong class="tit">CSS 초급 참조</strong>
@@ -1346,8 +1359,13 @@
 						<li class="active">
 							<a href="/publishing/css/02-cssBeginner/01-css_units" data-tit="2.2. CSS 선택자 level 1, 2 part-2">CSS 초급</a>
 							<ul class="depth4">
-								<li>
-									<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+								<li class="part_visible">
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+									</p>
 								</li>
 								<li class="active part_visible">
 									<p>
@@ -1440,7 +1458,7 @@
 									</p>
 								</li>
 								<li>
-									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 								</li>
 							</ul>
 						</li>
@@ -1466,10 +1484,13 @@
 										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 									</p>
 								</li>
 								<li class="part_visible">
@@ -1480,13 +1501,16 @@
 										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 									</p>
 								</li>
 								<li>
@@ -1506,6 +1530,11 @@
 			<!-- // CSS side menu -->
 		</div>
 		<!-- // sub main content (.sub_content) -->
+
+		<div class="content_bottom inner">
+			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
+		</div>
 	</div>
 	<!-- // uk_container -->
 

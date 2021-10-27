@@ -544,8 +544,13 @@
 														<li class="item">
 															<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 															<ul class="depth4">
-																<li>
-																	<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+																<li class="part_visible">
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+																	</p>
 																</li>
 																<li class="part_visible">
 																	<p>
@@ -638,7 +643,7 @@
 																	</p>
 																</li>
 																<li>
-																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 																</li>
 															</ul>
 														</li>
@@ -664,10 +669,13 @@
 																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 																	</p>
 																</li>
 																<li class="part_visible">
@@ -678,13 +686,16 @@
 																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 																	</p>
 																</li>
 																<li>
@@ -920,7 +931,7 @@
 				</header>
 
 				<section class="mt_xxl">
-					<h2 class="sound_only">요소 설명</h2>
+					<h2 class="sound_only">audio element 설명</h2>
 					<p>
 						사운드 콘텐츠를 문서에 포함시키는 데 사용됩니다.<br>
 						src 속성 또는 <code>&lt;source&gt;</code> 요소를 사용하여 표현한 하나 이상의 오디오 소스를 포함할 수 있습니다.<br>
@@ -942,6 +953,7 @@
 				<section class="txt_ex mt_xxl">
 					<h2>6.6.1. audio 속성</h2>
 
+					<!-- [src] -->
 					<article class="indent_max txt_ex mt_l">
 						<h3 class="ml_mn">[src] <span class="t_blue">&lt;audio src=&quot;URL&quot;&gt;</span></h3>
 						<p class="mt_ms">
@@ -950,6 +962,7 @@
 						</p>
 					</article>
 
+					<!-- [autoplay] -->
 					<article class="indent_max txt_ex mt_xl">
 						<h3 class="ml_mn">[autoplay] <span class="t_blue">&lt;audio autoplay&gt;</span></h3>
 						<p class="mt_ms">
@@ -960,6 +973,7 @@
 						</p>
 					</article>
 
+					<!-- [controls] -->
 					<article class="indent_max txt_ex mt_xl">
 						<h3 class="ml_mn">[controls] <span class="t_blue">&lt;audio controls&gt;</span></h3>
 						<p class="mt_ms">
@@ -967,6 +981,7 @@
 						</p>
 					</article>
 
+					<!-- [loop] -->
 					<article class="indent_max txt_ex mt_xl">
 						<h3 class="ml_mn">[loop] <span class="t_blue">&lt;audio loop&gt;</span></h3>
 						<p class="mt_ms">
@@ -974,6 +989,7 @@
 						</p>
 					</article>
 
+					<!-- [muted] -->
 					<article class="indent_max txt_ex mt_xl">
 						<h3 class="ml_mn">[muted] <span class="t_blue">&lt;audio muted&gt;</span></h3>
 						<p class="mt_ms">
@@ -981,6 +997,7 @@
 						</p>
 					</article>
 
+					<!-- [preload] -->
 					<article class="indent_max txt_ex mt_xl">
 						<h3 class="ml_mn">[preload] <span class="t_blue">&lt;audio preload=&quot;none | metadata | auto&quot;&gt;</span></h3>
 						<p class="mt_ms">
@@ -1018,13 +1035,13 @@
 							스펙에서는 metadata로 설정하도록 권고합니다.
 						</p>
 					</article>
-				</section>
 
-				<section class="view_editor edit_code mt_xxl" data-target="html/06-embedded/6.6.audio_element.html">
-					<h2 class="ve_tit">audio element 예제</h2>
-					<div class="uk_editor indent min_height_700" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
-						<div class="code_wrap"><textarea></textarea></div>
-					</div>
+					<article class="view_editor indent_max edit_code mt_xxl" data-target="html/06-embedded/6.6.audio_element.html">
+						<h3 class="ve_tit ml_mn">audio element 예제</h3>
+						<div class="uk_editor min_height_700" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
+							<div class="code_wrap"><textarea></textarea></div>
+						</div>
+					</article>
 				</section>
 
 				<aside class="browser_support mt_xxl" data-tit="audio">
@@ -1040,7 +1057,7 @@
 
 				<hr class="dashed_line mt_xxl">
 
-				<section class="txt_ex mt_xxl">
+				<section class="txt_ex mt_xxl" data-conlist="false">
 					<h2>6.6.2. 오디오 코덱의 종류</h2>
 					<ol class="ol_lst indent">
 						<li class="mt_ml tit_h3">
@@ -1065,7 +1082,7 @@
 					</ol>
 				</section>
 
-				<section class="txt_ex mt_xxl">
+				<section class="txt_ex mt_xxl" data-conlist="false">
 					<h2>6.6.3. 브라우저별 파일형식, 지원코덱</h2>
 					<ol class="ol_lst indent">
 						<li class="mt_m"><b>파이어폭스 :</b> Vorbis(.ogg, .oga)</li>
@@ -1080,7 +1097,7 @@
 
 				<hr class="dashed_line mt_xxl">
 
-				<section class="txt_ex mt_xxl">
+				<section class="txt_ex mt_xxl" data-conlist="false">
 					<h2>6.5.4. 자바스크립트를 통한 속성들 접근</h2>
 					<ol class="ol_lst indent">
 						<li class="mt_ml tit_h3">
@@ -1103,7 +1120,7 @@
 					</ol>
 				</section>
 
-				<section class="txt_ex mt_xxl">
+				<section class="txt_ex mt_xxl" data-conlist="false">
 					<h2>6.5.5. &lt;video&gt;와 &lt;audio&gt;의 이벤트</h2>
 					<p class="indent mt_ml">
 						단순히 보여주기만 해서는 기존의 다양한 플러그인들을 대체할 수는 없을 것이라는 생각이 들기도 했을 것입니다.
@@ -1541,6 +1558,11 @@
 			<!-- // HTML side menu -->
 		</div>
 		<!-- // sub main content (.sub_content) -->
+
+		<div class="content_bottom inner">
+			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
+		</div>
 	</div>
 	<!-- // uk_container -->
 

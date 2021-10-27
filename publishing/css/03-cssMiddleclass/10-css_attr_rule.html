@@ -32,17 +32,17 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
 
-	<title>CSS 속성 선언순서 | UXKM</title>
+	<title>CSS 속성 선언 순서 | UXKM</title>
 
 	<!-- opengraph -->
 	<meta name="title" content="UXKM">
-	<meta name="description" content="CSS 속성 선언순서 입니다.">
+	<meta name="description" content="CSS 속성 선언 순서 입니다.">
 	<meta name="author" content="UXKM">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="UXKM">
 	<meta property="og:site_name" content="UXKM">
 	<meta property="og:url" content="https://uxkm.io">
-	<meta property="og:description" content="CSS 속성 선언순서 입니다.">
+	<meta property="og:description" content="CSS 속성 선언 순서 입니다.">
 	<meta property="og:image" content="/_assets/images/og_image.png">
 	<meta property="og:image:width" content="1000">
 	<meta property="og:image:height" content="750">
@@ -544,8 +544,13 @@
 														<li class="item">
 															<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 															<ul class="depth4">
-																<li>
-																	<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+																<li class="part_visible">
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+																	</p>
 																</li>
 																<li class="part_visible">
 																	<p>
@@ -638,7 +643,7 @@
 																	</p>
 																</li>
 																<li class="active">
-																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 																</li>
 															</ul>
 														</li>
@@ -664,10 +669,13 @@
 																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 																	</p>
 																</li>
 																<li class="part_visible">
@@ -678,13 +686,16 @@
 																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 																	</p>
 																</li>
 																<li>
@@ -912,7 +923,7 @@
 		<div class="sub_content inner">
 			<main id="content" class="content_area">
 				<header>
-					<h1 id="content_title" data-number="3.10. ">CSS 속성 선언순서 <em class="sound_only">- by. UXKM</em></h1>
+					<h1 id="content_title" data-number="3.10. ">CSS 속성 선언 순서 <em class="sound_only">- by. UXKM</em></h1>
 					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
 				</header>
 
@@ -954,44 +965,6 @@
 					<h2 class="ml_mn">해당 문서에서 사용되는 CSS 속성 선언 순서</h2>
 					<div class="ol_lst mt_ms">
 						<ol>
-							<!--
-							<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
-							<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
-							<li><strong class="weight-500 t_black">display</strong> - 위치 속성(Visual formatting model)</li>
-							<li><strong class="weight-500 t_black">position</strong> - 위치 속성(Visual formatting model)</li>
-							<li><strong class="weight-500 t_black">top</strong> - 위치 속성(Visual formatting model)</li>
-							<li><strong class="weight-500 t_black">right</strong> - 위치 속성(Visual formatting model)</li>
-							<li><strong class="weight-500 t_black">bottom</strong> - 위치 속성(Visual formatting model)</li>
-							<li><strong class="weight-500 t_black">left</strong> - 위치 속성(Visual formatting model)</li>
-							<li><strong class="weight-500 t_black">float</strong> - 위치 속성(Visual formatting model)</li>
-							<li><strong class="weight-500 t_black">clear</strong> - 위치 속성(Visual formatting model)</li>
-							<li><strong class="weight-500 t_black">width</strong> - 박스 모델 속성(Box Model)</li>
-							<li><strong class="weight-500 t_black">height</strong> - 박스 모델 속성(Box Model)</li>
-							<li><strong class="weight-500 t_black">margin</strong> - 박스 모델 속성(Box Model)</li>
-							<li><strong class="weight-500 t_black">padding</strong> - 박스 모델 속성(Box Model)</li>
-							<li><strong class="weight-500 t_black">border</strong> - 박스 모델 속성(Box Model)</li>
-							<li><strong class="weight-500 t_black">border-radius</strong> - 박스 모델 속성(Box Model)</li>
-							<li><strong class="weight-500 t_black">box-shadow</strong> - 박스 모델 속성(Box Model)</li>
-							<li><strong class="weight-500 t_black">background</strong> - Background 속성</li>
-							<li><strong class="weight-500 t_black">color</strong> - Color 속성</li>
-							<li><strong class="weight-500 t_black">font</strong> - Font 속성</li>
-							<li><strong class="weight-500 t_black">text-align</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">vertical-align</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">letter-spacing</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">word-spacing</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">word-break</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">word-wrap</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">white-space</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">text-indent</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">text-decoration</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">text-transform</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">text-overflow</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">text-shadow</strong> - Text 속성</li>
-							<li><strong class="weight-500 t_black">outline</strong> - 사용자 인터페이스 속성(User interface)</li>
-							<li><strong class="weight-500 t_black">cursor</strong> - 사용자 인터페이스 속성(User interface)</li>
-							<li><strong class="weight-500 t_black">opacity</strong> - 사용자 인터페이스 속성(User interface)</li>
-							<li><strong class="weight-500 t_black">etc</strong> - 위에 언급되지 않은 기타 나머지 속성들</li>
-							-->
 							<li><strong class="weight-500 t_black">overflow</strong> - 시각적인 속성(Visual effects)</li>
 							<li><strong class="weight-500 t_black">visibility</strong> - 시각적인 속성(Visual effects)</li>
 							<li><strong class="weight-500 t_black">display</strong> - 위치 속성(Visual formatting model)</li>
@@ -1128,14 +1101,14 @@
 				</section>
 
 				<aside class="reference_box mt_xxl">
-					<h2 class="tit">CSS 속성 선언순서 참조</h2>
+					<strong class="tit">CSS 속성 선언순서 참조</strong>
 					<ul class="link_lst">
 						<li class="reference"><a href="https://nuli.navercorp.com/sharing/fe/coding" target="_blank" class="fas" title="새창열림">NHN Coding Convention</a></li>
 						<li class="reference"><a href="http://darum.daum.net/convention/css/css_convention" target="_blank" class="fas" title="새창열림">Web Standards Darum</a></li>
 					</ul>
 				</aside>
 			</main>
-			<!-- // CSS 속성 선언순서 content (.content_area) -->
+			<!-- // CSS 속성 선언 순서 content (.content_area) -->
 
 			<aside class="side_menu_area">
 				<strong class="tit"><b>CSS</b> <i>Table of Contents</i></strong>
@@ -1170,8 +1143,13 @@
 						<li>
 							<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 							<ul class="depth4">
-								<li>
-									<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+								<li class="part_visible">
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+									</p>
 								</li>
 								<li class="part_visible">
 									<p>
@@ -1219,7 +1197,7 @@
 							</ul>
 						</li>
 						<li class="active">
-							<a href="/publishing/css/03-cssMiddleclass/01-css_selectors_level3_part1" data-tit="3.10. CSS 속성 선언순서">CSS 중급</a>
+							<a href="/publishing/css/03-cssMiddleclass/01-css_selectors_level3_part1" data-tit="3.10. CSS 속성 선언 순서">CSS 중급</a>
 							<ul class="depth4">
 								<li class="part_visible">
 									<p>
@@ -1264,7 +1242,7 @@
 									</p>
 								</li>
 								<li class="active">
-									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 								</li>
 							</ul>
 						</li>
@@ -1290,10 +1268,13 @@
 										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 									</p>
 								</li>
 								<li class="part_visible">
@@ -1304,13 +1285,16 @@
 										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 									</p>
 								</li>
 								<li>
@@ -1323,13 +1307,18 @@
 						</li>
 					</ul>
 				</nav>
-				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="3.10. CSS 속성 선언순서">SIDE MENU <b>CLOSE</b></i></span></button>
+				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="3.10. CSS 속성 선언 순서">SIDE MENU <b>CLOSE</b></i></span></button>
 				<script>
 				</script>
 			</aside>
 			<!-- // CSS side menu -->
 		</div>
 		<!-- // sub main content (.sub_content) -->
+
+		<div class="content_bottom inner">
+			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
+		</div>
 	</div>
 	<!-- // uk_container -->
 

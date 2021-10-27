@@ -544,8 +544,13 @@
 														<li class="item">
 															<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 															<ul class="depth4">
-																<li>
-																	<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+																<li class="part_visible">
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+																	</p>
 																</li>
 																<li class="part_visible">
 																	<p>
@@ -638,7 +643,7 @@
 																	</p>
 																</li>
 																<li>
-																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+																	<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 																</li>
 															</ul>
 														</li>
@@ -664,10 +669,13 @@
 																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 																	</p>
 																</li>
 																<li class="part_visible">
@@ -678,13 +686,16 @@
 																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 																	</p>
 																	<p>
-																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+																	</p>
+																	<p>
+																		<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 																	</p>
 																</li>
 																<li>
@@ -1010,7 +1021,7 @@
 
 					<!-- 1. ease -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">1. <i class="t_blue">ease</i></h3>
+						<h3 class="ml_mn t_blue">ease</h3>
 						<p class="mt_s">초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease]">
 							<textarea readonly="readonly">
@@ -1023,7 +1034,7 @@
 
 					<!-- 2. linear -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">2. <i class="t_blue">linear</i></h3>
+						<h3 class="ml_mn t_blue">linear</h3>
 						<p class="mt_s">시작부터 종료까지 동일한 속도로 진행됩니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [linear]">
 							<textarea readonly="readonly">
@@ -1036,7 +1047,7 @@
 
 					<!-- 3. ease-in -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">3. <i class="t_blue">ease-in</i></h3>
+						<h3 class="ml_mn t_blue">ease-in</h3>
 						<p class="mt_s">느리게 시작한 후 일정한 속도에 다다르면 그 상태로 등속 운동합니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-in]">
 							<textarea readonly="readonly">
@@ -1049,7 +1060,7 @@
 
 					<!-- 4. ease-out -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">4. <i class="t_blue">ease-out</i></h3>
+						<h3 class="ml_mn t_blue">ease-out</h3>
 						<p class="mt_s">일정한 속도의 등속으로 시작해서 점점 느려지면서 멈춥니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-out]">
 							<textarea readonly="readonly">
@@ -1062,7 +1073,7 @@
 
 					<!-- 5. ease-in-out -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">5. <i class="t_blue">ease-in-out</i></h3>
+						<h3 class="ml_mn t_blue">ease-in-out</h3>
 						<p class="mt_s"><code class="t_blue">ease</code>와 비슷합니다. 초반은 느리게, 중간은 빠르게, 종료지점은 느리게 변화가 진행됩니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [ease-in-out]">
 							<textarea readonly="readonly">
@@ -1075,7 +1086,7 @@
 
 					<!-- 6. steps(n) -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">6. <i class="t_blue">steps(n)</i></h3>
+						<h3 class="ml_mn t_blue">steps(n)</h3>
 						<p class="mt_s">
 							애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
 							<code>duration</code> 값과 연계해서 선언하여 일종의 Frame Rate(초당 프레임 수)를 설정하거나 혹은, 셀 애니메이션처럼 연계된 동작을 표현할 수도 있습니다.
@@ -1113,7 +1124,7 @@
 
 					<!-- 7. cubic-bezier(n,n,n,n) -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">7. <i class="t_blue">cubic-bezier(n,n,n,n)</i></h3>
+						<h3 class="ml_mn t_blue">cubic-bezier(n,n,n,n)</h3>
 						<p class="mt_s">처음과 끝의 속도를 0과 1 사이의 수치를 이용하여 4단계로 지정할 수 있습니다. 베지어(Bezier)라는 곡선 운동을 정의합니다.</p>
 						<div class="uk_gist_code_box mt_ms" data-tit="transition-timing-function [cubic-bezier(n,n,n,n)]">
 							<textarea readonly="readonly">
@@ -1166,7 +1177,7 @@
 
 					<!-- 1. 기본형 -->
 					<article class="indent mt_l">
-						<h3 class="ml_mn">1. <i class="t_blue">기본형</i></h3>
+						<h3 class="ml_mn t_blue">기본형</h3>
 						<p class="mt_s">
 							<code>transition</code>의 속성을 분리해서 정의할 수 있습니다.<br>
 							code가 길어지는 단점이 있지만, 전체 속성(all) 대신 꼭 필요한 속성만 사용할 수 있습니다.
@@ -1185,7 +1196,7 @@
 
 					<!-- 2. 최대 단축형 -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">2. <i class="t_blue">최대 단축형</i></h3>
+						<h3 class="ml_mn t_blue">최대 단축형</h3>
 						<p class="mt_s">
 							변경할 속성이 한 개 또는 모든 css속성일 경우에 사용됩니다. (주로 property가 all일 경우에 많이 쓰입니다.)<br>
 							모든 css속성(property)에 적용하고, 기본 타이밍(ease)을 사용하고, 지연시간(delay)이 없을 경우<br>
@@ -1203,7 +1214,7 @@
 
 					<!-- 3. 확장 단축형 -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">3. <i class="t_blue">확장 단축형</i></h3>
+						<h3 class="ml_mn t_blue">확장 단축형</h3>
 						<p class="mt_s">
 							변경할 속성이 두 개 이상일 때 사용되며, 각 속성별로 독립적인 움직임을 줄 수 있습니다.
 						</p>
@@ -1220,7 +1231,7 @@
 
 					<!-- 4. 대입형 -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">4. <i class="t_blue">대입형</i></h3>
+						<h3 class="ml_mn t_blue">대입형</h3>
 						<p class="mt_s">
 							<code>transition-property</code>에 나열된 순서대로 다른 <code>transition</code>의 속성이 대입 적용됩니다.
 						</p>
@@ -1236,26 +1247,9 @@
 						</div>
 					</article>
 
-					<!-- 5. Steps 선언
-					<article class="indent mt_ml">
-						<h3 class="ml_mn">5. <i class="t_blue">Steps 선언</i></h3>
-						<p class="mt_sm">
-							애니메이션의 흐름을 Step(단계)화해서 제어할 수 있습니다.<br>
-							duration 값과 연계해서 선언하여 일종의 Frame Rate(초당 프레임 수)를 설정하거나 혹은, 셀 애니메이션처럼 연계된 동작을 표현할 수도 있습니다.
-						</p>
-						<div class="line_code_box line_code_number mt_ms">
-							<ul>
-								<li>div {</li>
-								<li class="indent">transition: all 1s steps(10);</li>
-								<li>}</li>
-							</ul>
-						</div>
-					</article>
-					-->
-
 					<!-- 5. transition 작성 시 유의사항 -->
 					<article class="indent mt_xl">
-						<h3 class="ml_mn">5. <i class="t_blue">transition 작성 시 주의사항</i></h3>
+						<h3 class="ml_mn t_blue">transition 작성 시 주의사항</h3>
 						<section class="tit_h4 indent mt_m">
 							<h4 class="ml_mn weight-bold">transition 속성에서 각 항목의 순서는 중요합니다.</h4>
 							<p class="mt_s">
@@ -1344,7 +1338,7 @@
 				</aside>
 
 				<aside class="reference_box mt_xxl">
-					<h2 class="tit">Transition 참조</h2>
+					<strong class="tit">Transition 참조</strong>
 					<ul class="link_lst">
 						<li class="reference"><a href="https://www.w3.org/TR/css-transitions-1/" target="_blank" class="fas" title="새창열림">W3C CSS Transitions</a></li>
 						<li class="reference"><a href="https://drafts.csswg.org/css-transitions/#transition-shorthand-property" target="_blank" class="fas" title="새창열림">W3C CSS Transitions</a></li>
@@ -1389,8 +1383,13 @@
 						<li>
 							<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 초급</a>
 							<ul class="depth4">
-								<li>
-									<a href="/publishing/css/02-cssBeginner/01-css_units">CSS 단위</a>
+								<li class="part_visible">
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part1">CSS 단위 <em>part-1</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/02-cssBeginner/01-css_units_part2">CSS 단위 <em>part-2</em></a>
+									</p>
 								</li>
 								<li class="part_visible">
 									<p>
@@ -1483,7 +1482,7 @@
 									</p>
 								</li>
 								<li>
-									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언순서</a>
+									<a href="/publishing/css/03-cssMiddleclass/10-css_attr_rule">CSS 속성 선언 순서</a>
 								</li>
 							</ul>
 						</li>
@@ -1509,10 +1508,13 @@
 										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part1">플렉서블 레이아웃 <em>소개 및 요약</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part2">플렉서블 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part3">플렉서블 레이아웃 <em>부모 속성 part_2</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/04-css_flexible_part4">플렉서블 레이아웃 <em>자식 속성 및 데모</em></a>
 									</p>
 								</li>
 								<li class="part_visible">
@@ -1523,13 +1525,16 @@
 										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part2">그리드 레이아웃 <em>명시적, 암시적</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part3">그리드 레이아웃 <em>부모 속성 part_1</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>자식 속성</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part4">그리드 레이아웃 <em>부모 속성 part_2</em></a>
 									</p>
 									<p>
-										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>가이드, 데모</em></a>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part5">그리드 레이아웃 <em>자식 속성</em></a>
+									</p>
+									<p>
+										<a href="/publishing/css/04-cssAdvanced/05-css_grid_part6">그리드 레이아웃 <em>가이드, 데모</em></a>
 									</p>
 								</li>
 								<li>
@@ -1549,6 +1554,11 @@
 			<!-- // CSS side menu -->
 		</div>
 		<!-- // sub main content (.sub_content) -->
+
+		<div class="content_bottom inner">
+			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
+		</div>
 	</div>
 	<!-- // uk_container -->
 
