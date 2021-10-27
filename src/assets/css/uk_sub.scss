@@ -71,7 +71,7 @@
 		$line-height:18px;
 		$line-color:rgba(#fff, .5);
 
-		display:none;
+		//display:none;
 		position:absolute; right:calc(#{$pc_padding} - #{$right_bottom}); bottom:calc(25px - #{$right_bottom}); z-index:99999;
 		max-width:450px; padding:$size/2; padding-right:50px + $size/2;
 		background:rgba($blue, .9); border-radius:$size/2;
@@ -183,7 +183,7 @@
 .uk_footer {background:#000;}
 @media(max-width:$screen-sm-max){
 	.uk_container {margin-top:$hdHeightMb;}
-	.content_bottom {display:none !important;}
+	//.content_bottom {display:none !important;}
 }
 
 

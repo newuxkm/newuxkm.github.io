@@ -33,9 +33,12 @@ let loading_sct = null;
 
 
 function content_list_offset(){
+  // h2, h3, h4 offset top // 반응형 분기점 더 확실하게 정리 필요 ★★★★★ pc > tb > mb
   //const minus_height = _ukHeader.height() + Number(_sub_content.css('padding-top').split('px')[0]);
-  if( $(window).width() < 993 + 17 ) content_list_empty = 40;
-
+  // md-max
+  if( $(window).width() < 993 - scroll_size ) content_list_empty = 40;
+  // sm-max
+  if( $(window).width() < 767 - scroll_size ) content_list_empty = 65;
   const minus_height = _ukHeader.height() + content_list_empty;
   list_offset_top = [];
   _content_area.find('['+data_title_num+']').each(function(i, e){
@@ -43,18 +46,24 @@ function content_list_offset(){
     if( $(e).is('.sound_only') ) offset_top = $(e).parent().offset().top - minus_height
     list_offset_top.push( offset_top );
   });
+
+  // h1 offset top
   con_tit_offsetTop = _content_title.offset().top - minus_height;
-  if( $(window).width() < 993 + 17 ) con_tit_offsetTop = _sub_content.offset().top - minus_height + 20;
-  // 모바일까지 해야해 ★★★★★★★★★★★★★★★★★★★★★★★★
+  // md-max
+  if( $(window).width() < 993 - scroll_size ) con_tit_offsetTop = _sub_content.offset().top - minus_height + 20;
+  // sm-max
+  if( $(window).width() < 767 - scroll_size ) con_tit_offsetTop = _sub_content.offset().top - _ukHeader.height();
 }
 function content_list_active(sct){
-  // 주석 달것 ★★★★★★★★★★★★★★★★★★★★★★★★
   _content_area.find('['+data_title_num+']').each(function(i, e){
     if( !_content_area.is('.'+list_moving) ){
+      // h2, h3, h4 active
       if( sct >= list_offset_top[i] ){
         $('.'+content_list).find('[data-title-num]').removeClass('active').eq(i).addClass('active');
         $('.'+list_title+' a').removeClass('active');
       }
+
+      // h1 active
       //if( sct >= con_tit_offsetTop || sct < list_offset_top[0] ){
       if( sct >= con_tit_offsetTop && sct < list_offset_top[0] ){
         $('.'+content_list).find('[data-title-num]').removeClass('active');
