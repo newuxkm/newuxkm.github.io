@@ -1,11 +1,12 @@
 
 // variable ------------------------------------------------------------------------------------------------------------
 const scroll_size = 17;
-const respon_size = 767 - scroll_size;
-const md_size = 993 - scroll_size;
+const screen_sm_max = 767 - scroll_size;
+const screen_md_max = 993 - scroll_size;
 
 // selector ------------------------------------------------------------------------------------------------------------
 const _window = $(window);
+const _document = $(document);
 const _html = $('html');
 const _body = $('body');
 const _htmlBody = $('html, body');
@@ -803,7 +804,7 @@ function depth3_masonry(){
 function pc_mb_class(win_w){
 	var scroll_state = false;
 	// 반응형 pc
-	if( win_w > respon_size ){
+	if( win_w > screen_sm_max ){
 		_html.addClass('pc').removeClass('mb');
 		// pcmb_state = [];
 		// pcmb_state.push('state_pc');
@@ -815,7 +816,7 @@ function pc_mb_class(win_w){
 		// }
 	}
 	// 반응형 mobile
-	else if( win_w <= respon_size ){
+	else if( win_w <= screen_sm_max ){
 		_html.addClass('mb').removeClass('pc');
 		// pcmb_state = [];
 		// pcmb_state.push('state_mb');

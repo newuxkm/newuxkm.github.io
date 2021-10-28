@@ -227,9 +227,9 @@
 <script type="text/javascript" src="{{ path.lib }}/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
 <script type="text/javascript" src="{{ path.lib }}/codemirror/uk_editor.js"></script>
 <!-- script - ui -->
-<script defer type="text/javascript" src="{{ path.js }}/uk_common.js"></script>
+<script defer type="text/javascript" src="{{ path.js }}/uk_common.min.js"></script>
 {%- set js_div = 'uk_main' if pageData.mainPage else 'uk_sub' %}
-<script defer type="text/javascript" src="{{ path.js }}/{{ js_div }}.js"></script>
+<script defer type="text/javascript" src="{{ path.js }}/{{ js_div }}.min.js"></script>
 {%- block script %}
 {%- endblock %}
 </body>

@@ -10,6 +10,7 @@ import image from "gulp-image";
 import sass from "gulp-sass";
 import sourcemaps from "gulp-sourcemaps";
 import minificss from "gulp-minify-css";
+import minify from "gulp-minify";
 import autoprefixer from "autoprefixer";
 import postCss from "gulp-postcss";
 import dependents from "gulp-dependents";
@@ -163,6 +164,12 @@ const js = () => {
   //   ]
   // }) )
   // .pipe( sourcemaps.write('./') )
+  .pipe(minify({
+    ext: {
+      min: '.min.js'
+    },
+    ignoreFiles: ['-min.js']
+  }))
   .pipe( gulp.dest(DEST_PATH.ASSETS.JS) );
 }
 
