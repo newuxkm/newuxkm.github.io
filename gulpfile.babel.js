@@ -82,6 +82,7 @@ const html = () => {
       }
       return str;
     });
+    environment.addFilter('date', dateFilter);
   };
   const gnbJson = JSON.parse(fs.readFileSync(PATH.TEMP + '/_json/_gnb.json'));
   const pathJson = JSON.parse(fs.readFileSync(PATH.TEMP + '/_json/_path.json'));
@@ -99,7 +100,10 @@ const html = () => {
   .pipe( data( datafile) )
   .pipe( nunjucksRender({
     envOptions: {
-      autoescape: false
+      autoescape: false,
+      // addFilter: {
+      //   'date': dateFilter
+      // }
     },
     manageEnv: manageEnvironment,
     //path: [PATH.TEMP],                                 // nunjucks-render 적용
