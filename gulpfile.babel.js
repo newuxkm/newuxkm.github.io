@@ -75,6 +75,7 @@ var jsonnet = new Jsonnet();
 // html
 const html = () => {
   const manageEnvironment = (environment) => {
+    // 들여쓰기 조정
     environment.addFilter('tabIndent', (str, numOfIndents, firstLine) => {
       str = str.replace(/^(?=.)/gm, new Array(numOfIndents + 1).join('\t'));
       if(!firstLine) {
@@ -82,6 +83,7 @@ const html = () => {
       }
       return str;
     });
+    // dateTime 가능하도록
     environment.addFilter('date', dateFilter);
   };
   const gnbJson = JSON.parse(fs.readFileSync(PATH.TEMP + '/_json/_gnb.json'));
