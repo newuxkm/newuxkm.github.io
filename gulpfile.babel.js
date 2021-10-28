@@ -1,4 +1,6 @@
 import gulp from "gulp";
+import express from 'express'; // 삭제할것
+import dateFilter from "nunjucks-date-filter"; // 삭제할것
 import nunjucksRender from "gulp-nunjucks-render";
 import plumber from "gulp-plumber";
 import data from "gulp-data";
@@ -58,12 +60,14 @@ const DEST_PATH = {
 
 
 // 기타 설정 -----------------------------------------------------------------------------------------------------------
+
 const onErrorHandler = (error) => console.log(error);  //plumber option (에러 발생 시 에러 로그 출력)
 const apfBrwsowsers = [
   //'ie > 0', 'chrome > 0', 'firefox > 0'  // 브라우저의 모든 버전 적용
   'last 2 versions'                    // 최신 브라우저 기준 하위 2개의 버전까지 적용
 ];
 var jsonnet = new Jsonnet();
+
 
 
 // assets --------------------------------------------------------------------------------------------------------------
