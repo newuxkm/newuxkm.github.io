@@ -23,7 +23,7 @@ let content_list_empty = 50;
 const cl_d1 = 'cl_d1';
 const cl_d2 = 'cl_d2';
 const cl_d3 = 'cl_d3';
-const list_moving = 'list_moving';
+let list_moving = false;
 let con_tit_offsetTop = 0;
 let list_offset_top = [];
 
@@ -33,28 +33,47 @@ let loading_sct = null;
 
 
 function content_list_offset(){
-  //const minus_height = _ukHeader.height() + Number(_sub_content.css('padding-top').split('px')[0]);
-  if( $(window).width() < 993 + 17 ) content_list_empty = 40;
+  let header_height = _ukHeader.height();
+  let win_width = $(window).width();
+  if( win_width < screen_md_max ) content_list_empty = 40;
+  if( win_width < screen_sm_max ) content_list_empty = 65;
 
-  const minus_height = _ukHeader.height() + content_list_empty;
+  // h2, h3, h4 offset top
+  const minus_height = header_height + content_list_empty;
   list_offset_top = [];
   _content_area.find('['+data_title_num+']').each(function(i, e){
     let offset_top = $(e).offset().top - minus_height;
     if( $(e).is('.sound_only') ) offset_top = $(e).parent().offset().top - minus_height
-    list_offset_top.push( offset_top );
+    list_offset_top.push( Math.ceil(offset_top) );
   });
-  con_tit_offsetTop = _content_title.offset().top - minus_height;
-  if( $(window).width() < 993 + 17 ) con_tit_offsetTop = _sub_content.offset().top - minus_height + 20;
-  // 모바일까지 해야해 ★★★★★★★★★★★★★★★★★★★★★★★★
+
+  // h1 offset top
+  let subCon_offsetTop = _sub_content.offset().top;
+  con_tit_offsetTop = 0;
+  if( win_width >= screen_md_max ) con_tit_offsetTop = subCon_offsetTop - header_height;
+  // md-max
+  if( win_width < screen_md_max ) con_tit_offsetTop = subCon_offsetTop - minus_height + 20;
+  // sm-max
+  if( win_width < screen_sm_max ) con_tit_offsetTop = subCon_offsetTop - header_height;
 }
 function content_list_active(sct){
-  // 주석 달것 ★★★★★★★★★★★★★★★★★★★★★★★★
-  _content_area.find('['+data_title_num+']').each(function(i, e){
-    if( !_content_area.is('.'+list_moving) ){
+  const _title_target = _content_area.find('['+data_title_num+']');
+  const _target_length = _title_target.length-1;
+  _title_target.each(function(i, e){
+    if( !list_moving ){
+      // h2, h3, h4 active
       if( sct >= list_offset_top[i] ){
         $('.'+content_list).find('[data-title-num]').removeClass('active').eq(i).addClass('active');
         $('.'+list_title+' a').removeClass('active');
+
+        // 마지막 컨텐츠의 height값이 작은 경우 scroll top이 max일때 마지막 title active
+        if( Math.ceil(sct + _window.height()) >= _document.height() ){
+          $('.'+content_list).find('[data-title-num]').removeClass('active');
+          $('.'+content_list).find('[data-title-num]').eq(_target_length).addClass('active');
+        }
       }
+
+      // h1 active
       //if( sct >= con_tit_offsetTop || sct < list_offset_top[0] ){
       if( sct >= con_tit_offsetTop && sct < list_offset_top[0] ){
         $('.'+content_list).find('[data-title-num]').removeClass('active');
@@ -96,15 +115,10 @@ $(document).ready(function(){
       _html.removeClass('side_close');
       sessionStorage.clear(sideToggle);
     }
-
     return false;
   });
 
   // sessionStorage 의 sideToggle 에 true 값이 있으면 side menu 닫기 (<head>로 이동)
-  // if( sessionStorage.getItem(sideToggle) ){
-  //   _side_toggle.addClass('active').attr('title','사이드 메뉴 열기').parent().addClass(side_close);
-  //   _side_toggle.find('b').text('OPEN');
-  // }
 });
 
 
@@ -171,17 +185,17 @@ $(window).on('load', function(){
   }
 
   // content list 생성 및 클릭 시 이동
-  const content_section = _content_area.children('section, article');
   if( !_body.is('.content_lst_none') ){
     _content_bottom.addClass('list_show');
+    const content_section = _content_area.children('section, article');
     const prefix_tit = 'title_';
 
     _content_bottom.append('<nav class="'+content_list+'"><ul class="'+cl_d1+'"></ul></nav>');
     const _content_list = $('.'+content_list+' ul');
     const h1_txt = _content_title.html().split('<em')[0];
     const h1_num = _content_title.attr('data-number');
-    $('.'+content_list).append('<button type="button" class="'+content_list_close+'"><i>목차 닫기</i></button>');
     _content_list.before('<strong class="'+list_title+'"><a href="#">'+ h1_num+h1_txt +'</a></strong>');
+    $('.'+content_list).append('<button type="button" class="'+content_list_close+'"><i>목차 닫기</i></button>');
     $('.'+list_title).find('span').removeAttr('class');
 
     // h2 생성 ---------------------------------------------------------------------------------------------------------
@@ -243,30 +257,35 @@ $(window).on('load', function(){
     const sct = $(window).scrollTop();
     const list_moving_speed = 400;
     const list_moving_effect = 'easeInOutCubic';
+    let list_moving_timeout;
     content_list_offset();
     content_list_active(sct);
     $('.'+content_list+' .'+cl_d1).find('a').each(function(i, e){
       $(e).on('click', function(){
-        _content_area.addClass(list_moving);
+        list_moving = true;
+        clearTimeout(list_moving_timeout);
+
         _htmlBody.stop().animate({scrollTop:list_offset_top[i]}, list_moving_speed, list_moving_effect);
         $('.'+content_list+' .'+cl_d1).find('a').removeClass('active');
         $('.'+list_title+' a').removeClass('active');
         $(e).addClass('active');
-        setTimeout(function(){
-          _content_area.removeClass(list_moving);
-          $(window).trigger('scroll');
+
+        list_moving_timeout = setTimeout(function(){
+          list_moving = false;
         }, list_moving_speed + 100);
         return false;
       });
     });
     $('.'+list_title+' a').on('click', function(){
-      _content_area.addClass(list_moving);
+      list_moving = true;
+      clearTimeout(list_moving_timeout);
+
       _htmlBody.stop().animate({scrollTop:con_tit_offsetTop}, list_moving_speed, list_moving_effect);
       $('.'+content_list+' .'+cl_d1).find('a').removeClass('active');
-      $('.'+list_title+' a').addClass('active');
-      setTimeout(function(){
-        _content_area.removeClass(list_moving);
-        $(window).trigger('scroll');
+      $('.'+list_title+' a').addClass('active')
+
+      list_moving_timeout = setTimeout(function(){
+        list_moving = false;
       }, list_moving_speed + 100);
       return false;
     });
@@ -322,7 +341,7 @@ $(window).on('resize', function(){
   content_list_offset();
   hd_layer_open_resize(win_w);
 
- if( win_w > md_size ){
+ if( win_w > screen_md_max ){
    _side_menu.find('.depth4').removeAttr('style');
    if( _side_menu_d3.is('.active') ){
      _side_menu.find('.depth3 > li.active').addClass(tg_on);
