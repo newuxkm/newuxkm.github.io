@@ -100,7 +100,7 @@
 				position:relative; padding:0 0 0 $left-padding;
 				&:before {
 					position:absolute; left:0; top:$line-height/2;
-					width:$left-padding - 2px; height:1px;
+					width:$left-padding - 1px; height:1px;
 					background:$line-color;
 					content:"";
 				}
@@ -621,10 +621,10 @@ $side_menu_width:250px;
 			i {
 				position:absolute; left:0; top:$text_width*3;
 				transform:rotate(90deg); transform-origin:0 100%;
-				height:$text_width; line-height:$text_width;
-				padding-left:15px; padding-right:40px;
-				@include font-logo; font-size:15px; color:darken($active_color, 10%);
-				text-indent:0; font-weight:900; letter-spacing:0.4px;
+				height:$text_width; line-height:$text_width - 10px;
+				padding-left:15px; padding-right:20px;
+				@include font-kr; font-size:15px; color:darken($active_color, 10%);
+				text-indent:0; font-weight:500; letter-spacing:0.4px;
 				border-bottom:1px solid $active_color;
 				//border-bottom-width:1px;
 				//border-bottom-style:solid;
@@ -662,9 +662,8 @@ $side_menu_width:250px;
 				i {
 					font-size:0;
 					&:before {
-						//@include font-en;
-						font-size:15px; //color:#888;
-						letter-spacing:0;
+						font-size:15px;
+						letter-spacing:-0.3px;
 						content:attr(data-page-title);
 					}
 				}

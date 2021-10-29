@@ -20,11 +20,83 @@
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content -%}
-	{{ super() }}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			장애인 및 고령자가 웹 사이트 이용에 불편이 없도록 웹 접근성 표준지침을 준수한 우수 사이트에 대해 웹 접근성 수준을 인정하고 이를 상징하는 품질 마크를 부여하는 인증제도이며,
+			인증 마크 자체는 권장사항일 뿐 필수는 아니지만 대부분이 접근성을 준수하면 필수로 취득을 해야 하는것으로 오해를 하고 있는 부분이 있습니다.<br>
+			필수로 지켜져야 하는 것은 접근성 자체를 지켜야 하는것입니다.
+		</p>
+	</blockquote>
+
+	<!-- 배경 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">배경</h2>
+		<p class="mt_m">
+			웹 접근성을 향상하기 위한 국가적인 노력이 계속되고 있으나, 국내 대부분 사이트의 웹 접근성 수준은 매우 낮습니다.<br>
+			공공기관에서 조차도 웹 접근성이 선진국들에 비하여 낮아 공공기관이 제공하는 중요 정보도 접근이 어려운 실태입니다.
+		</p>
+	</section>
+
+	<!-- 인증대상 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">인증대상</h2>
+		<p class="mt_m">
+			인터넷을 통해 정보통신서비스를 제공하는 웹 사이트를 운영하는 정부 및 공공기관, 민간 사업장('13년까지 의무화 준수 사업장)
+		</p>
+	</section>
+
+	<!-- 기대효과 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">기대효과</h2>
+		<p class="mt_m">
+			접근성 준수 향상을 통해 지식정보사회의 정보접근권 제고<br>
+			고객 신뢰도 및 만족도 제고와 사회적 공헌<br>
+			국내 웹 개발 환경 개선 및 관련 기술 발전 촉진
+		</p>
+	</section>
+
+	<!-- 인증 유효기간 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">인증 유효기간</h2>
+		<p class="mt_m">
+			인증의 유효기간은 1년이며 매년 갱신이 필요합니다.
+		</p>
+	</section>
+
+	<!-- 웹 접근성 인증기관 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">웹 접근성 인증기관</h2>
+		<p class="mt_m">
+			「국가정보화기본법」제32조의2 및 동법 시행규칙 제3조의3에 의거 다음과 같이 웹 접근성 품질인증기관으로 지정되었음을 공고합니다.
+		</p>
+		<ol class="indent mt_s">
+			<li>제 2014-01호 한국웹접근성인증평가원 (사단법인 한국장애인단체총연합회) 02-858-7220</li>
+			<li>제 2014-02호 주식회사 웹와치 02-2678-0078</li>
+			<li>제 2014-03호 사단법인 한국시각장애인연합회 (한국웹접근성평가센터) 02-973-0073</li>
+		</ol>
+	</section>
+
+	<!-- 웹 접근성 인증마크 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">웹 접근성 인증마크</h2>
+		<figure class="img_figure mt_m">
+			<img src="{{ path.img_acc }}/acc_mark1.gif" alt="한국정보화진흥원 인증마크 (07년 ~ 13년)">
+			&nbsp;&nbsp;
+			<img src="{{ path.img_acc }}/acc_mark2.jpg" alt="과학기술정보통신부 지정 인증마크 (14년 ~ 현재)" style="max-width:180px">
+			<figcaption>
+				한국정보화진흥원 인증마크 (07년 ~ 13년) / 과학기술정보통신부 지정 인증마크 (14년 ~ 현재)
+			</figcaption>
+		</figure>
+	</section>
+
 	<footer class="reference_box">
 		<strong class="tit">{{ title_d3 }} 참조</strong>
 		<ul class="link_lst">
-			<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+			<li class="reference"><a href="https://www.wah.or.kr:444/" target="_blank" class="fas">웹접근성 연구소</a></li>
+			<li class="reference"><a href="http://www.wa.or.kr/" target="_blank" class="fas">한국웹접근성인증평가원 (사단법인 한국장애인단체총연합회)</a></li>
+			<li class="reference"><a href="http://www.webwatch.or.kr/" target="_blank" class="fas">주식회사 웹와치</a></li>
+			<li class="reference"><a href="http://www.kwacc.or.kr/" target="_blank" class="fas">사단법인 한국시각장애인연합회 (한국웹접근성평가센터)</a></li>
 		</ul>
 	</footer>
 {%- endblock %}
