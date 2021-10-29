@@ -82,12 +82,11 @@
 	{% if pageData.mainPage === true -%}
 	<link href="{{ path.css }}/uk_main.min.css" rel="stylesheet" />
 	{%- else -%}
-	<link href="{{ path.css }}/uk_sub.min.css?ver=1" rel="stylesheet" />
+	<link href="{{ path.css }}/uk_sub.min.css" rel="stylesheet" />
 	{%- endif %}
 	{%- block css %}
 	{%- endblock %}
-
-	{{ aaa }}
+	{#- {{ creation_date | date("YYYYMMDD_HHMMSS") }} #}
 
 	<!-- js -->
 	<script type="text/javascript" src="{{ path.lib }}/jquery-3.4.1.min.js"></script>

@@ -3,7 +3,7 @@
 	title: "멀티미디어 대체 수단",
 	description: "멀티미디어 대체 수단 입니다.",
 	keyword: "",
-	last_update: "0000-00-00"
+	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
 	mainClass: "wa_media",
@@ -11,7 +11,8 @@
 	Info: true,
 	note: false,
 	sideMenu: true,
-	reference: true
+	reference: true,
+	contentList: true
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->

@@ -3,7 +3,7 @@
 	title: "쉬운 내비게이션",
 	description: "쉬운 내비게이션 입니다.",
 	keyword: "",
-	last_update: "0000-00-00"
+	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
 	mainClass: "easy_navigation",
@@ -11,7 +11,8 @@
 	Info: true,
 	note: false,
 	sideMenu: true,
-	reference: true
+	reference: true,
+	contentList: true
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->

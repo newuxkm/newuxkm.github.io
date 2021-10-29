@@ -3,7 +3,7 @@
 	title: "웹 접근성을 고려한 콘텐츠 제작 방법",
 	description: "웹 접근성을 고려한 콘텐츠 제작 방법 입니다.",
 	keyword: "",
-	last_update: "0000-00-00"
+	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
 	mainClass: "waContents",
@@ -11,7 +11,8 @@
 	Info: true,
 	note: false,
 	sideMenu: true,
-	reference: true
+	reference: true,
+	contentList: true
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->

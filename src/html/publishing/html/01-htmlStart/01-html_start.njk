@@ -3,7 +3,7 @@
 	title: "HTML이란?",
 	description: "HTML 역사, 요약설명, 기본구조에 대해 이해하는 섹션입니다.",
 	keyword: "Markup, HTML, 기본구조",
-	last_update: creation_date | date(yyyy.mm.dd)
+	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
 	mainClass: "html_start",
@@ -20,8 +20,6 @@
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content %}
-	{{ creation_date | date(yyyy.mm.dd) }}
-
 	<blockquote class="uk_note mt_xxl" role="note">
 		<strong class="sound_only">요약 설명</strong>
 		<p>

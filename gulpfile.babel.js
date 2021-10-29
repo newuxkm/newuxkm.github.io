@@ -1,6 +1,6 @@
 import gulp from "gulp";
-import express from 'express'; // 삭제할것
-import dateFilter from "nunjucks-date-filter"; // 삭제할것
+//import dateFilter from "nunjucks-date-filter";
+import dateFilter from "nunjucks-date-filter-local";
 import nunjucksRender from "gulp-nunjucks-render";
 import plumber from "gulp-plumber";
 import data from "gulp-data";

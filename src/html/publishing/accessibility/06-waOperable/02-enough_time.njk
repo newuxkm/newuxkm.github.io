@@ -3,7 +3,7 @@
 	title: "충분한 시간 제공",
 	description: "충분한 시간 제공 입니다.",
 	keyword: "",
-	last_update: "0000-00-00"
+	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
 	mainClass: "enough_time",
@@ -11,7 +11,8 @@
 	Info: true,
 	note: false,
 	sideMenu: true,
-	reference: true
+	reference: true,
+	contentList: true
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
