@@ -2,8 +2,9 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
-	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Anton&family=Jura:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 	<meta name="HandheldFriendly" content="true">
@@ -62,14 +63,14 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<script type="text/javascript" src="/_assets/js/uk_dom_before.min.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body class="waKwcag">
+<body class="waKwcag content_lst_none">
 <div class="uk_wrap" data-active="0/2">
 
 	<nav class="uk_skip">
@@ -905,18 +906,377 @@
 			<main id="content" class="content_area">
 				<header>
 					<h1 id="content_title" data-number="3. ">KWCAG 2.1 개요 <em class="sound_only">- by. UXKM</em></h1>
-					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
+					<time class="last_update" datetime="2021-10-29">2021-10-29</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
-				<footer class="reference_box">
-					<strong class="tit">KWCAG 2.1 개요 참조</strong>
-					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
-					</ul>
-				</footer>
-				
-				
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">3.1. KWCAG 의미</h2>
+					<p class="mt_ms">
+						KWCAG (Korean Web Content Accessibility Guidelines) 라고 지칭합니다.<br>
+						이를 풀어서 설명하면
+						<span class="t_blue"><b class="t_black">K</b>orean 한국형,</span>
+						<span class="t_blue"><b class="t_black">W</b>eb 웹,</span>
+						<span class="t_blue"><b class="t_black">C</b>ontent 콘텐츠,</span>
+						<span class="t_blue"><b class="t_black">A</b>ccessibility 접근성,</span>
+						<span class="t_blue"><b class="t_black">G</b>uidelines 지침</span>
+						<br>
+						본 표준은 해외의 웹 표준 기술 동향을 토대로 국내 환경에 맞게 반영된 한국형 웹 콘텐츠 접근성 지침이며, 원칙 4개, 지침 13개, 항목 24개로 구성되어 있습니다.<br>
+						한국도 2009년 5월 '국가 정보화 기본법'을 개정해 '장애인, 고령자 등의 정보 접근 및 이용 보장'을 명시했으며,<br class="dp_px">
+						2015년까지 한국 내 모든 인터넷 사이트가 웹 접근성을 보장하도록 규정했습니다.
+					</p>
+				</section>
+
+				<section class="mt_xxl indent">
+					<h2 class="ml_mn">3.2. 용어 정의</h2>
+					<ol class="ol_lst">
+
+						<!-- 건너뛰기 링크 -->
+						<li class="tit_h3 mt_l">
+							<h3>건너뛰기 링크</h3>
+							<p class="mt_ms">
+								반복 영역의 순차적인 내비게이션을 생략하고 웹 페이지의 핵심 영역으로 이동할 수 있는 수단(버튼, 텍스트 링크 등)을 의미합니다.
+							</p>
+						</li>
+
+						<!-- 고대비 모드 -->
+						<li class="tit_h3 mt_l">
+							<h3>고대비 모드</h3>
+							<p class="mt_ms">
+								고대비 모드란 전경과 배경 간의 명도 대비를 강조하여 표시하는 것으로, 해당 항목을 보다 뚜렷하게 식별할 수 있도록 도와줍니다.<br>
+								또 한 검은색 배경에 하얀색으로 텍스트를 표시하는 경우와 같이 명도 대비 또는 색대비가 큰 차이가 나도록 조정하여 화면에 표시하는 방식을 경조(硬調) 모드라고 하며, 최신 운영체제에서는 기본적으로 이 기능을 지원하고 있습니다.
+							</p>
+						</li>
+
+						<!-- 공백 문자 -->
+						<li class="tit_h3 mt_l">
+							<h3>공백 문자</h3>
+							<p class="mt_ms">
+								아무런 정보도 가지고 있지 않은 문자열을 의미합니다.<br>
+								HTML(Hyper Text Markup Language) 등의 문법에서 공백 문자는 “”을 나타냅니다. 공백 문자를 화면 낭독 프로그램(screen reader)을 사용하여 읽으면 아무런 소리도 나지 않습니다.
+							</p>
+						</li>
+
+						<!-- 광과민성 증후 -->
+						<li class="tit_h3 mt_l">
+							<h3>광과민성 증후</h3>
+							<p class="mt_ms">
+								빛의 깜빡거림에 의해 발작을 일으키는 증상을 말합니다.<br>
+								주로 초당 3회 ~ 50회 주기의 번쩍거림이 광과민성 발작을 일으키는 원인이 되며, 초당 20회 부근의 번쩍거림이 발작을 가장 잘 일으키는 주파수로 알려져 있습니다.
+							</p>
+						</li>
+
+						<!-- 대체 수단 -->
+						<li class="tit_h3 mt_l">
+							<h3>대체 수단</h3>
+							<p class="mt_ms">
+								멀티미디어 콘텐츠에 포함된 음성(대화)을 대체하기 위한 콘텐츠로, 자막, 구술된 내용을 글로 옮긴 대본(transcript), 수화(sign language) 등이 그것입니다.<br>
+								여기서 자막과 대본은 텍스트 콘텐츠이며, 수화는 미디어 형식의 대체 콘텐츠입니다.
+							</p>
+						</li>
+
+						<!-- 대체 콘텐츠 -->
+						<li class="tit_h3 mt_l">
+							<h3>대체 콘텐츠</h3>
+							<p class="mt_ms">
+								텍스트 콘텐츠를 오디오, 비디오 또는 오디오-비디오 형식으로 변 환하여 제공하는 미디어 콘텐츠를 말합니다.<br>
+								예를 들어, 어떤 텍스트를 수화로 번역하여 제공하는 비디오 파일은 대체 콘텐츠라고 할 수 있습니다.
+							</p>
+						</li>
+
+						<!-- 대체 텍스트 -->
+						<li class="tit_h3 mt_l">
+							<h3>대체 텍스트</h3>
+							<p class="mt_ms">
+								텍스트 아닌 콘텐츠를 대신하기 위해 제공되는 등가의 텍스트를 의미합니다.<br>
+								동영상의 경우에는 6.2 절 멀티미디어 대체 수단에서 제시하는 대체 수단을 제공합니다.
+							</p>
+						</li>
+
+						<!-- 드롭다운 메뉴 -->
+						<li class="tit_h3 mt_l">
+							<h3>드롭다운 메뉴</h3>
+							<p class="mt_ms">
+								여러 개의 항목을 포함하고 있는 목록에서 하나의 항목만 보이다가 사용자가 메뉴 확장 버튼을 활성화시키면 나머지 목록의 전부 또는 일부가 아래로 펼쳐져 나타나는 방식의 사용자 입력 컨트롤을 의미합니다.<br>
+								콤보상자(combo box)라고도 합니다.
+							</p>
+						</li>
+
+						<!-- 레이블 -->
+						<li class="tit_h3 mt_l">
+							<h3>레이블</h3>
+							<p class="mt_ms">
+								모든 사용자 입력(예 : 텍스트 입력 상자, 라디오 버튼, 체크 상자, 드롭다운 메뉴 등)의 용도 또는 역할에 대한 설명을 레이블이라 합니다.
+							</p>
+						</li>
+
+						<!-- 레이어 팝업 콘텐츠 -->
+						<li class="tit_h3 mt_l">
+							<h3>레이어 팝업 콘텐츠</h3>
+							<p class="mt_ms">
+								팝업 창 차단 기능이 있는 브라우저에서 시각적으로 팝업 창과 같 은 효과를 내도록 구현한 콘텐츠를 말합니다.<br>
+								레이어 팝업 콘텐츠는 같은 페이지의 일부 영역을 가리고 그 위에 표시되므로 그 뒤의 콘 텐츠를 보기 위해서는 반드시 레이어 팝업을 화면에서 사라지도록 해야 합니다.<br>
+								레이어 팝업은 웹 페이지에 포함되는 콘텐츠이므로 7.1.2 절(초점 이동)과 8.3.1 절(콘텐츠의 선형 구조)을 위반하지 않도록 구현해야 합니다.
+							</p>
+						</li>
+
+						<!-- 마우스 오버 (mouse-over) -->
+						<li class="tit_h3 mt_l">
+							<h3>마우스 오버 (mouse-over)</h3>
+							<p class="mt_ms">
+								웹 페이지 안의 어떤 요소에 마우스 포인터를 올려놓았지만 마우스 버튼을 누르지 않은 상태를 지칭합니다.<br>
+								따라서 마우스 오버는 해당 요소를 선택만 하고 활성화하지 않은 상태를 의미합니다.
+							</p>
+						</li>
+
+						<!-- 마우스 클릭 -->
+						<li class="tit_h3 mt_l">
+							<h3>마우스 클릭</h3>
+							<p class="mt_ms">
+								마우스 포인터를 특정 객체나 요소를 가리킨 다음 마우스의 버튼을 누르는 행위를 뜻합니다.<br>
+								마우스 클릭 이벤트가 발생하면 보통은 해당 객체가 활성화되어 어떤 동작이나 기능을 실행하며, 종종 맥락의 변화가 일어납니다.
+							</p>
+						</li>
+
+						<!-- 마크업 언어 (Markup Language) -->
+						<li class="tit_h3 mt_l">
+							<h3>마크업 언어 (Markup Language)</h3>
+							<p class="mt_ms">
+								마크업 언어는 텍스트의 각 부분에 의미를 나타내는 정보를 기술할 수 있도록 정의한 프로그래밍 언어를 말합니다.<br>
+								HTML, 확장 마크업 언어(XML : eXtensible Markup Language) 등이 이에 해당합니다.
+							</p>
+						</li>
+
+						<!-- 멀티미디어 (multimedia) -->
+						<li class="tit_h3 mt_l">
+							<h3>멀티미디어 (multimedia)</h3>
+							<p class="mt_ms">
+								시간의 변화에 따른 정보를 제공하기 위하여 오디오 또는 비디오 콘텐츠를 또 다른 포맷과 동기화하여 제공하도록 만들어진 콘텐츠 또는 콘텐츠 재생 과정의 특정 시점에서 사용자와의 상호작용이 필 요한 매체를 말합니다.
+							</p>
+						</li>
+
+						<!-- 명도 대비 -->
+						<li class="tit_h3 mt_l">
+							<h3>명도 대비</h3>
+							<p class="mt_ms">
+								색의 밝고 어두운 정도를 말합니다.
+							</p>
+						</li>
+
+						<!-- 반복 영역 (repetitive block) -->
+						<li class="tit_h3 mt_l">
+							<h3>반복 영역 (repetitive block)</h3>
+							<p class="mt_ms">
+								반복되는 영역, 메뉴, 링크 모음과 같이 동일한 내용이 같은 위치에 여러 웹 페이지에 걸쳐 나타나는 영역을 의미합니다.<br>
+								글로벌 내비게이션(global navigation)도 반복 영역의 하나입니다. 모든 페이지에 걸쳐 존재하는 광고 영역 등도 그 내용의 다름 여부와 관계없이 반복 영 역으로 간주됩니다.
+							</p>
+						</li>
+
+						<!-- 배경 이미지 -->
+						<li class="tit_h3 mt_l">
+							<h3>배경 이미지</h3>
+							<p class="mt_ms">
+								배경 이미지란 콘텐츠의 배경을 장식하기 위하여 사용되는 이미지를 의미합니다.<br>
+								따라서 배경 이미지는 제거하더라도 콘텐츠의 이해와 사용에 아무런 영향을 주지 않아야 합니다.
+								배경 이미지를 제거하는 경우 콘텐츠의 이해가 불가능하거나 사용이 어려운 콘텐츠는 배경 이미지가 의미하는 정보를 보조 기술로 전달하도록 구현해야 합니다.
+							</p>
+						</li>
+
+						<!-- 배치용 테이블 (layout table) -->
+						<li class="tit_h3 mt_l">
+							<h3>배치용 테이블 (layout table)</h3>
+							<p class="mt_ms">
+								제목 행과 제목 열이 있는 데이터용 테이블(data table)과는 달리, 콘텐츠 블록을 원하는 크기와 형태로 배치하기 위하여 사용한 테이 블을 말합니다. 배치용 테이블은 제목 행, 제목 열 및 표 제목이 없습니다.
+							</p>
+						</li>
+
+						<!-- 보조 기술 (assistive technology) -->
+						<li class="tit_h3 mt_l">
+							<h3>보조 기술 (assistive technology)</h3>
+							<p class="mt_ms">
+								장애를 지닌 사용자의 요구 조건을 만족시키는 기능을 추가하여 제 공하는 하드웨어 또는 소프트웨어를 의미합니다.<br>
+								대표적으로 화면 낭 독 프로그램(screen reader), 화면 확대 프로그램, 특수 키보드 등 을 들 수 있습니다. 보조 기술은 보조 공학(기기) 또는 보조 기기라고도 합니다.
+							</p>
+						</li>
+
+						<!-- 새 창, 팝업 창 -->
+						<li class="tit_h3 mt_l">
+							<h3>새 창, 팝업 창</h3>
+							<p class="mt_ms">
+								새로운 페이지를 보여주기 위해 현재의 창이 아닌 별도의 창 또는 탭으로 열리는 경우, 이를 새 창이라고 합니다.<br>
+								단, 스크립트 언어의 고유한 기능이나 플랫폼에 의해 생성되는 경고(alert), 확인 (confirm), 입력 프롬프트(prompt) 등의 메시지 대화상자(dialog box)는 새 창이나 팝업 창의 범주에 포함되지 않습니다. 여기서 팝업 창은 웹 페이지가 로드될 때 자동으로 열리는 새 창을 의미합니다.
+							</p>
+						</li>
+
+						<!-- 스타일 시트 (style sheet) -->
+						<li class="tit_h3 mt_l">
+							<h3>스타일 시트 (style sheet)</h3>
+							<p class="mt_ms">
+								문서의 표현 형태를 규정하는 일련의 명령문을 의미합니다.<br>
+								스타일 시트는 콘텐츠 제공자가 마련한 것, 사용자가 마련한 것, 웹 브라우 저에 내장된 형태 등의 세 가지가 있습니다.<br>
+								예를 들어 W3C의 종속형 시트(CSS : Cascading Style Sheets) 레벨 2, 3 등이 스타일 시트의 대표적인 표준 규격입니다.
+							</p>
+						</li>
+
+						<!-- 시간제한이 있는 콘텐츠 -->
+						<li class="tit_h3 mt_l">
+							<h3>시간제한이 있는 콘텐츠</h3>
+							<p class="mt_ms">
+								시간을 통제할 수 없도록 구현된 콘텐츠를 말합니다. 시간제한이 있는 콘텐츠의 예는 다음과 같습니다.
+							</p>
+							<ol class="ol_lst_second indent mt_s">
+								<li>자동 갱신되도록 구성된 콘텐츠</li>
+								<li>몇 초 후에 다른 페이지로 이동하도록 구성된 콘텐츠</li>
+								<li>자동적으로 스크롤 되는 콘텐츠</li>
+								<li>짧은 기간 동안 나타났다 일정 시간 후에 자동적으로 사라지는 대화상자(dialog box), 팝업 창, 레이어 팝업 등</li>
+								<li>일정 시간 동안 사용하지 않으면 웹 페이지에 대한 접근이 강제로 차단되거나 사용할 수 없게 되는 콘텐츠</li>
+							</ol>
+						</li>
+
+						<!-- 온라인 서식 (online form) -->
+						<li class="tit_h3 mt_l">
+							<h3>온라인 서식 (online form)</h3>
+							<p class="mt_ms">
+								온라인 서식은 사용자의 입력을 통해 값을 수정하여 전달할 수 있는 여러 가지 컨트롤(예 : 텍스트 입력 상자, 드롭다운 선택 메뉴, 라디오 버튼, 누르는 버튼 등)과 그것의 레이블로 구성된 콘텐츠를 말합니다.
+							</p>
+						</li>
+
+						<!-- 웹 애플리케이션 -->
+						<li class="tit_h3 mt_l">
+							<h3>웹 애플리케이션</h3>
+							<p class="mt_ms">
+								웹 콘텐츠에 포함되어 특정한 기능을 수행하도록 구성된 소프트웨어의 일종으로, 리치 인터넷 애플리케이션(RIA : Rich Internet Application)이라고도 합니다.
+							</p>
+						</li>
+
+						<!-- 위치 지정 도구 (pointing device) -->
+						<li class="tit_h3 mt_l">
+							<h3>위치 지정 도구 (pointing device)</h3>
+							<p class="mt_ms">
+								마우스나 터치패드 및 터치스크린과 같이 컴퓨터 화면의 특정 지점을 직접 지정할 수 있는 장치를 의미합니다.<br>
+								터치스크린을 채용한 기기에서는 끝이 뭉툭한 손가락으로도 컨트롤을 선택하거나 활성화시킬 수 있어야 하므로 조작이 가능한 크기로 컨트롤이 제공되어야 합니다.
+							</p>
+						</li>
+
+						<!-- 음성 입력장치 -->
+						<li class="tit_h3 mt_l">
+							<h3>음성 입력장치</h3>
+							<p class="mt_ms">
+								음성으로 컴퓨터를 제어하거나 텍스트를 입력할 수 있도록 구성된 시스템 또는 이러한 시스템을 구성하는 데 사용되는 프로그램을 의미합니다.
+							</p>
+						</li>
+
+						<!-- 자막 (captions) -->
+						<li class="tit_h3 mt_l">
+							<h3>자막 (captions)</h3>
+							<p class="mt_ms">
+								영상 매체에 포함된 말, 음향 및 주변 소리 등을 텍스트로 표현한 매체를 의미합니다.<br>
+								자막은 영상 매체의 진행에 따라 해당 이벤트와 동기화되어야 합니다.
+								자막은 크게 폐쇄 자막(closed caption)과 개방 자막(open caption)으로 구분됩니다.<br>
+								폐쇄 자막은 사용자의 필요에 따라 자막을 끄거나 켤 수 있는 데 반해, 개방 자막은 비디오 콘텐츠에 캡션 정보가 함께 녹화되어 있으므로 사용자가 임의로 자막을 끄거나 켤 수 없습니다.
+							</p>
+						</li>
+
+						<!-- 장식을 위한 글자 -->
+						<li class="tit_h3 mt_l">
+							<h3>장식을 위한 글자</h3>
+							<p class="mt_ms">
+								정보 제공이나 콘텐츠 이용에 필요한 기능과는 무관하게 웹 페이지의 시각적인 표현만을 위해 사용된 콘텐츠의 글자를 말합니다. 로고 등이 이에 해당됩니다.
+							</p>
+						</li>
+
+						<!-- 적절한 제목 (appropriate title) -->
+						<li class="tit_h3 mt_l">
+							<h3>적절한 제목 (appropriate title)</h3>
+							<p class="mt_ms">
+								콘텐츠의 내용을 쉽게 파악할 수 있도록 해당 주제나 목적을 간단 명료하게 표현한 명칭을 의미합니다.
+							</p>
+						</li>
+
+						<!-- 접근성 프로그래밍 인터페이스 (accessibility programming interface) -->
+						<li class="tit_h3 mt_l">
+							<h3>접근성 프로그래밍 인터페이스 (accessibility programming interface)</h3>
+							<p class="mt_ms">
+								운영체제 또는 플랫폼은 응용 프로그램과 보조 기술 간의 정보 전 달 방법에 관한 프로그램 인터페이스(programming interface)를 제공합니다.<br>
+								예를 들어 Windows 환경의 MSAA, UI Automation, IAccessible2, MacOSX 환경의 AXAPI, Gnome 환경의 Gnome Accessibility Toolkit API, Java 플랫폼의 Java Access API 등이 그것입니다.
+								웹 애플리케이션을 접근성 프로그래밍 인터페이스를 이 용하여 구현하면 보조 기술과 호환성이 유지됩니다.
+							</p>
+						</li>
+
+						<!-- 초점 (focus) -->
+						<li class="tit_h3 mt_l">
+							<h3>초점 (focus)</h3>
+							<p class="mt_ms">
+								웹 페이지 안에서 프로그램에 의해 또는 사용자의 행위(예 : 탭 (tab) 키를 이용한 이동)에 의해 어떤 요소(element)가 선택되었을 경우에 초점이 그 요소에 있다고 말합니다.<br>
+								또한 어떤 요소가 선택되었다는 것은 그 요소가 사용 가능 상태임을 의미합니다.
+								대부분의 응 용 소프트웨어(웹 브라우저 포함)에서 초점을 받은 요소는 다른 요소와 구분할 수 있게 밑줄을 보이게 하거나, 테두리를 씌우거나 또는 색을 변경하는 등 시각적으로 구별할 수 있는 기능을 제공합니다.
+							</p>
+						</li>
+
+						<!-- 콘텐츠 블록 (content block) -->
+						<li class="tit_h3 mt_l">
+							<h3>콘텐츠 블록 (content block)</h3>
+							<p class="mt_ms">
+								특정 내용에 관해 설명하거나 기술하고 있는 정보의 묶음 또는 영 역을 의미하며, 일반적으로 하나의 주제를 설명 또는 기술하고 있는 장(chapter)이나 절(section) 등을 들 수 있습니다.
+							</p>
+						</li>
+
+						<!-- 콘텐츠의 선형구조 -->
+						<li class="tit_h3 mt_l">
+							<h3>콘텐츠의 선형구조</h3>
+							<p class="mt_ms">
+								웹 페이지의 모든 콘텐츠는 시각적인 2 차원 공간의 상하좌우로 배치되어 있어서 원하는 곳을 바로 찾아가거나 그 기능을 바로 선택하여 실행할 수 있습니다.<br>
+								그러나 화면 낭독 프로그램 사용자는 모든 콘텐츠를 순차적으로 접근할 수 있기 때문에 시각적인 배치가 아닌 읽어주는 순서가 중요합니다.
+								여기서 콘텐츠가 보조 기술로 제공되는 순서를 콘텐츠의 선형 구조라고 하며 이 구조는 논리적이어야 합니다. 마크업 언어로 제작된 콘텐츠의 선형 구조는 스타일 시트와 테 이블 구조들을 제거하면 얻을 수 있습니다.
+							</p>
+						</li>
+
+						<!-- 키보드 (keyboard) -->
+						<li class="tit_h3 mt_l">
+							<h3>키보드 (keyboard)</h3>
+							<p class="mt_ms">
+								사용자가 텍스트를 입력하기 위하여 사용하는 입력장치를 의미합니다.
+								여기에는 키보드의 자판 입력을 해독하기 위하여 사용되는 소프 트웨어도 포함됩니다.<br>
+								예를 들어, 키보드의 형태를 가지지 않았지만 기능적으로 키보드를 대신하는 입력장치(예 : 노트북 및 개인 휴대 정보 단말기(PDA : Personal Digital Assistant) 등의 터치패드, 음 성 입력장치 등) 등도 키보드로 간주합니다.<br>
+								위치 지정 도구와 화면 키보드 프로그램을 조합한 가상 키보드 입력 장치와 스마트폰과 태 블릿 기기의 키보드 입력 프로그램도 키보드의 일종으로 간주합니다.
+							</p>
+						</li>
+
+						<!-- 텍스트 아닌 콘텐츠 (non-text content) -->
+						<li class="tit_h3 mt_l">
+							<h3>텍스트 아닌 콘텐츠 (non-text content)</h3>
+							<p class="mt_ms">
+								그림, 이미지 등으로 제작된 텍스트, 애니메이션, 아스키(ASCII) 그림문자, 불릿(bullet) 이미지, 그래픽 버튼, 이모티콘, 릿스피크(leetspeak) 등과 같이 표준 문자(부호) 체계가 아닌 시각적 또는 청각적 정보가 포함된 콘텐츠를 의미합니다.<br>
+								한글 부호의 경우, 유니코드, 조합형 또는 완성형 부호 체계를 사용하여 작성된 텍스트 이 외의 모든 경우를 포함합니다.
+							</p>
+						</li>
+
+						<!-- 풀다운 메뉴 (pull-down menu) -->
+						<li class="tit_h3 mt_l">
+							<h3>풀다운 메뉴 (pull-down menu)</h3>
+							<p class="mt_ms">
+								메뉴 바(menu bar)에서 특정 항목을 선택(마우스 오버, 키보드를 이용한 초점)하거나, 활성화(마우스 클릭 또는 엔터키의 누름 등)되 면 선택한 메뉴 항목의 아래쪽으로 하위 메뉴 항목들이 펼쳐져 나 타나는 방식의 메뉴를 말합니다.
+							</p>
+						</li>
+
+						<!-- 플러그인 (plug-in) -->
+						<li class="tit_h3 mt_l">
+							<h3>플러그인 (plug-in)</h3>
+							<p class="mt_ms">
+								어떤 응용 프로그램에 추가되어 특정한 기능을 수행하도록 구현한 프로그램 모듈로,
+								웹 브라우저에서 사용되는 플래시 플레이어(Flash Player), 실버라이트 플레이어(Microsoft Silverlight Player), 검색기 (search engine) 및 자바 플러그인(Java plug-in) 등이 이에 해당합니다.
+							</p>
+						</li>
+
+						<!-- 핵심 영역 -->
+						<li class="tit_h3 mt_l">
+							<h3>핵심 영역</h3>
+							<p class="mt_ms">
+								웹페이지의 핵심이 되는 주제 또는 콘텐츠를 담고 있는 영역으로, 웹페이지 별로 사용자에게 전달하고 싶은 핵심 주제를 담고 있는 콘 텐츠가 위치한 영역을 의미합니다.<br>
+								예를 들어 뉴스 포털의 경우에 헤드라인 뉴스가 위치한 곳을 핵심 영역이라고 할 수 있습니다.
+							</p>
+						</li>
+					</ol>
+				</section>
 			</main>
 			<!-- //  content (.content_area) -->
 
@@ -1077,22 +1437,21 @@
 <!-- // wrap -->
 
 <!-- script - lib -->
-<script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
-
-<script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/highlight.min.js"></script>
 <!-- script - codemirror -->
-<script type="text/javascript" src="/_assets/lib/codemirror/lib/codemirror.js"></script><!-- 기본 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/addon/selection/active-line.js"></script><!-- 줄 강조 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/css/css.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/sass/sass.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/lib/codemirror.js"></script><!-- 기본 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/addon/selection/active-line.js"></script><!-- 줄 강조 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/css/css.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/sass/sass.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script><!-- 모드 -->
 
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/javascript/javascript.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/javascript/javascript.js"></script><!-- 모드 -->
 
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/xml/xml.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/uk_editor.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/xml/xml.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
+<script defer type="text/javascript" src="/_assets/js/uk_editor.min.js"></script>
 <!-- script - ui -->
 <script defer type="text/javascript" src="/_assets/js/uk_common.min.js"></script>
 <script defer type="text/javascript" src="/_assets/js/uk_sub.min.js"></script>

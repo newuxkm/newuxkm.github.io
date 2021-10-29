@@ -2,8 +2,9 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
-	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Anton&family=Jura:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 	<meta name="HandheldFriendly" content="true">
@@ -62,8 +63,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<script type="text/javascript" src="/_assets/js/uk_dom_before.min.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -905,14 +906,368 @@
 			<main id="content" class="content_area">
 				<header>
 					<h1 id="content_title" data-number="1. ">웹 접근성이란? <em class="sound_only">- by. UXKM</em></h1>
-					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
+					<time class="last_update" datetime="2021-10-29">2021-10-29</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						<strong>웹 접근성이란?</strong><br>
+						장애를 가진 사람들이 웹 콘텐츠를 인지하고, 편리하게 사용할 수 있으며, 그 내용이 쉬워야 하며, 견고성을 지녀야 합니다.<br>
+						시각 장애인이나 특정 질환을 앓는 사람은 기존의 웹사이트를 이용하기 힘이들며,
+						특정 질환(화면 깜빡임)에 발병이 되는 사람들도 있기 때문에 이와 관련된 것들을 지키기 위한 제도가 바로 웹 접근성입니다.<br>
+						현재 「지능정보화기본법」에 따라 장애인이나 고령자분들이 웹 사이트에서 제공하는 정보를 비장애인과 동등하게 접근하고
+						이용 할 수 있도록 보장하는 것으로 웹 접근성 준수는 법적의무사항 입니다.<br>
+						2007년 장애인차별금지법 제정 후, 웹에서 제공하는 전자정보를 장애 환경에 상관없이 동등한 수준으로 제공해야한다는 법이 시행되었습니다.<br>
+						이에 국가에서는 웹 접근성 지침(KWCAG)을 발표하여 모든 웹 사이트가 웹 접근성(정보 접근성)을 준수하도록 권고하고 있습니다.<br>
+					</p>
+				</blockquote>
+
+				<!-- 1.1. 웹 접근성 정의 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.1. 웹 접근성 정의</h2>
+					<p class="mt_m">
+						월드 와이드 웹을 창시한 팀 버너스 리(Tim Berners-Lee)는 웹을 다음과 같이 정의 하였습니다.
+					</p>
+					<blockquote class="uk_note mt_ms" role="note">
+						<strong class="sound_only">요약 설명</strong>
+						<p>
+							The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.<br>
+							웹의 힘은 보편성에 있습니다. 장애에 관계없이 모든 사람이 접근할 수 있는 것이 필수적인 요소입니다.
+						</p>
+					</blockquote>
+					<p class="mt_ms">
+						즉, 제약을 가진 사용자(장애인, 노인 등), 혹은 어떠한 기술환경에서도 전문적인 능력 없이 웹 사이트에서 제공하는 모든
+						정보에 접근할 수 있도록 보장하는 것이며, 웹 접근성이 보장되면 취약계층 뿐만 아니라 일반 사람들도 혜택을 누릴수 있게 됩니다.
+					</p>
+				</section>
+
+				<!-- 1.2. 접근성(Accessibility) -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.2. 접근성(Accessibility)</h2>
+					<blockquote class="uk_note mt_m" role="note">
+						<strong class="sound_only">요약 설명</strong>
+						<p>
+							장애를 가진 사람들이 사용할 수 있도록 제품, 기기, 서비스 또는 환경을 설계하는 것 접근성은 "ability to access(접근 가능성)"이며,<br>
+							이는 일부 시스템이나 기업으로부터 이익을 얻을 수 있고 장애를 가진 사람들 또는 특별한 필요를 가진 사람들의 접근을 가능하게 하거나 보조 기술을 사용하여 접근을 가능하게 하는 것에 중점을 둡니다.
+						</p>
+					</blockquote>
+					<p class="mt_ms">
+						접근성은 다음과 같이 정의할 수 있습니다.
+					</p>
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">Accessibility</h3>
+						<p class="mt_s">
+							Accessibility in the physical world is the degree to which an environment is usable by as many people as possible.<br>
+							물리적 세계에서 접근성은 가능한 많은 사람들이 환경을 이용할 수 있는 정도.
+						</p>
+					</article>
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">Web Accessibility</h3>
+						<p class="mt_s">
+							Web accessibility is the degree to which a website is usable by as many people as possible.<br>
+							웹 접근성은 가능한 많은 사람들이 웹사이트를 사용할 수 있는 정도
+						</p>
+					</article>
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">Digital Accessibility</h3>
+						<p class="mt_s">
+							Digital accessibility is the ability of a website, mobile application or electronic document to be easily navigated and
+							understood by a wide range of users, including those users who have visual, auditory, motor or cognitive disabilities.<br>
+							디지털 접근성은 시각, 운동, 청각, 언어 또는 인지 장애가 있는 개인을 포함하여 광범위한 사용자가 웹사이트, 모바일
+							어플리케이션 또는 전자 문서를 쉽게 탐색하고 이해할 수 있는 능력
+						</p>
+					</article>
+				</section>
+
+				<!-- 1.3. 웹 접근성 준수 고려사항 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.3. 웹 접근성 준수 고려사항</h2>
+					<ul class="ol_lst">
+						<li class="mt_m">
+							<b class="t_blue">시각</b> :
+							실명, 색각 이상, 다양한 형태의 저시력을 포함한 시각 장애
+						</li>
+						<li class="mt_sm">
+							<b class="t_blue">이동성</b> :
+							파킨슨병, 근육병, 뇌성마비, 뇌졸중과 같은 조건으로 인한 근육 속도 저하, 근육 제어 손실로 말미암아 손을 쓰기 어렵거나 쓸 수 없는 상태
+						</li>
+						<li class="mt_sm">
+							<b class="t_blue">청각</b> :
+							영상, 음성 콘텐츠에 자막,원고, 수화등의 대체수단 부제로인한 인식이 불가능한 상태
+						</li>
+						<li class="mt_sm">
+							<b class="t_blue">인지</b> :
+							문제 해결과 논리 능력, 집중력, 기억력에 문제가 있는 정신 지체 및 발달 장애, 학습 장애(난독증, 난산증 등)
+						</li>
+					</ul>
+				</section>
+
+				<!-- 1.4. 웹 브라우징에 쓰인는 보조과학기술 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.4. 웹 브라우징에 쓰인는 보조과학기술</h2>
+					<p class="mt_m">
+						웹 브라우징을 할 수 있게 하거나 도움을 주는 등을 목적으로 보조과학기술을 이용할 수 있습니다.
+					</p>
+					<ul class="ol_lst indent">
+						<li class="mt_s">
+							<b class="t_blue">시각</b> :
+							실명, 색각 이상,다양한 형태의 저시력을 포함한 시각 장애
+						</li>
+						<li class="mt_sm">
+							<b class="t_blue">이동성</b> :
+							파킨슨병, 근육병, 뇌성마비, 뇌졸중과 같은 조건으로 인한 근육 속도 저하, 근육 제어 손실로 말미암아 손을 쓰기 어렵거나 쓸 수 없는 상태
+						</li>
+						<li class="mt_sm">
+							<b class="t_blue">청각</b> :
+							영상, 음성 콘텐츠에 자막,원고, 수화등의 대체수단 부제로인한 인식이 불가능한 상태
+						</li>
+						<li class="mt_sm">
+							<b class="t_blue">인지</b> :
+							문제 해결과 논리 능력, 집중력, 기억력에 문제가 있는 정신 지체 및 발달 장애, 학습 장애(난독증, 난산증 등)
+						</li>
+					</ul>
+				</section>
+
+				<!-- 1.5. 시각장애인용 스크린리더란? -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.5. 시각장애인용 스크린리더란?</h2>
+
+					<!-- 스크린리더란? -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">스크린리더란?</h3>
+						<p class="mt_s">
+							시각장애인들에게 컴퓨터의 화면과 자신이 입력한 키보드 정보 그리고 마우스 좌표 등을 음성으로 알려 주어 컴퓨터를
+							사용할 수 있도록 도와주는 소프트웨어입니다.
+						</p>
+					</article>
+
+					<!-- 스크린리더 기술 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">스크린리더 기술</h3>
+						<p class="mt_s">
+							Jaws와 같은 PC형 스크린리더와 보이스 몬, 웹톡스와 같은 웹 스크린리더 방식의 두 가지로 이루어집니다.
+						</p>
+					</article>
+
+					<!-- 스크린리더 발전 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">스크린리더 발전</h3>
+						<p class="mt_s">
+							스크린리더는 외국에서 개발된 것들을 비롯하여 다양한 종류의 프로그램들이 있는데 우리나라는 1990년대에 ‘가라사대’
+							를 시작으로 ‘소리눈’, ‘아이즈2000(eyes2000)’, ‘이브 포 윈도우(Eve for Windows), 실로암시각장애인복지관의 ’
+							드림보이스‘, 엑스비전 테크놀로지의 ‘센스리더’ 등이 개발되었습니다.
+						</p>
+					</article>
+				</section>
+
+				<!-- 1.6. 대표적인 스크린리더의 종류 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.6. 대표적인 스크린리더의 종류</h2>
+
+					<!-- 센스리더(Sense Reader) -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">센스리더(Sense Reader)</h3>
+						<p class="mt_s">
+							센스리더는 유료이며 정품을 보유하고 있지 않을 경우 시간 혹은 사용에 제한이 있습니다. 무료로 사용할 경우에는 30분
+							시간 제약이 있으며, 다시 사용하려면 컴퓨터를 재부팅해야하는 번거로움이 있습니다.<br>
+							또한 국내에서만 사용하며, 접근성 마크 심사를 진행할 경우 국내에서는 센스리더로 검사를 하기 때문에 국내에서는 필수라고 할 수 있습니다.<br>
+							센스리더는 마이크로소프트의 운영체제인 윈도우와 기반 응용 프로그램을 사용할 수 있도록 도와주는 스크린리더로
+							디스플레이상에 표시되는 텍스트와 그래픽 정보를 음성합성 장치나 TTS 엔진을 사용해 읽어줌으로써 시각장애를 가진
+							사람들이 컴퓨터를 사용할 수 있도록 도와주는 응용 소프트웨어입니다.<br>
+							센스리더는 다음과 같은 특징을 가지고 있습니다.
+						</p>
+						<ol class="ol_lst indent">
+							<li class="mt_s">
+								<strong class="t_blue">리뷰 기능</strong><br>
+								리뷰 기능은 화면에 표시된 내용을 살펴볼 수 있는 기능으로 센스리더는 이 기능을 제공해 줍니다.
+							</li>
+							<li class="mt_s">
+								<strong class="t_blue">다양한 환경설정 기능</strong><br>
+								사용자들은 개개인에 따라 스크린리더를 사용하는 방식에도 차이를 나타내는데 센스리더는 사용자가 자신의 개성에
+								맞게 프로그램의 동작 방식을 설정할 수 있고, 모든 기능키를 컴퓨터 기종이나 개인의 취향에 따라 자유롭게 변경할 수 있는 기능을 제공해 줍니다.
+							</li>
+							<li class="mt_s">
+								<strong class="t_blue">주요 응용프로그램을 위한 별도의 인터페이스를 제공</strong><br>
+								센스리더는 인터넷 익스플로러, PDF 문서, MS-OFFICE, 한글 워드프로세서 등 국내에서 사용되고 있는 주요 프로그램들을
+								위해 별도의 인터페이스를 지원함으로써 시각장애인이 보다 편리하게 이들 소프트웨어를 사용할 수 있는 방법을 제공해 준다.
+							</li>
+						</ol>
+
+						<article class="indent mt_ml">
+							<h4 class="ml_mn t_555">센스리더 환경 설정</h4>
+							<ol class="ol_lst mt_sm">
+								<li>가상커서 환경설정(ctrl + shift + F9)을 호출하여 숨긴 내용 읽기를 해제합니다.</li>
+								<li>가상커서 설정에서 새 페이지 자동 읽기를 ‘읽지 않기’ 또는 ‘간략하게 읽기’로 설정합니다.</li>
+								<li>가상커서 설정에서 셀 주소 읽기를 뒤에 읽기로 설정합니다. 이렇게 하면 테이블 탐색시에 병합된 셀 파악이 가능합니다.</li>
+								<li>Internet Explorer 메뉴 > 도구 > 인터넷 옵션 > 보안 탭에서 '인터넷 보호모드' 사용을 해제하면 센스리더에서 제공하는 가상커서의 임시 해제(ctrl + 아래쪽 화살표)를 사용할 수 있습니다.</li>
+							</ol>
+						</article>
+					</article>
+
+					<!-- Jaws(Job Access With Speech) -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn">Jaws(Job Access With Speech)</h3>
+						<ol class="ol_lst mt_s">
+							<li>1995년도에 출시한 JAWS는 스크린 리더의 원조이며, 옛날부터 존재하던 스크린 리더이기 때문에 제일 많은 사용자들이 익숙하고 사용하던 스크린 리더일것입니다.</li>
+							<li>현재 JAWS는 스크린 리더에 필요한 모든 기능을 갖추고 있지만 최근에는 시장 점유율을 잃어가고 있습니다.</li>
+							<li>이유는 다른 스크린 리더도 충분히 JAWS를 대체할 수 있고 무엇보다 가격이 가장 큰 장벽을 들 수 있는데 가격을 살펴보면 여러가지 옵션이 있지만 기본 1년에 $90 혹은 라이센스 구매를 $1000에 할 수 있습니다.</li>
+							<li>무료인 NVDA와 비교해 봤을 때 가격에서 대비가 됩니다. 가격이 높다고 하더라도 예전부터 사용하던 이용자들은 JAWS를 편하게 생각하기 때문에 계속 찾을 수도 있습니다.</li>
+							<li>JAWS 데모를 이용하면 컴퓨터를 재시작할때마다 40분 동안 무료로 이용할 수 있으며, JAWS를 켯을 때 라이센스 등록하라고 물어보는 팝업이 뜨기전에 1분 가량 이용할 수도 있습니다.</li>
+						</ol>
+						<figure class="img_figure mt_m">
+							<img src="/_assets/images/accessibility/jaws-product-image.jpg" alt="Jaws(Job Access With Speech)">
+							<figcaption>
+								<b class="t_black">Jaws(Job Access With Speech)</b><br>
+								출처 : https://www.freedomscientific.com/products/software/jaws/
+							</figcaption>
+						</figure>
+					</article>
+
+					<!-- NVDA(NonVisual Desktop Access) -->
+					<article class="indent mt_l">
+						<h3 class="ml_mn">NVDA(NonVisual Desktop Access)</h3>
+						<p class="mt_s">
+							NVDA는 2006년에 출시한 오픈소스 스크린리더로서 무료로 사용 가능하며 다국어를 지원합니다.<br>
+							최근에는 인기가 급상승하면서 2017년에는 스크린 리더의 원조격인 JAWS 만큼이나 이용되고 있습니다.<br>
+							그 비결은 무료이면서도 비슷한 기능을 제공하기 때문일것입니다.<br>
+							WebAIM에서 2019년 8월부터 9월까지 스크린 리더 사용자의 선호도를 조사한 결과 Jaws 보다 NVDA가 앞서고 있는것을 볼 수 있습니다.<br>
+							Nvda 사용시 간단한 관련 설정은 다음과 같습니다.
+						</p>
+						<ol class="ol_lst indent mt_s">
+							<li>Nvda 환경설정을 호출하려면 Nvda를 실행한 상태에서 언제든지 insert와 n키를 누르면 됩니다.</li>
+							<li>인터넷 관련 환경설정은 설정 > 브라우저모드에 있습니다.</li>
+							<li>다른 값은 다 기본으로 두셔도 되지만 페이지가 로딩되면 자동으로 읽기 항목은 체크 해제하고 테스트 하시기 바랍니다. 이는 우리나라의 많은 사이트에서는 페이지가 열렸을 때 포커스가 항상 문서 처음으로 가지 않는 경우가 많으므로 포커스가 있는 그 라인을 읽어주는 것이 사용자에게 더 명확한 정보를 줄 수 있기 때문입니다.</li>
+							<li>"화면 레이아웃, 지원되면 사용" 항목은 센스리더와 비슷한 환경을 구현하기 위하여 해제하고 테스트 합니다. 이렇게 되면 센스리더처럼 모든 객체는 다른 라인으로 분리하여 출력합니다.</li>
+						</ol>
+						<figure class="img_figure mt_m">
+							<img src="/_assets/images/accessibility/img_maxresdefault.jpg" alt="NVDA(NonVisual Desktop Access)" style="max-width:800px">
+							<figcaption>
+								<b class="t_black">NVDA(NonVisual Desktop Access)</b><br>
+								출처 : https://ul.gpii.net/content/nvda-screenreader
+							</figcaption>
+						</figure>
+					</article>
+				</section>
+
+				<!-- 1.7. 정보 접근성 관련 법률 정책 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.7. 정보 접근성 관련 법률 정책</h2>
+					<ul class="ol_lst">
+						<li class="mt_m">「정보화촉진기본법」제정 (1995년 08월)</li>
+						<li class="mt_sm">「정보격차해소에 관한 법률」제정 (2001년 01월) - 2009년 폐지</li>
+						<li class="mt_sm reference">
+							「장애인차별금지 및 권리구제 등에 관한 법률」 - [시행2008.4.11] [법률 제8341호, 2007.4.10, 제정]
+							<a href="https://www.law.go.kr/LSW/lsInfoP.do?nwJoYnInfo=N&ancNo=08341&chrClsCd=010202&efYd=20080411&lsiSeq=78034&efGubun=Y&ancYd=20070410#0000" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+						<li class="mt_sm reference">
+							「국가정보화기본법」제정 - [시행2009.8.23] [법률 제9705호, 2009.5.22, 전부개정] 2020년 폐지
+							<a href="https://www.law.go.kr/LSW/lsInfoP.do?efYd=20090823&lsiSeq=93642&ancYd=20090522&nwJoYnInfo=N&ancNo=09705&chrClsCd=010202&efGubun=Y#0000" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+						<li class="mt_sm reference">
+							장애인·노인·임산부 등의 편의 증진 보장에 관한 법률 - [시행 1998.4.11.] [법률 제5332호, 1997.4.10, 제정]
+							<a href="https://www.law.go.kr/LSW/lsEfInfoP.do?lsiSeq=59192#" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+						<li class="mt_sm reference">
+							「지능정보화 기본법」제정 - [시행 2020.12.10.] [법률 제17344호, 2020.6.9, 제정]
+							<a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A7%80%EB%8A%A5%EC%A0%95%EB%B3%B4%ED%99%94%EA%B8%B0%EB%B3%B8%EB%B2%95" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+					</ul>
+				</section>
+
+				<!-- 1.8. 관련 표준 지침 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.8. 관련 표준 지침</h2>
+					<ul class="ol_lst">
+						<li class="mt_m">장애인 · 노인 등의 정보통신 접근성 향상을 위한 권장지침(고시)마련 (2002년 01월)</li>
+						<li class="mt_sm reference">
+							"한국형 웹 콘텐츠 접근성 지침 1.0" 마련 - TTA 단체 표준 제정 (TTAS.OT-10.0003) : 2004년 12월 23일
+							<a href="https://www.wah.or.kr:444/_Upload/pds/11%ED%95%9C%EA%B5%AD%ED%98%95%20%EC%9B%B9%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%91%EA%B7%BC%EC%84%B1%20%EC%A7%80%EC%B9%A8_20041223_TTA.pdf" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+						<li class="mt_sm reference">
+							"인터넷 웹 콘텐츠 접근성 지침" 국가표준 승인 - 한국정보통신표준 (KICS.OT-10.003) : 2005년 12월 21일
+							<a href="https://www.wah.or.kr:444/_Upload/pds/12%EC%9D%B8%ED%84%B0%EB%84%B7%20%EC%9B%B9%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%91%EA%B7%BC%EC%84%B1%20%EC%A7%80%EC%B9%A8_%EA%B5%AD%EA%B0%80%ED%91%9C%EC%A4%80_11-TTAS.OT-10.0003.pdf" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+						<li class="mt_sm reference">
+							"웹 접근성 향상을 위한 국가표준 기술 가이드라인" 공표 - 행정안전부 산하 한국정보문화진흥원(현 한국지능정보사회진흥원) : 2009년 03월 17일
+							<a href="https://www.wah.or.kr:444/_Upload/news/090317_%EC%9B%B9_%EC%A0%91%EA%B7%BC%EC%84%B1_%ED%96%A5%EC%83%81%EC%9D%84_%EC%9C%84%ED%95%9C_%EA%B5%AD%EA%B0%80%ED%91%9C%EC%A4%80_%EA%B8%B0%EC%88%A0_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8.pdf" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+						<li class="mt_sm reference">
+							"한국형 웹 콘텐츠 접근성 지침 2.0" - TTA 단체 표준 개정 (TTAK.OT-10.0003/R1) : 2009년 12월 22일
+							<a href="https://www.wah.or.kr:444/_Upload/pds/2008-676-%ED%95%9C%EA%B5%AD%ED%98%95%20%EC%9B%B9%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%91%EA%B7%BC%EC%84%B1%20%EC%A7%80%EC%B9%A8%202.0_ttas.pdf" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+						<li class="mt_sm reference">
+							"한국형 웹 콘텐츠 접근성 지침 2.1" - 방송통신표준 개정 (KS X OT0003) : 2015년 03월 31일
+							<a href="https://webwatch.or.kr:50010/pds/(KS%20X%20OT0003)%20%ED%95%9C%EA%B5%AD%ED%98%95%20%EC%9B%B9%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%91%EA%B7%BC%EC%84%B1%20%EC%A7%80%EC%B9%A8%202.1.pdf" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+						<li class="mt_sm reference">
+							"모바일 애플리케이션 콘텐츠 접근성 지침 2.0 - 방송통신표준 제정 (KS X 3253) : 2016년 10월 20일
+							<a href="https://webwatch.or.kr:50010/pds/(KS%20X%203253)%EB%AA%A8%EB%B0%94%EC%9D%BC%20%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%20%EC%BD%98%ED%85%90%EC%B8%A0%20%EC%A0%91%EA%B7%BC%EC%84%B1%20%20%EC%A7%80%EC%B9%A8%202.0.pdf" target="_blank" class="fas" title="새창열림">내용 보기</a>
+						</li>
+					</ul>
+				</section>
+
+				<!-- 1.9. 장애인차별금지법 단계별 적용 범위 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.9. 장애인차별금지법 단계별 적용 범위</h2>
+					<ul class="ol_lst">
+						<li class="mt_m"><span class="t_black">2008. 04. 11 - 적용범위</span> : 방송법에 따라 방송물을 송출하는 방송 사업자 등</li>
+						<li class="mt_sm"><span class="t_black">2009. 04. 11 - 적용범위</span> : 공공기관, 특수학교, 특수반 설치 국 공립 유치원, 특수학급 설치 국 공립학교, 장애아전담 보육시설, 종합병원, 복지시설, 근로자 300인 이상 사업장(고용관계)</li>
+						<li class="mt_sm"><span class="t_black">2010. 04. 11 - 적용범위</span> : 국 공립 문화예술기관, 국 공립(대학)박물관/미술관, 국립중앙도서관, 공공도서관, 국가 및 인구 50만 명 이상 지방자치단체가 설치한 체육시설</li>
+						<li class="mt_sm"><span class="t_black">2011. 04. 11 - 적용범위</span> : 국 공립 유치원, 국 공 사립학교, 보육시설(100인 이상), 영재학교 교육원, 병원, 근로자 100인 이상 사업장(고용관계)</li>
+						<li class="mt_sm"><span class="t_black">2012. 04. 11 - 적용범위</span> : 사립 유치원, 평생교육시설, 보육시설, 연수기관, 체육시설, 기타 의료기관, 의료인, 모든 법인 등</li>
+						<li class="mt_sm"><span class="t_black">2013. 04. 11 - 적용범위</span> : 일반 공연장 영화관(300석 이상), 조각공원, 문화의 집, 사립박물관 미술관(500m2), 복지회관, 문화 체육센터, 인구 30만 명 미만 지방자치단체가 설치한 체육시설 등</li>
+					</ul>
+				</section>
+
+				<!-- 1.10. 해외 웹 접근성 법률 및 제도 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.10. 해외 웹 접근성 법률 및 제도</h2>
+					<blockquote class="uk_note mt_m" role="note">
+						<strong class="sound_only">요약 설명</strong>
+						<p>
+							국내에서는 2009년부터 장차 법(장애인 차별 금지법)에 근거하여 웹 접근성 보장이 의무화가 된 반면
+							외국의 경우에는 각 나라별로 오래전부터 시행되고 있습니다.<br>
+							호주의‘장애인 차별 금지법(Disability Discrimination Act 1992)’,<br>
+							미국의‘재활법 508조(Section 508 of the Rehabilitation Act)’,<br>
+							영국의‘장애인 차별 금지법(The Disability Discrimination Act 1995)’이 있으며,
+							모두 WCAG(Web Content Accessibility Guideline)의 내용을 바탕으로 하여 각 나라별 상황에 맞게 제도화 되어있습니다.
+						</p>
+					</blockquote>
+					<figure class="img_figure mt_m">
+						<img src="/_assets/images/accessibility/img_world-law.png" alt="해외 웹 접근성 법률 및 제도" style="max-width:700px">
+						<figcaption>
+							<b class="t_black">해외 웹 접근성 법률 및 제도</b><br>
+						</figcaption>
+					</figure>
+				</section>
+
+				<!-- 1.11. 장애인 차별 금지법 처벌 법적 진행 절차 -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">1.11. 장애인 차별 금지법 처벌 법적 진행 절차</h2>
+					<ul class="ol_lst">
+						<li class="mt_m">(인권위)민/형사 고발</li>
+						<li class="mt_sm">형사:3개월 이내 수사, 민사 : 손해배상제도 절차</li>
+						<li class="mt_sm">악의로 인정될 경우 3년 이하 징역 또는 3천 만원 이하 벌금</li>
+						<li class="mt_sm">(인권위) 진정 접수</li>
+						<li class="mt_sm">(인권위) 협의, 조정, 구제조치 등 시정권고</li>
+						<li class="mt_sm">(법무부) 불이행 확인일로부터 3개월 내 시정명령</li>
+						<li class="mt_sm">정당한 사유없이 명령 불이행 시 3천만원 이하 과태료</li>
+					</ul>
+				</section>
+
 				<footer class="reference_box">
 					<strong class="tit">웹 접근성이란? 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="http://www.haeppa.kr/" target="_blank" class="fas">Heappa World</a></li>
+						<li class="reference"><a href="http://njpaiks.egloos.com/2828268" target="_blank" class="fas">백남중, "센스리더 1.2.0.3 핫키 일람표"</a></li>
+						<li class="reference"><a href="https://nuli.navercorp.com/community/article/1081603?email=true" target="_blank" class="fas">웹 개발자를 위한 센스리더 가이드</a></li>
+						<li class="reference"><a href="https://damoa.or.kr/main/inner.php?sMenu=main&pre_url=https%3A%2F%2Fnuli.navercorp.com%2Fcommunity%2Farticle%2F1132999" target="_blank" class="fas">발달장애인 콘텐츠 전문사이트 다모아</a></li>
+						<li class="reference"><a href="http://www.xvtech.com/" target="_blank" class="fas">(주)엑스비전테크놀로지</a></li>
+						<li class="reference"><a href="https://www.freedomscientific.com/products/software/jaws/" target="_blank" class="fas">JAWS® Solutions</a></li>
+						<li class="reference"><a href="https://ul.gpii.net/content/nvda-screenreader" target="_blank" class="fas">NVDA Screenreader</a></li>
+						<li class="reference"><a href="https://webaim.org/projects/screenreadersurvey8/" target="_blank" class="fas">webaim.org Screen Reader User Survey</a></li>
+						<li class="reference"><a href="https://digitalaccessibilitycentre.org/index.php/blog/20-diary/211-jaws-verses-nvda" target="_blank" class="fas">JAWS verses NVDA</a></li>
 					</ul>
 				</footer>
 				
@@ -1077,22 +1432,21 @@
 <!-- // wrap -->
 
 <!-- script - lib -->
-<script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
-
-<script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/highlight.min.js"></script>
 <!-- script - codemirror -->
-<script type="text/javascript" src="/_assets/lib/codemirror/lib/codemirror.js"></script><!-- 기본 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/addon/selection/active-line.js"></script><!-- 줄 강조 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/css/css.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/sass/sass.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/lib/codemirror.js"></script><!-- 기본 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/addon/selection/active-line.js"></script><!-- 줄 강조 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/css/css.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/sass/sass.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script><!-- 모드 -->
 
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/javascript/javascript.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/javascript/javascript.js"></script><!-- 모드 -->
 
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/xml/xml.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/uk_editor.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/xml/xml.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
+<script defer type="text/javascript" src="/_assets/js/uk_editor.min.js"></script>
 <!-- script - ui -->
 <script defer type="text/javascript" src="/_assets/js/uk_common.min.js"></script>
 <script defer type="text/javascript" src="/_assets/js/uk_sub.min.js"></script>

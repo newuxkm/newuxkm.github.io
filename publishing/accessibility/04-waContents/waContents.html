@@ -2,8 +2,9 @@
 <html lang="ko" class="sub_page ">
 <head>
 	<meta charset="UTF-8">
-	<link href="https://fonts.googleapis.com/css?family=Anton|Cinzel+Decorative:400,700,900|Jura:300,400,500,600,700|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,400,600,700,800&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,korean,latin-ext,vietnamese" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap&subset=latin-ext" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Anton&family=Jura:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 	<meta name="HandheldFriendly" content="true">
@@ -62,8 +63,8 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<script type="text/javascript" src="/_assets/js/uk_dom_before.min.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
+	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
 	<script type="text/javascript" src="/_assets/lib/respond.min.js"></script>
@@ -905,14 +906,372 @@
 			<main id="content" class="content_area">
 				<header>
 					<h1 id="content_title" data-number="4. ">웹 접근성을 고려한 콘텐츠 제작 방법 <em class="sound_only">- by. UXKM</em></h1>
-					<time class="last_update" datetime="0000-00-00">0000-00-00</time>
+					<time class="last_update" datetime="2021-10-29">2021-10-29</time>
 				</header>
 
-				<div class="ready_content"><i class="fas fa-tools"></i><p>Coming soon</p></div>
+				<blockquote class="uk_note mt_xxl" role="note">
+					<strong class="sound_only">요약 설명</strong>
+					<p>
+						<strong>웹 접근성이란?</strong><br>
+						정보 접근성은 모든 사용자가 특정 환경이나 신체적 장애에 상관없이 웹 사이트나 애플리케이션에서 제공하는
+						모든 정보에 동등하게 접근하고 이용할 수 있도록 보장해 주는 것입니다.<br>
+						장애인뿐만 아니라 고령자, 비장애인도 접근성의 대상이 되며 4가지 핵심원리는 다음과 같습니다.<br>
+						각 지침을 4가지 원칙의 범주로 분류하여 제공합니다. 인식 가능하고, 조작 가능하며, 이해 할 수 있고, 견고 해야 합니다.<br>
+						크게 4가지 원칙 기준에 맞추어서 제작을 하며, 제작한 평가는 진단도구를 활용하여 진행합니다.
+					</p>
+				</blockquote>
+
+				<!-- 4.1. 접근성 가이드라인 (WCAG) -->
+				<section class="indent mt_xxl">
+					<h2 class="ml_mn">4.1. 접근성 가이드라인 (WCAG)</h2>
+					<ol class="ol_lst">
+						<li class="mt_m tit_h3 line_code">
+							<strong class="font-18 t_black weight-700">인식 Perceivable</strong><br>
+							<span class="el_block mt_s">모든 사용자는 서비스 콘텐츠를 인식할 수 있어야 합니다.</span>
+							<p class="t_blue">질문 : 시/청각 장애를 가진 사용자가 서비스를 인식하는데 문제가 없습니까?</p>
+						</li>
+						<li class="mt_ml tit_h3 line_code">
+							<strong class="font-18 t_black weight-700">운용 Operable</strong><br>
+							<span class="el_block mt_s">모든 사용자는 서비스의 기능을 운용할 수 있어야 합니다.</span>
+							<p class="t_blue">질문 : 마우스 없이 서비스를 이용할 수 있고, 성공적으로 수행할 수 있습니까?</p>
+						</li>
+						<li class="mt_ml tit_h3 line_code">
+							<strong class="font-18 t_black weight-700">이해 Understandable</strong><br>
+							<span class="el_block mt_s">모든 사용자가 서비스의 콘텐츠, 기능 사용법 등을 이해하기 쉬워야 합니다.</span>
+							<p class="t_blue">질문 : 명확하고 이해하기 쉬운 콘텐츠를 제공하고 있습니까?</p>
+						</li>
+						<li class="mt_ml tit_h3 line_code">
+							<strong class="font-18 t_black weight-700">견고 Robust</strong><br>
+							<span class="el_block mt_s">사용자가 이용하는 모든 기기 및 브라우저에서 접근, 사용 가능해야 합니다.</span>
+							<p class="t_blue">질문 : 특정 운영체제 또는 브라우저에서만 서비스를 이용할 수 있지 않나요?</p>
+						</li>
+					</ol>
+					<p class="reference mt_m">
+						접근성 가이드라인의 자세한 내용은
+						<a href="/publishing/accessibility/09-waWcag/01-perceivable" target="_blank" class="fas">WCAG 2.1 (UXKM)</a>
+						페이지에서 확인할 수 있습니다.
+					</p>
+				</section>
+
+				<!-- 4.2. 다양한 사용자를 향한 폭넓은 이해 -->
+				<section class="indent mt_xxl" data-conlist="false">
+					<h2 class="ml_mn">4.2. 다양한 사용자를 향한 폭넓은 이해</h2>
+
+					<!-- 전맹 사용자 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">전맹 사용자</h3>
+						<p class="mt_s">
+							시각을 통해 화면의 이미지 정보를 인식하기 어려워서 화면의 텍스트를 음성으로 읽어주는 화면 낭독 프로그램(스크린 리더)를 이용합니다.
+						</p>
+					</article>
+
+					<!-- 색각이상 사용자 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">색각이상 사용자</h3>
+						<p class="mt_s">
+							특정한 색 또는 색상 구별 자체가 어려워 색으로만 구분자를 표시할 경우 인지하기 어렵습니다.
+						</p>
+					</article>
+
+					<!-- 고령자와 약시자 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">고령자와 약시자</h3>
+						<p class="mt_s">
+							통상적인 크기의 폰트는 인식하기 어려워 폰트 확대 기능 또는 프로그램이 필요합니다.
+						</p>
+					</article>
+
+					<!-- 청각장애 사용자 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">청각장애 사용자</h3>
+						<p class="mt_s">
+							동영상의 음성, 오디오, 알람과 같은 청각 콘텐츠는 인식할 수 없습니다.
+						</p>
+					</article>
+
+					<!-- 뇌병변 장애 및 지체장애 사용자 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">뇌병변 장애 및 지체장애 사용자</h3>
+						<p class="mt_s">
+							마우스와 같은 포인팅 장치를 이용하지 않는 사용자는 키보드만으로도 모든 정보의 접근 및 조작이 가능해야 합니다.
+						</p>
+					</article>
+
+					<!-- 일시적 장애를 겪고 있는 사용자 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">일시적 장애를 겪고 있는 사용자</h3>
+						<p class="mt_s">
+							사고로 인해 일시적으로 신체의 일부를 활용하지 못하거나 갑자기 극심한 불안감을 느껴 발작을 일으키는 사용자도 고려해야 합니다.
+						</p>
+					</article>
+
+					<!-- 일반 사용자 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">일반 사용자</h3>
+						<ol class="ol_lst mt_s">
+							<li>직사광선이나 조명이 반사되는 장소에 설치된 모니터에 표시되는 콘텐츠는 인식하기 어렵습니다.</li>
+							<li>매우 작은 폰트를 사용하는 콘텐츠는 알아보기 힘듭니다.</li>
+							<li>흑백 모니터를 사용할 경우엔 콘텐츠의 색을 구별하기 어렵습니다.</li>
+							<li>스피커가 고장난 상황이나 소음이 매우 심한 환경에서 청각을 이용하는 영상이나 음성 콘텐츠는 감상하기 힘듭니다.</li>
+							<li>한 손으로 물건을 들고 있는 경우, 나머지 한 손으로만 PC나 모바일을 조작해야 합니다.</li>
+						</ol>
+					</article>
+				</section>
+
+				<!-- 4.3. 정보 접근성 지침 이해하기 -->
+				<section class="indent mt_xxl" data-conlist="false">
+					<h2 class="ml_mn">4.3. 정보 접근성 지침 이해하기</h2>
+
+					<!-- 대체 텍스트 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">대체 텍스트</h3>
+						<p class="mt_s">
+							눈으로 화면을 볼 수 없는 경우, 이미지에 대한 설명을 대체 텍스트로 입력하여 스크린리더를 통해 정보를 인식하게 도와줍니다.<br>
+							텍스트 아닌 콘텐츠는 그 의미나 용도를 인식할 수 있도록 대체 텍스트를 제공해야 합니다.
+						</p>
+					</article>
+
+					<!-- 자막 제공 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">자막 제공</h3>
+						<p class="mt_s">
+							음성을 귀로 듣지 못할 경우, 시각을 이용해서 내용을 이해하므로 멀티미디어 콘텐츠에는 자막, 대본 또는 수화를 제공해야 합니다.
+						</p>
+					</article>
+
+					<!-- 콘텐츠 구분 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">콘텐츠 구분</h3>
+						<p class="mt_s">
+							특정한 색을 구별할 수 없는 사용자나 흑백 디스플레이 사용자와 같이 색상만으로 콘텐츠를 구분하지 못할 경우,
+							다양한 감각을 통해서 인식하므로 화면에 표시되는 모든 정보는 두 가지 이상의 구분자가 필요합니다.
+						</p>
+					</article>
+
+					<!-- 명도 대비 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">명도 대비</h3>
+						<p class="mt_s">
+							저시력자, 고령자 등도 인식할 수 있도록 콘텐츠와 배경 간의 명도 대비는 4.5:1 이상이어야 합니다.
+						</p>
+					</article>
+
+					<!-- 초점 이동 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">초점 이동</h3>
+						<p class="mt_s">
+							마우스와 같은 포인팅 장치를 이용하기 어려운 시각/지체 장애 사용자는 키보드만으로도 모든 정보의 접근 및 조작이
+							가능해야 하기 때문에 키보드에 의한 초점은 논리적으로 이동해야 하며 시각적으로 구별할 수 있어야 합니다.
+						</p>
+					</article>
+
+					<!-- 조작 가능 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">조작 가능</h3>
+						<p class="mt_s">
+							손떨림이 심하여 미세한 조작이 어려운 경우와 같이 운동 장애가 있는 경우에도 사용자 입력 및 컨트롤은 조작이 가능하도록 제공되어야 합니다.
+						</p>
+					</article>
+
+					<!-- 재생 조절 가능 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">재생 조절 가능</h3>
+						<p class="mt_s">
+							손떨림이 심하여 미세한 조작이 어려운 경우와 같이 운동 장애가 있는 경우에도 사용자 입력 및 컨트롤은 조작이 가능하도록 제공되어야 합니다.
+						</p>
+					</article>
+
+					<!-- 사용자 요구에 따른 실행 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">사용자 요구에 따른 실행</h3>
+						<p class="mt_s">
+							시각이나 청각 장애가 있는 사용자가 직접 마우스로 클릭하거나 키보드로 입력하지 않고도 자동으로 팝업 창이
+							오픈되거나 새로운 기능이 실행되면 그것을 인지하기 어렵습니다.<br>
+							그러므로 사용자가 의도하지 않은 기능(새 창, 초점에 의한 맥락 변화 등)은 실행되지 않아야 합니다.
+						</p>
+					</article>
+
+					<!-- 오류 정정 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">오류 정정</h3>
+						<p class="mt_s">
+							화면 낭독 프로그램을 이용하는 (시각 장애)사용자의 경우, 입력 오류가 발생했을 때 무엇이 잘못 되었는지 알 수가
+							없어서 입력 전체를 포기할 가능성이 있습니다.<br>
+							그러므로 입력 오류가 발생할 경우 이를 쉽게 찾아서 정정할 수 있는 방법을 제공해야 합니다.
+						</p>
+					</article>
+				</section>
+
+				<!-- 4.4. 접근성 지원 도구 -->
+				<section class="indent mt_xxl" data-conlist="false">
+					<h2 class="ml_mn">4.4. 접근성 지원 도구</h2>
+
+					<!-- 스크린 리더 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">스크린 리더</h3>
+						<p class="mt_s">
+							컴퓨터나 모바일을 사용할 때 화면에 표시되는 입출력 정보를 음성으로 알려주는 프로그램입니다.
+						</p>
+						<ol class="ol_lst indent mt_sm">
+							<li>센스리더</li>
+							<li>NVDA</li>
+							<li>JAWS</li>
+							<li>TalkBack</li>
+							<li>VoiceOver</li>
+						</ol>
+					</article>
+
+					<!-- 명도 대비 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">명도 대비</h3>
+						<p class="mt_s">
+							전경색과 배경색의 명도 차이를 비교할 수 있게 도와주는 확장 프로그램과 화면을 고대비로 전환할 수 있는 프로그램입니다.
+						</p>
+						<ol class="ol_lst indent mt_sm">
+							<li>Colour Contrast Analyser</li>
+							<li>Contrast Ratio</li>
+							<li>고대비</li>
+						</ol>
+					</article>
+
+					<!-- 접근성 자동 진단 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">접근성 자동 진단</h3>
+						<p class="mt_s">
+							접근성을 개선이 필요한 부분을 자동으로 검출해주는 프로그램입니다.
+						</p>
+						<ol class="ol_lst indent mt_sm">
+							<li>PC(WAVE)</li>
+							<li>모바일(Android)</li>
+							<li>WATCH2.0</li>
+						</ol>
+					</article>
+
+					<!-- 웹 브라우저 개발자 도구 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">웹 브라우저 개발자 도구</h3>
+						<p class="mt_s">
+							웹 콘텐츠 구성 요소를 탐색할 수 있으며 대부분의 브라우저가 지원합니다.
+						</p>
+						<ol class="ol_lst indent mt_sm">
+							<li>(Chrome) Web Developer</li>
+							<li>(Firefox) Web Developer</li>
+							<li>Firebug</li>
+						</ol>
+					</article>
+				</section>
+
+				<!-- 4.5. 구성요소 -->
+				<section class="indent mt_xxl" data-conlist="false">
+					<h2 class="ml_mn">4.5. 구성요소</h2>
+
+					<blockquote class="uk_note mt_m" role="note">
+						<strong class="sound_only">요약 설명</strong>
+						<p>
+							웹 접근성과 관련된 구성요소(Components)로는 크게 7가지로 이러한 구성요소는 독단적으로 떨어져 있기보다는 서로 상호관계를 맺고 있습니다.
+						</p>
+						<p class="mt_s">
+							구성요소를 자세히 살펴보면 다음과 같습니다.<br>
+							<b>콘텐츠(Contents)</b> : 웹 상의 정보로 텍스트, 이미지, 음성, 구조나 표현을 위한 마크업 또는 코드<br>
+							<b>웹 브라우저, 미디어 플레이어 및 사용자 도구(UserAgent)</b> : 웹 상의 콘텐츠를 사용자들이 이용할 수 있도록 도와주는 도구<br>
+							<b>보조기술(Assistive Technologies)</b> : 화면낭독 프로그램(Screen reader), 대체 키보드, 스위치, 스캐닝 소프트웨어, 화면확대 프로그램 등<br>
+							<b>사용자(Users)</b> : 웹을 이용하는 사람(장애인, 노인 등포함)<br>
+							<b>개발자(Developers)</b> : 디자이너, 코더(Coder), 저작자 등<br>
+							<b>저작도구(Authoring Tools)</b> : 웹 사이트를 제작할수 있는 소프트웨어<br>
+							<b>평가도구(Evaluation Tools)</b> : 웹 접근성 평가도구로 HTML Validators, CSS Validators 등이 포함
+						</p>
+						<p class="mt_s">
+							이러한 다양한 구성요소를 파악하고 W3C에서는 3가지 분야의 기술 가이드라인(ATAG, WCAG, UAAG)을 제시하고 있으며,<br>
+							웹 접근성 기술 가이드라인의 기본이 되는 웹 관련 기술(HTML, XML, CSS, SVG, SMIL 등)에 대한 접근성 기술 명세서(Technical Specification)를 제공하고 있습니다.
+						</p>
+					</blockquote>
+
+					<!-- 웹 접근성과 관련된 구성요소 -->
+					<article class="indent mt_ml">
+						<h3 class="ml_mn">웹 접근성과 관련된 구성요소</h3>
+
+						<article class="indent mt_m">
+							<h4 class="ml_mn">개발자(Developers)</h4>
+							<ol class="ol_lst">
+								<li class="mt_s">
+									<strong class="t_blue">저작도구(Authoring Tools)</strong>
+									<p>
+										웹 사이트를 제작할 수 있게 도와주는 소프트웨어
+									</p>
+								</li>
+								<li class="mt_s">
+									<strong class="t_blue">평가도구(Evaluation Tools)</strong>
+									<p>
+										웹 접근성 평가도구, HTML/CSS 타당성 검사기 등<br>
+										웹 접근성 준수 여부 평가도구
+									</p>
+								</li>
+							</ol>
+						</article>
+
+						<article class="indent mt_m">
+							<h4 class="ml_mn">사용자(Users)</h4>
+							<ol class="ol_lst">
+								<li class="mt_s">
+									<strong class="t_blue">웹브라우저, 미디어 플레이어(Browsers, Media Players)</strong>
+									<p>
+										웹 상의 콘텐츠를 사용자들이 이용할 수 있도록 도와주는 도구
+									</p>
+								</li>
+								<li class="mt_s">
+									<strong class="t_blue">보조기술(Assistive Technologies)</strong>
+									<p>
+										화면낭독 프로그램(Screen reader), 대체 키보드, 스위치, 스캐닝 소프트웨어, 화면 확대 프로그램 등
+									</p>
+								</li>
+							</ol>
+						</article>
+
+						<article class="indent mt_m">
+							<h4 class="ml_mn">공통</h4>
+							<ol class="ol_lst">
+								<li class="mt_s">
+									<strong class="t_blue">콘텐츠(Contents)</strong>
+									<p>
+										웹 페이지 또는 웹 어플리케이션에 있는 정보<br>
+										텍스트, 이미지, 소리 정보와 같은 자연적인 정보 (natural information)<br>
+										구조와 표현 등을 정의하는 코드나 마크업
+									</p>
+								</li>
+								<li class="mt_s">
+									<strong class="t_blue">가이드라인</strong>
+									<p>
+										웹 콘텐츠 접근성 가이드라인(WCAG, Web Content Accessibility Guidelines)<br>
+										저작 도구 접근성 가이드라인(ATAG, Authoring Tool Accessibility Guidelines)<br>
+										사용자 도구 접근성 가이드라인(UAAG, User Agent Accessibility Guidelines)
+									</p>
+								</li>
+								<li class="mt_s">
+									<strong class="t_blue">기술 사양</strong>
+									<p>
+										웹 접근성을 지원하기 위한 기술 사양<br>
+										HTML, XML, CSS, SVG, SMIL 등
+									</p>
+								</li>
+							</ol>
+						</article>
+					</article>
+
+					<figure class="img_figure mt_m">
+						<img src="/_assets/images/accessibility/img_specs.png" alt="구성 요소에 대한 지침" style="max-width:700px">
+						<figcaption>
+							<b class="t_black">구성 요소에 대한 지침</b><br>
+							출처 : https://www.w3.org/WAI/standards-guidelines/ko#atag
+						</figcaption>
+					</figure>
+				</section>
+
 				<footer class="reference_box">
 					<strong class="tit">웹 접근성을 고려한 콘텐츠 제작 방법 참조</strong>
 					<ul class="link_lst">
-						<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
+						<li class="reference"><a href="https://www.w3.org/WAI/standards-guidelines/ko#atag" target="_blank" class="fas">W3C 접근성 기준 개요</a>
+						<li class="reference"><a href="https://www.wah.or.kr:444/Participation/technique.asp?tab=1" target="_blank" class="fas">웹접근성 연구소 웹 콘텐츠 제작기법</a>
+						<li class="reference"><a href="https://accessibility.naver.com/accessibility" target="_blank" class="fas">NAVER 접근성</a>
 					</ul>
 				</footer>
 				
@@ -1077,22 +1436,21 @@
 <!-- // wrap -->
 
 <!-- script - lib -->
-<script type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
-<script type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
-
-<script type="text/javascript" src="/_assets/lib/highlight.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/jquery.easing.1.3.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/masonry.pkgd.min.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/highlight.min.js"></script>
 <!-- script - codemirror -->
-<script type="text/javascript" src="/_assets/lib/codemirror/lib/codemirror.js"></script><!-- 기본 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/addon/selection/active-line.js"></script><!-- 줄 강조 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/css/css.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/sass/sass.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/lib/codemirror.js"></script><!-- 기본 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/addon/selection/active-line.js"></script><!-- 줄 강조 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/css/css.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/sass/sass.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/htmlmixed/htmlmixed.js"></script><!-- 모드 -->
 
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/javascript/javascript.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/javascript/javascript.js"></script><!-- 모드 -->
 
-<script type="text/javascript" src="/_assets/lib/codemirror/mode/xml/xml.js"></script><!-- 모드 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
-<script type="text/javascript" src="/_assets/lib/codemirror/uk_editor.js"></script>
+<script defer type="text/javascript" src="/_assets/lib/codemirror/mode/xml/xml.js"></script><!-- 모드 -->
+<script defer type="text/javascript" src="/_assets/lib/codemirror/addon/scroll/simplescrollbars.js"></script><!-- 스크롤바 -->
+<script defer type="text/javascript" src="/_assets/js/uk_editor.min.js"></script>
 <!-- script - ui -->
 <script defer type="text/javascript" src="/_assets/js/uk_common.min.js"></script>
 <script defer type="text/javascript" src="/_assets/js/uk_sub.min.js"></script>
