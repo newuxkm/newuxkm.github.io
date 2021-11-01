@@ -9,15 +9,25 @@
 	mainClass: "wa_media",
 	type: "publishing",
 	Info: true,
-	note: false,
+	note: true,
 	sideMenu: true,
-	reference: true,
-	contentList: true
+	reference: false,
+	contentList: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<!-- 자막 제공 -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">자막 제공</h2>
+		<h3 class="mt_ms t_blue">
+			멀티미디어 콘텐츠에는 자막, 대본 또는 수화를 제공해야 합니다.
+		</h3>
+		<p class="mt_s">
+			자막 제공의 가장 중요한 요소는 멀티미디어 콘텐츠와 동등한 내용을 제공하는 것입니다.
+		</p>
+	</section>
+{%- endblock %}

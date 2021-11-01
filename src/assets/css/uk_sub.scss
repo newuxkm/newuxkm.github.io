@@ -396,18 +396,18 @@
 		line-height:24px; margin:15px $pc_padding 0; padding:0;
 		font-size:14px;
 		border:0; background:none;
-		ul {
+		> ul, > div {
 			display:inline-block;
 			text-align:left;
 			padding:22px 30px; background:#f9f9f9;
-		}
-		li {
-			position:relative; padding-left:12px;
-			&:before {
-				position:absolute; left:0; top:11px;
-				width:3px; height:3px;
-				background:#4b6da5; border-radius:100%;
-				content:"";
+			li, p {
+				position:relative; padding-left:12px;
+				&:before {
+					position:absolute; left:0; top:11px;
+					width:3px; height:3px;
+					background:#4b6da5; border-radius:100%;
+					content:"";
+				}
 			}
 		}
 	}
