@@ -2109,7 +2109,7 @@ $line-height-mb:22px;
 			animation:css_ani_tit_before .8s 2s cubic-bezier(.96,.68,0,.01) both; //cubic-bezier(.77,.49,0,.08)
 		}
 		@keyframes css_ani_tit_before {
-			0% {opacity:0; transform:translate($csss_ani_b_late, 0) skewX(-45deg);}
+			0% {opacity:0; transform:translate($csss_ani_b_late, 0) skewX(0);}
 			45% {opacity:1; transform:translate(0, 0) skewX(-45deg);}
 			50% {opacity:1; transform:translate(0, 0) skewX(45deg);}
 			65% {opacity:1; transform:translate(0, 0) skewX(-20deg);}
@@ -2132,7 +2132,7 @@ $line-height-mb:22px;
 			background-clip:text;
 		}
 		//@include bg_code;
-		animation:css_ani_tit_wave 35s 3s linear infinite;
+		//animation:css_ani_tit_wave 35s 3s linear infinite;
 		@keyframes css_ani_tit_wave {
 			0% {
 				//@include bg_code;
