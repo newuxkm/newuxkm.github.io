@@ -175,7 +175,7 @@ $(window).on('load', function(){
   // go top
   $(window).scrollTop() > go_top_size ? _go_top_btn.css('opacity',1) : false;
   _go_top_btn.on('click', function(){
-    _htmlBody.stop().animate({scrollTop:0}, 800, 'easeInOutCubic');
+    _htmlBody.stop().animate({scrollTop:0}, 600, 'easeInOutCubic');
     return false;
   });
 
