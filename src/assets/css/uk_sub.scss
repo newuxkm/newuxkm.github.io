@@ -522,7 +522,7 @@ $side_menu_width:250px;
 			font-size:13px;
 			a {padding-left:32px;}
 			a, b {color:#666; font-weight:400;}
-			i {color:#888; font-weight:300;}
+			.el {color:#888; font-weight:300;}
 			span {color:#aaa; font-weight:400;}
 			.html5 {
 				margin:4px 0 0 4px; font-size:0;
@@ -723,7 +723,7 @@ $side_menu_width:250px;
 	}
 	*/
 }
-.content_area {flex:1; width:calc(100% - (#{$side_menu_width} + 50px));}
+.content_area {flex:1; width:calc(100% - (#{$side_menu_width} + 50px)); z-index:0;}
 @media(max-width:$screen-md-max){
 	.sub_content {
 		flex-direction:column-reverse;
@@ -2066,6 +2066,98 @@ $line-height-mb:22px;
 	}
 	&:hover img {transform:translate(-50%, -50%) scale(1.2, 1.2);}
 }
+
+// animation
+.ie_no .css_animation {
+	#content_title {
+		height:46px; line-height:46px;
+		font-size:46px; font-weight:900;
+
+		// step1 텍스트 rorateX
+		$css_ani_perspective: 100px;
+		$css_ani_xStart: 90deg;
+		$css_ani_xEnd: -360deg;
+		$css_ani_time: 1.8s;
+		$css_ani_timing: cubic-bezier(0.34, 1.56, 0.64, 1);
+		i {
+			display:inline-block; vertical-align:top;
+			will-change: transform;
+			transform-origin:50% 100%;
+			transform:perspective($css_ani_perspective) rotateX($css_ani_xStart);
+		}
+		$i_total: 10;
+		@for $i from 1 to $i_total {
+			$d: ($i * 100) + 500;
+			$delay: #{$d}ms;
+			i:nth-child(#{$i}n) {
+				animation:css_ani_tit_standup $css_ani_time $delay $css_ani_timing both;
+			}
+		}
+		@keyframes css_ani_tit_standup {
+			0% {transform:perspective($css_ani_perspective) rotateX($css_ani_xStart);}
+			100% {transform:perspective($css_ani_perspective) rotateX($css_ani_xEnd);}
+		}
+
+		// step2 ::before moving
+		$csss_ani_b_late:400%;
+		&:before {
+			display:inline-block; vertical-align:top;
+			margin-right:10px;
+			opacity:0;
+			transform-origin:50% 100%;
+			transform:translate($csss_ani_b_late, 0);
+			animation:css_ani_tit_before .8s 2s cubic-bezier(.96,.68,0,.01) both; //cubic-bezier(.77,.49,0,.08)
+		}
+		@keyframes css_ani_tit_before {
+			0% {opacity:0; transform:translate($csss_ani_b_late, 0) skewX(-45deg);}
+			45% {opacity:1; transform:translate(0, 0) skewX(-45deg);}
+			50% {opacity:1; transform:translate(0, 0) skewX(45deg);}
+			65% {opacity:1; transform:translate(0, 0) skewX(-20deg);}
+			80% {opacity:1; transform:translate(0, 0) skewX(10deg);}
+			90% {opacity:1; transform:translate(0, 0) skewX(-5deg);}
+			100% {opacity:1; transform:translate(0, 0) skewX(0);}
+		}
+
+		// step3 wave bg
+		@mixin bg_code {
+			color:transparent; //background-color:#ddd;
+			background-image:
+					url('#{$bg-url}/wave_w_opacity_10.png'),
+					url('#{$bg-url}/wave_w_opacity_10.png'),
+					url('#{$bg-url}/wave_w_opacity_10.png');
+			background-repeat:repeat-x;
+			background-color:#ddd;
+			background-size:1800px 100%;
+			-webkit-background-clip:text;
+			background-clip:text;
+		}
+		//@include bg_code;
+		animation:css_ani_tit_wave 35s 3s linear infinite;
+		@keyframes css_ani_tit_wave {
+			0% {
+				//@include bg_code;
+				background-position:0 0, -200% 0, -100% 0;
+			}
+			100% {
+				//@include bg_code;
+				background-position:-1800% 0, -1600% 0, -1700% 0;
+			}
+		}
+	}
+	.last_update {margin-top:20px;}
+
+}
+@media(max-width:$screen-md-max){
+	.ie_no .css_animation {
+		.last_update {margin-top:15px;}
+	}
+}
+@media(max-width:$screen-sm-max){
+	.ie_no .css_animation {
+		.last_update {margin-top:0;}
+	}
+}
+
 
 // 플렉서블 레이아웃 부모 속성
 @mixin flex_direction($name, $left1, $top1, $left2, $top2){

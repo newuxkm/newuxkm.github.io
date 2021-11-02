@@ -1,0 +1,39 @@
+
+// ACCESSIBILITY > 09. WCAG 2.1 한페이지로 합치기 전 백업
+            {
+              "d3_name": "WCAG 2.1",
+              "d3_link": "/09-waWcag",
+              "depth4": [
+                {
+                  "d4_name": "인식의 용이성(Perceivable)",
+                  "d4_link": "/01-perceivable"
+                },
+                {
+                  "d4_name": "운용의 용이성(Operable)",
+                  "d4_link": "/02-operable"
+                },
+                {
+                  "d4_name": "이해의 용이성(Understandable)",
+                  "d4_link": "/03-understandable"
+                },
+                {
+                  "d4_name": "견고성(Robust)",
+                  "d4_link": "/04-robust"
+                }
+              ]
+            },
+
+
+// ACCESSIBILITY > 08. 견고성과 |<!- 이부분 ->| 12. 참조 사이트 사이 백업
+            {
+              "d3_name": "WCAG 2.1",
+              "d3_link": "/09-waWcag/waWcag"
+            },
+            {
+              "d3_name": "KWACG2.1 VS WCAG 2.1 비교",
+              "d3_link": "/10-waVs/waVs"
+            },
+            {
+              "d3_name": "WAI-ARIA",
+              "d3_link": "/11-waAria/waAria"
+            },

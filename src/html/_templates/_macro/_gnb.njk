@@ -108,7 +108,7 @@
 								{#- 4뎁스 link --------> #} {%- set d4_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ dep4.d4_link }} {%- endset %}
 								{#- 4뎁스 loop index --> #} {%- set d4_loop = loop.index %}
 								{#- 4뎁스 active ------> #} {%- set d4_active = d3_active and d4_loop === idx.d4 %}
-								{#- d4_name -----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i>element</i>') %}
+								{#- d4_name -----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i class="el">element</i>') %}
 								{#- d4 html5 ----------> #} {%- set html5 = ' <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>' if dep4.html5  %}
 								{#-<li class="{%- if d4_active -%} active {%- endif %} {%- if dep4.part %} part_visible {%- endif %}">#}
 								<li {%- if d4_active and dep4.part %} class="active part_visible"
@@ -182,7 +182,7 @@
 					{#- 4뎁스 link --------> #} {%- set d4_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ dep4.d4_link }} {%- endset %}
 					{#- 4뎁스 loop index --> #} {%- set d4_loop = loop.index %}
 					{#- 4뎁스 active ------> #} {%- set d4_active = d3_active and d4_loop === idx.d4 %}
-					{#- d4_name ----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i>element</i>') %}
+					{#- d4_name ----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i class="el">element</i>') %}
 					<li {%- if d4_active and dep4.part %} class="active part_visible"
 							{%- elif d4_active %} class="active"
 							{%- elif dep4.part %} class="part_visible"
@@ -256,7 +256,7 @@
 			{#- 4뎁스 link --------> #} {%- set d4_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ dep4.d4_link }} {%- endset %}
 			{#- 4뎁스 loop index --> #} {%- set d4_loop = loop.index %}
 			{#- 4뎁스 active ------> #} {%- set d4_active = d3_active and d4_loop === idx.d4 %}
-			{#- d4_name -----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i>element</i>') %}
+			{#- d4_name -----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i class="el">element</i>') %}
 			{#- d4 html5 ----------> #} {%- set html5 = ' <span class="html5 fab fa-html5">HTML5에서 새롭게 추가</span>' if dep4.html5  %}
 			<li {%- if d4_active and dep4.part %} class="active part_visible"
 					{%- elif d4_active %} class="active"
@@ -290,7 +290,7 @@
 	{#- 4뎁스 link --------> #} {%- set d4_link %} {{- gnb.d1_link }}{{ dep2.d2_link }}{{ dep3.d3_link }}{{ dep4.d4_link }} {%- endset %}
 	{#- 4뎁스 loop index --> #} {%- set d4_loop = loop.index %}
 	{#- 4뎁스 active ------> #} {%- set d4_active = d4_loop === idx.d4 %}
-	{#- d4_name ----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i>element</i>') %}
+	{#- d4_name ----------> #} {%- set d4_name = dep4.d4_name | replace('element','<i class="el">element</i>') %}
 	<li class="{%- if d4_active -%} active {%- endif %} {%- if dep4.part %} part_visible {%- endif %}">
 		{%- if dep4.part %}
 		{%- for part in dep4.part %}

@@ -135,7 +135,10 @@
 			<main id="content" class="content_area">
 				<header>
 					{%- if pageNumber.depth4 %}
-					<h1 id="content_title" {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ d3 + 1 + '.'}}{{ d4 + 1 + '. ' }}">{{ title_d4 | replace('element', '<span class="t_bbb">element</span>') }} <em class="sound_only">- by. UXKM</em></h1>
+					{%- set dataNumber = (d3 + 1) + '.' + (d4 + 1) + '. ' %}
+					{%- set pageTitle = title_d4 | replace('element', '<span class="t_bbb">element</span>') %}
+					{%- set pageTitleReplace = pageTitle | replace('<i>','') | replace('</i>','') | replace('<span class="t_bbb">','') | replace('<span class="t_blue">','') | replace('</span>','') %}
+					<h1 id="content_title" {%- if d4_path.html5 %} class="html5" {%- endif %} data-number="{{ dataNumber }}" data-title="{{ dataNumber }}{{ pageTitleReplace }}">{{ pageTitle }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- else %}
 					<h1 id="content_title" data-number="{{ d3 + 1 + '. '}}">{{ title_d3 }} <em class="sound_only">- by. UXKM</em></h1>
 					{%- endif %}

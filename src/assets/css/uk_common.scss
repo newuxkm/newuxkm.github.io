@@ -922,7 +922,24 @@ $active_blue:lighten($sm_blue, 5%);
 		background-color:rgba(#000, .9); //rgba(#000, .9)
 		transition:top 0s 0s, background-color $time - .05s 0s;
 
-		.inner {opacity:1; transform:translate(0, 0);}
+		.inner {
+			will-change:transform, opacity;
+			opacity:1; transform:translate(0, 0);
+		}
+	}
+}
+.ie .hd_layer_box {
+	.inner {
+		opacity:0; transform:translate(0, 0);
+		transition:opacity 0s, transform 0s;
+	}
+	&.active {
+		top:0;
+		transition:top 0s 0s, background-color 0s 0s;
+
+		.inner {
+			opacity:1; transform:translate(0, 0);
+		}
 	}
 }
 

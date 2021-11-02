@@ -722,7 +722,7 @@
                   "d4_link": "/02-css_transition"
                 },
                 {
-                  "d4_name": "Animation",
+                  "d4_name": "<i>A</i><i>n</i><i>i</i><i>m</i><i>a</i><i>t</i><i>i</i><i>o</i><i>n</i>",
                   "d4_link": "/03-css_animation"
                 },
                 {
@@ -886,18 +886,6 @@
               ]
             },
             {
-              "d3_name": "WCAG 2.1",
-              "d3_link": "/09-waWcag/waWcag"
-            },
-            {
-              "d3_name": "KWACG2.1 VS WCAG 2.1 비교",
-              "d3_link": "/10-waVs/waVs"
-            },
-            {
-              "d3_name": "WAI-ARIA",
-              "d3_link": "/11-waAria/waAria"
-            },
-            {
               "d3_name": "참조 사이트",
               "d3_link": "/12-bookmark/bookmark"
             }
@@ -979,3 +967,4 @@
     }
   ]
 }
+
