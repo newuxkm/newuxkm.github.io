@@ -12,7 +12,7 @@
 	note: false,
 	sideMenu: true,
 	reference: true,
-	contentList: true
+	contentList: false
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
@@ -21,10 +21,12 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content -%}
 	{{ super() }}
+	{#-
 	<footer class="reference_box">
 		<strong class="tit">{{ title_d3 }} 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="00000000" target="_blank" class="fas">00000000</a></li>
 		</ul>
 	</footer>
+	#}
 {%- endblock %}

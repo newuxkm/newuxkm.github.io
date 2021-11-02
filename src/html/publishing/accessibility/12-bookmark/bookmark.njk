@@ -1,7 +1,7 @@
 {% set pageNumber = { depth1: 1, depth2: 3, depth3: 12 } %}
 {% set pageData = {
 	title: "참조 사이트",
-	description: "참조 사이트 입니다.",
+	description: "ACCESSIBILITY 참조 사이트 입니다.",
 	keyword: "",
 	last_update: creation_date | date("YYYY-MM-DD")
 } %}
@@ -19,5 +19,37 @@
 
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
-{#{% block content -%}
-{%- endblock %}#}
+{% block content -%}
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">W3C</h2>
+		<ul class="reference mt_ms">
+			<li><a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1</a></li>
+			<li><a href="http://www.kwacc.or.kr/WAI/wcag21/">Web Content Accessibility Guidelines (WCAG) 2.1 한국어 번역본</a></li>
+			<li><a href="https://www.w3.org/WAI/standards-guidelines/">W3C Accessibility Standards Overview</a></li>
+			<li><a href="https://www.w3.org/WAI/fundamentals/components/">Essential Components of Web Accessibility</a></li>
+			<li><a href="chttps://www.w3.org/WAI/fundamentals/accessibility-principles/">Accessibility Principles</a></li>
+			<li><a href="https://www.w3.org/WAI/WCAG21/quickref/">WCAG (Quick Reference)</a></li>
+			<li><a href="https://www.w3.org/WAI/ER/tools/">Web Accessibility Evaluation Tools List</a></li>
+		</ul>
+	</section>
+
+	<section class="mt_xxl indent">
+		<h2 class="ml_mn">Site</h2>
+		<ul class="reference mt_ms">
+			<li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics">MOZ WAI-ARIA basics</a></li>
+			<li><a href="https://accessibility.naver.com/accessibility">NAVER 접근성</a></li>
+			<li><a href="https://naradesign.github.io/wcag-2.1.html">naradesign</a></li>
+			<li><a href="https://github.com/lezhin/accessibility">레진 웹 접근성 가이드라인</a></li>
+			<li><a href="http://www.haeppa.kr/tag/steam">Haeppa World</a></li>
+			<li><a href="http://njpaiks.egloos.com/">백남중</a></li>
+			<li><a href="https://www.wah.or.kr:444/">웹접근성 연구소</a></li>
+			<li><a href="http://www.wa.or.kr/">한국웹접근성인증평가원 (사단법인 한국장애인단체총연합회)</a></li>
+			<li><a href="http://www.webwatch.or.kr/">주식회사 웹와치</a></li>
+			<li><a href="http://www.kwacc.or.kr/">사단법인 한국시각장애인연합회 (한국웹접근성평가센터)</a></li>
+			<li><a href="https://romeo.elsevier.com/accessibility_checklist/">Accessibility Checklist</a></li>
+			<li><a href="https://webaim.org/techniques/css/invisiblecontent/">Webaim Tech</a></li>
+			<li><a href="https://wave.webaim.org/">WAVE Web Accessibility Evaluation Tool</a></li>
+			<li><a href="https://www.powermapper.com/tests/screen-readers/aria/">PowerMapper Website Tool Screen Readers Aria</a></li>
+		</ul>
+	</section>
+{%- endblock %}

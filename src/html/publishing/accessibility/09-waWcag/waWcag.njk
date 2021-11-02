@@ -1,0 +1,99 @@
+{% set pageNumber = { depth1: 1, depth2: 3, depth3: 9 } %}
+{% set pageData = {
+	title: "WCAG 2.1",
+	description: "WCAG 2.1 입니다.",
+	keyword: "",
+	last_update: creation_date | date("YYYY-MM-DD")
+} %}
+{% set pageLayout = {
+	mainClass: "waWcag",
+	type: "publishing",
+	Info: true,
+	note: false,
+	sideMenu: true,
+	reference: true,
+	contentList: false
+} %}
+{% extends path.layout %}
+<!-- data setting end ------------------------------------------------------------------------------------------------->
+
+
+<!-- content start ---------------------------------------------------------------------------------------------------->
+{% block content -%}
+	<blockquote class="uk_note mt_xxl" role="note">
+		<strong class="sound_only">요약 설명</strong>
+		<p>
+			W3C에서 제정한 웹 콘텐츠 접근성 가이드라인 (WCAG)에는 네 가지의 원칙이 있습니다.
+		</p>
+		<p class="mt_s">
+			<b>인지 가능(Perceivable)</b> : 사용자가 콘텐츠를 인지할 수 있도록 해야 합니다.<br>
+			폼에 라벨을 달아 입력을 돕고, 콘텐츠가 제공되지 않을 때를 대비해 대체 텍스트를 넣어주고,
+			꾸미는 요소는 스크린 리더기가 무시할 수 있도록 해주는 것들이 해당합니다.
+		</p>
+		<p class="mt_s">
+			<b>작동 가능(Operable)</b> : 사용자가 UI 구성 요소를 사용할 수 있어야 합니다.<br>
+			키보드 동작을 위한 : focus, tabindex 추가가 그 예입니다.
+		</p>
+		<p class="mt_s">
+			<b>이해 가능(Understandable)</b> : 사용자가 콘텐츠를 이해할 수 있도록 도와야 합니다.<br>
+			{#-이게 텍스트인지 이미지인지 버튼인지 혼란이 오면 안 되겠죠.#}
+			텍스트인지 이미지인지 버튼인지 유저에게 혼란을 주는 콘텐츠는 피해야 합니다.
+		</p>
+		<p class="mt_s">
+			<b>안정적(Robust)</b> : 장애인 사용자를 위한 보조 기술은 물론, 다양한 사용자 에이전트에 호환되어야 합니다.
+		</p>
+	</blockquote>
+
+	<!-- 9.1. 인식(Perceivable) -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">9.1. 인식(Perceivable)</h2>
+		<p class="mt_ms">
+			정보 및 UI 컴포넌트가 인식 가능하도록 제공해야 합니다.
+		</p>
+		<ol class="ol_lst indent mt_s">
+			<li>대체 텍스트</li>
+			<li>시간 기반 미디어</li>
+			<li>적응성</li>
+			<li>명료성</li>
+		</ol>
+	</section>
+
+	<!-- 9.2. 운용(Operable) -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">9.2. 운용(Operable)</h2>
+		<p class="mt_ms">
+			UI 컴포넌트와 내비게이션이 작동하는데 문제가 없어야 합니다.
+		</p>
+		<ol class="ol_lst indent mt_s">
+			<li>키보드 접근</li>
+			<li>충분한 시간 제공</li>
+			<li>발작 예방</li>
+			<li>탐색 가능</li>
+			<li>입력 양식</li>
+		</ol>
+	</section>
+
+	<!-- 9.3. 이해(Understandable) -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">9.3. 이해(Understandable)</h2>
+		<p class="mt_ms">
+			정보 전달 및 사용자 인터페이스(UI) 작동에 대해 이해하기 쉬워야 합니다.
+		</p>
+		<ol class="ol_lst indent mt_s">
+			<li>가독성</li>
+			<li>예측 가능성</li>
+			<li>입력 도움</li>
+		</ol>
+	</section>
+
+	<!-- 9.4. 견고(Robust) -->
+	<section class="indent mt_xxl">
+		<h2 class="ml_mn">9.4. 견고(Robust)</h2>
+		<p class="mt_ms">
+			콘텐츠는 보조 기술을 포함하여 다양한 사용자 에이전트가 처리할 수 있을 정도로 견고해야 합니다.
+		</p>
+		<ol class="ol_lst indent mt_s">
+			<li>호환성</li>
+		</ol>
+	</section>
+{%- endblock %}
