@@ -1,6 +1,6 @@
 
 // selector ------------------------------------------------------------------------------------------------------------
-const _main_container = $('.main_page .uk_container')
+const _main_container = $('.main_page .uk_container');
 const _main_intro = _main_container.find('.main_intro');
 const _main_info = _main_container.find('.main_info');
 const _mainInfoStep1 = _main_info.find('.step1');
