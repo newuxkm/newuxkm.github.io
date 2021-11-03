@@ -6,6 +6,7 @@
 @import "_component";
 
 html {background:#000;}
+body {@include font-kr;}
 .uk_wrap {
 	background-position:left top;
 	background-size:cover;

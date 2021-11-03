@@ -9,7 +9,6 @@
 // common --------------------------------------------------------------------------------------------------------------
 html {overflow-y:scroll; overflow-x:hidden !important;}
 body {@include font-kr;}
-//body {@include font-en;}
 .inner {
 	position:relative; font-size:14px;
 	max-width:$conWidth;
@@ -1596,10 +1595,10 @@ $edt_btn_left:6px;
 
 		&.fullscreen_mode {
 			$p_size:15px;
-			position:fixed; right:$p_size; top:$p_size; z-index:999999;
+			position:fixed; right:$p_size; top:$p_size; z-index:9999;
 			width:calc(100% - (#{$p_size}*2)); height:calc(100% - (#{$p_size}*2)); margin:0 !important;
 			//border-width:4px;
-			box-shadow:0 0 0 50px rgba(0,0,0,.7);
+			box-shadow:0 0 0 50px rgba(0,0,0,.9);
 
 			.code_wrap, .CodeMirror {height:100%;}
 			.CodeMirror-scroll {min-height:100% !important;}
@@ -2075,6 +2074,10 @@ $edt_btn_left:6px;
 		.CodeMirror-simplescroll-horizontal {height:5px !important;}
 		.CodeMirror-simplescroll-vertical {width:5px !important;}
 	}
+}
+
+.editor_full_screen {
+	.content_area {z-index:10;}
 }
 
 

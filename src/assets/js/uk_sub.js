@@ -132,19 +132,12 @@ $(window).on('load', function(){
         sessionStorage.setItem(loading_scroll_top, loading_sct);
       });
       _htmlBody.animate({'scrollTop':sessionStorage.getItem(loading_scroll_top)}, 0);
-
-      setTimeout(function(){
-        _sub_content.addClass('content_load');
-        _ukFooter.addClass('content_load');
-        _html.removeAttr('style');
-      }, 100);
+      _html.removeAttr('style');
     }
 
     // front, back 버튼 또는 링크로 이동 시
     if( window.performance.navigation.type === 0 ){
       sessionStorage.setItem(loading_scroll_top, 0);
-      _sub_content.addClass('content_load');
-      _ukFooter.addClass('content_load');
     }
   }, 300);
 
