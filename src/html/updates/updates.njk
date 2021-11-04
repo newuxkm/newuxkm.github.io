@@ -1,0 +1,20 @@
+{% set pageNumber = { depth1: 3 } %}
+{% set pageData = {
+	updatePage: true,
+	title: "업데이트 예정 컨텐츠",
+	description: "업데이트 예정 컨텐츠 입니다.",
+	keyword: "",
+	last_update: creation_date | date("YYYY-MM-DD")
+} %}
+{% set pageLayout = {
+	mainClass: "uxkm_updates",
+	type: "updates"
+} %}
+{% extends path.layout %}
+<!-- data setting end ------------------------------------------------------------------------------------------------->
+
+
+<!-- content start ---------------------------------------------------------------------------------------------------->
+{% block updateContent %}
+	<p>업데이트 예정 컨텐츠</p>
+{%- endblock %}

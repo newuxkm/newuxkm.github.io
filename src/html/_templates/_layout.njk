@@ -81,6 +81,26 @@
 	{#- // main content area ------------------------------------------------------------------------------------------ #}
 	{%- else %}
 	<div class="uk_container sub_content_area">
+		{#- 업데이트 페이지 --------------------------------------------------------------------------------------------- #}
+		{%- if pageData.updatePage === true %}
+		<main id="content" class="content_area inner">
+			<header>
+				<h1 id="content_title">UXKM의 업데이트 예정 콘텐츠 <em class="sound_only">- by. UXKM</em></h1>
+				<time class="last_update" datetime="{{ pageData.last_update }}">{{ pageData.last_update }}</time>
+			</header>
+
+			{% filter tabIndent(3) %}
+			{% block updateContent %}
+			{%- endblock %}
+			{%- endfilter %}
+
+			<div class="content_bottom inner">
+				<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			</div>
+		</main>
+		{%- else %}
+
+		{#- 퍼블리싱 / 빌드시스템 페이지 -------------------------------------------------------------------------------- #}
 		<nav class="top_link inner">
 			{%- if layout_pub %}
 			{{ gnb_comp.d2_gnb(
@@ -207,6 +227,7 @@
 			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
 			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
 		</div>
+		{%- endif %}
 	</div>
 	{#- // sub content area ------------------------------------------------------------------------------------------- #}
 	{%- endif %}
@@ -241,7 +262,7 @@
 <!-- script - ui -->
 <script defer type="text/javascript" src="{{ path.js }}/uk_common.min.js"></script>
 {%- set js_div = 'uk_main' if pageData.mainPage else 'uk_sub' %}
-<script defer type="text/javascript" src="{{ path.js }}/{{ js_div }}.min.js"></script>
+<script defer type="text/javascript" src="{{ path.js }}/{{ js_div }}.js"></script> {# min #}
 {%- block script %}
 {%- endblock %}
 </body>
