@@ -33,57 +33,61 @@ let loading_sct = null;
 
 
 function content_list_offset(){
-  let header_height = _ukHeader.height();
-  let win_width = $(window).width();
-  if( win_width < screen_md_max ) content_list_empty = 40;
-  if( win_width < screen_sm_max ) content_list_empty = 65;
+  if( _con_lst_btn.is(':visible') ){
+    let header_height = _ukHeader.height();
+    let win_width = $(window).width();
+    if( win_width < screen_md_max ) content_list_empty = 40;
+    if( win_width < screen_sm_max ) content_list_empty = 65;
 
-  // h2, h3, h4 offset top
-  const minus_height = header_height + content_list_empty;
-  list_offset_top = [];
-  _content_area.find('['+data_title_num+']').each(function(i, e){
-    let offset_top = $(e).offset().top - minus_height;
-    if( $(e).is('.sound_only') ) offset_top = $(e).parent().offset().top - minus_height
-    list_offset_top.push( Math.ceil(offset_top) );
-  });
+    // h2, h3, h4 offset top
+    const minus_height = header_height + content_list_empty;
+    list_offset_top = [];
+    _content_area.find('['+data_title_num+']').each(function(i, e){
+      let offset_top = $(e).offset().top - minus_height;
+      if( $(e).is('.sound_only') ) offset_top = $(e).parent().offset().top - minus_height
+      list_offset_top.push( Math.ceil(offset_top) );
+    });
 
-  // h1 offset top
-  let subCon_offsetTop = _sub_content.offset().top;
-  con_tit_offsetTop = 0;
-  if( win_width >= screen_md_max ) con_tit_offsetTop = subCon_offsetTop - header_height;
-  // md-max
-  if( win_width < screen_md_max ) con_tit_offsetTop = subCon_offsetTop - minus_height + 20;
-  // sm-max
-  if( win_width < screen_sm_max ) con_tit_offsetTop = subCon_offsetTop - header_height;
+    // h1 offset top
+    let subCon_offsetTop = _sub_content.offset().top;
+    con_tit_offsetTop = 0;
+    if( win_width >= screen_md_max ) con_tit_offsetTop = subCon_offsetTop - header_height;
+    // md-max
+    if( win_width < screen_md_max ) con_tit_offsetTop = subCon_offsetTop - minus_height + 20;
+    // sm-max
+    if( win_width < screen_sm_max ) con_tit_offsetTop = subCon_offsetTop - header_height;
+  }
 }
 function content_list_active(sct){
-  const _title_target = _content_area.find('['+data_title_num+']');
-  const _target_length = _title_target.length-1;
-  _title_target.each(function(i, e){
-    if( !list_moving ){
-      // h2, h3, h4 active
-      if( sct >= list_offset_top[i] ){
-        $('.'+content_list).find('[data-title-num]').removeClass('active').eq(i).addClass('active');
-        $('.'+list_title+' a').removeClass('active');
+  if( _con_lst_btn.is(':visible') ){
+    const _title_target = _content_area.find('['+data_title_num+']');
+    const _target_length = _title_target.length-1;
+    _title_target.each(function(i, e){
+      if( !list_moving ){
+        // h2, h3, h4 active
+        if( sct >= list_offset_top[i] ){
+          $('.'+content_list).find('[data-title-num]').removeClass('active').eq(i).addClass('active');
+          $('.'+list_title+' a').removeClass('active');
 
-        // 마지막 컨텐츠의 height값이 작은 경우 scroll top이 max일때 마지막 title active
-        if( Math.ceil(sct + _window.height()) >= _document.height() ){
+          // 마지막 컨텐츠의 height값이 작은 경우 scroll top이 max일때 마지막 title active
+          if( Math.ceil(sct + _window.height()) >= _document.height() ){
+            $('.'+content_list).find('[data-title-num]').removeClass('active');
+            $('.'+content_list).find('[data-title-num]').eq(_target_length).addClass('active');
+          }
+        }
+
+        // h1 active
+        //if( sct >= con_tit_offsetTop || sct < list_offset_top[0] ){
+        if( sct >= con_tit_offsetTop && sct < list_offset_top[0] ){
           $('.'+content_list).find('[data-title-num]').removeClass('active');
-          $('.'+content_list).find('[data-title-num]').eq(_target_length).addClass('active');
+          $('.'+list_title+' a').addClass('active');
+        }
+        if( sct < con_tit_offsetTop ){
+          $('.'+list_title+' a').removeClass('active');
         }
       }
-
-      // h1 active
-      //if( sct >= con_tit_offsetTop || sct < list_offset_top[0] ){
-      if( sct >= con_tit_offsetTop && sct < list_offset_top[0] ){
-        $('.'+content_list).find('[data-title-num]').removeClass('active');
-        $('.'+list_title+' a').addClass('active');
-      }
-      if( sct < con_tit_offsetTop ){
-        $('.'+list_title+' a').removeClass('active');
-      }
-    }
-  });
+    });
+  }
 }
 
 
@@ -305,22 +309,23 @@ _side_menu_d3.each(function(i, e){
 
 
 // window scroll -------------------------------------------------------------------------------------------------------
-let top_link_offset = _top_link.find('ul').offset().top - 1;
 $(window).on('scroll', function(){
   let sct = $(window).scrollTop();
   hd_common(sct);
   content_list_active(sct);
 
   // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우) (<head>에도 추가)
-  sct > top_link_offset - _ukHeader.height() ?  _top_link.addClass('fixed') : _top_link.removeClass('fixed');
-
-  // 로딩 상단 고정(scroll top 값이 sub_content 의 offset().top 보다 클 경우)
-  sct > _sub_content.offset().top - _ukHeader.height() ? _sub_content.addClass('loading_fixed') : _sub_content.removeClass('loading_fixed') ;
+  if( _top_link.is(':visible') ){
+    let top_link_offset = _top_link.find('ul').offset().top - 1;
+    sct > top_link_offset - _ukHeader.height() ?  _top_link.addClass('fixed') : _top_link.removeClass('fixed');
+  }
 
   // side menu 타이틀 노출( side_close일 경우 ) (<head>에도 추가)
-  let sub_top_offset = _sub_content.offset().top + Number(_sub_content.css('padding-top').replace('px','')) + $('#content_title').height()/2;
-  sub_top_offset -= _ukHeader.height();
-  sct > sub_top_offset ? _side_menu_area.addClass('title_show') : _side_menu_area.removeClass('title_show') ;
+  if( _side_menu_area.is(':visible') ){
+    let sub_top_offset = _sub_content.offset().top + Number(_sub_content.css('padding-top').replace('px','')) + $('#content_title').height()/2;
+    sub_top_offset -= _ukHeader.height();
+    sct > sub_top_offset ? _side_menu_area.addClass('title_show') : _side_menu_area.removeClass('title_show') ;
+  }
 
   // go top 버튼 노출
   sct > go_top_size ? _go_top_btn.css('opacity',1) : _go_top_btn.css('opacity',0);
