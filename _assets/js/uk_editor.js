@@ -179,6 +179,7 @@ function uk_editor(){
                   e.classList.add(pullscreen_mode);
                   this.classList.add('active');
                   _html.style.overflow = 'hidden';
+                  _html.classList.add('editor_full_screen');
                 }
 
                 //pullscreen 취소
@@ -189,6 +190,7 @@ function uk_editor(){
                   e.classList.remove(pullscreen_mode);
                   this.classList.remove('active');
                   _html.removeAttribute('style');
+                  _html.classList.remove('editor_full_screen');
                 }
 
                 editor_trigger();
