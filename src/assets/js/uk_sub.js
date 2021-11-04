@@ -185,7 +185,8 @@ $(window).on('load', function(){
 
     _content_bottom.append('<nav class="'+content_list+'"><ul class="'+cl_d1+'"></ul></nav>');
     const _content_list = $('.'+content_list+' ul');
-    const h1_txt = _content_title.html().split('<em')[0];
+    //const h1_txt = _content_title.html().split('<em')[0];
+    const h1_txt = _content_title.text().replace('- by. UXKM','').replace(/\t/gi,'').replace(/\n/g,'');
     const h1_num = _content_title.attr('data-number');
     _content_list.before('<strong class="'+list_title+'"><a href="#">'+ h1_num+h1_txt +'</a></strong>');
     $('.'+content_list).append('<button type="button" class="'+content_list_close+'"><i>목차 닫기</i></button>');

@@ -6,6 +6,7 @@
 @import "_component";
 
 
+
 // sub basic -----------------------------------------------------------------------------------------------------------
 body {@include font-kr;}
 .uk_container {position:relative; margin-top:$hdHeight; background:#fff;}
@@ -277,6 +278,7 @@ body {@include font-kr;}
 }
 
 
+
 // sub top -------------------------------------------------------------------------------------------------------------
 .top_link {
 	$height:36px;
@@ -465,6 +467,7 @@ body {@include font-kr;}
 		.inner, .uk_note {display:none;}
 	}
 }
+
 
 
 // sub content common --------------------------------------------------------------------------------------------------
@@ -866,6 +869,7 @@ $side_menu_width:250px;
 		.side_menu > ul > li > a:before {font-size:14px;}
 	}
 }
+
 
 
 // content_area setting ------------------------------------------------------------------------------------------------
@@ -1873,6 +1877,7 @@ $line-height-mb:22px;
 }
 
 
+
 //coming soon ----------------------------------------------------------------------------------------------------------
 .ready_content {
 	padding:220px 0 170px; text-align:center;
@@ -2050,6 +2055,45 @@ $line-height-mb:22px;
 	}
 }
 
+// transition
+.ie_no .css_transition {
+	#content_title {
+		position:relative; z-index:1;
+		font-size:36px; color:rgba(#000, .65); font-weight:800;
+		span {display:inline-block;}
+		.electrocardiogram {
+			$width:500px;
+			$dot_width:4px;
+			position:absolute; left:0; top:50%; z-index:-1;
+			transform:translate(0, -50%);
+			width:$width; height:90px; margin-top:5px;
+			font-size:0; text-indent:-9999px;
+			&:before, &:after {
+				position:absolute; left:0; top:0;
+				content:"";
+			}
+			&:before {
+				width:$dot_width; height:100%;
+				background:$blue;
+				animation:electrocardiogram_move 4s linear infinite;
+			}
+			&:after {
+				width:100%; height:100%;
+				background:rgba(#000, .1) url('#{$bg-url}/css/cssAdvanced/electrocardiogram.svg');
+				background-size:100% auto;
+			}
+			@keyframes electrocardiogram_move {
+				0% {opacity:1; transform:translateX(0);}
+				10% {opacity:1;}
+				40% {opacity:1;}
+				80% {opacity:1;}
+				100% {opacity:1; transform:translateX($width - $dot_width);}
+			}
+		}
+	}
+	.last_update {position:relative; z-index:1;}
+}
+
 // animation
 $css_ani_perspective: 100px;
 $css_ani_xStart: 90deg;
@@ -2107,7 +2151,7 @@ $css_ani_timing: cubic-bezier(0.34, 1.56, 0.64, 1);
 		$csss_ani_b_late:600%;
 		&:before {
 			display:inline-block; vertical-align:top;
-			margin-right:11px;
+			margin-right:2px;
 			opacity:0;
 			transform:perspective($css_ani_perspective) translate(0, 0) skewX(0) rotateY(0) scale(1, 1);
 			animation:
@@ -2131,6 +2175,7 @@ $css_ani_timing: cubic-bezier(0.34, 1.56, 0.64, 1);
 		&:after {
 			display:inline-block; vertical-align:top;
 			position:absolute; left:0; top:0;
+			letter-spacing:-1px;
 			@include txt_wave;
 			animation:
 					css_ani_tit_wave 55s linear infinite, //35s
@@ -2322,6 +2367,7 @@ $css_ani_timing: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 
+
 // iframe_con (km temp) ------------------------------------------------------------------------------------------------
 .iframe_con {
 	position:relative;
@@ -2341,6 +2387,7 @@ $css_ani_timing: cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 }
 $iframe_border:8px;
+
 
 // 박스 모델 속성 part-2 [box-sizing 테스트] ---------------
 .box_model_iframe {height:761px;}

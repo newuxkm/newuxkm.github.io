@@ -634,7 +634,7 @@ $active_blue:lighten($sm_blue, 5%);
 			a {
 				padding-left:32px;
 
-				i {display:inline-block; vertical-align:top; color:#777;}
+				.el {display:inline-block; vertical-align:top; color:#777;}
 				.html5 {
 					font-size:0;
 					&:before {
@@ -648,23 +648,23 @@ $active_blue:lighten($sm_blue, 5%);
 
 			&:hover:before {color:$active_blue;}
 			&:not(.part_visible):hover {
-				a, i {color:$active_blue;}
+				a, .el {color:$active_blue;}
 			}
 			&.part_visible:hover p:hover {
-				a, i {color:$active_blue;}
+				a, .el {color:$active_blue;}
 			}
 
 			&.active:not(.part_visible) {
 				background:rgba($blue, .5);
 				border-radius:2px;
-				&:before, a, i {color:#fff;}
+				&:before, a, .el {color:#fff;}
 			}
 			&.part_visible.active p.active {
 				margin-left:-$d3_in_padding; margin-right:-$d3_in_padding;
 				padding-left:$d3_in_padding;
 				background:rgba($blue, .5);
 				border-radius:2px;
-				&:before, a, i {color:#fff;}
+				&:before, a, .el {color:#fff;}
 			}
 		}
 	}
