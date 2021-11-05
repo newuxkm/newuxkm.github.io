@@ -9,7 +9,6 @@
 // common --------------------------------------------------------------------------------------------------------------
 html {overflow-y:scroll; overflow-x:hidden !important;}
 body {@include font-kr;}
-//body {@include font-en;}
 .inner {
 	position:relative; font-size:14px;
 	max-width:$conWidth;
@@ -635,7 +634,7 @@ $active_blue:lighten($sm_blue, 5%);
 			a {
 				padding-left:32px;
 
-				i {display:inline-block; vertical-align:top; color:#777;}
+				.el {display:inline-block; vertical-align:top; color:#777;}
 				.html5 {
 					font-size:0;
 					&:before {
@@ -649,23 +648,23 @@ $active_blue:lighten($sm_blue, 5%);
 
 			&:hover:before {color:$active_blue;}
 			&:not(.part_visible):hover {
-				a, i {color:$active_blue;}
+				a, .el {color:$active_blue;}
 			}
 			&.part_visible:hover p:hover {
-				a, i {color:$active_blue;}
+				a, .el {color:$active_blue;}
 			}
 
 			&.active:not(.part_visible) {
 				background:rgba($blue, .5);
 				border-radius:2px;
-				&:before, a, i {color:#fff;}
+				&:before, a, .el {color:#fff;}
 			}
 			&.part_visible.active p.active {
 				margin-left:-$d3_in_padding; margin-right:-$d3_in_padding;
 				padding-left:$d3_in_padding;
 				background:rgba($blue, .5);
 				border-radius:2px;
-				&:before, a, i {color:#fff;}
+				&:before, a, .el {color:#fff;}
 			}
 		}
 	}
@@ -922,7 +921,24 @@ $active_blue:lighten($sm_blue, 5%);
 		background-color:rgba(#000, .9); //rgba(#000, .9)
 		transition:top 0s 0s, background-color $time - .05s 0s;
 
-		.inner {opacity:1; transform:translate(0, 0);}
+		.inner {
+			will-change:transform, opacity;
+			opacity:1; transform:translate(0, 0);
+		}
+	}
+}
+.ie .hd_layer_box {
+	.inner {
+		opacity:0; transform:translate(0, 0);
+		transition:opacity 0s, transform 0s;
+	}
+	&.active {
+		top:0;
+		transition:top 0s 0s, background-color 0s 0s;
+
+		.inner {
+			opacity:1; transform:translate(0, 0);
+		}
 	}
 }
 
@@ -1579,10 +1595,10 @@ $edt_btn_left:6px;
 
 		&.fullscreen_mode {
 			$p_size:15px;
-			position:fixed; right:$p_size; top:$p_size; z-index:999999;
+			position:fixed; right:$p_size; top:$p_size; z-index:9999;
 			width:calc(100% - (#{$p_size}*2)); height:calc(100% - (#{$p_size}*2)); margin:0 !important;
 			//border-width:4px;
-			box-shadow:0 0 0 50px rgba(0,0,0,.7);
+			box-shadow:0 0 0 50px rgba(0,0,0,.9);
 
 			.code_wrap, .CodeMirror {height:100%;}
 			.CodeMirror-scroll {min-height:100% !important;}
@@ -2058,6 +2074,10 @@ $edt_btn_left:6px;
 		.CodeMirror-simplescroll-horizontal {height:5px !important;}
 		.CodeMirror-simplescroll-vertical {width:5px !important;}
 	}
+}
+
+.editor_full_screen {
+	.content_area {z-index:10;}
 }
 
 

@@ -6,6 +6,7 @@
 @import "_component";
 
 html {background:#000;}
+body {@include font-kr;}
 .uk_wrap {
 	background-position:left top;
 	background-size:cover;
@@ -550,7 +551,6 @@ html {background:#000;}
 				}
 			}
 		}
-
 
 		&.device .txt_box {
 			h3, .d3_button {display:none;}
