@@ -83,10 +83,10 @@
 	<div class="uk_container sub_content_area">
 		{#- 업데이트 페이지 --------------------------------------------------------------------------------------------- #}
 		{%- if pageData.updatePage === true %}
-		<main id="content" class="content_area inner">
+		<main id="content" class="updates_area inner">
 			<header>
 				<h1 id="content_title">UXKM의 업데이트 예정 콘텐츠 <em class="sound_only">- by. UXKM</em></h1>
-				<time class="last_update" datetime="{{ pageData.last_update }}">{{ pageData.last_update }}</time>
+				{#-<time class="last_update" datetime="{{ pageData.last_update }}">{{ pageData.last_update }}</time>#}
 			</header>
 
 			{% filter tabIndent(3) %}
