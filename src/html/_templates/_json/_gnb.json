@@ -963,7 +963,13 @@
 
     {
       "d1_name": "Updates",
-      "d1_link": "/updates/updates"
+      "d1_link": "/updates",
+      "depth2": [
+        {
+          "d2_name": "Updates info",
+          "d2_link": "/updates_info"
+        }
+      ]
     }
   ]
 }

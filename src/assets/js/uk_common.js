@@ -139,12 +139,19 @@ function header_common(){
     if( is_type_tab ){
       $(this).parent().addClass('active').siblings().removeClass('active');
 
+      if( $(this).parent().parent().parent().index() === 2 ){
+        _sitemap_in.find('.depth1 > li').eq(2).addClass('active').siblings().removeClass('active');
+      }
+
       // depth1 click, focus
       if( $(this).next().is('.depth2') ){
         const next_li = $(this).next().find('> li');
         if( !next_li.is('.active') ) next_li.eq(0).addClass('active');
       }
-      return false;
+
+      if( $(this).parents('.depth2').parent().index() !== 2 ){
+        return false;
+      }
     }
   });
   _sitemap_in.find('.depth1 > li > a, .depth2 > li > a').on('keydown', function(e){
@@ -332,7 +339,7 @@ function focus_controll(){
 
   // focus 요소 text 확인
   $('*').focus(function(){
-    //console.log( $(this).text() );
+    console.log( $(this).text() );
   });
 }
 

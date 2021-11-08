@@ -81,17 +81,21 @@
 	{#- // main content area ------------------------------------------------------------------------------------------ #}
 	{%- else %}
 	<div class="uk_container sub_content_area">
+		{#- 업데이트 페이지 --------------------------------------------------------------------------------------------- #}
 		{%- if pageData.updatePage === true %}
-		<div class="sub_content inner {%- if pageNumber.depth4 === undefined %} depth3_last {%- endif %}">
-			<main id="content" class="content_area">
-				{% filter tabIndent(3) %}
-				{% block updateContent %}
-				{%- endblock %}
-				{%- endfilter %}
-			</main>
-		</div>
+		<main id="content" class="updates_area sub_content inner">
+			{% filter tabIndent(3) %}
+			{% block updateContent %}
+			{%- endblock %}
+			{%- endfilter %}
 
+			<div class="content_bottom inner">
+				<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
+			</div>
+		</main>
 		{%- else %}
+
+		{#- 퍼블리싱 / 빌드시스템 페이지 -------------------------------------------------------------------------------- #}
 		<nav class="top_link inner">
 			{%- if layout_pub %}
 			{{ gnb_comp.d2_gnb(
@@ -206,17 +210,19 @@
 					) | tabIndent(5)}}
 				</nav>
 				<button type="button" class="side_menu_toggle" title="사이드 메뉴 닫기"><span><i data-page-title="{{ page_title }}">SIDE MENU <b>CLOSE</b></i></span></button>
+				<script>
+				</script>
 			</aside>
 			<!-- // {{ title_d2 }} side menu -->
 			{%- endif %}
 		</div>
 		<!-- // sub main content (.sub_content) -->
-		{%- endif %}
 
 		<div class="content_bottom inner">
 			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
-			{%- if pageData.updatePage !== true %}<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>{% endif %}
+			<button type="button" class="con_lst_btn" title="컨텐츠 목록"><i>컨텐츠 목록</i></button>
 		</div>
+		{%- endif %}
 	</div>
 	{#- // sub content area ------------------------------------------------------------------------------------------- #}
 	{%- endif %}
