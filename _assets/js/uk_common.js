@@ -1,8 +1,9 @@
 
 // variable ------------------------------------------------------------------------------------------------------------
-const scroll_size = 17;
-const screen_sm_max = 767 - scroll_size;
-const screen_md_max = 993 - scroll_size;
+const scroll_width = window.innerWidth - $(window).width();
+const screen_lg_max = 1201 - scroll_width;
+const screen_md_max = 993 - scroll_width;
+const screen_sm_max = 767 - scroll_width;
 
 // selector ------------------------------------------------------------------------------------------------------------
 const _window = $(window);
@@ -16,7 +17,7 @@ const _ukSkip = $('.uk_skip');
 // header selector
 const _ukHeader = $('.uk_header');
 const _ukNavArea = _ukHeader.find('.hd_nav_area');
-const _ukNav= _ukNavArea.find('.nav');
+const _ukNav = _ukNavArea.find('.nav');
 const search_btn = 'search_btn';
 const sitemap_btn = 'sitemap_btn';
 const search_close = 'search_close';
@@ -42,12 +43,10 @@ const _topLink = $('.top_link');
 const ukEditor = 'uk_editor';
 const result_wrap = 'result_wrap';
 const browserTitle = 'browserTitle';
-const focus_el = 'a, button, input, select, textarea';
+const focus_el = 'a, button, input, select, textarea, #content_title';
 
 // class name
 const hd_progress = 'hd_progress';
-const hd_sitemap_on = 'hd_sitemap_on';
-const hd_search_on = 'hd_search_on';
 const hd_layer_open = 'hd_layer_open';
 
 // variable
@@ -139,12 +138,19 @@ function header_common(){
     if( is_type_tab ){
       $(this).parent().addClass('active').siblings().removeClass('active');
 
+      if( $(this).parent().parent().parent().index() === 2 ){
+        _sitemap_in.find('.depth1 > li').eq(2).addClass('active').siblings().removeClass('active');
+      }
+
       // depth1 click, focus
       if( $(this).next().is('.depth2') ){
         const next_li = $(this).next().find('> li');
         if( !next_li.is('.active') ) next_li.eq(0).addClass('active');
       }
-      return false;
+
+      if( $(this).parents('.depth2').parent().index() !== 2 ){
+        return false;
+      }
     }
   });
   _sitemap_in.find('.depth1 > li > a, .depth2 > li > a').on('keydown', function(e){
