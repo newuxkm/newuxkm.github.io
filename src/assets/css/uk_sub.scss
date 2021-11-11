@@ -2429,6 +2429,7 @@ $iframe_border:8px;
 // uxkm_updates --------------------------------------------------------------------------------------------------------
 .uxkm_updates {
 	$padding:50px;
+	/*
 	.updates_area {
 		display:block;
 		width:auto;
@@ -2446,7 +2447,19 @@ $iframe_border:8px;
 		}
 		h1 {font-size:32px; font-weight:700;}
 	}
-	.update_header ~ section {
+	*/
+
+	.updates_area {
+		display:block;
+		width:auto;
+		padding:0 0 $padding*2;
+	}
+	.update_header {
+		padding:$padding 0;
+		text-align:center;
+		background:lighten($navy, 7%);
+	}
+	.ud_con {
 		margin-top:40px; padding:30px;
 		border-radius:10px;
 		box-shadow:0 3px 12px rgba(#000, .1);
@@ -2461,7 +2474,7 @@ $iframe_border:8px;
 			&:after {height:2px;}
 			h1 {font-size:22px;}
 		}
-		.update_header ~ section {
+		.ud_con {
 			margin-top:20px; padding:20px;
 			border-radius:10px;
 			box-shadow:0 3px 10px rgba(#000, .1);

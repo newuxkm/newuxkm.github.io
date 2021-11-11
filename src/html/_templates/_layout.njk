@@ -83,12 +83,10 @@
 
 	{%- if pageData.updatePage === true %}
 	<main id="content" class="uk_container content_area updates_area">
-		<div class="inner">
-			{% filter tabIndent(2) %}
-			{% block updateContent %}
-			{%- endblock %}
-			{%- endfilter %}
-		</div>
+		{% filter tabIndent(2) %}
+		{% block updateContent %}
+		{%- endblock %}
+		{%- endfilter %}
 	</main>
 	{%- endif %}
 	{#- // update content area ---------------------------------------------------------------------------------------- #}
