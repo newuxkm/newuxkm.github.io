@@ -8,7 +8,6 @@
 } %}
 {% set pageLayout = {
 	mainClass: "uxkm_updates",
-	type: "publishing",
 	contentList: false
 } %}
 {% extends path.layout %}
@@ -17,64 +16,88 @@
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block updateContent %}
-	<header>
-		<h1 id="content_title" data-number="3.">UXKM의 업데이트 예정 콘텐츠 <em class="sound_only">- by. UXKM</em></h1>
-		{#-<time class="last_update" datetime="{{ pageData.last_update }}">{{ pageData.last_update }}</time>#}
+	<header class="update_header">
+		<h1 id="content_title">UXKM 업데이트 예정 콘텐츠 <em class="sound_only">- by. UXKM</em></h1>
 	</header>
 
-	<div>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-		<p>업데이트 예정 컨텐츠</p>
-	</div>
+	<!-- 웹 접근성(ACCESSIBILITY) -->
+	<section class="ud_con">
+		<h2>웹 접근성(Web accessibility)</h2>
+		<h3 class="mt_s">웹 접근성이란?</h3>
+		<p class="mt_sm">
+			{#-웹 접근성(Web Accessibility) 이란 장애인, 고령자 등이 웹 사이트에서 제공하는 정보에 비장애인과 동등하게 접근하고 이해할 수 있도록 보장하는 것입니다.#}
+			모든 사용자(고령자, 장애인 포함)가 어떠한 기술 환경에서도 전문적인 능력 없이 웹을 사용할 수 있게 하는 것으로
+			시각, 청각, 신체, 언어, 인지, 그리고 신경학적인 장애 등 장애를 가진 사람들이 웹 사이트에서 제공하는 정보를
+			비장애인과 동등하게 접근하여 인식할 수 있도록 웹과 상호 작용하는 것을 의미합니다.
+		</p>
+	</section>
+
+	<!-- 국가직무능력표준(NCS) -->
+	<section class="ud_con">
+		<h2>국가직무능력표준(NCS)</h2>
+		<h3 class="mt_s">NCS란? (National Competency Standards)</h3>
+		<p class="mt_s">
+			국가직무능력표준, NCS(National Competency Standards)는 산업현장에서 직무를 수행하기 위해 요구되는
+			지식·기술·소양 등의 내용을 국가가 산업부문별·수준별로 체계화한 것으로,
+			산업현장의 직무를 성공적으로 수행하기 위해 필요한 능력(지식, 기술, 태도)을 국가적 차원에서 표준화한 것을 의미합니다.
+		</p>
+	</section>
+
+	<!-- 자바스크립트(Javascript) -->
+	<section class="ud_con">
+		<h2>자바스크립트(Javascript) & 제이쿼리(jquery)</h2>
+		<h3 class="mt_s">자바스크립트란?</h3>
+		<p class="mt_s">
+			자바스크립트는 ‘웹페이지에 생동감을 불어넣기 위해’ 만들어진 객체(object) 기반의 프로그래밍 언어이며,
+			자바스크립트로 작성한 프로그램을 스크립트(script)라고 부릅니다.<br>
+			퍼블리셔의 시각으로 본 자바스크립트의 역할이란,<br>
+			디자인을 html, css로 웹 화면에 구현한 후, 자바스크립트로 웹의 동작을 구현하는 것입니다.<br>
+			퍼블리셔로써 효율적인 자바스크립트의 학습과 실무를 위해 html, css를 선행학습하는 것이 필수입니다.
+		</p>
+
+		<h3 class="mt_ms">제이쿼리란?</h3>
+		<p class="mt_s">
+			웹사이트에 자바스크립트를 쉽게 활용할 수 있도록 도와주는 오픈소스 기반의 자바스크립트 라이브러리입니다.<br>
+			자바스크립트에 비해 DOM을 쉽게 찾고 조작할 수 있고, 쉬운 애니메이션 구현이 가능하며 거의 모든 웹 브라우저에 대응할
+			정도로 호환성이 매우 뛰어납니다.<br>
+			하지만 제이쿼리를 효율적으로 다루기 위해서 자바스크립트의 기초 지식은 필수입니다.
+		</p>
+	</section>
+
+	<!-- Gulp babel -->
+	<section class="ud_con">
+		<h2>Gulp babel</h2>
+		<h3 class="mt_s">Gulp 란?</h3>
+		<p class="mt_s">
+			웹서버 운영, 설치에 사용되는 빌드 툴입니다.<br>
+			자바스크립트에서 반복적이고 자주 사용되는 일은 자동화해주는 매우 유용한 툴로 빌드 시스템이라고 불립니다.
+			이를 사용하면 시간을 줄일 수 있고 생산성 향상에 큰 도움이 되므로 프로젝트 진행시 많이 사용됩니다.
+			<br>
+			less, scss 같은 css 전처리기를 보다 쉽게 세팅 및 컴파일 할 수 있고,
+			css, js를 압축하여 min 파일로 분기할 수 있습니다.<br>
+			또한 ECMA 인터네셔널의 ECMA-262 기술 규격에 정의된 표준화된 스크립트인 ESMAScript(ES6+)를 사용할 수 있습니다.
+			아직은 ESMAScript를 지원하지 않는 브라우저(MS 계열)가 있으므로 바벨(Babel)이라는 트랜스파일러를 gulp에 설치하여 컴파일 할 수 있습니다.
+			<br>
+			위에 언급한 것 외에
+			퍼블리셔의 시각으로 본 Gulp의 장점은 서버사이드 언어(jsp, php, asp 등)를 사용하지 않고 정적인 html 파일에 반복되는
+			요소를 include 하여 빌드가 가능하다는 것입니다.
+		</p>
+	</section>
+
+	{#<div class="wrap_box">
+		<div class="wrap">
+			<div class="wall wall-right"></div>
+			<div class="wall wall-left"></div>
+			<div class="wall wall-top"></div>
+			<div class="wall wall-bottom"></div>
+			<div class="wall wall-back"></div>
+		</div>
+		<div class="wrap">
+			<div class="wall wall-right"></div>
+			<div class="wall wall-left"></div>
+			<div class="wall wall-top"></div>
+			<div class="wall wall-bottom"></div>
+			<div class="wall wall-back"></div>
+		</div>
+	</div>#}
 {%- endblock %}

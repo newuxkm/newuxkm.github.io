@@ -163,6 +163,7 @@ $active_blue:lighten($sm_blue, 5%);
 				i {position:relative; z-index:1;}
 			}
 			a:hover:before,
+			a:focus:before,
 			.active a:before {height:13px; transition:all .15s;}
 		}
 
@@ -603,6 +604,7 @@ $active_blue:lighten($sm_blue, 5%);
 			&:before {left:$padding + 3px; top:$padding;}
 			> a {
 				padding-left:27px;
+				&:focus {color:$active_blue;}
 				> span {display:inline-block;}
 			}
 
@@ -633,7 +635,6 @@ $active_blue:lighten($sm_blue, 5%);
 			&:before, a {font-size:13px; color:rgba(#fff, .7); font-weight:300;}
 			a {
 				padding-left:32px;
-
 				.el {display:inline-block; vertical-align:top; color:#777;}
 				.html5 {
 					font-size:0;
@@ -643,6 +644,11 @@ $active_blue:lighten($sm_blue, 5%);
 						line-height:$line-height - 1px;
 						font-size:13px;
 					}
+				}
+
+				&:focus {
+					color:$active_blue;
+					.el {color:$active_blue;}
 				}
 			}
 
@@ -1012,8 +1018,8 @@ $active_blue:lighten($sm_blue, 5%);
 						transition:all .15s;
 						content:"";
 					}
-					&:hover {color:#fff;}
-					&:hover:after {height:10px;}
+					&:hover, &:focus {color:#fff;}
+					&:hover:after, &:focus:after {height:10px;}
 				}
 				&.active a {
 					color:#fff;

@@ -79,19 +79,22 @@
 		{%- endfilter %}
 	</main>
 	{#- // main content area ------------------------------------------------------------------------------------------ #}
-	{%- else %}
-	<div class="uk_container sub_content_area">
-		{%- if pageData.updatePage === true %}
-		<div class="sub_content inner {%- if pageNumber.depth4 === undefined %} depth3_last {%- endif %}">
-			<main id="content" class="content_area">
-				{% filter tabIndent(3) %}
-				{% block updateContent %}
-				{%- endblock %}
-				{%- endfilter %}
-			</main>
-		</div>
+	{%- endif %}
 
-		{%- else %}
+	{%- if pageData.updatePage === true %}
+	<main id="content" class="uk_container content_area updates_area">
+		<div class="inner">
+			{% filter tabIndent(2) %}
+			{% block updateContent %}
+			{%- endblock %}
+			{%- endfilter %}
+		</div>
+	</main>
+	{%- endif %}
+	{#- // update content area ---------------------------------------------------------------------------------------- #}
+
+	{%- if pageData.mainPage !== true and pageData.updatePage !== true %}
+	<div class="uk_container sub_content_area">
 		<nav class="top_link inner">
 			{%- if layout_pub %}
 			{{ gnb_comp.d2_gnb(
@@ -211,7 +214,6 @@
 			{%- endif %}
 		</div>
 		<!-- // sub main content (.sub_content) -->
-		{%- endif %}
 
 		<div class="content_bottom inner">
 			<button type="button" class="go_top_btn" title="맨위로"><i>맨위로</i></button>
