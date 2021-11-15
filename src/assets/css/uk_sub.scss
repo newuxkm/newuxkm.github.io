@@ -2466,6 +2466,83 @@ $iframe_border:8px;
 		h2 {color:$blue;}
 	}
 
+	@mixin brand_before_start() {
+		color:#fff;
+		text-shadow:-2px 0px 6px rgba(0,0,0,0);
+		transform:translate(0.12%, 0.4%) skew(0) scale(1,1);
+	}
+	@mixin brand_before_end() {
+		color:#e1e1e1;
+		text-shadow:-2px 0px 6px rgba(0,0,0,.3);
+		transform:translate(0.12%, -0.1%) skew(-18deg) scale(1, 0.8);
+	}
+	@mixin brand_after_start() {
+		text-shadow:-2px 10px 7px rgba(0,0,0,0);
+		transform:translate(0.1%, -0.1%) skew(0) scale(1,1);
+	}
+	@mixin brand_after_end() {
+		text-shadow:-2px 10px 7px rgba(0,0,0,.3);
+		transform:translate(0.1%, -0.5%) skew(18deg) scale(1, 1.1); //translate(0.6%, 0)
+	}
+	$ani_timing:cubic-bezier(0.34, 1.56, 0.64, 1);
+	$txt_box_show:.6s;
+	$ani_speed:.45s;
+
+	.update_txt {
+		display:inline-block; position:relative;
+		text-rendering:optimizeLegibility;
+		perspective:400px;
+		.update_front, .update_back {
+			display:inline-block;
+			line-height:110%; padding:0 10px;
+			@include font-tit; font-size:160px; font-weight:normal; letter-spacing:1px;
+			color:$blue; white-space:nowrap;
+			text-rendering:optimizeLegibility;
+			transform:skew(18deg, 320deg) rotate(18deg);
+			transition:transform 1.5s ease-in-out;
+		}
+		.update_front {
+			position:relative;
+			z-index:2;
+			backface-visibility:hidden;
+
+			$height:47%;
+			&:before, &:after {
+				overflow:hidden;
+				position:absolute; left:0; top:0;
+				width:100%; height:100%; padding:0 10px;
+				font-size:160px;
+				content:attr(data-text);
+			}
+			&:before {
+				z-index:2;
+				height:$height;
+				transform-origin:50% 100%;
+				@include brand_before_end;
+				transition:
+					opacity 1s ease-in-out,
+					transform $ani_speed $ani_timing,
+					color $ani_speed $ani_timing,
+					text-shadow $ani_speed linear;
+			}
+			&:after {
+				display:flex; align-items:flex-end;
+				top:auto; bottom:0; z-index:1;
+				height:calc(100% - #{$height});
+				color:#fff;
+				transform-origin:center top;
+
+				@include brand_after_end;
+				transition:
+					opacity 1s ease-in-out,
+					transform $ani_speed $ani_timing,
+					color $ani_speed linear,
+					text-shadow $ani_speed linear;
+			}
+		}
+		.update_back {position:absolute; left:0; top:0; z-index:-1;}
+	}
+
 	@media(max-width:$screen-sm-max){
 		$padding:30px;
 		.updates_area {padding:$padding 0 $padding*2;}
