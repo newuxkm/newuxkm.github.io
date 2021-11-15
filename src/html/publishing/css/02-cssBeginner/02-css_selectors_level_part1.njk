@@ -1,8 +1,8 @@
 {% set pageNumber = { depth1: 1, depth2: 2, depth3: 2, depth4: 2, part: 1 } %}
 {% set pageData = {
 	title: "CSS 선택자 level 1, 2 part-1",
-	description: "CSS(Cascading Style Sheets)에 대한 정보를 제공하는 섹션입니다.",
-	keyword: "style, css, Cascading Style Sheets",
+	description: "CSS(Cascading Style Sheets) 선택자 우선순위(specificity) 대한 정보를 제공하는 섹션입니다.",
+	keyword: "style, css, Cascading Style Sheets, 선택자, selector, 우선순위, id, class, tag name, 상속",
 	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
@@ -256,7 +256,7 @@
 					</li>
 				</ol>
 			</div>
-			<aside class="browser_support mt_l" data-tit="Universal Selectors">
+			<aside class="browser_support mt_l" data-tit="Universal Selectors" aria-label="브라우저 지원 현황">
 				<ul>
 					<li class="ie">9+</li>
 					<li class="edge">지원</li>
@@ -384,7 +384,7 @@
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</div>
-		<aside class="browser_support mt_m" data-tit="Grouping selectors">
+		<aside class="browser_support mt_m" data-tit="Grouping selectors" aria-label="브라우저 지원 현황">
 			<ul>
 				<li class="ie">지원</li>
 				<li class="edge">지원</li>
@@ -396,7 +396,7 @@
 		</aside>
 	</section>
 
-	<aside class="reference_box mt_xxl">
+	<aside class="reference_box mt_xxl" aria-label="CSS 선택자 level 1,2 참조">
 		<strong class="tit">CSS 선택자 level 1,2 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/TR/selectors/#selectors" target="_blank" class="fas" title="새창열림">W3C Selectors Level</a></li>

@@ -1,8 +1,8 @@
 {% set pageNumber = { depth1: 1, depth2: 2, depth3: 2, depth4: 8 } %}
 {% set pageData = {
 	title: "Table 속성",
-	description: "CSS(Cascading Style Sheets)에 대한 정보를 제공하는 섹션입니다.",
-	keyword: "style, css, Cascading Style Sheets",
+	description: "CSS(Cascading Style Sheets) table(데이터 테이블) 속성에 대한 정보를 제공하는 섹션입니다.",
+	keyword: "style, css, Cascading Style Sheets, table, 데이터 테이블, border, border-collapse, border-spacing, caption-side, empty-cells, table-layout",
 	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
@@ -20,7 +20,7 @@
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content -%}
-	<blockquote class="uk_note mt_xxl" role="note">
+	<blockquote class="uk_note mt_xxl" role="note" aria-label="table 속성 요약 설명">
 		<strong class="sound_only">요약 설명</strong>
 		<p>
 			테이블 데이터를 레이아웃하는 방법을 정의하는 CSS 모듈입니다.<br>
@@ -36,7 +36,7 @@
 	</blockquote>
 
 	<!-- border 속성 -->
-	<section class="txt_ex indent mt_xxl">
+	<section class="txt_ex indent mt_xxl" aria-label="border 속성 설명">
 		<h2 class="ml_mn"><i class="t_blue">border</i> 속성</h2>
 		<p class="mt_s">
 			<code>border</code> 속성으로 테이블의 테두리(border)를 설정할 수 있습니다.<br>
@@ -70,7 +70,7 @@
 	</section>
 
 	<!-- border-collapse 속성 -->
-	<section class="txt_ex indent mt_xxl">
+	<section class="txt_ex indent mt_xxl" aria-label="border-collapse 속성 설명">
 		<h2 class="ml_mn"><i class="t_blue">border-collapse</i> 속성</h2>
 		<p class="mt_s">
 			<code>border-collapse</code> 속성값을 <code>collapse</code>로 설정하면 해당 테이블의 테두리는 한 줄로 표현됩니다.<br>
@@ -102,7 +102,7 @@
 	</section>
 
 	<!-- border-spacing 속성 -->
-	<section class="txt_ex indent mt_xxl">
+	<section class="txt_ex indent mt_xxl" aria-label="border-spacing 속성 설명">
 		<h2 class="ml_mn"><i class="t_blue">border-spacing</i> 속성</h2>
 		<p class="mt_s">
 			<code>border-spacing</code> 속성은 테이블 요소(th, td)간의 여백을 설정해 줍니다.<br>
@@ -126,7 +126,7 @@
 	</section>
 
 	<!-- caption-side 속성 -->
-	<section class="txt_ex indent mt_xxl">
+	<section class="txt_ex indent mt_xxl" aria-label="caption-side 속성 설명">
 		<h2 class="ml_mn"><i class="t_blue">caption-side</i> 속성</h2>
 		<p class="mt_s">
 			테이블의 캡션(caption)을 설정합니다.<br>
@@ -155,7 +155,7 @@
 	</section>
 
 	<!-- vertical-align 속성 -->
-	<section class="txt_ex indent mt_xxl">
+	<section class="txt_ex indent mt_xxl" aria-label="vertical-align 속성 설명">
 		<h2 class="ml_mn"><i class="t_blue">vertical-align</i> 속성</h2>
 		<p class="mt_s">
 			HTML 요소 내의 수직 방향 정렬을 설정합니다.<br>
@@ -172,7 +172,7 @@
 	</section>
 
 	<!-- empty-cells 속성 -->
-	<section class="txt_ex indent mt_xxl">
+	<section class="txt_ex indent mt_xxl" aria-label="empty-cells 속성 설명">
 		<h2 class="ml_mn"><i class="t_blue">empty-cells</i> 속성</h2>
 		<p class="mt_s">
 			테이블 내의 빈 셀(cell)들의 테두리 및 배경색을 표현할지 안 할지를 설정합니다.<br>
@@ -196,7 +196,7 @@
 	</section>
 
 	<!-- table-layout 속성 -->
-	<section class="txt_ex indent mt_xxl">
+	<section class="txt_ex indent mt_xxl" aria-label="table-layout 속성 설명">
 		<h2 class="ml_mn"><i class="t_blue">table-layout</i> 속성</h2>
 		<p class="mt_s">
 			테이블에 사용되는 너비를 설정합니다.
@@ -216,14 +216,14 @@
 		</div>
 	</section>
 
-	<section class="view_editor edit_code mt_xxl" data-target="css/step01/2.8.table/2.8.table.html">
+	<section class="view_editor edit_code mt_xxl" data-target="css/step01/2.8.table/2.8.table.html" aria-label="Table 속성 예제">
 		<h2 class="ve_tit">Table 속성 예제</h2>
 		<div class="uk_editor indent min_height_550" data-result="true" data-mode="htmlmixed" data-theme="moxer" data-browser="default">
 			<div class="code_wrap"><textarea></textarea></div>
 		</div>
 	</section>
 
-	<aside class="browser_support mt_xxl" data-tit="Table-style">
+	<aside class="browser_support mt_xxl" data-tit="Table-style" aria-label="table 속성 브라우저 지원 현황">
 		<ul>
 			<li class="ie">5+</li>
 			<li class="edge">12.0</li>
@@ -234,7 +234,7 @@
 		</ul>
 	</aside>
 
-	<aside class="reference_box mt_xxl">
+	<aside class="reference_box mt_xxl" aria-label="Table 속성 참조">
 		<strong class="tit">Table 속성 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html" target="_blank" class="fas" title="새창열림">W3C Table</a></li>

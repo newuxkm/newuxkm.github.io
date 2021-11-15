@@ -1,8 +1,8 @@
 {% set pageNumber = { depth1: 1, depth2: 2, depth3: 2, depth4: 2, part: 2 } %}
 {% set pageData = {
 	title: "CSS 선택자 level 1, 2 part-2",
-	description: "CSS(Cascading Style Sheets)에 대한 정보를 제공하는 섹션입니다.",
-	keyword: "style, css, Cascading Style Sheets",
+	description: "CSS(Cascading Style Sheets) 조합, 속성, 의사(가상) 선택자에 대한 정보를 제공하는 섹션입니다.",
+	keyword: "style, css, Cascading Style Sheets, 선택자, selector, 조합 선택자, 속성 선택자, 의사(가상) 클래스",
 	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
@@ -64,7 +64,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_m" data-tit="Descendant combinator">
+			<aside class="browser_support mt_m" data-tit="Descendant combinator" aria-label="브라우저 지원 현황">
 				<ul>
 					<li class="ie">지원</li>
 					<li class="edge">지원</li>
@@ -98,7 +98,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_m" data-tit="Child combinator">
+			<aside class="browser_support mt_m" data-tit="Child combinator" aria-label="브라우저 지원 현황">
 				<ul>
 					<li class="ie">7+</li>
 					<li class="edge">12.0</li>
@@ -151,7 +151,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_m" data-tit="Adjacent sibling combinator">
+			<aside class="browser_support mt_m" data-tit="Adjacent sibling combinator" aria-label="브라우저 지원 현황">
 				<ul>
 					<li class="ie">7+</li>
 					<li class="edge">12.0</li>
@@ -224,7 +224,7 @@
 				<div class="code_wrap"><textarea></textarea></div>
 			</div>
 		</article>
-		<aside class="browser_support mt_m" data-tit="Adjacent sibling combinator">
+		<aside class="browser_support mt_m" data-tit="Adjacent sibling combinator" aria-label="브라우저 지원 현황">
 			<ul>
 				<li class="ie">7+</li>
 				<li class="edge">12.0</li>
@@ -376,7 +376,7 @@
 					<div class="code_wrap"><textarea></textarea></div>
 				</div>
 			</div>
-			<aside class="browser_support mt_m" data-tit="language pseudo">
+			<aside class="browser_support mt_m" data-tit="language pseudo" aria-label="브라우저 지원 현황">
 				<ul>
 					<li class="ie">8+</li>
 					<li class="edge">12.0</li>
@@ -389,7 +389,7 @@
 		</article>
 	</section>
 
-	<aside class="reference_box mt_xxl">
+	<aside class="reference_box mt_xxl" aria-label="CSS 선택자 level 1,2 참조">
 		<strong class="tit">CSS 선택자 level 1,2 참조</strong>
 		<ul class="link_lst">
 			<li class="reference"><a href="https://www.w3.org/TR/selectors/#selectors" target="_blank" class="fas" title="새창열림">W3C Selectors Level</a></li>
