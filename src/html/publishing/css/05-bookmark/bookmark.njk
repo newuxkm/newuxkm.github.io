@@ -1,8 +1,8 @@
 {% set pageNumber = { depth1: 1, depth2: 2, depth3: 5 } %}
 {% set pageData = {
 	title: "참조 사이트",
-	description: "CSS(Cascading Style Sheets)에 도움이 되는 사이트 정보를 모아놓은 섹션입니다.",
-	keyword: "style, css, Cascading Style Sheets, 참조 사이트, 북마크, bookmark, css 도움되는 사이트",
+	description: "W3C CSS 기술 문서에 대한 진행별 상태 및 도움이 되는 사이트 정보를 모아놓은 섹션입니다.",
+	keyword: "W3C, style, css, Cascading Style Sheets, 기술 문서, 진행별 상태, 참조 사이트, 북마크, bookmark, css 도움되는 사이트",
 	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
@@ -20,7 +20,7 @@
 
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block content -%}
-	<blockquote class="uk_note mt_xxl" role="note">
+	<blockquote class="uk_note mt_xxl" role="note" aria-label="CSS 기술 문서에 대한 진행별 상태 요약 설명">
 		<strong class="sound_only">요약 설명</strong>
 		<p>
 			CSS 기술 문서에 대한 진행별 상태<br>
@@ -33,12 +33,12 @@
 		</p>
 	</blockquote>
 
-	<figure class="img_figure mt_l">
+	<figure class="img_figure mt_l" aria-label="W3C css 기술 문서에 대한 진행별 상태 이미지 정보 W3C Recommendations and Notes">
 		<figcaption class="mt_0 reference"><a href="https://w3c.github.io/w3process/#recs-and-notes" target="_blank" title="새창열림">[W3C Recommendations and Notes]</a></figcaption>
 		<img src="/_assets/images/css/bookmark/uxkm_w3c-process-recs-and-notes.svg" alt="W3C Recommendations and Notes" class="mt_m">
 	</figure>
 
-	<section class="txt_ex">
+	<section class="txt_ex" aria-label="css 참조 사이트 정보">
 		<h2 class="sound_only">참조 사이트 링크</h2>
 
 		<!-- W3C ALL STANDARDS AND DRAFTS -->
