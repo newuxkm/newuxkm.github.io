@@ -2651,11 +2651,14 @@ $iframe_border:8px;
 		text-align:center;
 		background:#fff;
 		&:before {
+			$size:16px;
 			position:absolute; left:50%; top:0; transform:translate(-50%, -5px);
 			//background:$line_color; border-radius:100%;
-			border-left:8px solid transparent;
-			border-right:8px solid transparent;
-			border-top:14px solid $line_color;
+			border-left:$size solid transparent;
+			border-right:$size solid transparent;
+			border-top:$size*2 solid $line_color;
+			margin-left:-$size; margin-top:-$size;
+			@include ud_txt_transform;
 			content:"";
 		}
 
