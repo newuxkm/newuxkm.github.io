@@ -2756,6 +2756,13 @@ $iframe_border:8px;
 		}
 		.info_txt {
 			margin-top:30px;
+			&:before {
+				$size:10px;
+				border-left:$size solid transparent;
+				border-right:$size solid transparent;
+				border-top:$size*2 solid $line_color;
+				margin-left:-$size; margin-top:-$size;
+			}
 			span {padding:20px 0 15px; font-size:22px;}
 			i {
 				line-height:110%; padding:10px 15px;
