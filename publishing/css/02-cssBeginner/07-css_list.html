@@ -21,13 +21,14 @@
 
 	<!-- opengraph -->
 	<meta name="title" content="UXKM">
-	<meta name="description" content="List 속성 입니다.">
+	<meta name="description" content="CSS(Cascading Style Sheets) 리스트(list)에 대한 정보를 제공하는 섹션입니다.">
 	<meta name="author" content="UXKM">
+	<meta name=”keywords” content="style, css, Cascading Style Sheets, 목록, list, 순서가 있는 목록, 순서가 없는 목록, list-style-type, list-style-image, list-style-position" />
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="UXKM">
 	<meta property="og:site_name" content="UXKM">
 	<meta property="og:url" content="https://uxkm.io">
-	<meta property="og:description" content="List 속성 입니다.">
+	<meta property="og:description" content="CSS(Cascading Style Sheets) 리스트(list)에 대한 정보를 제공하는 섹션입니다.">
 	<meta property="og:image" content="/_assets/images/og_image.png">
 	<meta property="og:image:width" content="1000">
 	<meta property="og:image:height" content="750">
@@ -63,7 +64,7 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="/_assets/js/uk_dom_before.min.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
@@ -893,10 +894,10 @@
 					<h1 id="content_title" data-number="2.7. " data-title="2.7. List 속성">
 						List 속성 <em class="sound_only">- by. UXKM</em>
 					</h1>
-					<time class="last_update" datetime="2021-11-11">2021-11-11</time>
+					<time class="last_update" datetime="2021-11-16">2021-11-16</time>
 				</header>
 
-				<blockquote class="uk_note mt_xxl" role="note">
+				<blockquote class="uk_note mt_xxl" role="note" aria-label="list 속성 요약 설명">
 					<strong class="sound_only">요약 설명</strong>
 					<p>
 						CSS를 이용하면 리스트에 다양한 효과를 적용할 수 있습니다.<br>
@@ -910,7 +911,7 @@
 				</blockquote>
 
 				<!-- list-style-type -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="list-style-type 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">list-style-type</i></h2>
 					<p class="mt_ms">
 						리스트 요소의 앞에 위치하는 숫자나 기호를 마커(marker)라고 합니다.<br>
@@ -986,7 +987,7 @@
 				</section>
 
 				<!-- list-style-image -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="list-style-image 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">list-style-image</i></h2>
 					<p class="mt_ms">
 						<code>list-style-image</code> 속성을 이용하면 마커(marker)로 자신만의 이미지를 사용할 수 있습니다.
@@ -1006,7 +1007,7 @@
 				</section>
 
 				<!-- list-style-position -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="list-style-position 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">list-style-position</i></h2>
 					<p class="mt_ms">
 						<code>list-style-position</code> 속성을 이용하면 리스트 요소의 위치를 설정할 수 있습니다.<br>
@@ -1027,7 +1028,7 @@
 				</section>
 
 				<!-- list-style -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="list-style 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">list-style Shorthand</i></h2>
 					<p class="mt_ms">
 						모든 list-style 속성을 이용한 스타일을 한 줄에 축약형 방식으로 설정할 수 있음.
@@ -1046,7 +1047,7 @@
 					</div>
 				</section>
 
-				<aside class="browser_support mt_xxl" data-tit="list-style">
+				<aside class="browser_support mt_xxl" data-tit="list-style" aria-label="List 속성 브라우저 지원 현황">
 					<ul>
 						<li class="ie">4+</li>
 						<li class="edge">12.0</li>
@@ -1057,7 +1058,7 @@
 					</ul>
 				</aside>
 
-				<aside class="reference_box mt_xxl">
+				<aside class="reference_box mt_xxl" aria-label="List 속성 참조">
 					<strong class="tit">List 속성 참조</strong>
 					<ul class="link_lst">
 						<li class="reference"><a href="https://www.w3.org/TR/CSS21/generate.html#propdef-list" target="_blank" class="fas" title="새창열림">W3C List</a></li>

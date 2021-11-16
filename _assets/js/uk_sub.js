@@ -8,7 +8,6 @@ const _side_toggle = _side_menu_area.find('.side_menu_toggle');
 const _side_menu = $('.side_menu');
 const _side_menu_d3 = _side_menu.find('.depth3 > li');
 const kmtemp_resize_iframe = 'kmtemp_resize_iframe';
-const _content_title = $('#content_title');
 const tab_menu = 'tab_menu';
 
 const _content_bottom = $('.content_bottom');
@@ -361,3 +360,18 @@ $(window).on('resize', function(){
 _top_link.ukDetect({
   browser_check: true
 });
+const _update_header = $('.update_header');
+if( _update_header.is(':visible') ){
+  _update_header.ukDetect({
+    all_check: false,
+    device_check: true,
+    browser_check: true,
+  });
+}
+
+
+
+
+
+
+

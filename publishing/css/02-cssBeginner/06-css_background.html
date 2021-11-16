@@ -21,13 +21,14 @@
 
 	<!-- opengraph -->
 	<meta name="title" content="UXKM">
-	<meta name="description" content="Background 속성 입니다.">
+	<meta name="description" content="CSS(Cascading Style Sheets) 배경(background) 속성에 대한 정보를 제공하는 섹션입니다.">
 	<meta name="author" content="UXKM">
+	<meta name=”keywords” content="style, css, Cascading Style Sheets, 배경, background, background-color, background-image, background-repeat, background-attachment, background-position, background-origin, background-clip, background-size" />
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="UXKM">
 	<meta property="og:site_name" content="UXKM">
 	<meta property="og:url" content="https://uxkm.io">
-	<meta property="og:description" content="Background 속성 입니다.">
+	<meta property="og:description" content="CSS(Cascading Style Sheets) 배경(background) 속성에 대한 정보를 제공하는 섹션입니다.">
 	<meta property="og:image" content="/_assets/images/og_image.png">
 	<meta property="og:image:width" content="1000">
 	<meta property="og:image:height" content="750">
@@ -63,7 +64,7 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="/_assets/js/uk_dom_before.min.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
@@ -893,10 +894,10 @@
 					<h1 id="content_title" data-number="2.6. " data-title="2.6. Background 속성">
 						Background 속성 <em class="sound_only">- by. UXKM</em>
 					</h1>
-					<time class="last_update" datetime="2021-11-11">2021-11-11</time>
+					<time class="last_update" datetime="2021-11-16">2021-11-16</time>
 				</header>
 
-				<blockquote class="uk_note mt_xxl" role="note">
+				<blockquote class="uk_note mt_xxl" role="note" aria-label="CSS의 background 속성 요약 설명">
 					<strong class="sound_only">요약 설명</strong>
 					<p>
 						CSS의 background 속성은 각 요소의 배경에 다양한 효과를 줄 수 있게 해줍니다.<br>
@@ -911,7 +912,7 @@
 				</blockquote>
 
 				<!-- background-color 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-color 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background</i> 각 속성의 기본 값</h2>
 					<p class="mt_ms">
 						background의 기본값은 다음과 같습니다.<br>
@@ -933,7 +934,7 @@
 				</section>
 
 				<!-- background-color 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-color 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background-color</i> 속성</h2>
 					<p class="mt_ms">
 						배경의 색을 정합니다. 그 색으로 border와 padding을 포함한 영역을 칠합니다. margin 영역은 칠하지 않습니다.
@@ -959,7 +960,7 @@
 				</section>
 
 				<!-- background-image 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-image 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background-image</i> 속성</h2>
 					<p class="mt_ms">
 						이미지를 배경으로 사용하게 하는 속성입니다.
@@ -985,7 +986,7 @@
 				</section>
 
 				<!-- background-repeat 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-repeat 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background-repeat</i> 속성</h2>
 					<p class="mt_ms">
 						배경 이미지의 반복을 지정합니다. 수직, 수평 또는 수직과 수평 모두의 반복을 지정할 수 있습니다.<br>
@@ -1021,7 +1022,7 @@
 				</section>
 
 				<!-- background-position 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-position 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background-position</i> 속성</h2>
 					<p class="mt_ms">
 						배경 이미지의 위치를 정하는 속성입니다.<br>
@@ -1069,7 +1070,7 @@
 				</section>
 
 				<!-- background-attachment 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-attachment 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background-attachment</i> 속성</h2>
 					<p class="mt_ms">
 						배경 이미지의 스크롤 여부를 정합니다.
@@ -1096,7 +1097,7 @@
 				</section>
 
 				<!-- background-size 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-size 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background-size</i> 속성</h2>
 					<p class="mt_ms">
 						배경 이미지의 가로 크기와 세로 크기를 정할 수 있습니다.<br>
@@ -1150,7 +1151,7 @@
 				</section>
 
 				<!-- background-origin 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-origin 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background-origin</i> 속성</h2>
 					<p class="mt_ms">
 						HTML 요소는 박스로 이루어져 있고, 바깥 여백 영역(Margin Area), 테두리 영역(Border Area), 안쪽 여백 영역(Padding Area), 내용 영역(Content Area)으로 구분합니다.<br>
@@ -1189,7 +1190,7 @@
 				</section>
 
 				<!-- background-clip 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background-clip 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background-clip</i> 속성</h2>
 					<p class="mt_ms">
 						배경 이미지나 배경색을 그 박스 중 어디에 넣을 지정하는 속성이 background-clip입니다.
@@ -1226,7 +1227,7 @@
 				</section>
 
 				<!-- background Shorthand 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="background Shorthand(축약형) 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">background Shorthand</i> 속성</h2>
 					<p class="mt_ms">
 						색상, 이미지, 크기, 반복등 한 번에 모든 배경 스타일 속성을 축약형 방식으로 설정합니다.<br>
@@ -1246,7 +1247,7 @@
 					</div>
 				</section>
 
-				<aside class="browser_support mt_xxl" data-tit="background">
+				<aside class="browser_support mt_xxl" data-tit="background" aria-label="브라우저 지원 현황">
 					<ul>
 						<li class="ie">4+</li>
 						<li class="edge">12.0</li>
@@ -1257,7 +1258,7 @@
 					</ul>
 				</aside>
 
-				<aside class="reference_box mt_xxl">
+				<aside class="reference_box mt_xxl" aria-label="Background 속성 참조">
 					<strng class="tit">Background 속성 참조</strng>
 					<ul class="link_lst">
 						<li class="reference"><a href="https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#background" target="_blank" class="fas" title="새창열림">W3C Background</a></li>

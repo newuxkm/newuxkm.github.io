@@ -21,13 +21,14 @@
 
 	<!-- opengraph -->
 	<meta name="title" content="UXKM">
-	<meta name="description" content="Text 속성 입니다.">
+	<meta name="description" content="CSS(Cascading Style Sheets) text 속성에 대한 정보를 제공하는 섹션입니다.">
 	<meta name="author" content="UXKM">
+	<meta name=”keywords” content="style, css, Cascading Style Sheets, 텍스트, text, text-align, vertical-align, letter-spacing, word-spacing, word-break, word-wrap, white-space, text-indent, text-decoration, text-transform, text-overflow, direction, text-shadow" />
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="UXKM">
 	<meta property="og:site_name" content="UXKM">
 	<meta property="og:url" content="https://uxkm.io">
-	<meta property="og:description" content="Text 속성 입니다.">
+	<meta property="og:description" content="CSS(Cascading Style Sheets) text 속성에 대한 정보를 제공하는 섹션입니다.">
 	<meta property="og:image" content="/_assets/images/og_image.png">
 	<meta property="og:image:width" content="1000">
 	<meta property="og:image:height" content="750">
@@ -63,7 +64,7 @@
 
 	<!-- js -->
 	<script type="text/javascript" src="/_assets/lib/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="/_assets/js/uk_dom_before.min.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
+	<script type="text/javascript" src="/_assets/js/uk_dom_before.js"></script> <!-- dom 이 그려질때 바로 실행되야 하는 스크립트 -->
 	<script type="text/javascript" src="/_assets/lib/ukDetect-1.0.0.js"></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="/_assets/lib/html5.js"></script>
@@ -893,7 +894,7 @@
 					<h1 id="content_title" data-number="2.5. " data-title="2.5. Text 속성">
 						Text 속성 <em class="sound_only">- by. UXKM</em>
 					</h1>
-					<time class="last_update" datetime="2021-11-11">2021-11-11</time>
+					<time class="last_update" datetime="2021-11-16">2021-11-16</time>
 				</header>
 
 				<blockquote class="uk_note mt_xxl" role="note">
@@ -904,7 +905,7 @@
 				</blockquote>
 
 				<!-- text-align 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="text-align 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">text-align</i> 속성</h2>
 					<p class="mt_ms">
 						text-align 속성은 텍스트의 수평 방향 정렬을 설정합니다.<br>
@@ -941,9 +942,9 @@
 						</ul>
 					</aside>
 				</section>
-
+				
 				<!-- vertical-align 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="vertical-align 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">vertical-align</i> 속성</h2>
 					<p class="mt_ms">
 						HTML 요소 내의 인라인(inline)요소와 인라인 블럭(inline-block)요소의 수직 방향 정렬을 설정합니다.<br>
@@ -1009,7 +1010,7 @@
 				</section>
 
 				<!-- letter-spacing 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="letter-spacing 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">letter-spacing</i> 속성</h2>
 					<p class="mt_ms">
 						letter-spacing 속성은 텍스트 내에서 글자 사이의 간격(자간)을 설정합니다.
@@ -1045,7 +1046,7 @@
 				</section>
 
 				<!-- word-spacing 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="word-spacing 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">word-spacing</i> 속성</h2>
 					<p class="mt_ms">
 						word-spacing 속성은 텍스트 내에서 단어 사이의 간격을 설정합니다.<br>
@@ -1083,7 +1084,7 @@
 				</section>
 
 				<!-- word-break 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="word-break 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">word-break</i> 속성</h2>
 					<p class="mt_ms">
 						단어의 분리(줄바꿈)를 어떻게 할 것인지 결정하는 속성입니다.<br>
@@ -1140,7 +1141,7 @@
 				</section>
 
 				<!-- word-wrap 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="word-wrap 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">word-wrap</i> 속성</h2>
 					<p class="mt_ms">
 						박스의 가로 영역을 넘친 단어 내에서 임의의 분리 여부를 결정<br>
@@ -1184,7 +1185,7 @@
 				</section>
 
 				<!-- white-space 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="white-space 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">white-space</i> 속성</h2>
 					<p class="mt_ms">
 						HTML 요소 내의 여백을 설정함.
@@ -1223,7 +1224,7 @@
 				</section>
 
 				<!-- text-indent 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="text-indent 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">text-indent</i> 속성</h2>
 					<p class="mt_ms">
 						text-indent 속성은 단락의 첫 줄에 들여쓰기할지 안 할지를 설정합니다.<br>
@@ -1261,7 +1262,7 @@
 				</section>
 
 				<!-- text-decoration 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="text-decoration 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">text-decoration</i> 속성</h2>
 					<p class="mt_ms reference">
 						text-decoration 속성은 텍스트에 여러 가지 효과를 설정하거나 제거하는데 사용합니다.<br>
@@ -1299,9 +1300,9 @@
 						</ul>
 					</aside>
 				</section>
-
+				
 				<!-- text-transform 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="text-transform 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">text-transform</i> 속성</h2>
 					<p class="mt_ms reference">
 						text-transform 속성은 텍스트에 포함된 영문자에 대한 대소문자를 설정합니다.<br>
@@ -1342,7 +1343,7 @@
 				</section>
 
 				<!-- text-overflow 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="text-overflow 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">text-overflow</i> 속성</h2>
 					<p class="mt_ms reference">
 						부모 영역을 벗어난 wrapping(자동줄바꿈)이 되지 않은 텍스트의 처리 방법을 정의합니다. 이 프로퍼티를 사용하기 위해서는 아래의 조건이 필요합니다.<br>
@@ -1381,7 +1382,7 @@
 				</section>
 
 				<!-- direction 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="direction 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">direction</i> 속성</h2>
 					<p class="mt_ms reference">
 						direction 속성은 텍스트가 써지는 방향을 설정합니다.<br>
@@ -1422,7 +1423,7 @@
 				</section>
 
 				<!-- text-shadow 속성 -->
-				<section class="txt_ex indent mt_xxl">
+				<section class="txt_ex indent mt_xxl" aria-label="text-shadow 속성 설명">
 					<h2 class="ml_mn"><i class="t_blue">text-shadow</i> 속성</h2>
 					<p class="mt_ms reference">
 						text-shadow 속성은 텍스트에 그림자 효과를 설정합니다.<br>
@@ -1463,7 +1464,7 @@
 					</aside>
 				</section>
 
-				<aside class="reference_box mt_xxl">
+				<aside class="reference_box mt_xxl" aria-label="Text 속성 참조">
 					<strong class="tit">Text 속성 참조</strong>
 					<ul class="link_lst">
 						<li class="reference"><a href="https://www.w3.org/TR/CSS2/text.html" target="_blank" class="fas" title="새창열림">W3C Text</a></li>
