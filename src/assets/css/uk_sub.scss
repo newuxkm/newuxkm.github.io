@@ -2613,7 +2613,7 @@ $iframe_border:8px;
 					position:absolute; left:-($size/2); top:-($size/2);
 					width:$size; height:$size;
 					transform-style:preserve-3d;
-					animation:wrap_move 12s linear infinite;
+					animation:wrap_move 24s linear infinite;
 					animation-fill-mode:forwards;
 					.wall {
 						position:absolute; width:100%; height:100%; opacity:0;
