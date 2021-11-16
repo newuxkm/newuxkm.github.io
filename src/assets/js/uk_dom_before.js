@@ -29,9 +29,9 @@ setTimeout(function(){
   }
 
   // uk_header progress ------------------------------------------------------------------------------------------------
-  let docHeight = $(document).height() - window.innerHeight;
-  let hd_proW = (sct/docHeight)*100;
-  $('.hd_progress').css('width', hd_proW+'%');
+  // let docHeight = $(document).height() - window.innerHeight;
+  // let hd_proW = (sct/docHeight)*100;
+  // $('.hd_progress').css('width', hd_proW+'%');
 
   // uk_gist_code_box 적용 전 세로값 유지 ------------------------------------------------------------------------------
   uk_gist_code_layout();
@@ -43,6 +43,17 @@ setTimeout(function(){
   if( $('.tab_menu li').length > 5 ){
     $('.tab_menu').addClass('two_line_tab');
   }
+
+  // update 페이지
+  if( $('.update_header').is(':visible') ){
+    $('.update_header').ukDetect({
+      all_check: false,
+      device_check: true,
+      browser_check: true,
+    });
+  }
+
+
 
   // top_link 상단 고정(scroll top 값이 top_link 의 offset().top 보다 클 경우) -----------------------------------------
   // let top_link_offset = $('.top_link').find('ul').offset().top - 1;

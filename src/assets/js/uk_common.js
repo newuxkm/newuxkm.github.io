@@ -38,6 +38,7 @@ const _ukFooter = $('.uk_footer');
 const _ukContainer = $('.uk_container');
 const _ukContent = $('#content');
 const _ukSubContent = $('.sub_content');
+const _content_title = $('#content_title');
 const _topLink = $('.top_link');
 
 const ukEditor = 'uk_editor';
@@ -217,22 +218,24 @@ function focus_controll(){
   });
 
   // main h1 focus ----------------------------
-  const _content_h1 = _ukContent.find('h1');
+  //const _content_h1 = _ukContent.find('h1');
   $(document).on({
     keydown:function(){
       if( is_sub ){
-        _content_h1.attr('tabindex','0');
+        _content_title.attr('tabindex','0');
       }
     }
   });
-  $('#content_title').on('focus', function(){
+  _content_title.on('focus', function(){
     setTimeout(function(){
-      $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height() );
+      if( _ukSubContent.is(':visible') ){
+        $(window).scrollTop( _ukSubContent.offset().top - _ukHeader.height() );
+      }
     }, 10);
   });
-  _content_h1.on('mousedown', function(){
-    if( is_sub && _content_h1.attr('tabindex') === '0' ){
-      _content_h1.removeAttr('tabindex');
+  _content_title.on('mousedown', function(){
+    if( is_sub && _content_title.attr('tabindex') === '0' ){
+      _content_title.removeAttr('tabindex');
     }
   });
 

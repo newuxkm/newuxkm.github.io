@@ -1,14 +1,13 @@
 {% set pageNumber = { depth1: 3, depth2: 1 } %}
 {% set pageData = {
 	updatePage: true,
-	title: "업데이트 예정 컨텐츠",
+	title: "UXKM 업데이트 예정 컨텐츠",
 	description: "UXKM의 업데이트 예정인 커리큘럼을 소개합니다.",
-	keyword: "",
+	keyword: "UXKM Updates, 웹 접근성(ACCESSIBILITY), ACCESSIBILITY, 국가직무능력표준(NCS), NCS, Javascript, Jquery, Gulp babel",
 	last_update: creation_date | date("YYYY-MM-DD")
 } %}
 {% set pageLayout = {
-	mainClass: "uxkm_updates",
-	contentList: false
+	mainClass: "uxkm_updates"
 } %}
 {% extends path.layout %}
 <!-- data setting end ------------------------------------------------------------------------------------------------->
@@ -17,15 +16,41 @@
 <!-- content start ---------------------------------------------------------------------------------------------------->
 {% block updateContent %}
 	<header class="update_header">
-		<h1 id="content_title">UXKM 업데이트 예정 콘텐츠 <em class="sound_only">- by. UXKM</em></h1>
+		<h1 class="sound_only">UXKM 업데이트 예정 콘텐츠 <em>- by. UXKM</em></h1>
 
 		<p class="update_txt">
-			<strong class="update_front" data-text="UPDATE">UPDATE</strong>
-			<span class="update_back">UPDATE</span>
+			<span class="txt_wrap">
+				<strong id="content_title" class="update_front" data-text="UPDATE">UPDATE</strong>
+			</span>
 		</p>
+
+		<div class="wrap_box">
+			<div class="wrap_inner">
+				<div class="wrap">
+					<div class="wall wall-right"></div>
+					<div class="wall wall-left"></div>
+					<div class="wall wall-top"></div>
+					<div class="wall wall-bottom"></div>
+					<div class="wall wall-back"></div>
+				</div>
+				<div class="wrap">
+					<div class="wall wall-right"></div>
+					<div class="wall wall-left"></div>
+					<div class="wall wall-top"></div>
+					<div class="wall wall-bottom"></div>
+					<div class="wall wall-back"></div>
+				</div>
+			</div>
+		</div>
 	</header>
 
-	<div class="inner">
+	<div class="info_txt inner">
+		<span><strong>UXKM</strong>에서 업데이트를 준비하고 있는 커리큘럼을 소개합니다.</span><br>
+		{#-<i>정보를 찾아 UXKM을 방문한 목적에 맞게 친절하고 꼼꼼하게 제작될 예정입니다.</i>#}
+		<i>영혼을 갈아 친절하고 꼼꼼하게 제작될 예정입니다.</i>
+	</div>
+
+	<div class="content_wrap">
 		<!-- 웹 접근성(ACCESSIBILITY) -->
 		<section class="ud_con">
 			<h2>웹 접근성(Web accessibility)</h2>
@@ -91,7 +116,11 @@
 		</section>
 	</div>
 
-	{#<div class="wrap_box">
+	<ul>
+	</ul>
+
+	{#
+	<div class="wrap_inner">
 		<div class="wrap">
 			<div class="wall wall-right"></div>
 			<div class="wall wall-left"></div>
@@ -106,5 +135,7 @@
 			<div class="wall wall-bottom"></div>
 			<div class="wall wall-back"></div>
 		</div>
-	</div>#}
+	</div>
+	#}
+
 {%- endblock %}
