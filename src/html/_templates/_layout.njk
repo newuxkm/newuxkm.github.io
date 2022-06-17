@@ -19,6 +19,7 @@
 {#- title setting ----------------------------------------------------------------------------------------------------#}
 {%- set title_d1 = d1_path.d1_name if pageNumber.depth1 -%}
 {%- set title_d2 = d2_path.d2_name if pageNumber.depth2 -%}
+{%- set title_d2_beta = d2_path.beta if pageNumber.depth2 -%}
 {%- set title_d3 = d3_path.d3_name if pageNumber.depth3 -%}
 {%- set title_d4 -%}
 	{{- d4_path.d4_name if pageNumber.depth4 }}
@@ -198,7 +199,7 @@
 				{%- endif -%}
 			{%- endset -%}
 			<aside class="side_menu_area">
-				<strong class="tit"><b>{{ title_d2 }}</b> <i>Table of Contents</i></strong>
+				<strong class="tit {%- if title_d2_beta %} beta {%- endif %}"><b>{{ title_d2 }}</b> <i>Table of Contents</i></strong>
 				<nav class="side_menu {%- if layout_pub %} pub_side_nemu {%- elif layout_build %} pub_side_nemu {%- endif %}">
 					{{ gnb_comp.d3_below(
 						gnb_data,

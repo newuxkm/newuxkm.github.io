@@ -310,13 +310,24 @@ body {@include font-kr;}
 				font-weight:600; letter-spacing:-0.3px; white-space:pre;
 				transition:color .15s;
 			}
-			i {display:block; position:relative; z-index:1;}
+			i {display:flex; align-items:center; position:relative; z-index:1;}
 			&:hover a, &.active a, a:focus {color:darken($blue, 5%);}
 			&.active a {font-weight:600;}
 			&.active i:before {
 				position:absolute; left:-3px; right:-3px; bottom:5px; z-index:-1;
 				height:12px; background:$yellow; border-radius:3px;
 				content:"";
+			}
+			&.state a i:after {
+				display:inline-block;
+				line-height:16px; margin-left:4px; padding:0 3px;
+				font-size:13px; color:#fff;
+				background-color:#999;
+				border-radius:2px;
+				content:attr(data-title);
+			}
+			&.state.active a i:after {
+				background-color:lighten($blue, 5%);
 			}
 		}
 	}
@@ -440,6 +451,10 @@ body {@include font-kr;}
 				}
 				&:hover a {color:rgba($navy, .85)}
 				&.on i:before {bottom:5px; height:10px;}
+				&.state a i:after {
+					line-height:14px; margin-left:3px; padding:0 3px;
+					font-size:12px;
+				}
 			}
 		}
 	}
@@ -2387,6 +2402,7 @@ $css_ani_timing: cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 }
 $iframe_border:8px;
+
 
 
 // 박스 모델 속성 part-2 [box-sizing 테스트]

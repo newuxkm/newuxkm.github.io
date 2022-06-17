@@ -9,6 +9,8 @@ import fs from "fs";
 import del from "del";
 import ws from "gulp-webserver";
 import image from "gulp-image";
+//import sass from "gulp-sass";
+import sass from "node-sass";
 import sourcemaps from "gulp-sourcemaps";
 import minificss from "gulp-minify-css";
 import minify from "gulp-minify";
@@ -17,7 +19,7 @@ import postCss from "gulp-postcss";
 import dependents from "gulp-dependents";
 import rename from "gulp-rename";
 import dartSass from "dart-sass";
-//import Fiber from "fibers";
+import Fiber from "fibers";
 import bro from "gulp-bro";
 import babelify from "babelify";
 import ghPages from "gulp-gh-pages";
@@ -59,19 +61,13 @@ const DEST_PATH = {
 
 
 // 기타 설정 -----------------------------------------------------------------------------------------------------------
+
 const onErrorHandler = (error) => console.log(error);  //plumber option (에러 발생 시 에러 로그 출력)
 const apfBrwsowsers = [
   //'ie > 0', 'chrome > 0', 'firefox > 0'  // 브라우저의 모든 버전 적용
   'last 2 versions'                    // 최신 브라우저 기준 하위 2개의 버전까지 적용
 ];
 var jsonnet = new Jsonnet();
-
-// win
-import sass from "gulp-sass";
-
-// mac
-// import gulpSass from "gulp-sass";
-// const sass = gulpSass(dartSass);
 
 
 
@@ -191,7 +187,7 @@ const js = () => {
 // library
 const lib = () => {
   return gulp.src( PATH.ASSETS.LIB + '/**/*' )
-  .pipe( gulp.dest( DEST_PATH.ASSETS.LIB ) );
+    .pipe( gulp.dest( DEST_PATH.ASSETS.LIB ) );
 }
 
 // code sample

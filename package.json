@@ -49,6 +49,7 @@
     "path": "^0.12.7"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001309",
     "dart-sass": "^1.25.0",
     "fibers": "^5.0.0",
     "uglifyify": "^5.0.2"

@@ -792,6 +792,7 @@
         {
           "d2_name": "ACCESSIBILITY",
           "d2_link": "/accessibility",
+          "state": "beta",
           "depth3": [
             {
               "d3_name": "웹 접근성이란?",
@@ -901,6 +902,7 @@
         {
           "d2_name": "Gulp & Gulp.babel",
           "d2_link": "/gulp",
+          "state": "Incomplete",
           "depth3": [
             {
               "d3_name": "걸프(Gulp)",
