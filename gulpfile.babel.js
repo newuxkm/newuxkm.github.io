@@ -215,6 +215,12 @@ const nojekyll = () => {
   .pipe( gulp.dest( dist ) );
 }
 
+// README.md
+const readme = () => {
+  return gulp.src( './README.md' )
+  .pipe( gulp.dest( dist ) );
+}
+
 
 // etc -----------------------------------------------------------------------------------------------------------------
 
@@ -276,7 +282,7 @@ const gh = () => {
 
 // build ---------------------------------------------------------------------------------------------------------------
 const prepare = gulp.series([ clean, img ]);
-const assets = gulp.series([ html, css, js, lib, code_sample, web_config, nojekyll ]);
+const assets = gulp.series([ html, css, js, lib, code_sample, web_config, nojekyll, readme ]);
 const live = gulp.parallel([ webserver, watch ]);
 
 export const build = gulp.series([ prepare, assets ]);

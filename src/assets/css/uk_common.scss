@@ -445,6 +445,50 @@ $active_blue:lighten($sm_blue, 5%);
 	}
 }
 
+// uk_header update page design
+.uxkm_updates .uk_header.sub_header {
+	$left: calc(((100% - #{$conWidth}) / 2) + 300px);
+
+	background-color:transparent;
+
+	&:after {
+		position:absolute; left:$left; top:0; z-index:-1;
+		width:100%; height:100%;
+		background-color:#eee;
+		content:"";
+	}
+
+	.uk_logo:before {
+		opacity:0;
+		transition:opacity .15s;
+	}
+
+	&.fixed {
+		.uk_logo:before {opacity:1;}
+	}
+}
+@media(max-width:$conWidth + 20px){
+	.uxkm_updates .uk_header.sub_header {
+		&:after {
+			left:300px;
+		}
+	}
+}
+@media (max-width:$screen-md-max){
+	.uxkm_updates .uk_header.sub_header {
+		&:after {
+			left:215px;
+		}
+	}
+}
+@media (max-width:$screen-sm-max){
+	.uxkm_updates .uk_header.sub_header {
+		&:after {
+			left:145px;
+		}
+	}
+}
+
 // search_area, sitemap_area common
 .hd_layer_box {
 	.tit {
